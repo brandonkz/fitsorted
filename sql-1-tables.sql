@@ -1,0 +1,109 @@
+create extension if not exists "uuid-ossp";
+
+create table if not exists public.users (
+  id uuid primary key default uuid_generate_v4(),
+  phone text unique not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  goal text not null check (goal in ('build_muscle','lose_fat','maintain','glp1')),
+  weight_kg numeric(6,2),
+  height_cm numeric(5,1),
+  age int,
+  sex text check (sex in ('male','female','other')),
+  tdee int,
+  calorie_target int,
+  protein_target int,
+  carb_target int,
+  fat_target int,
+  onboarding_step text default 'goal',
+  timezone text default 'Africa/Johannesburg',
+  last_active_at timestamptz,
+  glp1_enabled boolean default false
+);
+
+create table if not exists public.foods (
+  id bigserial primary key,
+  name text not null,
+  name_alt text[] default '{}',
+  category text,
+  calories int not null,
+  protein numeric(6,2) not null,
+  carbs numeric(6,2) not null,
+  fat numeric(6,2) not null,
+  serving text not null,
+  source text,
+  brand text,
+  kj int
+);
+
+create table if not exists public.food_log (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  description text not null,
+  calories int not null,
+  protein numeric(6,2) not null,
+  carbs numeric(6,2) not null,
+  fat numeric(6,2) not null,
+  kj int,
+  source text default 'ai'
+);
+
+create table if not exists public.workouts (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  description text not null,
+  type text,
+  volume_kg numeric(10,2)
+);
+
+create table if not exists public.weight_log (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  weight_kg numeric(6,2) not null
+);
+
+create table if not exists public.water_log (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete cascade,
+  date date not null,
+  glasses int not null default 0,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, date)
+);
+
+create table if not exists public.glp1_tracker (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete cascade,
+  medication text not null,
+  dose text not null,
+  injection_day text not null,
+  start_date date,
+  last_injection_date date,
+  last_injection_site text,
+  side_effects text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists public.subscriptions (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete cascade,
+  status text not null check (status in ('trial','active','past_due','canceled')),
+  started_at timestamptz not null default now(),
+  ends_at timestamptz,
+  provider text default 'yoco',
+  external_id text
+);
+
+alter table public.users enable row level security;
+alter table public.foods enable row level security;
+alter table public.food_log enable row level security;
+alter table public.workouts enable row level security;
+alter table public.weight_log enable row level security;
+alter table public.water_log enable row level security;
+alter table public.glp1_tracker enable row level security;
+alter table public.subscriptions enable row level security;

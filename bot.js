@@ -1,0 +1,458 @@
+require("dotenv").config();
+const express = require("express");
+const axios = require("axios");
+const fs = require("fs");
+const cron = require("node-cron");
+
+const app = express();
+app.use(express.json());
+
+const TOKEN = process.env.WHATSAPP_TOKEN;
+const PHONE_ID = process.env.PHONE_NUMBER_ID;
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN || "fitsorted123";
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
+const PORT = process.env.PORT || 3001;
+const USERS_FILE = "./users.json";
+
+// ── User state ──
+function loadUsers() {
+  try { return JSON.parse(fs.readFileSync(USERS_FILE, "utf8") || "{}"); }
+  catch { return {}; }
+}
+function saveUsers(u) { fs.writeFileSync(USERS_FILE, JSON.stringify(u, null, 2)); }
+function getUser(users, phone) {
+  if (!users[phone]) users[phone] = { setup: false, step: null, profile: {}, goal: null, log: {} };
+  if (!users[phone].log) users[phone].log = {};
+  return users[phone];
+}
+
+function getToday() {
+  return new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+}
+function getTodayEntries(user) { return user.log[getToday()] || []; }
+function getTodayTotal(user) { return getTodayEntries(user).reduce((s, e) => s + e.calories, 0); }
+function getTodayBurned(user) { return (user.exercise || {})[getToday()] || []; }
+function getTodayBurnedTotal(user) { return getTodayBurned(user).reduce((s, e) => s + e.calories, 0); }
+function getEffectiveGoal(user) { return user.goal + getTodayBurnedTotal(user); }
+
+// ── TDEE / calorie goal calculator ──
+// Mifflin-St Jeor BMR → × activity multiplier → adjust for goal
+function calculateGoal(profile) {
+  const { gender, weight, height, age, activity, target } = profile;
+
+  // BMR
+  let bmr;
+  if (gender === "male") {
+    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  }
+
+  const multipliers = {
+    sedentary: 1.2,
+    light: 1.375,
+    moderate: 1.55,
+    active: 1.725,
+  };
+
+  const tdee = Math.round(bmr * (multipliers[activity] || 1.375));
+
+  const adjustments = {
+    lose: -500,   // ~0.5kg/week loss
+    maintain: 0,
+    gain: +300,   // lean bulk
+  };
+
+  const goal = tdee + (adjustments[target] || 0);
+  return { bmr: Math.round(bmr), tdee, goal };
+}
+
+// ── Workout detection ──
+const WORKOUT_KEYWORDS = ["run", "ran", "walk", "walked", "gym", "weights", "cycling", "bike", "swim", "hiit", "cardio", "workout", "training", "min ", "minutes", "km", "steps", "pushups", "pull-ups", "squats", "jog", "jogged", "skipped", "rope", "crossfit"];
+
+function isWorkout(text) {
+  return WORKOUT_KEYWORDS.some(k => text.toLowerCase().includes(k));
+}
+
+async function estimateCaloriesBurned(activity) {
+  if (!OPENAI_API_KEY) {
+    // Simple fallback
+    if (activity.includes("run") || activity.includes("jog")) return { activity, calories: 300 };
+    if (activity.includes("walk")) return { activity, calories: 150 };
+    if (activity.includes("gym") || activity.includes("weights")) return { activity, calories: 250 };
+    if (activity.includes("hiit") || activity.includes("cardio")) return { activity, calories: 350 };
+    return { activity, calories: 200 };
+  }
+
+  const res = await axios.post(
+    "https://api.openai.com/v1/chat/completions",
+    {
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "You are a fitness assistant. Given a workout description, return ONLY a JSON object: {\"activity\": \"clean name\", \"calories\": integer} for estimated calories burned. No extra text." },
+        { role: "user", content: `Calories burned for: ${activity}` }
+      ],
+      temperature: 0.2
+    },
+    { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" } }
+  );
+  const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
+  return JSON.parse(content);
+}
+
+// ── Calorie lookup ──
+async function estimateCalories(food) {
+  if (!OPENAI_API_KEY) {
+    const simple = {
+      "banana": 90, "apple": 80, "egg": 70, "eggs": 140,
+      "chicken breast": 165, "rice": 200, "bread": 80,
+      "coffee": 5, "milk": 120, "oats": 150, "protein shake": 150,
+      "burger": 500, "pizza": 285, "chips": 300, "coke": 140,
+    };
+    const key = Object.keys(simple).find(k => food.toLowerCase().includes(k));
+    return key ? { food: key, calories: simple[key] } : { food, calories: 200 };
+  }
+
+  const res = await axios.post(
+    "https://api.openai.com/v1/chat/completions",
+    {
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "You are a nutrition assistant. Given a food description, return ONLY a JSON object: {\"food\": \"clean name\", \"calories\": integer}. No extra text." },
+        { role: "user", content: `Calories for: ${food}` }
+      ],
+      temperature: 0.2
+    },
+    { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" } }
+  );
+
+  const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
+  return JSON.parse(content);
+}
+
+// ── Deficit message ──
+// 7700 cal deficit = 1kg of fat lost
+function deficitMessage(total, goal) {
+  const diff = goal - total;
+  if (diff > 0) {
+    const grams = Math.round((diff / 7700) * 1000);
+    return `🟢 Stop here and you'll lose *${grams}g of fat today*.\n${diff} cal remaining if you want to eat more.`;
+  } else if (diff === 0) {
+    return `🎯 Exactly on goal. Maintenance day.`;
+  } else {
+    const grams = Math.round((Math.abs(diff) / 7700) * 1000);
+    return `🔴 *${grams}g surplus* today — ${Math.abs(diff)} cal over goal.`;
+  }
+}
+
+// ── WhatsApp sender ──
+async function send(to, text) {
+  await axios.post(
+    `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
+    { messaging_product: "whatsapp", to, type: "text", text: { body: text } },
+    { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
+  );
+}
+
+async function sendButtons(to, body, buttons) {
+  await axios.post(
+    `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
+    {
+      messaging_product: "whatsapp",
+      to,
+      type: "interactive",
+      interactive: {
+        type: "button",
+        body: { text: body },
+        action: { buttons: buttons.map(b => ({ type: "reply", reply: { id: b.id, title: b.title } })) }
+      }
+    },
+    { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
+  );
+}
+
+// ── Setup flow ──
+async function handleSetup(from, user, msg) {
+  const step = user.step;
+
+  if (!step || step === "gender") {
+    user.step = "awaiting_gender";
+    await sendButtons(from,
+      "Hey! 👋 I'm FitSorted — your personal calorie tracker.\n\nLet's calculate your daily calorie goal. First, what's your biological sex?",
+      [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]
+    );
+    return;
+  }
+
+  if (step === "weight") {
+    const w = parseFloat(msg);
+    if (isNaN(w) || w < 30 || w > 300) {
+      await send(from, "Please send your weight in kg (e.g. *82*)");
+      return;
+    }
+    user.profile.weight = w;
+    user.step = "height";
+    await send(from, "Got it. What's your height in cm? (e.g. *178*)");
+    return;
+  }
+
+  if (step === "height") {
+    const h = parseFloat(msg);
+    if (isNaN(h) || h < 100 || h > 250) {
+      await send(from, "Please send your height in cm (e.g. *178*)");
+      return;
+    }
+    user.profile.height = h;
+    user.step = "age";
+    await send(from, "And your age?");
+    return;
+  }
+
+  if (step === "age") {
+    const a = parseInt(msg);
+    if (isNaN(a) || a < 10 || a > 100) {
+      await send(from, "Please send your age as a number (e.g. *38*)");
+      return;
+    }
+    user.profile.age = a;
+    user.step = "activity";
+    await sendButtons(from,
+      "How active are you?",
+      [
+        { id: "setup:sedentary", title: "Desk job 🪑" },
+        { id: "setup:light", title: "Light exercise" },
+        { id: "setup:active", title: "Very active 💪" },
+      ]
+    );
+    return;
+  }
+
+  if (step === "target") {
+    await sendButtons(from,
+      "What's your goal?",
+      [
+        { id: "setup:lose", title: "Lose weight 📉" },
+        { id: "setup:maintain", title: "Maintain ⚖️" },
+        { id: "setup:gain", title: "Build muscle 📈" },
+      ]
+    );
+    return;
+  }
+}
+
+// ── Main handler ──
+async function handleMessage(from, text) {
+  const users = loadUsers();
+  const user = getUser(users, from);
+  const msg = (text || "").trim();
+  const msgLower = msg.toLowerCase();
+
+  // Reset
+  if (msgLower === "start" || msgLower === "/start" || msgLower === "reset" || msgLower === "hi" || msgLower === "hello") {
+    user.setup = false;
+    user.step = "gender";
+    user.profile = {};
+    user.goal = null;
+    saveUsers(users);
+    await handleSetup(from, user, msg);
+    saveUsers(users);
+    return;
+  }
+
+  // Force setup if goal is missing (but not mid-setup button press)
+  if (!user.goal && !msg.startsWith("setup:") && !user.step) {
+    user.setup = false;
+    user.step = "gender";
+    user.profile = {};
+    saveUsers(users);
+    await handleSetup(from, user, msg);
+    saveUsers(users);
+    return;
+  }
+
+  // Handle setup button responses
+  if (msg.startsWith("setup:")) {
+    const val = msg.replace("setup:", "");
+
+    if (val === "male" || val === "female") {
+      user.profile.gender = val;
+      user.step = "weight";
+      saveUsers(users);
+      await send(from, `Got it. What's your current weight in kg? (e.g. *86*)`);
+      return;
+    }
+
+    if (["sedentary", "light", "moderate", "active"].includes(val)) {
+      user.profile.activity = val;
+      user.step = "target";
+      saveUsers(users);
+      await handleSetup(from, user, msg);
+      saveUsers(users);
+      return;
+    }
+
+    if (["lose", "maintain", "gain"].includes(val)) {
+      user.profile.target = val;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      user.setup = true;
+      user.step = null;
+      saveUsers(users);
+
+      const targetLabel = { lose: "lose weight (−500 cal deficit)", maintain: "maintain weight", gain: "build muscle (+300 cal)" }[val];
+      await send(from,
+        `✅ *Your calorie goal: ${goal} cal/day*\n\n` +
+        `BMR: ${bmr} cal | TDEE: ${tdee} cal\n` +
+        `Goal: ${targetLabel}\n\n` +
+        `Now just tell me what you eat throughout the day and I'll track it. 🍽️\n\n` +
+        `Send *log* to see today's total or *help* for commands.`
+      );
+      return;
+    }
+  }
+
+  // Still in setup flow
+  if (!user.setup) {
+    if (!user.step) user.step = "gender";
+    await handleSetup(from, user, msg);
+    saveUsers(users);
+    return;
+  }
+
+  // In setup number steps
+  if (user.step && ["weight", "height", "age"].includes(user.step)) {
+    await handleSetup(from, user, msg);
+    saveUsers(users);
+    return;
+  }
+
+  // Log view
+  if (msgLower === "log" || msgLower === "today" || msgLower === "total") {
+    const entries = getTodayEntries(user);
+    const total = getTodayTotal(user);
+    if (entries.length === 0) {
+      await send(from, `📋 Nothing logged today yet.\n\nJust tell me what you ate!`);
+      return;
+    }
+    const list = entries.map((e, i) => `${i + 1}. ${e.food} — ${e.calories} cal`).join("\n");
+    const burned = getTodayBurned(user);
+    const burnedTotal = getTodayBurnedTotal(user);
+    const effectiveGoal = getEffectiveGoal(user);
+    let exerciseStr = "";
+    if (burned.length > 0) {
+      exerciseStr = "\n\n🔥 *Exercise:*\n" + burned.map(e => `• ${e.activity} — −${e.calories} cal`).join("\n") + `\nTotal burned: ${burnedTotal} cal`;
+    }
+    await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+    return;
+  }
+
+  // Undo
+  if (msgLower === "undo") {
+    const today = getToday();
+    const entries = user.log[today] || [];
+    if (!entries.length) { await send(from, "Nothing to undo."); return; }
+    const removed = entries.pop();
+    user.log[today] = entries;
+    saveUsers(users);
+    const total = getTodayTotal(user);
+    await send(from, `↩️ Removed: *${removed.food}* (${removed.calories} cal)\n\n${deficitMessage(total, user.goal)}`);
+    return;
+  }
+
+  // Help
+  if (msgLower === "help" || msgLower === "menu") {
+    await send(from,
+      `*FitSorted — Calorie Tracker*\n\n` +
+      `Just tell me what you ate and I'll log it.\n\n` +
+      `*Commands:*\n` +
+      `• *log* — see today's entries\n` +
+      `• *undo* — remove last entry\n` +
+      `• *start* — recalculate your goal\n` +
+      `• *help* — this menu\n\n` +
+      `Your goal: *${user.goal} cal/day*`
+    );
+    return;
+  }
+
+  // Workout log
+  if (isWorkout(msg)) {
+    try {
+      const result = await estimateCaloriesBurned(msg);
+      const today = getToday();
+      if (!user.exercise) user.exercise = {};
+      if (!user.exercise[today]) user.exercise[today] = [];
+      user.exercise[today].push({ activity: result.activity, calories: result.calories, time: new Date().toISOString() });
+      const total = getTodayTotal(user);
+      const effectiveGoal = getEffectiveGoal(user);
+      const burned = getTodayBurnedTotal(user);
+      saveUsers(users);
+      await send(from,
+        `🔥 *${result.activity}* — burned ${result.calories} cal\n\n` +
+        `📊 Today: *${total} eaten / ${effectiveGoal} cal goal*\n` +
+        `_(base ${user.goal} + ${burned} exercise)_\n` +
+        `${deficitMessage(total, effectiveGoal)}`
+      );
+    } catch (err) {
+      console.error("Workout lookup error:", err.message);
+      await send(from, "Couldn't estimate that workout. Try \"30 min run\" or \"45 min gym\".");
+    }
+    return;
+  }
+
+  // Food log
+  try {
+    const result = await estimateCalories(msg);
+    const today = getToday();
+    if (!user.log[today]) user.log[today] = [];
+    user.log[today].push({ food: result.food, calories: result.calories, time: new Date().toISOString() });
+    const total = getTodayTotal(user);
+    const effectiveGoal = getEffectiveGoal(user);
+    saveUsers(users);
+    await send(from, `✅ *${result.food}* — ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+  } catch (err) {
+    console.error("Food lookup error:", err.message);
+    await send(from, "Couldn't estimate that. Try something like \"200g chicken breast\" or \"2 eggs\".");
+  }
+}
+
+// ── Webhook ──
+app.get("/webhook", (req, res) => {
+  if (req.query["hub.verify_token"] === VERIFY_TOKEN) {
+    res.send(req.query["hub.challenge"]);
+  } else {
+    res.sendStatus(403);
+  }
+});
+
+app.post("/webhook", async (req, res) => {
+  res.sendStatus(200);
+  try {
+    const entry = req.body?.entry?.[0];
+    const messages = entry?.changes?.[0]?.value?.messages;
+    if (!messages?.length) return;
+    const msg = messages[0];
+    const from = msg.from;
+    let text = "";
+    if (msg.type === "text") text = msg.text?.body || "";
+    else if (msg.type === "interactive") text = msg.interactive?.button_reply?.id || "";
+    await handleMessage(from, text);
+  } catch (err) {
+    console.error("Webhook error:", err.message);
+  }
+});
+
+// ── 8 PM daily summary ──
+cron.schedule("0 20 * * *", async () => {
+  const users = loadUsers();
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.goal) continue;
+    try {
+      const total = getTodayTotal(user);
+      await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal\n${deficitMessage(total, user.goal)}`);
+    } catch (err) {
+      console.error(`Summary failed for ${phone}:`, err.message);
+    }
+  }
+}, { timezone: "Africa/Johannesburg" });
+
+app.listen(PORT, () => console.log(`✅ FitSorted calorie tracker on port ${PORT}`));
