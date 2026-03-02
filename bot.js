@@ -136,8 +136,26 @@ function lookupSAFood(food) {
   return null;
 }
 
-async function estimateCalories(food) {
-  // Check SA chain database first
+// ── Custom food database (per user) ──
+function lookupCustomFood(user, food) {
+  if (!user.customFoods) return null;
+  const lower = food.toLowerCase().trim();
+  for (const [name, calories] of Object.entries(user.customFoods)) {
+    if (lower.includes(name.toLowerCase()) || name.toLowerCase().includes(lower)) {
+      return { food: name, calories };
+    }
+  }
+  return null;
+}
+
+async function estimateCalories(food, user) {
+  // 1. Check user's custom foods first
+  if (user) {
+    const custom = lookupCustomFood(user, food);
+    if (custom) return { ...custom, source: "custom" };
+  }
+
+  // 2. Check SA chain database
   const saMatch = lookupSAFood(food);
   if (saMatch) return saMatch;
 
@@ -406,6 +424,9 @@ async function handleMessage(from, text) {
       `*Commands:*\n` +
       `• *log* — see today's entries\n` +
       `• *undo* — remove last entry\n` +
+      `• *my foods* — your saved custom foods\n` +
+      `• *save [food] = [cal]* — save a custom food\n` +
+      `• *delete [food]* — remove a saved food\n` +
       `• *start* — recalculate your goal\n` +
       `• *help* — this menu\n\n` +
       `Your goal: *${user.goal} cal/day*`
@@ -438,16 +459,62 @@ async function handleMessage(from, text) {
     return;
   }
 
+  // Save custom food: "save boerewors roll = 450"
+  if (msgLower.startsWith("save ") && msgLower.includes("=")) {
+    const parts = msg.substring(5).split("=");
+    if (parts.length === 2) {
+      const foodName = parts[0].trim();
+      const calories = parseInt(parts[1].trim());
+      if (!foodName || isNaN(calories) || calories < 1 || calories > 9999) {
+        await send(from, `❌ Format: *save [food name] = [calories]*\n\nExample: _save boerewors roll = 450_`);
+        return;
+      }
+      if (!user.customFoods) user.customFoods = {};
+      user.customFoods[foodName.toLowerCase()] = calories;
+      saveUsers(users);
+      await send(from, `✅ *Saved!* "${foodName}" = ${calories} cal\n\nNext time you log it, I'll use your number. 💾\n\nSee all saved foods: *my foods*`);
+      return;
+    }
+  }
+
+  // View custom foods: "my foods"
+  if (msgLower === "my foods" || msgLower === "saved foods" || msgLower === "my food") {
+    const foods = user.customFoods && Object.keys(user.customFoods).length > 0
+      ? Object.entries(user.customFoods).map(([name, cal]) => `• ${name} — ${cal} cal`).join("\n")
+      : null;
+    if (!foods) {
+      await send(from, `📚 You haven't saved any custom foods yet.\n\nTo save one:\n*save boerewors roll = 450*`);
+    } else {
+      await send(from, `📚 *Your saved foods:*\n\n${foods}\n\nTo remove one: *delete [food name]*`);
+    }
+    return;
+  }
+
+  // Delete custom food: "delete boerewors roll"
+  if (msgLower.startsWith("delete ") || msgLower.startsWith("remove ")) {
+    const foodName = msg.replace(/^(delete|remove)\s+/i, "").trim().toLowerCase();
+    if (user.customFoods && user.customFoods[foodName] !== undefined) {
+      const cal = user.customFoods[foodName];
+      delete user.customFoods[foodName];
+      saveUsers(users);
+      await send(from, `🗑️ Removed *${foodName}* (${cal} cal) from your saved foods.`);
+    } else {
+      await send(from, `❌ "${foodName}" not found in your saved foods.\n\nSee your list: *my foods*`);
+    }
+    return;
+  }
+
   // Food log
   try {
-    const result = await estimateCalories(msg);
+    const result = await estimateCalories(msg, user);
     const today = getToday();
     if (!user.log[today]) user.log[today] = [];
     user.log[today].push({ food: result.food, calories: result.calories, time: new Date().toISOString() });
     const total = getTodayTotal(user);
     const effectiveGoal = getEffectiveGoal(user);
     saveUsers(users);
-    await send(from, `✅ *${result.food}* — ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+    const sourceTag = result.source === "custom" ? " _(your saved entry)_" : "";
+    await send(from, `✅ *${result.food}* — ${result.calories} cal${sourceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
   } catch (err) {
     console.error("Food lookup error:", err.message);
     await send(from, "Couldn't estimate that. Try something like \"200g chicken breast\" or \"2 eggs\".");
