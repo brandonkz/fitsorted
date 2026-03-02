@@ -13,6 +13,31 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN || "fitsorted123";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
 const PORT = process.env.PORT || 3001;
 const USERS_FILE = "./users.json";
+const REFERRALS_FILE = "./referrals.json";
+const ADMIN_NUMBER = "27837787970"; // Brandon's number
+
+// ── Referral helpers ──
+function loadReferrals() {
+  try { return JSON.parse(fs.readFileSync(REFERRALS_FILE, "utf8") || "{}"); }
+  catch { return {}; }
+}
+function saveReferrals(r) { fs.writeFileSync(REFERRALS_FILE, JSON.stringify(r, null, 2)); }
+
+function trackReferral(code, userPhone) {
+  const refs = loadReferrals();
+  const key = code.toUpperCase();
+  if (!refs[key]) refs[key] = { signups: [], active: [] };
+  if (!refs[key].signups.includes(userPhone)) {
+    refs[key].signups.push(userPhone);
+  }
+  saveReferrals(refs);
+}
+
+function getReferralStats(code) {
+  const refs = loadReferrals();
+  const key = code.toUpperCase();
+  return refs[key] || null;
+}
 
 // ── User state ──
 function loadUsers() {
@@ -303,6 +328,53 @@ async function handleMessage(from, text) {
   const user = getUser(users, from);
   const msg = (text || "").trim();
   const msgLower = msg.toLowerCase();
+
+  // ── Referral code capture: JOIN-CODE ──
+  if (/^join-[a-z0-9]+$/i.test(msgLower)) {
+    const code = msg.substring(5).toUpperCase();
+    const alreadyReferred = user.referredBy;
+    if (!alreadyReferred) {
+      user.referredBy = code;
+      saveUsers(users);
+      trackReferral(code, from);
+    }
+    // Continue into normal onboarding
+    user.setup = false;
+    user.step = "gender";
+    user.profile = {};
+    user.goal = null;
+    saveUsers(users);
+    await handleSetup(from, user, msg);
+    saveUsers(users);
+    return;
+  }
+
+  // ── Admin stats: "stats CODE" or "stats all" ──
+  if (msgLower.startsWith("stats") && from === ADMIN_NUMBER) {
+    const parts = msg.split(" ");
+    const target = parts[1] ? parts[1].toUpperCase() : null;
+    const refs = loadReferrals();
+
+    if (!target || target === "ALL") {
+      if (Object.keys(refs).length === 0) {
+        await send(from, "📊 No referrals tracked yet.");
+        return;
+      }
+      const lines = Object.entries(refs)
+        .sort((a, b) => b[1].signups.length - a[1].signups.length)
+        .map(([code, data]) => `• *${code}* — ${data.signups.length} signup${data.signups.length !== 1 ? "s" : ""}`)
+        .join("\n");
+      await send(from, `📊 *Referral Stats — All Codes:*\n\n${lines}`);
+    } else {
+      const data = getReferralStats(target);
+      if (!data) {
+        await send(from, `❌ No data for code *${target}*`);
+        return;
+      }
+      await send(from, `📊 *Referral Stats — ${target}*\n\n👥 Signups: ${data.signups.length}`);
+    }
+    return;
+  }
 
   // Reset
   if (msgLower === "start" || msgLower === "/start" || msgLower === "reset" || msgLower === "hi" || msgLower === "hello") {
