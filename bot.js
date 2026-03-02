@@ -101,7 +101,46 @@ async function estimateCaloriesBurned(activity) {
 }
 
 // ── Calorie lookup ──
+// ── SA chain food database (exact calories) ──
+const SA_FOODS = [
+  // Kauai smoothies
+  { keywords: ["kauai peanut butter bomb", "peanut butter bomb large", "large peanut butter bomb", "pbb large", "large pbb"], food: "Kauai Peanut Butter Bomb (Large 500ml)", calories: 764 },
+  { keywords: ["kauai peanut butter bomb small", "small peanut butter bomb", "peanut butter bomb small", "pbb small", "small pbb", "peanut butter bomb"], food: "Kauai Peanut Butter Bomb (Small 350ml)", calories: 467 },
+  { keywords: ["kauai green machine large", "large green machine"], food: "Kauai Green Machine (Large 500ml)", calories: 380 },
+  { keywords: ["kauai green machine", "green machine small", "green machine"], food: "Kauai Green Machine (Small 350ml)", calories: 266 },
+  { keywords: ["kauai triple c large", "large triple c"], food: "Kauai Triple C (Large 500ml)", calories: 510 },
+  { keywords: ["kauai triple c", "triple c"], food: "Kauai Triple C (Small 350ml)", calories: 357 },
+  // Nu smoothies
+  { keywords: ["nu peanut butter bomb", "nu pb bomb"], food: "Nu Peanut Butter Bomb", calories: 764 },
+  // Nando's
+  { keywords: ["nandos quarter chicken", "nando's quarter chicken", "quarter chicken nandos"], food: "Nando's Quarter Chicken (skin on)", calories: 429 },
+  { keywords: ["nandos half chicken", "nando's half chicken", "half chicken nandos"], food: "Nando's Half Chicken", calories: 858 },
+  { keywords: ["nandos pita", "nando's pita"], food: "Nando's Chicken Pita", calories: 420 },
+  { keywords: ["nandos wrap", "nando's wrap"], food: "Nando's Chicken Wrap", calories: 480 },
+  // Steers
+  { keywords: ["steers regular burger", "steers burger"], food: "Steers Regular Burger", calories: 520 },
+  { keywords: ["steers cheese burger", "steers cheeseburger"], food: "Steers Cheese Burger", calories: 580 },
+  { keywords: ["steers onion rings"], food: "Steers Onion Rings (regular)", calories: 330 },
+  { keywords: ["steers chips", "steers fries"], food: "Steers Chips (regular)", calories: 380 },
+  // Woolworths
+  { keywords: ["woolworths protein shake", "ww protein shake"], food: "Woolworths Protein Shake", calories: 220 },
+];
+
+function lookupSAFood(food) {
+  const lower = food.toLowerCase();
+  for (const item of SA_FOODS) {
+    if (item.keywords.some(k => lower.includes(k))) {
+      return { food: item.food, calories: item.calories };
+    }
+  }
+  return null;
+}
+
 async function estimateCalories(food) {
+  // Check SA chain database first
+  const saMatch = lookupSAFood(food);
+  if (saMatch) return saMatch;
+
   if (!OPENAI_API_KEY) {
     const simple = {
       "banana": 90, "apple": 80, "egg": 70, "eggs": 140,
