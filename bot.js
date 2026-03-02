@@ -200,7 +200,7 @@ async function estimateCalories(food, user) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a nutrition assistant. Given a food description, return ONLY a JSON object: {\"food\": \"clean name\", \"calories\": integer}. No extra text." },
+        { role: "system", content: "You are a nutrition assistant. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer}. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800}. Return total calories for the full described amount. No extra text." },
         { role: "user", content: `Calories for: ${food}` }
       ],
       temperature: 0.2
