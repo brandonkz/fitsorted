@@ -178,7 +178,7 @@ async function handleSetup(from, user, msg) {
   if (!step || step === "gender") {
     user.step = "awaiting_gender";
     await sendButtons(from,
-      "Hey! 👋 I'm FitSorted — your personal calorie tracker.\n\nLet's calculate your daily calorie goal. First, what's your biological sex?",
+      "Howzit! 👋 Welcome to *FitSorted* — your free calorie tracker on WhatsApp.\n\nNo app to download. No login. Just chat to me like you're messaging a mate.\n\n*What I can do:*\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n🏃 Log your gym session or run — adds cals back to your budget\n📊 See your running deficit in real time\n⏰ Daily check-in every evening at 8 PM\n↩️ Ate something wrong? Just say *undo*\n\n*How to use me:*\n• Log food → *\"2 slices of white bread and peanut butter\"*\n• Log exercise → *\"45 min weights session\"*\n• Check your day → *\"summary\"*\n• Reset your goal → *\"start\"*\n• Need help → *\"help\"*\n\nLet's sort out your personal calorie goal real quick — takes about 30 seconds 👇\n\nFirst, what's your biological sex?",
       [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]
     );
     return;
