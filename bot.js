@@ -173,6 +173,62 @@ function lookupCustomFood(user, food) {
   return null;
 }
 
+// ── Coaching mode — detects questions and gives personalised advice ──
+const QUESTION_PATTERNS = [
+  /^(what|how|can i|should i|suggest|recommend|give me|tell me|help me|what's|whats|am i|will i|is it)/i,
+  /\?$/,
+  /(under|below|less than|around|about)\s+\d+\s*cal/i,
+  /(on track|doing well|going well|hit my goal|reach my goal)/i,
+  /(meal idea|food idea|what to eat|what can i eat|what should i eat|what.*eat)/i,
+  /(high protein|low carb|healthy option|light meal|quick meal)/i,
+];
+
+function isQuestion(msg) {
+  return QUESTION_PATTERNS.some(p => p.test(msg));
+}
+
+async function coachResponse(msg, user) {
+  const today = getToday();
+  const entries = getTodayEntries(user);
+  const total = getTodayTotal(user);
+  const burned = getTodayBurnedTotal(user);
+  const effectiveGoal = getEffectiveGoal(user);
+  const remaining = effectiveGoal - total;
+  const { gender, weight, height, age, target } = user.profile || {};
+
+  const context = `
+User profile:
+- Goal: ${user.goal} cal/day (effective today: ${effectiveGoal} cal with exercise)
+- Objective: ${target === "lose" ? "lose weight (−500 cal deficit)" : target === "gain" ? "build muscle (+300 cal)" : "maintain weight"}
+- Gender: ${gender || "unknown"}, Weight: ${weight || "?"}kg, Height: ${height || "?"}cm, Age: ${age || "?"}
+
+Today's intake:
+- Eaten: ${total} cal
+- Burned via exercise: ${burned} cal
+- Remaining budget: ${remaining} cal
+- Logged foods: ${entries.length > 0 ? entries.map(e => `${e.food} (${e.calories} cal)`).join(", ") : "nothing yet"}
+`;
+
+  const res = await axios.post(
+    "https://api.openai.com/v1/chat/completions",
+    {
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: `You are FitSorted, a friendly SA-flavoured nutrition coach on WhatsApp. Keep replies SHORT (max 5 lines), warm, and practical. Use simple language. Format nicely for WhatsApp (bold with *asterisks*, line breaks). Don't use markdown headers. Give specific, actionable advice. If suggesting meals, give 2-3 real SA-friendly examples with calorie estimates. Never be preachy.`
+        },
+        { role: "user", content: `${context}\n\nUser asks: ${msg}` }
+      ],
+      temperature: 0.7,
+      max_tokens: 300
+    },
+    { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" } }
+  );
+
+  return res.data.choices[0].message.content.trim();
+}
+
 async function estimateCalories(food, user) {
   // 1. Check user's custom foods first
   if (user) {
@@ -492,7 +548,11 @@ async function handleMessage(from, text) {
   if (msgLower === "help" || msgLower === "menu") {
     await send(from,
       `*FitSorted — Calorie Tracker*\n\n` +
-      `Just tell me what you ate and I'll log it.\n\n` +
+      `Just tell me what you ate and I'll log it. You can also ask me anything!\n\n` +
+      `*Ask me things like:*\n` +
+      `• _"What can I eat under 400 cal?"_\n` +
+      `• _"Am I on track today?"_\n` +
+      `• _"Suggest a high protein meal"_\n\n` +
       `*Commands:*\n` +
       `• *log* — see today's entries\n` +
       `• *undo* — remove last entry\n` +
@@ -503,6 +563,18 @@ async function handleMessage(from, text) {
       `• *help* — this menu\n\n` +
       `Your goal: *${user.goal} cal/day*`
     );
+    return;
+  }
+
+  // ── Coaching mode — questions get personalised advice ──
+  if (isQuestion(msg) && !isWorkout(msg)) {
+    try {
+      const reply = await coachResponse(msg, user);
+      await send(from, reply);
+    } catch (err) {
+      console.error("Coach error:", err.message);
+      await send(from, "Having trouble answering that right now. Try asking again!");
+    }
     return;
   }
 
