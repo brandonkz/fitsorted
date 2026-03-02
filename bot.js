@@ -196,6 +196,28 @@ async function coachResponse(msg, user) {
   const remaining = effectiveGoal - total;
   const { gender, weight, height, age, target } = user.profile || {};
 
+  // Build food history from last 7 days
+  const allDays = Object.entries(user.log || {})
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .slice(0, 7);
+  const foodFreq = {};
+  for (const [, dayEntries] of allDays) {
+    for (const e of dayEntries) {
+      const key = e.food.toLowerCase();
+      if (!foodFreq[key]) foodFreq[key] = { food: e.food, calories: e.calories, count: 0 };
+      foodFreq[key].count++;
+    }
+  }
+  const topFoods = Object.values(foodFreq)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 6)
+    .map(f => `${f.food} (${f.calories} cal, eaten ${f.count}x this week)`);
+
+  // Custom saved foods
+  const customFoodList = user.customFoods
+    ? Object.entries(user.customFoods).slice(0, 5).map(([n, c]) => `${n} (${c} cal)`)
+    : [];
+
   const context = `
 User profile:
 - Goal: ${user.goal} cal/day (effective today: ${effectiveGoal} cal with exercise)
@@ -206,7 +228,13 @@ Today's intake:
 - Eaten: ${total} cal
 - Burned via exercise: ${burned} cal
 - Remaining budget: ${remaining} cal
-- Logged foods: ${entries.length > 0 ? entries.map(e => `${e.food} (${e.calories} cal)`).join(", ") : "nothing yet"}
+- Logged foods today: ${entries.length > 0 ? entries.map(e => `${e.food} (${e.calories} cal)`).join(", ") : "nothing yet"}
+
+Foods they regularly eat (prioritise these in suggestions):
+${topFoods.length > 0 ? topFoods.join("\n") : "No history yet"}
+
+Their saved custom foods:
+${customFoodList.length > 0 ? customFoodList.join(", ") : "None saved yet"}
 `;
 
   const res = await axios.post(
