@@ -559,6 +559,66 @@ async function handleMessage(from, text) {
     return;
   }
 
+  // ── Weight tracking ──
+  // Log: "weight 84.5" or "84.5kg"
+  const weightLog = msg.match(/^(?:weight|weigh|w)\s+([\d.]+)\s*(?:kg)?$/i) || msg.match(/^([\d.]+)\s*kg$/i);
+  if (weightLog) {
+    const kg = parseFloat(weightLog[1]);
+    if (kg >= 30 && kg <= 300) {
+      if (!user.weights) user.weights = [];
+      user.weights.push({ kg, date: getToday(), time: new Date().toISOString() });
+      // Keep last 90 entries
+      if (user.weights.length > 90) user.weights = user.weights.slice(-90);
+      saveUsers(users);
+
+      // Calculate change from previous
+      let changeStr = "";
+      if (user.weights.length >= 2) {
+        const prev = user.weights[user.weights.length - 2].kg;
+        const diff = kg - prev;
+        const arrow = diff < 0 ? "📉" : diff > 0 ? "📈" : "➡️";
+        changeStr = `\n${arrow} ${diff > 0 ? "+" : ""}${diff.toFixed(1)} kg since last entry`;
+      }
+
+      // Progress toward goal weight
+      const startWeight = user.weights[0].kg;
+      const totalChange = kg - startWeight;
+      const progressStr = user.weights.length > 1
+        ? `\n📊 Total change: ${totalChange > 0 ? "+" : ""}${totalChange.toFixed(1)} kg since you started`
+        : "";
+
+      await send(from, `⚖️ *${kg} kg logged*${changeStr}${progressStr}\n\nSend *weight history* to see your trend.`);
+      return;
+    } else {
+      await send(from, "That doesn't look right. Send your weight like: *weight 84.5*");
+      return;
+    }
+  }
+
+  // Weight history
+  if (msgLower === "weight history" || msgLower === "my weight" || msgLower === "weight trend") {
+    const weights = user.weights || [];
+    if (weights.length === 0) {
+      await send(from, `⚖️ No weight logged yet.\n\nSend your weight like: *weight 84.5*`);
+      return;
+    }
+    const last7 = weights.slice(-7).reverse();
+    const lines = last7.map((w, i) => {
+      const next = last7[i + 1];
+      const diff = next ? w.kg - next.kg : null;
+      const arrow = diff === null ? "" : diff < 0 ? " 📉" : diff > 0 ? " 📈" : " ➡️";
+      return `• ${w.date} — *${w.kg} kg*${arrow}`;
+    }).join("\n");
+
+    const start = weights[0].kg;
+    const current = weights[weights.length - 1].kg;
+    const total = current - start;
+    const totalStr = `\n\n📊 *Total: ${total > 0 ? "+" : ""}${total.toFixed(1)} kg* since ${weights[0].date}`;
+
+    await send(from, `⚖️ *Your weight trend:*\n\n${lines}${totalStr}`);
+    return;
+  }
+
   // Undo
   if (msgLower === "undo") {
     const today = getToday();
@@ -584,6 +644,8 @@ async function handleMessage(from, text) {
       `*Commands:*\n` +
       `• *log* — see today's entries\n` +
       `• *undo* — remove last entry\n` +
+      `• *weight 84.5* — log your weight\n` +
+      `• *weight history* — see your trend\n` +
       `• *my foods* — your saved custom foods\n` +
       `• *save [food] = [cal]* — save a custom food\n` +
       `• *delete [food]* — remove a saved food\n` +
