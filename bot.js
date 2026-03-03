@@ -54,8 +54,15 @@ function getUser(users, phone) {
 function getToday() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
 }
+function getYesterday() {
+  const yesterday = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+  yesterday.setDate(yesterday.getDate() - 1);
+  return yesterday.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+}
 function getTodayEntries(user) { return user.log[getToday()] || []; }
 function getTodayTotal(user) { return getTodayEntries(user).reduce((s, e) => s + e.calories, 0); }
+function getYesterdayEntries(user) { return user.log[getYesterday()] || []; }
+function getYesterdayTotal(user) { return getYesterdayEntries(user).reduce((s, e) => s + e.calories, 0); }
 function getTodayBurned(user) { return (user.exercise || {})[getToday()] || []; }
 function getTodayBurnedTotal(user) { return getTodayBurned(user).reduce((s, e) => s + e.calories, 0); }
 function getEffectiveGoal(user) { return user.goal + getTodayBurnedTotal(user); }
@@ -806,7 +813,24 @@ cron.schedule("30 6 * * *", async () => {
     try {
       const { target } = user.profile || {};
       const targetMsg = target === "lose" ? "lose weight" : target === "gain" ? "build muscle" : "stay on track";
-      await send(phone, `☀️ *Morning!*\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
+      
+      // Yesterday's recap
+      const yesterdayTotal = getYesterdayTotal(user);
+      let yesterdayStr = "";
+      if (yesterdayTotal > 0) {
+        const diff = user.goal - yesterdayTotal;
+        if (diff > 0) {
+          const grams = Math.round((diff / 7700) * 1000);
+          yesterdayStr = `\n📊 Yesterday: ${yesterdayTotal} cal — lost ${grams}g of fat ✅`;
+        } else if (diff === 0) {
+          yesterdayStr = `\n📊 Yesterday: ${yesterdayTotal} cal — on goal 🎯`;
+        } else {
+          const grams = Math.round((Math.abs(diff) / 7700) * 1000);
+          yesterdayStr = `\n📊 Yesterday: ${yesterdayTotal} cal — ${grams}g surplus`;
+        }
+      }
+      
+      await send(phone, `☀️ *Morning!*${yesterdayStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
     } catch (err) {
       console.error(`Morning message failed for ${phone}:`, err.message);
     }
