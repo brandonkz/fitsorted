@@ -474,7 +474,7 @@ async function handleSetup(from, user, msg) {
     }
     user.name = name;
     user.step = "email";
-    await send(from, `Nice to meet you, ${name}! 👋\n\nWhat's your email?\n\n(For payment receipts and updates. Type *skip* if you'd rather not share)`);
+    await send(from, `Nice to meet you, ${name}! 👋\n\nWhat's your email?\n\n(For exclusive tips, promotions, and early access to new features. Type *skip* if you'd rather not share)`);
     return;
   }
 
