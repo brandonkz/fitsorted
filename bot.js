@@ -694,6 +694,110 @@ async function handleMessage(from, text) {
     return;
   }
 
+  // ── POPIA Compliance: Data Export ──
+  if (msgLower === "export" || msgLower === "export my data" || msgLower === "download") {
+    const exportData = {
+      phone: from,
+      profile: user.profile || {},
+      goal: user.goal,
+      setup: user.setup,
+      log: user.log || {},
+      exercise: user.exercise || {},
+      weights: user.weights || [],
+      customFoods: user.customFoods || {},
+      referredBy: user.referredBy || null,
+      exportedAt: new Date().toISOString()
+    };
+    
+    const jsonStr = JSON.stringify(exportData, null, 2);
+    const fileName = `fitsorted-data-${from}.json`;
+    
+    await send(from, 
+      `📦 *Your FitSorted Data*\n\n` +
+      `Here's everything we have stored about you:\n\n` +
+      `• Profile (age, weight, height, goal)\n` +
+      `• Food logs (${Object.keys(user.log || {}).length} days)\n` +
+      `• Exercise logs\n` +
+      `• Weight history (${(user.weights || []).length} entries)\n` +
+      `• Custom foods (${Object.keys(user.customFoods || {}).length} saved)\n\n` +
+      `*Your data (JSON):*\n\n` +
+      `\`\`\`${jsonStr.substring(0, 3000)}${jsonStr.length > 3000 ? '\n\n... (truncated, full export available on request)' : ''}\`\`\`\n\n` +
+      `This is your data under POPIA. You can save this file.\n\n` +
+      `To delete your account, send: *delete*`
+    );
+    return;
+  }
+
+  // ── POPIA Compliance: Data Deletion ──
+  if (msgLower === "delete" || msgLower === "delete my data" || msgLower === "delete my account") {
+    // Check if already in deletion confirmation state
+    if (user.deletionRequested) {
+      await send(from, 
+        `⚠️ *Account Deletion Cancelled*\n\n` +
+        `Your account is still active. No data was deleted.\n\n` +
+        `If you want to delete your account, send: *delete*`
+      );
+      delete user.deletionRequested;
+      saveUsers(users);
+      return;
+    }
+    
+    // First request - ask for confirmation
+    user.deletionRequested = true;
+    user.deletionRequestedAt = new Date().toISOString();
+    saveUsers(users);
+    
+    await send(from, 
+      `⚠️ *Confirm Account Deletion*\n\n` +
+      `This will permanently delete:\n` +
+      `• Your profile\n` +
+      `• All food logs (${Object.keys(user.log || {}).length} days)\n` +
+      `• Exercise logs\n` +
+      `• Weight history (${(user.weights || []).length} entries)\n` +
+      `• Custom foods\n\n` +
+      `*This cannot be undone.*\n\n` +
+      `To confirm deletion, send: *confirm delete*\n\n` +
+      `To cancel, send any other message.`
+    );
+    return;
+  }
+
+  // Deletion confirmation
+  if ((msgLower === "confirm delete" || msgLower === "yes delete" || msgLower === "delete confirm") && user.deletionRequested) {
+    // Delete user from database
+    delete users[from];
+    saveUsers(users);
+    
+    // Remove from referrals if exists
+    try {
+      const refs = loadReferrals();
+      for (const code in refs) {
+        refs[code].signups = refs[code].signups.filter(phone => phone !== from);
+        refs[code].active = refs[code].active.filter(phone => phone !== from);
+      }
+      saveReferrals(refs);
+    } catch (err) {
+      console.error("Error cleaning referrals:", err);
+    }
+    
+    await send(from, 
+      `✅ *Account Deleted*\n\n` +
+      `Your FitSorted account and all data have been permanently deleted.\n\n` +
+      `If you change your mind, you can always start fresh by sending any message.\n\n` +
+      `Thanks for trying FitSorted! 🙏`
+    );
+    return;
+  }
+
+  // Cancel deletion if user sends something else after requesting deletion
+  if (user.deletionRequested && msgLower !== "delete" && msgLower !== "confirm delete") {
+    delete user.deletionRequested;
+    delete user.deletionRequestedAt;
+    saveUsers(users);
+    await send(from, `✅ Deletion cancelled. Your account is still active.`);
+    // Continue processing the message normally
+  }
+
   // Help
   if (msgLower === "help" || msgLower === "menu") {
     await send(from,
@@ -712,8 +816,11 @@ async function handleMessage(from, text) {
       `• *save [food] = [cal]* — save a custom food\n` +
       `• *delete [food]* — remove a saved food\n` +
       `• *start* — recalculate your goal\n` +
+      `• *export* — download your data (POPIA)\n` +
+      `• *delete* — permanently delete account\n` +
       `• *help* — this menu\n\n` +
-      `Your goal: *${user.goal} cal/day*`
+      `Your goal: *${user.goal} cal/day*\n\n` +
+      `Privacy: https://fitsorted.co.za/privacy.html`
     );
     return;
   }
