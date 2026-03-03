@@ -11,7 +11,11 @@
 ### User Journey (How People Use It)
 
 1. **WhatsApp +27690684940**
-2. Bot asks: gender, weight, height, age, activity level, goal
+2. Bot asks: gender, weight, height, age, activity level, goal, pace
+   - **Pace options:**
+     - **Lose weight:** Aggressive (0.75kg/week), Standard (0.5kg/week), Chill (0.25kg/week)
+     - **Build muscle:** Aggressive (+500 cal), Standard (+300 cal), Lean bulk (+200 cal)
+     - **Maintain:** No pace options (TDEE = goal)
 3. Bot calculates daily calorie goal
 4. User logs food: "2 eggs" or "Nando's quarter chicken"
 5. Bot responds with calories + macros (protein/carbs/fat)
