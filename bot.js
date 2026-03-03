@@ -284,8 +284,8 @@ async function estimateCalories(food, user) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a nutrition assistant. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer}. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800}. Return total calories for the full described amount. No extra text." },
-        { role: "user", content: `Calories for: ${food}` }
+        { role: "system", content: "You are a nutrition assistant. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer}. All macros in grams. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35}. Return total values for the full described amount. No extra text." },
+        { role: "user", content: `Nutrition for: ${food}` }
       ],
       temperature: 0.2
     },
@@ -555,7 +555,14 @@ async function handleMessage(from, text) {
     if (burned.length > 0) {
       exerciseStr = "\n\n🔥 *Exercise:*\n" + burned.map(e => `• ${e.activity} — −${e.calories} cal`).join("\n") + `\nTotal burned: ${burnedTotal} cal`;
     }
-    await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+    // Calculate total macros
+    const totalProtein = entries.reduce((sum, e) => sum + (e.protein || 0), 0);
+    const totalCarbs = entries.reduce((sum, e) => sum + (e.carbs || 0), 0);
+    const totalFat = entries.reduce((sum, e) => sum + (e.fat || 0), 0);
+    const macroStr = (totalProtein > 0 || totalCarbs > 0 || totalFat > 0)
+      ? `\n\n🥩 Protein: ${totalProtein}g | 🍞 Carbs: ${totalCarbs}g | 🥑 Fat: ${totalFat}g`
+      : "";
+    await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*${macroStr}\n${deficitMessage(total, effectiveGoal)}`);
     return;
   }
 
@@ -743,12 +750,22 @@ async function handleMessage(from, text) {
     const result = await estimateCalories(msg, user);
     const today = getToday();
     if (!user.log[today]) user.log[today] = [];
-    user.log[today].push({ food: result.food, calories: result.calories, time: new Date().toISOString() });
+    user.log[today].push({ 
+      food: result.food, 
+      calories: result.calories, 
+      protein: result.protein || 0,
+      carbs: result.carbs || 0,
+      fat: result.fat || 0,
+      time: new Date().toISOString() 
+    });
     const total = getTodayTotal(user);
     const effectiveGoal = getEffectiveGoal(user);
     saveUsers(users);
     const sourceTag = result.source === "custom" ? " _(your saved entry)_" : "";
-    await send(from, `✅ *${result.food}* — ${result.calories} cal${sourceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+    const macros = (result.protein || result.carbs || result.fat) 
+      ? `\n🥩 P: ${result.protein}g | 🍞 C: ${result.carbs}g | 🥑 F: ${result.fat}g`
+      : "";
+    await send(from, `✅ *${result.food}* — ${result.calories} cal${sourceTag}${macros}\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
   } catch (err) {
     console.error("Food lookup error:", err.message);
     await send(from, "Couldn't estimate that. Try something like \"200g chicken breast\" or \"2 eggs\".");
@@ -788,7 +805,14 @@ cron.schedule("0 20 * * *", async () => {
     if (!user.setup || !user.goal) continue;
     try {
       const total = getTodayTotal(user);
-      await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal\n${deficitMessage(total, user.goal)}`);
+      const entries = getTodayEntries(user);
+      const totalProtein = entries.reduce((sum, e) => sum + (e.protein || 0), 0);
+      const totalCarbs = entries.reduce((sum, e) => sum + (e.carbs || 0), 0);
+      const totalFat = entries.reduce((sum, e) => sum + (e.fat || 0), 0);
+      const macroStr = (totalProtein > 0 || totalCarbs > 0 || totalFat > 0)
+        ? `\n🥩 P: ${totalProtein}g | 🍞 C: ${totalCarbs}g | 🥑 F: ${totalFat}g`
+        : "";
+      await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}\n${deficitMessage(total, user.goal)}`);
     } catch (err) {
       console.error(`Summary failed for ${phone}:`, err.message);
     }
