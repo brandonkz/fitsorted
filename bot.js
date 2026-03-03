@@ -597,6 +597,48 @@ async function handleMessage(from, text) {
     return;
   }
 
+  // ── Admin export emails: "export-emails" ──
+  if (msgLower === "export-emails" && from === ADMIN_NUMBER) {
+    const usersWithEmails = Object.entries(users)
+      .filter(([phone, user]) => user.email && user.email.trim().length > 0)
+      .map(([phone, user]) => {
+        const joinDate = user.joinedAt ? new Date(user.joinedAt).toISOString().split('T')[0] : 'unknown';
+        const target = user.profile?.target || 'unknown';
+        return {
+          name: user.name || 'N/A',
+          email: user.email,
+          phone: phone,
+          joined: joinDate,
+          goal: user.goal || 'N/A',
+          target: target
+        };
+      });
+
+    if (usersWithEmails.length === 0) {
+      await send(from, "📧 No users have provided emails yet.");
+      return;
+    }
+
+    // Generate CSV
+    const csv = [
+      "Name,Email,Phone,Joined,Goal (cal/day),Target",
+      ...usersWithEmails.map(u => `"${u.name}","${u.email}","${u.phone}","${u.joined}","${u.goal}","${u.target}"`)
+    ].join("\n");
+
+    // Save to file
+    const fs = require('fs');
+    const exportPath = '/Users/brandonkatz/.openclaw/workspace/fitsorted/email-export.csv';
+    fs.writeFileSync(exportPath, csv);
+
+    await send(from, 
+      `📧 *Email Export Ready*\n\n` +
+      `✅ ${usersWithEmails.length} user${usersWithEmails.length !== 1 ? 's' : ''} with emails\n\n` +
+      `Saved to: \`email-export.csv\`\n\n` +
+      `Ready to import to Beehiiv! 🐝`
+    );
+    return;
+  }
+
   // Reset
   if (msgLower === "start" || msgLower === "/start" || msgLower === "reset" || msgLower === "hi" || msgLower === "hello") {
     user.setup = false;

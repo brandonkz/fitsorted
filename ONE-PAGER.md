@@ -341,4 +341,22 @@ Site: https://fitsorted.co.za
 
 ---
 
+## 🔧 ADMIN COMMANDS
+
+**Brandon's number only (27837787970):**
+
+- `stats all` — View all referral codes and signup counts
+- `stats [CODE]` — View signups for specific referral code
+- `export-emails` — Export all user emails to CSV (for Beehiiv import)
+
+**Email export format:**
+```
+Name,Email,Phone,Joined,Goal (cal/day),Target
+Sarah,sarah@example.com,27821234567,2026-03-03,1500,lose
+```
+
+**File saved to:** `/Users/brandonkatz/.openclaw/workspace/fitsorted/email-export.csv`
+
+---
+
 **Last updated:** March 3, 2026
