@@ -21,6 +21,7 @@
 5. Bot responds with calories + macros (protein/carbs/fat)
 6. Morning check-in (6:30 AM): Shows goal + yesterday's recap
 7. Evening summary (8 PM): Total calories, macros, deficit/surplus in grams
+8. **First 3 days:** Daily helpful tips sent at 8 PM (exercise logging, undo command, asking questions)
 
 **Example:**
 - User sends: "Kauai Peanut Butter Bomb"

@@ -46,8 +46,19 @@ function loadUsers() {
 }
 function saveUsers(u) { fs.writeFileSync(USERS_FILE, JSON.stringify(u, null, 2)); }
 function getUser(users, phone) {
-  if (!users[phone]) users[phone] = { setup: false, step: null, profile: {}, goal: null, log: {} };
+  if (!users[phone]) {
+    users[phone] = { 
+      setup: false, 
+      step: null, 
+      profile: {}, 
+      goal: null, 
+      log: {},
+      joinedAt: new Date().toISOString()  // Track when they joined
+    };
+  }
   if (!users[phone].log) users[phone].log = {};
+  // Backfill joinedAt for existing users
+  if (!users[phone].joinedAt) users[phone].joinedAt = new Date().toISOString();
   return users[phone];
 }
 
@@ -1102,6 +1113,28 @@ cron.schedule("0 20 * * *", async () => {
       }
       
       await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}\n${deficitMessage(total, user.goal)}`);
+      
+      // ── First 3 days: Send command reminder ──
+      if (user.joinedAt) {
+        const joinDate = new Date(user.joinedAt);
+        const now = new Date();
+        const daysSinceJoin = Math.floor((now - joinDate) / (1000 * 60 * 60 * 24));
+        
+        if (daysSinceJoin <= 2) {  // Days 0, 1, 2 (first 3 days)
+          const reminders = [
+            // Day 0
+            `💡 *Quick tip:* You can also log exercise!\n\nExample: *"45 min weights"* or *"30 min run"*\n\nI'll add those calories back to your daily budget. 🏋️`,
+            // Day 1
+            `💡 *Quick tip:* Made a mistake?\n\nJust say *undo* and I'll remove your last entry.\n\nOr say *log* to see everything you've eaten today. 📝`,
+            // Day 2
+            `💡 *Quick tip:* Stuck on what to eat?\n\nAsk me things like:\n• *"what can I eat under 400 cal?"*\n• *"is this healthy?"*\n• *"how many cals in a chicken wrap?"*\n\nI'm here to help! 🧠`
+          ];
+          
+          if (reminders[daysSinceJoin]) {
+            await send(phone, reminders[daysSinceJoin]);
+          }
+        }
+      }
     } catch (err) {
       console.error(`Summary failed for ${phone}:`, err.message);
     }
