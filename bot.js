@@ -3,6 +3,7 @@ const express = require("express");
 const axios = require("axios");
 const fs = require("fs");
 const cron = require("node-cron");
+const { createClient } = require('@supabase/supabase-js');
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,12 @@ const PORT = process.env.PORT || 3001;
 const USERS_FILE = "./users.json";
 const REFERRALS_FILE = "./referrals.json";
 const ADMIN_NUMBER = "27837787970"; // Brandon's number
+
+// Supabase client for SA foods database (414 items)
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
+);
 
 // ── Referral helpers ──
 function loadReferrals() {
@@ -198,40 +205,47 @@ async function estimateCaloriesBurned(activity) {
   return JSON.parse(content);
 }
 
-// ── Calorie lookup ──
-// ── SA chain food database (exact calories) ──
-const SA_FOODS = [
-  // Kauai smoothies
-  { keywords: ["kauai peanut butter bomb", "peanut butter bomb large", "large peanut butter bomb", "pbb large", "large pbb"], food: "Kauai Peanut Butter Bomb (Large 500ml)", calories: 764 },
-  { keywords: ["kauai peanut butter bomb small", "small peanut butter bomb", "peanut butter bomb small", "pbb small", "small pbb", "peanut butter bomb"], food: "Kauai Peanut Butter Bomb (Small 350ml)", calories: 467 },
-  { keywords: ["kauai green machine large", "large green machine"], food: "Kauai Green Machine (Large 500ml)", calories: 380 },
-  { keywords: ["kauai green machine", "green machine small", "green machine"], food: "Kauai Green Machine (Small 350ml)", calories: 266 },
-  { keywords: ["kauai triple c large", "large triple c"], food: "Kauai Triple C (Large 500ml)", calories: 510 },
-  { keywords: ["kauai triple c", "triple c"], food: "Kauai Triple C (Small 350ml)", calories: 357 },
-  // Nu smoothies
-  { keywords: ["nu peanut butter bomb", "nu pb bomb"], food: "Nu Peanut Butter Bomb", calories: 764 },
-  // Nando's
-  { keywords: ["nandos quarter chicken", "nando's quarter chicken", "quarter chicken nandos"], food: "Nando's Quarter Chicken (skin on)", calories: 429 },
-  { keywords: ["nandos half chicken", "nando's half chicken", "half chicken nandos"], food: "Nando's Half Chicken", calories: 858 },
-  { keywords: ["nandos pita", "nando's pita"], food: "Nando's Chicken Pita", calories: 420 },
-  { keywords: ["nandos wrap", "nando's wrap"], food: "Nando's Chicken Wrap", calories: 480 },
-  // Steers
-  { keywords: ["steers regular burger", "steers burger"], food: "Steers Regular Burger", calories: 520 },
-  { keywords: ["steers cheese burger", "steers cheeseburger"], food: "Steers Cheese Burger", calories: 580 },
-  { keywords: ["steers onion rings"], food: "Steers Onion Rings (regular)", calories: 330 },
-  { keywords: ["steers chips", "steers fries"], food: "Steers Chips (regular)", calories: 380 },
-  // Woolworths
-  { keywords: ["woolworths protein shake", "ww protein shake"], food: "Woolworths Protein Shake", calories: 220 },
-];
-
-function lookupSAFood(food) {
+// ── Calorie lookup from Supabase SA Foods database (414 items) ──
+async function lookupSAFood(food) {
   const lower = food.toLowerCase();
-  for (const item of SA_FOODS) {
-    if (item.keywords.some(k => lower.includes(k))) {
-      return { food: item.food, calories: item.calories };
+  
+  try {
+    // Query Supabase for matching foods
+    const { data, error } = await supabase
+      .from('foods')
+      .select('*')
+      .or(`name.ilike.%${lower}%,name_alt.cs.{${lower}}`);
+    
+    if (error) {
+      console.error('Supabase lookup error:', error.message);
+      return null;
     }
+    
+    if (!data || data.length === 0) return null;
+    
+    // Find best match by checking name_alt keywords
+    for (const item of data) {
+      const nameMatch = item.name.toLowerCase().includes(lower);
+      const altMatch = item.name_alt?.some(alt => 
+        lower.includes(alt.toLowerCase()) || alt.toLowerCase().includes(lower)
+      );
+      
+      if (nameMatch || altMatch) {
+        return {
+          food: `${item.name}${item.serving ? ` (${item.serving})` : ''}`,
+          calories: item.calories,
+          protein: item.protein || 0,
+          carbs: item.carbs || 0,
+          fat: item.fat || 0
+        };
+      }
+    }
+    
+    return null;
+  } catch (err) {
+    console.error('SA food lookup failed:', err.message);
+    return null;
   }
-  return null;
 }
 
 // ── Custom food database (per user) ──
@@ -337,8 +351,8 @@ async function estimateCalories(food, user) {
     if (custom) return { ...custom, source: "custom" };
   }
 
-  // 2. Check SA chain database
-  const saMatch = lookupSAFood(food);
+  // 2. Check SA database (414 SA foods from Supabase)
+  const saMatch = await lookupSAFood(food);
   if (saMatch) return saMatch;
 
   if (!OPENAI_API_KEY) {
