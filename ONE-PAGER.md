@@ -16,12 +16,13 @@
      - **Lose weight:** Aggressive (0.75kg/week), Standard (0.5kg/week), Chill (0.25kg/week)
      - **Build muscle:** Aggressive (+500 cal), Standard (+300 cal), Lean bulk (+200 cal)
      - **Maintain:** No pace options (TDEE = goal)
-3. Bot calculates daily calorie goal
-4. User logs food: "2 eggs" or "Nando's quarter chicken"
-5. Bot responds with calories + macros (protein/carbs/fat)
-6. Morning check-in (6:30 AM): Shows goal + yesterday's recap
-7. Evening summary (8 PM): Total calories, macros, deficit/surplus in grams
-8. **First 3 days:** Daily helpful tips sent at 8 PM (exercise logging, undo command, asking questions)
+3. Bot asks: name (personalization) and email (for payments/updates, can skip)
+4. Bot calculates daily calorie goal
+5. User logs food: "2 eggs" or "Nando's quarter chicken"
+6. Bot responds with calories + macros (protein/carbs/fat)
+7. Morning check-in (6:30 AM): Personalized greeting + goal + yesterday's recap
+8. Evening summary (8 PM): Total calories, macros, deficit/surplus in grams
+9. **First 3 days:** Daily helpful tips sent at 8 PM (exercise logging, undo command, asking questions)
 
 **Example:**
 - User sends: "Kauai Peanut Butter Bomb"

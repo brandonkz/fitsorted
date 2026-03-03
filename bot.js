@@ -466,6 +466,46 @@ async function handleSetup(from, user, msg) {
     return;
   }
 
+  if (step === "name") {
+    const name = msg.trim();
+    if (name.length < 1 || name.length > 50) {
+      await send(from, "Please send your name (1-50 characters)");
+      return;
+    }
+    user.name = name;
+    user.step = "email";
+    await send(from, `Nice to meet you, ${name}! 👋\n\nWhat's your email?\n\n(For payment receipts and updates. Type *skip* if you'd rather not share)`);
+    return;
+  }
+
+  if (step === "email") {
+    const email = msg.trim().toLowerCase();
+    
+    if (email === "skip") {
+      user.email = null;
+    } else {
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        await send(from, "That doesn't look like a valid email. Try again or type *skip*");
+        return;
+      }
+      user.email = email;
+    }
+    
+    user.setup = true;
+    user.step = null;
+    saveUsers(users);
+
+    await send(from,
+      `✅ *All set, ${user.name}!*\n\n` +
+      `Your goal: *${user.goal} cal/day*\n\n` +
+      `Now just tell me what you eat throughout the day and I'll track it. 🍽️\n\n` +
+      `Send *log* to see today's total or *help* for commands.`
+    );
+    return;
+  }
+
   if (step === "target") {
     await sendButtons(from,
       "What's your goal?",
@@ -615,17 +655,10 @@ async function handleMessage(from, text) {
       user.profile.pace = "standard";  // Maintain has no pace options
       const { bmr, tdee, goal } = calculateGoal(user.profile);
       user.goal = goal;
-      user.setup = true;
-      user.step = null;
+      user.step = "name";  // Ask for name next
       saveUsers(users);
 
-      await send(from,
-        `✅ *Your calorie goal: ${goal} cal/day*\n\n` +
-        `BMR: ${bmr} cal | TDEE: ${tdee} cal\n` +
-        `Goal: maintain weight\n\n` +
-        `Now just tell me what you eat throughout the day and I'll track it. 🍽️\n\n` +
-        `Send *log* to see today's total or *help* for commands.`
-      );
+      await send(from, `Got it! Your goal is *${goal} cal/day* to maintain weight.\n\nWhat's your name? (First name is fine)`);
       return;
     }
 
@@ -634,8 +667,7 @@ async function handleMessage(from, text) {
       user.profile.pace = pace;
       const { bmr, tdee, goal } = calculateGoal(user.profile);
       user.goal = goal;
-      user.setup = true;
-      user.step = null;
+      user.step = "name";  // Ask for name next
       saveUsers(users);
 
       const target = user.profile.target;
@@ -654,13 +686,7 @@ async function handleMessage(from, text) {
 
       const targetLabel = paceLabels[target]?.[pace] || "custom goal";
       
-      await send(from,
-        `✅ *Your calorie goal: ${goal} cal/day*\n\n` +
-        `BMR: ${bmr} cal | TDEE: ${tdee} cal\n` +
-        `Goal: ${targetLabel}\n\n` +
-        `Now just tell me what you eat throughout the day and I'll track it. 🍽️\n\n` +
-        `Send *log* to see today's total or *help* for commands.`
-      );
+      await send(from, `Got it! Your goal is *${goal} cal/day* (${targetLabel}).\n\nWhat's your name? (First name is fine)`);
       return;
     }
   }
@@ -673,8 +699,8 @@ async function handleMessage(from, text) {
     return;
   }
 
-  // In setup number steps
-  if (user.step && ["weight", "height", "age"].includes(user.step)) {
+  // In setup text steps
+  if (user.step && ["weight", "height", "age", "name", "email"].includes(user.step)) {
     await handleSetup(from, user, msg);
     saveUsers(users);
     return;
@@ -1086,7 +1112,8 @@ cron.schedule("30 6 * * *", async () => {
         }
       }
       
-      await send(phone, `☀️ *Morning!*${yesterdayStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
+      const greeting = user.name ? `☀️ *Morning, ${user.name}!*` : `☀️ *Morning!*`;
+      await send(phone, `${greeting}${yesterdayStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
     } catch (err) {
       console.error(`Morning message failed for ${phone}:`, err.message);
     }
