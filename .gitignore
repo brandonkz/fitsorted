@@ -1,3 +1,6 @@
 node_modules
 .env
 users.json
+referrals.json
+.wwebjs_auth/
+*.db
