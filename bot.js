@@ -345,13 +345,19 @@ ${customFoodList.length > 0 ? customFoodList.join(", ") : "None saved yet"}
 }
 
 async function estimateCalories(food, user) {
+  // 0. Special case: plain water = 0 calories
+  const lower = food.toLowerCase().trim();
+  if (lower === "water" || lower === "h2o") {
+    return { food: "Water", calories: 0, protein: 0, carbs: 0, fat: 0 };
+  }
+
   // 1. Check user's custom foods first
   if (user) {
     const custom = lookupCustomFood(user, food);
     if (custom) return { ...custom, source: "custom" };
   }
 
-  // 2. Check SA database (414 SA foods from Supabase)
+  // 2. Check SA database (491 SA foods from Supabase)
   const saMatch = await lookupSAFood(food);
   if (saMatch) return saMatch;
 
