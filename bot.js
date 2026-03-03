@@ -112,7 +112,7 @@ function getMacroTargets(user) {
 // ── TDEE / calorie goal calculator ──
 // Mifflin-St Jeor BMR → × activity multiplier → adjust for goal
 function calculateGoal(profile) {
-  const { gender, weight, height, age, activity, target } = profile;
+  const { gender, weight, height, age, activity, target, pace } = profile;
 
   // BMR
   let bmr;
@@ -131,14 +131,27 @@ function calculateGoal(profile) {
 
   const tdee = Math.round(bmr * (multipliers[activity] || 1.375));
 
+  // Pace-based adjustments
   const adjustments = {
-    lose: -500,   // ~0.5kg/week loss
-    maintain: 0,
-    gain: +300,   // lean bulk
+    lose: {
+      aggressive: -750,  // 0.75kg/week loss
+      standard: -500,    // 0.5kg/week loss
+      chill: -250,       // 0.25kg/week loss
+    },
+    maintain: {
+      standard: 0,
+    },
+    gain: {
+      aggressive: +500,  // faster muscle gain (higher fat gain risk)
+      standard: +300,    // lean bulk
+      chill: +200,       // very lean bulk
+    },
   };
 
-  const goal = tdee + (adjustments[target] || 0);
-  return { bmr: Math.round(bmr), tdee, goal };
+  const adjustment = adjustments[target]?.[pace || 'standard'] || 0;
+  const goal = tdee + adjustment;
+  
+  return { bmr: Math.round(bmr), tdee, goal, pace };
 }
 
 // ── Workout detection ──
@@ -453,6 +466,30 @@ async function handleSetup(from, user, msg) {
     );
     return;
   }
+
+  if (step === "pace_lose") {
+    await sendButtons(from,
+      "How fast do you want to lose weight?",
+      [
+        { id: "setup:pace_aggressive", title: "Aggressive (0.75kg/week)" },
+        { id: "setup:pace_standard", title: "Standard (0.5kg/week)" },
+        { id: "setup:pace_chill", title: "Chill (0.25kg/week)" },
+      ]
+    );
+    return;
+  }
+
+  if (step === "pace_gain") {
+    await sendButtons(from,
+      "How fast do you want to gain muscle?",
+      [
+        { id: "setup:pace_aggressive", title: "Aggressive (+500 cal)" },
+        { id: "setup:pace_standard", title: "Standard (+300 cal)" },
+        { id: "setup:pace_chill", title: "Lean bulk (+200 cal)" },
+      ]
+    );
+    return;
+  }
 }
 
 // ── Main handler ──
@@ -553,15 +590,59 @@ async function handleMessage(from, text) {
       return;
     }
 
-    if (["lose", "maintain", "gain"].includes(val)) {
+    if (["lose", "gain"].includes(val)) {
       user.profile.target = val;
+      user.step = `pace_${val}`;  // Go to pace selection
+      saveUsers(users);
+      await handleSetup(from, user, msg);
+      saveUsers(users);
+      return;
+    }
+
+    if (val === "maintain") {
+      user.profile.target = "maintain";
+      user.profile.pace = "standard";  // Maintain has no pace options
       const { bmr, tdee, goal } = calculateGoal(user.profile);
       user.goal = goal;
       user.setup = true;
       user.step = null;
       saveUsers(users);
 
-      const targetLabel = { lose: "lose weight (−500 cal deficit)", maintain: "maintain weight", gain: "build muscle (+300 cal)" }[val];
+      await send(from,
+        `✅ *Your calorie goal: ${goal} cal/day*\n\n` +
+        `BMR: ${bmr} cal | TDEE: ${tdee} cal\n` +
+        `Goal: maintain weight\n\n` +
+        `Now just tell me what you eat throughout the day and I'll track it. 🍽️\n\n` +
+        `Send *log* to see today's total or *help* for commands.`
+      );
+      return;
+    }
+
+    if (val.startsWith("pace_")) {
+      const pace = val.replace("pace_", "");  // aggressive, standard, or chill
+      user.profile.pace = pace;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      user.setup = true;
+      user.step = null;
+      saveUsers(users);
+
+      const target = user.profile.target;
+      const paceLabels = {
+        lose: {
+          aggressive: "aggressive loss (−750 cal, 0.75kg/week)",
+          standard: "standard loss (−500 cal, 0.5kg/week)",
+          chill: "chill loss (−250 cal, 0.25kg/week)",
+        },
+        gain: {
+          aggressive: "aggressive gain (+500 cal)",
+          standard: "lean bulk (+300 cal)",
+          chill: "very lean bulk (+200 cal)",
+        },
+      };
+
+      const targetLabel = paceLabels[target]?.[pace] || "custom goal";
+      
       await send(from,
         `✅ *Your calorie goal: ${goal} cal/day*\n\n` +
         `BMR: ${bmr} cal | TDEE: ${tdee} cal\n` +
