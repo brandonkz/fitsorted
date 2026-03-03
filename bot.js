@@ -798,6 +798,21 @@ app.post("/webhook", async (req, res) => {
   }
 });
 
+// ── 6:30 AM morning check-in ──
+cron.schedule("30 6 * * *", async () => {
+  const users = loadUsers();
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.goal) continue;
+    try {
+      const { target } = user.profile || {};
+      const targetMsg = target === "lose" ? "lose weight" : target === "gain" ? "build muscle" : "stay on track";
+      await send(phone, `☀️ *Morning!*\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
+    } catch (err) {
+      console.error(`Morning message failed for ${phone}:`, err.message);
+    }
+  }
+}, { timezone: "Africa/Johannesburg" });
+
 // ── 8 PM daily summary ──
 cron.schedule("0 20 * * *", async () => {
   const users = loadUsers();
