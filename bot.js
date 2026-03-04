@@ -77,6 +77,59 @@ function getYesterday() {
   yesterday.setDate(yesterday.getDate() - 1);
   return yesterday.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
 }
+
+// Parse date prefix from message like "yesterday: chicken", "last night: pizza", "monday: eggs"
+function parseDatePrefix(msg) {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+  
+  // yesterday / last night — with colon OR natural phrasing ("last night I had...")
+  let match = msg.match(/^(yesterday|last\s*night)\s*[:;,.\-–—]\s*/i);
+  if (!match) match = msg.match(/^(yesterday|last\s*night)\s+(?:I\s+)?(?:also\s+)?(?:then\s+)?(?:had|ate|got|made|cooked|ordered|grabbed|picked up|went for)\s+/i);
+  if (match) {
+    const d = new Date(now);
+    d.setDate(d.getDate() - 1);
+    const food = msg.slice(match[0].length).trim();
+    // For natural phrasing, the food is already extracted (after "I had" etc.)
+    return { date: d.toLocaleDateString("en-CA"), food: food, label: "yesterday" };
+  }
+  
+  // N days ago — with colon OR natural phrasing
+  match = msg.match(/^(\d+)\s*days?\s*ago\s*[:;,.\-–—]\s*/i);
+  if (!match) match = msg.match(/^(\d+)\s*days?\s*ago\s+(?:I\s+)?(?:also\s+)?(?:then\s+)?(?:had|ate|got|made|cooked|ordered|grabbed)\s+/i);
+  if (match) {
+    const n = parseInt(match[1]);
+    if (n >= 1 && n <= 7) {
+      const d = new Date(now);
+      d.setDate(d.getDate() - n);
+      return { date: d.toLocaleDateString("en-CA"), food: msg.slice(match[0].length).trim(), label: `${n} day${n > 1 ? 's' : ''} ago` };
+    }
+  }
+  
+  // day of week (monday, tuesday, etc.) — with colon OR natural phrasing
+  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  match = msg.match(/^(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s*[:;,.\-–—]\s*/i);
+  if (!match) match = msg.match(/^(?:on\s+)?(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s+(?:I\s+)?(?:also\s+)?(?:then\s+)?(?:had|ate|got|made|cooked|ordered|grabbed)\s+/i);
+  if (match) {
+    const targetDay = days.indexOf(match[1].toLowerCase());
+    const currentDay = now.getDay();
+    let diff = currentDay - targetDay;
+    if (diff <= 0) diff += 7; // go back to last occurrence
+    if (diff >= 1 && diff <= 7) {
+      const d = new Date(now);
+      d.setDate(d.getDate() - diff);
+      return { date: d.toLocaleDateString("en-CA"), food: msg.slice(match[0].length).trim(), label: match[1].toLowerCase() };
+    }
+  }
+  
+  // this morning / earlier / earlier today — still today, no special handling needed
+  match = msg.match(/^(this\s*morning|earlier(\s*today)?)\s*[:;,.\-–—]\s*/i);
+  if (!match) match = msg.match(/^(this\s*morning|earlier(\s*today)?)\s+(?:I\s+)?(?:had|ate|got|made|cooked|ordered|grabbed)\s+/i);
+  if (match) {
+    return { date: now.toLocaleDateString("en-CA"), food: msg.slice(match[0].length).trim(), label: null };
+  }
+  
+  return null; // no date prefix found
+}
 function getTodayEntries(user) { return user.log[getToday()] || []; }
 function getTodayTotal(user) { return getTodayEntries(user).reduce((s, e) => s + e.calories, 0); }
 function getYesterdayEntries(user) { return user.log[getYesterday()] || []; }
@@ -406,14 +459,35 @@ function deficitMessage(total, goal) {
 
 // ── WhatsApp sender ──
 async function send(to, text) {
+  try {
+    await axios.post(
+      `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
+      { messaging_product: "whatsapp", to, type: "text", text: { body: (text || "").slice(0, 4096) } },
+      { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
+    );
+  } catch (err) {
+    console.error(`Send failed to ${to}:`, err.response?.data ? JSON.stringify(err.response.data) : err.message);
+    throw err;
+  }
+}
+
+async function sendImage(to, imageId, caption) {
   await axios.post(
     `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
-    { messaging_product: "whatsapp", to, type: "text", text: { body: text } },
+    { messaging_product: "whatsapp", to, type: "image", image: { id: imageId, caption: caption || "" } },
     { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
   );
 }
 
 async function sendButtons(to, body, buttons) {
+  // WhatsApp enforces: body max 1024 chars, button title max 20 chars, button id max 256 chars, max 3 buttons
+  const safeBtns = buttons.slice(0, 3).map(b => ({
+    type: "reply",
+    reply: {
+      id: (b.id || "").slice(0, 256),
+      title: (b.title || "").slice(0, 20)
+    }
+  }));
   await axios.post(
     `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
     {
@@ -422,8 +496,8 @@ async function sendButtons(to, body, buttons) {
       type: "interactive",
       interactive: {
         type: "button",
-        body: { text: body },
-        action: { buttons: buttons.map(b => ({ type: "reply", reply: { id: b.id, title: b.title } })) }
+        body: { text: (body || "").slice(0, 1024) },
+        action: { buttons: safeBtns }
       }
     },
     { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
@@ -527,44 +601,56 @@ async function handleSetup(from, user, msg) {
   }
 
   if (step === "target") {
-    await sendButtons(from,
-      "What's your goal?",
-      [
-        { id: "setup:lose", title: "Lose weight 📉" },
-        { id: "setup:maintain", title: "Maintain ⚖️" },
-        { id: "setup:gain", title: "Build muscle 📈" },
-      ]
-    );
+    try {
+      await sendButtons(from,
+        "What's your goal?",
+        [
+          { id: "setup:lose", title: "Lose weight" },
+          { id: "setup:maintain", title: "Maintain" },
+          { id: "setup:gain", title: "Build muscle" },
+        ]
+      );
+    } catch {
+      await send(from, "What's your goal?\n\nReply with one:\n• *lose* — lose weight\n• *maintain* — stay the same\n• *gain* — build muscle");
+    }
     return;
   }
 
   if (step === "pace_lose") {
-    await sendButtons(from,
-      "How fast do you want to lose weight?",
-      [
-        { id: "setup:pace_aggressive", title: "Aggressive (0.75kg/week)" },
-        { id: "setup:pace_standard", title: "Standard (0.5kg/week)" },
-        { id: "setup:pace_chill", title: "Chill (0.25kg/week)" },
-      ]
-    );
+    try {
+      await sendButtons(from,
+        "How fast do you want to lose weight?",
+        [
+          { id: "setup:pace_aggressive", title: "Fast (0.75kg/wk)" },
+          { id: "setup:pace_standard", title: "Normal (0.5kg/wk)" },
+          { id: "setup:pace_chill", title: "Slow (0.25kg/wk)" },
+        ]
+      );
+    } catch {
+      await send(from, "How fast do you want to lose weight?\n\nReply with one:\n• *fast* — 0.75kg/week\n• *normal* — 0.5kg/week\n• *slow* — 0.25kg/week");
+    }
     return;
   }
 
   if (step === "pace_gain") {
+    try {
     await sendButtons(from,
       "How fast do you want to gain muscle?",
       [
-        { id: "setup:pace_aggressive", title: "Aggressive (+500 cal)" },
-        { id: "setup:pace_standard", title: "Standard (+300 cal)" },
-        { id: "setup:pace_chill", title: "Lean bulk (+200 cal)" },
+        { id: "setup:pace_aggressive", title: "Fast (+500 cal)" },
+        { id: "setup:pace_standard", title: "Normal (+300 cal)" },
+        { id: "setup:pace_chill", title: "Lean (+200 cal)" },
       ]
     );
+    } catch {
+      await send(from, "How fast do you want to gain?\n\nReply with one:\n• *fast* — +500 cal/day\n• *normal* — +300 cal/day\n• *lean* — +200 cal/day");
+    }
     return;
   }
 }
 
 // ── Main handler ──
-async function handleMessage(from, text) {
+async function handleMessage(from, text, imageId) {
   const users = loadUsers();
   const user = getUser(users, from);
   const msg = (text || "").trim();
@@ -614,6 +700,37 @@ async function handleMessage(from, text) {
       }
       await send(from, `📊 *Referral Stats — ${target}*\n\n👥 Signups: ${data.signups.length}`);
     }
+    return;
+  }
+
+  // ── Admin broadcast: "broadcast: message" or send image with caption "broadcast: message" ──
+  if (msgLower.startsWith("broadcast:") && from === ADMIN_NUMBER) {
+    const broadcastMsg = msg.slice("broadcast:".length).trim();
+    if (!broadcastMsg && !imageId) {
+      await send(from, "❌ Usage:\n• Text: *broadcast: Your message here*\n• Image: Send an image with caption *broadcast: Your caption*");
+      return;
+    }
+    
+    const recipients = Object.entries(users).filter(([phone, u]) => u.setup && u.goal && phone !== ADMIN_NUMBER);
+    let sent = 0, failed = 0;
+    
+    for (const [phone, u] of recipients) {
+      try {
+        if (imageId) {
+          await sendImage(phone, imageId, broadcastMsg || "");
+        } else {
+          await send(phone, broadcastMsg);
+        }
+        sent++;
+        // Small delay to avoid rate limits
+        await new Promise(r => setTimeout(r, 500));
+      } catch (err) {
+        console.error(`Broadcast failed for ${phone}:`, err.message);
+        failed++;
+      }
+    }
+    
+    await send(from, `📢 *Broadcast sent!*\n\n✅ Delivered: ${sent}\n❌ Failed: ${failed}\n👥 Total users: ${recipients.length}`);
     return;
   }
 
@@ -768,8 +885,98 @@ async function handleMessage(from, text) {
     return;
   }
 
+  // Stuck on pace selection — handle text replies or default to standard
+  if (user.step && (user.step === "pace_lose" || user.step === "pace_gain")) {
+    // Map text replies to pace values
+    const paceMap = { fast: "aggressive", normal: "standard", slow: "chill", lean: "chill", aggressive: "aggressive", standard: "standard", chill: "chill" };
+    const pace = paceMap[msgLower] || "standard";
+    user.profile.pace = pace;
+    const { bmr, tdee, goal } = calculateGoal(user.profile);
+    user.goal = goal;
+    user.step = "name";
+    saveUsers(users);
+    const paceLabel = pace === "aggressive" ? "fast" : pace === "chill" ? "slow" : "normal";
+    await send(from, `Got it — *${paceLabel}* pace.\n\nYour daily goal: *${goal} cal/day*\n\nWhat's your name? (First name is fine)`);
+    return;
+  }
+  
+  // Stuck on target selection — handle text replies
+  if (user.step === "target") {
+    const targetMap = { lose: "lose", "lose weight": "lose", maintain: "maintain", gain: "gain", "build muscle": "gain", muscle: "gain" };
+    const target = targetMap[msgLower];
+    if (target) {
+      user.profile.target = target;
+      if (target === "maintain") {
+        user.profile.pace = "standard";
+        const { bmr, tdee, goal } = calculateGoal(user.profile);
+        user.goal = goal;
+        user.step = "name";
+        saveUsers(users);
+        await send(from, `Got it! Your goal is *${goal} cal/day* to maintain weight.\n\nWhat's your name? (First name is fine)`);
+      } else {
+        user.step = `pace_${target}`;
+        saveUsers(users);
+        await handleSetup(from, user, msg);
+        saveUsers(users);
+      }
+      return;
+    }
+    // Unrecognized — resend the question
+    await send(from, "What's your goal?\n\nReply with one:\n• *lose* — lose weight\n• *maintain* — stay the same\n• *gain* — build muscle");
+    return;
+  }
+
   // Log view
-  if (msgLower === "log" || msgLower === "today" || msgLower === "total") {
+  // Summary / log for any day: "summary", "yesterday", "summarize yesterday", "log yesterday", "monday log"
+  const daySummaryMatch = msgLower.match(/(?:summary|summarize|summarise|log|show|view)\s+(?:of\s+)?(?:for\s+)?(yesterday(?:'s)?|last\s*night(?:'s)?|monday|tuesday|wednesday|thursday|friday|saturday|sunday|(\d+)\s*days?\s*ago)(?:\s+(?:calories|cals|food|log|meals))?/i)
+    || msgLower.match(/^(yesterday(?:'s)?)\s+(?:summary|log|calories|cals|food|meals)$/i);
+  if (daySummaryMatch) {
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+    let targetDate, label;
+    const keyword = (daySummaryMatch[1] || "").toLowerCase().replace("'s", "");
+    
+    if (keyword === "yesterday" || keyword === "last night" || keyword === "lastnight") {
+      const d = new Date(now); d.setDate(d.getDate() - 1);
+      targetDate = d.toLocaleDateString("en-CA");
+      label = "Yesterday";
+    } else if (daySummaryMatch[2]) {
+      const n = parseInt(daySummaryMatch[2]);
+      const d = new Date(now); d.setDate(d.getDate() - n);
+      targetDate = d.toLocaleDateString("en-CA");
+      label = `${n} day${n > 1 ? 's' : ''} ago`;
+    } else {
+      const days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+      const targetDay = days.indexOf(keyword);
+      const currentDay = now.getDay();
+      let diff = currentDay - targetDay;
+      if (diff <= 0) diff += 7;
+      const d = new Date(now); d.setDate(d.getDate() - diff);
+      targetDate = d.toLocaleDateString("en-CA");
+      label = keyword.charAt(0).toUpperCase() + keyword.slice(1);
+    }
+    
+    const entries = user.log[targetDate] || [];
+    if (!entries.length) {
+      await send(from, `📋 Nothing logged for *${label}* (${targetDate}).`);
+      return;
+    }
+    const list = entries.map((e, i) => `${i + 1}. ${e.food} — ${e.calories} cal`).join("\n");
+    const total = entries.reduce((s, e) => s + e.calories, 0);
+    const macros = {
+      protein: entries.reduce((s, e) => s + (e.protein || 0), 0),
+      carbs: entries.reduce((s, e) => s + (e.carbs || 0), 0),
+      fat: entries.reduce((s, e) => s + (e.fat || 0), 0)
+    };
+    let macroStr = "";
+    if (macros.protein > 0 || macros.carbs > 0 || macros.fat > 0) {
+      macroStr = `\n\n*Macros:*\n🥩 Protein: ${macros.protein}g\n🍞 Carbs: ${macros.carbs}g\n🥑 Fat: ${macros.fat}g`;
+    }
+    
+    await send(from, `📋 *${label}'s log (${targetDate}):*\n${list}\n\n🔢 *${total} cal total*${macroStr}`);
+    return;
+  }
+
+  if (msgLower === "log" || msgLower === "today" || msgLower === "total" || msgLower === "summary") {
     const entries = getTodayEntries(user);
     const total = getTodayTotal(user);
     if (entries.length === 0) {
@@ -862,6 +1069,52 @@ async function handleMessage(from, text) {
   }
 
   // Undo
+  // "This was last night" / "that was yesterday" — move last entry to a past date
+  const moveMatch = msgLower.match(/^(?:this|that|it)\s+was\s+(?:from\s+)?(yesterday|last\s*night|monday|tuesday|wednesday|thursday|friday|saturday|sunday|(\d+)\s*days?\s*ago)/i);
+  if (moveMatch) {
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+    const today = getToday();
+    const entries = user.log[today] || [];
+    
+    if (!entries.length) {
+      await send(from, "Nothing logged today to move. Log the food first, then tell me when it was.");
+      return;
+    }
+    
+    let targetDate;
+    let label;
+    const keyword = moveMatch[1].toLowerCase();
+    
+    if (keyword === "yesterday" || keyword === "last night" || keyword === "lastnight") {
+      const d = new Date(now); d.setDate(d.getDate() - 1);
+      targetDate = d.toLocaleDateString("en-CA");
+      label = "yesterday";
+    } else if (moveMatch[2]) {
+      const n = parseInt(moveMatch[2]);
+      const d = new Date(now); d.setDate(d.getDate() - n);
+      targetDate = d.toLocaleDateString("en-CA");
+      label = `${n} day${n > 1 ? 's' : ''} ago`;
+    } else {
+      const days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+      const targetDay = days.indexOf(keyword);
+      const currentDay = now.getDay();
+      let diff = currentDay - targetDay;
+      if (diff <= 0) diff += 7;
+      const d = new Date(now); d.setDate(d.getDate() - diff);
+      targetDate = d.toLocaleDateString("en-CA");
+      label = keyword;
+    }
+    
+    const lastEntry = entries.pop();
+    user.log[today] = entries;
+    if (!user.log[targetDate]) user.log[targetDate] = [];
+    user.log[targetDate].push(lastEntry);
+    saveUsers(users);
+    
+    await send(from, `↩️ Moved *${lastEntry.food}* (${lastEntry.calories} cal) to *${label}* (${targetDate})\n\n📊 Today: *${getTodayTotal(user)} / ${getEffectiveGoal(user)} cal*`);
+    return;
+  }
+
   if (msgLower === "undo") {
     const today = getToday();
     const entries = user.log[today] || [];
@@ -871,6 +1124,34 @@ async function handleMessage(from, text) {
     saveUsers(users);
     const total = getTodayTotal(user);
     await send(from, `↩️ Removed: *${removed.food}* (${removed.calories} cal)\n\n${deficitMessage(total, user.goal)}`);
+    return;
+  }
+
+  // ── Support / stuck detection ──
+  if (/^(support|stuck|not working|broken|bug|problem|issue|help me|can't log|cant log|it's not|its not|doesn't work|doesnt work|won't work|wont work)$/i.test(msgLower) || 
+      /^(something.*(wrong|broken)|nothing.*(happen|work)|i('m| am) stuck)/i.test(msgLower)) {
+    
+    // Check if they're mid-setup
+    if (!user.setup || user.step) {
+      await send(from, 
+        `🔧 *Looks like something went wrong during setup.*\n\n` +
+        `No worries — send *start* to begin fresh.\n\n` +
+        `This will reset your setup (your food logs are safe).`
+      );
+    } else {
+      await send(from,
+        `🔧 *Need help?*\n\n` +
+        `*Common fixes:*\n` +
+        `• Send *start* to redo your setup\n` +
+        `• Send *help* to see all commands\n` +
+        `• Send *log* to see today's entries\n` +
+        `• Send *undo* to remove last entry\n\n` +
+        `*Still stuck?*\n` +
+        `📧 Email: support@fitsorted.co.za\n` +
+        `🌐 FAQ: fitsorted.co.za/support\n\n` +
+        `We usually reply within a few hours 💪`
+      );
+    }
     return;
   }
 
@@ -989,6 +1270,8 @@ async function handleMessage(from, text) {
       `• _"Suggest a high protein meal"_\n\n` +
       `*Commands:*\n` +
       `• *log* — see today's entries\n` +
+      `• *yesterday: [food]* — log to yesterday\n` +
+      `• *monday: [food]* — log to a past day\n` +
       `• *undo* — remove last entry\n` +
       `• *weight 84.5* — log your weight\n` +
       `• *weight history* — see your trend\n` +
@@ -1087,12 +1370,21 @@ async function handleMessage(from, text) {
     return;
   }
 
-  // Food log
+  // Food log (with optional date prefix: "yesterday: chicken stir fry")
   try {
-    const result = await estimateCalories(msg, user);
-    const today = getToday();
-    if (!user.log[today]) user.log[today] = [];
-    user.log[today].push({ 
+    const dateInfo = parseDatePrefix(msg);
+    const foodText = dateInfo ? dateInfo.food : msg;
+    const logDate = dateInfo ? dateInfo.date : getToday();
+    const isBacklog = dateInfo && dateInfo.label; // logging to a past date
+    
+    if (dateInfo && !dateInfo.food.trim()) {
+      await send(from, `🤔 Looks like you want to log to *${dateInfo.label}* but didn't say what you ate.\n\nTry: _yesterday: chicken stir fry with rice_`);
+      return;
+    }
+    
+    const result = await estimateCalories(foodText, user);
+    if (!user.log[logDate]) user.log[logDate] = [];
+    user.log[logDate].push({ 
       food: result.food, 
       calories: result.calories, 
       protein: result.protein || 0,
@@ -1100,6 +1392,8 @@ async function handleMessage(from, text) {
       fat: result.fat || 0,
       time: new Date().toISOString() 
     });
+    
+    const logDateTotal = user.log[logDate].reduce((s, e) => s + e.calories, 0);
     const total = getTodayTotal(user);
     const effectiveGoal = getEffectiveGoal(user);
     const todayMacros = getTodayMacros(user);
@@ -1111,12 +1405,18 @@ async function handleMessage(from, text) {
       ? `\n🥩 P: ${result.protein}g | 🍞 C: ${result.carbs}g | 🥑 F: ${result.fat}g`
       : "";
     
-    let macroProgress = "";
-    if (macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
-      macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
+    if (isBacklog) {
+      // Logging to a past date
+      await send(from, `✅ *${result.food}* — ${result.calories} cal${sourceTag}${itemMacros}\n\n📅 _Logged to ${dateInfo.label} (${logDate})_\n📊 ${dateInfo.label}: *${logDateTotal} cal total*`);
+    } else {
+      // Normal today logging
+      let macroProgress = "";
+      if (macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
+        macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
+      }
+      
+      await send(from, `✅ *${result.food}* — ${result.calories} cal${sourceTag}${itemMacros}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
     }
-    
-    await send(from, `✅ *${result.food}* — ${result.calories} cal${sourceTag}${itemMacros}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
   } catch (err) {
     console.error("Food lookup error:", err.message);
     await send(from, "Couldn't estimate that. Try something like \"200g chicken breast\" or \"2 eggs\".");
@@ -1141,11 +1441,17 @@ app.post("/webhook", async (req, res) => {
     const msg = messages[0];
     const from = msg.from;
     let text = "";
+    let imageId = null;
     if (msg.type === "text") text = msg.text?.body || "";
     else if (msg.type === "interactive") text = msg.interactive?.button_reply?.id || "";
-    await handleMessage(from, text);
+    else if (msg.type === "image") {
+      imageId = msg.image?.id || null;
+      text = msg.image?.caption || "";
+    }
+    
+    await handleMessage(from, text, imageId);
   } catch (err) {
-    console.error("Webhook error:", err.message);
+    console.error("Webhook error:", err.message, err.response?.data ? JSON.stringify(err.response.data) : "");
   }
 });
 
@@ -1158,20 +1464,39 @@ cron.schedule("30 6 * * *", async () => {
       const { target } = user.profile || {};
       const targetMsg = target === "lose" ? "lose weight" : target === "gain" ? "build muscle" : "stay on track";
       
-      // Yesterday's recap
-      const yesterdayTotal = getYesterdayTotal(user);
+      // Yesterday's full recap with food list + macros
+      const yesterdayEntries = getYesterdayEntries(user);
+      const yesterdayTotal = yesterdayEntries.reduce((s, e) => s + e.calories, 0);
       let yesterdayStr = "";
       if (yesterdayTotal > 0) {
+        // Food list
+        const foodList = yesterdayEntries.map(e => `• ${e.food} — ${e.calories} cal`).join("\n");
+        
+        // Macros
+        const yMacros = {
+          protein: yesterdayEntries.reduce((s, e) => s + (e.protein || 0), 0),
+          carbs: yesterdayEntries.reduce((s, e) => s + (e.carbs || 0), 0),
+          fat: yesterdayEntries.reduce((s, e) => s + (e.fat || 0), 0)
+        };
+        let macroStr = "";
+        if (yMacros.protein > 0 || yMacros.carbs > 0 || yMacros.fat > 0) {
+          macroStr = `\n🥩 P: ${yMacros.protein}g | 🍞 C: ${yMacros.carbs}g | 🥑 F: ${yMacros.fat}g`;
+        }
+        
+        // Deficit/surplus verdict
         const diff = user.goal - yesterdayTotal;
+        let verdict;
         if (diff > 0) {
           const grams = Math.round((diff / 7700) * 1000);
-          yesterdayStr = `\n📊 Yesterday: ${yesterdayTotal} cal — lost ${grams}g of fat ✅`;
+          verdict = `${grams}g fat lost ✅`;
         } else if (diff === 0) {
-          yesterdayStr = `\n📊 Yesterday: ${yesterdayTotal} cal — on goal 🎯`;
+          verdict = `Right on goal 🎯`;
         } else {
           const grams = Math.round((Math.abs(diff) / 7700) * 1000);
-          yesterdayStr = `\n📊 Yesterday: ${yesterdayTotal} cal — ${grams}g surplus`;
+          verdict = `${grams}g surplus`;
         }
+        
+        yesterdayStr = `\n\n📊 *Yesterday's recap:*\n${foodList}\n\n🔢 *${yesterdayTotal} / ${user.goal} cal* — ${verdict}${macroStr}`;
       }
       
       const greeting = user.name ? `☀️ *Morning, ${user.name}!*` : `☀️ *Morning!*`;

@@ -1,0 +1,99 @@
+-- Insert 73 branded chain foods (Kauai, Nando's, Steers, KFC, McDonald's, Woolworths, Spur, Ocean Basket, Wimpy)
+-- Run this in Supabase SQL Editor
+
+INSERT INTO foods (name, name_alt, calories, protein, carbs, fat, serving, brand, category, source) VALUES
+-- Kauai
+('Kauai Peanut Butter Bomb', ARRAY['kauai peanut butter bomb large', 'peanut butter bomb large', 'large peanut butter bomb', 'pbb large', 'large pbb'], 764, 22, 98, 32, 'Large 500ml', 'Kauai', 'restaurant', 'Manual'),
+('Kauai Peanut Butter Bomb', ARRAY['kauai peanut butter bomb', 'peanut butter bomb small', 'small peanut butter bomb', 'pbb small', 'small pbb', 'peanut butter bomb'], 467, 14, 60, 20, 'Small 350ml', 'Kauai', 'restaurant', 'Manual'),
+('Kauai Green Machine', ARRAY['kauai green machine large', 'large green machine'], 380, 8, 82, 2, 'Large 500ml', 'Kauai', 'restaurant', 'Manual'),
+('Kauai Green Machine', ARRAY['kauai green machine', 'green machine small', 'green machine'], 266, 6, 57, 1, 'Small 350ml', 'Kauai', 'restaurant', 'Manual'),
+('Kauai Triple C', ARRAY['kauai triple c large', 'large triple c'], 510, 4, 122, 1, 'Large 500ml', 'Kauai', 'restaurant', 'Manual'),
+('Kauai Triple C', ARRAY['kauai triple c', 'triple c'], 357, 3, 85, 1, 'Small 350ml', 'Kauai', 'restaurant', 'Manual'),
+
+-- Nando's Extended Menu
+('Nando''s Quarter Chicken', ARRAY['nandos quarter chicken', 'nando''s quarter chicken', 'quarter chicken nandos'], 429, 45, 0, 27, 'skin on', 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Half Chicken', ARRAY['nandos half chicken', 'nando''s half chicken', 'half chicken nandos'], 858, 90, 0, 54, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Full Chicken', ARRAY['nandos full chicken', 'nando''s full chicken', 'whole chicken nandos'], 1716, 180, 0, 108, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Chicken Pita', ARRAY['nandos pita', 'nando''s pita'], 420, 32, 45, 12, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Chicken Wrap', ARRAY['nandos wrap', 'nando''s wrap'], 480, 28, 48, 18, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Fino Burger', ARRAY['nandos fino burger', 'nando''s fino burger'], 580, 35, 52, 25, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Supergrain Burger', ARRAY['nandos supergrain burger', 'nando''s supergrain burger'], 520, 28, 58, 18, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Peri-Peri Chips', ARRAY['nandos peri chips', 'nando''s peri chips', 'nandos chips'], 430, 6, 58, 20, 'regular', 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Coleslaw', ARRAY['nandos coleslaw', 'nando''s coleslaw'], 140, 2, 12, 10, 'regular', 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Corn on the Cob', ARRAY['nandos corn', 'nando''s corn', 'nandos mielie'], 120, 4, 25, 2, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Spicy Rice', ARRAY['nandos rice', 'nando''s rice'], 350, 7, 68, 6, 'regular', 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Garlic Bread', ARRAY['nandos garlic bread', 'nando''s garlic bread'], 280, 8, 38, 12, NULL, 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Chicken Wings', ARRAY['nandos wings 5', 'nando''s wings 5', '5 wings nandos'], 340, 35, 0, 22, '5 pieces', 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Chicken Wings', ARRAY['nandos wings 10', 'nando''s wings 10', '10 wings nandos'], 680, 70, 0, 44, '10 pieces', 'Nando''s', 'restaurant', 'Manual'),
+('Nando''s Chicken Espetada', ARRAY['nandos espetada', 'nando''s espetada'], 520, 55, 8, 30, NULL, 'Nando''s', 'restaurant', 'Manual'),
+
+-- Steers
+('Steers Regular Burger', ARRAY['steers regular burger', 'steers burger'], 520, 28, 45, 25, NULL, 'Steers', 'restaurant', 'Manual'),
+('Steers Cheese Burger', ARRAY['steers cheese burger', 'steers cheeseburger'], 580, 32, 46, 30, NULL, 'Steers', 'restaurant', 'Manual'),
+('Steers King Steer Burger', ARRAY['steers king steer burger'], 720, 42, 48, 38, NULL, 'Steers', 'restaurant', 'Manual'),
+('Steers Bacon & Cheese Burger', ARRAY['steers bacon cheese burger'], 650, 35, 47, 35, NULL, 'Steers', 'restaurant', 'Manual'),
+('Steers Chicken Burger', ARRAY['steers chicken burger'], 540, 30, 50, 22, NULL, 'Steers', 'restaurant', 'Manual'),
+('Steers Onion Rings', ARRAY['steers onion rings'], 330, 4, 42, 16, 'regular', 'Steers', 'restaurant', 'Manual'),
+('Steers Chips', ARRAY['steers chips', 'steers fries'], 380, 5, 52, 18, 'regular', 'Steers', 'restaurant', 'Manual'),
+('Steers Ribs Full Rack', ARRAY['steers ribs full rack'], 1200, 85, 45, 75, NULL, 'Steers', 'restaurant', 'Manual'),
+('Steers Ribs Half Rack', ARRAY['steers ribs half rack'], 600, 42, 22, 38, NULL, 'Steers', 'restaurant', 'Manual'),
+('Steers Milkshake', ARRAY['steers milkshake'], 450, 12, 68, 15, 'regular', 'Steers', 'restaurant', 'Manual'),
+
+-- KFC
+('KFC Streetwise 2', ARRAY['kfc streetwise 2', 'kfc sw2'], 680, 48, 58, 28, NULL, 'KFC', 'restaurant', 'Manual'),
+('KFC Streetwise 5', ARRAY['kfc streetwise 5', 'kfc sw5'], 1400, 95, 120, 55, NULL, 'KFC', 'restaurant', 'Manual'),
+('KFC Zinger Burger', ARRAY['kfc zinger', 'kfc zinger burger'], 520, 25, 54, 22, NULL, 'KFC', 'restaurant', 'Manual'),
+('KFC Crunch Burger', ARRAY['kfc crunch burger'], 480, 22, 50, 20, NULL, 'KFC', 'restaurant', 'Manual'),
+('KFC Dunked Wings', ARRAY['kfc dunked wings', 'kfc wings'], 450, 35, 20, 25, '6 pieces', 'KFC', 'restaurant', 'Manual'),
+('KFC Chips', ARRAY['kfc chips', 'kfc fries'], 360, 4, 48, 18, 'regular', 'KFC', 'restaurant', 'Manual'),
+('KFC Coleslaw', ARRAY['kfc coleslaw', 'kfc slaw'], 150, 2, 15, 9, 'regular', 'KFC', 'restaurant', 'Manual'),
+('KFC Dunked Burger', ARRAY['kfc dunked burger'], 580, 28, 52, 28, NULL, 'KFC', 'restaurant', 'Manual'),
+
+-- McDonald's
+('McDonald''s Big Mac', ARRAY['mcdonalds big mac', 'big mac mcdonalds', 'big mac'], 540, 25, 45, 28, NULL, 'McDonald''s', 'restaurant', 'Manual'),
+('McDonald''s Quarter Pounder', ARRAY['mcdonalds quarter pounder', 'quarter pounder mcdonalds'], 520, 30, 42, 26, NULL, 'McDonald''s', 'restaurant', 'Manual'),
+('McDonald''s Chicken Legend', ARRAY['mcdonalds chicken legend', 'chicken legend mcdonalds'], 490, 24, 48, 22, NULL, 'McDonald''s', 'restaurant', 'Manual'),
+('McDonald''s McChicken', ARRAY['mcdonalds mcchicken', 'mcchicken'], 400, 14, 39, 21, NULL, 'McDonald''s', 'restaurant', 'Manual'),
+('McDonald''s Fries', ARRAY['mcdonalds fries', 'mcdonalds chips'], 340, 4, 45, 16, 'medium', 'McDonald''s', 'restaurant', 'Manual'),
+('McDonald''s McFlurry', ARRAY['mcdonalds mcflurry', 'mcflurry'], 480, 12, 70, 16, 'regular', 'McDonald''s', 'restaurant', 'Manual'),
+('McDonald''s Cheeseburger', ARRAY['mcdonalds cheeseburger'], 300, 15, 33, 12, NULL, 'McDonald''s', 'restaurant', 'Manual'),
+
+-- Woolworths
+('Woolworths Protein Shake', ARRAY['woolworths protein shake', 'ww protein shake'], 220, 20, 25, 4, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Smoothie', ARRAY['woolworths smoothie', 'ww smoothie'], 280, 6, 58, 2, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Wrap', ARRAY['woolworths wrap', 'ww wrap'], 380, 18, 42, 14, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Salad Bowl', ARRAY['woolworths salad', 'ww salad'], 250, 12, 30, 8, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Sandwich', ARRAY['woolworths sandwich', 'ww sandwich'], 320, 14, 38, 12, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Fruit Pot', ARRAY['woolworths fruit', 'ww fruit pot'], 120, 2, 28, 0, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Yoghurt', ARRAY['woolworths yoghurt', 'ww yoghurt'], 160, 8, 24, 3, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Muesli Bar', ARRAY['woolworths muesli bar', 'ww muesli'], 180, 4, 28, 6, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Protein Bar', ARRAY['woolworths protein bar', 'ww protein bar'], 220, 18, 22, 7, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Hummus & Veg', ARRAY['woolworths hummus', 'ww hummus'], 180, 6, 18, 9, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Iced Coffee', ARRAY['woolworths iced coffee', 'ww iced coffee'], 200, 8, 28, 6, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Croissant', ARRAY['woolworths croissant', 'ww croissant'], 280, 6, 32, 14, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Muffin', ARRAY['woolworths muffin', 'ww muffin'], 380, 5, 52, 16, NULL, 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Sushi', ARRAY['woolworths sushi', 'ww sushi'], 340, 12, 58, 6, 'pack', 'Woolworths', 'restaurant', 'Manual'),
+('Woolworths Chicken Strips', ARRAY['woolworths chicken strips', 'ww chicken strips'], 320, 28, 22, 12, NULL, 'Woolworths', 'restaurant', 'Manual'),
+
+-- Spur
+('Spur Burger & Chips', ARRAY['spur burger'], 820, 38, 72, 38, NULL, 'Spur', 'restaurant', 'Manual'),
+('Spur Ribs & Chips', ARRAY['spur ribs', 'spur ribs and chips'], 1100, 75, 68, 58, 'full rack', 'Spur', 'restaurant', 'Manual'),
+('Spur Steak & Chips', ARRAY['spur steak'], 680, 52, 45, 28, '200g', 'Spur', 'restaurant', 'Manual'),
+('Spur Chicken Schnitzel', ARRAY['spur schnitzel', 'spur chicken schnitzel'], 750, 48, 58, 32, NULL, 'Spur', 'restaurant', 'Manual'),
+('Spur Wings & Chips', ARRAY['spur wings'], 720, 55, 52, 32, NULL, 'Spur', 'restaurant', 'Manual'),
+('Spur Salad', ARRAY['spur salad'], 280, 8, 24, 14, NULL, 'Spur', 'restaurant', 'Manual'),
+('Spur Onion Rings', ARRAY['spur onion rings'], 350, 4, 44, 18, NULL, 'Spur', 'restaurant', 'Manual'),
+
+-- Ocean Basket
+('Ocean Basket Hake & Chips', ARRAY['ocean basket hake', 'ocean basket hake and chips'], 620, 42, 52, 24, NULL, 'Ocean Basket', 'restaurant', 'Manual'),
+('Ocean Basket Calamari', ARRAY['ocean basket calamari'], 480, 32, 38, 20, NULL, 'Ocean Basket', 'restaurant', 'Manual'),
+('Ocean Basket Prawns', ARRAY['ocean basket prawns'], 380, 28, 18, 18, '6 prawns', 'Ocean Basket', 'restaurant', 'Manual'),
+('Ocean Basket Fish Platter', ARRAY['ocean basket fish platter', 'ocean basket platter'], 980, 68, 72, 42, NULL, 'Ocean Basket', 'restaurant', 'Manual'),
+('Ocean Basket Seafood Pasta', ARRAY['ocean basket pasta', 'ocean basket seafood pasta'], 720, 35, 78, 28, NULL, 'Ocean Basket', 'restaurant', 'Manual'),
+
+-- Wimpy
+('Wimpy Breakfast', ARRAY['wimpy breakfast'], 680, 32, 58, 32, 'full breakfast', 'Wimpy', 'restaurant', 'Manual'),
+('Wimpy Burger & Chips', ARRAY['wimpy burger'], 750, 35, 68, 35, NULL, 'Wimpy', 'restaurant', 'Manual'),
+('Wimpy Coffee', ARRAY['wimpy coffee'], 120, 6, 12, 5, NULL, 'Wimpy', 'restaurant', 'Manual'),
+('Wimpy All Day Breakfast', ARRAY['wimpy all day breakfast'], 820, 38, 72, 42, NULL, 'Wimpy', 'restaurant', 'Manual'),
+('Wimpy Milkshake', ARRAY['wimpy milkshake'], 450, 12, 68, 15, NULL, 'Wimpy', 'restaurant', 'Manual');

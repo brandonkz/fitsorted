@@ -1,4 +1,4 @@
-// Setup SA Foods in Supabase
+// Add branded chain foods to existing Supabase 'foods' table
 require('dotenv').config();
 const { createClient } = require('@supabase/supabase-js');
 
@@ -101,64 +101,39 @@ const SA_FOODS = [
 ];
 
 async function setupDatabase() {
-  console.log('🔧 Setting up SA Foods database...\n');
+  console.log('🔧 Adding branded chain foods to existing Supabase database...\n');
+  console.log(`📥 Inserting ${SA_FOODS.length} foods from Kauai, Nando's, Steers, KFC, McDonald's, Woolworths, Spur, Ocean Basket, Wimpy...`);
   
-  console.log('⚠️  MANUAL STEP REQUIRED:');
-  console.log('1. Go to: https://supabase.com/dashboard/project/fuddzrlnbrseofguuikp/editor');
-  console.log('2. Click SQL Editor');
-  console.log('3. Paste and run this SQL:\n');
-  
-  const createTableSQL = `
-CREATE TABLE IF NOT EXISTS sa_foods (
-  id SERIAL PRIMARY KEY,
-  food_name TEXT NOT NULL,
-  keywords TEXT[] NOT NULL,
-  calories INTEGER NOT NULL,
-  protein DECIMAL,
-  carbs DECIMAL,
-  fat DECIMAL,
-  chain TEXT,
-  verified BOOLEAN DEFAULT true,
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
-ALTER TABLE sa_foods ENABLE ROW LEVEL SECURITY;
-
-DROP POLICY IF EXISTS "Public read access" ON sa_foods;
-CREATE POLICY "Public read access" ON sa_foods FOR SELECT USING (true);
-  `;
-  
-  console.log(createTableSQL);
-  console.log('\n4. Press Enter here after running the SQL...');
-  
-  // Wait for user
-  await new Promise(resolve => {
-    process.stdin.once('data', resolve);
+  const foodsToInsert = SA_FOODS.map(food => {
+    // Extract serving size from food name if present
+    const servingMatch = food.food.match(/\(([^)]+)\)$/);
+    const serving = servingMatch ? servingMatch[1] : null;
+    const nameWithoutServing = serving ? food.food.replace(/\s*\([^)]+\)$/, '') : food.food;
+    
+    return {
+      name: nameWithoutServing,
+      name_alt: food.keywords,
+      calories: food.calories,
+      protein: food.protein || null,
+      carbs: food.carbs || null,
+      fat: food.fat || null,
+      serving: serving,
+      brand: food.chain || null,
+      category: 'restaurant',
+      source: 'Manual'
+    };
   });
-  
-  // Insert foods
-  console.log(`\n📥 Inserting ${SA_FOODS.length} SA foods...`);
-  
-  const foodsToInsert = SA_FOODS.map(food => ({
-    food_name: food.food,
-    keywords: food.keywords,
-    calories: food.calories,
-    protein: food.protein || null,
-    carbs: food.carbs || null,
-    fat: food.fat || null,
-    chain: food.chain || null,
-    verified: true
-  }));
   
   // Insert in batches of 10 to avoid rate limits
   for (let i = 0; i < foodsToInsert.length; i += 10) {
     const batch = foodsToInsert.slice(i, i + 10);
     const { error } = await supabase
-      .from('sa_foods')
+      .from('foods')
       .insert(batch);
     
     if (error) {
       console.error(`❌ Error inserting batch ${i / 10 + 1}:`, error.message);
+      console.error('Details:', error.details);
     } else {
       console.log(`✅ Batch ${i / 10 + 1}/${Math.ceil(foodsToInsert.length / 10)} inserted`);
     }
@@ -166,7 +141,7 @@ CREATE POLICY "Public read access" ON sa_foods FOR SELECT USING (true);
   
   // Verify
   const { count } = await supabase
-    .from('sa_foods')
+    .from('foods')
     .select('*', { count: 'exact', head: true });
   
   console.log(`\n📊 Total foods in database: ${count}`);
