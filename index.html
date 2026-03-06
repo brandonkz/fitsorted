@@ -431,6 +431,188 @@
     </div>
   </section>
 
+  <!-- DRUNK-O-METER SECTION -->
+  <section id="drunk-o-meter" style="background: #0f0f0f;">
+    <div class="container">
+      <h2>🍺 Drunk-o-Meter</h2>
+      <p class="subtitle" style="margin-bottom: 32px;">Log your drinks on WhatsApp and FitSorted tracks your units, calories, and tells you exactly when you're over the SA legal driving limit.</p>
+
+      <div class="card" style="max-width: 560px; margin: 0 auto;">
+        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">Try it — what did you drink?</h3>
+
+        <div id="drink-list" style="margin-bottom: 16px;"></div>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+          <select id="drink-select" style="flex:1; padding: 10px 12px; border-radius: 10px; background: #1a1a1a; color: #f5f5f5; border: 1px solid #333; font-size: 0.95rem;">
+            <option value="">Choose a drink...</option>
+            <optgroup label="🍺 Beer">
+              <option value="castle|150|1.7">Castle Lager (340ml)</option>
+              <option value="black-label|158|1.9">Black Label (340ml)</option>
+              <option value="heineken|150|1.7">Heineken (330ml)</option>
+              <option value="windhoek|153|1.7">Windhoek Lager (340ml)</option>
+              <option value="hansa|143|1.6">Hansa (340ml)</option>
+            </optgroup>
+            <optgroup label="🍹 Ciders & RTDs">
+              <option value="savanna|174|2.0">Savanna Dry (330ml)</option>
+              <option value="hunters|186|2.1">Hunter's Dry (330ml)</option>
+              <option value="brutal-fruit|200|1.9">Brutal Fruit (275ml)</option>
+              <option value="flying-fish|168|2.0">Flying Fish (330ml)</option>
+            </optgroup>
+            <optgroup label="🥃 Spirits (25ml shot)">
+              <option value="tequila|65|1.0">Tequila Shot</option>
+              <option value="vodka|55|1.0">Vodka Shot</option>
+              <option value="whisky|65|1.0">Whisky</option>
+              <option value="gin|55|1.0">Gin</option>
+              <option value="brandy|65|1.0">Brandy</option>
+              <option value="amarula|114|0.8">Amarula</option>
+            </optgroup>
+            <optgroup label="🍷 Wine (150ml)">
+              <option value="red-wine|125|1.8">Red Wine</option>
+              <option value="white-wine|121|1.8">White Wine</option>
+              <option value="rosé|121|1.8">Rosé</option>
+              <option value="champagne|90|1.5">Champagne</option>
+            </optgroup>
+            <optgroup label="🍸 Cocktails">
+              <option value="gin-tonic|120|1.3">Gin & Tonic</option>
+              <option value="mojito|217|1.7">Mojito</option>
+              <option value="long-island|275|3.5">Long Island Iced Tea</option>
+              <option value="margarita|274|2.0">Margarita</option>
+            </optgroup>
+          </select>
+          <button onclick="addDrink()" style="padding: 10px 18px; background: var(--accent); color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; white-space: nowrap;">+ Add</button>
+        </div>
+
+        <!-- Meter display -->
+        <div id="meter-display" style="display:none; margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span style="font-size: 0.85rem; color: var(--muted);">Sober</span>
+            <span style="font-size: 0.85rem; color: var(--muted);">Hammered</span>
+          </div>
+          <div style="background: #1e1e1e; border-radius: 99px; height: 20px; overflow: hidden; margin-bottom: 12px;">
+            <div id="meter-bar" style="height: 100%; width: 0%; border-radius: 99px; transition: all 0.5s ease; background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);"></div>
+          </div>
+          <div id="meter-label" style="font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 16px;"></div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; text-align: center; margin-bottom: 16px;">
+            <div style="background: #1a1a1a; border-radius: 12px; padding: 12px;">
+              <div id="stat-units" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);"></div>
+              <div style="font-size: 0.75rem; color: var(--muted);">units</div>
+            </div>
+            <div style="background: #1a1a1a; border-radius: 12px; padding: 12px;">
+              <div id="stat-cal" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);"></div>
+              <div style="font-size: 0.75rem; color: var(--muted);">calories</div>
+            </div>
+            <div style="background: #1a1a1a; border-radius: 12px; padding: 12px;">
+              <div id="stat-bread" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);"></div>
+              <div style="font-size: 0.75rem; color: var(--muted);">slices of bread</div>
+            </div>
+          </div>
+
+          <div id="sober-time" style="text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 12px;"></div>
+          <div id="legal-warning" style="display:none; background: rgba(239,68,68,0.15); border: 1px solid #ef4444; border-radius: 12px; padding: 14px; text-align: center; color: #ef4444; font-weight: 600; margin-bottom: 12px;">
+            🚨 Over the SA legal driving limit (0.05 BAC)<br>
+            <span style="font-weight: 400; font-size: 0.9rem;">Do NOT drive. Call an Uber.</span>
+          </div>
+          <div id="nudge" style="font-size: 0.9rem; color: var(--muted); text-align: center; font-style: italic;"></div>
+        </div>
+
+        <div id="reset-row" style="display:none; text-align:center; margin-top: 20px;">
+          <button onclick="resetDrinks()" style="background: transparent; border: 1px solid #333; color: var(--muted); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem;">Reset</button>
+        </div>
+
+        <div style="margin-top: 24px; text-align: center; padding-top: 20px; border-top: 1px solid #222;">
+          <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 12px;">Track this automatically on WhatsApp — just text what you drank</p>
+          <a class="btn" href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener">Try FitSorted free →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const drinks = [];
+
+    function addDrink() {
+      const sel = document.getElementById('drink-select');
+      if (!sel.value) return;
+      const [name, cal, units] = sel.value.split('|');
+      drinks.push({ name: sel.options[sel.selectedIndex].text, cal: parseFloat(cal), units: parseFloat(units) });
+      sel.value = '';
+      renderDrinks();
+    }
+
+    function removeDrink(i) {
+      drinks.splice(i, 1);
+      renderDrinks();
+    }
+
+    function resetDrinks() {
+      drinks.length = 0;
+      renderDrinks();
+    }
+
+    function renderDrinks() {
+      const list = document.getElementById('drink-list');
+      const meter = document.getElementById('meter-display');
+      const resetRow = document.getElementById('reset-row');
+
+      if (!drinks.length) {
+        list.innerHTML = '';
+        meter.style.display = 'none';
+        resetRow.style.display = 'none';
+        return;
+      }
+
+      list.innerHTML = drinks.map((d, i) =>
+        `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#1a1a1a;border-radius:8px;margin-bottom:6px;font-size:0.9rem;">
+          <span>${d.name}</span>
+          <span style="color:var(--muted);margin-left:12px;">${d.cal} cal · ${d.units} units</span>
+          <button onclick="removeDrink(${i})" style="background:none;border:none;color:#555;cursor:pointer;margin-left:12px;font-size:1rem;">✕</button>
+        </div>`
+      ).join('');
+
+      const totalUnits = drinks.reduce((s, d) => s + d.units, 0);
+      const totalCal = drinks.reduce((s, d) => s + d.cal, 0);
+      const breadSlices = Math.round(totalCal / 80);
+      const hoursToSober = Math.ceil(totalUnits);
+      const overLimit = totalUnits > 2.5;
+
+      // Meter levels
+      const levels = [
+        { max: 1,   label: 'Barely touched it 😇', pct: 10 },
+        { max: 2,   label: 'Warm 🌡️',              pct: 25 },
+        { max: 3,   label: 'Tipsy 🥴',              pct: 45 },
+        { max: 5,   label: 'Drunk 🍻',              pct: 65 },
+        { max: 7,   label: 'Very Drunk 😵',          pct: 82 },
+        { max: 10,  label: 'Hammered 🤯',            pct: 95 },
+        { max: 999, label: 'Send help 🚑',           pct: 100 },
+      ];
+      const level = levels.find(l => totalUnits <= l.max) || levels[levels.length - 1];
+
+      const nudges = [
+        '',
+        'Still in the safe zone. Keep it here.',
+        "You're feeling it. Good place to switch to water.",
+        'Your judgment is impaired. No more driving.',
+        'This is doing real damage. Stop now and drink water.',
+        'Seriously. Stop. Drink water. Sleep.',
+        'Call someone.',
+      ];
+      const nudgeIdx = Math.min(Math.floor(totalUnits / 1.5), nudges.length - 1);
+
+      document.getElementById('meter-bar').style.width = level.pct + '%';
+      document.getElementById('meter-label').textContent = level.label;
+      document.getElementById('stat-units').textContent = totalUnits.toFixed(1);
+      document.getElementById('stat-cal').textContent = totalCal;
+      document.getElementById('stat-bread').textContent = breadSlices;
+      document.getElementById('sober-time').textContent = `⏱️ Sober in ~${hoursToSober} hour${hoursToSober !== 1 ? 's' : ''}`;
+      document.getElementById('legal-warning').style.display = overLimit ? 'block' : 'none';
+      document.getElementById('nudge').textContent = nudges[nudgeIdx];
+
+      meter.style.display = 'block';
+      resetRow.style.display = 'block';
+    }
+  </script>
+
   <section id="faq">
     <div class="container">
       <h2>FAQ</h2>
