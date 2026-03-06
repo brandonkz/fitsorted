@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drunk-o-Meter 🍺 | FitSorted</title>
+  <meta name="description" content="How drunk are you right now? Add your drinks and find out your units, calories, and whether you're over the SA legal driving limit." />
+  <meta property="og:title" content="Drunk-o-Meter 🍺 — How drunk are you?" />
+  <meta property="og:description" content="Add your drinks. We'll tell you your units, calories, and if you're over the SA legal driving limit. Built by FitSorted." />
+  <meta property="og:image" content="https://fitsorted.co.za/og-drunk.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --accent: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    nav .logo { font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+    nav .back { font-size: 0.85rem; color: var(--muted); }
+    nav .back:hover { color: var(--text); }
+
+    .hero {
+      text-align: center;
+      padding: 48px 24px 32px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 20px;
+      padding: 28px;
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #1a1a1a;
+      color: var(--text);
+      border: 1px solid #333;
+      font-size: 0.95rem;
+      font-family: inherit;
+      margin-bottom: 10px;
+      appearance: none;
+      cursor: pointer;
+    }
+    select:focus { outline: none; border-color: var(--accent); }
+
+    .add-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s;
+    }
+    .add-btn:hover { opacity: 0.88; }
+
+    .drink-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: #1a1a1a;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .drink-item .remove {
+      background: none;
+      border: none;
+      color: #555;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0 4px;
+      transition: color 0.2s;
+    }
+    .drink-item .remove:hover { color: var(--red); }
+
+    .meter-wrap { margin: 24px 0 16px; }
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .meter-track {
+      background: #1e1e1e;
+      border-radius: 99px;
+      height: 22px;
+      overflow: hidden;
+    }
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #10b981, #f59e0b 60%, #ef4444);
+      transition: width 0.5s cubic-bezier(.4,0,.2,1);
+    }
+    .meter-label {
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .stat {
+      background: #1a1a1a;
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .sober-time {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .legal-warning {
+      display: none;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid var(--red);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .legal-warning strong { color: var(--red); font-size: 1rem; display: block; margin-bottom: 4px; }
+    .legal-warning span { color: #fca5a5; font-size: 0.88rem; }
+
+    .nudge {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+      min-height: 20px;
+      margin-bottom: 8px;
+    }
+
+    .reset-btn {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 9px;
+      background: transparent;
+      border: 1px solid #333;
+      color: var(--muted);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-family: inherit;
+    }
+    .reset-btn:hover { border-color: #555; color: var(--text); }
+
+    .cta-section {
+      text-align: center;
+      padding: 32px 24px 48px;
+    }
+    .cta-section p { color: var(--muted); margin-bottom: 16px; font-size: 0.95rem; }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 20px 16px; }
+      .stats { gap: 8px; }
+      .stat-val { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">🥗 FitSorted</a>
+    <a href="/" class="back">← Back to home</a>
+  </nav>
+
+  <div class="hero">
+    <h1>🍺 Drunk-o-Meter</h1>
+    <p>Add your drinks and find out exactly how drunk you are, how many calories you've had, and if you're over the SA legal driving limit.</p>
+  </div>
+
+  <div style="padding: 0 16px;">
+    <div class="card">
+      <div id="drink-list"></div>
+
+      <select id="drink-select">
+        <option value="">Choose a drink...</option>
+        <optgroup label="🍺 Beer">
+          <option value="Castle Lager|150|1.7">Castle Lager (340ml)</option>
+          <option value="Black Label|158|1.9">Black Label (340ml)</option>
+          <option value="Heineken|150|1.7">Heineken (330ml)</option>
+          <option value="Windhoek Lager|153|1.7">Windhoek Lager (340ml)</option>
+          <option value="Hansa|143|1.6">Hansa (340ml)</option>
+          <option value="Amstel|145|1.7">Amstel (340ml)</option>
+          <option value="Stella Artois|154|1.8">Stella Artois (330ml)</option>
+        </optgroup>
+        <optgroup label="🍹 Ciders & RTDs">
+          <option value="Savanna Dry|174|2.0">Savanna Dry (330ml)</option>
+          <option value="Hunter's Dry|186|2.1">Hunter's Dry (330ml)</option>
+          <option value="Brutal Fruit|200|1.9">Brutal Fruit (275ml)</option>
+          <option value="Flying Fish|168|2.0">Flying Fish (330ml)</option>
+          <option value="Bernini|175|1.8">Bernini (275ml)</option>
+          <option value="Jack Daniel's RTD|228|2.2">Jack Daniel's RTD (275ml)</option>
+        </optgroup>
+        <optgroup label="🥃 Spirits (25ml shot)">
+          <option value="Tequila Shot|65|1.0">Tequila Shot</option>
+          <option value="Vodka Shot|55|1.0">Vodka Shot</option>
+          <option value="Whisky|65|1.0">Whisky</option>
+          <option value="Gin|55|1.0">Gin</option>
+          <option value="Brandy|65|1.0">Brandy</option>
+          <option value="Rum|65|1.0">Rum</option>
+          <option value="Amarula|114|0.8">Amarula</option>
+          <option value="Jägermeister|77|1.1">Jägermeister</option>
+        </optgroup>
+        <optgroup label="🍷 Wine (150ml glass)">
+          <option value="Red Wine|125|1.8">Red Wine</option>
+          <option value="White Wine|121|1.8">White Wine</option>
+          <option value="Rosé|121|1.8">Rosé</option>
+          <option value="Champagne|90|1.5">Champagne (120ml)</option>
+        </optgroup>
+        <optgroup label="🍸 Cocktails">
+          <option value="Gin & Tonic|120|1.3">Gin & Tonic</option>
+          <option value="Mojito|217|1.7">Mojito</option>
+          <option value="Margarita|274|2.0">Margarita</option>
+          <option value="Long Island Iced Tea|275|3.5">Long Island Iced Tea</option>
+          <option value="Piña Colada|245|1.5">Piña Colada</option>
+        </optgroup>
+      </select>
+
+      <button class="add-btn" onclick="addDrink()">+ Add drink</button>
+
+      <div id="meter-section" style="display:none; margin-top: 28px;">
+        <div class="meter-wrap">
+          <div class="meter-labels"><span>Sober</span><span>Hammered</span></div>
+          <div class="meter-track"><div class="meter-fill" id="meter-fill"></div></div>
+        </div>
+        <div class="meter-label" id="meter-label"></div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-val" id="stat-units">0</div>
+            <div class="stat-label">units</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val" id="stat-cal">0</div>
+            <div class="stat-label">calories</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val" id="stat-bread">0</div>
+            <div class="stat-label">🍞 slices</div>
+          </div>
+        </div>
+
+        <div class="sober-time" id="sober-time"></div>
+        <div class="legal-warning" id="legal-warning">
+          <strong>🚨 Over the SA legal driving limit</strong>
+          <span>SA law is 0.05g/100ml BAC — stricter than most countries.<br>Do NOT drive. Call an Uber.</span>
+        </div>
+        <div class="nudge" id="nudge"></div>
+        <button class="reset-btn" onclick="resetDrinks()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <p>Track this automatically on WhatsApp — just text what you drank and FitSorted logs the units, calories and drunk-o-meter in real time.</p>
+    <a class="btn" href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener">Try FitSorted free →</a>
+    <p style="margin-top: 14px; font-size: 0.8rem;">Also tracks food, macros, and exercise. 100% free.</p>
+  </div>
+
+  <footer>
+    © 2026 FitSorted · <a href="/privacy.html" style="color: var(--muted);">Privacy</a> · Built for South Africans 🇿🇦
+  </footer>
+
+  <script>
+    const drinks = [];
+
+    const levels = [
+      { max: 0.9,  label: 'Stone cold sober 😇', pct: 5  },
+      { max: 2,    label: 'Warm 🌡️',              pct: 22 },
+      { max: 3,    label: 'Tipsy 🥴',              pct: 42 },
+      { max: 5,    label: 'Drunk 🍻',              pct: 62 },
+      { max: 7,    label: 'Very Drunk 😵',          pct: 80 },
+      { max: 10,   label: 'Hammered 🤯',            pct: 95 },
+      { max: 9999, label: 'Send help 🚑',           pct: 100 },
+    ];
+
+    const nudges = [
+      'Still in the safe zone. Keep it here and you\'ll feel great tomorrow.',
+      'Still in the safe zone. Keep it here and you\'ll feel great tomorrow.',
+      'You\'re feeling it. Good place to switch to water — you\'ll still have fun.',
+      'Your judgment is impaired. No more driving. Consider switching to water.',
+      'This is doing real damage. Sleep quality tanks hard after this point.',
+      'Seriously. Stop drinking. Drink water. Eat something.',
+      'Call someone you trust.',
+    ];
+
+    function addDrink() {
+      const sel = document.getElementById('drink-select');
+      if (!sel.value) return;
+      const [name, cal, units] = sel.value.split('|');
+      drinks.push({ name, cal: parseFloat(cal), units: parseFloat(units) });
+      sel.value = '';
+      render();
+    }
+
+    function removeDrink(i) { drinks.splice(i, 1); render(); }
+    function resetDrinks() { drinks.length = 0; render(); }
+
+    function render() {
+      // Drink list
+      const listEl = document.getElementById('drink-list');
+      listEl.innerHTML = drinks.map((d, i) =>
+        `<div class="drink-item">
+          <span>${d.name}</span>
+          <span style="color:var(--muted);margin:0 8px;white-space:nowrap;">${d.cal} cal · ${d.units} units</span>
+          <button class="remove" onclick="removeDrink(${i})">✕</button>
+        </div>`
+      ).join('');
+
+      const meterSection = document.getElementById('meter-section');
+      if (!drinks.length) { meterSection.style.display = 'none'; return; }
+      meterSection.style.display = 'block';
+
+      const totalUnits = drinks.reduce((s, d) => s + d.units, 0);
+      const totalCal   = drinks.reduce((s, d) => s + d.cal, 0);
+      const breadSlices = Math.round(totalCal / 80);
+      const hoursToSober = Math.ceil(totalUnits);
+      const overLimit = totalUnits > 2.5;
+
+      const level = levels.find(l => totalUnits <= l.max) || levels[levels.length - 1];
+      const nudgeIdx = Math.min(Math.floor(totalUnits / 1.5), nudges.length - 1);
+
+      document.getElementById('meter-fill').style.width = level.pct + '%';
+      document.getElementById('meter-label').textContent = level.label;
+      document.getElementById('stat-units').textContent = totalUnits.toFixed(1);
+      document.getElementById('stat-cal').textContent = totalCal;
+      document.getElementById('stat-bread').textContent = breadSlices;
+      document.getElementById('sober-time').textContent = `⏱️ Sober in ~${hoursToSober} hour${hoursToSober !== 1 ? 's' : ''}`;
+      document.getElementById('legal-warning').style.display = overLimit ? 'block' : 'none';
+      document.getElementById('nudge').textContent = nudges[nudgeIdx];
+    }
+  </script>
+</body>
+</html>
