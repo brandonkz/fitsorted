@@ -2436,8 +2436,27 @@ app.post("/webhook", async (req, res) => {
   }
 });
 
+// ── Cron dedup: prevent double-sends on restart ──
+const CRON_STATE_FILE = './cron-state.json';
+function cronAlreadyRan(jobName) {
+  const today = getToday();
+  try {
+    const state = JSON.parse(fs.readFileSync(CRON_STATE_FILE, 'utf8'));
+    return state[jobName] === today;
+  } catch { return false; }
+}
+function markCronRan(jobName) {
+  const today = getToday();
+  let state = {};
+  try { state = JSON.parse(fs.readFileSync(CRON_STATE_FILE, 'utf8')); } catch {}
+  state[jobName] = today;
+  fs.writeFileSync(CRON_STATE_FILE, JSON.stringify(state, null, 2));
+}
+
 // ── 6:30 AM morning check-in ──
 cron.schedule("30 6 * * *", async () => {
+  if (cronAlreadyRan('morning')) { console.log('[cron] Morning already sent today, skipping'); return; }
+  markCronRan('morning');
   const users = loadUsers();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
@@ -2490,6 +2509,8 @@ cron.schedule("30 6 * * *", async () => {
 
 // ── 8 PM daily summary ──
 cron.schedule("0 20 * * *", async () => {
+  if (cronAlreadyRan('evening')) { console.log('[cron] Evening summary already sent today, skipping'); return; }
+  markCronRan('evening');
   const users = loadUsers();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
@@ -2538,6 +2559,8 @@ cron.schedule("0 20 * * *", async () => {
 
 // ── 1 PM nudge (every 2nd day, zero logs only) ──
 cron.schedule("0 13 * * *", async () => {
+  if (cronAlreadyRan('nudge')) { console.log('[cron] Nudge already sent today, skipping'); return; }
+  markCronRan('nudge');
   const users = loadUsers();
   const today = getToday();
   let nudged = 0;
@@ -2583,6 +2606,8 @@ cron.schedule("0 13 * * *", async () => {
 
 // ── 8:05 PM admin report ──
 cron.schedule("5 20 * * *", async () => {
+  if (cronAlreadyRan('admin_report')) { console.log('[cron] Admin report already sent today, skipping'); return; }
+  markCronRan('admin_report');
   const users = loadUsers();
   const today = getToday();
   let activeUsers = 0;
