@@ -24,7 +24,7 @@
   <header>
     <div class="wrap">
       <h1>FitSorted — 4‑Week Story Calendar</h1>
-      <div class="sub">Platforms: Instagram Story, TikTok Story, WhatsApp Status • 1 story per day • CTA: “Free forever on WhatsApp”</div>
+      <div class="sub">Platforms: Instagram Story, TikTok Story, WhatsApp Status • 1 story per day • CTA: "Free forever on WhatsApp"</div>
     </div>
   </header>
 
@@ -36,7 +36,6 @@
           <th>Theme</th>
           <th>Story Copy</th>
           <th>Visual Direction</th>
-          <th>CTA</th>
           <th>Platforms</th>
         </tr>
       </thead>
@@ -46,4 +45,49 @@
   </div>
 
 <script>
-const data = 
+const data = [
+  {"day":1,"theme":"Motivation + promise","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Free forever calorie tracker on WhatsApp. No apps. No logins. Just message FitSorted.","visual":"Bold text on dark background + WhatsApp icon + FitSorted logo","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":2,"theme":"Feature demo","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Log food in 5 seconds. Example: 'chicken wrap + coke'.","visual":"Screen recording of chat + quick log result","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":3,"theme":"Local food database","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"South African food database built‑in. Nando's, Kauai, Steers, Woolies.","visual":"Food brand logo strip + calories callout","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":4,"theme":"Proof / recap","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Yesterday recap in your chat. See exactly what you ate + totals.","visual":"Screenshot of recap message (blur names)","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":5,"theme":"Weekend survival","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Drinking tonight? FitSorted tracks alcohol too.","visual":"Beer/wine icon + unit count overlay","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":6,"theme":"Meal ideas","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Weekend braai? Log it fast without overthinking.","visual":"Braai photo + quick log overlay","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":7,"theme":"Weekly reset","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Reset for Monday. Start tracking today.","visual":"Checklist + 'Start today'","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":8,"theme":"No app barrier","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"No app. Just WhatsApp.","visual":"Phone + WhatsApp bubble","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":9,"theme":"Natural language","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Say: 'yesterday: pizza + coke' and it logs it.","visual":"Chat screenshot with parsed entry","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":10,"theme":"Macros","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Macros tracked automatically (protein, carbs, fat).","visual":"Macro bars + numbers","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":11,"theme":"Streaks","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Streaks beat motivation. Log daily, stay consistent.","visual":"Streak counter graphic","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":12,"theme":"Drive safe","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"FitSorted warns when you're over the legal limit.","visual":"Speedometer + warning icon","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":13,"theme":"Under 400 cals","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Need ideas under 400 cal? Ask FitSorted.","visual":"3 food options + calories","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":14,"theme":"Free forever","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Yes, it's free forever. Start now.","visual":"Big 'FREE FOREVER' text","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":15,"theme":"Low friction","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"If you can WhatsApp, you can track your calories.","visual":"WhatsApp chat + checkmarks","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":16,"theme":"Smart nudges","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Smart nudges keep you on track without guilt.","visual":"Nudge message screenshot","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":17,"theme":"Local meals","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Local meals: Nando's, Kauai, Woolies, Steers.","visual":"Brand grid + calories overlay","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":18,"theme":"Daily summary","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Daily summary at 8pm. You always know where you stand.","visual":"Summary screenshot","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":19,"theme":"Weekend drinks","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Weekend drinks? We count the units + calories.","visual":"Alcohol units card","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":20,"theme":"Portion guide","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Eyeballing portions is fine. FitSorted still helps.","visual":"Hand‑portion guide","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":21,"theme":"Weekly reset","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Reset for the week. Start today.","visual":"Minimal reset graphic","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":22,"theme":"Busy people","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Too busy for apps? Use WhatsApp.","visual":"Clock + chat bubble","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":23,"theme":"Goal types","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Lose weight, build muscle, or stay on track — FitSorted adapts.","visual":"3‑panel goals graphic","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":24,"theme":"All‑in‑one","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Calories, macros, alcohol — all in one chat.","visual":"Stacked icons + checkmarks","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":25,"theme":"Week recap","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Weekly recap in seconds. No spreadsheets.","visual":"Week summary card","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":26,"theme":"Takeout","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Takeout doesn't have to ruin your week.","visual":"Takeout photo + calories overlay","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":27,"theme":"Mindset","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Progress > perfection. Just log it.","visual":"Big type + subtle progress bar","cta":"Try FitSorted free forever → wa.me/27690684940"},
+  {"day":28,"theme":"Final reminder","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Final reminder: FitSorted is free forever on WhatsApp.","visual":"Final CTA card","cta":"Try FitSorted free forever → wa.me/27690684940"}
+];
+
+const tbody = document.getElementById('rows');
+data.forEach(item => {
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td><strong>Day ${item.day}</strong></td>
+    <td>${item.theme}</td>
+    <td>${item.story_copy}</td>
+    <td style="color:var(--muted);font-size:12px">${item.visual}</td>
+    <td>${item.platforms.map(p => `<span class="pill">${p}</span>`).join('')}</td>
+  `;
+  tbody.appendChild(row);
+});
+</script>
+</body>
+</html>
