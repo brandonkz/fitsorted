@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitSorted — 4‑Week Story Calendar</title>
+  <style>
+    :root{--bg:#0b0f0c;--panel:#111614;--text:#e7f7ea;--muted:#9bb3a6;--accent:#2eea7a;--border:#1b2320;}
+    body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Arial,sans-serif;}
+    header{padding:24px;border-bottom:1px solid var(--border);background:var(--panel);}
+    h1{margin:0 0 6px;font-size:22px}
+    .sub{color:var(--muted)}
+    .wrap{max-width:1200px;margin:0 auto;padding:20px}
+    table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--border)}
+    th,td{padding:12px;border-bottom:1px solid var(--border);vertical-align:top}
+    th{color:var(--accent);text-align:left;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+    tr:hover td{background:#0f1512}
+    .cta{color:var(--accent)}
+    .pill{display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:999px;font-size:11px;color:var(--muted);margin-right:6px}
+    .footer{color:var(--muted);font-size:12px;padding:14px 20px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>FitSorted — 4‑Week Story Calendar</h1>
+      <div class="sub">Platforms: Instagram Story, TikTok Story, WhatsApp Status • 1 story per day • CTA: “Free forever on WhatsApp”</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Theme</th>
+          <th>Story Copy</th>
+          <th>Visual Direction</th>
+          <th>CTA</th>
+          <th>Platforms</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="footer">Primary CTA: <span class="cta">Try FitSorted free forever → wa.me/27690684940</span></div>
+  </div>
+
+<script>
+const data = 
