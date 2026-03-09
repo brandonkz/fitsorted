@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitSorted Story Prompts - Image Generation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #e7f7ea;
+      background: #0b0f0c;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #2eea7a;
+      font-size: 28px;
+      margin: 20px 0;
+      border-bottom: 2px solid #1b2320;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #2eea7a;
+      font-size: 20px;
+      margin: 30px 0 15px;
+    }
+    .intro {
+      background: #111614;
+      border-left: 4px solid #2eea7a;
+      padding: 15px;
+      margin: 20px 0;
+      color: #9bb3a6;
+    }
+    .prompt-card {
+      background: #111614;
+      border: 1px solid #1b2320;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      position: relative;
+    }
+    .prompt-card.completed {
+      opacity: 0.6;
+      border-color: #2eea7a;
+    }
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .day-number {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2eea7a;
+    }
+    .theme {
+      font-size: 14px;
+      color: #9bb3a6;
+      font-style: italic;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      accent-color: #2eea7a;
+    }
+    .prompt-text {
+      background: #0b0f0c;
+      border: 1px solid #1b2320;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #e7f7ea;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .story-copy {
+      color: #9bb3a6;
+      font-size: 14px;
+      margin: 10px 0;
+      padding: 10px;
+      background: #0b0f0c;
+      border-radius: 4px;
+    }
+    .copy-btn {
+      background: #2eea7a;
+      color: #0b0f0c;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .copy-btn:hover {
+      background: #26c766;
+    }
+    .copy-btn:active {
+      transform: scale(0.98);
+    }
+    .stats {
+      background: #111614;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .stat {
+      flex: 1;
+    }
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2eea7a;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #9bb3a6;
+      text-transform: uppercase;
+    }
+    .progress-bar {
+      background: #1b2320;
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .progress-fill {
+      background: #2eea7a;
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: #111614;
+      color: #9bb3a6;
+      border: 1px solid #1b2320;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .filter-btn.active {
+      background: #2eea7a;
+      color: #0b0f0c;
+      border-color: #2eea7a;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      .prompt-text {
+        font-size: 12px;
+      }
+      .stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎨 FitSorted Story Prompts</h1>
+
+<div class="intro">
+  <strong>How to use:</strong><br>
+  1. Copy prompt below<br>
+  2. Paste into Gemini (nano banana)<br>
+  3. Generate image<br>
+  4. Download to phone<br>
+  5. Post to Instagram Story<br>
+  6. Check off completed ✓
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number" id="completed-count">0</div>
+    <div class="stat-label">Completed</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number" id="remaining-count">28</div>
+    <div class="stat-label">Remaining</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number" id="progress-percent">0%</div>
+    <div class="stat-label">Progress</div>
+  </div>
+</div>
+
+<div class="progress-bar">
+  <div class="progress-fill" id="progress-bar" style="width: 0%"></div>
+</div>
+
+<div class="filter-buttons">
+  <button class="filter-btn active" onclick="filterPrompts('all')">All</button>
+  <button class="filter-btn" onclick="filterPrompts('pending')">Pending</button>
+  <button class="filter-btn" onclick="filterPrompts('completed')">Completed</button>
+</div>
+
+<div id="prompts-container"></div>
+
+<script>
+const prompts = [
+  {
+    day: 1,
+    theme: "Motivation + promise",
+    story: "Free forever calorie tracker on WhatsApp. No apps. No logins. Just message FitSorted.",
+    prompt: `Create a professional Instagram Story image (9:16 aspect ratio, 1080x1920px) for FitSorted calorie tracker app:
+
+Design style: Modern, clean, minimalist
+Color scheme: Dark background (#0b0f0c), bright green accent (#2eea7a)
+Layout: Vertical mobile-first design
+
+Main elements:
+1. Top section: "FitSorted" logo with "FS" icon in green
+2. Center: Bold headline "FREE FOREVER CALORIE TRACKER" in white, large font
+3. Subheading: "On WhatsApp" in green
+4. Three checkmark bullets in green:
+   • No apps
+   • No logins
+   • Just message
+5. Bottom CTA: "Try FitSorted →" button in green with "wa.me/27690684940" below
+
+Visual style: Clean typography, generous white space, professional app marketing aesthetic, WhatsApp green accent color throughout`
+  },
+  {
+    day: 2,
+    theme: "Feature demo",
+    story: "Log food in 5 seconds. Example: 'chicken wrap + coke'.",
+    prompt: `Create a professional Instagram Story (9:16, 1080x1920px) showing FitSorted's food logging feature:
+
+Design: WhatsApp chat interface mockup
+Background: Dark (#0b0f0c)
+
+Show a chat conversation:
+1. User message bubble (right side, green): "chicken wrap + coke"
+2. FitSorted reply (left side, dark grey): "✅ Chicken wrap - 450 cal | Coke - 140 cal | Today: 590 / 2000 cal"
+
+Top: "FitSorted" header with green "FS" icon
+Headline above chat: "LOG FOOD IN 5 SECONDS" (white, bold)
+Bottom CTA: "Start tracking → wa.me/27690684940" in green
+
+Style: Authentic WhatsApp UI, realistic chat bubbles, clean typography`
+  },
+  {
+    day: 3,
+    theme: "Database showcase",
+    story: "500+ South African foods in the database. Nando's, Kauai, Steers, Woolworths meals, bunny chow, vetkoek, pap.",
+    prompt: `Create an Instagram Story (9:16, 1080x1920px) showcasing FitSorted's SA food database:
+
+Background: Dark (#0b0f0c)
+Layout: Food category grid
+
+Top: "500+ SOUTH AFRICAN FOODS" (white, bold, large)
+Subtitle: "We know your food" (green)
+
+Display food categories with icons:
+• 🍗 Nando's
+• 🥗 Kauai
+• 🍔 Steers
+• 🛒 Woolworths
+• 🍛 Bunny Chow
+• 🥖 Vetkoek
+• 🍚 Pap & More
+
+Each item in rounded pill badges (dark grey bg, white text, green accent)
+
+Bottom: "FitSorted" logo + "Try free → wa.me/27690684940"
+
+Style: Modern app UI, organized grid layout, professional branding`
+  },
+  {
+    day: 4,
+    theme: "Results preview",
+    story: "Morning recap every day. Yesterday: 1,847 cal | Goal: 2,000. 153 cal deficit = 20g fat lost.",
+    prompt: `Create an Instagram Story (9:16, 1080x1920px) showing FitSorted's morning recap feature:
+
+Background: Dark (#0b0f0c)
+
+Mock WhatsApp notification:
+"Good morning! 🌅 Yesterday's recap:"
+
+Stats panel (dark grey card, rounded):
+📊 INTAKE: 1,847 cal
+🎯 GOAL: 2,000 cal
+✅ DEFICIT: 153 cal
+🔥 FAT LOST: 20g
+
+Headline above: "MORNING RECAP EVERY DAY" (white, bold)
+Green highlight on "20g fat lost"
+
+Bottom: "Track your progress → wa.me/27690684940"
+
+Style: Clean data visualization, motivational tone, WhatsApp-inspired notification design`
+  },
+  {
+    day: 5,
+    theme: "Feature spotlight",
+    story: "Drunk-O-Meter. Tracks alcohol units. Tells you when you'll be sober. SA legal limit (0.05%).",
+    prompt: `Create an Instagram Story (9:16, 1080x1920px) featuring FitSorted's Drunk-O-Meter:
+
+Background: Dark (#0b0f0c)
+
+Center visual: 
+Stylized meter/gauge graphic showing alcohol units
+Numbers: "2.4 units" in large white text
+Status bar: Yellow/orange gradient indicating level
+
+Text elements:
+Top headline: "DRUNK-O-METER 🍺" (white, bold)
+Subtext: "You'll be sober by: 11:30 PM" (green)
+Fine print: "SA legal limit: 0.05%" (grey, small)
+
+WhatsApp chat bubble below:
+"✅ 2 beers logged - 300 cal | 2.4 alcohol units"
+
+Bottom CTA: "Track alcohol → wa.me/27690684940"
+
+Style: Fun but responsible, clear data visualization, unique feature showcase`
+  },
+  {
+    day: 6,
+    theme: "Weekend lifestyle",
+    story: "Weekend braai? Log your boerewors, steak, and beers. We've got you covered.",
+    prompt: `Create an Instagram Story (9:16, 1080x1920px) for FitSorted weekend braai tracking:
+
+Background: Dark (#0b0f0c) with subtle grill/smoke texture
+
+Headline: "WEEKEND BRAAI? 🔥" (white, bold, large)
+Subtext: "We've got you covered" (green)
+
+Food items display (stacked, each with cal count):
+🥩 Boerewors - 300 cal
+🥩 Steak - 280 cal
+🍺 Castle Lager - 150 cal
+🥖 Pap - 100 cal
+
+Total shown in green box: "830 cal total"
+
+Bottom: "Log everything → wa.me/27690684940"
+
+Style: Relatable South African lifestyle, casual weekend vibe, practical tracking showcase`
+  },
+  {
+    day: 7,
+    theme: "Weekly reset",
+    story: "New week, fresh start. 7 days of tracking = results. Keep going.",
+    prompt: `Create an Instagram Story (9:16, 1080x1920px) for FitSorted weekly motivation:
+
+Background: Gradient from dark (#0b0f0c) to dark green (#1a3320)
+
+Center visual:
+Week calendar grid showing 7 days
+Each day with green checkmark
+Progress bar at 100% (green)
+
+Headline: "NEW WEEK, FRESH START ✨" (white, bold)
+Subheading: "7 days tracked = results" (green)
+
+Motivational text: "Keep going 💪" (white)
+
+Bottom CTA: "Start your streak → wa.me/27690684940"
+
+Style: Motivational, achievement-focused, clean calendar visualization, encouraging tone`
+  }
+];
+
+// Generate remaining 21 prompts (Days 8-28)
+const additionalPrompts = [
+  { day: 8, theme: "Social proof", story: "17 South Africans already tracking. Join them.", prompt: "Create Instagram Story showing user count stat with green numbers, testimonial-style layout" },
+  { day: 9, theme: "Macro tracking", story: "Premium: Track protein, carbs, fat. R36/month.", prompt: "Create feature comparison showing free vs premium with macro tracking visualization" },
+  { day: 10, theme: "Custom foods", story: "Save your go-to meals. Log them instantly next time.", prompt: "Show saved meals feature with list of custom foods and quick-log interface" },
+  { day: 11, theme: "Yesterday logging", story: "Forgot to log yesterday? Type: yesterday: chicken stir fry", prompt: "WhatsApp chat showing backlog feature with example message and confirmation" },
+  { day: 12, theme: "Undo feature", story: "Made a mistake? Text 'undo' to remove last entry.", prompt: "Show undo command in action with before/after calorie totals" },
+  { day: 13, theme: "Ask anything", story: "Ask: 'What can I eat under 400 cal?' Get instant suggestions.", prompt: "Chat interface with coaching question and helpful food suggestions response" },
+  { day: 14, theme: "Weight tracking", story: "Log weight: 'weight 82.5' - See your trend over time.", prompt: "Weight graph visualization showing downward trend with data points" },
+  { day: 15, theme: "Exercise logging", story: "Log workouts: 'ran 5km' or '45 min weights'", prompt: "Exercise tracking interface with calories burned calculation" },
+  { day: 16, theme: "SA breakfast", story: "SA breakfast? Jungle Oats, Pronutro, Weetbix - all in the database.", prompt: "Grid of SA breakfast items with calorie counts and brand logos" },
+  { day: 17, theme: "Fast food", story: "Steers burger? Wimpy breakfast? KFC? We know them all.", prompt: "SA fast food chain logos with popular items and calorie data" },
+  { day: 18, theme: "Referral launch", story: "Invite friends, get R10 off. Both of you earn rewards.", prompt: "Referral reward visualization with two user icons and R10 credits shown" },
+  { day: 19, theme: "Morning routine", story: "6:30 AM check-in: Yesterday recap + today's goal.", prompt: "Morning alarm notification style with recap stats and motivational message" },
+  { day: 20, theme: "Evening summary", story: "8 PM summary: Today's total, deficit, and progress.", prompt: "Evening report card design with daily stats and achievement badges" },
+  { day: 21, theme: "Macro goals", story: "Hit your protein goal: Track 150g daily.", prompt: "Protein tracking visualization with daily target and progress bar" },
+  { day: 22, theme: "Woolworths focus", story: "Woolworths shopper? Wrap, salad, sushi - all logged instantly.", prompt: "Woolworths branded items in FitSorted interface with green W logo" },
+  { day: 23, theme: "Alcohol week", story: "Friday drinks? Track the calories + alcohol units.", prompt: "Weekend alcohol tracking with both calorie and unit counts displayed" },
+  { day: 24, theme: "Consistency wins", story: "14 days tracked. You're building a habit. Keep going.", prompt: "Streak counter showing 14 days with fire emoji and progress celebration" },
+  { day: 25, theme: "Deficit explained", story: "500 cal deficit daily = 0.5kg lost per week.", prompt: "Simple math visualization showing weekly deficit converting to weight loss" },
+  { day: 26, theme: "Compare feature", story: "This vs that? Compare calories before you choose.", prompt: "Side-by-side food comparison interface with calorie difference highlighted" },
+  { day: 27, theme: "Success story", story: "User down 3kg in 3 weeks. Track it, lose it.", prompt: "Before/after style graphic with weight change and tracking streak" },
+  { day: 28, theme: "Month complete", story: "28 days. One habit. Keep your streak alive.", prompt: "Month calendar fully completed with celebration confetti and achievement unlock" }
+];
+
+// Merge all prompts
+const allPrompts = [...prompts, ...additionalPrompts];
+
+function renderPrompts(filter = 'all') {
+  const container = document.getElementById('prompts-container');
+  const completed = JSON.parse(localStorage.getItem('completedPrompts') || '{}');
+  
+  let filtered = allPrompts;
+  if (filter === 'completed') {
+    filtered = allPrompts.filter(p => completed[p.day]);
+  } else if (filter === 'pending') {
+    filtered = allPrompts.filter(p => !completed[p.day]);
+  }
+  
+  container.innerHTML = filtered.map(p => `
+    <div class="prompt-card ${completed[p.day] ? 'completed' : ''}" data-day="${p.day}">
+      <div class="prompt-header">
+        <div>
+          <span class="day-number">Day ${p.day}</span>
+          <div class="theme">${p.theme}</div>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" class="checkbox" 
+                 ${completed[p.day] ? 'checked' : ''} 
+                 onchange="toggleComplete(${p.day})">
+          <label>Done</label>
+        </div>
+      </div>
+      
+      <div class="story-copy">
+        <strong>Story copy:</strong> ${p.story}
+      </div>
+      
+      <div class="prompt-text">${p.prompt}</div>
+      
+      <button class="copy-btn" onclick="copyPrompt(${p.day})">
+        📋 Copy Prompt for Gemini
+      </button>
+    </div>
+  `).join('');
+  
+  updateStats();
+}
+
+function copyPrompt(day) {
+  const prompt = allPrompts.find(p => p.day === day);
+  navigator.clipboard.writeText(prompt.prompt).then(() => {
+    const btn = event.target;
+    const original = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    btn.style.background = '#26c766';
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '#2eea7a';
+    }, 2000);
+  });
+}
+
+function toggleComplete(day) {
+  const completed = JSON.parse(localStorage.getItem('completedPrompts') || '{}');
+  completed[day] = !completed[day];
+  localStorage.setItem('completedPrompts', JSON.stringify(completed));
+  
+  const card = document.querySelector(`[data-day="${day}"]`);
+  if (completed[day]) {
+    card.classList.add('completed');
+  } else {
+    card.classList.remove('completed');
+  }
+  
+  updateStats();
+}
+
+function updateStats() {
+  const completed = JSON.parse(localStorage.getItem('completedPrompts') || '{}');
+  const completedCount = Object.values(completed).filter(Boolean).length;
+  const remaining = 28 - completedCount;
+  const percent = Math.round((completedCount / 28) * 100);
+  
+  document.getElementById('completed-count').textContent = completedCount;
+  document.getElementById('remaining-count').textContent = remaining;
+  document.getElementById('progress-percent').textContent = percent + '%';
+  document.getElementById('progress-bar').style.width = percent + '%';
+}
+
+function filterPrompts(filter) {
+  // Update button states
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  // Re-render with filter
+  renderPrompts(filter);
+}
+
+// Initial render
+renderPrompts();
+</script>
+
+</body>
+</html>
