@@ -15,6 +15,7 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
 const PORT = process.env.PORT || 3001;
 const USERS_FILE = "./users.json";
 const REFERRALS_FILE = "./referrals.json";
+const FAILED_LOOKUPS_FILE = "./failed-lookups.json";
 const ADMIN_NUMBER = "27837787970"; // Brandon's number
 const PRO_LAUNCH = true; // PayFast live
 const PRO_PRICE = process.env.PRO_PRICE || "59";
@@ -181,12 +182,85 @@ function getReferralStats(code) {
   return refs[key] || null;
 }
 
+// Generate unique referral code from phone number
+function generateReferralCode(phone) {
+  // Simple hash: take last 6 digits + first 2 letters of base36 hash
+  const hash = parseInt(phone.slice(-6)).toString(36).toUpperCase();
+  return `FS${hash.slice(0, 6).padStart(6, '0')}`;
+}
+
+// Credit referral rewards (R10 off for both parties)
+function creditReferralRewards(referrerPhone, newUserPhone, users) {
+  const referrer = users[referrerPhone];
+  const newUser = users[newUserPhone];
+  
+  if (referrer) {
+    if (!referrer.referralCredits) referrer.referralCredits = 0;
+    referrer.referralCredits += 10;
+    
+    if (!referrer.referrals) referrer.referrals = [];
+    referrer.referrals.push({
+      phone: newUserPhone,
+      date: new Date().toISOString(),
+      credited: 10
+    });
+  }
+  
+  if (newUser) {
+    if (!newUser.referralCredits) newUser.referralCredits = 0;
+    newUser.referralCredits += 10;
+    newUser.referredBy = referrerPhone;
+  }
+  
+  return true;
+}
+
 // ── User state ──
 function loadUsers() {
   try { return JSON.parse(fs.readFileSync(USERS_FILE, "utf8") || "{}"); }
   catch { return {}; }
 }
 function saveUsers(u) { fs.writeFileSync(USERS_FILE, JSON.stringify(u, null, 2)); }
+
+// ── Failed Lookups Tracking ──
+function loadFailedLookups() {
+  try { return JSON.parse(fs.readFileSync(FAILED_LOOKUPS_FILE, "utf8") || "{}"); }
+  catch { return {}; }
+}
+
+function saveFailedLookups(data) {
+  fs.writeFileSync(FAILED_LOOKUPS_FILE, JSON.stringify(data, null, 2));
+}
+
+function trackFailedLookup(foodText, phone) {
+  const failed = loadFailedLookups();
+  const key = foodText.toLowerCase().trim();
+  
+  if (!failed[key]) {
+    failed[key] = {
+      text: foodText,
+      count: 0,
+      users: [],
+      firstSeen: new Date().toISOString(),
+      lastSeen: new Date().toISOString()
+    };
+  }
+  
+  failed[key].count++;
+  failed[key].lastSeen = new Date().toISOString();
+  
+  if (!failed[key].users.includes(phone)) {
+    failed[key].users.push(phone);
+  }
+  
+  saveFailedLookups(failed);
+  
+  // Notify admin if this food has been requested 5+ times
+  if (failed[key].count === 5) {
+    send(ADMIN_NUMBER, `🚨 *Failed Lookup Alert*\n\n"${foodText}" has been requested 5 times by ${failed[key].users.length} users.\n\nConsider adding to database.`).catch(() => {});
+  }
+}
+
 function getUser(users, phone) {
   if (!users[phone]) {
     users[phone] = {
@@ -653,31 +727,505 @@ ${customFoodList.length > 0 ? customFoodList.join(", ") : "None saved yet"}
 }
 
 async function estimateCalories(food, user) {
-  // 0. Special case: plain water = 0 calories
+  // 0. Input validation: reject very short or nonsensical inputs
   const lower = food.toLowerCase().trim();
-  if (lower === "water" || lower === "h2o") {
+  if (food.trim().length === 1 || (food.trim().length === 2 && !/\d/.test(food))) {
+    // Single char or 2-char with no numbers - probably typo/nonsense
+    throw new Error("Input too short or unclear");
+  }
+  
+  // 1. Special case: zero-calorie drinks (catch FIRST before any DB lookups)
+  if (lower === "water" || lower === "h2o" || lower === "ice" || 
+      lower.includes("sparkling") || lower.includes("soda water") || 
+      lower.includes("mineral water") || lower.includes("ice water")) {
     return { food: "Water", calories: 0, protein: 0, carbs: 0, fat: 0 };
   }
 
-  // 1. Check user's custom foods first
+  // 2. Check simple common foods FIRST (before expensive DB/API calls)
+  // Extract quantity multiplier from input
+  const extractQuantity = (text) => {
+    const numMatch = text.match(/^(\d+)\s/); // "5 eggs"
+    if (numMatch) return parseInt(numMatch[1]);
+    
+    const wordMatch = text.match(/^(two|three|four|five|six|seven|eight|nine|ten)\s/i);
+    if (wordMatch) {
+      const wordToNum = { two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };
+      return wordToNum[wordMatch[1].toLowerCase()] || 1;
+    }
+    
+    return 1;
+  };
+  
+  const simple = {
+    "acai bowl": 350,
+    "ale": 180,
+    "all bran": 90,
+    "almond butter": 200,
+    "almond milk latte": 100,
+    "almonds": 160,
+    "americano": 10,
+    "apple": 80,
+    "apple juice": 120,
+    "asparagus": 20,
+    "avo": 240,
+    "avocado": 240,
+    "bacon": 160,
+    "bacon rasher": 40,
+    "baked chicken": 165,
+    "baked potato": 180,
+    "banana": 90,
+    "bar one": 240,
+    "basmati rice": 190,
+    "beans": 110,
+    "beef": 250,
+    "beef and rice": 500,
+    "beef curry": 500,
+    "beef jerky": 160,
+    "beef mince": 250,
+    "beef patty": 250,
+    "beef stew": 400,
+    "beef stir fry": 450,
+    "beer": 150,
+    "bell pepper": 30,
+    "berries": 50,
+    "berry smoothie": 180,
+    "big mac": 550,
+    "biltong": 150,
+    "biscuit": 50,
+    "black beans": 120,
+    "blueberries": 60,
+    "bobotie": 450,
+    "boerewors": 300,
+    "boerewors roll": 400,
+    "boiled egg": 70,
+    "braai meat": 300,
+    "bran flakes": 100,
+    "bread": 80,
+    "breakfast bowl": 400,
+    "breakfast burrito": 450,
+    "breakfast wrap": 400,
+    "broccoli": 50,
+    "brown bread": 90,
+    "brown rice": 215,
+    "brownie": 240,
+    "bunny chow": 600,
+    "burger": 500,
+    "burrito": 500,
+    "burrito bowl": 450,
+    "butternut": 45,
+    "cabbage": 25,
+    "caesar salad": 350,
+    "calamari": 140,
+    "candy bar": 200,
+    "cappuccino": 80,
+    "caramel popcorn": 150,
+    "carrot": 40,
+    "carrots": 40,
+    "cashews": 160,
+    "cauliflower": 30,
+    "cereal bar": 120,
+    "chai latte": 180,
+    "chakalaka": 80,
+    "champagne": 90,
+    "cheddar": 115,
+    "cheese": 100,
+    "cheese curls": 160,
+    "cheese puffs": 160,
+    "cheese sandwich": 320,
+    "cheeseburger": 550,
+    "cheetos": 160,
+    "chicken": 165,
+    "chicken and chips": 700,
+    "chicken and rice": 450,
+    "chicken and veg": 300,
+    "chicken breast": 165,
+    "chicken burger": 450,
+    "chicken curry": 450,
+    "chicken drumstick": 180,
+    "chicken licken burger": 500,
+    "chicken pie": 380,
+    "chicken salad": 300,
+    "chicken sandwich": 380,
+    "chicken sausage": 120,
+    "chicken schnitzel": 320,
+    "chicken soup": 200,
+    "chicken stir fry": 400,
+    "chicken strips": 250,
+    "chicken tenders": 250,
+    "chicken thigh": 210,
+    "chicken wing": 100,
+    "chicken wings": 100,
+    "chicken wrap": 400,
+    "chickpeas": 160,
+    "chips": 320,
+    "chocolate": 200,
+    "chocolate bar": 200,
+    "cider": 180,
+    "cinnamon roll": 300,
+    "cod": 120,
+    "coffee": 5,
+    "coke": 140,
+    "coke zero": 0,
+    "cold brew": 10,
+    "coleslaw": 150,
+    "cookie": 50,
+    "corn": 90,
+    "corn chips": 150,
+    "corn flakes": 110,
+    "cortado": 60,
+    "cosmopolitan": 150,
+    "cottage cheese": 100,
+    "courgette": 20,
+    "couscous": 190,
+    "crab": 100,
+    "crackers": 120,
+    "cream crackers": 70,
+    "cream soda": 160,
+    "crisps": 150,
+    "crumpet": 90,
+    "cucumber": 15,
+    "cupcake": 200,
+    "curry": 450,
+    "danish": 280,
+    "diet coke": 0,
+    "donut": 250,
+    "doritos": 150,
+    "double espresso": 10,
+    "doughnut": 250,
+    "dried fruit": 120,
+    "droewors": 200,
+    "duck": 200,
+    "edamame": 120,
+    "egg": 70,
+    "egg mayo": 200,
+    "egg white": 17,
+    "egg yolk": 55,
+    "eggs": 70,
+    "eggs benedict": 450,
+    "energade": 90,
+    "english muffin": 130,
+    "espresso": 5,
+    "fanta": 140,
+    "fat free yogurt": 60,
+    "feta": 75,
+    "fillet": 240,
+    "fish": 140,
+    "fish and chips": 850,
+    "fish and veg": 280,
+    "flat white": 100,
+    "french toast": 180,
+    "fresh juice": 120,
+    "fried chicken": 280,
+    "fried egg": 90,
+    "fries": 320,
+    "frittata": 250,
+    "fruit roll up": 80,
+    "fruit smoothie": 200,
+    "game": 90,
+    "gammon": 180,
+    "garlic bread": 180,
+    "gatsby": 1200,
+    "giant pretzel": 220,
+    "gin": 100,
+    "granola": 220,
+    "granola bar": 150,
+    "grapes": 100,
+    "greek salad": 200,
+    "greek yogurt": 120,
+    "green beans": 35,
+    "green juice": 100,
+    "green smoothie": 180,
+    "grilled chicken": 165,
+    "grilled salmon": 180,
+    "hake": 120,
+    "ham": 120,
+    "hash brown": 150,
+    "hot chocolate": 200,
+    "hummus": 100,
+    "iced coffee": 120,
+    "iced latte": 140,
+    "iron brew": 150,
+    "juice": 120,
+    "jungle oats": 150,
+    "kfc burger": 450,
+    "kidney beans": 110,
+    "kingklip": 130,
+    "kit kat": 210,
+    "kiwi": 60,
+    "koeksister": 250,
+    "kota": 650,
+    "lager": 150,
+    "lamb": 280,
+    "lamb chop": 280,
+    "lamb curry": 500,
+    "lamb shank": 300,
+    "lasagna": 450,
+    "latte": 120,
+    "lean mince": 200,
+    "lentils": 120,
+    "lettuce": 10,
+    "lobster": 120,
+    "long black": 10,
+    "low fat yogurt": 80,
+    "mac and cheese": 400,
+    "macchiato": 40,
+    "mackerel": 160,
+    "mango": 100,
+    "margarita": 220,
+    "margaritas": 220,
+    "mashed potato": 200,
+    "matcha latte": 140,
+    "meal replacement shake": 200,
+    "mealie pap": 100,
+    "melon": 60,
+    "milk": 120,
+    "milkshake": 300,
+    "mince": 250,
+    "mixed nuts": 170,
+    "mixed veg": 50,
+    "mocha": 200,
+    "mojito": 200,
+    "monster": 110,
+    "muesli": 200,
+    "muesli bar": 140,
+    "mushrooms": 20,
+    "mussels": 90,
+    "naan": 260,
+    "nachos": 280,
+    "nik naks": 140,
+    "noodles": 320,
+    "nuts": 170,
+    "oat milk latte": 130,
+    "oatmeal": 150,
+    "oats": 150,
+    "omelette": 200,
+    "onion rings": 300,
+    "orange": 60,
+    "orange juice": 110,
+    "ostrich": 140,
+    "ouma rusks": 80,
+    "overnight oats": 200,
+    "oysters": 70,
+    "pancake": 120,
+    "pap": 100,
+    "pasta": 350,
+    "pastry": 280,
+    "patty": 250,
+    "peach": 50,
+    "peanut butter": 190,
+    "peanuts": 170,
+    "pear": 100,
+    "peas": 80,
+    "penne": 350,
+    "peppers": 30,
+    "pepsi": 150,
+    "pie": 350,
+    "pina colada": 250,
+    "pineapple": 80,
+    "pita": 165,
+    "pita chips": 130,
+    "pizza": 285,
+    "pizza slice": 285,
+    "plum": 45,
+    "poached egg": 70,
+    "popcorn": 100,
+    "pork": 240,
+    "pork chop": 240,
+    "pork loin": 220,
+    "pork sausage": 150,
+    "porridge": 150,
+    "potato": 180,
+    "potatoes": 180,
+    "potjie": 500,
+    "powerade": 80,
+    "prawns": 100,
+    "pressed juice": 120,
+    "pretzel": 110,
+    "pretzel bites": 150,
+    "pretzel knots": 110,
+    "pretzels": 110,
+    "pronutro": 180,
+    "protein bar": 200,
+    "protein shake": 150,
+    "protein smoothie": 220,
+    "provita": 20,
+    "pumpkin": 40,
+    "quarter pounder": 520,
+    "quesadilla": 500,
+    "quest bar": 180,
+    "quiche": 320,
+    "quinoa": 220,
+    "red bull": 110,
+    "red wine": 125,
+    "ribeye": 290,
+    "rice": 200,
+    "rice cakes": 35,
+    "rice crackers": 100,
+    "ritz crackers": 80,
+    "roasted chicken": 180,
+    "roti": 200,
+    "rum": 100,
+    "rump steak": 260,
+    "rusks": 80,
+    "salad": 150,
+    "salmon": 180,
+    "salmon and rice": 430,
+    "salticrax": 70,
+    "sandwich": 300,
+    "sardines": 150,
+    "sausage": 150,
+    "scrambled eggs": 70,
+    "seaweed snacks": 30,
+    "shrimp": 100,
+    "side salad": 80,
+    "simba chips": 150,
+    "sirloin": 250,
+    "slice of bread": 80,
+    "slice of toast": 80,
+    "smoked salmon": 120,
+    "smoothie": 200,
+    "smoothie bowl": 300,
+    "snoek": 140,
+    "soft pretzel": 200,
+    "sosatie": 250,
+    "soup": 150,
+    "soy latte": 110,
+    "spaghetti": 350,
+    "special k": 110,
+    "spinach": 25,
+    "sprite": 140,
+    "squid": 140,
+    "steak": 250,
+    "steak pie": 400,
+    "steers burger": 600,
+    "stir fry": 400,
+    "stir fry veg": 50,
+    "stoney": 140,
+    "strawberries": 50,
+    "sushi": 250,
+    "sushi roll": 250,
+    "sweet potato": 160,
+    "tacos": 400,
+    "tempeh": 160,
+    "tennis biscuit": 60,
+    "tequila": 100,
+    "toast": 80,
+    "toasted sandwich": 350,
+    "tofu": 80,
+    "tomato": 20,
+    "tomatoes": 20,
+    "tortilla": 150,
+    "tortilla chips": 140,
+    "trail mix": 180,
+    "trout": 150,
+    "tuna": 130,
+    "tuna can": 130,
+    "tuna salad": 280,
+    "tuna sandwich": 320,
+    "tuna steak": 150,
+    "turkey": 130,
+    "turkey breast": 120,
+    "turkey mince": 150,
+    "veggie chips": 130,
+    "venison": 160,
+    "vetkoek": 320,
+    "vodka": 100,
+    "waffle": 150,
+    "walnuts": 185,
+    "watermelon": 80,
+    "weetbix": 60,
+    "whey shake": 150,
+    "whiskey": 100,
+    "white bread": 80,
+    "white fish": 120,
+    "white rice": 200,
+    "white wine": 120,
+    "whole wheat pasta": 340,
+    "whopper": 660,
+    "wimpy burger": 550,
+    "wine": 125,
+    "woolies bagel": 250,
+    "woolies biltong": 150,
+    "woolies cheese platter": 350,
+    "woolies chicken": 300,
+    "woolies croissant": 240,
+    "woolies curry": 450,
+    "woolies droewors": 200,
+    "woolies energy bar": 200,
+    "woolies fruit salad": 120,
+    "woolies guacamole": 120,
+    "woolies hummus": 100,
+    "woolies meal": 500,
+    "woolies muffin": 280,
+    "woolies pasta": 400,
+    "woolies pie": 380,
+    "woolies protein ball": 150,
+    "woolies quiche": 320,
+    "woolies ready meal": 500,
+    "woolies roast chicken": 350,
+    "woolies salad": 200,
+    "woolies sandwich": 350,
+    "woolies scone": 220,
+    "woolies smoothie": 200,
+    "woolies sushi": 250,
+    "woolies trail mix": 180,
+    "woolies wrap": 400,
+    "woolies yoghurt": 100,
+    "woolworths bagel": 250,
+    "woolworths biltong": 150,
+    "woolworths cheese platter": 350,
+    "woolworths chicken": 300,
+    "woolworths croissant": 240,
+    "woolworths curry": 450,
+    "woolworths droewors": 200,
+    "woolworths energy bar": 200,
+    "woolworths fruit salad": 120,
+    "woolworths guacamole": 120,
+    "woolworths hummus": 100,
+    "woolworths meal": 500,
+    "woolworths muffin": 280,
+    "woolworths pasta": 400,
+    "woolworths pie": 380,
+    "woolworths protein ball": 150,
+    "woolworths quiche": 320,
+    "woolworths ready meal": 500,
+    "woolworths roast chicken": 350,
+    "woolworths salad": 200,
+    "woolworths sandwich": 350,
+    "woolworths scone": 220,
+    "woolworths smoothie": 200,
+    "woolworths sushi": 250,
+    "woolworths trail mix": 180,
+    "woolworths wrap": 400,
+    "woolworths yoghurt": 100,
+    "wrap": 350,
+    "yogurt": 100,
+    "zinger burger": 450,
+    "zucchini": 20
+  };
+  
+  const key = Object.keys(simple).find(k => food.toLowerCase().includes(k));
+  if (key) {
+    const quantity = extractQuantity(lower);
+    const baseCal = simple[key];
+    const totalCal = baseCal * quantity;
+    const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
+    return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+  }
+
+  // 3. Check user's custom foods
   if (user) {
     const custom = lookupCustomFood(user, food);
     if (custom) return { ...custom, source: "custom" };
   }
 
-  // 2. Check SA database (491 SA foods from Supabase)
+  // 4. Check SA database (491 SA foods from Supabase)
   const saMatch = await lookupSAFood(food);
   if (saMatch) return saMatch;
 
+  // 5. Fall back to OpenAI if all lookups fail
   if (!OPENAI_API_KEY) {
-    const simple = {
-      "banana": 90, "apple": 80, "egg": 70, "eggs": 140,
-      "chicken breast": 165, "rice": 200, "bread": 80,
-      "coffee": 5, "milk": 120, "oats": 150, "protein shake": 150,
-      "burger": 500, "pizza": 285, "chips": 300, "coke": 140,
-    };
-    const key = Object.keys(simple).find(k => food.toLowerCase().includes(k));
-    return key ? { food: key, calories: simple[key] } : { food, calories: 200 };
+    return { food, calories: 200 };
   }
 
   const res = await axios.post(
@@ -690,7 +1238,10 @@ async function estimateCalories(food, user) {
       ],
       temperature: 0.2
     },
-    { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" } }
+    { 
+      headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" },
+      timeout: 10000 // 10 second timeout to prevent hanging
+    }
   );
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
@@ -1039,6 +1590,7 @@ async function handleSetup(from, user, msg, users) {
       `• *weight 82.5* - log weigh-in\n\n` +
       `🍔 *Custom Foods*\n` +
       `• *save [food] = [cal]* - save a food\n` +
+      `• *custom [food] [cal]* - alt syntax\n` +
       `• *my foods* - see your list\n\n` +
       `↩️ *Fix Mistakes*\n` +
       `• *undo* - remove last entry\n\n` +
@@ -1110,6 +1662,33 @@ async function handleMessage(from, text, imageId) {
   const user = getUser(users, from);
   const msg = (text || "").trim();
   let msgLower = msg.toLowerCase();
+
+  // ── Referral tracking (check for REF_ code in first message) ──
+  if (msg.toUpperCase().includes('REF_') && !user.setup && !user.referredBy) {
+    const refMatch = msg.match(/REF_([A-Z0-9]+)/i);
+    if (refMatch) {
+      const refCode = refMatch[1].toUpperCase();
+      // Find referrer by code
+      const referrerPhone = Object.keys(users).find(phone => {
+        return generateReferralCode(phone) === `FS${refCode}`;
+      });
+      
+      if (referrerPhone && referrerPhone !== from) {
+        // Credit both parties with R10
+        creditReferralRewards(referrerPhone, from, users);
+        trackReferral(refCode, from);
+        saveUsers(users);
+        
+        // Welcome message with referral acknowledgment
+        await send(from, `👋 Welcome to FitSorted!\n\nYou were referred by a friend — you both just earned *R10 off!*\n\nLet's get you set up...`);
+        
+        // Notify referrer
+        const referrer = users[referrerPhone];
+        const newReferralCount = (referrer.referrals || []).length;
+        await send(referrerPhone, `🎉 Great news!\n\nSomeone just joined FitSorted using your referral link!\n\n💰 *+R10 credit earned*\n📊 Total referrals: ${newReferralCount}\n\nKeep sharing to earn more!`);
+      }
+    }
+  }
 
   // ── Image handling: try guess, then confirm ──
   if (imageId) {
@@ -1552,8 +2131,8 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
-  // In setup text steps
-  if (user.step && ["weight", "height", "age", "name", "email"].includes(user.step)) {
+  // In setup text steps (including late email capture)
+  if (user.step && ["weight", "height", "age", "name", "email", "email_late"].includes(user.step)) {
     await handleSetup(from, user, msg, users);
     saveUsers(users);
     return;
@@ -2173,6 +2752,36 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
+  // Referral system
+  if (msgLower === "invite" || msgLower === "referral" || msgLower === "share" || msgLower === "refer") {
+    const referralCode = generateReferralCode(from);
+    const referralLink = `https://wa.me/27690684940?text=REF_${referralCode}`;
+    
+    const stats = user.referrals || [];
+    const credits = user.referralCredits || 0;
+    
+    let msg = `🎁 *Invite Friends, Get Rewarded*\n\n`;
+    msg += `Share FitSorted and earn *R10 off* for each friend who joins!\n\n`;
+    msg += `📱 *Your referral link:*\n${referralLink}\n\n`;
+    msg += `💰 *Your rewards:*\n`;
+    msg += `• ${stats.length} friends referred\n`;
+    msg += `• R${credits} in credits earned\n\n`;
+    
+    if (stats.length > 0) {
+      msg += `🏆 *Leaderboard status:*\n`;
+      if (stats.length >= 10) msg += `⭐ Top Referrer (10+ friends)\n`;
+      else if (stats.length >= 5) msg += `🔥 Referral Champion (5+ friends)\n`;
+      else if (stats.length >= 3) msg += `💪 Rising Star (3+ friends)\n`;
+      else msg += `🌱 Getting Started (${stats.length}/3 to Rising Star)\n`;
+    }
+    
+    msg += `\n📋 *Share this:*\n`;
+    msg += `"Try FitSorted - free calorie tracker on WhatsApp! No apps, just text what you ate. ${referralLink}"`;
+    
+    await send(from, msg);
+    return;
+  }
+
   if (msgLower === "help" || msgLower === "menu") {
     await send(from,
       `📌 *Pin this message for quick access!*\n` +
@@ -2193,6 +2802,7 @@ async function handleMessage(from, text, imageId) {
       `• *weight 82.5* - log weigh-in\n\n` +
       `🍔 *Custom Foods*\n` +
       `• *save [food] = [cal]* - save a food\n` +
+      `• *custom [food] [cal]* - alt syntax\n` +
       `• *my foods* - see your list\n\n` +
       `↩️ *Fix Mistakes*\n` +
       `• *undo* - remove last entry\n` +
@@ -2201,6 +2811,8 @@ async function handleMessage(from, text, imageId) {
       `_"what can I eat under 400 cal?"_\n` +
       `_"suggest a high protein meal"_\n` +
       `_"am I on track today?"_\n\n` +
+      `🎁 *Earn Rewards*\n` +
+      `• *invite* - share & earn R10 per friend\n\n` +
       `⚙️ *Settings*\n` +
       `• *start* - recalculate goals\n` +
       `• *export* - download your data\n` +
@@ -2268,6 +2880,33 @@ async function handleMessage(from, text, imageId) {
     }
   }
 
+  // Alternative custom food syntax: "custom my protein shake 250"
+  if (msgLower.startsWith("custom ")) {
+    const rest = msg.slice(7).trim();
+    const parts = rest.split(/\s+/);
+    
+    if (parts.length < 2) {
+      await send(from, `❌ Format: custom [food name] [calories]\n\nExample: custom my protein shake 250`);
+      return;
+    }
+    
+    const lastPart = parts[parts.length - 1];
+    const calories = parseInt(lastPart);
+    
+    if (isNaN(calories) || calories < 0) {
+      await send(from, `❌ Last number must be calories.\n\nExample: custom my protein shake 250`);
+      return;
+    }
+    
+    const foodName = parts.slice(0, -1).join(" ");
+    
+    if (!user.customFoods) user.customFoods = {};
+    user.customFoods[foodName.toLowerCase()] = calories;
+    saveUsers(users);
+    await send(from, `✅ *Saved!* "${foodName}" = ${calories} cal\n\nNext time you log it, I'll use your number. 💾\n\nSee all: *my foods*`);
+    return;
+  }
+
   // View custom foods: "my foods"
   if (/^(my foods?|saved foods?|custom foods?|my saved foods?|show my foods?|food list|my list)$/i.test(msgLower)) {
     const foods = user.customFoods && Object.keys(user.customFoods).length > 0
@@ -2332,7 +2971,15 @@ async function handleMessage(from, text, imageId) {
     const result = await estimateCalories(foodText, user);
 
     // Guard: reject AI responses that look like placeholder/junk
-    if (result.calories === 0 || /^clean name/i.test(result.food) || /^unnamed/i.test(result.food)) {
+    // Allow legitimate zero-calorie items (water, tea, coffee, etc.)
+    const legitimateZeroCalFoods = ['water', 'h2o', 'sparkling', 'soda water', 'mineral water', 'ice', 'tea', 'coffee'];
+    const inputLower = foodText.toLowerCase();
+    const resultLower = result.food.toLowerCase();
+    const isLegitimateZeroCal = legitimateZeroCalFoods.some(f => 
+      inputLower.includes(f) || resultLower.includes(f)
+    );
+    
+    if ((result.calories === 0 && !isLegitimateZeroCal) || /^clean name/i.test(result.food) || /^unnamed/i.test(result.food)) {
       console.log(`[guard] Rejected junk AI result: "${result.food}" (${result.calories} cal) for input: "${foodText}"`);
       await send(from, `🤔 I couldn't figure out what that is. Try describing the food, e.g. _2 eggs on toast_`);
       return;
@@ -2395,7 +3042,44 @@ async function handleMessage(from, text, imageId) {
     }
   } catch (err) {
     console.error("Food lookup error:", err.message);
-    await send(from, "Couldn't estimate that. Try something like \"200g chicken breast\" or \"2 eggs\".");
+    
+    // Track failed lookup for admin review
+    trackFailedLookup(text, from);
+    
+    // Smart error message based on input
+    let errorMsg = "❌ Couldn't estimate that.\n\n";
+    
+    // Detect common issues and suggest fixes
+    if (text.length < 3) {
+      errorMsg += "💡 Try being more specific:\n";
+      errorMsg += "• \"2 eggs\" instead of \"eg\"\n";
+      errorMsg += "• \"200g chicken\" instead of \"ch\"\n";
+    } else if (!text.match(/\d/)) {
+      errorMsg += "💡 Include quantity:\n";
+      errorMsg += "• \"2 slices bread\" ✅\n";
+      errorMsg += "• \"200g chicken\" ✅\n";
+      errorMsg += "• \"bread\" ❌\n";
+    } else {
+      errorMsg += "💡 Try:\n";
+      errorMsg += "• Be more specific (\"grilled chicken breast\" vs \"chicken\")\n";
+      errorMsg += "• Check spelling\n";
+      errorMsg += "• Use grams/ml (\"200g rice\")\n";
+    }
+    
+    errorMsg += "\n📝 *Common formats:*\n";
+    errorMsg += "• 2 eggs\n";
+    errorMsg += "• 200g chicken breast\n";
+    errorMsg += "• 1 banana\n";
+    errorMsg += "• half avo\n";
+    errorMsg += "• nandos peri chicken burger\n\n";
+    
+    errorMsg += "🔧 *Still stuck?*\n";
+    errorMsg += "Reply: custom [food] [calories]\n";
+    errorMsg += "Example: custom my protein shake 250\n\n";
+    
+    errorMsg += "_This will save it for future logs._";
+    
+    await send(from, errorMsg);
   }
 }
 
@@ -2433,11 +3117,29 @@ app.post("/webhook", async (req, res) => {
     console.log(`[webhook] handleMessage completed`);
   } catch (err) {
     console.error("Webhook error:", err.message, err.stack?.split('\n').slice(0,3).join('\n'));
+    
+    // Critical safeguard: ALWAYS reply to the user, even on unexpected errors
+    try {
+      const from = req.body?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.from;
+      if (from) {
+        await send(from, 
+          `⚠️ Something went wrong.\n\n` +
+          `I've logged the error and will fix it soon.\n\n` +
+          `In the meantime, try:\n` +
+          `• Rephrasing your message\n` +
+          `• Using simpler food descriptions\n` +
+          `• Text *support* for help`
+        );
+      }
+    } catch (sendErr) {
+      console.error("[webhook] Failed to send error message:", sendErr.message);
+    }
   }
 });
 
 // ── Cron dedup: prevent double-sends on restart ──
 const CRON_STATE_FILE = './cron-state.json';
+const ENABLE_NUDGES = false;
 function cronAlreadyRan(jobName) {
   const today = getToday();
   try {
@@ -2460,6 +3162,15 @@ cron.schedule("30 6 * * *", async () => {
   const users = loadUsers();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
+    // Only send morning check-in every 3 days per user
+    if (user.lastMorning) {
+      const daysSince = Math.floor((Date.now() - new Date(user.lastMorning)) / 86400000);
+      if (daysSince < 3) continue;
+    } else if (user.joinedAt) {
+      const joinedAt = new Date(user.joinedAt);
+      const daysSinceJoin = Math.floor((Date.now() - joinedAt.getTime()) / 86400000);
+      if (daysSinceJoin % 3 !== 0) continue;
+    }
     try {
       const { target } = user.profile || {};
       const targetMsg = target === "lose" ? "lose weight" : target === "gain" ? "build muscle" : "stay on track";
@@ -2501,10 +3212,12 @@ cron.schedule("30 6 * * *", async () => {
 
       const greeting = user.name ? `☀️ *Morning, ${user.name}!*` : `☀️ *Morning!*`;
       await send(phone, `${greeting}${yesterdayStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
+      users[phone].lastMorning = new Date().toISOString();
     } catch (err) {
       console.error(`Morning message failed for ${phone}:`, err.message);
     }
   }
+  saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
 // ── 8 PM daily summary ──
@@ -2516,6 +3229,7 @@ cron.schedule("0 20 * * *", async () => {
     if (!user.setup || !user.goal) continue;
     try {
       const total = getTodayTotal(user);
+      if (total === 0) continue;
       const todayMacros = getTodayMacros(user);
       const macroTargets = getMacroTargets(user);
 
@@ -2559,6 +3273,7 @@ cron.schedule("0 20 * * *", async () => {
 
 // ── 1 PM nudge (every 2nd day, zero logs only) ──
 cron.schedule("0 13 * * *", async () => {
+  if (!ENABLE_NUDGES) { console.log('[cron] Nudge disabled'); return; }
   if (cronAlreadyRan('nudge')) { console.log('[cron] Nudge already sent today, skipping'); return; }
   markCronRan('nudge');
   const users = loadUsers();
@@ -2632,6 +3347,105 @@ cron.schedule("5 20 * * *", async () => {
     console.error('Admin report failed:', err.message);
   }
 }, { timezone: "Africa/Johannesburg" });
+
+// ── 3:00 AM daily: Expand simple foods from failed lookups + proactive additions ──
+cron.schedule("0 3 * * *", async () => {
+  if (cronAlreadyRan('expand_foods')) { console.log('[cron] Food expansion already ran today, skipping'); return; }
+  markCronRan('expand_foods');
+  
+  console.log('[cron] Running food expansion...');
+  const { exec } = require('child_process');
+  exec('node /Users/brandonkatz/.openclaw/workspace/fitsorted/expand-simple-foods.js && pm2 restart fitsorted', (err, stdout, stderr) => {
+    if (err) {
+      console.error('[cron] Food expansion error:', err);
+      return;
+    }
+    console.log('[cron] Food expansion complete:', stdout);
+  });
+}, { timezone: "Africa/Johannesburg" });
+
+// ── Every 5 minutes: Regenerate stats for War Room ──
+cron.schedule("*/5 * * * *", () => {
+  console.log('[cron] Regenerating stats...');
+  const { exec } = require('child_process');
+  exec('node /Users/brandonkatz/.openclaw/workspace/fitsorted/generate-stats.js', (err, stdout, stderr) => {
+    if (err) {
+      console.error('[cron] Stats generation error:', err);
+      return;
+    }
+    console.log('[cron] Stats updated:', stdout.trim());
+  });
+});
+
+// ── Admin Dashboard Endpoints ──
+app.get('/admin', (req, res) => {
+  res.sendFile(__dirname + '/admin.html');
+});
+
+app.get('/admin/failed-lookups', (req, res) => {
+  const failed = loadFailedLookups();
+  res.json(failed);
+});
+
+app.post('/admin/add-food', async (req, res) => {
+  const { name, calories, protein, carbs, fat } = req.body;
+
+  if (!name || !calories) {
+    return res.json({ success: false, error: 'Name and calories required' });
+  }
+
+  try {
+    // Add to Supabase SA foods database (use admin client to bypass RLS)
+    const { error } = await supabaseAdmin
+      .from('foods')
+      .insert([{
+        name: name,
+        name_alt: [name.toLowerCase()],
+        calories: parseInt(calories),
+        protein: parseInt(protein) || 0,
+        carbs: parseInt(carbs) || 0,
+        fat: parseInt(fat) || 0,
+        serving: null,
+        source: 'admin'
+      }]);
+
+    if (error) {
+      console.error('Supabase insert error:', error);
+      return res.json({ success: false, error: error.message });
+    }
+
+    // Remove from failed lookups
+    const failed = loadFailedLookups();
+    const key = name.toLowerCase().trim();
+    delete failed[key];
+    saveFailedLookups(failed);
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Add food error:', err);
+    res.json({ success: false, error: err.message });
+  }
+});
+
+app.post('/admin/dismiss-lookup', (req, res) => {
+  const { name } = req.body;
+
+  if (!name) {
+    return res.json({ success: false, error: 'Name required' });
+  }
+
+  try {
+    const failed = loadFailedLookups();
+    const key = name.toLowerCase().trim();
+    delete failed[key];
+    saveFailedLookups(failed);
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Dismiss error:', err);
+    res.json({ success: false, error: err.message });
+  }
+});
 
 app.listen(PORT, () => console.log(`✅ FitSorted calorie tracker on port ${PORT}`));
 // ══════════════════════════════════════════════
