@@ -99,6 +99,43 @@
     .section {
       margin: 40px 0;
     }
+    .stat-card {
+      background: #111614;
+      border: 1px solid #1b2320;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2eea7a;
+      margin-bottom: 5px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: #9bb3a6;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .user-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #1b2320;
+    }
+    .user-row:last-child {
+      border-bottom: none;
+    }
+    .user-id {
+      color: #e7f7ea;
+      font-family: monospace;
+    }
+    .user-stat {
+      color: #2eea7a;
+      font-weight: 600;
+    }
     @media (max-width: 600px) {
       body {
         padding: 15px;
@@ -113,6 +150,9 @@
         font-size: 12px;
         padding: 10px;
       }
+      .stat-number {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -120,6 +160,53 @@
 
 <h1>🎯 FitSorted War Room</h1>
 <p>All marketing copy, invite messages, and growth tactics in one place.</p>
+
+<hr>
+
+<div class="section">
+  <h2>📊 Live Stats</h2>
+  <div id="stats-loading" style="color: #9bb3a6; padding: 20px; text-align: center;">
+    Loading stats...
+  </div>
+  <div id="stats-container" style="display: none;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+      <div class="stat-card">
+        <div class="stat-number" id="stat-total">-</div>
+        <div class="stat-label">Total Users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-active">-</div>
+        <div class="stat-label">Active (7d)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-logs">-</div>
+        <div class="stat-label">Total Logs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-premium">-</div>
+        <div class="stat-label">Premium</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-referrals">-</div>
+        <div class="stat-label">Referrals</div>
+      </div>
+    </div>
+    
+    <h3>Top Referrers</h3>
+    <div id="top-referrers" style="background: #111614; border-radius: 6px; padding: 15px; margin: 15px 0;">
+      <p style="color: #9bb3a6;">No referrals yet</p>
+    </div>
+    
+    <h3>Recent Signups (Last 7 Days)</h3>
+    <div id="recent-signups" style="background: #111614; border-radius: 6px; padding: 15px; margin: 15px 0;">
+      <p style="color: #9bb3a6;">No recent signups</p>
+    </div>
+    
+    <p style="color: #9bb3a6; font-size: 12px; margin-top: 20px;">
+      Last updated: <span id="last-updated">-</span>
+    </p>
+  </div>
+</div>
 
 <hr>
 
@@ -244,6 +331,76 @@ function copy(text) {
     alert('❌ Failed to copy');
   });
 }
+
+async function loadStats() {
+  try {
+    const response = await fetch('/stats.json');
+    if (!response.ok) throw new Error('Stats not available');
+    
+    const stats = await response.json();
+    
+    // Update stat cards
+    document.getElementById('stat-total').textContent = stats.totalUsers;
+    document.getElementById('stat-active').textContent = stats.activeUsers;
+    document.getElementById('stat-logs').textContent = stats.totalLogs;
+    document.getElementById('stat-premium').textContent = stats.premiumUsers;
+    document.getElementById('stat-referrals').textContent = stats.totalReferrals;
+    
+    // Top referrers
+    const referrersDiv = document.getElementById('top-referrers');
+    if (stats.topReferrers && stats.topReferrers.length > 0) {
+      referrersDiv.innerHTML = stats.topReferrers.map(r => `
+        <div class="user-row">
+          <span class="user-id">${r.id}</span>
+          <span class="user-stat">${r.referrals} referrals • R${r.credits}</span>
+        </div>
+      `).join('');
+    } else {
+      referrersDiv.innerHTML = '<p style="color: #9bb3a6;">No referrals yet</p>';
+    }
+    
+    // Recent signups
+    const signupsDiv = document.getElementById('recent-signups');
+    if (stats.recentSignups && stats.recentSignups.length > 0) {
+      signupsDiv.innerHTML = stats.recentSignups.map(u => {
+        const date = new Date(u.joinedAt).toLocaleDateString('en-ZA', { 
+          month: 'short', 
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+        const badge = u.isPro ? ' 👑' : '';
+        return `
+          <div class="user-row">
+            <span class="user-id">${u.id}${badge}</span>
+            <span class="user-stat">${u.logs} logs • ${date}</span>
+          </div>
+        `;
+      }).join('');
+    } else {
+      signupsDiv.innerHTML = '<p style="color: #9bb3a6;">No recent signups</p>';
+    }
+    
+    // Last updated
+    const lastUpdated = new Date(stats.lastUpdated).toLocaleString('en-ZA');
+    document.getElementById('last-updated').textContent = lastUpdated;
+    
+    // Show container, hide loading
+    document.getElementById('stats-loading').style.display = 'none';
+    document.getElementById('stats-container').style.display = 'block';
+    
+  } catch (err) {
+    document.getElementById('stats-loading').innerHTML = 
+      '<p style="color: #9bb3a6;">Stats temporarily unavailable</p>';
+    console.error('Failed to load stats:', err);
+  }
+}
+
+// Load stats on page load
+loadStats();
+
+// Refresh stats every 30 seconds
+setInterval(loadStats, 30000);
 </script>
 
 </body>
