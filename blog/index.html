@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | FitSorted 🇿🇦</title>
+  <meta name="description" content="FitSorted news, updates, and tips for South Africans tracking calories on WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --text: #f5f5f5;
+      --muted: #bdbdbd;
+      --accent: #10b981;
+      --accent-dark: #0b7a5a;
+      --ring: rgba(16, 185, 129, 0.3);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(800px, 92vw); margin: 0 auto; padding: 48px 0; }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+    .back:hover { color: var(--accent); }
+    h1 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+    .subtitle { color: var(--muted); font-size: 16px; margin-bottom: 48px; }
+    .post-card {
+      background: var(--surface); border: 1px solid #222; border-radius: 12px;
+      padding: 28px; margin-bottom: 20px; transition: border-color 0.2s;
+    }
+    .post-card:hover { border-color: var(--accent); }
+    .post-card h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .post-card h2 a { color: var(--text); }
+    .post-card h2 a:hover { color: var(--accent); text-decoration: none; }
+    .post-meta { font-size: 13px; color: var(--muted); margin-bottom: 12px; display: flex; gap: 16px; }
+    .post-meta .tag {
+      background: rgba(16, 185, 129, 0.15); color: var(--accent);
+      padding: 2px 10px; border-radius: 99px; font-size: 12px; font-weight: 500;
+    }
+    .post-excerpt { color: var(--muted); font-size: 15px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back">← Back to FitSorted</a>
+    <h1>Blog</h1>
+    <p class="subtitle">News, updates, and tips from the FitSorted team.</p>
+
+    <div class="post-card">
+      <h2><a href="/blog/fitsorted-launches-whatsapp-calorie-tracker-south-africa.html">FitSorted Launches South Africa's First WhatsApp-Based Calorie Tracker</a></h2>
+      <div class="post-meta">
+        <span>10 March 2026</span>
+        <span class="tag">Press Release</span>
+      </div>
+      <p class="post-excerpt">Cape Town startup FitSorted launches an AI-powered calorie and macro tracker that works entirely on WhatsApp — no app download required. Built for South Africans, with local food data from Nando's, Kauai, Steers, and Woolworths.</p>
+    </div>
+  </div>
+</body>
+</html>
