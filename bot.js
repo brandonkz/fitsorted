@@ -694,19 +694,38 @@ function calculateGoal(profile) {
 }
 
 // ── Workout detection ──
-const WORKOUT_KEYWORDS = ["run", "ran", "walk", "walked", "gym", "weights", "cycling", "bike", "swim", "hiit", "cardio", "workout", "training", "min ", "minutes", "km", "steps", "pushups", "pull-ups", "squats", "jog", "jogged", "skipped", "rope", "crossfit"];
+const WORKOUT_KEYWORDS = ["run", "ran", "walk", "walked", "gym", "weights", "cycling", "bike", "swim", "hiit", "cardio", "workout", "training", "min ", "minutes", "km", "steps", "pushups", "pull-ups", "pull ups", "squats", "jog", "jogged", "skipped", "rope", "crossfit", "yoga", "pilates", "stretch", "hike", "hiking", "spinning", "spin class", "tennis", "padel", "football", "soccer", "rugby", "basketball", "cricket", "surfing", "dancing", "burpees", "plank", "treadmill", "deadlift", "bench press", "leg day", "upper body", "full body", "wod", "climbed stairs", "gardening", "cleaning"];
 
 function isWorkout(text) {
   return WORKOUT_KEYWORDS.some(k => text.toLowerCase().includes(k));
 }
 
 async function estimateCaloriesBurned(activity) {
+  const lower = activity.toLowerCase().trim();
+
+  // Workout overrides for common items AI gets wrong
+  const workoutOverrides = {
+    "gym 1 hour": { activity: "Gym Session (1 hour)", calories: 300 },
+    "gym": { activity: "Gym Session", calories: 300 },
+    "gym session": { activity: "Gym Session", calories: 300 },
+    "gym 45 min": { activity: "Gym Session (45 min)", calories: 225 },
+    "gym 30 min": { activity: "Gym Session (30 min)", calories: 150 },
+    "cricket 2 hours": { activity: "Cricket (2 hours)", calories: 350 },
+    "cricket 1 hour": { activity: "Cricket (1 hour)", calories: 175 },
+    "cricket": { activity: "Cricket (1 hour)", calories: 175 },
+    "walked to the shop": { activity: "Short Walk", calories: 60 },
+    "walked to the store": { activity: "Short Walk", calories: 60 },
+    "walked to work": { activity: "Walk to Work", calories: 120 },
+    "quick walk": { activity: "Quick Walk (15 min)", calories: 60 },
+  };
+  if (workoutOverrides[lower]) return workoutOverrides[lower];
+
   if (!OPENAI_API_KEY) {
     // Simple fallback
-    if (activity.includes("run") || activity.includes("jog")) return { activity, calories: 300 };
-    if (activity.includes("walk")) return { activity, calories: 150 };
-    if (activity.includes("gym") || activity.includes("weights")) return { activity, calories: 250 };
-    if (activity.includes("hiit") || activity.includes("cardio")) return { activity, calories: 350 };
+    if (lower.includes("run") || lower.includes("jog")) return { activity, calories: 300 };
+    if (lower.includes("walk")) return { activity, calories: 150 };
+    if (lower.includes("gym") || lower.includes("weights")) return { activity, calories: 250 };
+    if (lower.includes("hiit") || lower.includes("cardio")) return { activity, calories: 350 };
     return { activity, calories: 200 };
   }
 
@@ -715,7 +734,7 @@ async function estimateCaloriesBurned(activity) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a fitness assistant. Given a workout description, return ONLY a JSON object: {\"activity\": \"clean name\", \"calories\": integer} for estimated calories burned. No extra text." },
+        { role: "system", content: "You are a fitness assistant. Given a workout description, return ONLY a JSON object: {\"activity\": \"clean name\", \"calories\": integer} for estimated calories burned. Assume average person (75kg). IMPORTANT: Weight training burns ~200-350 cal/hour (not cardio-level). Walking short distances (to shop/store) burns 40-80 cal. Cricket is low-intensity (~175 cal/hour for fielding). Pull-ups burn ~0.5 cal each. Don't overestimate strength training or low-intensity activities. No extra text." },
         { role: "user", content: `Calories burned for: ${activity}` }
       ],
       temperature: 0.2
