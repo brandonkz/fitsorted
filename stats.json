@@ -1,11 +1,17 @@
 {
-  "totalUsers": 19,
+  "totalUsers": 20,
   "activeUsers": 8,
   "totalLogs": 210,
   "premiumUsers": 0,
   "totalReferrals": 0,
   "topReferrers": [],
   "recentSignups": [
+    {
+      "id": "***9984",
+      "joinedAt": "2026-03-11T11:16:46.410Z",
+      "logs": 0,
+      "isPro": false
+    },
     {
       "id": "***3855",
       "joinedAt": "2026-03-10T16:55:28.735Z",
@@ -85,5 +91,5 @@
       "isPro": false
     }
   ],
-  "lastUpdated": "2026-03-11T10:10:00.094Z"
+  "lastUpdated": "2026-03-11T11:20:00.311Z"
 }
