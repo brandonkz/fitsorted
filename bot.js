@@ -955,6 +955,34 @@ async function estimateCalories(food, user) {
     "vodka lime and soda": { food: "Vodka Lime & Soda", calories: 90, protein: 0, carbs: 2, fat: 0, fibre: 0 },
     "kfc bucket": { food: "KFC 8-Piece Bucket", calories: 2000, protein: 140, carbs: 100, fat: 110, fibre: 6 },
     "kfc bucket 8 piece": { food: "KFC 8-Piece Bucket", calories: 2000, protein: 140, carbs: 100, fat: 110, fibre: 6 },
+    // Round 5 - SA traditional foods
+    "umfino": { food: "Umfino (wild greens)", calories: 150, protein: 5, carbs: 15, fat: 8, fibre: 6 },
+    "amadumbe": { food: "Amadumbe (SA yam)", calories: 200, protein: 2, carbs: 45, fat: 0, fibre: 4 },
+    "isopho": { food: "Isopho (beef soup)", calories: 300, protein: 20, carbs: 25, fat: 12, fibre: 3 },
+    "uphuthu": { food: "Uphuthu (crumbly pap)", calories: 275, protein: 5, carbs: 58, fat: 2, fibre: 2 },
+    "isidudu": { food: "Isidudu (soft porridge)", calories: 275, protein: 5, carbs: 55, fat: 3, fibre: 2 },
+    // Round 5 - Fruit (AI uses tiny portions)
+    "apple": { food: "Apple (medium)", calories: 80, protein: 0, carbs: 20, fat: 0, fibre: 3 },
+    "orange": { food: "Orange (medium)", calories: 65, protein: 1, carbs: 15, fat: 0, fibre: 3 },
+    "mango": { food: "Mango (whole)", calories: 150, protein: 1, carbs: 35, fat: 1, fibre: 3 },
+    "chicken wing": { food: "Chicken Wing (1)", calories: 90, protein: 8, carbs: 0, fat: 6, fibre: 0 },
+    // Round 5 - SA restaurants
+    "nandos espetada": { food: "Nando's Espetada", calories: 500, protein: 45, carbs: 5, fat: 30, fibre: 1 },
+    "john dorys fish": { food: "John Dory's Fish", calories: 400, protein: 35, carbs: 30, fat: 18, fibre: 2 },
+    "john dorys": { food: "John Dory's Fish & Chips", calories: 650, protein: 35, carbs: 55, fat: 30, fibre: 3 },
+    "woolworths butter chicken": { food: "Woolworths Butter Chicken", calories: 500, protein: 30, carbs: 35, fat: 25, fibre: 3 },
+    "butter chicken and naan": { food: "Butter Chicken & Naan", calories: 750, protein: 35, carbs: 70, fat: 35, fibre: 4 },
+    "chicken fried rice": { food: "Chicken Fried Rice", calories: 525, protein: 22, carbs: 65, fat: 18, fibre: 3 },
+    "sushi platter": { food: "Sushi Platter (~20 pieces)", calories: 800, protein: 30, carbs: 110, fat: 15, fibre: 4 },
+    // Round 5 - SA snack brands (AI doesn't know full bag sizes)
+    "simba chipniks": { food: "Simba Chipniks (full bag)", calories: 450, protein: 5, carbs: 55, fat: 24, fibre: 3 },
+    "chipniks": { food: "Simba Chipniks (full bag)", calories: 450, protein: 5, carbs: 55, fat: 24, fibre: 3 },
+    "nik naks": { food: "Nik Naks (full bag)", calories: 450, protein: 5, carbs: 52, fat: 25, fibre: 3 },
+    "ghost pops": { food: "Ghost Pops (full bag)", calories: 400, protein: 3, carbs: 58, fat: 18, fibre: 2 },
+    "bakers choice assorted": { food: "Bakers Choice Assorted (1)", calories: 47, protein: 1, carbs: 7, fat: 2, fibre: 0 },
+    // Round 5 - SA soft drinks
+    "appletiser": { food: "Appletiser 330ml", calories: 120, protein: 0, carbs: 30, fat: 0, fibre: 0 },
+    "grapetiser": { food: "Grapetiser 330ml", calories: 140, protein: 0, carbs: 35, fat: 0, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
