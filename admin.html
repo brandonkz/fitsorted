@@ -218,8 +218,53 @@
 <body>
   <div class="container">
     <h1>🏋️ FitSorted Admin Dashboard</h1>
-    <div class="subtitle">Failed food lookups • Add to database • Monitor user issues</div>
+    <div class="subtitle">Live stats • Failed lookups • User monitoring</div>
 
+    <!-- LIVE USER STATS -->
+    <div class="stats" id="liveStats">
+      <div class="stat-card">
+        <div class="stat-value" id="totalUsers" style="color:#22c55e">—</div>
+        <div class="stat-label">Total Users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="signupsToday" style="color:#3b82f6">—</div>
+        <div class="stat-label">Signups Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="signupsWeek" style="color:#8b5cf6">—</div>
+        <div class="stat-label">Signups This Week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="activeToday" style="color:#f59e0b">—</div>
+        <div class="stat-label">Active Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="activeWeek" style="color:#f97316">—</div>
+        <div class="stat-label">Active This Week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="logsToday" style="color:#ec4899">—</div>
+        <div class="stat-label">Food Logs Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="totalLogs" style="color:#06b6d4">—</div>
+        <div class="stat-label">Total Logs All Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="proUsers" style="color:#22c55e">—</div>
+        <div class="stat-label">Pro Users</div>
+      </div>
+    </div>
+
+    <!-- Recent Signups -->
+    <div class="table-container" style="margin-bottom:32px">
+      <table>
+        <thead><tr><th>Recent Signups</th><th>Name</th><th>Setup</th><th>When</th></tr></thead>
+        <tbody id="signupsTable"><tr><td colspan="4" style="color:#64748b;text-align:center">Loading...</td></tr></tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#ef4444;font-size:18px;margin-bottom:16px">⚠️ Failed Food Lookups</h2>
     <div class="stats">
       <div class="stat-card">
         <div class="stat-value" id="totalFailed">0</div>
@@ -299,6 +344,34 @@
   <script>
     let failedData = {};
     let currentFood = null;
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/stats');
+        const s = await res.json();
+        document.getElementById('totalUsers').textContent = s.totalUsers;
+        document.getElementById('signupsToday').textContent = s.signupsToday;
+        document.getElementById('signupsWeek').textContent = s.signupsThisWeek;
+        document.getElementById('activeToday').textContent = s.activeToday;
+        document.getElementById('activeWeek').textContent = s.activeWeek;
+        document.getElementById('logsToday').textContent = s.logsToday;
+        document.getElementById('totalLogs').textContent = s.totalLogsAllTime.toLocaleString();
+        document.getElementById('proUsers').textContent = s.proUsers;
+        
+        const tbody = document.getElementById('signupsTable');
+        if (s.recentSignups && s.recentSignups.length) {
+          tbody.innerHTML = s.recentSignups.map(u => {
+            const when = u.created ? new Date(u.created).toLocaleDateString('en-ZA', {day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}) : '?';
+            return `<tr>
+              <td>${u.phone}</td>
+              <td style="font-weight:600">${u.name}</td>
+              <td>${u.setup ? '✅' : '⏳'}</td>
+              <td class="date">${when}</td>
+            </tr>`;
+          }).join('');
+        }
+      } catch(e) { console.error('Stats error:', e); }
+    }
 
     async function loadData() {
       try {
@@ -445,9 +518,11 @@
 
     // Initial load
     loadData();
+    loadStats();
 
-    // Auto-refresh every 30 seconds
+    // Auto-refresh
     setInterval(loadData, 30000);
+    setInterval(loadStats, 15000);
   </script>
 </body>
 </html>

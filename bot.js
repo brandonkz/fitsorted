@@ -4490,6 +4490,77 @@ app.get('/api/dashboard', (req, res) => {
   res.json(userData);
 });
 
+app.get('/api/stats', (req, res) => {
+  const users = loadUsers();
+  const today = getToday();
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  const phones = Object.keys(users).filter(p => !p.includes('backup'));
+  
+  let totalUsers = 0, setupComplete = 0, proUsers = 0;
+  let activeToday = 0, activeYesterday = 0, activeWeek = 0;
+  let logsToday = 0, totalLogsAllTime = 0;
+  let signupsToday = 0, signupsYesterday = 0, signupsThisWeek = 0;
+  const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
+  const signupsByDay = {};
+  
+  for (const phone of phones) {
+    const u = users[phone];
+    totalUsers++;
+    if (u.setup || u.goal) setupComplete++;
+    if (u.isPro) proUsers++;
+    
+    // Signup tracking
+    const created = u.created || u.joinedAt || '';
+    if (created) {
+      const day = created.slice(0, 10);
+      signupsByDay[day] = (signupsByDay[day] || 0) + 1;
+      if (day === today) signupsToday++;
+      if (day === yesterday) signupsYesterday++;
+      if (day >= weekAgo) signupsThisWeek++;
+    }
+    
+    // Activity tracking
+    const log = u.log || {};
+    if (log[today] && Array.isArray(log[today]) && log[today].length > 0) {
+      activeToday++;
+      logsToday += log[today].length;
+    }
+    if (log[yesterday] && Array.isArray(log[yesterday]) && log[yesterday].length > 0) {
+      activeYesterday++;
+    }
+    
+    // Weekly activity
+    for (const date of Object.keys(log)) {
+      if (date >= weekAgo && Array.isArray(log[date]) && log[date].length > 0) {
+        activeWeek++;
+        break;
+      }
+    }
+    
+    // Total logs
+    for (const entries of Object.values(log)) {
+      if (Array.isArray(entries)) totalLogsAllTime += entries.length;
+    }
+  }
+  
+  // Recent signups list
+  const recentSignups = phones
+    .map(p => ({ phone: p.slice(0,5) + '***' + p.slice(-3), name: users[p].name || users[p].profile?.name || 'anon', created: users[p].created || users[p].joinedAt || '', setup: !!(users[p].setup || users[p].goal) }))
+    .filter(u => u.created)
+    .sort((a, b) => b.created.localeCompare(a.created))
+    .slice(0, 10);
+  
+  res.json({
+    totalUsers, setupComplete, proUsers,
+    activeToday, activeYesterday, activeWeek,
+    logsToday, totalLogsAllTime,
+    signupsToday, signupsYesterday, signupsThisWeek,
+    signupsByDay,
+    recentSignups,
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.get('/admin/failed-lookups', (req, res) => {
   const failed = loadFailedLookups();
   res.json(failed);
