@@ -944,6 +944,17 @@ async function estimateCalories(food, user) {
     "corona": { food: "Corona 355ml", calories: 148, protein: 1, carbs: 14, fat: 0, fibre: 0 },
     "cup of milo": { food: "Cup of Milo (with milk)", calories: 200, protein: 6, carbs: 30, fat: 6, fibre: 2 },
     "milo": { food: "Cup of Milo (with milk)", calories: 200, protein: 6, carbs: 30, fat: 6, fibre: 2 },
+    // Round 4 fixes - SA snacks & cereals
+    "tex bar": { food: "Tex Bar", calories: 250, protein: 3, carbs: 32, fat: 12, fibre: 1 },
+    "lunch bar": { food: "Lunch Bar", calories: 250, protein: 4, carbs: 30, fat: 12, fibre: 1 },
+    "marie biscuit": { food: "Marie Biscuit (1)", calories: 35, protein: 1, carbs: 6, fat: 1, fibre: 0 },
+    "future life": { food: "Future Life Cereal (with milk)", calories: 250, protein: 12, carbs: 38, fat: 5, fibre: 4 },
+    "future life cereal": { food: "Future Life Cereal (with milk)", calories: 250, protein: 12, carbs: 38, fat: 5, fibre: 4 },
+    "jungle oats": { food: "Jungle Oats (with milk)", calories: 300, protein: 10, carbs: 45, fat: 8, fibre: 5 },
+    "vodka lime soda": { food: "Vodka Lime & Soda", calories: 90, protein: 0, carbs: 2, fat: 0, fibre: 0 },
+    "vodka lime and soda": { food: "Vodka Lime & Soda", calories: 90, protein: 0, carbs: 2, fat: 0, fibre: 0 },
+    "kfc bucket": { food: "KFC 8-Piece Bucket", calories: 2000, protein: 140, carbs: 100, fat: 110, fibre: 6 },
+    "kfc bucket 8 piece": { food: "KFC 8-Piece Bucket", calories: 2000, protein: 140, carbs: 100, fat: 110, fibre: 6 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
