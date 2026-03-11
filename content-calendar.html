@@ -18,6 +18,10 @@
     .cta{color:var(--accent)}
     .pill{display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:999px;font-size:11px;color:var(--muted);margin-right:6px}
     .footer{color:var(--muted);font-size:12px;padding:14px 20px}
+    .copy-btn{background:var(--accent);color:#000;border:none;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;float:right;margin-top:-4px}
+    .copy-btn:hover{opacity:.85}
+    .copy-btn.copied{background:#666;color:#fff}
+    td{position:relative}
   </style>
 </head>
 <body>
@@ -108,7 +112,7 @@ influencerData.forEach(item => {
   row.innerHTML = `
     <td><strong>${item.type}</strong></td>
     <td style="color:var(--muted);font-size:12px">${item.target}</td>
-    <td style="white-space:pre-line">${item.message}</td>
+    <td style="white-space:pre-line"><button class="copy-btn" onclick="copyMsg(this)">Copy</button>${item.message}</td>
     <td style="color:var(--muted);font-size:12px">${item.notes}</td>
   `;
   influencerTbody.appendChild(row);
@@ -132,11 +136,23 @@ userData.forEach(item => {
   row.innerHTML = `
     <td><strong>${item.type}</strong></td>
     <td style="color:var(--muted);font-size:12px">${item.target}</td>
-    <td style="white-space:pre-line">${item.message}</td>
+    <td style="white-space:pre-line"><button class="copy-btn" onclick="copyMsg(this)">Copy</button>${item.message}</td>
     <td style="color:var(--muted);font-size:12px">${item.notes}</td>
   `;
   userTbody.appendChild(row);
 });
+
+function copyMsg(btn) {
+  const td = btn.parentElement;
+  const clone = td.cloneNode(true);
+  clone.querySelector('.copy-btn').remove();
+  const text = clone.textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
 
 const tbody = document.getElementById('rows');
 data.forEach(item => {
