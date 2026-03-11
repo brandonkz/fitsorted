@@ -983,6 +983,21 @@ async function estimateCalories(food, user) {
     // Round 5 - SA soft drinks
     "appletiser": { food: "Appletiser 330ml", calories: 120, protein: 0, carbs: 30, fat: 0, fibre: 0 },
     "grapetiser": { food: "Grapetiser 330ml", calories: 140, protein: 0, carbs: 35, fat: 0, fibre: 0 },
+    // Round 6 fixes
+    "boerekos": { food: "Boerekos (mixed plate)", calories: 650, protein: 35, carbs: 60, fat: 30, fibre: 5 },
+    "vienna and bread": { food: "Vienna & Bread", calories: 325, protein: 10, carbs: 35, fat: 16, fibre: 2 },
+    "vienna": { food: "Vienna Sausage (1)", calories: 160, protein: 6, carbs: 2, fat: 14, fibre: 0 },
+    "viennas": { food: "Vienna Sausage (1)", calories: 160, protein: 6, carbs: 2, fat: 14, fibre: 0 },
+    "checkers rotisserie chicken": { food: "Checkers Rotisserie Chicken (whole)", calories: 1100, protein: 90, carbs: 5, fat: 78, fibre: 0 },
+    "rotisserie chicken": { food: "Rotisserie Chicken (whole)", calories: 1100, protein: 90, carbs: 5, fat: 78, fibre: 0 },
+    "mass gainer": { food: "Mass Gainer (1 scoop)", calories: 400, protein: 30, carbs: 55, fat: 8, fibre: 2 },
+    "mass gainer scoop": { food: "Mass Gainer (1 scoop)", calories: 400, protein: 30, carbs: 55, fat: 8, fibre: 2 },
+    "pre workout": { food: "Pre-Workout", calories: 10, protein: 0, carbs: 2, fat: 0, fibre: 0 },
+    "yogi sip": { food: "Yogi Sip", calories: 150, protein: 5, carbs: 22, fat: 4, fibre: 0 },
+    "ice cream scoop": { food: "Ice Cream (1 scoop)", calories: 150, protein: 2, carbs: 18, fat: 8, fibre: 0 },
+    "ice cream": { food: "Ice Cream (1 scoop)", calories: 150, protein: 2, carbs: 18, fat: 8, fibre: 0 },
+    "cappuccino large": { food: "Large Cappuccino", calories: 200, protein: 8, carbs: 16, fat: 10, fibre: 0 },
+    "large cappuccino": { food: "Large Cappuccino", calories: 200, protein: 8, carbs: 16, fat: 10, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
