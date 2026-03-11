@@ -42,6 +42,20 @@
       <tbody id="rows"></tbody>
     </table>
     <div class="footer">Primary CTA: <span class="cta">Try FitSorted free forever → wa.me/27690684940</span></div>
+
+    <h2 style="color:var(--accent);margin:40px 0 10px;font-size:20px">📩 Influencer Outreach Messages</h2>
+    <p style="color:var(--muted);margin-bottom:16px">Copy-paste ready. Personalise the [brackets]. Send via DM or WhatsApp.</p>
+    <table>
+      <thead><tr><th>Type</th><th>Target</th><th>Message</th><th>Notes</th></tr></thead>
+      <tbody id="influencer-rows"></tbody>
+    </table>
+
+    <h2 style="color:var(--accent);margin:40px 0 10px;font-size:20px">👥 Beta Tester / User Messages</h2>
+    <p style="color:var(--muted);margin-bottom:16px">For friends, gym groups, WhatsApp groups, and early users.</p>
+    <table>
+      <thead><tr><th>Type</th><th>Target</th><th>Message</th><th>Notes</th></tr></thead>
+      <tbody id="user-rows"></tbody>
+    </table>
   </div>
 
 <script>
@@ -75,6 +89,52 @@ const data = [
   {"day":27,"theme":"Mindset","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Progress > perfection. Just log it.","visual":"Big type + subtle progress bar","cta":"Try FitSorted free forever → wa.me/27690684940"},
   {"day":28,"theme":"Final reminder","platforms":["Instagram Story","TikTok Story","WhatsApp Status"],"story_copy":"Final reminder: FitSorted is free forever on WhatsApp.","visual":"Final CTA card","cta":"Try FitSorted free forever → wa.me/27690684940"}
 ];
+
+// ── Influencer outreach messages ──
+const influencerData = [
+  {type:"Cold DM — Fitness", target:"SA fitness influencers (10K-50K followers)", message:"Hey [name]! I built a free calorie tracker that works entirely on WhatsApp — no app download needed. It knows SA foods (Nando's, Kauai, Woolies) and even tracks alcohol + tells you if you can drive.\n\nWould you be keen to try it and share with your followers if you rate it? Completely free, no strings.\n\nJust message: wa.me/27690684940", notes:"Best for: @fitnesssa, @bodybykerry, gym coaches. Send on Instagram DM."},
+  {type:"Cold DM — Lifestyle/Foodie", target:"SA food bloggers, lifestyle creators", message:"Hey [name]! Random one — I built a WhatsApp bot that instantly tells you the calories in any food you message it. SA foods included (it knows a Kota is 850 cal 😅).\n\nWould love your honest take on it. Free forever: wa.me/27690684940", notes:"The Kota stat or a relatable food gets their attention. Swap for their niche."},
+  {type:"Cold DM — Drinking/Nightlife", target:"Nightlife pages, wine accounts, cocktail bloggers", message:"Hey [name]! Built something your followers would love — a WhatsApp bot that tracks drink calories + tells you your blood alcohol level and if you're safe to drive.\n\nYour Saturday night = 823 calories. Nobody tells you that. We do.\n\nFree to try: wa.me/27690684940", notes:"The girls night stat (823 cal) is the hook. Great for wine influencers."},
+  {type:"Collab Offer", target:"Micro-influencers (1K-10K)", message:"Hey [name]! I'm the founder of FitSorted — a free WhatsApp calorie tracker built for South Africans.\n\nI'm looking for 5 SA creators to partner with. The deal:\n• Try FitSorted for a week\n• Share your honest experience (story or post)\n• I'll feature you on our page + give your followers free premium access\n\nInterested? Just reply and I'll set you up: wa.me/27690684940", notes:"Works best for micro-influencers who want exposure. No cash needed."},
+  {type:"Follow-up (if no reply)", target:"Anyone after 3-5 days", message:"Hey [name]! Just following up — totally understand if it's not your thing. But if you get a chance, the calorie tracker is at wa.me/27690684940 — takes 30 seconds to try.\n\nNo stress either way 🤙", notes:"Keep it light. One follow-up max."},
+  {type:"Group Pitch", target:"Fitness/wellness WhatsApp groups", message:"Hey everyone 👋 I built a free calorie tracker that works on WhatsApp — no app needed.\n\nJust message it what you ate and it instantly gives you calories, protein, carbs, fat + fibre. It even knows SA foods (Nando's, Woolies, Steers).\n\n100% free. Try it: wa.me/27690684940", notes:"Short, no hard sell. Works for gym groups, running clubs, etc."},
+];
+
+const influencerTbody = document.getElementById('influencer-rows');
+influencerData.forEach(item => {
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td><strong>${item.type}</strong></td>
+    <td style="color:var(--muted);font-size:12px">${item.target}</td>
+    <td style="white-space:pre-line">${item.message}</td>
+    <td style="color:var(--muted);font-size:12px">${item.notes}</td>
+  `;
+  influencerTbody.appendChild(row);
+});
+
+// ── Beta tester / user messages ──
+const userData = [
+  {type:"Personal WhatsApp", target:"Friends & family", message:"Hey! I built a thing — a calorie tracker on WhatsApp. No app, just message it what you ate and it tells you the calories + macros.\n\nWould mean a lot if you tried it and gave me honest feedback.\n\nJust say hi: wa.me/27690684940", notes:"Personal ask = highest conversion. Send individually, not broadcast."},
+  {type:"WhatsApp Status", target:"Your contacts", message:"Built a free calorie tracker that works on WhatsApp 🇿🇦\n\nNo app download. Just message what you ate.\nKnows Nando's, Kauai, Woolworths.\nTracks alcohol too (tells you if you can drive).\n\nTry it free: wa.me/27690684940", notes:"Post as WhatsApp Status. Add a screenshot of a food log."},
+  {type:"Gym WhatsApp Group", target:"CrossFit boxes, running clubs, gym groups", message:"Guys — built something for tracking food that actually works.\n\nIt's a WhatsApp bot. Message it what you ate, it gives you calories + protein + carbs + fat + fibre. Instantly.\n\nNo app. No signup. Free.\n\nTry it: wa.me/27690684940\n\nLet me know what you think — genuinely want feedback.", notes:"'Genuinely want feedback' works better than a hard sell in groups."},
+  {type:"Instagram Story", target:"Your followers", message:"[Screenshot of FitSorted logging food]\n\nCaption: Built this. Free calorie tracker on WhatsApp. Knows SA foods. Even tracks your drinks.\n\nLink: wa.me/27690684940", notes:"Screenshot > text. Show the product working."},
+  {type:"Beta Tester Ask", target:"Engaged users who already signed up", message:"Hey [name]! Thanks for trying FitSorted 🙏\n\nQuick favour — what's one thing that could be better? Anything that annoyed you or didn't work how you expected?\n\nHonest feedback helps me build something people actually want to use.", notes:"Send to active users after 3+ days. Their feedback is gold."},
+  {type:"Referral Ask", target:"Happy users", message:"Hey [name]! Glad you're enjoying FitSorted 🎉\n\nSmall ask — if you know anyone who'd find it useful, send them this link: wa.me/27690684940\n\nWord of mouth is everything for us right now. Really appreciate it 🤙", notes:"Only ask users who've been active 5+ days and logged multiple meals."},
+  {type:"Lapsed User Win-back", target:"Users who haven't logged in 3+ days", message:"Hey [name]! Just checking in — haven't seen you log food in a few days.\n\nNo pressure, but if something wasn't working or you got bored, I'd love to know. Your feedback helps me fix things.\n\nIf you want to jump back in, just send me what you're eating and I'll log it 🍕", notes:"Friendly, no guilt. Ask what went wrong — learn from churn."},
+  {type:"New Feature Announcement", target:"All users", message:"🆕 FitSorted now tracks fibre!\n\nEvery time you log food you'll see your fibre intake vs your daily target (30g for men, 25g for women).\n\n🔴 = needs work\n🟡 = getting there\n✅ = nailed it\n\nJust log food as normal — fibre shows automatically.", notes:"Send when launching new features. Keep it short."},
+];
+
+const userTbody = document.getElementById('user-rows');
+userData.forEach(item => {
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td><strong>${item.type}</strong></td>
+    <td style="color:var(--muted);font-size:12px">${item.target}</td>
+    <td style="white-space:pre-line">${item.message}</td>
+    <td style="color:var(--muted);font-size:12px">${item.notes}</td>
+  `;
+  userTbody.appendChild(row);
+});
 
 const tbody = document.getElementById('rows');
 data.forEach(item => {
