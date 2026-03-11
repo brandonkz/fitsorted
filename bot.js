@@ -881,6 +881,22 @@ async function estimateCalories(food, user) {
     return { food: "Water", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 };
   }
 
+  // 1b. Sugar-free / zero-cal energy drinks & sodas (AI often gets these wrong)
+  const zeroDrinks = {
+    "white monster": { food: "White Monster Ultra Zero 500ml", calories: 10, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "monster zero": { food: "Monster Zero Sugar 500ml", calories: 10, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "monster ultra": { food: "Monster Ultra Zero 500ml", calories: 10, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "monster ultra zero": { food: "Monster Ultra Zero 500ml", calories: 10, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "sugar free red bull": { food: "Red Bull Sugar Free 250ml", calories: 5, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "red bull zero": { food: "Red Bull Zero 250ml", calories: 5, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "coke zero": { food: "Coke Zero 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "diet coke": { food: "Diet Coke 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "pepsi max": { food: "Pepsi Max 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "sprite zero": { food: "Sprite Zero 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+  };
+  const zeroDrinkKey = Object.keys(zeroDrinks).find(k => lower === k || lower.includes(k));
+  if (zeroDrinkKey) return zeroDrinks[zeroDrinkKey];
+
   // 2. Check simple common foods FIRST (before expensive DB/API calls)
   // Extract quantity multiplier from input
   const extractQuantity = (text) => {
@@ -1126,6 +1142,10 @@ async function estimateCalories(food, user) {
     "mocha": 200,
     "mojito": 200,
     "monster": 110,
+    "white monster": 10,
+    "monster zero": 10,
+    "monster ultra": 10,
+    "monster ultra zero": 10,
     "muesli": 200,
     "muesli bar": 140,
     "mushrooms": 20,

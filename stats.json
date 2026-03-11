@@ -1,11 +1,23 @@
 {
-  "totalUsers": 20,
-  "activeUsers": 9,
-  "totalLogs": 213,
+  "totalUsers": 22,
+  "activeUsers": 10,
+  "totalLogs": 217,
   "premiumUsers": 0,
   "totalReferrals": 0,
   "topReferrers": [],
   "recentSignups": [
+    {
+      "id": "***9068",
+      "joinedAt": "2026-03-11T12:27:07.158Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***7003",
+      "joinedAt": "2026-03-11T12:21:03.021Z",
+      "logs": 2,
+      "isPro": false
+    },
     {
       "id": "***9984",
       "joinedAt": "2026-03-11T11:16:46.410Z",
@@ -75,7 +87,7 @@
     {
       "id": "***7970",
       "joinedAt": "2026-03-06T15:58:33.513Z",
-      "logs": 105,
+      "logs": 107,
       "isPro": false
     },
     {
@@ -91,5 +103,5 @@
       "isPro": false
     }
   ],
-  "lastUpdated": "2026-03-11T12:20:01.031Z"
+  "lastUpdated": "2026-03-11T13:05:00.189Z"
 }
