@@ -238,7 +238,7 @@ async function sendFoodLogEmail(toEmail, userName, entries, date, macros, totalC
   
   const foodRows = entries.map((e, i) => {
     const macroStr = (e.protein || e.carbs || e.fat) 
-      ? `<td style="padding:8px;border-bottom:1px solid #eee;color:#666;font-size:13px;">P:${e.protein || 0}g C:${e.carbs || 0}g F:${e.fat || 0}g</td>` 
+      ? `<td style="padding:8px;border-bottom:1px solid #eee;color:#666;font-size:13px;">P:${e.protein || 0}g C:${e.carbs || 0}g F:${e.fat || 0}g Fibre:${e.fibre || 0}g</td>` 
       : `<td style="padding:8px;border-bottom:1px solid #eee;color:#999;font-size:13px;">-</td>`;
     const priceStr = e.priceZAR ? `~R${e.priceZAR}` : '-';
     return `<tr>
@@ -491,7 +491,8 @@ function getTodayMacros(user) {
   return {
     protein: entries.reduce((sum, e) => sum + (e.protein || 0), 0),
     carbs: entries.reduce((sum, e) => sum + (e.carbs || 0), 0),
-    fat: entries.reduce((sum, e) => sum + (e.fat || 0), 0)
+    fat: entries.reduce((sum, e) => sum + (e.fat || 0), 0),
+    fibre: entries.reduce((sum, e) => sum + (e.fibre || 0), 0)
   };
 }
 
@@ -872,7 +873,7 @@ async function estimateCalories(food, user) {
   if (lower === "water" || lower === "h2o" || lower === "ice" || 
       lower.includes("sparkling") || lower.includes("soda water") || 
       lower.includes("mineral water") || lower.includes("ice water")) {
-    return { food: "Water", calories: 0, protein: 0, carbs: 0, fat: 0 };
+    return { food: "Water", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 };
   }
 
   // 2. Check simple common foods FIRST (before expensive DB/API calls)
@@ -1360,7 +1361,7 @@ async function estimateCalories(food, user) {
     if (simple[stripped]) {
       const totalCal = simple[stripped] * quantity;
       const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
-      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
     }
     
     // Partial match ONLY if the input is a single word or the simple key is multi-word
@@ -1377,7 +1378,7 @@ async function estimateCalories(food, user) {
       const baseCal = simple[key];
       const totalCal = baseCal * quantity;
       const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
-      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
     }
   }
 
@@ -1398,7 +1399,7 @@ async function estimateCalories(food, user) {
     if (simple[stripped]) {
       const totalCal = simple[stripped] * quantity;
       const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
-      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
     }
   }
 
@@ -1412,7 +1413,7 @@ async function estimateCalories(food, user) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"estimatedPriceZAR\": null}. Return total values for the full described amount. Use realistic everyday South African portion sizes - not restaurant or oversized portions. For example: 1 slice of cheese = ~60 cal (standard thin processed cheese slice like Clover/Woolworths), 1 slice of bread = ~80 cal, 1 egg = ~70 cal. No extra text." },
+        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"fibre\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"fibre\": 4, \"estimatedPriceZAR\": null}. Return total values for the full described amount. Use realistic everyday South African portion sizes - not restaurant or oversized portions. For example: 1 slice of cheese = ~60 cal (standard thin processed cheese slice like Clover/Woolworths), 1 slice of bread = ~80 cal, 1 egg = ~70 cal. No extra text." },
         { role: "user", content: `Nutrition for: ${food}` }
       ],
       temperature: 0.2
@@ -2019,6 +2020,7 @@ async function handleMessage(from, text, imageId) {
           protein: result.protein || 0,
           carbs: result.carbs || 0,
           fat: result.fat || 0,
+      fibre: result.fibre || 0,
           time: new Date().toISOString()
         });
         delete user.pendingFood;
@@ -2665,7 +2667,7 @@ async function handleMessage(from, text, imageId) {
     };
     let macroStr = "";
     if (macros.protein > 0 || macros.carbs > 0 || macros.fat > 0) {
-      macroStr = `\n\n*Macros:*\n🥩 Protein: ${macros.protein}g\n🍞 Carbs: ${macros.carbs}g\n🥑 Fat: ${macros.fat}g`;
+      macroStr = `\n\n*Macros:*\n🥩 Protein: ${macros.protein}g\n🍞 Carbs: ${macros.carbs}g\n🥑 Fat: ${macros.fat}g | 🌾 Fibre: ${macros.fibre || 0}g`;
     }
 
     await send(from, `📋 *${label}'s log (${targetDate}):*\n${list}\n\n🔢 *${total} cal total*${macroStr}`);
@@ -2695,9 +2697,9 @@ async function handleMessage(from, text, imageId) {
     let macroStr = "";
     if (logHasAccess && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
       if (macroTargets) {
-        macroStr = `\n\n*Macros:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
+        macroStr = `\n\n*Macros:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g\n🌾 Fibre: ${todayMacros.fibre || 0}g`;
       } else {
-        macroStr = `\n\n🥩 Protein: ${todayMacros.protein}g | 🍞 Carbs: ${todayMacros.carbs}g | 🥑 Fat: ${todayMacros.fat}g`;
+        macroStr = `\n\n🥩 Protein: ${todayMacros.protein}g | 🍞 Carbs: ${todayMacros.carbs}g | 🥑 Fat: ${todayMacros.fat}g | 🌾 Fibre: ${todayMacros.fibre || 0}g`;
       }
     } else if (!logHasAccess && (todayMacros.protein > 0)) {
       macroStr = `\n\n_🔒 Macro tracking is a Premium feature_`;
@@ -2788,7 +2790,7 @@ async function handleMessage(from, text, imageId) {
     // Collect last 7 days
     const days = [];
     let weekTotalCal = 0, weekTotalSpend = 0, weekTotalEntries = 0;
-    const weekMacros = { protein: 0, carbs: 0, fat: 0 };
+    const weekMacros = { protein: 0, carbs: 0, fat: 0, fibre: 0  };
     
     for (let i = 6; i >= 0; i--) {
       const d = new Date();
@@ -2808,6 +2810,7 @@ async function handleMessage(from, text, imageId) {
       weekMacros.protein += dayMacros.protein;
       weekMacros.carbs += dayMacros.carbs;
       weekMacros.fat += dayMacros.fat;
+      weekMacros.fibre += (dayMacros.fibre || 0);
       days.push({ dateKey, entries, dayCal, daySpend, dayMacros });
     }
 
@@ -2882,7 +2885,8 @@ async function handleMessage(from, text, imageId) {
         <strong>Weekly Macros:</strong><br/>
         🥩 Protein: ${weekMacros.protein}g (avg ${Math.round(weekMacros.protein/7)}g/day) | 
         🍞 Carbs: ${weekMacros.carbs}g (avg ${Math.round(weekMacros.carbs/7)}g/day) | 
-        🥑 Fat: ${weekMacros.fat}g (avg ${Math.round(weekMacros.fat/7)}g/day)
+        🥑 Fat: ${weekMacros.fat}g (avg ${Math.round(weekMacros.fat/7)}g/day) |
+        🌾 Fibre: ${weekMacros.fibre}g (avg ${Math.round(weekMacros.fibre/7)}g/day)
       </div>
 
       <div style="text-align:center;margin-top:20px;padding-top:15px;border-top:1px solid #eee;">
@@ -3713,6 +3717,7 @@ async function handleMessage(from, text, imageId) {
             protein: result.protein || 0,
             carbs: result.carbs || 0,
             fat: result.fat || 0,
+      fibre: result.fibre || 0,
             priceZAR: result.estimatedPriceZAR || 0,
             time: new Date().toISOString(),
             isAlcohol: !!alcoholMatch,
@@ -3741,7 +3746,7 @@ async function handleMessage(from, text, imageId) {
       // Build combined response
       const itemLines = results.map(r => {
         const macros = (userHasPremium && (r.protein || r.carbs || r.fat))
-          ? ` (P:${r.protein}g C:${r.carbs}g F:${r.fat}g)`
+          ? ` (P:${r.protein}g C:${r.carbs}g F:${r.fat}g Fibre:${r.fibre || 0}g)`
           : "";
         const price = (userCanSeePrice && r.estimatedPriceZAR) ? ` ~R${r.estimatedPriceZAR}` : "";
         return `✅ *${r.food}* - ${r.calories} cal${macros}${price}`;
@@ -3764,7 +3769,7 @@ async function handleMessage(from, text, imageId) {
       
       let macroProgress = "";
       if (userHasPremium && macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
-        macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
+        macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g\n🌾 Fibre: ${todayMacros.fibre || 0}g`;
       }
       
       if (isBacklog) {
@@ -3831,6 +3836,7 @@ async function handleMessage(from, text, imageId) {
       protein: result.protein || 0,
       carbs: result.carbs || 0,
       fat: result.fat || 0,
+      fibre: result.fibre || 0,
       priceZAR: result.estimatedPriceZAR || 0,
       time: new Date().toISOString(),
       isAlcohol: !!alcoholMatch,
@@ -3847,7 +3853,7 @@ async function handleMessage(from, text, imageId) {
     const sourceTag = result.source === "custom" ? " _(your saved entry)_" : "";
     const userHasPremium = await hasAccess(from, user);
     const itemMacros = (userHasPremium && (result.protein || result.carbs || result.fat))
-      ? `\n🥩 P: ${result.protein}g | 🍞 C: ${result.carbs}g | 🥑 F: ${result.fat}g`
+      ? `\n🥩 P: ${result.protein}g | 🍞 C: ${result.carbs}g | 🥑 F: ${result.fat}g | 🌾 Fibre: ${result.fibre || 0}g`
       : "";
 
     // Price estimates: shown for premium/trial users and beta testers
@@ -3872,7 +3878,7 @@ async function handleMessage(from, text, imageId) {
       // Normal today logging
       let macroProgress = "";
       if (userHasPremium && macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
-        macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
+        macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g\n🌾 Fibre: ${todayMacros.fibre || 0}g`;
       }
 
       // Alcohol tracking
@@ -4039,11 +4045,12 @@ cron.schedule("30 6 * * *", async () => {
         const yMacros = {
           protein: yesterdayEntries.reduce((s, e) => s + (e.protein || 0), 0),
           carbs: yesterdayEntries.reduce((s, e) => s + (e.carbs || 0), 0),
-          fat: yesterdayEntries.reduce((s, e) => s + (e.fat || 0), 0)
+          fat: yesterdayEntries.reduce((s, e) => s + (e.fat || 0), 0),
+          fibre: yesterdayEntries.reduce((s, e) => s + (e.fibre || 0), 0)
         };
         let macroStr = "";
         if (yMacros.protein > 0 || yMacros.carbs > 0 || yMacros.fat > 0) {
-          macroStr = `\n🥩 P: ${yMacros.protein}g | 🍞 C: ${yMacros.carbs}g | 🥑 F: ${yMacros.fat}g`;
+          macroStr = `\n🥩 P: ${yMacros.protein}g | 🍞 C: ${yMacros.carbs}g | 🥑 F: ${yMacros.fat}g | 🌾 Fibre: ${yMacros.fibre}g`;
         }
 
         // Deficit/surplus verdict
@@ -4089,9 +4096,9 @@ cron.schedule("0 20 * * *", async () => {
       let macroStr = "";
       if (eveningHasAccess && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
         if (macroTargets) {
-          macroStr = `\n\n*Macros:*\n🥩 P: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 C: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 F: ${todayMacros.fat}g / ${macroTargets.fat}g`;
+          macroStr = `\n\n*Macros:*\n🥩 P: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 C: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 F: ${todayMacros.fat}g / ${macroTargets.fat}g\n🌾 Fibre: ${todayMacros.fibre || 0}g`;
         } else {
-          macroStr = `\n🥩 P: ${todayMacros.protein}g | 🍞 C: ${todayMacros.carbs}g | 🥑 F: ${todayMacros.fat}g`;
+          macroStr = `\n🥩 P: ${todayMacros.protein}g | 🍞 C: ${todayMacros.carbs}g | 🥑 F: ${todayMacros.fat}g | 🌾 Fibre: ${todayMacros.fibre || 0}g`;
         }
       }
 
