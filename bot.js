@@ -932,6 +932,18 @@ async function estimateCalories(food, user) {
     "acai bowl": { food: "Açaí Bowl", calories: 450, protein: 6, carbs: 65, fat: 18, fibre: 7 },
     "mcdonalds large fries": { food: "McDonald's Large Fries", calories: 490, protein: 7, carbs: 66, fat: 23, fibre: 6 },
     "large fries": { food: "Large Fries", calories: 490, protein: 7, carbs: 66, fat: 23, fibre: 6 },
+    // Round 3 fixes
+    "gatsby steak": { food: "Steak Gatsby", calories: 1050, protein: 40, carbs: 95, fat: 50, fibre: 5 },
+    "steak gatsby": { food: "Steak Gatsby", calories: 1050, protein: 40, carbs: 95, fat: 50, fibre: 5 },
+    "amagwinya": { food: "Amagwinya (fat cake)", calories: 300, protein: 4, carbs: 35, fat: 16, fibre: 1 },
+    "fat cake": { food: "Fat Cake (amagwinya)", calories: 300, protein: 4, carbs: 35, fat: 16, fibre: 1 },
+    "fat cakes": { food: "Fat Cake (amagwinya)", calories: 300, protein: 4, carbs: 35, fat: 16, fibre: 1 },
+    "pap and wors": { food: "Pap & Boerewors", calories: 600, protein: 25, carbs: 50, fat: 32, fibre: 3 },
+    "chakalaka and pap": { food: "Chakalaka & Pap", calories: 300, protein: 8, carbs: 50, fat: 6, fibre: 5 },
+    "savanna light": { food: "Savanna Light 330ml", calories: 105, protein: 0, carbs: 8, fat: 0, fibre: 0 },
+    "corona": { food: "Corona 355ml", calories: 148, protein: 1, carbs: 14, fat: 0, fibre: 0 },
+    "cup of milo": { food: "Cup of Milo (with milk)", calories: 200, protein: 6, carbs: 30, fat: 6, fibre: 2 },
+    "milo": { food: "Cup of Milo (with milk)", calories: 200, protein: 6, carbs: 30, fat: 6, fibre: 2 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
