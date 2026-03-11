@@ -1,88 +1,17 @@
-FitSorted bot listening on port 3000
-Smart nudges active: breakfast (10:00), lunch (14:00), dinner (20:00) SAST
-Weekly report: Sunday 18:00 SAST
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AXT4jjEM4SKUJsjXOekwMZW"}}
-Nudged 27837787970 about dinner
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ATxeIuASc06aQY3TH4vcKrC"}}
-Streak reminder sent to 27837787970 (2 day streak)
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AqI99T8sz531k_3ET88jKSb"}}
-Nudged 27837787970 about dinner
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ASb2Ta7sD9IoFJtoJsE8WQd"}}
-Streak reminder sent to 27837787970 (2 day streak)
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AL3ElIkLC85s6LKF2qSRwqS"}}
-Nudged 27837787970 about breakfast
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"A5gu8O5xVZps9VJVpXU4kLK"}}
-Nudged 27837787970 about breakfast
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AesUdHBpUifQNcduScwLs66"}}
-Nudged 27837787970 about lunch
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AjVVyU4JT_1LlKy_d-8UAR3"}}
-Nudged 27837787970 about lunch
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ASwdz6Rva7VT77eeNquZCC0"}}
-Nudged 27837787970 about dinner
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"Ak9k6otHGzqOjAamuq6taf-"}}
-Nudged 27837787970 about dinner
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ATl8aOeqVF64aDD1BPw9IWg"}}
-Nudged 27837787970 about breakfast
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"Axdom6NSgh1xnIDzpHX2Dwb"}}
-Nudged 27837787970 about breakfast
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AwmuUIMlfg-aJ5VeAA3GpoY"}}
-Nudged 27837787970 about lunch
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AJVoGCdhqLm7zC0oHiqT5Jr"}}
-Nudged 27837787970 about lunch
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"Ausols2i49n6C16Dsj2hNEs"}}
-Nudged 27837787970 about dinner
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AJ1YZay68Q1HCCfN0QR4LQT"}}
-Nudged 27837787970 about dinner
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"Ak1SwiiZ-XL7N4eu8HdUhos"}}
-Nudged 27837787970 about breakfast
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AttO27SXG36QQFp4wBqMse4"}}
-Nudged 27837787970 about breakfast
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ArVNm4GxuCrxBr8JUedyxN2"}}
-Nudged 27837787970 about lunch
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AV6f0rLiDe6B8AVAW4ASQhq"}}
-Nudged 27837787970 about lunch
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ANgohlfjgQnzR5vejkKjAVr"}}
-Nudged 27837787970 about dinner
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ArZHtrBZTUmsPpGzPv0r7px"}}
-Nudged 27837787970 about dinner
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"A2OkaRtq49spcKNqgIeu97L"}}
-Nudged 27837787970 about breakfast
-Running nudge check for breakfast (10:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AVZI4PYBfLOOWUv77PuY2r_"}}
-Nudged 27837787970 about breakfast
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"ASybCYlk1KKgMHh5oUHrXaJ"}}
-Nudged 27837787970 about lunch
-Running nudge check for lunch (14:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"Ah4zEVvBh9t7PE-pUiHJvcN"}}
-Nudged 27837787970 about lunch
-Running weekly progress reports...
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"Aj7LzhLzPlNCNpraLJslCf6"}}
-Weekly report sent to 27837787970 (2 days, avg 1355 kcal)
-Running weekly progress reports...
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"A76uZgG-1eGUV01je-qvmY7"}}
-Weekly report sent to 27837787970 (2 days, avg 1355 kcal)
-Running nudge check for dinner (20:00 SAST)
-WhatsApp send error: 401 {"error":{"message":"Error validating application. Application has been deleted.","type":"OAuthException","code":190,"fbtrace_id":"AWtJDJrkCWxmTh-5CMjuk8O"}}
-Nudged 27837787970 about dinner
+/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:146
+	if (!trimmedUrl) throw new Error("supabaseUrl is required.");
+	                 ^
+
+Error: supabaseUrl is required.
+    at validateSupabaseUrl (/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:146:25)
+    at new SupabaseClient (/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:195:19)
+    at createClient (/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:388:9)
+    at Object.<anonymous> (/Users/brandonkatz/.openclaw/workspace/fitsorted/bot.js:23:18)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Module._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.22.0

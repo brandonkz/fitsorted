@@ -1,0 +1,36 @@
+{
+  "app": {
+    "name": "FitSorted",
+    "description": "AI-powered calorie and macro tracker that runs entirely inside WhatsApp. No app download needed. Built for South Africans with local food data.",
+    "audience": "South Africans who want to track calories but find existing apps too expensive, too data-heavy, or too American",
+    "problem": "Calorie tracking apps cost R350+/month, eat 150MB+ storage, burn through data, and don't know SA food",
+    "differentiator": "Works inside WhatsApp (already on 90% of SA phones), SA food database (Nando's, Kauai, Steers, Woolworths), negligible data usage",
+    "websiteUrl": "https://fitsorted.co.za",
+    "whatsappUrl": "https://wa.me/27690684940?text=Hi",
+    "category": "fitness",
+    "isMobileApp": false
+  },
+  "imageGen": {
+    "provider": "openai",
+    "model": "gpt-image-1",
+    "basePrompt": null
+  },
+  "postiz": {
+    "apiKey": "f106e11ea7991bcee68bb6e60e54e6bcf041b8a3a332ab8b88b70c43bc4c7edf",
+    "integrationIds": {
+      "tiktok": "cmmkbm7h900e5o60yhtvvq7l9"
+    }
+  },
+  "revenuecat": {
+    "enabled": false
+  },
+  "posting": {
+    "privacyLevel": "SELF_ONLY",
+    "schedule": ["07:30", "16:30", "21:00"],
+    "crossPost": [],
+    "requireApproval": true
+  },
+  "competitors": "tiktok-marketing/competitor-research.json",
+  "strategy": "tiktok-marketing/strategy.json",
+  "createdAt": "2026-03-10"
+}

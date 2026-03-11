@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; background: #0a0a0a; font-family: -apple-system, system-ui, 'Segoe UI', sans-serif; overflow: hidden; position: relative; }
+  
+  .bg-gradient {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, #0a1a0a 0%, #0a0a0a 40%, #0a0a0a 60%, #0a0a1a 100%);
+  }
+  
+  .content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; padding: 80px 60px; }
+  
+  .badge {
+    background: rgba(37, 211, 102, 0.15); border: 1px solid rgba(37, 211, 102, 0.3);
+    color: #25D366; font-size: 28px; font-weight: 700; padding: 12px 32px;
+    border-radius: 50px; letter-spacing: 1px; margin-bottom: 50px;
+  }
+  
+  .headline {
+    font-size: 68px; font-weight: 800; color: #fff; text-align: center;
+    line-height: 1.15; margin-bottom: 20px; max-width: 900px;
+  }
+  .sub-headline {
+    font-size: 34px; color: #888; text-align: center; margin-bottom: 50px;
+  }
+  
+  .chat {
+    background: #111; border-radius: 24px; padding: 28px;
+    width: 860px; margin-bottom: 40px; border: 1px solid #222;
+  }
+  .chat-header {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+    padding-bottom: 14px; border-bottom: 1px solid #222;
+  }
+  .chat-avatar {
+    width: 44px; height: 44px; background: #25D366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .chat-name { color: #fff; font-weight: 700; font-size: 22px; }
+  .chat-sub { color: #666; font-size: 16px; }
+  
+  .msg { padding: 14px 22px; border-radius: 18px; margin-bottom: 10px; font-size: 24px; line-height: 1.4; max-width: 80%; }
+  .msg-user { background: #005c4b; color: #fff; margin-left: auto; border-bottom-right-radius: 4px; text-align: right; }
+  .msg-bot { background: #1f2c34; color: #fff; border-bottom-left-radius: 4px; }
+  .msg .green { color: #25D366; font-weight: 700; }
+  .msg .orange { color: #f97316; font-weight: 700; }
+  .msg .blue { color: #60a5fa; }
+  
+  .features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    width: 860px; margin-bottom: 50px;
+  }
+  .feature {
+    background: #111; border: 1px solid #222; border-radius: 16px;
+    padding: 24px; text-align: center;
+  }
+  .feature-icon { font-size: 40px; margin-bottom: 8px; }
+  .feature-text { color: #ccc; font-size: 22px; font-weight: 600; }
+  .feature-sub { color: #666; font-size: 18px; margin-top: 4px; }
+  
+  .price {
+    font-size: 42px; font-weight: 800; color: #fff; text-align: center;
+    margin-bottom: 8px;
+  }
+  .price .green { color: #25D366; }
+  .price-sub { color: #666; font-size: 24px; margin-bottom: 50px; }
+  
+  .cta {
+    background: #25D366; color: #000; font-size: 36px; font-weight: 800;
+    padding: 28px 64px; border-radius: 60px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  
+  .bottom { position: absolute; bottom: 50px; color: #555; font-size: 22px; text-align: center; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<div class="content">
+  
+  <div class="badge">🏋️ FITSORTED</div>
+  
+  <div class="headline">Track your calories<br>on WhatsApp</div>
+  <div class="sub-headline">No app. No login. Just chat.</div>
+  
+  <div class="chat">
+    <div class="chat-header">
+      <div class="chat-avatar">🏋️</div>
+      <div>
+        <div class="chat-name">FitSorted</div>
+        <div class="chat-sub">Online</div>
+      </div>
+    </div>
+    <div class="msg msg-user">3 scrambled eggs, a banana and coffee</div>
+    <div class="msg msg-bot">
+      ✅ <span class="orange">3x scrambled eggs</span> — 210 cal<br>
+      ✅ <span class="orange">banana</span> — 90 cal<br>
+      ✅ <span class="orange">coffee</span> — 5 cal<br><br>
+      📊 Today: <span class="green">305 / 1,800 cal</span><br>
+      🥩 P: 22g | 🍞 C: 30g | 🥑 F: 15g | 🌾 Fibre: 4g
+    </div>
+  </div>
+  
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🍗</div>
+      <div class="feature-text">SA Foods Built In</div>
+      <div class="feature-sub">Nando's, Kauai, biltong</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🍺</div>
+      <div class="feature-text">Drunk-o-Meter</div>
+      <div class="feature-sub">Can I drive? We'll tell you</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🥩</div>
+      <div class="feature-text">Full Macros + Fibre</div>
+      <div class="feature-sub">Protein, carbs, fat, fibre</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🧠</div>
+      <div class="feature-text">Ask Anything</div>
+      <div class="feature-sub">"What can I eat under 400 cal?"</div>
+    </div>
+  </div>
+  
+  <div class="price">Free to use. Premium from <span class="green">R18/mo</span></div>
+  <div class="price-sub">30-day free trial included</div>
+  
+  <div class="cta">💬 Message us on WhatsApp</div>
+  
+  <div class="bottom">fitsorted.co.za 🇿🇦<br>Built for South Africans</div>
+</div>
+</body>
+</html>

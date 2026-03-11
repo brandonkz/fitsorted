@@ -1,0 +1,11 @@
+{
+  "TEST": {
+    "name": "Test Influencer",
+    "phone": null,
+    "createdAt": "2026-03-10T11:05:16.828Z",
+    "signups": [],
+    "totalEarned": 0,
+    "pendingPayout": 0,
+    "totalPaid": 0
+  }
+}

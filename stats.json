@@ -1,11 +1,23 @@
 {
-  "totalUsers": 17,
+  "totalUsers": 19,
   "activeUsers": 8,
-  "totalLogs": 152,
+  "totalLogs": 210,
   "premiumUsers": 0,
   "totalReferrals": 0,
   "topReferrers": [],
   "recentSignups": [
+    {
+      "id": "***3855",
+      "joinedAt": "2026-03-10T16:55:28.735Z",
+      "logs": 3,
+      "isPro": false
+    },
+    {
+      "id": "***5603",
+      "joinedAt": "2026-03-10T13:16:26.868Z",
+      "logs": 0,
+      "isPro": false
+    },
     {
       "id": "***4193",
       "joinedAt": "2026-03-09T15:02:34.028Z",
@@ -15,13 +27,13 @@
     {
       "id": "***2893",
       "joinedAt": "2026-03-09T14:11:17.689Z",
-      "logs": 0,
+      "logs": 8,
       "isPro": false
     },
     {
       "id": "***3354",
       "joinedAt": "2026-03-09T13:56:14.030Z",
-      "logs": 0,
+      "logs": 5,
       "isPro": false
     },
     {
@@ -57,7 +69,7 @@
     {
       "id": "***7970",
       "joinedAt": "2026-03-06T15:58:33.513Z",
-      "logs": 67,
+      "logs": 105,
       "isPro": false
     },
     {
@@ -71,31 +83,7 @@
       "joinedAt": "2026-03-04T18:17:51.675Z",
       "logs": 0,
       "isPro": false
-    },
-    {
-      "id": "***1590",
-      "joinedAt": "2026-03-04T07:03:54.109Z",
-      "logs": 17,
-      "isPro": false
-    },
-    {
-      "id": "***4778",
-      "joinedAt": "2026-03-04T06:05:48.377Z",
-      "logs": 7,
-      "isPro": false
-    },
-    {
-      "id": "***1201",
-      "joinedAt": "2026-03-04T05:23:25.146Z",
-      "logs": 5,
-      "isPro": false
-    },
-    {
-      "id": "***ckup",
-      "joinedAt": "2026-03-03T19:20:41.635Z",
-      "logs": 40,
-      "isPro": false
     }
   ],
-  "lastUpdated": "2026-03-09T15:26:42.974Z"
+  "lastUpdated": "2026-03-11T10:10:00.094Z"
 }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{width:1080px;height:1080px;background:#0a0a0a;font-family:-apple-system,system-ui,sans-serif;overflow:hidden;position:relative;}
+  .bg{position:absolute;inset:0;background:linear-gradient(135deg, #2e0a2e, #0a0a0a 40%, #0a0a0a 60%, #1a0a1a);}
+  .content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;padding:50px 60px;}
+  
+  .tag{background:rgba(236,72,153,0.15);border:1px solid rgba(236,72,153,0.3);color:#ec4899;font-size:24px;font-weight:700;padding:10px 28px;border-radius:50px;letter-spacing:2px;margin-bottom:25px;}
+  
+  .title{font-size:58px;font-weight:800;color:#fff;text-align:center;margin-bottom:6px;}
+  .subtitle{font-size:26px;color:#888;margin-bottom:35px;}
+  
+  .drinks-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;margin-bottom:30px;}
+  .drink{background:#111;border:1px solid #222;border-radius:18px;padding:20px;display:flex;align-items:center;gap:16px;}
+  .drink-emoji{font-size:36px;}
+  .drink-info{}
+  .drink-name{font-size:22px;color:#fff;font-weight:600;}
+  .drink-cal{font-size:18px;color:#ec4899;font-weight:700;}
+  
+  .total-bar{width:100%;background:#111;border:1px solid #222;border-radius:18px;padding:28px;text-align:center;margin-bottom:28px;}
+  .total-label{font-size:22px;color:#888;margin-bottom:8px;}
+  .total-num{font-size:80px;font-weight:900;color:#ec4899;}
+  .total-sub{font-size:24px;color:#888;margin-top:4px;}
+  
+  .equivalents{display:flex;gap:24px;justify-content:center;margin-bottom:28px;}
+  .equiv{background:#111;border:1px solid #222;border-radius:14px;padding:16px 24px;text-align:center;}
+  .equiv-icon{font-size:32px;margin-bottom:4px;}
+  .equiv-text{font-size:18px;color:#ccc;font-weight:600;}
+  .equiv-sub{font-size:14px;color:#666;}
+  
+  .verdict{font-size:24px;color:#ccc;text-align:center;font-style:italic;margin-bottom:20px;line-height:1.4;}
+  
+  .brand{display:flex;align-items:center;gap:12px;position:absolute;bottom:40px;}
+  .brand-badge{background:rgba(37,211,102,0.15);border:1px solid rgba(37,211,102,0.3);color:#25D366;font-size:20px;font-weight:700;padding:8px 20px;border-radius:50px;}
+  .brand-sub{color:#555;font-size:18px;}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="content">
+  <div class="tag">💅 GIRLS NIGHT OUT</div>
+  <div class="title">What your night actually costs</div>
+  <div class="subtitle">A typical Friday out in Cape Town</div>
+  
+  <div class="drinks-grid">
+    <div class="drink"><div class="drink-emoji">🍷</div><div class="drink-info"><div class="drink-name">2x Rosé</div><div class="drink-cal">242 cal</div></div></div>
+    <div class="drink"><div class="drink-emoji">🍹</div><div class="drink-info"><div class="drink-name">1x Mojito</div><div class="drink-cal">217 cal</div></div></div>
+    <div class="drink"><div class="drink-emoji">🍸</div><div class="drink-info"><div class="drink-name">1x Margarita</div><div class="drink-cal">274 cal</div></div></div>
+    <div class="drink"><div class="drink-emoji">🥂</div><div class="drink-info"><div class="drink-name">1x Prosecco</div><div class="drink-cal">90 cal</div></div></div>
+  </div>
+  
+  <div class="total-bar">
+    <div class="total-label">TOTAL LIQUID CALORIES</div>
+    <div class="total-num">823</div>
+    <div class="total-sub">That's almost half your daily goal</div>
+  </div>
+  
+  <div class="equivalents">
+    <div class="equiv"><div class="equiv-icon">🍔</div><div class="equiv-text">1.5 Big Macs</div><div class="equiv-sub">Same calories</div></div>
+    <div class="equiv"><div class="equiv-icon">🏃‍♀️</div><div class="equiv-text">82 min run</div><div class="equiv-sub">To burn it off</div></div>
+    <div class="equiv"><div class="equiv-icon">🍞</div><div class="equiv-text">10 slices bread</div><div class="equiv-sub">Equivalent</div></div>
+    <div class="equiv"><div class="equiv-icon">💸</div><div class="equiv-text">~R380</div><div class="equiv-sub">Estimated spend</div></div>
+  </div>
+  
+  <div class="verdict">"Swap the mojito for a vodka soda and save 160 cal instantly 💡"</div>
+  
+  <div class="brand">
+    <div class="brand-badge">🏋️ FITSORTED</div>
+    <div class="brand-sub">Track food + drinks on WhatsApp — no app needed 🇿🇦</div>
+  </div>
+</div>
+</body>
+</html>

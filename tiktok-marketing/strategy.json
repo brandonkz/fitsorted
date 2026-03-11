@@ -1,0 +1,87 @@
+{
+  "createdAt": "2026-03-10",
+  "contentPillars": [
+    {
+      "name": "SA Calorie Shockers",
+      "description": "Reveal the actual calories in popular SA restaurant meals. The shock factor IS the hook.",
+      "examples": [
+        "Your Nando's order is hiding THIS many calories",
+        "I tracked every calorie at Steers Wacky Wednesday",
+        "Woolworths 'healthy' meals that are actually 800+ calories",
+        "Kauai smoothie vs Steers milkshake - which has more calories?"
+      ],
+      "format": "slideshow",
+      "frequency": "3x/week"
+    },
+    {
+      "name": "2000 Cal Challenge",
+      "description": "What 2,000 calories looks like at different SA restaurants/situations",
+      "examples": [
+        "What 2,000 calories looks like at Nando's",
+        "What 2,000 calories looks like at a braai",
+        "What 2,000 calories looks like if you only ate biltong",
+        "What 2,000 calories looks like at Woolworths vs Checkers"
+      ],
+      "format": "slideshow",
+      "frequency": "2x/week"
+    },
+    {
+      "name": "WhatsApp Demo",
+      "description": "Screen recordings of FitSorted in action - show how easy it is",
+      "examples": [
+        "I tracked my entire Nando's order in 10 seconds on WhatsApp",
+        "POV: You have a calorie tracker that actually knows SA food",
+        "My WhatsApp just told me I ate 3,000 calories today"
+      ],
+      "format": "screen-recording",
+      "frequency": "1x/week"
+    },
+    {
+      "name": "SA Food Facts",
+      "description": "Quick, shareable food facts that South Africans care about",
+      "examples": [
+        "The healthiest order at every SA fast food chain",
+        "SA snacks ranked by calories (biltong vs droewors vs chips)",
+        "Your morning rusk habit is costing you THIS many calories"
+      ],
+      "format": "slideshow",
+      "frequency": "2x/week"
+    }
+  ],
+  "hookFormulas": [
+    "Your [SA restaurant] order is hiding THIS many calories",
+    "I tracked every calorie at [place] and...",
+    "What 2,000 calories looks like at [place]",
+    "POV: Your WhatsApp knows more about nutrition than you",
+    "[SA food] vs [SA food] - which one is worse?",
+    "The [restaurant] meal that's secretly 1,500 calories",
+    "South Africans are eating THIS many calories without knowing",
+    "I asked WhatsApp to track my braai... the results were brutal",
+    "Stop ordering THIS at [restaurant] (here's what to get instead)",
+    "The 'healthy' option that's actually worse than a burger"
+  ],
+  "ctaOptions": [
+    "Track yours on WhatsApp - link in bio",
+    "FitSorted - WhatsApp calorie tracker - link in bio",
+    "No app needed. Just WhatsApp. Link in bio",
+    "Try it free - fitsorted.co.za"
+  ],
+  "hashtags": ["#calories", "#caloriecounting", "#southafrica", "#nandos", "#fitsouthafrica", "#weightloss", "#caloriedeficit", "#whatieatinaday", "#safood", "#fitsorted"],
+  "postingSchedule": {
+    "times": ["07:30", "16:30", "21:00"],
+    "timezone": "Africa/Johannesburg",
+    "frequency": "1-2x/day to start, scale to 3x/day"
+  },
+  "competitorInsights": {
+    "calAI": {
+      "mrr": "$400K+",
+      "strategy": "Influencer marketing + organic TikTok showing calories in meals",
+      "targetCPM": "$5",
+      "contentType": "Meal calorie reveals, before/after, slideshow carousels"
+    },
+    "kalo": {
+      "strategy": "Slideshows of meals with calorie counts overlaid"
+    },
+    "gap": "NOBODY is doing this for South African food. Zero competition in SA calorie content on TikTok."
+  }
+}

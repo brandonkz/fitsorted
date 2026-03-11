@@ -1,0 +1,1867 @@
+{
+  "27837787970": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 84,
+      "height": 186,
+      "age": 38,
+      "activity": "light",
+      "target": "lose",
+      "pace": "standard"
+    },
+    "goal": 1999,
+    "log": {
+      "2026-03-01": [
+        {
+          "food": "half chicken",
+          "calories": 400,
+          "time": "2026-03-01T19:04:09.511Z"
+        },
+        {
+          "food": "black coffee",
+          "calories": 2,
+          "time": "2026-03-01T19:04:29.113Z"
+        },
+        {
+          "food": "Hamburger",
+          "calories": 250,
+          "time": "2026-03-01T19:05:42.534Z"
+        },
+        {
+          "food": "McDonald's hamburger",
+          "calories": 250,
+          "time": "2026-03-01T19:05:53.280Z"
+        },
+        {
+          "food": "McChicken",
+          "calories": 400,
+          "time": "2026-03-01T19:06:05.786Z"
+        },
+        {
+          "food": "Big Mac",
+          "calories": 540,
+          "time": "2026-03-01T19:06:15.561Z"
+        },
+        {
+          "food": "steak fillet",
+          "calories": 660,
+          "time": "2026-03-01T19:06:50.313Z"
+        },
+        {
+          "food": "biltong",
+          "calories": 900,
+          "time": "2026-03-01T19:07:09.835Z"
+        }
+      ],
+      "2026-03-02": [
+        {
+          "food": "Coffee with almond milk",
+          "calories": 30,
+          "time": "2026-03-02T08:27:20.622Z"
+        },
+        {
+          "food": "Coffee with almond milk",
+          "calories": 30,
+          "time": "2026-03-02T09:05:58.789Z"
+        },
+        {
+          "food": "Kauai Peanut Butter Bomb (Large 500ml)",
+          "calories": 764,
+          "time": "2026-03-02T09:25:10.161Z"
+        },
+        {
+          "food": "2x toasted cheese sandwich",
+          "calories": 800,
+          "time": "2026-03-02T12:09:33.152Z"
+        },
+        {
+          "food": "3x dates",
+          "calories": 63,
+          "time": "2026-03-02T14:32:28.726Z"
+        },
+        {
+          "food": "0.5x fried bassa fish",
+          "calories": 150,
+          "time": "2026-03-02T16:16:50.214Z"
+        },
+        {
+          "food": "5x individual pretzel chips",
+          "calories": 70,
+          "time": "2026-03-02T17:45:52.572Z"
+        }
+      ],
+      "2026-03-03": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-03T06:02:03.428Z"
+        },
+        {
+          "food": "2x toasted cheese",
+          "calories": 600,
+          "protein": 24,
+          "carbs": 60,
+          "fat": 30,
+          "time": "2026-03-03T09:08:47.978Z"
+        },
+        {
+          "food": "100g popcorn",
+          "calories": 387,
+          "protein": 12,
+          "carbs": 78,
+          "fat": 4,
+          "time": "2026-03-03T14:41:53.596Z"
+        },
+        {
+          "food": "1x banana",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "time": "2026-03-03T14:46:31.604Z"
+        },
+        {
+          "food": "Nandos chicken burger",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 25,
+          "time": "2026-03-03T16:35:06.054Z"
+        },
+        {
+          "food": "potato wedges",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 50,
+          "fat": 12,
+          "time": "2026-03-03T17:46:48.428Z"
+        },
+        {
+          "food": "Smarties small",
+          "calories": 70,
+          "protein": 0,
+          "carbs": 17,
+          "fat": 0,
+          "time": "2026-03-03T19:48:45.330Z"
+        },
+        {
+          "food": "Braai steak (sirloin, 150g) (150g)",
+          "calories": 360,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 22,
+          "time": "2026-03-04T06:55:00.342Z"
+        },
+        {
+          "food": "steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "time": "2026-03-04T06:57:25.499Z"
+        }
+      ],
+      "2026-03-04": [
+        {
+          "food": "Coffee black no sugar (1 cup (250ml))",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-04T05:38:49.313Z"
+        },
+        {
+          "food": "steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "time": "2026-03-04T06:54:24.244Z"
+        },
+        {
+          "food": "Protein bar (average) (1 bar (60g))",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 22,
+          "fat": 7,
+          "time": "2026-03-04T09:41:23.145Z"
+        },
+        {
+          "food": "3x Finn crisps",
+          "calories": 120,
+          "protein": 3,
+          "carbs": 24,
+          "fat": 1,
+          "time": "2026-03-04T10:53:25.112Z"
+        },
+        {
+          "food": "Nandos pap",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 5,
+          "time": "2026-03-04T15:22:25.053Z"
+        },
+        {
+          "food": "4x slices of cheese",
+          "calories": 400,
+          "protein": 28,
+          "carbs": 4,
+          "fat": 32,
+          "time": "2026-03-04T15:22:45.323Z"
+        }
+      ],
+      "2026-03-05": [
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "time": "2026-03-05T09:34:03.812Z"
+        },
+        {
+          "food": "6x ostrich meat balls",
+          "calories": 540,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 30,
+          "time": "2026-03-05T12:28:57.276Z"
+        },
+        {
+          "food": "1x peanut butter bomb smoothie",
+          "calories": 450,
+          "protein": 15,
+          "carbs": 40,
+          "fat": 25,
+          "time": "2026-03-05T12:29:28.182Z"
+        },
+        {
+          "food": "barbell protein bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 25,
+          "fat": 7,
+          "time": "2026-03-05T14:19:16.839Z"
+        },
+        {
+          "food": "Barebells Caramel Choco Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 8,
+          "time": "2026-03-05T14:28:16.136Z"
+        },
+        {
+          "food": "stir fry with halloumi cheese",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 25,
+          "time": "2026-03-05T16:05:51.232Z"
+        }
+      ],
+      "2026-03-06": [
+        {
+          "food": "Rusk buttermilk (1 rusk (35g))",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 4.5,
+          "time": "2026-03-06T05:56:39.741Z"
+        },
+        {
+          "food": "Pap (stiff, cooked) (1 cup (250g))",
+          "calories": 240,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 1,
+          "time": "2026-03-06T06:14:46.850Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "time": "2026-03-06T06:30:21.303Z"
+        },
+        {
+          "food": "1x piece of kitka",
+          "calories": 200,
+          "protein": 6,
+          "carbs": 40,
+          "fat": 2,
+          "time": "2026-03-06T14:41:23.745Z"
+        },
+        {
+          "food": "Margarita cocktail (1 glass (250ml))",
+          "calories": 275,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "time": "2026-03-06T16:48:39.143Z",
+          "isAlcohol": true,
+          "units": 2
+        }
+      ],
+      "2026-03-07": [
+        {
+          "food": "3x scrambled eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 3,
+          "fat": 15,
+          "time": "2026-03-07T06:30:12.207Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "2x French toast",
+          "calories": 400,
+          "protein": 12,
+          "carbs": 60,
+          "fat": 16,
+          "time": "2026-03-07T11:04:41.953Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "2x coffee",
+          "calories": 10,
+          "protein": 0,
+          "carbs": 2,
+          "fat": 0,
+          "time": "2026-03-07T11:05:07.855Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "1x small potato",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 0,
+          "time": "2026-03-07T11:31:59.236Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ],
+      "2026-03-08": [
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "time": "2026-03-08T09:03:55.435Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "time": "2026-03-08T09:29:44.865Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Droewors (50g) (50g)",
+          "calories": 220,
+          "protein": 20,
+          "carbs": 2,
+          "fat": 15,
+          "time": "2026-03-08T19:58:07.092Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ],
+      "2026-03-09": [
+        {
+          "food": "coffee",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T05:13:32.976Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Nu Peanut Butter Bomb Regular (regular (350ml))",
+          "calories": 400,
+          "protein": 13,
+          "carbs": 50,
+          "fat": 15,
+          "time": "2026-03-09T08:35:57.826Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "time": "2026-03-09T12:25:30.999Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:33:42.929Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "time": "2026-03-09T12:33:49.052Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "time": "2026-03-09T12:35:50.252Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "time": "2026-03-09T12:35:59.424Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "time": "2026-03-09T12:37:11.639Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "time": "2026-03-09T12:37:35.230Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:39:11.460Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:39:19.396Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:39:26.144Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "coke",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:39:31.990Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "egg",
+          "calories": 70,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:39:50.359Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "4x egg",
+          "calories": 280,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:41:35.507Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "5x apple",
+          "calories": 400,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:41:44.196Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "2x margarita",
+          "calories": 440,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T12:43:36.543Z",
+          "isAlcohol": true,
+          "units": 2
+        },
+        {
+          "food": "pretzel",
+          "calories": 110,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T13:00:43.118Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "pretzel",
+          "calories": 110,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T13:04:33.117Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ],
+      "2026-03-10": [
+        {
+          "food": "apple",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T05:39:36.335Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "coffee",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T07:07:25.793Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "droewors",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T08:53:35.578Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T09:05:38.331Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T09:06:02.372Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T09:07:33.511Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Nandos quarter chicken (1 quarter)",
+          "calories": 290,
+          "protein": 37,
+          "carbs": 0,
+          "fat": 15,
+          "time": "2026-03-10T09:10:11.205Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Nando's wedges 150g",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 12,
+          "time": "2026-03-10T09:20:32.753Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "2x egg",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T09:30:01.704Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "coffee",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-10T09:30:36.364Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "peanut butter",
+          "calories": 190,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 30,
+          "time": "2026-03-10T09:35:33.654Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "The nutter",
+          "calories": 450,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 30,
+          "priceZAR": 65,
+          "time": "2026-03-10T09:36:01.762Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "kingklip",
+          "calories": 130,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 150,
+          "time": "2026-03-10T10:19:04.007Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ]
+    },
+    "joinedAt": "2026-03-06T15:58:33.513Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Brandon",
+    "email": null,
+    "customFoods": {
+      "lion": 6990
+    },
+    "lastMorning": "2026-03-10T04:30:02.668Z",
+    "emailPrompted": true
+  },
+  "27824724778": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "female",
+      "weight": 53,
+      "height": 168,
+      "age": 36,
+      "activity": "light",
+      "target": "lose"
+    },
+    "goal": 1204,
+    "log": {
+      "2026-03-03": [
+        {
+          "food": "Americano with almond milk",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 2,
+          "time": "2026-03-03T13:11:04.513Z"
+        },
+        {
+          "food": "2x boiled egg, small plate of veggies with halloumi, 2 slices cracker bread with fat free cottage cheese",
+          "calories": 460,
+          "protein": 32,
+          "carbs": 36,
+          "fat": 20,
+          "time": "2026-03-03T13:12:06.130Z"
+        },
+        {
+          "food": "sea bass fish with rice",
+          "calories": 500,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 15,
+          "time": "2026-03-04T07:02:19.389Z"
+        },
+        {
+          "food": "2x mini caramel magnum ice cream",
+          "calories": 320,
+          "protein": 4,
+          "carbs": 32,
+          "fat": 20,
+          "time": "2026-03-04T07:04:35.377Z"
+        },
+        {
+          "food": "2x small caramel magnum ice cream",
+          "calories": 400,
+          "protein": 4,
+          "carbs": 40,
+          "fat": 28,
+          "time": "2026-03-04T07:03:06.492Z"
+        },
+        {
+          "food": "small fat free yoghurt with sliced mango and strawberries",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 0,
+          "time": "2026-03-04T07:05:12.039Z"
+        },
+        {
+          "food": "sea bass fish with rice",
+          "calories": 450,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 10,
+          "time": "2026-03-04T06:05:51.346Z"
+        }
+      ],
+      "2026-03-04": []
+    },
+    "exercise": {
+      "2026-03-03": [
+        {
+          "activity": "weight training",
+          "calories": 180,
+          "time": "2026-03-03T13:13:09.874Z"
+        }
+      ]
+    },
+    "joinedAt": "2026-03-04T06:05:48.377Z",
+    "lastNudge": "2026-03-05T11:00:01.874Z"
+  },
+  "27837941111": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 88,
+      "height": 176,
+      "age": 42,
+      "activity": "active",
+      "target": "lose"
+    },
+    "goal": 2562,
+    "log": {
+      "2026-03-03": [
+        {
+          "food": "3x corn thins",
+          "calories": 90,
+          "protein": 3,
+          "carbs": 18,
+          "fat": 1,
+          "time": "2026-03-03T14:01:13.863Z"
+        },
+        {
+          "food": "fat free chunky cottage cheese - 120g",
+          "calories": 60,
+          "protein": 11,
+          "carbs": 6,
+          "fat": 0,
+          "time": "2026-03-03T14:01:31.366Z"
+        },
+        {
+          "food": "avocado - 50g",
+          "calories": 80,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 7,
+          "time": "2026-03-03T14:01:38.149Z"
+        },
+        {
+          "food": "2x big tomatoes",
+          "calories": 44,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 0,
+          "time": "2026-03-03T14:01:54.588Z"
+        },
+        {
+          "food": "3x almond flat white",
+          "calories": 240,
+          "protein": 6,
+          "carbs": 18,
+          "fat": 15,
+          "time": "2026-03-03T14:02:02.671Z"
+        },
+        {
+          "food": "2x slices rye toast",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "time": "2026-03-03T14:02:15.091Z"
+        },
+        {
+          "food": "1x tinned tuna in brine drained",
+          "calories": 132,
+          "protein": 28,
+          "carbs": 0,
+          "fat": 1,
+          "time": "2026-03-03T14:02:22.280Z"
+        },
+        {
+          "food": "20g of perinaise",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 2,
+          "fat": 8,
+          "time": "2026-03-03T14:02:29.552Z"
+        },
+        {
+          "food": "1x futurelife lite 40g protein bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 7,
+          "time": "2026-03-03T14:02:54.436Z"
+        }
+      ]
+    },
+    "lastNudge": "2026-03-05T11:00:02.820Z",
+    "lastMorning": "2026-03-09T04:30:01.219Z"
+  },
+  "27840503566": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "female",
+      "weight": 94,
+      "height": 152,
+      "age": 42,
+      "activity": "light",
+      "target": "lose"
+    },
+    "goal": 1589,
+    "log": {
+      "2026-03-03": [
+        {
+          "food": "bread",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 1,
+          "time": "2026-03-03T14:18:50.961Z"
+        }
+      ]
+    },
+    "lastNudge": "2026-03-05T11:00:03.727Z",
+    "lastMorning": "2026-03-09T04:30:02.082Z"
+  },
+  "27837861590": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "female",
+      "weight": 75,
+      "height": 173,
+      "age": 61,
+      "activity": "light",
+      "target": "lose",
+      "pace": "standard"
+    },
+    "goal": 1377,
+    "log": {
+      "2026-03-04": [
+        {
+          "food": "1x banana, 1x cereal, 1x fat free milk",
+          "calories": 210,
+          "protein": 8,
+          "carbs": 40,
+          "fat": 2,
+          "time": "2026-03-04T07:03:56.315Z"
+        }
+      ],
+      "2026-03-05": [
+        {
+          "food": "1x paw paw",
+          "calories": 59,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "time": "2026-03-05T06:13:15.133Z"
+        },
+        {
+          "food": "1 bowl of Pronutro with milk",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 5,
+          "time": "2026-03-05T06:56:49.662Z"
+        },
+        {
+          "food": "Woolworths sushi 9 piece (1 pack (9pc))",
+          "calories": 350,
+          "protein": 12,
+          "carbs": 55,
+          "fat": 8,
+          "time": "2026-03-05T18:08:57.924Z"
+        }
+      ],
+      "2026-03-06": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-06T05:17:34.555Z"
+        },
+        {
+          "food": "muesli with fruit and plain yogurt",
+          "calories": 350,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 8,
+          "time": "2026-03-06T06:08:37.262Z"
+        },
+        {
+          "food": "gnocchi (100g)",
+          "calories": 150,
+          "protein": 4,
+          "carbs": 30,
+          "fat": 1,
+          "time": "2026-03-06T13:23:33.357Z"
+        },
+        {
+          "food": "hake with chips",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 60,
+          "fat": 20,
+          "time": "2026-03-06T18:32:08.076Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ],
+      "2026-03-07": [
+        {
+          "food": "paw paw with lemon",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "time": "2026-03-07T06:37:08.908Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "USN whey protein shake (1 scoop (30g) with water)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1.5,
+          "time": "2026-03-07T08:40:32.543Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "1x smoked salmon on sourdough bread with cream cheese and cucumber",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 30,
+          "fat": 15,
+          "time": "2026-03-07T18:01:11.900Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "carrot cake slice",
+          "calories": 350,
+          "protein": 3,
+          "carbs": 50,
+          "fat": 15,
+          "time": "2026-03-07T18:01:35.960Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ],
+      "2026-03-08": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-08T05:13:31.133Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Biltong (100g) (100g)",
+          "calories": 350,
+          "protein": 56,
+          "carbs": 8,
+          "fat": 8,
+          "time": "2026-03-08T07:34:28.739Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Freezochino",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 10,
+          "time": "2026-03-08T09:02:07.341Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "butter chicken curry with rice and 1 apple",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 25,
+          "time": "2026-03-08T13:48:02.384Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ],
+      "2026-03-09": [
+        {
+          "food": "juice",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-09T14:30:44.340Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ]
+    },
+    "joinedAt": "2026-03-04T07:03:54.109Z",
+    "name": "Mineen",
+    "isPro": false,
+    "proPrompted": false,
+    "emailPrompted": true,
+    "email": "mineenk@gmail.com"
+  },
+  "27826211201": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "female",
+      "weight": 60,
+      "height": 161,
+      "age": 35,
+      "activity": "light",
+      "target": "lose",
+      "pace": "standard"
+    },
+    "goal": 1247,
+    "log": {
+      "2026-03-04": [
+        {
+          "food": "1 mug of coffee with almond milk and Canderel sweetener",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 2,
+          "time": "2026-03-04T17:08:57.420Z"
+        },
+        {
+          "food": "smoked salmon and cream cheese bagel",
+          "calories": 450,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 25,
+          "time": "2026-03-04T17:09:53.367Z"
+        },
+        {
+          "food": "Banana (1 medium) (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "time": "2026-03-04T17:10:08.069Z"
+        },
+        {
+          "food": "Future Life Lite Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 7,
+          "time": "2026-03-04T17:10:20.069Z"
+        }
+      ],
+      "2026-03-05": [
+        {
+          "food": "1x mug of coffee with almond milk and Canderel sweetener",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 2,
+          "time": "2026-03-05T04:59:33.587Z"
+        }
+      ]
+    },
+    "joinedAt": "2026-03-04T05:23:25.146Z",
+    "lastNudge": "2026-03-06T11:00:01.991Z"
+  },
+  "447796716350": {
+    "setup": false,
+    "step": "awaiting_gender",
+    "profile": {},
+    "goal": null,
+    "log": {},
+    "joinedAt": "2026-03-04T18:17:51.675Z"
+  },
+  "27732466213": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 86,
+      "height": 177,
+      "age": 35,
+      "activity": "active",
+      "target": "gain",
+      "pace": "chill"
+    },
+    "goal": 3299,
+    "log": {
+      "2026-03-05": []
+    },
+    "joinedAt": "2026-03-05T09:27:01.632Z",
+    "name": "Idan",
+    "email": null,
+    "lastNudge": "2026-03-06T11:00:02.769Z",
+    "lastMorning": "2026-03-09T04:30:02.949Z"
+  },
+  "27837787970_backup": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 84,
+      "height": 186,
+      "age": 38,
+      "activity": "light",
+      "target": "lose"
+    },
+    "goal": 1999,
+    "log": {
+      "2026-03-01": [
+        {
+          "food": "half chicken",
+          "calories": 400,
+          "time": "2026-03-01T19:04:09.511Z"
+        },
+        {
+          "food": "black coffee",
+          "calories": 2,
+          "time": "2026-03-01T19:04:29.113Z"
+        },
+        {
+          "food": "Hamburger",
+          "calories": 250,
+          "time": "2026-03-01T19:05:42.534Z"
+        },
+        {
+          "food": "McDonald's hamburger",
+          "calories": 250,
+          "time": "2026-03-01T19:05:53.280Z"
+        },
+        {
+          "food": "McChicken",
+          "calories": 400,
+          "time": "2026-03-01T19:06:05.786Z"
+        },
+        {
+          "food": "Big Mac",
+          "calories": 540,
+          "time": "2026-03-01T19:06:15.561Z"
+        },
+        {
+          "food": "steak fillet",
+          "calories": 660,
+          "time": "2026-03-01T19:06:50.313Z"
+        },
+        {
+          "food": "biltong",
+          "calories": 900,
+          "time": "2026-03-01T19:07:09.835Z"
+        }
+      ],
+      "2026-03-02": [
+        {
+          "food": "Coffee with almond milk",
+          "calories": 30,
+          "time": "2026-03-02T08:27:20.622Z"
+        },
+        {
+          "food": "Coffee with almond milk",
+          "calories": 30,
+          "time": "2026-03-02T09:05:58.789Z"
+        },
+        {
+          "food": "Kauai Peanut Butter Bomb (Large 500ml)",
+          "calories": 764,
+          "time": "2026-03-02T09:25:10.161Z"
+        },
+        {
+          "food": "2x toasted cheese sandwich",
+          "calories": 800,
+          "time": "2026-03-02T12:09:33.152Z"
+        },
+        {
+          "food": "3x dates",
+          "calories": 63,
+          "time": "2026-03-02T14:32:28.726Z"
+        },
+        {
+          "food": "0.5x fried bassa fish",
+          "calories": 150,
+          "time": "2026-03-02T16:16:50.214Z"
+        },
+        {
+          "food": "5x individual pretzel chips",
+          "calories": 70,
+          "time": "2026-03-02T17:45:52.572Z"
+        }
+      ],
+      "2026-03-03": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-03T06:02:03.428Z"
+        },
+        {
+          "food": "2x toasted cheese",
+          "calories": 600,
+          "protein": 24,
+          "carbs": 60,
+          "fat": 30,
+          "time": "2026-03-03T09:08:47.978Z"
+        },
+        {
+          "food": "100g popcorn",
+          "calories": 387,
+          "protein": 12,
+          "carbs": 78,
+          "fat": 4,
+          "time": "2026-03-03T14:41:53.596Z"
+        },
+        {
+          "food": "1x banana",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "time": "2026-03-03T14:46:31.604Z"
+        },
+        {
+          "food": "Nandos chicken burger",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 25,
+          "time": "2026-03-03T16:35:06.054Z"
+        },
+        {
+          "food": "potato wedges",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 50,
+          "fat": 12,
+          "time": "2026-03-03T17:46:48.428Z"
+        },
+        {
+          "food": "Smarties small",
+          "calories": 70,
+          "protein": 0,
+          "carbs": 17,
+          "fat": 0,
+          "time": "2026-03-03T19:48:45.330Z"
+        },
+        {
+          "food": "Braai steak (sirloin, 150g) (150g)",
+          "calories": 360,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 22,
+          "time": "2026-03-04T06:55:00.342Z"
+        },
+        {
+          "food": "steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "time": "2026-03-04T06:57:25.499Z"
+        }
+      ],
+      "2026-03-04": [
+        {
+          "food": "Coffee black no sugar (1 cup (250ml))",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-04T05:38:49.313Z"
+        },
+        {
+          "food": "steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "time": "2026-03-04T06:54:24.244Z"
+        },
+        {
+          "food": "Protein bar (average) (1 bar (60g))",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 22,
+          "fat": 7,
+          "time": "2026-03-04T09:41:23.145Z"
+        },
+        {
+          "food": "3x Finn crisps",
+          "calories": 120,
+          "protein": 3,
+          "carbs": 24,
+          "fat": 1,
+          "time": "2026-03-04T10:53:25.112Z"
+        },
+        {
+          "food": "Nandos pap",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 5,
+          "time": "2026-03-04T15:22:25.053Z"
+        },
+        {
+          "food": "4x slices of cheese",
+          "calories": 400,
+          "protein": 28,
+          "carbs": 4,
+          "fat": 32,
+          "time": "2026-03-04T15:22:45.323Z"
+        }
+      ],
+      "2026-03-05": [
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "time": "2026-03-05T09:34:03.812Z"
+        },
+        {
+          "food": "6x ostrich meat balls",
+          "calories": 540,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 30,
+          "time": "2026-03-05T12:28:57.276Z"
+        },
+        {
+          "food": "1x peanut butter bomb smoothie",
+          "calories": 450,
+          "protein": 15,
+          "carbs": 40,
+          "fat": 25,
+          "time": "2026-03-05T12:29:28.182Z"
+        },
+        {
+          "food": "barbell protein bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 25,
+          "fat": 7,
+          "time": "2026-03-05T14:19:16.839Z"
+        },
+        {
+          "food": "Barebells Caramel Choco Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 8,
+          "time": "2026-03-05T14:28:16.136Z"
+        },
+        {
+          "food": "stir fry with halloumi cheese",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 25,
+          "time": "2026-03-05T16:05:51.232Z"
+        }
+      ],
+      "2026-03-06": [
+        {
+          "food": "Rusk buttermilk (1 rusk (35g))",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 4.5,
+          "time": "2026-03-06T05:56:39.741Z"
+        },
+        {
+          "food": "Pap (stiff, cooked) (1 cup (250g))",
+          "calories": 240,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 1,
+          "time": "2026-03-06T06:14:46.850Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "time": "2026-03-06T06:30:21.303Z"
+        },
+        {
+          "food": "1x piece of kitka",
+          "calories": 200,
+          "protein": 6,
+          "carbs": 40,
+          "fat": 2,
+          "time": "2026-03-06T14:41:23.745Z"
+        }
+      ]
+    },
+    "exercise": {
+      "2026-03-01": [
+        {
+          "activity": "Gym workout",
+          "calories": 400,
+          "time": "2026-03-01T19:04:45.564Z"
+        },
+        {
+          "activity": "walking",
+          "calories": 400,
+          "time": "2026-03-01T19:09:36.164Z"
+        },
+        {
+          "activity": "running",
+          "calories": 2800,
+          "time": "2026-03-01T19:10:10.194Z"
+        }
+      ]
+    },
+    "joinedAt": "2026-03-03T19:20:41.635Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Brandon",
+    "awaitingWeight": true,
+    "lastNudge": "2026-03-07T11:00:02.049Z",
+    "lastMorning": "2026-03-10T04:30:03.228Z"
+  },
+  "27718772067": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 78,
+      "height": 182,
+      "age": 99,
+      "activity": "light",
+      "target": "gain",
+      "pace": "standard"
+    },
+    "goal": 2263,
+    "log": {
+      "2026-03-06": [
+        {
+          "food": "steak with tartar sauce and lobster",
+          "calories": 600,
+          "protein": 50,
+          "carbs": 5,
+          "fat": 40,
+          "time": "2026-03-06T18:13:57.962Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Braai steak (sirloin, 150g) (150g)",
+          "calories": 360,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 22,
+          "time": "2026-03-06T18:14:39.391Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "lobster 100g",
+          "calories": 90,
+          "protein": 19,
+          "carbs": 0,
+          "fat": 1,
+          "time": "2026-03-06T18:14:59.780Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Chicken Schnitzel",
+          "calories": 300,
+          "protein": 25,
+          "carbs": 20,
+          "fat": 15,
+          "time": "2026-03-06T18:16:50.771Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "Debonairs medium Margherita pizza (1 slice)",
+          "calories": 200,
+          "protein": 9,
+          "carbs": 24,
+          "fat": 7,
+          "time": "2026-03-06T18:19:35.999Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "tequila 1 shot (30ml)",
+          "calories": 64,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "time": "2026-03-06T18:19:57.448Z",
+          "isAlcohol": true,
+          "units": 1
+        }
+      ]
+    },
+    "joinedAt": "2026-03-06T18:03:47.813Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Shane",
+    "email": null,
+    "lastNudge": "2026-03-07T11:00:03.092Z",
+    "lastMorning": "2026-03-10T04:30:04.260Z"
+  },
+  "27721430516": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 83,
+      "height": 178,
+      "age": 39,
+      "activity": "sedentary",
+      "target": "lose",
+      "pace": "standard"
+    },
+    "goal": 1603,
+    "log": {},
+    "joinedAt": "2026-03-09T07:53:51.807Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Rael",
+    "lastMorning": "2026-03-10T04:30:05.137Z"
+  },
+  "27729271966": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 100,
+      "height": 170,
+      "age": 45,
+      "activity": "light",
+      "target": "lose",
+      "pace": "standard"
+    },
+    "goal": 2033,
+    "log": {},
+    "joinedAt": "2026-03-09T11:33:01.111Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Kyle",
+    "lastMorning": "2026-03-10T04:30:06.043Z"
+  },
+  "27609931906": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 78,
+      "height": 175,
+      "age": 30,
+      "activity": "active",
+      "target": "gain",
+      "pace": "chill"
+    },
+    "goal": 3182,
+    "log": {},
+    "joinedAt": "2026-03-09T11:48:35.947Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Meko",
+    "lastMorning": "2026-03-10T04:30:07.068Z"
+  },
+  "447588076982": {
+    "setup": false,
+    "step": "name",
+    "profile": {
+      "gender": "male",
+      "weight": 86,
+      "height": 187,
+      "age": 44,
+      "activity": "active",
+      "target": "gain",
+      "pace": "standard"
+    },
+    "goal": 3429,
+    "log": {},
+    "joinedAt": "2026-03-09T12:14:40.518Z",
+    "isPro": false,
+    "proPrompted": false
+  },
+  "972539523354": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "male",
+      "weight": 82,
+      "height": 173,
+      "age": 37,
+      "activity": "light",
+      "target": "lose",
+      "pace": "standard"
+    },
+    "goal": 1867,
+    "log": {},
+    "joinedAt": "2026-03-09T13:56:14.030Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Avi",
+    "lastMorning": "2026-03-10T04:30:07.878Z"
+  },
+  "27828802893": {
+    "setup": true,
+    "step": null,
+    "profile": {
+      "gender": "female",
+      "weight": 57,
+      "height": 159,
+      "age": 36,
+      "activity": "active",
+      "target": "lose",
+      "pace": "chill"
+    },
+    "goal": 1859,
+    "log": {
+      "2026-03-10": [
+        {
+          "food": "2x dates",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 11,
+          "fat": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:57:18.497Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "2x provita",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:58:00.813Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "cheese",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:58:20.040Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "milk",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:58:33.046Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "salad",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T10:22:52.637Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T10:23:04.857Z",
+          "isAlcohol": false,
+          "units": 0
+        },
+        {
+          "food": "feta",
+          "calories": 75,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T10:23:24.412Z",
+          "isAlcohol": false,
+          "units": 0
+        }
+      ]
+    },
+    "joinedAt": "2026-03-09T14:11:17.689Z",
+    "isPro": false,
+    "proPrompted": false,
+    "name": "Robyn",
+    "lastMorning": "2026-03-10T04:30:08.809Z",
+    "exercise": {
+      "2026-03-10": [
+        {
+          "activity": "eating",
+          "calories": 150,
+          "time": "2026-03-10T09:55:25.030Z"
+        },
+        {
+          "activity": "weight training",
+          "calories": 180,
+          "time": "2026-03-10T09:56:22.171Z"
+        },
+        {
+          "activity": "eating all bran",
+          "calories": 150,
+          "time": "2026-03-10T09:56:38.457Z"
+        },
+        {
+          "activity": "Allbran",
+          "calories": 0,
+          "time": "2026-03-10T09:56:57.382Z"
+        },
+        {
+          "activity": "Allbran cereal",
+          "calories": 0,
+          "time": "2026-03-10T09:58:59.259Z"
+        }
+      ]
+    }
+  },
+  "27824124193": {
+    "setup": false,
+    "step": "target",
+    "profile": {
+      "gender": "male",
+      "weight": 80,
+      "height": 172,
+      "age": 40,
+      "activity": "active"
+    },
+    "goal": null,
+    "log": {},
+    "joinedAt": "2026-03-09T15:02:34.028Z",
+    "isPro": false,
+    "proPrompted": false
+  }
+}

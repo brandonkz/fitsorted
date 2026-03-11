@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitSorted Admin Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #22c55e;
+    }
+    .subtitle {
+      color: #64748b;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+    }
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #22c55e;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .table-container {
+      background: #1e293b;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      background: #0f172a;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      font-weight: 600;
+      border-bottom: 1px solid #334155;
+    }
+    td {
+      padding: 16px;
+      border-bottom: 1px solid #334155;
+      font-size: 14px;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover {
+      background: #334155;
+    }
+    .food-name {
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .count {
+      color: #22c55e;
+      font-weight: 600;
+    }
+    .users {
+      color: #64748b;
+      font-size: 13px;
+    }
+    .date {
+      color: #64748b;
+      font-size: 12px;
+    }
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #22c55e;
+      color: #0f172a;
+    }
+    .btn-primary:hover {
+      background: #16a34a;
+    }
+    .btn-secondary {
+      background: #334155;
+      color: #e2e8f0;
+    }
+    .btn-secondary:hover {
+      background: #475569;
+    }
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+    }
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #1e293b;
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      max-width: 500px;
+      width: 90%;
+    }
+    .modal h2 {
+      margin-bottom: 20px;
+      color: #22c55e;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #22c55e;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    .empty-state {
+      padding: 60px 20px;
+      text-align: center;
+      color: #64748b;
+    }
+    .empty-state h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #94a3b8;
+    }
+    .refresh-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 12px 20px;
+      background: #22c55e;
+      color: #0f172a;
+      border: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+      transition: all 0.2s;
+    }
+    .refresh-btn:hover {
+      background: #16a34a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏋️ FitSorted Admin Dashboard</h1>
+    <div class="subtitle">Failed food lookups • Add to database • Monitor user issues</div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-value" id="totalFailed">0</div>
+        <div class="stat-label">Total Failed Lookups</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="uniqueFoods">0</div>
+        <div class="stat-label">Unique Foods</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="affectedUsers">0</div>
+        <div class="stat-label">Affected Users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="topFood">—</div>
+        <div class="stat-label">Most Requested</div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Requests</th>
+            <th>Users</th>
+            <th>Last Seen</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="failedTable">
+          <tr>
+            <td colspan="5">
+              <div class="empty-state">
+                <h3>Loading...</h3>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <button class="refresh-btn" onclick="loadData()">🔄 Refresh</button>
+
+  <!-- Add to DB Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <h2>Add Food to Database</h2>
+      <div class="form-group">
+        <label>Food Name</label>
+        <input type="text" id="foodName" readonly>
+      </div>
+      <div class="form-group">
+        <label>Calories (per serving)</label>
+        <input type="number" id="foodCalories" placeholder="e.g., 250" autofocus>
+      </div>
+      <div class="form-group">
+        <label>Protein (g) - Optional</label>
+        <input type="number" id="foodProtein" placeholder="e.g., 20">
+      </div>
+      <div class="form-group">
+        <label>Carbs (g) - Optional</label>
+        <input type="number" id="foodCarbs" placeholder="e.g., 30">
+      </div>
+      <div class="form-group">
+        <label>Fat (g) - Optional</label>
+        <input type="number" id="foodFat" placeholder="e.g., 10">
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="addToDatabase()">Add to Database</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let failedData = {};
+    let currentFood = null;
+
+    async function loadData() {
+      try {
+        const res = await fetch('/admin/failed-lookups');
+        failedData = await res.json();
+        renderTable();
+        updateStats();
+      } catch (err) {
+        console.error('Load error:', err);
+      }
+    }
+
+    function updateStats() {
+      const entries = Object.values(failedData);
+      const totalFailed = entries.reduce((sum, e) => sum + e.count, 0);
+      const uniqueFoods = entries.length;
+      const affectedUsers = [...new Set(entries.flatMap(e => e.users))].length;
+      const topFood = entries.sort((a, b) => b.count - a.count)[0]?.text || '—';
+
+      document.getElementById('totalFailed').textContent = totalFailed;
+      document.getElementById('uniqueFoods').textContent = uniqueFoods;
+      document.getElementById('affectedUsers').textContent = affectedUsers;
+      document.getElementById('topFood').textContent = topFood;
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('failedTable');
+      const entries = Object.values(failedData).sort((a, b) => b.count - a.count);
+
+      if (entries.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5">
+              <div class="empty-state">
+                <h3>No Failed Lookups</h3>
+                <p>All foods are being recognized successfully! 🎉</p>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = entries.map(entry => `
+        <tr>
+          <td class="food-name">${entry.text}</td>
+          <td class="count">${entry.count}x</td>
+          <td class="users">${entry.users.length} users</td>
+          <td class="date">${new Date(entry.lastSeen).toLocaleString()}</td>
+          <td>
+            <button class="btn btn-primary" onclick="openAddModal('${entry.text}')">
+              Add to DB
+            </button>
+            <button class="btn btn-danger" onclick="dismissLookup('${entry.text}')" style="margin-left: 8px;">
+              Dismiss
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function openAddModal(foodName) {
+      currentFood = foodName;
+      document.getElementById('foodName').value = foodName;
+      document.getElementById('foodCalories').value = '';
+      document.getElementById('foodProtein').value = '';
+      document.getElementById('foodCarbs').value = '';
+      document.getElementById('foodFat').value = '';
+      document.getElementById('addModal').classList.add('active');
+      setTimeout(() => document.getElementById('foodCalories').focus(), 100);
+    }
+
+    function closeModal() {
+      document.getElementById('addModal').classList.remove('active');
+      currentFood = null;
+    }
+
+    async function addToDatabase() {
+      const calories = parseInt(document.getElementById('foodCalories').value);
+      const protein = parseInt(document.getElementById('foodProtein').value) || 0;
+      const carbs = parseInt(document.getElementById('foodCarbs').value) || 0;
+      const fat = parseInt(document.getElementById('foodFat').value) || 0;
+
+      if (!calories || calories < 0) {
+        alert('Please enter valid calories');
+        return;
+      }
+
+      try {
+        const res = await fetch('/admin/add-food', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: currentFood,
+            calories,
+            protein,
+            carbs,
+            fat
+          })
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          alert(`✅ Added "${currentFood}" to database!`);
+          closeModal();
+          await loadData();
+        } else {
+          alert(`❌ Error: ${result.error}`);
+        }
+      } catch (err) {
+        alert(`❌ Error: ${err.message}`);
+      }
+    }
+
+    async function dismissLookup(foodName) {
+      if (!confirm(`Dismiss "${foodName}"? This will remove it from the list.`)) {
+        return;
+      }
+
+      try {
+        const res = await fetch('/admin/dismiss-lookup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: foodName })
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          await loadData();
+        } else {
+          alert(`❌ Error: ${result.error}`);
+        }
+      } catch (err) {
+        alert(`❌ Error: ${err.message}`);
+      }
+    }
+
+    // Close modal on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Initial load
+    loadData();
+
+    // Auto-refresh every 30 seconds
+    setInterval(loadData, 30000);
+  </script>
+</body>
+</html>

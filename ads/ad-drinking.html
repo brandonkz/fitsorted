@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; background: #0a0a0a; font-family: -apple-system, system-ui, 'Segoe UI', sans-serif; overflow: hidden; position: relative; }
+  
+  /* Gradient overlay */
+  .bg-gradient {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, #1a0a2e 0%, #0a0a0a 40%, #0a0a0a 60%, #0d1f0d 100%);
+  }
+  
+  /* Content */
+  .content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; padding: 80px 60px; }
+  
+  /* Top badge */
+  .badge {
+    background: rgba(37, 211, 102, 0.15); border: 1px solid rgba(37, 211, 102, 0.3);
+    color: #25D366; font-size: 28px; font-weight: 700; padding: 12px 32px;
+    border-radius: 50px; letter-spacing: 1px; margin-bottom: 60px;
+  }
+  
+  /* Wine emoji */
+  .emoji-hero { font-size: 120px; margin-bottom: 40px; }
+  
+  /* Headline */
+  .headline {
+    font-size: 72px; font-weight: 800; color: #fff; text-align: center;
+    line-height: 1.15; margin-bottom: 40px; max-width: 900px;
+  }
+  .headline .highlight { color: #f97316; }
+  .headline .green { color: #25D366; }
+  
+  /* Chat mockup */
+  .chat {
+    background: #1a1a2e; border-radius: 24px; padding: 32px;
+    width: 860px; margin-bottom: 50px; border: 1px solid #2a2a3e;
+  }
+  .chat-header {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    padding-bottom: 16px; border-bottom: 1px solid #2a2a3e;
+  }
+  .chat-avatar {
+    width: 48px; height: 48px; background: #25D366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+  }
+  .chat-name { color: #fff; font-weight: 700; font-size: 24px; }
+  .chat-sub { color: #888; font-size: 18px; }
+  
+  .msg { padding: 16px 24px; border-radius: 18px; margin-bottom: 12px; font-size: 26px; line-height: 1.4; max-width: 75%; }
+  .msg-user { background: #005c4b; color: #fff; margin-left: auto; border-bottom-right-radius: 4px; text-align: right; }
+  .msg-bot { background: #1f2c34; color: #fff; border-bottom-left-radius: 4px; }
+  .msg-bot .cal { color: #f97316; font-weight: 700; }
+  .msg-bot .fibre { color: #a3e635; }
+  .msg-bot .drive { color: #ef4444; font-weight: 700; }
+  
+  /* Stats bar */
+  .stats {
+    display: flex; gap: 40px; justify-content: center; margin-bottom: 50px;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-size: 56px; font-weight: 800; color: #f97316; }
+  .stat-label { font-size: 22px; color: #888; margin-top: 4px; }
+  
+  /* Subline */
+  .subline { font-size: 32px; color: #aaa; text-align: center; margin-bottom: 50px; line-height: 1.5; }
+  
+  /* CTA */
+  .cta {
+    background: #25D366; color: #000; font-size: 36px; font-weight: 800;
+    padding: 28px 64px; border-radius: 60px; letter-spacing: 0.5px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .cta-icon { font-size: 40px; }
+  
+  /* Bottom text */
+  .bottom { position: absolute; bottom: 60px; color: #555; font-size: 22px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<div class="content">
+  
+  <div class="badge">🏋️ FITSORTED</div>
+  
+  <div class="emoji-hero">🍷🍷🍷</div>
+  
+  <div class="headline">
+    3 glasses of wine<br>= <span class="highlight">375 calories</span><br><span style="font-size:52px;color:#aaa;">That's 40 minutes on the treadmill.</span>
+  </div>
+  
+  <div class="chat">
+    <div class="chat-header">
+      <div class="chat-avatar">🏋️</div>
+      <div>
+        <div class="chat-name">FitSorted</div>
+        <div class="chat-sub">WhatsApp</div>
+      </div>
+    </div>
+    <div class="msg msg-user">3 glasses of wine</div>
+    <div class="msg msg-bot">
+      ✅ <strong>3x wine</strong> — <span class="cal">375 cal</span> | 5.4 units<br><br>
+      🍺 Drunk 🍻<br>
+      🏃 That's <strong>38 min of running</strong> to burn off<br><br>
+      💡 Switch to gin & soda — save <span class="cal">210 cal</span><br><br>
+      <span class="drive">🚨 OVER THE LEGAL LIMIT</span><br>
+      🚗 Do NOT drive.
+    </div>
+  </div>
+  
+  <div class="subline">
+    Track your food <strong>and</strong> your drinks.<br>
+    See what your night really costs.
+  </div>
+  
+  <div class="cta">
+    <span class="cta-icon">💬</span>
+    Message us on WhatsApp
+  </div>
+  
+  <div class="bottom">No app download. No login. Just chat. 🇿🇦</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700;800&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; font-family: 'Inter', sans-serif; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; justify-content: center; }
+  
+  .graphic {
+    width: 1080px; height: 1350px;
+    position: relative; overflow: hidden; flex-shrink: 0;
+    background: radial-gradient(ellipse at 50% 30%, #1a1520 0%, #0a0a0f 60%, #050508 100%);
+  }
+  
+  /* Sparkle overlay */
+  .graphic::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1px 1px at 55% 25%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 70% 45%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1.5px 1.5px at 85% 15%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 35% 70%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1.5px 1.5px at 65% 5%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 80% 30%, rgba(255,255,255,0.25), transparent);
+    pointer-events: none; z-index: 1;
+  }
+
+  .content { position: relative; z-index: 2; width: 100%; height: 100%; }
+  
+  .header-text {
+    position: absolute; top: 50px; left: 0; right: 0; text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 700;
+    color: #c9a96e;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 20px rgba(201, 169, 110, 0.3);
+  }
+  
+  .drink-name {
+    position: absolute; top: 130px; left: 0; right: 0; text-align: center;
+    font-size: 52px; font-weight: 800; color: #ffffff;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 30px rgba(255,255,255,0.2);
+  }
+  
+  .calorie-count {
+    position: absolute; top: 200px; left: 0; right: 0; text-align: center;
+    font-size: 30px; font-weight: 600; color: #34d399;
+    letter-spacing: 4px;
+  }
+  
+  .comparison-zone {
+    position: absolute; top: 280px; left: 40px; right: 40px;
+    height: 520px;
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+  }
+  
+  .drink-img {
+    width: 360px; height: 460px; object-fit: contain;
+    filter: drop-shadow(0 10px 40px rgba(255,200,100,0.15));
+  }
+  
+  .equals-sign {
+    font-size: 72px; font-weight: 900; color: #34d399;
+    text-shadow: 0 0 30px rgba(52, 211, 153, 0.5);
+    flex-shrink: 0;
+  }
+  
+  .bread-img {
+    width: 320px; height: 400px; object-fit: contain;
+    filter: drop-shadow(0 10px 40px rgba(200,170,100,0.15));
+  }
+  
+  .equiv-text {
+    position: absolute; top: 830px; left: 0; right: 0; text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700; color: #c9a96e;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 20px rgba(201, 169, 110, 0.3);
+  }
+  .equiv-text .num { font-size: 48px; color: #fff; }
+  
+  .sub-text {
+    position: absolute; top: 910px; left: 80px; right: 80px; text-align: center;
+    font-size: 22px; font-weight: 300; color: #8a8a9a;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  
+  .divider {
+    position: absolute; top: 980px; left: 200px; right: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a96e40, transparent);
+  }
+  
+  .cta {
+    position: absolute; top: 1020px; left: 0; right: 0; text-align: center;
+    font-size: 24px; font-weight: 600; color: #94a3b8;
+    letter-spacing: 1px;
+  }
+  .cta span { color: #25D366; }
+  
+  .brand {
+    position: absolute; bottom: 50px; left: 0; right: 0; text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700; color: #c9a96e;
+    letter-spacing: 6px;
+    text-shadow: 0 2px 15px rgba(201, 169, 110, 0.2);
+  }
+
+  /* Subtle glow behind drink */
+  .drink-glow {
+    position: absolute; width: 400px; height: 400px;
+    border-radius: 50%;
+    filter: blur(80px); opacity: 0.15;
+    z-index: 0;
+  }
+  .beer .drink-glow { background: #d4a017; top: 300px; left: 50px; }
+  .wine .drink-glow { background: #8b0000; top: 300px; left: 50px; }
+  .margarita .drink-glow { background: #7cfc00; top: 300px; left: 50px; }
+  .pina .drink-glow { background: #f5deb3; top: 300px; left: 50px; }
+  .gin .drink-glow { background: #4169e1; top: 300px; left: 50px; }
+  .longisland .drink-glow { background: #d2691e; top: 300px; left: 50px; }
+</style>
+</head>
+<body>
+
+<!-- 1. CASTLE LAGER -->
+<div class="graphic beer" id="d1">
+  <div class="drink-glow"></div>
+  <div class="content">
+    <div class="header-text">HOW MUCH BREAD IS IN YOUR DRINK?</div>
+    <div class="drink-name">CASTLE LAGER</div>
+    <div class="calorie-count">200 CALORIES</div>
+    <div class="comparison-zone">
+      <img class="drink-img" src="../drink-images/beer.webp">
+      <div class="equals-sign">=</div>
+      <img class="bread-img" src="../drink-images/bread.webp">
+    </div>
+    <div class="equiv-text">EQUIVALENT TO <span class="num">2.5</span> SLICES OF BREAD</div>
+    <div class="sub-text">Every pint. Every braai. Every Friday.</div>
+    <div class="divider"></div>
+    <div class="cta">Track your calories on <span>WhatsApp</span></div>
+    <div class="brand">FITSORTED.CO.ZA</div>
+  </div>
+</div>
+
+<!-- 2. RED WINE -->
+<div class="graphic wine" id="d2">
+  <div class="drink-glow"></div>
+  <div class="content">
+    <div class="header-text">HOW MUCH BREAD IS IN YOUR DRINK?</div>
+    <div class="drink-name">RED WINE</div>
+    <div class="calorie-count">160 CALORIES</div>
+    <div class="comparison-zone">
+      <img class="drink-img" src="../drink-images/wine.webp">
+      <div class="equals-sign">=</div>
+      <img class="bread-img" src="../drink-images/bread.webp">
+    </div>
+    <div class="equiv-text">EQUIVALENT TO <span class="num">2</span> SLICES OF BREAD</div>
+    <div class="sub-text">"It's healthy though" — sure, but it's still 2 slices.</div>
+    <div class="divider"></div>
+    <div class="cta">Track your calories on <span>WhatsApp</span></div>
+    <div class="brand">FITSORTED.CO.ZA</div>
+  </div>
+</div>
+
+<!-- 3. MARGARITA -->
+<div class="graphic margarita" id="d3">
+  <div class="drink-glow"></div>
+  <div class="content">
+    <div class="header-text">HOW MUCH BREAD IS IN YOUR DRINK?</div>
+    <div class="drink-name">MARGARITA</div>
+    <div class="calorie-count">275 CALORIES</div>
+    <div class="comparison-zone">
+      <img class="drink-img" src="../drink-images/margarita.webp">
+      <div class="equals-sign">=</div>
+      <img class="bread-img" src="../drink-images/bread.webp">
+    </div>
+    <div class="equiv-text">EQUIVALENT TO <span class="num">3.5</span> SLICES OF BREAD</div>
+    <div class="sub-text">One cocktail. Three and a half slices. Let that sink in.</div>
+    <div class="divider"></div>
+    <div class="cta">Track your calories on <span>WhatsApp</span></div>
+    <div class="brand">FITSORTED.CO.ZA</div>
+  </div>
+</div>
+
+<!-- 4. PIÑA COLADA -->
+<div class="graphic pina" id="d4">
+  <div class="drink-glow"></div>
+  <div class="content">
+    <div class="header-text">HOW MUCH BREAD IS IN YOUR DRINK?</div>
+    <div class="drink-name">PIÑA COLADA</div>
+    <div class="calorie-count">490 CALORIES</div>
+    <div class="comparison-zone">
+      <img class="drink-img" src="../drink-images/pina.webp">
+      <div class="equals-sign">=</div>
+      <img class="bread-img" src="../drink-images/bread.webp">
+    </div>
+    <div class="equiv-text">EQUIVALENT TO <span class="num">6</span> SLICES OF BREAD</div>
+    <div class="sub-text">That's almost a whole loaf in one glass.</div>
+    <div class="divider"></div>
+    <div class="cta">Track your calories on <span>WhatsApp</span></div>
+    <div class="brand">FITSORTED.CO.ZA</div>
+  </div>
+</div>
+
+<!-- 5. GIN & TONIC -->
+<div class="graphic gin" id="d5">
+  <div class="drink-glow"></div>
+  <div class="content">
+    <div class="header-text">HOW MUCH BREAD IS IN YOUR DRINK?</div>
+    <div class="drink-name">GIN & TONIC</div>
+    <div class="calorie-count">170 CALORIES</div>
+    <div class="comparison-zone">
+      <img class="drink-img" src="../drink-images/gin.webp">
+      <div class="equals-sign">=</div>
+      <img class="bread-img" src="../drink-images/bread.webp">
+    </div>
+    <div class="equiv-text">EQUIVALENT TO <span class="num">2</span> SLICES OF BREAD</div>
+    <div class="sub-text">"The diet drink." Still 2 slices. Have 3 and that's 6.</div>
+    <div class="divider"></div>
+    <div class="cta">Track your calories on <span>WhatsApp</span></div>
+    <div class="brand">FITSORTED.CO.ZA</div>
+  </div>
+</div>
+
+<!-- 6. LONG ISLAND ICED TEA -->
+<div class="graphic longisland" id="d6">
+  <div class="drink-glow"></div>
+  <div class="content">
+    <div class="header-text">HOW MUCH BREAD IS IN YOUR DRINK?</div>
+    <div class="drink-name">LONG ISLAND</div>
+    <div class="calorie-count">290 CALORIES</div>
+    <div class="comparison-zone">
+      <img class="drink-img" src="../drink-images/longisland.webp">
+      <div class="equals-sign">=</div>
+      <img class="bread-img" src="../drink-images/bread.webp">
+    </div>
+    <div class="equiv-text">EQUIVALENT TO <span class="num">3.5</span> SLICES OF BREAD</div>
+    <div class="sub-text">5 spirits in one glass. 3.5 slices of regret.</div>
+    <div class="divider"></div>
+    <div class="cta">Track your calories on <span>WhatsApp</span></div>
+    <div class="brand">FITSORTED.CO.ZA</div>
+  </div>
+</div>
+
+</body>
+</html>

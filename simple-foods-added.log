@@ -1,0 +1,463 @@
+
+[2026-03-09T12:45:11.856Z] Added 117 foods:
+  - pap: 100 cal
+  - mealie pap: 100 cal
+  - chakalaka: 80 cal
+  - boerewors: 300 cal
+  - biltong: 150 cal
+  - droewors: 200 cal
+  - koeksister: 250 cal
+  - vetkoek: 320 cal
+  - bunny chow: 600 cal
+  - kota: 650 cal
+  - gatsby: 1200 cal
+  - braai meat: 300 cal
+  - sosatie: 250 cal
+  - toast: 80 cal
+  - slice of toast: 80 cal
+  - brown bread: 90 cal
+  - white bread: 80 cal
+  - muesli: 200 cal
+  - corn flakes: 110 cal
+  - weetbix: 60 cal
+  - pronutro: 180 cal
+  - jungle oats: 150 cal
+  - bacon: 160 cal
+  - sausage: 150 cal
+  - boerewors roll: 400 cal
+  - pancake: 120 cal
+  - waffle: 150 cal
+  - yogurt: 100 cal
+  - greek yogurt: 120 cal
+  - biscuit: 50 cal
+  - cookie: 50 cal
+  - chocolate: 200 cal
+  - bar one: 240 cal
+  - kit kat: 210 cal
+  - simba chips: 150 cal
+  - doritos: 150 cal
+  - popcorn: 100 cal
+  - nuts: 170 cal
+  - peanuts: 170 cal
+  - almonds: 160 cal
+  - rusks: 80 cal
+  - ouma rusks: 80 cal
+  - tennis biscuit: 60 cal
+  - big mac: 550 cal
+  - quarter pounder: 520 cal
+  - whopper: 660 cal
+  - steers burger: 600 cal
+  - wimpy burger: 550 cal
+  - kfc burger: 450 cal
+  - zinger burger: 450 cal
+  - chicken licken burger: 500 cal
+  - fish and chips: 850 cal
+  - chicken and chips: 700 cal
+  - pie: 350 cal
+  - steak pie: 400 cal
+  - chicken pie: 380 cal
+  - cappuccino: 80 cal
+  - latte: 120 cal
+  - flat white: 100 cal
+  - espresso: 5 cal
+  - americano: 10 cal
+  - hot chocolate: 200 cal
+  - milkshake: 300 cal
+  - smoothie: 200 cal
+  - juice: 120 cal
+  - orange juice: 110 cal
+  - apple juice: 120 cal
+  - coke: 140 cal
+  - pepsi: 150 cal
+  - fanta: 140 cal
+  - sprite: 140 cal
+  - cream soda: 160 cal
+  - iron brew: 150 cal
+  - energade: 90 cal
+  - powerade: 80 cal
+  - red bull: 110 cal
+  - sandwich: 300 cal
+  - toasted sandwich: 350 cal
+  - cheese sandwich: 320 cal
+  - chicken sandwich: 380 cal
+  - salad: 150 cal
+  - chicken salad: 300 cal
+  - greek salad: 200 cal
+  - pasta: 350 cal
+  - spaghetti: 350 cal
+  - mac and cheese: 400 cal
+  - lasagna: 450 cal
+  - stir fry: 400 cal
+  - curry: 450 cal
+  - chicken curry: 450 cal
+  - lamb curry: 500 cal
+  - beef stew: 400 cal
+  - bobotie: 450 cal
+  - potjie: 500 cal
+  - fries: 320 cal
+  - chips: 320 cal
+  - mashed potato: 200 cal
+  - baked potato: 180 cal
+  - sweet potato: 160 cal
+  - onion rings: 300 cal
+  - coleslaw: 150 cal
+  - garlic bread: 180 cal
+  - naan: 260 cal
+  - roti: 200 cal
+  - orange: 60 cal
+  - grapes: 100 cal
+  - strawberries: 50 cal
+  - watermelon: 80 cal
+  - mango: 100 cal
+  - pineapple: 80 cal
+  - avocado: 240 cal
+  - avo: 240 cal
+  - tomato: 20 cal
+  - cucumber: 15 cal
+  - carrot: 40 cal
+  - broccoli: 50 cal
+  - spinach: 25 cal
+
+[2026-03-09T12:48:25.537Z] Added 110 foods:
+  - chicken: 165 cal
+  - chicken breast: 165 cal
+  - grilled chicken: 165 cal
+  - chicken thigh: 210 cal
+  - chicken drumstick: 180 cal
+  - beef: 250 cal
+  - steak: 250 cal
+  - mince: 250 cal
+  - beef mince: 250 cal
+  - lamb: 280 cal
+  - lamb chop: 280 cal
+  - pork: 240 cal
+  - pork chop: 240 cal
+  - fish: 140 cal
+  - salmon: 180 cal
+  - tuna: 130 cal
+  - hake: 120 cal
+  - prawns: 100 cal
+  - calamari: 140 cal
+  - eggs: 70 cal
+  - egg white: 17 cal
+  - scrambled eggs: 70 cal
+  - boiled egg: 70 cal
+  - omelette: 200 cal
+  - tuna can: 130 cal
+  - rice: 200 cal
+  - brown rice: 215 cal
+  - white rice: 200 cal
+  - basmati rice: 190 cal
+  - penne: 350 cal
+  - whole wheat pasta: 340 cal
+  - noodles: 320 cal
+  - quinoa: 220 cal
+  - couscous: 190 cal
+  - potato: 180 cal
+  - potatoes: 180 cal
+  - bread: 80 cal
+  - slice of bread: 80 cal
+  - wrap: 350 cal
+  - tortilla: 150 cal
+  - pita: 165 cal
+  - oats: 150 cal
+  - oatmeal: 150 cal
+  - porridge: 150 cal
+  - granola: 220 cal
+  - low fat yogurt: 80 cal
+  - cauliflower: 30 cal
+  - carrots: 40 cal
+  - green beans: 35 cal
+  - peas: 80 cal
+  - corn: 90 cal
+  - mushrooms: 20 cal
+  - peppers: 30 cal
+  - bell pepper: 30 cal
+  - tomatoes: 20 cal
+  - lettuce: 10 cal
+  - cabbage: 25 cal
+  - zucchini: 20 cal
+  - courgette: 20 cal
+  - butternut: 45 cal
+  - pumpkin: 40 cal
+  - asparagus: 20 cal
+  - mixed veg: 50 cal
+  - stir fry veg: 50 cal
+  - apple: 80 cal
+  - berries: 50 cal
+  - blueberries: 60 cal
+  - melon: 60 cal
+  - peach: 50 cal
+  - pear: 100 cal
+  - plum: 45 cal
+  - kiwi: 60 cal
+  - cashews: 160 cal
+  - walnuts: 185 cal
+  - mixed nuts: 170 cal
+  - peanut butter: 190 cal
+  - almond butter: 200 cal
+  - protein bar: 200 cal
+  - quest bar: 180 cal
+  - rice cakes: 35 cal
+  - hummus: 100 cal
+  - cottage cheese: 100 cal
+  - cheese: 100 cal
+  - cheddar: 115 cal
+  - feta: 75 cal
+  - cheeseburger: 550 cal
+  - chicken burger: 450 cal
+  - pizza slice: 285 cal
+  - pizza: 285 cal
+  - chicken and rice: 450 cal
+  - chicken and veg: 300 cal
+  - beef and rice: 500 cal
+  - fish and veg: 280 cal
+  - salmon and rice: 430 cal
+  - chicken stir fry: 400 cal
+  - beef stir fry: 450 cal
+  - beef curry: 500 cal
+  - soup: 150 cal
+  - chicken soup: 200 cal
+  - tuna salad: 280 cal
+  - caesar salad: 350 cal
+  - tuna sandwich: 320 cal
+  - chicken wrap: 400 cal
+  - burrito: 500 cal
+  - burrito bowl: 450 cal
+  - sushi: 250 cal
+  - sushi roll: 250 cal
+  - tacos: 400 cal
+  - quesadilla: 500 cal
+  - side salad: 80 cal
+
+[2026-03-09T12:56:02.571Z] Added 158 foods:
+  - baked chicken: 165 cal
+  - roasted chicken: 180 cal
+  - fried chicken: 280 cal
+  - chicken wing: 100 cal
+  - chicken wings: 100 cal
+  - chicken strips: 250 cal
+  - chicken tenders: 250 cal
+  - chicken schnitzel: 320 cal
+  - sirloin: 250 cal
+  - fillet: 240 cal
+  - rump steak: 260 cal
+  - ribeye: 290 cal
+  - lean mince: 200 cal
+  - turkey mince: 150 cal
+  - patty: 250 cal
+  - beef patty: 250 cal
+  - lamb shank: 300 cal
+  - pork loin: 220 cal
+  - gammon: 180 cal
+  - ham: 120 cal
+  - turkey: 130 cal
+  - turkey breast: 120 cal
+  - duck: 200 cal
+  - venison: 160 cal
+  - ostrich: 140 cal
+  - white fish: 120 cal
+  - grilled salmon: 180 cal
+  - smoked salmon: 120 cal
+  - tuna steak: 150 cal
+  - kingklip: 130 cal
+  - snoek: 140 cal
+  - sardines: 150 cal
+  - mackerel: 160 cal
+  - trout: 150 cal
+  - cod: 120 cal
+  - shrimp: 100 cal
+  - squid: 140 cal
+  - mussels: 90 cal
+  - oysters: 70 cal
+  - crab: 100 cal
+  - lobster: 120 cal
+  - egg: 70 cal
+  - egg yolk: 55 cal
+  - poached egg: 70 cal
+  - fried egg: 90 cal
+  - egg mayo: 200 cal
+  - tofu: 80 cal
+  - tempeh: 160 cal
+  - edamame: 120 cal
+  - chickpeas: 160 cal
+  - lentils: 120 cal
+  - beans: 110 cal
+  - black beans: 120 cal
+  - kidney beans: 110 cal
+  - overnight oats: 200 cal
+  - special k: 110 cal
+  - bran flakes: 100 cal
+  - all bran: 90 cal
+  - fat free yogurt: 60 cal
+  - bacon rasher: 40 cal
+  - pork sausage: 150 cal
+  - chicken sausage: 120 cal
+  - hash brown: 150 cal
+  - french toast: 180 cal
+  - crumpet: 90 cal
+  - english muffin: 130 cal
+  - breakfast wrap: 400 cal
+  - breakfast burrito: 450 cal
+  - eggs benedict: 450 cal
+  - frittata: 250 cal
+  - quiche: 320 cal
+  - breakfast bowl: 400 cal
+  - acai bowl: 350 cal
+  - smoothie bowl: 300 cal
+  - trail mix: 180 cal
+  - beef jerky: 160 cal
+  - woolworths salad: 200 cal
+  - woolies salad: 200 cal
+  - woolworths wrap: 400 cal
+  - woolies wrap: 400 cal
+  - woolworths sandwich: 350 cal
+  - woolies sandwich: 350 cal
+  - woolworths sushi: 250 cal
+  - woolies sushi: 250 cal
+  - woolworths biltong: 150 cal
+  - woolies biltong: 150 cal
+  - woolworths droewors: 200 cal
+  - woolies droewors: 200 cal
+  - woolworths trail mix: 180 cal
+  - woolies trail mix: 180 cal
+  - woolworths yoghurt: 100 cal
+  - woolies yoghurt: 100 cal
+  - woolworths smoothie: 200 cal
+  - woolies smoothie: 200 cal
+  - woolworths fruit salad: 120 cal
+  - woolies fruit salad: 120 cal
+  - woolworths chicken: 300 cal
+  - woolies chicken: 300 cal
+  - woolworths roast chicken: 350 cal
+  - woolies roast chicken: 350 cal
+  - woolworths pasta: 400 cal
+  - woolies pasta: 400 cal
+  - woolworths curry: 450 cal
+  - woolies curry: 450 cal
+  - woolworths pie: 380 cal
+  - woolies pie: 380 cal
+  - woolworths quiche: 320 cal
+  - woolies quiche: 320 cal
+  - woolworths muffin: 280 cal
+  - woolies muffin: 280 cal
+  - woolworths croissant: 240 cal
+  - woolies croissant: 240 cal
+  - woolworths bagel: 250 cal
+  - woolies bagel: 250 cal
+  - woolworths scone: 220 cal
+  - woolies scone: 220 cal
+  - woolworths protein ball: 150 cal
+  - woolies protein ball: 150 cal
+  - woolworths energy bar: 200 cal
+  - woolies energy bar: 200 cal
+  - woolworths hummus: 100 cal
+  - woolies hummus: 100 cal
+  - woolworths guacamole: 120 cal
+  - woolies guacamole: 120 cal
+  - woolworths cheese platter: 350 cal
+  - woolies cheese platter: 350 cal
+  - woolworths meal: 500 cal
+  - woolies meal: 500 cal
+  - woolworths ready meal: 500 cal
+  - woolies ready meal: 500 cal
+  - cortado: 60 cal
+  - macchiato: 40 cal
+  - double espresso: 10 cal
+  - long black: 10 cal
+  - mocha: 200 cal
+  - chai latte: 180 cal
+  - matcha latte: 140 cal
+  - iced coffee: 120 cal
+  - iced latte: 140 cal
+  - cold brew: 10 cal
+  - almond milk latte: 100 cal
+  - oat milk latte: 130 cal
+  - soy latte: 110 cal
+  - protein shake: 150 cal
+  - whey shake: 150 cal
+  - meal replacement shake: 200 cal
+  - green smoothie: 180 cal
+  - fruit smoothie: 200 cal
+  - berry smoothie: 180 cal
+  - protein smoothie: 220 cal
+  - fresh juice: 120 cal
+  - green juice: 100 cal
+  - pressed juice: 120 cal
+  - diet coke: 0 cal
+  - coke zero: 0 cal
+  - stoney: 140 cal
+  - game: 90 cal
+  - monster: 110 cal
+
+[2026-03-09T12:59:38.763Z] Added 40 foods:
+  - pretzel: 110 cal
+  - pretzels: 110 cal
+  - pretzel knots: 110 cal
+  - giant pretzel: 220 cal
+  - soft pretzel: 200 cal
+  - pretzel bites: 150 cal
+  - crackers: 120 cal
+  - ritz crackers: 80 cal
+  - cream crackers: 70 cal
+  - provita: 20 cal
+  - salticrax: 70 cal
+  - chocolate bar: 200 cal
+  - candy bar: 200 cal
+  - crisps: 150 cal
+  - nachos: 280 cal
+  - tortilla chips: 140 cal
+  - corn chips: 150 cal
+  - veggie chips: 130 cal
+  - pita chips: 130 cal
+  - rice crackers: 100 cal
+  - seaweed snacks: 30 cal
+  - caramel popcorn: 150 cal
+  - cheese puffs: 160 cal
+  - cheetos: 160 cal
+  - nik naks: 140 cal
+  - cheese curls: 160 cal
+  - dried fruit: 120 cal
+  - fruit roll up: 80 cal
+  - granola bar: 150 cal
+  - cereal bar: 120 cal
+  - muesli bar: 140 cal
+  - brownie: 240 cal
+  - cupcake: 200 cal
+  - donut: 250 cal
+  - doughnut: 250 cal
+  - cinnamon roll: 300 cal
+  - danish: 280 cal
+  - pastry: 280 cal
+  - diet coke: 0 cal
+  - coke zero: 0 cal
+
+[2026-03-09T13:08:11.891Z] Added 13 foods:
+  - lager: [object Object] cal
+  - ale: [object Object] cal
+  - cider: [object Object] cal
+  - red wine: [object Object] cal
+  - white wine: [object Object] cal
+  - champagne: [object Object] cal
+  - margaritas: [object Object] cal
+  - gin: [object Object] cal
+  - whiskey: [object Object] cal
+  - rum: [object Object] cal
+  - tequila: [object Object] cal
+  - pina colada: [object Object] cal
+  - cosmopolitan: [object Object] cal
+
+[2026-03-09T13:08:23.267Z] Added 13 foods:
+  - lager: 150 cal
+  - ale: 180 cal
+  - cider: 180 cal
+  - red wine: 125 cal
+  - white wine: 120 cal
+  - champagne: 90 cal
+  - margaritas: 220 cal
+  - gin: 100 cal
+  - whiskey: 100 cal
+  - rum: 100 cal
+  - tequila: 100 cal
+  - pina colada: 250 cal
+  - cosmopolitan: 150 cal
