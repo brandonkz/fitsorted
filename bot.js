@@ -4561,6 +4561,47 @@ app.get('/api/stats', (req, res) => {
   });
 });
 
+// Push stats to mission-control repo every 5 minutes
+const STATS_FILE = '/Users/brandonkatz/.openclaw/workspace/mission-control-static/fitsorted-stats.json';
+function pushStats() {
+  try {
+    const users = loadUsers();
+    const today = getToday();
+    const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
+    const phones = Object.keys(users).filter(p => !p.includes('backup'));
+    let totalUsers = 0, setupComplete = 0, proUsers = 0;
+    let activeToday = 0, activeWeek = 0, logsToday = 0, totalLogsAllTime = 0;
+    let signupsToday = 0, signupsThisWeek = 0;
+    const signupsByDay = {};
+    const recentSignups = [];
+    
+    for (const phone of phones) {
+      const u = users[phone];
+      totalUsers++;
+      if (u.setup || u.goal) setupComplete++;
+      if (u.isPro) proUsers++;
+      const created = u.created || u.joinedAt || '';
+      if (created) {
+        const day = created.slice(0, 10);
+        signupsByDay[day] = (signupsByDay[day] || 0) + 1;
+        if (day === today) signupsToday++;
+        if (day >= weekAgo) signupsThisWeek++;
+        recentSignups.push({ phone: phone.slice(0,3) + '***' + phone.slice(-2), name: u.name || u.profile?.name || 'anon', created, setup: !!(u.setup || u.goal) });
+      }
+      const log = u.log || {};
+      if (log[today] && Array.isArray(log[today]) && log[today].length > 0) { activeToday++; logsToday += log[today].length; }
+      for (const date of Object.keys(log)) { if (date >= weekAgo && Array.isArray(log[date]) && log[date].length > 0) { activeWeek++; break; } }
+      for (const entries of Object.values(log)) { if (Array.isArray(entries)) totalLogsAllTime += entries.length; }
+    }
+    
+    recentSignups.sort((a, b) => b.created.localeCompare(a.created));
+    const stats = { totalUsers, setupComplete, proUsers, activeToday, activeWeek, logsToday, totalLogsAllTime, signupsToday, signupsThisWeek, signupsByDay, recentSignups: recentSignups.slice(0, 10), updatedAt: new Date().toISOString() };
+    require('fs').writeFileSync(STATS_FILE, JSON.stringify(stats, null, 2));
+  } catch(e) { console.error('[stats push error]', e.message); }
+}
+pushStats();
+setInterval(pushStats, 300000); // every 5 min
+
 app.get('/admin/failed-lookups', (req, res) => {
   const failed = loadFailedLookups();
   res.json(failed);
