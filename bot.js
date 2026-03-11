@@ -3131,7 +3131,7 @@ async function handleMessage(from, text, imageId) {
         `Send *bug: describe the issue*\n\n` +
         `*Request a feature:*\n` +
         `Send *feedback: your idea*\n\n` +
-        `📧 Email: support@fitsorted.co.za\n` +
+        `📧 Email: brandonkz@gmail.com\n` +
         `🌐 FAQ: fitsorted.co.za/support`
       );
     }
