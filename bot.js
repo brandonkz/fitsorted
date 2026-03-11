@@ -753,7 +753,8 @@ async function lookupSAFood(food) {
           calories: item.calories,
           protein: item.protein || 0,
           carbs: item.carbs || 0,
-          fat: item.fat || 0
+          fat: item.fat || 0,
+          fibre: item.fibre || 0
         };
       }
     }
@@ -1391,7 +1392,25 @@ async function estimateCalories(food, user) {
 
   // 4. Check SA database (491 SA foods from Supabase)
   const saMatch = await lookupSAFood(food);
-  if (saMatch) return saMatch;
+  if (saMatch) {
+    // SA DB doesn't have fibre — quick AI lookup to fill it in
+    if (OPENAI_API_KEY && !saMatch.fibre) {
+      try {
+        const fibreRes = await axios.post("https://api.openai.com/v1/chat/completions", {
+          model: "gpt-4o-mini",
+          messages: [
+            { role: "system", content: "Return ONLY a JSON object: {\"fibre\": integer}. Dietary fibre in grams for the given food. No extra text." },
+            { role: "user", content: saMatch.food }
+          ],
+          temperature: 0.1, max_tokens: 20
+        }, { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" }, timeout: 3000 });
+        const fc = fibreRes.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
+        const fd = JSON.parse(fc);
+        if (fd.fibre != null) saMatch.fibre = fd.fibre;
+      } catch (e) { /* silent */ }
+    }
+    return saMatch;
+  }
 
   // 4b. If restaurant item didn't match SA DB, try simple exact lookup as fallback
   if (isRestaurantItem) {
