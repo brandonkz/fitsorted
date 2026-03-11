@@ -914,6 +914,24 @@ async function estimateCalories(food, user) {
     "slice of cheese": { food: "1 slice cheese (SA processed)", calories: 60, protein: 4, carbs: 1, fat: 5, fibre: 0 },
     "handful of almonds": { food: "Handful of almonds (~28g)", calories: 160, protein: 6, carbs: 6, fat: 14, fibre: 3 },
     "handful almonds": { food: "Handful of almonds (~28g)", calories: 160, protein: 6, carbs: 6, fat: 14, fibre: 3 },
+    // SA classics AI gets wrong
+    "koeksister": { food: "Koeksister", calories: 250, protein: 3, carbs: 38, fat: 10, fibre: 1 },
+    "rusks": { food: "Ouma Rusk (1)", calories: 140, protein: 3, carbs: 22, fat: 5, fibre: 1 },
+    "rusk": { food: "Ouma Rusk (1)", calories: 140, protein: 3, carbs: 22, fat: 5, fibre: 1 },
+    "ouma rusk": { food: "Ouma Rusk (1)", calories: 140, protein: 3, carbs: 22, fat: 5, fibre: 1 },
+    "samp and beans": { food: "Samp & Beans (serving)", calories: 320, protein: 12, carbs: 55, fat: 4, fibre: 8 },
+    // Drinks AI underestimates
+    "brandy and coke": { food: "Brandy & Coke", calories: 210, protein: 0, carbs: 22, fat: 0, fibre: 0 },
+    "double brandy and coke": { food: "Double Brandy & Coke", calories: 420, protein: 0, carbs: 22, fat: 0, fibre: 0 },
+    "whisky neat": { food: "Whisky (single, neat)", calories: 70, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "whiskey neat": { food: "Whisky (single, neat)", calories: 70, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "whisky": { food: "Whisky (single)", calories: 70, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "whiskey": { food: "Whisky (single)", calories: 70, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    // Foods AI underestimates
+    "cottage cheese": { food: "Cottage Cheese (100g)", calories: 98, protein: 11, carbs: 3, fat: 4, fibre: 0 },
+    "acai bowl": { food: "Açaí Bowl", calories: 450, protein: 6, carbs: 65, fat: 18, fibre: 7 },
+    "mcdonalds large fries": { food: "McDonald's Large Fries", calories: 490, protein: 7, carbs: 66, fat: 23, fibre: 6 },
+    "large fries": { food: "Large Fries", calories: 490, protein: 7, carbs: 66, fat: 23, fibre: 6 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
