@@ -1357,28 +1357,29 @@ async function estimateCalories(food, user) {
     const quantity = extractQuantity(lower);
     const stripped = lower.replace(/^\d+\s+/, '').replace(/^(two|three|four|five|six|seven|eight|nine|ten)\s+/i, '').replace(/x\s+/, '');
     
-    // Exact match first (after stripping quantity)
-    if (simple[stripped]) {
-      const totalCal = simple[stripped] * quantity;
-      const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
-      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
-    }
-    
-    // Partial match ONLY if the input is a single word or the simple key is multi-word
-    // This prevents "tuna pasta" matching "pasta", but still allows "chocolate milk" matching "chocolate milk"
-    const key = Object.keys(simple).find(k => {
-      if (stripped === k) return true;
-      // Only allow partial match if the simple key has multiple words (compound food)
-      if (k.split(' ').length > 1 && stripped.includes(k)) return true;
-      // Or if the input is just the key with a plural s
-      if (stripped === k + 's' || stripped === k + 'es') return true;
-      return false;
-    });
-    if (key) {
-      const baseCal = simple[key];
-      const totalCal = baseCal * quantity;
-      const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
-      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
+    // If OpenAI is available, skip simple lookup and let AI return full macros + fibre
+    // Simple lookup only used as fallback when no API key is set
+    if (!OPENAI_API_KEY) {
+      // Exact match first (after stripping quantity)
+      if (simple[stripped]) {
+        const totalCal = simple[stripped] * quantity;
+        const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
+        return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
+      }
+      
+      // Partial match ONLY if the input is a single word or the simple key is multi-word
+      const key = Object.keys(simple).find(k => {
+        if (stripped === k) return true;
+        if (k.split(' ').length > 1 && stripped.includes(k)) return true;
+        if (stripped === k + 's' || stripped === k + 'es') return true;
+        return false;
+      });
+      if (key) {
+        const baseCal = simple[key];
+        const totalCal = baseCal * quantity;
+        const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
+        return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
+      }
     }
   }
 
