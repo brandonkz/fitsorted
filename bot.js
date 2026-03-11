@@ -897,6 +897,29 @@ async function estimateCalories(food, user) {
   const zeroDrinkKey = Object.keys(zeroDrinks).find(k => lower === k || lower.includes(k));
   if (zeroDrinkKey) return zeroDrinks[zeroDrinkKey];
 
+  // 1c. Common items AI consistently gets wrong (SA portions)
+  const overrides = {
+    "monster energy": { food: "Monster Energy 500ml", calories: 230, protein: 0, carbs: 56, fat: 0, fibre: 0 },
+    "monster": { food: "Monster Energy 500ml", calories: 230, protein: 0, carbs: 56, fat: 0, fibre: 0 },
+    "red bull": { food: "Red Bull 250ml", calories: 112, protein: 0, carbs: 27, fat: 0, fibre: 0 },
+    "beer": { food: "Beer (440ml)", calories: 155, protein: 1, carbs: 12, fat: 0, fibre: 0 },
+    "a beer": { food: "Beer (440ml)", calories: 155, protein: 1, carbs: 12, fat: 0, fibre: 0 },
+    "castle lager": { food: "Castle Lager 440ml", calories: 155, protein: 1, carbs: 12, fat: 0, fibre: 0 },
+    "black label": { food: "Carling Black Label 440ml", calories: 175, protein: 1, carbs: 15, fat: 0, fibre: 0 },
+    "windhoek": { food: "Windhoek Lager 440ml", calories: 160, protein: 1, carbs: 13, fat: 0, fibre: 0 },
+    "savanna": { food: "Savanna Dry 330ml", calories: 170, protein: 0, carbs: 18, fat: 0, fibre: 0 },
+    "savanna dry": { food: "Savanna Dry 330ml", calories: 170, protein: 0, carbs: 18, fat: 0, fibre: 0 },
+    "hunters gold": { food: "Hunter's Gold 330ml", calories: 180, protein: 0, carbs: 20, fat: 0, fibre: 0 },
+    "1 slice of cheese": { food: "1 slice cheese (SA processed)", calories: 60, protein: 4, carbs: 1, fat: 5, fibre: 0 },
+    "slice of cheese": { food: "1 slice cheese (SA processed)", calories: 60, protein: 4, carbs: 1, fat: 5, fibre: 0 },
+    "handful of almonds": { food: "Handful of almonds (~28g)", calories: 160, protein: 6, carbs: 6, fat: 14, fibre: 3 },
+    "handful almonds": { food: "Handful of almonds (~28g)", calories: 160, protein: 6, carbs: 6, fat: 14, fibre: 3 },
+  };
+  // Check overrides (exact match first, then includes)
+  if (overrides[lower]) return overrides[lower];
+  const overrideKey = Object.keys(overrides).find(k => lower === k);
+  if (overrideKey) return overrides[overrideKey];
+
   // 2. Check simple common foods FIRST (before expensive DB/API calls)
   // Extract quantity multiplier from input
   const extractQuantity = (text) => {
@@ -1457,7 +1480,7 @@ async function estimateCalories(food, user) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"fibre\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"fibre\": 4, \"estimatedPriceZAR\": null}. Return total values for the full described amount. Use realistic everyday South African portion sizes - not restaurant or oversized portions. For example: 1 slice of cheese = ~60 cal (standard thin processed cheese slice like Clover/Woolworths), 1 slice of bread = ~80 cal, 1 egg = ~70 cal. No extra text." },
+        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"fibre\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"fibre\": 4, \"estimatedPriceZAR\": null}. Return total values for the full described amount. Use realistic everyday South African portion sizes - not restaurant or oversized portions. CRITICAL RULES: 1) Drinks must use FULL SERVING sizes: beer=440ml (~155 cal), Red Bull=250ml (~112 cal), Monster=500ml (~230 cal), wine glass=175ml (~125 cal), cider=330ml (~170 cal). NEVER use per-100ml values. 2) SA portions: 1 slice cheese=~60 cal (thin processed like Clover), 1 slice bread=~80 cal, 1 egg=~70 cal, biltong 50g=~125 cal, droewors 50g=~150 cal, handful of nuts=~160 cal (28g). 3) Bunny chow quarter=~650 cal (bread bowl + curry). No extra text." },
         { role: "user", content: `Nutrition for: ${food}` }
       ],
       temperature: 0.2
