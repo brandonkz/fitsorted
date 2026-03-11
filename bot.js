@@ -2560,9 +2560,9 @@ async function handleMessage(from, text, imageId) {
       `• Streak: ${streak} days`,
       `• Last weight: ${lastWeight ? `${lastWeight.kg}kg (${lastWeight.date})` : 'never'}`,
       `• Weights logged: ${user.weights?.length || 0}`,
-      `• Custom foods: ${user.customFoods?.length || 0}`,
+      `• Custom foods: ${Object.keys(user.customFoods || {}).length}`,
       ``,
-      `🍽️ *Custom Foods:* ${(user.customFoods || []).map(f => f.name).join(', ') || 'none'}`,
+      `🍽️ *Custom Foods:* ${Object.keys(user.customFoods || {}).length > 0 ? Object.entries(user.customFoods).map(([name, cal]) => `${name} (${cal})`).join(', ') : 'none'}`,
     ].join('\n');
 
     // Acknowledge user immediately
