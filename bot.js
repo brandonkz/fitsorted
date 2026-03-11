@@ -1017,6 +1017,22 @@ async function estimateCalories(food, user) {
     "ice cream": { food: "Ice Cream (1 scoop)", calories: 150, protein: 2, carbs: 18, fat: 8, fibre: 0 },
     "cappuccino large": { food: "Large Cappuccino", calories: 200, protein: 8, carbs: 16, fat: 10, fibre: 0 },
     "large cappuccino": { food: "Large Cappuccino", calories: 200, protein: 8, carbs: 16, fat: 10, fibre: 0 },
+    // Round 7 - nightly edge case test 2026-03-12
+    "double vodka": { food: "Double Vodka (50ml)", calories: 140, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "nandos quarter chicken": { food: "Nando's Quarter Chicken (with skin)", calories: 650, protein: 45, carbs: 5, fat: 50, fibre: 0 },
+    "nandos quarter": { food: "Nando's Quarter Chicken (with skin)", calories: 650, protein: 45, carbs: 5, fat: 50, fibre: 0 },
+    "craft beer": { food: "Craft Beer (440ml)", calories: 210, protein: 2, carbs: 20, fat: 0, fibre: 0 },
+    "steers wacky wednesday": { food: "Steers Wacky Wednesday Burger", calories: 600, protein: 30, carbs: 45, fat: 30, fibre: 3 },
+    "wacky wednesday": { food: "Steers Wacky Wednesday Burger", calories: 600, protein: 30, carbs: 45, fat: 30, fibre: 3 },
+    "melkkos": { food: "Melkkos (serving)", calories: 300, protein: 8, carbs: 40, fat: 12, fibre: 1 },
+    "chocolate milk": { food: "Chocolate Milk (250ml)", calories: 210, protein: 8, carbs: 28, fat: 8, fibre: 1 },
+    "milkshake": { food: "Milkshake", calories: 450, protein: 10, carbs: 60, fat: 18, fibre: 0 },
+    "bacon and eggs": { food: "Bacon & Eggs (2 rashers, 2 eggs)", calories: 350, protein: 24, carbs: 1, fat: 27, fibre: 0 },
+    "mcflurry": { food: "McFlurry", calories: 420, protein: 8, carbs: 62, fat: 16, fibre: 1 },
+    "biltong and cheese platter": { food: "Biltong & Cheese Platter", calories: 500, protein: 40, carbs: 5, fat: 35, fibre: 0 },
+    "biltong and cheese": { food: "Biltong & Cheese Platter", calories: 500, protein: 40, carbs: 5, fat: 35, fibre: 0 },
+    "caesar salad": { food: "Caesar Salad", calories: 400, protein: 15, carbs: 20, fat: 28, fibre: 3 },
+    "chai latte": { food: "Chai Latte", calories: 180, protein: 5, carbs: 28, fat: 5, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

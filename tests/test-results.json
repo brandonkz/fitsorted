@@ -1,0 +1,2002 @@
+{
+  "passed": [
+    {
+      "food": "red bull zero",
+      "cal": 0,
+      "min": 0,
+      "max": 10,
+      "result": {
+        "food": "Red Bull Zero 250ml",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "diet coke",
+      "cal": 0,
+      "min": 0,
+      "max": 5,
+      "result": {
+        "food": "Diet Coke 440ml",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "monster zero",
+      "cal": 0,
+      "min": 0,
+      "max": 15,
+      "result": {
+        "food": "Monster Zero 500ml",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "coke zero",
+      "cal": 0,
+      "min": 0,
+      "max": 5,
+      "result": {
+        "food": "Coke Zero 500ml",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "red bull",
+      "cal": 112,
+      "min": 100,
+      "max": 130,
+      "result": {
+        "food": "Red Bull 250ml",
+        "calories": 112,
+        "protein": 0,
+        "carbs": 27,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "coke",
+      "cal": 139,
+      "min": 120,
+      "max": 180,
+      "result": {
+        "food": "Coca-Cola 330ml",
+        "calories": 139,
+        "protein": 0,
+        "carbs": 35,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "monster energy",
+      "cal": 230,
+      "min": 200,
+      "max": 260,
+      "result": {
+        "food": "Monster Energy 500ml",
+        "calories": 230,
+        "protein": 0,
+        "carbs": 58,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "pepsi max",
+      "cal": 0,
+      "min": 0,
+      "max": 5,
+      "result": {
+        "food": "Pepsi Max 500ml",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "sprite zero",
+      "cal": 0,
+      "min": 0,
+      "max": 5,
+      "result": {
+        "food": "Sprite Zero 500ml",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "biltong 50g",
+      "cal": 125,
+      "min": 100,
+      "max": 160,
+      "result": {
+        "food": "biltong 50g",
+        "calories": 125,
+        "protein": 30,
+        "carbs": 0,
+        "fat": 2,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "bunny chow quarter",
+      "cal": 650,
+      "min": 500,
+      "max": 800,
+      "result": {
+        "food": "bunny chow quarter",
+        "calories": 650,
+        "protein": 20,
+        "carbs": 100,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "droewors 50g",
+      "cal": 150,
+      "min": 120,
+      "max": 180,
+      "result": {
+        "food": "droewors 50g",
+        "calories": 150,
+        "protein": 25,
+        "carbs": 0,
+        "fat": 10,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "1 egg",
+      "cal": 70,
+      "min": 60,
+      "max": 85,
+      "result": {
+        "food": "1x egg",
+        "calories": 70,
+        "protein": 6,
+        "carbs": 1,
+        "fat": 5,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "1 slice of cheese",
+      "cal": 60,
+      "min": 40,
+      "max": 80,
+      "result": {
+        "food": "1x slice of cheese",
+        "calories": 60,
+        "protein": 4,
+        "carbs": 1,
+        "fat": 5,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "1 banana",
+      "cal": 89,
+      "min": 80,
+      "max": 120,
+      "result": {
+        "food": "1x banana",
+        "calories": 89,
+        "protein": 1,
+        "carbs": 23,
+        "fat": 0,
+        "fibre": 3,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "tablespoon peanut butter",
+      "cal": 95,
+      "min": 80,
+      "max": 110,
+      "result": {
+        "food": "1x tablespoon peanut butter",
+        "calories": 95,
+        "protein": 4,
+        "carbs": 3,
+        "fat": 8,
+        "fibre": 1,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "glass of wine",
+      "cal": 125,
+      "min": 100,
+      "max": 150,
+      "result": {
+        "food": "1x glass of wine",
+        "calories": 125,
+        "protein": 0,
+        "carbs": 4,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "handful of almonds",
+      "cal": 160,
+      "min": 130,
+      "max": 200,
+      "result": {
+        "food": "handful of almonds",
+        "calories": 160,
+        "protein": 6,
+        "carbs": 6,
+        "fat": 14,
+        "fibre": 3,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "3 eggs",
+      "cal": 210,
+      "min": 180,
+      "max": 250,
+      "result": {
+        "food": "3x egg",
+        "calories": 210,
+        "protein": 18,
+        "carbs": 1,
+        "fat": 15,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "bottle of wine",
+      "cal": 625,
+      "min": 450,
+      "max": 650,
+      "result": {
+        "food": "1x bottle of wine",
+        "calories": 625,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 250
+      }
+    },
+    {
+      "food": "black coffee",
+      "cal": 2,
+      "min": 0,
+      "max": 10,
+      "result": {
+        "food": "black coffee 240ml",
+        "calories": 2,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "americano",
+      "cal": 5,
+      "min": 0,
+      "max": 15,
+      "result": {
+        "food": "americano 240ml",
+        "calories": 5,
+        "protein": 0,
+        "carbs": 1,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "water",
+      "cal": 0,
+      "min": 0,
+      "max": 0,
+      "result": {
+        "food": "water",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "beer",
+      "cal": 155,
+      "min": 130,
+      "max": 200,
+      "result": {
+        "food": "1x beer (440ml)",
+        "calories": 155,
+        "protein": 1,
+        "carbs": 13,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "amagwinya",
+      "cal": 400,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "amagwinya (2 pieces)",
+        "calories": 400,
+        "protein": 8,
+        "carbs": 60,
+        "fat": 16,
+        "fibre": 4,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "fat cake",
+      "cal": 250,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "fat cake (1 piece)",
+        "calories": 250,
+        "protein": 3,
+        "carbs": 30,
+        "fat": 14,
+        "fibre": 1,
+        "estimatedPriceZAR": 15
+      }
+    },
+    {
+      "food": "koeksister",
+      "cal": 200,
+      "min": 200,
+      "max": 300,
+      "result": {
+        "food": "koeksister",
+        "calories": 200,
+        "protein": 2,
+        "carbs": 30,
+        "fat": 8,
+        "fibre": 1,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "corona",
+      "cal": 155,
+      "min": 120,
+      "max": 180,
+      "result": {
+        "food": "Corona beer 440ml",
+        "calories": 155,
+        "protein": 1,
+        "carbs": 13,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "savanna light",
+      "cal": 110,
+      "min": 80,
+      "max": 120,
+      "result": {
+        "food": "Savanna Light 440ml",
+        "calories": 110,
+        "protein": 0,
+        "carbs": 5,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "black label",
+      "cal": 155,
+      "min": 150,
+      "max": 200,
+      "result": {
+        "food": "1x Carling Black Label beer (440ml)",
+        "calories": 155,
+        "protein": 1,
+        "carbs": 13,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "castle lager",
+      "cal": 155,
+      "min": 130,
+      "max": 180,
+      "result": {
+        "food": "Castle Lager 440ml",
+        "calories": 155,
+        "protein": 1,
+        "carbs": 13,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "savanna",
+      "cal": 170,
+      "min": 140,
+      "max": 200,
+      "result": {
+        "food": "Savanna cider 330ml",
+        "calories": 170,
+        "protein": 0,
+        "carbs": 14,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "windhoek",
+      "cal": 155,
+      "min": 140,
+      "max": 185,
+      "result": {
+        "food": "Windhoek Lager 440ml",
+        "calories": 155,
+        "protein": 1,
+        "carbs": 13,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "kfc zinger",
+      "cal": 460,
+      "min": 400,
+      "max": 600,
+      "result": {
+        "food": "KFC Zinger",
+        "calories": 460,
+        "protein": 24,
+        "carbs": 40,
+        "fat": 24,
+        "fibre": 2,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "woolworths chicken wrap",
+      "cal": 400,
+      "min": 300,
+      "max": 450,
+      "result": {
+        "food": "Woolworths chicken wrap",
+        "calories": 400,
+        "protein": 25,
+        "carbs": 40,
+        "fat": 15,
+        "fibre": 5,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "vodka lime soda",
+      "cal": 120,
+      "min": 70,
+      "max": 120,
+      "result": {
+        "food": "vodka lime soda 330ml",
+        "calories": 120,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "appletiser",
+      "cal": 140,
+      "min": 80,
+      "max": 160,
+      "result": {
+        "food": "Appletiser 330ml",
+        "calories": 140,
+        "protein": 0,
+        "carbs": 35,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "nandos espetada",
+      "cal": 600,
+      "min": 400,
+      "max": 600,
+      "result": {
+        "food": "Nando's espetada",
+        "calories": 600,
+        "protein": 40,
+        "carbs": 20,
+        "fat": 40,
+        "fibre": 5,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "nik naks",
+      "cal": 500,
+      "min": 350,
+      "max": 550,
+      "result": {
+        "food": "Nik Naks 100g",
+        "calories": 500,
+        "protein": 6,
+        "carbs": 60,
+        "fat": 28,
+        "fibre": 2,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "pre workout",
+      "cal": null,
+      "min": 0,
+      "max": 20,
+      "result": {
+        "food": "pre workout",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "mass gainer scoop",
+      "cal": 400,
+      "min": 300,
+      "max": 500,
+      "result": {
+        "food": "mass gainer scoop",
+        "calories": 400,
+        "protein": 30,
+        "carbs": 60,
+        "fat": 10,
+        "fibre": 5,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "yogi sip",
+      "cal": 100,
+      "min": 100,
+      "max": 200,
+      "result": {
+        "food": "Yogi Sip 250ml",
+        "calories": 100,
+        "protein": 0,
+        "carbs": 25,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "cappuccino large",
+      "cal": 150,
+      "min": 150,
+      "max": 250,
+      "result": {
+        "food": "large cappuccino",
+        "calories": 150,
+        "protein": 8,
+        "carbs": 12,
+        "fat": 8,
+        "fibre": 0,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "frikkadel",
+      "cal": 250,
+      "min": 150,
+      "max": 280,
+      "result": {
+        "food": "frikkadel",
+        "calories": 250,
+        "protein": 20,
+        "carbs": 10,
+        "fat": 15,
+        "fibre": 1,
+        "estimatedPriceZAR": 45
+      }
+    },
+    {
+      "food": "skilpadjies",
+      "cal": 250,
+      "min": 200,
+      "max": 350,
+      "result": {
+        "food": "skilpadjies (100g)",
+        "calories": 250,
+        "protein": 20,
+        "carbs": 5,
+        "fat": 18,
+        "fibre": 0,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "ice cream scoop",
+      "cal": 150,
+      "min": 100,
+      "max": 200,
+      "result": {
+        "food": "1x ice cream scoop",
+        "calories": 150,
+        "protein": 3,
+        "carbs": 20,
+        "fat": 7,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "sosatie",
+      "cal": 250,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "sosatie",
+        "calories": 250,
+        "protein": 20,
+        "carbs": 10,
+        "fat": 15,
+        "fibre": 1,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "polony sandwich",
+      "cal": 300,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "polony sandwich",
+        "calories": 300,
+        "protein": 10,
+        "carbs": 30,
+        "fat": 15,
+        "fibre": 2,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "bredie",
+      "cal": 400,
+      "min": 350,
+      "max": 550,
+      "result": {
+        "food": "bredie (1 serving)",
+        "calories": 400,
+        "protein": 25,
+        "carbs": 30,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "whey protein scoop",
+      "cal": 120,
+      "min": 100,
+      "max": 150,
+      "result": {
+        "food": "whey protein scoop",
+        "calories": 120,
+        "protein": 24,
+        "carbs": 3,
+        "fat": 1,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "eggs on toast",
+      "cal": 320,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "2x eggs on toast",
+        "calories": 320,
+        "protein": 20,
+        "carbs": 32,
+        "fat": 14,
+        "fibre": 2,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "cheese toastie",
+      "cal": 300,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "cheese toastie",
+        "calories": 300,
+        "protein": 12,
+        "carbs": 30,
+        "fat": 15,
+        "fibre": 2,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "chocolate cake slice",
+      "cal": 350,
+      "min": 300,
+      "max": 500,
+      "result": {
+        "food": "chocolate cake slice",
+        "calories": 350,
+        "protein": 4,
+        "carbs": 50,
+        "fat": 15,
+        "fibre": 2,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "2 minute noodles",
+      "cal": 440,
+      "min": 300,
+      "max": 450,
+      "result": {
+        "food": "2x minute noodles",
+        "calories": 440,
+        "protein": 10,
+        "carbs": 80,
+        "fat": 12,
+        "fibre": 4,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "glass of milk",
+      "cal": 150,
+      "min": 100,
+      "max": 170,
+      "result": {
+        "food": "1x glass of milk",
+        "calories": 150,
+        "protein": 8,
+        "carbs": 12,
+        "fat": 8,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "apple juice",
+      "cal": 120,
+      "min": 80,
+      "max": 150,
+      "result": {
+        "food": "apple juice 250ml",
+        "calories": 120,
+        "protein": 0,
+        "carbs": 30,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "orange juice",
+      "cal": 110,
+      "min": 80,
+      "max": 150,
+      "result": {
+        "food": "orange juice 250ml",
+        "calories": 110,
+        "protein": 2,
+        "carbs": 26,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "gin and tonic",
+      "cal": 120,
+      "min": 100,
+      "max": 170,
+      "result": {
+        "food": "gin and tonic 250ml",
+        "calories": 120,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "food": "pancake with syrup",
+      "cal": 300,
+      "min": 200,
+      "max": 400,
+      "result": {
+        "food": "pancake with syrup",
+        "calories": 300,
+        "protein": 6,
+        "carbs": 50,
+        "fat": 10,
+        "fibre": 1,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "fish and chips",
+      "cal": 800,
+      "min": 600,
+      "max": 900,
+      "result": {
+        "food": "fish and chips",
+        "calories": 800,
+        "protein": 30,
+        "carbs": 90,
+        "fat": 40,
+        "fibre": 5,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "vodka soda",
+      "cal": 100,
+      "min": 60,
+      "max": 110,
+      "result": {
+        "food": "vodka soda 330ml",
+        "calories": 100,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "debonairs medium pizza",
+      "cal": 2000,
+      "min": 1200,
+      "max": 2000,
+      "result": {
+        "food": "debonairs medium pizza",
+        "calories": 2000,
+        "protein": 80,
+        "carbs": 220,
+        "fat": 80,
+        "fibre": 10,
+        "estimatedPriceZAR": 150
+      }
+    },
+    {
+      "food": "pina colada",
+      "cal": 300,
+      "min": 300,
+      "max": 550,
+      "result": {
+        "food": "pina colada 250ml",
+        "calories": 300,
+        "protein": 1,
+        "carbs": 40,
+        "fat": 15,
+        "fibre": 0,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "big mac",
+      "cal": 550,
+      "min": 450,
+      "max": 600,
+      "result": {
+        "food": "Big Mac",
+        "calories": 550,
+        "protein": 25,
+        "carbs": 45,
+        "fat": 30,
+        "fibre": 3,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "food": "pasta bolognese",
+      "cal": 600,
+      "min": 450,
+      "max": 650,
+      "result": {
+        "food": "pasta bolognese",
+        "calories": 600,
+        "protein": 25,
+        "carbs": 70,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "steak and chips",
+      "cal": 800,
+      "min": 600,
+      "max": 850,
+      "result": {
+        "food": "steak and chips",
+        "calories": 800,
+        "protein": 60,
+        "carbs": 70,
+        "fat": 40,
+        "fibre": 5,
+        "estimatedPriceZAR": 150
+      }
+    },
+    {
+      "food": "full english breakfast",
+      "cal": 800,
+      "min": 700,
+      "max": 1100,
+      "result": {
+        "food": "full english breakfast",
+        "calories": 800,
+        "protein": 40,
+        "carbs": 60,
+        "fat": 50,
+        "fibre": 5,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "chicken breast 200g",
+      "cal": 330,
+      "min": 250,
+      "max": 340,
+      "result": {
+        "food": "chicken breast 200g",
+        "calories": 330,
+        "protein": 62,
+        "carbs": 0,
+        "fat": 7,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "bobotie and rice",
+      "cal": 700,
+      "min": 500,
+      "max": 750,
+      "result": {
+        "food": "bobotie with rice",
+        "calories": 700,
+        "protein": 30,
+        "carbs": 80,
+        "fat": 30,
+        "fibre": 5,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "lamb chop",
+      "cal": 250,
+      "min": 180,
+      "max": 300,
+      "result": {
+        "food": "lamb chop",
+        "calories": 250,
+        "protein": 25,
+        "carbs": 0,
+        "fat": 18,
+        "fibre": 0,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "t-bone steak",
+      "cal": 500,
+      "min": 500,
+      "max": 800,
+      "result": {
+        "food": "t-bone steak 200g",
+        "calories": 500,
+        "protein": 50,
+        "carbs": 0,
+        "fat": 35,
+        "fibre": 0,
+        "estimatedPriceZAR": 150
+      }
+    },
+    {
+      "food": "protein bar",
+      "cal": 200,
+      "min": 180,
+      "max": 250,
+      "result": {
+        "food": "protein bar",
+        "calories": 200,
+        "protein": 20,
+        "carbs": 25,
+        "fat": 7,
+        "fibre": 5,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "wimpy breakfast",
+      "cal": 800,
+      "min": 600,
+      "max": 1000,
+      "result": {
+        "food": "Wimpy breakfast",
+        "calories": 800,
+        "protein": 40,
+        "carbs": 60,
+        "fat": 45,
+        "fibre": 5,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "spur milkshake",
+      "cal": 600,
+      "min": 400,
+      "max": 650,
+      "result": {
+        "food": "Spur milkshake",
+        "calories": 600,
+        "protein": 15,
+        "carbs": 80,
+        "fat": 25,
+        "fibre": 2,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "food": "avocado toast",
+      "cal": 300,
+      "min": 300,
+      "max": 500,
+      "result": {
+        "food": "avocado toast",
+        "calories": 300,
+        "protein": 6,
+        "carbs": 30,
+        "fat": 18,
+        "fibre": 7,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "food": "droewors 100g",
+      "cal": 300,
+      "min": 240,
+      "max": 360,
+      "result": {
+        "food": "droewors 100g",
+        "calories": 300,
+        "protein": 30,
+        "carbs": 0,
+        "fat": 20,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "cappuccino",
+      "cal": 120,
+      "min": 80,
+      "max": 160,
+      "result": {
+        "food": "cappuccino 250ml",
+        "calories": 120,
+        "protein": 6,
+        "carbs": 12,
+        "fat": 6,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "woolworths chicken pie",
+      "cal": 400,
+      "min": 350,
+      "max": 550,
+      "result": {
+        "food": "Woolworths chicken pie",
+        "calories": 400,
+        "protein": 20,
+        "carbs": 40,
+        "fat": 20,
+        "fibre": 2,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "flat white",
+      "cal": 120,
+      "min": 80,
+      "max": 160,
+      "result": {
+        "food": "flat white 240ml",
+        "calories": 120,
+        "protein": 6,
+        "carbs": 12,
+        "fat": 6,
+        "fibre": 0,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "rooibos tea with milk",
+      "cal": 30,
+      "min": 30,
+      "max": 70,
+      "result": {
+        "food": "rooibos tea with milk",
+        "calories": 30,
+        "protein": 2,
+        "carbs": 3,
+        "fat": 1,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "ocean basket calamari",
+      "cal": 400,
+      "min": 400,
+      "max": 650,
+      "result": {
+        "food": "Ocean Basket calamari",
+        "calories": 400,
+        "protein": 30,
+        "carbs": 20,
+        "fat": 20,
+        "fibre": 2,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "steers rib burger",
+      "cal": 600,
+      "min": 500,
+      "max": 750,
+      "result": {
+        "food": "Steers rib burger",
+        "calories": 600,
+        "protein": 30,
+        "carbs": 40,
+        "fat": 35,
+        "fibre": 2,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "pick n pay baguette",
+      "cal": 250,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "Pick n Pay baguette",
+        "calories": 250,
+        "protein": 8,
+        "carbs": 50,
+        "fat": 2,
+        "fibre": 2,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "pronutro with milk",
+      "cal": 350,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "Pronutro with milk",
+        "calories": 350,
+        "protein": 15,
+        "carbs": 55,
+        "fat": 10,
+        "fibre": 5,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "vida e caffe latte",
+      "cal": 150,
+      "min": 150,
+      "max": 250,
+      "result": {
+        "food": "vida e caffe latte 250ml",
+        "calories": 150,
+        "protein": 8,
+        "carbs": 15,
+        "fat": 7,
+        "fibre": 0,
+        "estimatedPriceZAR": 45
+      }
+    },
+    {
+      "food": "kauai smoothie bowl",
+      "cal": 400,
+      "min": 350,
+      "max": 550,
+      "result": {
+        "food": "Kauai smoothie bowl",
+        "calories": 400,
+        "protein": 10,
+        "carbs": 60,
+        "fat": 15,
+        "fibre": 8,
+        "estimatedPriceZAR": 65
+      }
+    },
+    {
+      "food": "mugg and bean toasted sandwich",
+      "cal": 400,
+      "min": 400,
+      "max": 650,
+      "result": {
+        "food": "Mugg & Bean toasted sandwich",
+        "calories": 400,
+        "protein": 20,
+        "carbs": 40,
+        "fat": 20,
+        "fibre": 3,
+        "estimatedPriceZAR": 65
+      }
+    },
+    {
+      "food": "nandos peri peri chips",
+      "cal": 300,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "Nando's peri peri chips",
+        "calories": 300,
+        "protein": 4,
+        "carbs": 40,
+        "fat": 15,
+        "fibre": 5,
+        "estimatedPriceZAR": 45
+      }
+    },
+    {
+      "food": "boerewors 100g",
+      "cal": 300,
+      "min": 250,
+      "max": 350,
+      "result": {
+        "food": "boerewors 100g",
+        "calories": 300,
+        "protein": 20,
+        "carbs": 2,
+        "fat": 25,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "2 slices toast with butter",
+      "cal": 320,
+      "min": 200,
+      "max": 340,
+      "result": {
+        "food": "2x slice toast with butter",
+        "calories": 320,
+        "protein": 8,
+        "carbs": 48,
+        "fat": 16,
+        "fibre": 4,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "roman's pizza slice",
+      "cal": 250,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "Roman's pizza slice",
+        "calories": 250,
+        "protein": 10,
+        "carbs": 30,
+        "fat": 10,
+        "fibre": 2,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "sasko bread 2 slices",
+      "cal": 160,
+      "min": 120,
+      "max": 200,
+      "result": {
+        "food": "2x Sasko bread slices",
+        "calories": 160,
+        "protein": 6,
+        "carbs": 30,
+        "fat": 2,
+        "fibre": 2,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "oros cordial glass",
+      "cal": 100,
+      "min": 40,
+      "max": 100,
+      "result": {
+        "food": "oros cordial glass",
+        "calories": 100,
+        "protein": 0,
+        "carbs": 25,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "spur ribs half rack",
+      "cal": 800,
+      "min": 500,
+      "max": 800,
+      "result": {
+        "food": "half rack of Spur ribs",
+        "calories": 800,
+        "protein": 60,
+        "carbs": 20,
+        "fat": 50,
+        "fibre": 0,
+        "estimatedPriceZAR": 200
+      }
+    }
+  ],
+  "failed": [
+    {
+      "food": "white monster",
+      "cal": 230,
+      "min": 0,
+      "max": 15,
+      "result": {
+        "food": "White Monster energy drink 500ml",
+        "calories": 230,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "boerewors roll",
+      "cal": 600,
+      "min": 350,
+      "max": 500,
+      "result": {
+        "food": "boerewors roll",
+        "calories": 600,
+        "protein": 25,
+        "carbs": 50,
+        "fat": 35,
+        "fibre": 3,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "pap and vleis",
+      "cal": 800,
+      "min": 400,
+      "max": 700,
+      "result": {
+        "food": "pap and vleis",
+        "calories": 800,
+        "protein": 50,
+        "carbs": 100,
+        "fat": 30,
+        "fibre": 5,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "chicken and rice",
+      "cal": null,
+      "min": 350,
+      "max": 600,
+      "result": {
+        "food": "chicken and rice",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "double vodka",
+      "cal": 280,
+      "min": 120,
+      "max": 170,
+      "result": {
+        "food": "2x vodka (50ml each)",
+        "calories": 280,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "craft beer",
+      "cal": 155,
+      "min": 170,
+      "max": 250,
+      "result": {
+        "food": "craft beer 440ml",
+        "calories": 155,
+        "protein": 1,
+        "carbs": 13,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "pap and wors",
+      "cal": 800,
+      "min": 500,
+      "max": 750,
+      "result": {
+        "food": "pap and wors",
+        "calories": 800,
+        "protein": 40,
+        "carbs": 100,
+        "fat": 30,
+        "fibre": 5,
+        "estimatedPriceZAR": 100
+      }
+    },
+    {
+      "food": "gatsby steak",
+      "cal": 800,
+      "min": 900,
+      "max": 1200,
+      "result": {
+        "food": "gatsby steak",
+        "calories": 800,
+        "protein": 40,
+        "carbs": 80,
+        "fat": 40,
+        "fibre": 5,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "chakalaka and pap",
+      "cal": 500,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "chakalaka and pap",
+        "calories": 500,
+        "protein": 10,
+        "carbs": 80,
+        "fat": 15,
+        "fibre": 8,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "cup of milo",
+      "cal": 120,
+      "min": 150,
+      "max": 250,
+      "result": {
+        "food": "1 cup of Milo",
+        "calories": 120,
+        "protein": 4,
+        "carbs": 24,
+        "fat": 2,
+        "fibre": 1,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "rusks",
+      "cal": 400,
+      "min": 120,
+      "max": 160,
+      "result": {
+        "food": "rusks 100g",
+        "calories": 400,
+        "protein": 8,
+        "carbs": 80,
+        "fat": 10,
+        "fibre": 4,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "samp and beans",
+      "cal": 200,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "samp and beans 1 cup",
+        "calories": 200,
+        "protein": 12,
+        "carbs": 40,
+        "fat": 1,
+        "fibre": 8,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "nandos quarter chicken",
+      "cal": 350,
+      "min": 550,
+      "max": 750,
+      "result": {
+        "food": "Nando's quarter chicken",
+        "calories": 350,
+        "protein": 30,
+        "carbs": 0,
+        "fat": 25,
+        "fibre": 0,
+        "estimatedPriceZAR": 75
+      }
+    },
+    {
+      "food": "whisky neat",
+      "cal": 125,
+      "min": 55,
+      "max": 90,
+      "result": {
+        "food": "whisky neat 50ml",
+        "calories": 125,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "steers wacky wednesday",
+      "cal": 500,
+      "min": 550,
+      "max": 750,
+      "result": {
+        "food": "Steers Wacky Wednesday burger",
+        "calories": 500,
+        "protein": 25,
+        "carbs": 40,
+        "fat": 25,
+        "fibre": 2,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "food": "tex bar",
+      "cal": 120,
+      "min": 220,
+      "max": 300,
+      "result": {
+        "food": "tex bar",
+        "calories": 120,
+        "protein": 2,
+        "carbs": 20,
+        "fat": 4,
+        "fibre": 1,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "jungle oats",
+      "cal": 389,
+      "min": 250,
+      "max": 380,
+      "result": {
+        "food": "Jungle Oats 100g",
+        "calories": 389,
+        "protein": 13,
+        "carbs": 66,
+        "fat": 7,
+        "fibre": 8,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "future life cereal",
+      "cal": 370,
+      "min": 200,
+      "max": 300,
+      "result": {
+        "food": "Future Life cereal 100g",
+        "calories": 370,
+        "protein": 20,
+        "carbs": 60,
+        "fat": 7,
+        "fibre": 10,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "food": "lunch bar",
+      "cal": 120,
+      "min": 220,
+      "max": 300,
+      "result": {
+        "food": "lunch bar",
+        "calories": 120,
+        "protein": 2,
+        "carbs": 20,
+        "fat": 5,
+        "fibre": 1,
+        "estimatedPriceZAR": 15
+      }
+    },
+    {
+      "food": "amadumbe",
+      "cal": 100,
+      "min": 150,
+      "max": 250,
+      "result": {
+        "food": "amadumbe 100g",
+        "calories": 100,
+        "protein": 2,
+        "carbs": 23,
+        "fat": 0,
+        "fibre": 3,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "kfc bucket 8 piece",
+      "cal": 3200,
+      "min": 1600,
+      "max": 2400,
+      "result": {
+        "food": "KFC bucket 8 piece",
+        "calories": 3200,
+        "protein": 240,
+        "carbs": 160,
+        "fat": 240,
+        "fibre": 0,
+        "estimatedPriceZAR": 600
+      }
+    },
+    {
+      "food": "umfino",
+      "cal": 70,
+      "min": 100,
+      "max": 200,
+      "result": {
+        "food": "umfino 100g",
+        "calories": 70,
+        "protein": 5,
+        "carbs": 12,
+        "fat": 1,
+        "fibre": 3,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "simba chipniks",
+      "cal": 270,
+      "min": 350,
+      "max": 550,
+      "result": {
+        "food": "Simba Chipniks 50g",
+        "calories": 270,
+        "protein": 3,
+        "carbs": 36,
+        "fat": 14,
+        "fibre": 2,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "uphuthu",
+      "cal": 120,
+      "min": 200,
+      "max": 350,
+      "result": {
+        "food": "uphuthu 100g",
+        "calories": 120,
+        "protein": 3,
+        "carbs": 25,
+        "fat": 1,
+        "fibre": 2,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "ghost pops",
+      "cal": null,
+      "min": 300,
+      "max": 500,
+      "result": {
+        "food": "ghost pops",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "boerekos",
+      "cal": null,
+      "min": 500,
+      "max": 800,
+      "result": {
+        "food": "boerekos",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "checkers rotisserie chicken",
+      "cal": 239,
+      "min": 800,
+      "max": 1400,
+      "result": {
+        "food": "Checkers rotisserie chicken 100g",
+        "calories": 239,
+        "protein": 30,
+        "carbs": 0,
+        "fat": 13,
+        "fibre": 0,
+        "estimatedPriceZAR": 75
+      }
+    },
+    {
+      "food": "vienna and bread",
+      "cal": 160,
+      "min": 250,
+      "max": 400,
+      "result": {
+        "food": "1x vienna and 1x slice of bread",
+        "calories": 160,
+        "protein": 7,
+        "carbs": 20,
+        "fat": 6,
+        "fibre": 1,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "melkkos",
+      "cal": 400,
+      "min": 200,
+      "max": 350,
+      "result": {
+        "food": "melkkos (1 serving)",
+        "calories": 400,
+        "protein": 10,
+        "carbs": 60,
+        "fat": 15,
+        "fibre": 2,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "chocolate milk",
+      "cal": 150,
+      "min": 180,
+      "max": 280,
+      "result": {
+        "food": "chocolate milk 250ml",
+        "calories": 150,
+        "protein": 8,
+        "carbs": 24,
+        "fat": 4,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "milkshake",
+      "cal": 300,
+      "min": 350,
+      "max": 600,
+      "result": {
+        "food": "milkshake",
+        "calories": 300,
+        "protein": 8,
+        "carbs": 45,
+        "fat": 10,
+        "fibre": 1,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "food": "bacon and eggs",
+      "cal": 280,
+      "min": 300,
+      "max": 450,
+      "result": {
+        "food": "2x bacon and egg",
+        "calories": 280,
+        "protein": 20,
+        "carbs": 2,
+        "fat": 22,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "chicken stirfry",
+      "cal": null,
+      "min": 350,
+      "max": 550,
+      "result": {
+        "food": "chicken stirfry",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "protein shake",
+      "cal": null,
+      "min": 100,
+      "max": 200,
+      "result": {
+        "food": "protein shake",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "caesar salad",
+      "cal": 300,
+      "min": 350,
+      "max": 600,
+      "result": {
+        "food": "Caesar salad",
+        "calories": 300,
+        "protein": 10,
+        "carbs": 15,
+        "fat": 20,
+        "fibre": 3,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "chai latte",
+      "cal": 120,
+      "min": 150,
+      "max": 250,
+      "result": {
+        "food": "chai latte",
+        "calories": 120,
+        "protein": 4,
+        "carbs": 20,
+        "fat": 3,
+        "fibre": 1,
+        "estimatedPriceZAR": 45
+      }
+    },
+    {
+      "food": "biltong and cheese platter",
+      "cal": 185,
+      "min": 400,
+      "max": 650,
+      "result": {
+        "food": "biltong 50g and cheese 60g platter",
+        "calories": 185,
+        "protein": 30,
+        "carbs": 0,
+        "fat": 10,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "provita with cottage cheese",
+      "cal": 200,
+      "min": 80,
+      "max": 160,
+      "result": {
+        "food": "Provita with cottage cheese",
+        "calories": 200,
+        "protein": 12,
+        "carbs": 20,
+        "fat": 8,
+        "fibre": 4,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "mcflurry",
+      "cal": 320,
+      "min": 350,
+      "max": 550,
+      "result": {
+        "food": "McFlurry",
+        "calories": 320,
+        "protein": 6,
+        "carbs": 50,
+        "fat": 12,
+        "fibre": 1,
+        "estimatedPriceZAR": 40
+      }
+    }
+  ],
+  "errors": []
+}
