@@ -2264,6 +2264,42 @@ async function handleMessage(from, text, imageId) {
     "menu:my_foods": "my foods", "menu:start": "start", "menu:export": "export", "menu:help": "help",
   };
   if (menuMap[msgLower]) { console.log(`[menu] Redirecting ${msgLower} → ${menuMap[msgLower]}`); msgLower = menuMap[msgLower]; }
+
+  // ── Natural language intent matching ──
+  // Routes conversational phrases to existing commands so users don't need to remember exact keywords
+  const intentPatterns = [
+    // Drinking / BAC
+    { patterns: [/how drunk/i, /am i drunk/i, /can i drive/i, /over the limit/i, /how many drinks/i, /how many units/i, /what did i drink/i, /what have i drunk/i, /drink count/i, /my drinks/i, /how much (have i|did i) (drunk|drank|drink)/i, /show.*drinks/i, /tonight'?s drinks/i, /drinking/i], redirect: "drinks" },
+    // Today's log
+    { patterns: [/what (have i|did i) eat/i, /how('?s| is) my day/i, /show me today/i, /today'?s (food|log|calories|cals)/i, /check my day/i, /day so far/i, /how many cal/i, /how many calories/i, /calorie count/i, /my calories/i, /what('?s| is) my total/i, /where am i at/i, /how am i doing/i], redirect: "log" },
+    // Weekly stats
+    { patterns: [/how was my week/i, /this week/i, /weekly (stats|summary|report|progress)/i, /my week/i, /show.*week/i, /past.*week/i, /7 day/i], redirect: "week" },
+    // Weight
+    { patterns: [/how much do i weigh/i, /my weight/i, /weight (trend|history|progress|graph)/i, /show.*weight/i, /weigh-?ins?/i, /track.*weight/i], redirect: "weight history" },
+    // Undo
+    { patterns: [/that('?s| was| is) wrong/i, /take (that|it) back/i, /made a mistake/i, /remove (the )?last/i, /wrong (one|entry|food|item)/i, /didn'?t (eat|have|mean) that/i, /oops/i, /scratch that/i, /cancel (that|last)/i], redirect: "undo" },
+    // Meal suggestions
+    { patterns: [/what (should|can|could) i eat/i, /suggest.*(meal|food|snack|lunch|dinner|breakfast)/i, /meal idea/i, /what('?s| is) (good|healthy) to eat/i, /i'?m hungry/i, /snack idea/i, /low cal.*(idea|option|suggestion|meal)/i, /under \d+ cal/i], redirect: "menu:suggest" },
+    // Help / menu
+    { patterns: [/how does this work/i, /what do you do/i, /how to use/i, /show me.*menu/i, /what are.*(commands|options|features)/i], redirect: "help" },
+    // Subscription / status
+    { patterns: [/am i (on )?(premium|pro|free|trial)/i, /my (plan|subscription|account)/i, /when does.*(trial|sub)/i], redirect: "status" },
+    // Referral
+    { patterns: [/tell (my |a )?friend/i, /share.*fitsorted/i, /how (do|can) i (invite|refer|share)/i, /get.*(free|discount|reward)/i], redirect: "invite" },
+    // Export
+    { patterns: [/email.*(log|report|data|food)/i, /send.*email/i, /download.*(data|log|food)/i, /give me my data/i, /get my data/i], redirect: "export" },
+    // Budget
+    { patterns: [/food budget/i, /how much.*(spent|spending)/i, /my (food )?spending/i, /daily (food )?budget/i, /what did i spend/i], redirect: "budget" },
+  ];
+
+  for (const { patterns, redirect } of intentPatterns) {
+    if (patterns.some(p => p.test(msgLower))) {
+      console.log(`[intent] "${msgLower}" → ${redirect}`);
+      msgLower = redirect;
+      break;
+    }
+  }
+
   // ── Budget setting (premium feature) ──
   const budgetMatch = msgLower.match(/^budget\s+r?(\d+)$/);
   if (budgetMatch) {
@@ -3388,43 +3424,21 @@ async function handleMessage(from, text, imageId) {
 
   if (msgLower === "help" || msgLower === "menu") {
     await send(from,
-      `📌 *Pin this message for quick access!*\n` +
-      `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-      `🏋️ *FitSorted - Quick Menu*\n` +
-      `━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
-      `🍽️ *Log Food*\n` +
-      `Just type what you ate:\n` +
-      `_"2 eggs and toast"_\n` +
-      `_"large Kauai smoothie"_\n\n` +
-      `🏃 *Log Exercise*\n` +
-      `_"ran 5km"_ · _"45 min weights"_\n\n` +
-      `📊 *Check Progress*\n` +
-      `• *log* - today's entries\n` +
-      `• *summary* - daily overview\n` +
-      `• *weight history* - weight trend\n\n` +
-      `⚖️ *Update Weight*\n` +
-      `• *weight 82.5* - log weigh-in\n\n` +
-      `🍔 *Custom Foods*\n` +
-      `• *save [food] = [cal]* - save a food\n` +
-      `• *custom [food] [cal]* - alt syntax\n` +
-      `• *my foods* - see your list\n\n` +
-      `↩️ *Fix Mistakes*\n` +
-      `• *undo* - remove last entry\n` +
-      `• *yesterday: [food]* - log to past day\n\n` +
-      `🧠 *Ask Me Anything*\n` +
-      `_"what can I eat under 400 cal?"_\n` +
-      `_"suggest a high protein meal"_\n` +
-      `_"am I on track today?"_\n\n` +
-      `🎁 *Earn Rewards*\n` +
-      `• *invite* - share & earn R10 per friend\n\n` +
-      `⚙️ *Settings*\n` +
-      `• *start* - recalculate goals\n` +
-      `• *export* - download your data\n` +
-      `• *delete* - delete account\n\n` +
-      `Your goal: *${user.goal} cal/day*\n` +
-      `Privacy: fitsorted.co.za/privacy.html\n` +
-      `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-      `_Long-press this message → Pin_ 📌`
+      `🏋️ *FitSorted*\n\n` +
+      `Just talk to me like a friend. No commands needed.\n\n` +
+      `🍽️ *"2 eggs, a banana and coffee"*\n` +
+      `🏃 *"ran 5km"* or *"45 min gym"*\n` +
+      `🍺 *"2 glasses of wine"*\n` +
+      `⚖️ *"weight 82.5"*\n\n` +
+      `Ask me anything:\n` +
+      `_"what should I eat for lunch?"_\n` +
+      `_"how am I doing today?"_\n` +
+      `_"how drunk am I?"_\n` +
+      `_"can I drive?"_\n\n` +
+      `Fix mistakes: _"undo"_ or _"that was yesterday"_\n` +
+      `Past days: _"yesterday: chicken curry"_\n\n` +
+      `Your goal: *${user.goal} cal/day*\n\n` +
+      `Type *commands* for the full menu.`
     );
     return;
   }
@@ -4471,6 +4485,13 @@ function buildDrunkOMeterMessage(totalUnits, totalCal, gender, drinks) {
   msg += `📊 *${totalUnits.toFixed(1)} units tonight*\n`;
   msg += `${drinkList}\n\n`;
   msg += `🔥 *${totalCal} liquid calories* _(${breadSlices} slices of bread)_\n`;
+  
+  // Exercise equivalent — makes calories tangible
+  const runMinutes = Math.round(totalCal / 10); // ~10 cal/min running
+  if (totalCal > 100) {
+    msg += `🏃 That's *${runMinutes} min of running* to burn off\n`;
+  }
+  
   msg += `⏱️ *Sober by:* ~${hours} hour${hours !== 1 ? "s" : ""} from now\n\n`;
 
   if (overLimit) {
@@ -4479,7 +4500,45 @@ function buildDrunkOMeterMessage(totalUnits, totalCal, gender, drinks) {
     msg += `🚗 *Do NOT drive. Call an Uber.*\n\n`;
   }
 
-  if (nudge) msg += `${nudge}`;
+  // Drink swap suggestion — show a lower-cal alternative
+  if (totalCal > 200) {
+    const swaps = {
+      "wine": { swap: "gin & soda water", savePer: 70 },
+      "red wine": { swap: "gin & soda water", savePer: 70 },
+      "white wine": { swap: "vodka & soda", savePer: 65 },
+      "rosé": { swap: "vodka & soda", savePer: 65 },
+      "beer": { swap: "light beer", savePer: 50 },
+      "castle": { swap: "Castle Lite", savePer: 45 },
+      "castle lager": { swap: "Castle Lite", savePer: 45 },
+      "black label": { swap: "Castle Lite", savePer: 53 },
+      "cocktail": { swap: "gin & soda with lime", savePer: 130 },
+      "mojito": { swap: "vodka soda with mint", savePer: 160 },
+      "margarita": { swap: "tequila soda with lime", savePer: 200 },
+      "pina colada": { swap: "vodka soda with lime", savePer: 190 },
+      "long island": { swap: "gin & tonic", savePer: 155 },
+      "savanna": { swap: "vodka soda", savePer: 120 },
+      "hunters dry": { swap: "vodka soda", savePer: 130 },
+      "brutal fruit": { swap: "vodka soda with fruit", savePer: 145 },
+      "cider": { swap: "vodka soda", savePer: 120 },
+    };
+    
+    // Find the highest-cal drink the user logged and suggest a swap
+    const highestCalDrink = drinks.reduce((best, d) => (!best || d.calories > best.calories) ? d : best, null);
+    if (highestCalDrink) {
+      const drinkLower = highestCalDrink.food.toLowerCase();
+      const swapEntry = Object.entries(swaps).find(([k]) => drinkLower.includes(k));
+      if (swapEntry) {
+        const [, { swap, savePer }] = swapEntry;
+        const drinkCount = drinks.filter(d => d.food.toLowerCase().includes(swapEntry[0])).length;
+        const totalSaved = savePer * drinkCount;
+        if (totalSaved >= 50) {
+          msg += `\n💡 *Swap tip:* Switch ${highestCalDrink.food} → ${swap} and save ~${totalSaved} cal next time\n`;
+        }
+      }
+    }
+  }
+
+  if (nudge) msg += `\n${nudge}`;
   return msg;
 }
 
