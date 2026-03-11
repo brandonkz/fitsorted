@@ -18,18 +18,25 @@ const REFERRALS_FILE = "./referrals.json";
 const FAILED_LOOKUPS_FILE = "./failed-lookups.json";
 const ADMIN_NUMBER = "27837787970"; // Brandon's number
 const PRO_LAUNCH = true; // PayFast live
-const PRO_PRICE = process.env.PRO_PRICE || "59";
+
+// Beta feature flags - only enabled for specific numbers
+const BETA_FEATURES = {
+  priceEstimates: new Set(["27837787970"]), // Brandon only
+};
+const PRO_PRICE = process.env.PRO_PRICE || "18";
 const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID || "10803069";
 const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY || "heptrxgjismzp";
 const ITN_URL = "https://fuddzrlnbrseofguuikp.supabase.co/functions/v1/payfast-itn";
+const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_bDTutSXR_G4Q84ays1Noi7JqwuEGoS2tM";
 
 // Promo codes — { CODE: discountPercent } (use 100 for free/founder access)
-// EARLYBIRD: R59 → R36 = ~39% off, only valid within 14 days of signup
+// Promo codes — { CODE: discountPercent }
+// At R18 base, EARLYBIRD no longer needed but kept for existing users
 const PROMO_CODES = {
   SPRING: 10,
   LAUNCH: 20,
   FITFAM: 15,
-  EARLYBIRD: 39,
+  EARLYBIRD: 0,   // R18 is already the launch price
   FOUNDER: 100,
 };
 
@@ -77,24 +84,30 @@ async function isPremium(phone) {
   }
 }
 
-// Check if user is within 7-day free trial
+// Check if user is within 30-day free trial
 function isInTrial(userObj) {
   if (!userObj.joinedAt) return true; // Backfill: assume in trial if no join date
   const joinedAt = new Date(userObj.joinedAt);
   const daysSinceJoin = (Date.now() - joinedAt.getTime()) / (1000 * 60 * 60 * 24);
-  return daysSinceJoin < 7;
+  return daysSinceJoin < 30;
 }
 
-// Check if user has access (trial OR paid)
+// Check if user has access (trial OR referral free months OR paid)
 async function hasAccess(phone, userObj) {
   if (isInTrial(userObj)) return true;
+  // Check referral free months (each month = 30 days from end of trial)
+  if (userObj.referralFreeMonths && userObj.referralFreeMonths > 0 && userObj.joinedAt) {
+    const trialEnd = new Date(userObj.joinedAt).getTime() + (30 * 24 * 60 * 60 * 1000);
+    const freeUntil = trialEnd + (userObj.referralFreeMonths * 30 * 24 * 60 * 60 * 1000);
+    if (Date.now() < freeUntil) return true;
+  }
   return await isPremium(phone);
 }
 
-// Get billing date 7 days from now (YYYY-MM-DD)
+// Get billing date 30 days from now (YYYY-MM-DD)
 function getTrialEndDate() {
   const d = new Date();
-  d.setDate(d.getDate() + 7);
+  d.setDate(d.getDate() + 30);
   return d.toISOString().split("T")[0];
 }
 
@@ -104,9 +117,9 @@ function applyDiscount(price, discountPct) {
   return (price * (1 - discountPct / 100)).toFixed(2);
 }
 
-// Generate PayFast monthly subscription link (7-day free trial)
+// Generate PayFast monthly subscription link (30-day free trial)
 function getPayFastMonthlyLink(phone, discountPct = 0) {
-  const monthly = parseFloat(applyDiscount(59, discountPct));
+  const monthly = parseFloat(applyDiscount(18, discountPct));
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -129,9 +142,9 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
   return `https://www.payfast.co.za/eng/process?${params.toString()}`;
 }
 
-// Generate PayFast annual subscription link (7-day free trial)
+// Generate PayFast annual subscription link (30-day free trial)
 function getPayFastAnnualLink(phone, discountPct = 0) {
-  const annual = parseFloat(applyDiscount(280, discountPct));
+  const annual = parseFloat(applyDiscount(100, discountPct)); // R18 x 12 = R216, discounted to R100/yr
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -182,6 +195,125 @@ function getReferralStats(code) {
   return refs[key] || null;
 }
 
+// ── Influencer system ──
+const INFLUENCERS_FILE = "./influencers.json";
+
+function loadInfluencers() {
+  try { return JSON.parse(fs.readFileSync(INFLUENCERS_FILE, "utf8") || "{}"); }
+  catch { return {}; }
+}
+function saveInfluencers(data) { fs.writeFileSync(INFLUENCERS_FILE, JSON.stringify(data, null, 2)); }
+
+function trackInfluencerSignup(code, newUserPhone) {
+  const influencers = loadInfluencers();
+  const key = code.toUpperCase();
+  if (!influencers[key]) return false;
+  if (!influencers[key].signups) influencers[key].signups = [];
+  if (!influencers[key].signups.find(s => s.phone === newUserPhone)) {
+    influencers[key].signups.push({
+      phone: newUserPhone,
+      date: new Date().toISOString(),
+      paidOut: false
+    });
+    influencers[key].totalEarned = (influencers[key].totalEarned || 0) + 10;
+    influencers[key].pendingPayout = (influencers[key].pendingPayout || 0) + 10;
+    saveInfluencers(influencers);
+  }
+  return true;
+}
+
+function getInfluencerByCode(code) {
+  const influencers = loadInfluencers();
+  return influencers[code.toUpperCase()] || null;
+}
+
+function isInfluencerCode(code) {
+  const influencers = loadInfluencers();
+  return !!influencers[code.toUpperCase()];
+}
+
+// ── Email export (Resend) ──
+async function sendFoodLogEmail(toEmail, userName, entries, date, macros, totalCal, goal, spendTotal, budget) {
+  const dateStr = new Date(date).toLocaleDateString('en-ZA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  
+  const foodRows = entries.map((e, i) => {
+    const macroStr = (e.protein || e.carbs || e.fat) 
+      ? `<td style="padding:8px;border-bottom:1px solid #eee;color:#666;font-size:13px;">P:${e.protein || 0}g C:${e.carbs || 0}g F:${e.fat || 0}g</td>` 
+      : `<td style="padding:8px;border-bottom:1px solid #eee;color:#999;font-size:13px;">-</td>`;
+    const priceStr = e.priceZAR ? `~R${e.priceZAR}` : '-';
+    return `<tr>
+      <td style="padding:8px;border-bottom:1px solid #eee;">${e.food}</td>
+      <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">${e.calories} cal</td>
+      ${macroStr}
+      <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">${priceStr}</td>
+    </tr>`;
+  }).join('');
+
+  const remaining = goal - totalCal;
+  const statusEmoji = remaining > 0 ? '🟢' : '🔴';
+  const statusText = remaining > 0 ? `${remaining} cal remaining` : `${Math.abs(remaining)} cal over`;
+  
+  const spendSection = spendTotal > 0 ? `
+    <div style="background:#f0fdf4;padding:15px;border-radius:8px;margin:15px 0;">
+      <strong>💰 Food spend today:</strong> R${spendTotal}${budget ? ` / R${budget} budget` : ''}
+    </div>` : '';
+
+  const html = `
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:20px;">
+      <div style="text-align:center;margin-bottom:20px;">
+        <h1 style="color:#22c55e;margin:0;">🥗 FitSorted</h1>
+        <p style="color:#666;margin:5px 0;">Your food log for ${dateStr}</p>
+      </div>
+      
+      <div style="background:#f8fafc;padding:15px;border-radius:8px;margin:15px 0;text-align:center;">
+        <span style="font-size:28px;font-weight:bold;">${totalCal}</span>
+        <span style="color:#666;"> / ${goal} cal</span>
+        <br/><span style="font-size:14px;">${statusEmoji} ${statusText}</span>
+      </div>
+
+      ${spendSection}
+      
+      <table style="width:100%;border-collapse:collapse;margin:15px 0;">
+        <thead>
+          <tr style="background:#f1f5f9;">
+            <th style="padding:8px;text-align:left;">Food</th>
+            <th style="padding:8px;text-align:center;">Calories</th>
+            <th style="padding:8px;text-align:center;">Macros</th>
+            <th style="padding:8px;text-align:center;">Cost</th>
+          </tr>
+        </thead>
+        <tbody>${foodRows}</tbody>
+      </table>
+      
+      ${macros.protein > 0 ? `
+      <div style="background:#f8fafc;padding:15px;border-radius:8px;margin:15px 0;">
+        <strong>Macros:</strong><br/>
+        🥩 Protein: ${macros.protein}g | 🍞 Carbs: ${macros.carbs}g | 🥑 Fat: ${macros.fat}g
+      </div>` : ''}
+      
+      <div style="text-align:center;margin-top:20px;padding-top:15px;border-top:1px solid #eee;">
+        <p style="color:#999;font-size:12px;">Sent from FitSorted - Your SA Calorie Tracker<br/>
+        <a href="https://fitsorted.co.za" style="color:#22c55e;">fitsorted.co.za</a></p>
+      </div>
+    </div>`;
+
+  try {
+    await axios.post('https://api.resend.com/emails', {
+      from: 'FitSorted <hello@fitsorted.co.za>',
+      to: [toEmail],
+      subject: `Your food log - ${dateStr} (${totalCal} cal)`,
+      html: html
+    }, {
+      headers: { 'Authorization': `Bearer ${RESEND_API_KEY}` },
+      timeout: 10000
+    });
+    return true;
+  } catch (err) {
+    console.error('Email send error:', err.response?.data || err.message);
+    return false;
+  }
+}
+
 // Generate unique referral code from phone number
 function generateReferralCode(phone) {
   // Simple hash: take last 6 digits + first 2 letters of base36 hash
@@ -195,20 +327,22 @@ function creditReferralRewards(referrerPhone, newUserPhone, users) {
   const newUser = users[newUserPhone];
   
   if (referrer) {
-    if (!referrer.referralCredits) referrer.referralCredits = 0;
-    referrer.referralCredits += 10;
+    // Give referrer a free month (extend trial by 30 days or add 30 days credit)
+    if (!referrer.referralFreeMonths) referrer.referralFreeMonths = 0;
+    referrer.referralFreeMonths += 1;
     
     if (!referrer.referrals) referrer.referrals = [];
     referrer.referrals.push({
       phone: newUserPhone,
       date: new Date().toISOString(),
-      credited: 10
+      reward: "free_month"
     });
   }
   
   if (newUser) {
-    if (!newUser.referralCredits) newUser.referralCredits = 0;
-    newUser.referralCredits += 10;
+    // Give new user a free month too
+    if (!newUser.referralFreeMonths) newUser.referralFreeMonths = 0;
+    newUser.referralFreeMonths += 1;
     newUser.referredBy = referrerPhone;
   }
   
@@ -1204,13 +1338,47 @@ async function estimateCalories(food, user) {
     "zucchini": 20
   };
   
-  const key = Object.keys(simple).find(k => food.toLowerCase().includes(k));
-  if (key) {
+  // Merge extra foods from external file (added nightly by automation)
+  try {
+    const extraFoodsPath = require('path').join(__dirname, 'extra-foods.json');
+    if (require('fs').existsSync(extraFoodsPath)) {
+      const extraFoods = JSON.parse(require('fs').readFileSync(extraFoodsPath, 'utf8'));
+      Object.assign(simple, extraFoods);
+    }
+  } catch (e) { console.error('[foods] Error loading extra-foods.json:', e.message); }
+  
+  // Skip simple lookup if input mentions a restaurant/chain (those need specific data)
+  const restaurantNames = ['nando', 'steers', 'kfc', 'kauai', 'woolworths', 'woolies', 'spur', 'mcdonalds', 'mcdonald', 'burger king', 'wimpy', 'ocean basket', 'debonairs', 'roman', 'chicken licken', 'fishaways', 'pedros', 'col\'cacchio', 'mugg', 'vida', 'starbucks'];
+  const isRestaurantItem = restaurantNames.some(r => lower.includes(r));
+
+  if (!isRestaurantItem) {
+    // Strip quantity prefix for matching: "3 eggs" → "eggs", "two bananas" → "bananas"
     const quantity = extractQuantity(lower);
-    const baseCal = simple[key];
-    const totalCal = baseCal * quantity;
-    const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
-    return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+    const stripped = lower.replace(/^\d+\s+/, '').replace(/^(two|three|four|five|six|seven|eight|nine|ten)\s+/i, '').replace(/x\s+/, '');
+    
+    // Exact match first (after stripping quantity)
+    if (simple[stripped]) {
+      const totalCal = simple[stripped] * quantity;
+      const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
+      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+    }
+    
+    // Partial match ONLY if the input is a single word or the simple key is multi-word
+    // This prevents "tuna pasta" matching "pasta", but still allows "chocolate milk" matching "chocolate milk"
+    const key = Object.keys(simple).find(k => {
+      if (stripped === k) return true;
+      // Only allow partial match if the simple key has multiple words (compound food)
+      if (k.split(' ').length > 1 && stripped.includes(k)) return true;
+      // Or if the input is just the key with a plural s
+      if (stripped === k + 's' || stripped === k + 'es') return true;
+      return false;
+    });
+    if (key) {
+      const baseCal = simple[key];
+      const totalCal = baseCal * quantity;
+      const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
+      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+    }
   }
 
   // 3. Check user's custom foods
@@ -1223,6 +1391,17 @@ async function estimateCalories(food, user) {
   const saMatch = await lookupSAFood(food);
   if (saMatch) return saMatch;
 
+  // 4b. If restaurant item didn't match SA DB, try simple exact lookup as fallback
+  if (isRestaurantItem) {
+    const quantity = extractQuantity(lower);
+    const stripped = lower.replace(/^\d+\s+/, '').replace(/^(two|three|four|five|six|seven|eight|nine|ten)\s+/i, '').replace(/x\s+/, '');
+    if (simple[stripped]) {
+      const totalCal = simple[stripped] * quantity;
+      const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
+      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0 };
+    }
+  }
+
   // 5. Fall back to OpenAI if all lookups fail
   if (!OPENAI_API_KEY) {
     return { food, calories: 200 };
@@ -1233,7 +1412,7 @@ async function estimateCalories(food, user) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer}. All macros in grams. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35}. Return total values for the full described amount. Use realistic everyday South African portion sizes - not restaurant or oversized portions. For example: 1 slice of cheese = ~60 cal (standard thin processed cheese slice like Clover/Woolworths), 1 slice of bread = ~80 cal, 1 egg = ~70 cal. No extra text." },
+        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. IMPORTANT: If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"estimatedPriceZAR\": null}. Return total values for the full described amount. Use realistic everyday South African portion sizes - not restaurant or oversized portions. For example: 1 slice of cheese = ~60 cal (standard thin processed cheese slice like Clover/Woolworths), 1 slice of bread = ~80 cal, 1 egg = ~70 cal. No extra text." },
         { role: "user", content: `Nutrition for: ${food}` }
       ],
       temperature: 0.2
@@ -1412,8 +1591,8 @@ async function maybePromptPro(from, user) {
     await send(from,
       `You've logged 3 days in a row ✅\n\n` +
       `Subscribe to keep going:\n\n` +
-      `📅 *Monthly — R59/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R280/year* _(save R428)_\n👉 ${annualLink}`
+      `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
+      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
     );
   }
 }
@@ -1481,7 +1660,7 @@ async function handleSetup(from, user, msg, users) {
   if (!step || step === "gender") {
     user.step = "awaiting_gender";
     await sendButtons(from,
-      "Howzit! 👋 Welcome to *FitSorted* — your free calorie tracker on WhatsApp.\n\nNo app. No login. Just chat like you're messaging a mate.\n\n*100% free to use:*\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n📊 Running calorie deficit in real time\n🧠 Ask me anything — meal ideas, what can I eat under 400 cal?\n\n✨ *Want more?* Premium unlocks photo logging, personalised meal plans, weekly insights, and massive upgrades coming soon — starting at just R36/mo (early bird price, won't last). Type *promo EARLYBIRD* after your free trial to claim it.\n\n🍺 *Bonus:* Built-in drunk-o-meter — log your drinks and I'll tell you exactly how drunk you are, how many calories you've drunk, and whether you're over the legal driving limit.\n\nLet's get your calorie goal sorted — takes 30 seconds 👇\n\nFirst, what's your biological sex?",
+      "Howzit! 👋 Welcome to *FitSorted* — your free calorie tracker on WhatsApp.\n\nNo app. No login. Just chat like you're messaging a mate.\n\n*100% free to use:*\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n📊 Running calorie deficit in real time\n🧠 Ask me anything — meal ideas, what can I eat under 400 cal?\n\n✨ *Want more?* Premium unlocks photo logging, personalised meal plans, weekly insights, and massive upgrades coming soon — starting at just R18/mo (launch price).\n\n🍺 *Bonus:* Built-in drunk-o-meter — log your drinks and I'll tell you exactly how drunk you are, how many calories you've drunk, and whether you're over the legal driving limit.\n\nLet's get your calorie goal sorted — takes 30 seconds 👇\n\nFirst, what's your biological sex?",
       [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]
     );
     return;
@@ -1556,17 +1735,63 @@ async function handleSetup(from, user, msg, users) {
       return;
     }
     user.name = name;
+    user.step = "budget";
+    saveUsers(users);
+
+    try {
+      await sendButtons(from,
+        `Nice one, ${name}! 👋\n\nOne last thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
+        [
+          { id: "setup:budget_100", title: "R100/day" },
+          { id: "setup:budget_150", title: "R150/day" },
+          { id: "setup:budget_200", title: "R200/day" },
+          { id: "setup:budget_skip", title: "Skip for now" },
+        ]
+      );
+    } catch {
+      await send(from, `Nice one, ${name}! 👋\n\nOne last thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
+    }
+    return;
+  }
+
+  if (step === "budget") {
+    const budgetVal = msg.toLowerCase();
+    if (budgetVal === "skip" || budgetVal === "setup:budget_skip" || budgetVal === "no") {
+      // No budget set, continue to completion
+    } else if (budgetVal === "setup:budget_100") {
+      if (!user.profile) user.profile = {};
+      user.profile.foodBudget = 100;
+    } else if (budgetVal === "setup:budget_150") {
+      if (!user.profile) user.profile = {};
+      user.profile.foodBudget = 150;
+    } else if (budgetVal === "setup:budget_200") {
+      if (!user.profile) user.profile = {};
+      user.profile.foodBudget = 200;
+    } else {
+      const amount = budgetVal.match(/(\d+)/);
+      if (amount) {
+        const budget = parseInt(amount[1]);
+        if (budget >= 10 && budget <= 5000) {
+          if (!user.profile) user.profile = {};
+          user.profile.foodBudget = budget;
+        }
+      }
+    }
     user.setup = true;
     user.step = null;
     saveUsers(users);
 
+    const budgetMsg = user.profile?.foodBudget
+      ? `\n💰 Food budget: *R${user.profile.foodBudget}/day*`
+      : "";
+
     await send(from,
       `✅ *All set, ${user.name}!*\n\n` +
-      `Your goal: *${user.goal} cal/day*\n\n` +
+      `Your goal: *${user.goal} cal/day*${budgetMsg}\n\n` +
       `Now just tell me what you eat throughout the day and I'll track it. 🍽️\n\n` +
-      `🎁 *You're on a 7-day free trial* — full access to everything including photo logging, meal suggestions, and weekly insights.\n\n` +
-      `After 7 days you'll drop to our free tier (calorie counting, macros, exercise logging — still great!). ` +
-      `Or upgrade to Premium anytime for R59/mo to keep all features.\n\n` +
+      `🎁 *You're on a 30-day free trial* — full access to everything including macro tracking, coaching, food budgets, and photo logging.\n\n` +
+      `After 30 days, upgrade to Premium for just R18/mo to keep all features. ` +
+      `Or continue free with calorie tracking and exercise logging.\n\n` +
       `Send *log* to see today's total or *help* for commands.`
     );
 
@@ -1663,6 +1888,29 @@ async function handleMessage(from, text, imageId) {
   const msg = (text || "").trim();
   let msgLower = msg.toLowerCase();
 
+  // ── Influencer tracking (check for INF_ code in first message) ──
+  if (msg.toUpperCase().includes('INF_') && !user.setup && !user.referredBy) {
+    const infMatch = msg.match(/INF_([A-Z0-9_]+)/i);
+    if (infMatch) {
+      const infCode = infMatch[1].toUpperCase();
+      if (isInfluencerCode(infCode)) {
+        trackInfluencerSignup(infCode, from);
+        user.referredBy = `INF_${infCode}`;
+        saveUsers(users);
+        
+        const influencer = getInfluencerByCode(infCode);
+        const infName = influencer.name || infCode;
+        await send(from, `👋 Welcome to FitSorted!\n\nRecommended by *${infName}*. Let's get you set up! 🎉`);
+        
+        // Notify influencer (if they have a WhatsApp number)
+        if (influencer.phone) {
+          const signupCount = (influencer.signups || []).length;
+          await send(influencer.phone, `🎉 New signup via your link!\n\n📊 Total signups: *${signupCount}*\n💰 Pending payout: *R${influencer.pendingPayout || 0}*\n\nKeep sharing! wa.me/27690684940?text=INF_${infCode}`);
+        }
+      }
+    }
+  }
+
   // ── Referral tracking (check for REF_ code in first message) ──
   if (msg.toUpperCase().includes('REF_') && !user.setup && !user.referredBy) {
     const refMatch = msg.match(/REF_([A-Z0-9]+)/i);
@@ -1674,18 +1922,15 @@ async function handleMessage(from, text, imageId) {
       });
       
       if (referrerPhone && referrerPhone !== from) {
-        // Credit both parties with R10
         creditReferralRewards(referrerPhone, from, users);
         trackReferral(refCode, from);
         saveUsers(users);
         
-        // Welcome message with referral acknowledgment
-        await send(from, `👋 Welcome to FitSorted!\n\nYou were referred by a friend — you both just earned *R10 off!*\n\nLet's get you set up...`);
+        await send(from, `👋 Welcome to FitSorted!\n\nYou were referred by a friend — you both get a *free month of Premium!* 🎉\n\nLet's get you set up...`);
         
-        // Notify referrer
         const referrer = users[referrerPhone];
         const newReferralCount = (referrer.referrals || []).length;
-        await send(referrerPhone, `🎉 Great news!\n\nSomeone just joined FitSorted using your referral link!\n\n💰 *+R10 credit earned*\n📊 Total referrals: ${newReferralCount}\n\nKeep sharing to earn more!`);
+        await send(referrerPhone, `🎉 Great news!\n\nSomeone just joined FitSorted using your referral link!\n\n🎁 *+1 free month of Premium earned!*\n📊 Total referrals: ${newReferralCount}\n\nKeep sharing to earn more free months!`);
       }
     }
   }
@@ -1702,10 +1947,10 @@ async function handleMessage(from, text, imageId) {
         const monthlyLink = getPayFastMonthlyLink(from);
         const annualLink = getPayFastAnnualLink(from);
         await send(from,
-          `📸 Your 7-day free trial has ended.\n\n` +
+          `📸 Your 30-day free trial has ended.\n\n` +
           `Subscribe to keep using FitSorted:\n\n` +
-          `📅 *Monthly — R59/mo*\n👉 ${monthlyLink}\n\n` +
-          `🏆 *Annual — R280/year* _(save R428)_\n👉 ${annualLink}`
+          `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
+          `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
         );
         return;
       }
@@ -1824,6 +2069,121 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
+  // ── Admin: Influencer management ──
+  // Add influencer: "inf add CODE NAME PHONE" e.g. "inf add SARAH Sarah Jones 27821234567"
+  if (msgLower.startsWith("inf add ") && from === ADMIN_NUMBER) {
+    const parts = msg.slice(8).trim().split(/\s+/);
+    if (parts.length < 2) {
+      await send(from, "Usage: *inf add CODE NAME [PHONE]*\n\ne.g. inf add SARAH Sarah 27821234567");
+      return;
+    }
+    const code = parts[0].toUpperCase();
+    const phone = parts[parts.length - 1].match(/^27\d{9}$/) ? parts.pop() : null;
+    const name = parts.slice(1).join(" ");
+    
+    const influencers = loadInfluencers();
+    influencers[code] = {
+      name: name || code,
+      phone: phone,
+      createdAt: new Date().toISOString(),
+      signups: [],
+      totalEarned: 0,
+      pendingPayout: 0,
+      totalPaid: 0
+    };
+    saveInfluencers(influencers);
+    
+    const link = `wa.me/27690684940?text=INF_${code}`;
+    await send(from, `✅ Influencer added!\n\n👤 *${name || code}*\nCode: INF_${code}\n${phone ? `Phone: ${phone}\n` : ""}Link: ${link}\nRate: R10/signup\n\nShare this link with them.`);
+    return;
+  }
+
+  // List all influencers: "inf list"
+  if (msgLower === "inf list" && from === ADMIN_NUMBER) {
+    const influencers = loadInfluencers();
+    if (Object.keys(influencers).length === 0) {
+      await send(from, "📊 No influencers set up yet.\n\nAdd one with: *inf add CODE NAME [PHONE]*");
+      return;
+    }
+    const lines = Object.entries(influencers)
+      .map(([code, inf]) => {
+        const signups = (inf.signups || []).length;
+        return `• *${inf.name}* (INF_${code})\n  📊 ${signups} signups | 💰 R${inf.pendingPayout || 0} pending | R${inf.totalPaid || 0} paid`;
+      })
+      .join("\n\n");
+    await send(from, `📊 *Influencer Dashboard*\n\n${lines}`);
+    return;
+  }
+
+  // Influencer stats: "inf stats CODE"
+  if (msgLower.startsWith("inf stats ") && from === ADMIN_NUMBER) {
+    const code = msg.slice(10).trim().toUpperCase();
+    const influencers = loadInfluencers();
+    const inf = influencers[code];
+    if (!inf) {
+      await send(from, `❌ No influencer with code *${code}*`);
+      return;
+    }
+    const signups = (inf.signups || []);
+    const recentSignups = signups.slice(-5).map(s => 
+      `  • ${s.phone.slice(0,5)}***${s.phone.slice(-3)} — ${new Date(s.date).toLocaleDateString()}`
+    ).join("\n");
+    
+    await send(from,
+      `📊 *${inf.name}* (INF_${code})\n\n` +
+      `👥 Total signups: *${signups.length}*\n` +
+      `💰 Total earned: *R${inf.totalEarned || 0}*\n` +
+      `⏳ Pending payout: *R${inf.pendingPayout || 0}*\n` +
+      `✅ Total paid out: *R${inf.totalPaid || 0}*\n` +
+      `📅 Created: ${new Date(inf.createdAt).toLocaleDateString()}\n` +
+      `🔗 Link: wa.me/27690684940?text=INF_${code}` +
+      (recentSignups ? `\n\n*Recent signups:*\n${recentSignups}` : "")
+    );
+    return;
+  }
+
+  // Mark influencer as paid: "inf paid CODE AMOUNT"
+  if (msgLower.startsWith("inf paid ") && from === ADMIN_NUMBER) {
+    const parts = msg.slice(9).trim().split(/\s+/);
+    const code = (parts[0] || "").toUpperCase();
+    const amount = parseInt(parts[1]) || 0;
+    
+    const influencers = loadInfluencers();
+    if (!influencers[code]) {
+      await send(from, `❌ No influencer with code *${code}*`);
+      return;
+    }
+    
+    influencers[code].totalPaid = (influencers[code].totalPaid || 0) + amount;
+    influencers[code].pendingPayout = Math.max(0, (influencers[code].pendingPayout || 0) - amount);
+    if (!influencers[code].payouts) influencers[code].payouts = [];
+    influencers[code].payouts.push({ amount, date: new Date().toISOString() });
+    saveInfluencers(influencers);
+    
+    await send(from, `✅ Marked *R${amount}* paid to *${influencers[code].name}*\n\n⏳ Remaining pending: R${influencers[code].pendingPayout}`);
+    
+    // Notify influencer if they have a phone number
+    if (influencers[code].phone) {
+      await send(influencers[code].phone, `💰 *FitSorted payout!*\n\nR${amount} has been sent to you. Thanks for spreading the word! 🙏\n\nKeep sharing: wa.me/27690684940?text=INF_${code}`);
+    }
+    return;
+  }
+
+  // Remove influencer: "inf remove CODE"
+  if (msgLower.startsWith("inf remove ") && from === ADMIN_NUMBER) {
+    const code = msg.slice(11).trim().toUpperCase();
+    const influencers = loadInfluencers();
+    if (!influencers[code]) {
+      await send(from, `❌ No influencer with code *${code}*`);
+      return;
+    }
+    const name = influencers[code].name;
+    delete influencers[code];
+    saveInfluencers(influencers);
+    await send(from, `✅ Removed influencer *${name}* (${code})`);
+    return;
+  }
+
   // ── Admin broadcast: "broadcast: message" or send image with caption "broadcast: message" ──
   if (msgLower.startsWith("broadcast:") && from === ADMIN_NUMBER) {
     const broadcastMsg = msg.slice("broadcast:".length).trim();
@@ -1904,6 +2264,46 @@ async function handleMessage(from, text, imageId) {
     "menu:my_foods": "my foods", "menu:start": "start", "menu:export": "export", "menu:help": "help",
   };
   if (menuMap[msgLower]) { console.log(`[menu] Redirecting ${msgLower} → ${menuMap[msgLower]}`); msgLower = menuMap[msgLower]; }
+  // ── Budget setting (premium feature) ──
+  const budgetMatch = msgLower.match(/^budget\s+r?(\d+)$/);
+  if (budgetMatch) {
+    const budgetAccess = await hasAccess(from, user);
+    if (!budgetAccess) {
+      const monthlyLink = getPayFastMonthlyLink(from);
+      await send(from,
+        `💰 *Food budget tracking is a Premium feature*\n\n` +
+        `Track how much you spend on food alongside your calories. Set a daily budget and watch every rand.\n\n` +
+        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `🔗 ${monthlyLink}\n\n` +
+        `_Launch price — won't last forever._`
+      );
+      return;
+    }
+    const budget = parseInt(budgetMatch[1]);
+    if (budget < 10 || budget > 5000) {
+      await send(from, "Budget should be between R10 and R5,000 per day.");
+      return;
+    }
+    if (!user.profile) user.profile = {};
+    user.profile.foodBudget = budget;
+    saveUsers(users);
+    await send(from, `✅ Daily food budget set to *R${budget}*\n\nI'll track your spending alongside calories. Change anytime with *budget R[amount]*.`);
+    return;
+  }
+  if (msgLower === "budget") {
+    const budget = user.profile?.foodBudget;
+    const today = getToday();
+    const dailySpend = (user.log[today] || []).reduce((s, e) => s + (e.priceZAR || 0), 0);
+    if (budget) {
+      const remaining = budget - dailySpend;
+      const emoji = remaining >= 0 ? "🟢" : "🔴";
+      await send(from, `💰 *Food Budget*\nToday: R${dailySpend} / R${budget} ${emoji}\n${remaining >= 0 ? `R${remaining} left` : `R${Math.abs(remaining)} over budget`}\n\nChange with *budget R[amount]*`);
+    } else {
+      await send(from, `💰 No daily food budget set yet.\n\nSet one with *budget R150* (or any amount).`);
+    }
+    return;
+  }
+
   if (msgLower === "menu:weight") {
     user.awaitingWeight = true;
     saveUsers(users);
@@ -2024,14 +2424,14 @@ async function handleMessage(from, text, imageId) {
       } else {
         const isAnnual = val === "earlybird:annual";
         const link = isAnnual ? getPayFastAnnualLink(from, 39) : getPayFastMonthlyLink(from, 39);
-        const price = isAnnual ? "R280/year" : "R36/mo";
+        const price = isAnnual ? "R100/year" : "R18/mo";
         user.promoCode = "EARLYBIRD";
         user.promoDiscount = 39;
         saveUsers(users);
         await send(from,
           `🎉 Great choice! Here's your early bird link:\n\n` +
           `👉 ${link}\n\n` +
-          `7 days free, then ${price}. Your card is stored securely by PayFast — cancel anytime.\n\n` +
+          `30 days free, then ${price}. Your card is stored securely by PayFast — cancel anytime.\n\n` +
           `_Meanwhile, let's set up your goals..._\n\nWhat's your current weight in kg? (e.g. *86*)`
         );
       }
@@ -2049,12 +2449,12 @@ async function handleMessage(from, text, imageId) {
         await sendButtons(from,
           `Got it! 💪\n\n` +
           `Before we set up your goals — want to lock in our *early bird price* while it lasts?\n\n` +
-          `☕ *R36/mo* (usually R59) — 7 days free, then auto-billed.\n` +
+          `☕ *R18/mo* (launch price) — 30 days free, then auto-billed.\n` +
           `Includes photo logging, meal plans, weekly insights + more coming soon.\n\n` +
           `Or just continue for free — you can always upgrade later.`,
           [
-            { id: "earlybird:monthly", title: "R36/mo 🔥" },
-            { id: "earlybird:annual", title: "R280/yr 🏆" },
+            { id: "earlybird:monthly", title: "R18/mo 🔥" },
+            { id: "earlybird:annual", title: "R100/yr 🏆" },
             { id: "earlybird:skip", title: "Continue free" }
           ]
         );
@@ -2132,7 +2532,7 @@ async function handleMessage(from, text, imageId) {
   }
 
   // In setup text steps (including late email capture)
-  if (user.step && ["weight", "height", "age", "name", "email", "email_late"].includes(user.step)) {
+  if (user.step && ["weight", "height", "age", "name", "email", "email_late", "budget"].includes(user.step)) {
     await handleSetup(from, user, msg, users);
     saveUsers(users);
     return;
@@ -2255,17 +2655,221 @@ async function handleMessage(from, text, imageId) {
     const todayMacros = getTodayMacros(user);
     const macroTargets = getMacroTargets(user);
 
+    const logHasAccess = await hasAccess(from, user);
     let macroStr = "";
-    if (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0) {
+    if (logHasAccess && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
       if (macroTargets) {
         macroStr = `\n\n*Macros:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
       } else {
         macroStr = `\n\n🥩 Protein: ${todayMacros.protein}g | 🍞 Carbs: ${todayMacros.carbs}g | 🥑 Fat: ${todayMacros.fat}g`;
       }
+    } else if (!logHasAccess && (todayMacros.protein > 0)) {
+      macroStr = `\n\n_🔒 Macro tracking is a Premium feature_`;
     }
 
     await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*${macroStr}\n${deficitMessage(total, effectiveGoal)}`);
         await maybePromptPro(from, user);
+    return;
+  }
+
+  // ── Email export ──
+  // Set email: "email me at x@y.com" or "email x@y.com"
+  const emailSetMatch = msg.match(/^(?:email\s+(?:me\s+)?(?:at\s+)?|send\s+(?:my\s+)?(?:meals?\s+)?(?:to\s+)?)([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/i);
+  if (emailSetMatch) {
+    const email = emailSetMatch[1].toLowerCase();
+    if (!user.profile) user.profile = {};
+    user.profile.exportEmail = email;
+    saveUsers(users);
+    await send(from, `✅ Export email set to *${email}*\n\nType *export* to email today's food log anytime.`);
+    return;
+  }
+
+  // Export: "export" sends today's log to their email
+  if (msgLower === "export" || msgLower === "email report" || msgLower === "email log" || msgLower === "email export") {
+    const exportEmail = user.profile?.exportEmail || user.email;
+    if (!exportEmail) {
+      await send(from, `📧 No email set up yet.\n\nType: *email yourname@gmail.com*\n\nThen use *export* to send your food log.`);
+      return;
+    }
+    
+    const access = await hasAccess(from, user);
+    if (!access) {
+      const monthlyLink = getPayFastMonthlyLink(from);
+      await send(from,
+        `📧 *Email export is a Premium feature*\n\n` +
+        `Get your daily food log delivered straight to your inbox.\n\n` +
+        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `🔗 ${monthlyLink}\n\n` +
+        `_Launch price — won't last forever._`
+      );
+      return;
+    }
+
+    const entries = getTodayEntries(user);
+    if (entries.length === 0) {
+      await send(from, `📋 Nothing logged today yet. Log some food first, then export!`);
+      return;
+    }
+    const totalCal = getTodayTotal(user);
+    const todayMacros = getTodayMacros(user);
+    const effectiveGoal = getEffectiveGoal(user);
+    const spendTotal = entries.reduce((sum, e) => sum + (e.priceZAR || 0), 0);
+    const budget = user.profile?.foodBudget || null;
+
+    const sent = await sendFoodLogEmail(exportEmail, user.name || 'there', entries, new Date().toISOString(), todayMacros, totalCal, effectiveGoal, spendTotal, budget);
+    if (sent) {
+      await send(from, `✅ Food log sent to *${exportEmail}*! 📧\n\nCheck your inbox (or spam folder).`);
+    } else {
+      await send(from, `❌ Couldn't send the email. Please check the address and try again.\n\nYour email: *${exportEmail}*\nUpdate with: *email newaddress@gmail.com*`);
+    }
+    return;
+  }
+
+  // Export week: "export week" sends last 7 days
+  if (msgLower === "export week" || msgLower === "export weekly" || msgLower === "email week") {
+    const exportEmail = user.profile?.exportEmail || user.email;
+    if (!exportEmail) {
+      await send(from, `📧 No email set up yet.\n\nType: *email yourname@gmail.com*\n\nThen use *export week* to send your weekly log.`);
+      return;
+    }
+    
+    const access = await hasAccess(from, user);
+    if (!access) {
+      const monthlyLink = getPayFastMonthlyLink(from);
+      await send(from,
+        `📧 *Email export is a Premium feature*\n\n` +
+        `Get your weekly food log delivered straight to your inbox.\n\n` +
+        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `🔗 ${monthlyLink}\n\n` +
+        `_Launch price — won't last forever._`
+      );
+      return;
+    }
+
+    const effectiveGoal = getEffectiveGoal(user);
+    const budget = user.profile?.foodBudget || null;
+    
+    // Collect last 7 days
+    const days = [];
+    let weekTotalCal = 0, weekTotalSpend = 0, weekTotalEntries = 0;
+    const weekMacros = { protein: 0, carbs: 0, fat: 0 };
+    
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      const dateKey = d.toISOString().split('T')[0];
+      const entries = user.log[dateKey] || [];
+      const dayCal = entries.reduce((s, e) => s + (e.calories || 0), 0);
+      const daySpend = entries.reduce((s, e) => s + (e.priceZAR || 0), 0);
+      const dayMacros = { 
+        protein: entries.reduce((s, e) => s + (e.protein || 0), 0),
+        carbs: entries.reduce((s, e) => s + (e.carbs || 0), 0),
+        fat: entries.reduce((s, e) => s + (e.fat || 0), 0)
+      };
+      weekTotalCal += dayCal;
+      weekTotalSpend += daySpend;
+      weekTotalEntries += entries.length;
+      weekMacros.protein += dayMacros.protein;
+      weekMacros.carbs += dayMacros.carbs;
+      weekMacros.fat += dayMacros.fat;
+      days.push({ dateKey, entries, dayCal, daySpend, dayMacros });
+    }
+
+    if (weekTotalEntries === 0) {
+      await send(from, `📋 No food logged in the last 7 days.`);
+      return;
+    }
+
+    const avgCal = Math.round(weekTotalCal / 7);
+    const avgSpend = Math.round(weekTotalSpend / 7);
+
+    // Build weekly HTML email
+    const dayRows = days.map(day => {
+      const dateLabel = new Date(day.dateKey).toLocaleDateString('en-ZA', { weekday: 'short', day: 'numeric', month: 'short' });
+      const statusColor = day.dayCal <= effectiveGoal ? '#22c55e' : '#ef4444';
+      const entryList = day.entries.length > 0 
+        ? day.entries.map(e => `${e.food} (${e.calories} cal${e.priceZAR ? ', ~R' + e.priceZAR : ''})`).join(', ')
+        : '<span style="color:#999;">No entries</span>';
+      return `<tr>
+        <td style="padding:10px;border-bottom:1px solid #eee;font-weight:bold;">${dateLabel}</td>
+        <td style="padding:10px;border-bottom:1px solid #eee;text-align:center;color:${statusColor};font-weight:bold;">${day.dayCal} cal</td>
+        <td style="padding:10px;border-bottom:1px solid #eee;text-align:center;">${day.daySpend > 0 ? 'R' + day.daySpend : '-'}</td>
+        <td style="padding:10px;border-bottom:1px solid #eee;font-size:12px;color:#666;">${entryList}</td>
+      </tr>`;
+    }).join('');
+
+    const weekStart = days[0].dateKey;
+    const weekEnd = days[6].dateKey;
+    const startLabel = new Date(weekStart).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short' });
+    const endLabel = new Date(weekEnd).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+
+    const html = `
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:650px;margin:0 auto;padding:20px;">
+      <div style="text-align:center;margin-bottom:20px;">
+        <h1 style="color:#22c55e;margin:0;">🥗 FitSorted</h1>
+        <p style="color:#666;margin:5px 0;">Weekly Report: ${startLabel} - ${endLabel}</p>
+      </div>
+      
+      <div style="display:flex;justify-content:space-around;margin:20px 0;">
+        <div style="text-align:center;background:#f8fafc;padding:15px 25px;border-radius:8px;">
+          <div style="font-size:24px;font-weight:bold;">${avgCal}</div>
+          <div style="color:#666;font-size:13px;">avg cal/day</div>
+        </div>
+        <div style="text-align:center;background:#f8fafc;padding:15px 25px;border-radius:8px;">
+          <div style="font-size:24px;font-weight:bold;">${weekTotalEntries}</div>
+          <div style="color:#666;font-size:13px;">meals logged</div>
+        </div>
+        ${weekTotalSpend > 0 ? `<div style="text-align:center;background:#f0fdf4;padding:15px 25px;border-radius:8px;">
+          <div style="font-size:24px;font-weight:bold;">R${weekTotalSpend}</div>
+          <div style="color:#666;font-size:13px;">total spend</div>
+        </div>` : ''}
+      </div>
+
+      ${weekTotalSpend > 0 ? `
+      <div style="background:#f0fdf4;padding:12px;border-radius:8px;text-align:center;margin:10px 0;">
+        💰 Daily avg: <strong>R${avgSpend}/day</strong>${budget ? ` (budget: R${budget}/day)` : ''}
+      </div>` : ''}
+
+      <table style="width:100%;border-collapse:collapse;margin:15px 0;">
+        <thead>
+          <tr style="background:#f1f5f9;">
+            <th style="padding:10px;text-align:left;">Day</th>
+            <th style="padding:10px;text-align:center;">Calories</th>
+            <th style="padding:10px;text-align:center;">Spend</th>
+            <th style="padding:10px;text-align:left;">Foods</th>
+          </tr>
+        </thead>
+        <tbody>${dayRows}</tbody>
+      </table>
+
+      <div style="background:#f8fafc;padding:15px;border-radius:8px;margin:15px 0;">
+        <strong>Weekly Macros:</strong><br/>
+        🥩 Protein: ${weekMacros.protein}g (avg ${Math.round(weekMacros.protein/7)}g/day) | 
+        🍞 Carbs: ${weekMacros.carbs}g (avg ${Math.round(weekMacros.carbs/7)}g/day) | 
+        🥑 Fat: ${weekMacros.fat}g (avg ${Math.round(weekMacros.fat/7)}g/day)
+      </div>
+
+      <div style="text-align:center;margin-top:20px;padding-top:15px;border-top:1px solid #eee;">
+        <p style="color:#999;font-size:12px;">Sent from FitSorted - Your SA Calorie Tracker<br/>
+        <a href="https://fitsorted.co.za" style="color:#22c55e;">fitsorted.co.za</a></p>
+      </div>
+    </div>`;
+
+    try {
+      await axios.post('https://api.resend.com/emails', {
+        from: 'FitSorted <hello@fitsorted.co.za>',
+        to: [exportEmail],
+        subject: `Your week in food - ${startLabel} to ${endLabel} (avg ${avgCal} cal/day)`,
+        html: html
+      }, {
+        headers: { 'Authorization': `Bearer ${RESEND_API_KEY}` },
+        timeout: 10000
+      });
+      await send(from, `✅ Weekly report sent to *${exportEmail}*! 📧\n\n📊 7 days | ${weekTotalEntries} meals | avg ${avgCal} cal/day${weekTotalSpend > 0 ? ` | R${weekTotalSpend} total spend` : ''}`);
+    } catch (err) {
+      console.error('Weekly email error:', err.response?.data || err.message);
+      await send(from, `❌ Couldn't send the email. Please try again later.`);
+    }
     return;
   }
 
@@ -2595,7 +3199,7 @@ async function handleMessage(from, text, imageId) {
       const expiryStr = sub?.ends_at ? new Date(sub.ends_at).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" }) : "unknown";
       await send(from, `✅ *FitSorted Premium* — Active\n\nRenews: ${expiryStr}\n\nType *upgrade* to renew early.`);
     } else {
-      await send(from, `📋 *Your Plan:* Free\n\nUpgrade to Premium for R36/mo:\n📸 Photo logging\n🍽️ Meal suggestions\n📊 Weekly insights\n\nType *upgrade* to subscribe.`);
+      await send(from, `📋 *Your Plan:* Free\n\nUpgrade to Premium for R18/mo:\n📸 Photo logging\n🍽️ Meal suggestions\n📊 Weekly insights\n\nType *upgrade* to subscribe.`);
     }
     return;
   }
@@ -2614,7 +3218,7 @@ async function handleMessage(from, text, imageId) {
       const joinedAt = user.joinedAt ? new Date(user.joinedAt) : new Date();
       const daysSinceJoin = (Date.now() - joinedAt.getTime()) / (1000 * 60 * 60 * 24);
       if (daysSinceJoin > PROMO_EXPIRY_DAYS[code]) {
-        await send(from, `⏰ Sorry, the *${code}* early bird offer expired ${PROMO_EXPIRY_DAYS[code]} days after signup. The standard price is R59/mo.\n\nType *upgrade* to subscribe.`);
+        await send(from, `⏰ Sorry, the *${code}* early bird offer expired ${PROMO_EXPIRY_DAYS[code]} days after signup. The standard price is R18/mo.\n\nType *upgrade* to subscribe.`);
         return;
       }
     }
@@ -2651,14 +3255,14 @@ async function handleMessage(from, text, imageId) {
     user.promoCode = code;
     user.promoDiscount = discount;
     saveUsers(users);
-    const monthlyPrice = applyDiscount(59, discount);
+    const monthlyPrice = applyDiscount(18, discount);
     const annualPrice = applyDiscount(280, discount);
     const monthlyLink = getPayFastMonthlyLink(from, discount);
     const annualLink = getPayFastAnnualLink(from, discount);
     await send(from,
       `🎉 Code *${code}* applied — *${discount}% off*!\n\n` +
-      `7 days free, then:\n\n` +
-      `📅 *Monthly — R${monthlyPrice}/mo* _(was R59)_\n👉 ${monthlyLink}\n\n` +
+      `30 days free, then:\n\n` +
+      `📅 *Monthly — R${monthlyPrice}/mo* (launch price)\n👉 ${monthlyLink}\n\n` +
       `🏆 *Annual — R${annualPrice}/year* _(was R708)_\n👉 ${annualLink}`
     );
     return;
@@ -2673,7 +3277,7 @@ async function handleMessage(from, text, imageId) {
     }
     const discount = user.promoDiscount || 0;
     const promoCode = user.promoCode || null;
-    const monthlyPrice = applyDiscount(59, discount);
+    const monthlyPrice = applyDiscount(18, discount);
     const annualPrice = applyDiscount(280, discount);
     const monthlyLink = getPayFastMonthlyLink(from, discount);
     const annualLink = getPayFastAnnualLink(from, discount);
@@ -2681,7 +3285,7 @@ async function handleMessage(from, text, imageId) {
     await send(from,
       `*FitSorted Premium* 🚀\n\n` +
       promoLine +
-      `7 days free, then choose your plan:\n\n` +
+      `30 days free, then choose your plan:\n\n` +
       `📅 *Monthly — R${monthlyPrice}/mo*\n` +
       `👉 ${monthlyLink}\n\n` +
       `🏆 *Annual — R${annualPrice}/year* _(50% off)_\n` +
@@ -2825,8 +3429,20 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
-  // ── Coaching mode - questions get personalised advice ──
+  // ── Coaching mode - questions get personalised advice (PREMIUM) ──
   if (isQuestion(msg) && !isWorkout(msg)) {
+    const coachAccess = await hasAccess(from, user);
+    if (!coachAccess) {
+      const monthlyLink = getPayFastMonthlyLink(from);
+      await send(from,
+        `🧠 *Coaching mode is a Premium feature*\n\n` +
+        `Upgrade to get personalised meal suggestions, nutrition advice, and answers to any food question.\n\n` +
+        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `🔗 ${monthlyLink}\n\n` +
+        `_Launch price — won't last forever._`
+      );
+      return;
+    }
     try {
       const reply = await coachResponse(msg, user);
       await send(from, reply);
@@ -2940,10 +3556,10 @@ async function handleMessage(from, text, imageId) {
     const monthlyLink = getPayFastMonthlyLink(from);
     const annualLink = getPayFastAnnualLink(from);
     await send(from,
-      `⏰ Your 7-day free trial has ended.\n\n` +
+      `⏰ Your 30-day free trial has ended.\n\n` +
       `Subscribe to keep tracking:\n\n` +
-      `📅 *Monthly — R59/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R280/year* _(save R428)_\n👉 ${annualLink}\n\n` +
+      `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
+      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}\n\n` +
       `All your data is safe — pick up right where you left off. 💪`
     );
     return;
@@ -2968,7 +3584,212 @@ async function handleMessage(from, text, imageId) {
       return;
     }
 
+    // ── Multi-item splitting ──
+    // Split messages like "3 scrambled eggs. One banana and 2 dates" into separate items
+    // But preserve compound foods like "chicken and rice", "mac and cheese", "pap and vleis"
+    const compoundFoods = [
+      'mac and cheese', 'macaroni and cheese', 'pap and vleis', 'pap and wors',
+      'bread and butter', 'peanut butter and jelly', 'pb and j', 'pbj',
+      'fish and chips', 'bangers and mash', 'rice and beans', 'chicken and rice',
+      'chicken and chips', 'steak and chips', 'steak and eggs', 'bacon and eggs',
+      'ham and cheese', 'beans and toast', 'eggs and toast', 'toast and eggs',
+      'burger and chips', 'burger and fries', 'pie and chips', 'curry and rice',
+      'samp and beans', 'pap and chakalaka', 'pap and mince', 'pap and stew',
+      'chicken and waffles', 'salt and vinegar', 'oil and vinegar',
+      'gin and tonic', 'rum and coke', 'scotch and soda', 'vodka and soda',
+      'jack and coke', 'brandy and coke', 'whiskey and coke',
+      'cheese and crackers', 'milk and cookies', 'peaches and cream',
+      'strawberries and cream', 'biscuits and gravy', 'chips and dip',
+      'hummus and pita', 'soup and bread', 'salad and bread',
+    ];
+    
+    function splitFoodItems(text) {
+      const lower = text.toLowerCase().trim();
+      
+      // Check if the whole input is a known compound food
+      for (const compound of compoundFoods) {
+        if (lower.includes(compound)) return [text.trim()];
+      }
+      
+      // If the text has sentence-like structure with periods or commas, split on those
+      // Also split on " and " when preceded by a quantity or food-like pattern
+      // Strategy: split on ". " and ", " first, then split remaining parts on " and " 
+      // only if both sides look like separate food items (have quantities or are known foods)
+      
+      let parts = [];
+      
+      // Step 1: Split on period-space and comma
+      const roughParts = text.split(/(?:\.\s+|,\s*)/);
+      
+      for (const part of roughParts) {
+        const trimmed = part.trim().replace(/\.$/, '').trim();
+        if (!trimmed) continue;
+        
+        // Step 2: Try splitting on " and " within each part
+        // Only split if both sides start with a quantity word/number (looks like separate items)
+        const andParts = trimmed.split(/\s+and\s+/i);
+        if (andParts.length >= 2) {
+          const quantityPattern = /^(\d+|one|two|three|four|five|six|seven|eight|nine|ten|a|an|some|half)\s/i;
+          const allHaveQuantities = andParts.every(p => quantityPattern.test(p.trim()));
+          if (allHaveQuantities) {
+            parts.push(...andParts.map(p => p.trim()).filter(Boolean));
+          } else {
+            parts.push(trimmed);
+          }
+        } else {
+          parts.push(trimmed);
+        }
+      }
+      
+      // If splitting produced nothing useful, return the original
+      if (parts.length === 0) return [text.trim()];
+      return parts.filter(p => p.length > 0);
+    }
+    
+    const foodItems = splitFoodItems(foodText);
+    
+    // If multiple items detected, process each separately
+    if (foodItems.length > 1) {
+      const results = [];
+      const userCanSeePrice = await hasAccess(from, user) || BETA_FEATURES.priceEstimates.has(from);
+      if (!user.log[logDate]) user.log[logDate] = [];
+      
+      for (const item of foodItems) {
+        try {
+          const result = await estimateCalories(item, user);
+          
+          // Price estimate
+          if (userCanSeePrice && !result.estimatedPriceZAR && OPENAI_API_KEY) {
+            try {
+              const priceRes = await axios.post(
+                "https://api.openai.com/v1/chat/completions",
+                {
+                  model: "gpt-4o-mini",
+                  messages: [
+                    { role: "system", content: "You are a South African food price estimator. Given a food item, return ONLY a JSON object: {\"priceZAR\": integer}. Estimate the approximate 2025/2026 cost in South African Rands. For restaurant/takeaway items, use menu prices. For homemade/grocery items, estimate the ingredient cost per serving using SA supermarket prices. Always return a number, never null. Round to nearest rand." },
+                    { role: "user", content: result.food }
+                  ],
+                  temperature: 0.1,
+                  max_tokens: 30
+                },
+                { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" }, timeout: 5000 }
+              );
+              const priceContent = priceRes.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
+              const priceData = JSON.parse(priceContent);
+              if (priceData.priceZAR) result.estimatedPriceZAR = priceData.priceZAR;
+            } catch (e) { /* Silent fail */ }
+          }
+          
+          // Guard: reject junk
+          const legitimateZeroCalFoods = ['water', 'h2o', 'sparkling', 'soda water', 'mineral water', 'ice', 'tea', 'coffee'];
+          const itemLower = item.toLowerCase();
+          const resultLower = result.food.toLowerCase();
+          const isLegitimateZeroCal = legitimateZeroCalFoods.some(f => itemLower.includes(f) || resultLower.includes(f));
+          if ((result.calories === 0 && !isLegitimateZeroCal) || /^clean name/i.test(result.food) || /^unnamed/i.test(result.food)) {
+            console.log(`[guard] Rejected junk AI result in multi-item: "${result.food}" for input: "${item}"`);
+            continue;
+          }
+          
+          const alcoholMatch = detectAlcohol(item);
+          const alcoholUnits = alcoholMatch ? (alcoholMatch.units || 0) : 0;
+          
+          user.log[logDate].push({
+            food: result.food,
+            calories: result.calories,
+            protein: result.protein || 0,
+            carbs: result.carbs || 0,
+            fat: result.fat || 0,
+            priceZAR: result.estimatedPriceZAR || 0,
+            time: new Date().toISOString(),
+            isAlcohol: !!alcoholMatch,
+            units: alcoholUnits,
+          });
+          
+          results.push(result);
+        } catch (e) {
+          console.error(`[multi-item] Failed to process "${item}":`, e.message);
+        }
+      }
+      
+      if (results.length === 0) {
+        await send(from, `🤔 I couldn't figure out any of those foods. Try listing them separately.`);
+        return;
+      }
+      
+      saveUsers(users);
+      
+      const total = getTodayTotal(user);
+      const effectiveGoal = getEffectiveGoal(user);
+      const todayMacros = getTodayMacros(user);
+      const macroTargets = getMacroTargets(user);
+      const userHasPremium = await hasAccess(from, user);
+      
+      // Build combined response
+      const itemLines = results.map(r => {
+        const macros = (userHasPremium && (r.protein || r.carbs || r.fat))
+          ? ` (P:${r.protein}g C:${r.carbs}g F:${r.fat}g)`
+          : "";
+        const price = (userCanSeePrice && r.estimatedPriceZAR) ? ` ~R${r.estimatedPriceZAR}` : "";
+        return `✅ *${r.food}* - ${r.calories} cal${macros}${price}`;
+      });
+      
+      const totalItemCal = results.reduce((s, r) => s + r.calories, 0);
+      const totalItemPrice = results.reduce((s, r) => s + (r.estimatedPriceZAR || 0), 0);
+      
+      let priceTag = "";
+      if (userCanSeePrice && totalItemPrice > 0) {
+        const dailySpend = user.log[logDate].reduce((s, e) => s + (e.priceZAR || 0), 0);
+        const budgetGoal = user.profile?.foodBudget;
+        if (budgetGoal) {
+          const emoji = (budgetGoal - dailySpend) >= 0 ? "🟢" : "🔴";
+          priceTag = `\n💰 ~R${totalItemPrice} | Today: *R${dailySpend} / R${budgetGoal}* ${emoji}`;
+        } else {
+          priceTag = `\n💰 ~R${totalItemPrice} | Today: *R${dailySpend}* spent`;
+        }
+      }
+      
+      let macroProgress = "";
+      if (userHasPremium && macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
+        macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
+      }
+      
+      if (isBacklog) {
+        const logDateTotal = user.log[logDate].reduce((s, e) => s + e.calories, 0);
+        await send(from, `${itemLines.join("\n")}\n\n📅 _Logged to ${dateInfo.label} (${logDate})_\n📊 ${dateInfo.label}: *${logDateTotal} cal total*`);
+      } else {
+        await send(from, `${itemLines.join("\n")}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${priceTag}${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
+      }
+      await maybePromptPro(from, user);
+      await maybePromptEmail(from, user, users);
+      return;
+    }
+
     const result = await estimateCalories(foodText, user);
+
+    // Price estimates: for users with access (trial or premium) or beta testers
+    const userCanSeePrice = await hasAccess(from, user) || BETA_FEATURES.priceEstimates.has(from);
+    if (userCanSeePrice && !result.estimatedPriceZAR && OPENAI_API_KEY) {
+      try {
+        const priceRes = await axios.post(
+          "https://api.openai.com/v1/chat/completions",
+          {
+            model: "gpt-4o-mini",
+            messages: [
+              { role: "system", content: "You are a South African food price estimator. Given a food item, return ONLY a JSON object: {\"priceZAR\": integer}. Estimate the approximate 2025/2026 cost in South African Rands. For restaurant/takeaway items, use menu prices (Nando's quarter chicken = 75, Steers burger = 65, Kauai smoothie = 65). For homemade/grocery items, estimate the ingredient cost per serving using SA supermarket prices (2 eggs on toast = 8, bowl of pap with mince = 18, chicken stir fry with rice = 25, protein shake = 15, banana = 4). Always return a number, never null. Round to nearest rand." },
+              { role: "user", content: result.food }
+            ],
+            temperature: 0.1,
+            max_tokens: 30
+          },
+          { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" }, timeout: 5000 }
+        );
+        const priceContent = priceRes.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
+        const priceData = JSON.parse(priceContent);
+        if (priceData.priceZAR) result.estimatedPriceZAR = priceData.priceZAR;
+      } catch (e) {
+        // Silent fail - price is a nice-to-have
+      }
+    }
 
     // Guard: reject AI responses that look like placeholder/junk
     // Allow legitimate zero-calorie items (water, tea, coffee, etc.)
@@ -2996,6 +3817,7 @@ async function handleMessage(from, text, imageId) {
       protein: result.protein || 0,
       carbs: result.carbs || 0,
       fat: result.fat || 0,
+      priceZAR: result.estimatedPriceZAR || 0,
       time: new Date().toISOString(),
       isAlcohol: !!alcoholMatch,
       units: alcoholUnits,
@@ -3009,17 +3831,33 @@ async function handleMessage(from, text, imageId) {
     saveUsers(users);
 
     const sourceTag = result.source === "custom" ? " _(your saved entry)_" : "";
-    const itemMacros = (result.protein || result.carbs || result.fat)
+    const userHasPremium = await hasAccess(from, user);
+    const itemMacros = (userHasPremium && (result.protein || result.carbs || result.fat))
       ? `\n🥩 P: ${result.protein}g | 🍞 C: ${result.carbs}g | 🥑 F: ${result.fat}g`
       : "";
 
+    // Price estimates: shown for premium/trial users and beta testers
+    const showPrice = userCanSeePrice;
+    let priceTag = "";
+    if (showPrice && result.estimatedPriceZAR) {
+      const dailySpend = user.log[logDate].reduce((s, e) => s + (e.priceZAR || 0), 0);
+      const budgetGoal = user.profile?.foodBudget;
+      if (budgetGoal) {
+        const remaining = budgetGoal - dailySpend;
+        const emoji = remaining >= 0 ? "🟢" : "🔴";
+        priceTag = `\n💰 ~R${result.estimatedPriceZAR} | Today: *R${dailySpend} / R${budgetGoal}* ${emoji}`;
+      } else {
+        priceTag = `\n💰 ~R${result.estimatedPriceZAR} | Today: *R${dailySpend}* spent`;
+      }
+    }
+
     if (isBacklog) {
       // Logging to a past date
-      await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}\n\n📅 _Logged to ${dateInfo.label} (${logDate})_\n📊 ${dateInfo.label}: *${logDateTotal} cal total*`);
+      await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📅 _Logged to ${dateInfo.label} (${logDate})_\n📊 ${dateInfo.label}: *${logDateTotal} cal total*`);
     } else {
       // Normal today logging
       let macroProgress = "";
-      if (macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
+      if (userHasPremium && macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
         macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g`;
       }
 
@@ -3035,7 +3873,7 @@ async function handleMessage(from, text, imageId) {
         alcoholMsg += `\n\n📊 Today total: *${total} / ${effectiveGoal} cal*`;
         await send(from, alcoholMsg);
       } else {
-        await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
+        await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
       }
       await maybePromptPro(from, user);
       await maybePromptEmail(from, user, users);
@@ -3232,9 +4070,10 @@ cron.schedule("0 20 * * *", async () => {
       if (total === 0) continue;
       const todayMacros = getTodayMacros(user);
       const macroTargets = getMacroTargets(user);
+      const eveningHasAccess = await hasAccess(phone, user);
 
       let macroStr = "";
-      if (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0) {
+      if (eveningHasAccess && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
         if (macroTargets) {
           macroStr = `\n\n*Macros:*\n🥩 P: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 C: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 F: ${todayMacros.fat}g / ${macroTargets.fat}g`;
         } else {
@@ -3242,7 +4081,24 @@ cron.schedule("0 20 * * *", async () => {
         }
       }
 
-      await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}\n${deficitMessage(total, user.goal)}`);
+      // Daily spend summary (premium/trial users)
+      let spendStr = "";
+      if (eveningHasAccess) {
+        const today = getToday();
+        const dailySpend = (user.log[today] || []).reduce((s, e) => s + (e.priceZAR || 0), 0);
+        if (dailySpend > 0) {
+          const budgetGoal = user.profile?.foodBudget;
+          if (budgetGoal) {
+            const remaining = budgetGoal - dailySpend;
+            const emoji = remaining >= 0 ? "🟢" : "🔴";
+            spendStr = `\n💰 R${dailySpend} / R${budgetGoal} budget ${emoji} (R${Math.abs(remaining)} ${remaining >= 0 ? "left" : "over"})`;
+          } else {
+            spendStr = `\n💰 R${dailySpend} spent on food today`;
+          }
+        }
+      }
+
+      await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}`);
 
       // ── First 3 days: Send command reminder ──
       if (user.joinedAt) {
@@ -3365,6 +4221,16 @@ cron.schedule("0 3 * * *", async () => {
 }, { timezone: "Africa/Johannesburg" });
 
 // ── Every 5 minutes: Regenerate stats for War Room ──
+// Update dashboard data every 2 hours
+cron.schedule("0 */2 * * *", () => {
+  console.log('[cron] Updating dashboard...');
+  const { exec } = require('child_process');
+  exec('node /Users/brandonkatz/.openclaw/workspace/fitsorted/update-dashboard.js', (err, stdout) => {
+    if (err) console.error('[cron] Dashboard update error:', err);
+    else console.log('[cron] Dashboard:', stdout.trim());
+  });
+});
+
 cron.schedule("*/5 * * * *", () => {
   console.log('[cron] Regenerating stats...');
   const { exec } = require('child_process');
@@ -3380,6 +4246,49 @@ cron.schedule("*/5 * * * *", () => {
 // ── Admin Dashboard Endpoints ──
 app.get('/admin', (req, res) => {
   res.sendFile(__dirname + '/admin.html');
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(__dirname + '/dashboard.html');
+});
+
+app.get('/api/dashboard', (req, res) => {
+  const users = loadUsers();
+  const userData = [];
+  for (const [phone, u] of Object.entries(users)) {
+    if (!u.setup && !u.name) continue;
+    if (phone.includes('backup')) continue;
+    let totalLogs = 0;
+    const foodFreq = {};
+    for (const [date, entries] of Object.entries(u.log || {})) {
+      if (!Array.isArray(entries)) continue;
+      totalLogs += entries.length;
+      for (const e of entries) {
+        const key = (e.food || '').toLowerCase().slice(0, 40);
+        foodFreq[key] = (foodFreq[key] || 0) + 1;
+      }
+    }
+    const topFoods = Object.entries(foodFreq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([food, count]) => ({ food, count }));
+    const logDates = Object.keys(u.log || {}).filter(d => Array.isArray(u.log[d]) && u.log[d].length > 0);
+    const daysLogged = logDates.length;
+    const lastActive = logDates.sort().pop() || 'never';
+    userData.push({
+      phone: phone.slice(0,5) + '***' + phone.slice(-3),
+      name: u.name || 'Not set',
+      goal: u.goal || '-',
+      joined: u.joinedAt ? new Date(u.joinedAt).toLocaleDateString('en-ZA') : 'unknown',
+      totalLogs, daysLogged, lastActive, topFoods,
+      isPro: u.isPro || false,
+      budget: u.profile?.foodBudget || null,
+      weight: u.profile?.weight || null,
+      target: u.profile?.target || null,
+    });
+  }
+  userData.sort((a, b) => b.totalLogs - a.totalLogs);
+  res.json(userData);
 });
 
 app.get('/admin/failed-lookups', (req, res) => {
