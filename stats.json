@@ -1,11 +1,23 @@
 {
-  "totalUsers": 23,
+  "totalUsers": 25,
   "activeUsers": 10,
   "totalLogs": 218,
   "premiumUsers": 0,
   "totalReferrals": 0,
   "topReferrers": [],
   "recentSignups": [
+    {
+      "id": "***5798",
+      "joinedAt": "2026-03-11T16:10:58.310Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***9178",
+      "joinedAt": "2026-03-11T15:58:58.969Z",
+      "logs": 0,
+      "isPro": false
+    },
     {
       "id": "***9917",
       "joinedAt": "2026-03-11T14:55:14.607Z",
@@ -109,5 +121,5 @@
       "isPro": false
     }
   ],
-  "lastUpdated": "2026-03-11T15:25:00.924Z"
+  "lastUpdated": "2026-03-11T16:25:00.720Z"
 }

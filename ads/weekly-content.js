@@ -52,6 +52,17 @@ const allFoods = [
   { name:"latte-vs-americano", food:"Latte vs Americano", subtitle:"Your daily coffee", comparison:true, left:{name:"Latte", cal:190}, right:{name:"Americano", cal:15}, saved:175, accentColor:"#92400e", tag:"COFFEE SWAP" },
   { name:"mcflurry-vs-frozen-yoghurt", food:"McFlurry vs Frozen Yoghurt", subtitle:"Sweet treat showdown", comparison:true, left:{name:"McFlurry", cal:510}, right:{name:"Frozen Yoghurt", cal:180}, saved:330, accentColor:"#ec4899", tag:"DESSERT SWAP" },
   { name:"fried-chicken-vs-grilled", food:"Fried Chicken vs Grilled", subtitle:"Same chicken, different prep", comparison:true, left:{name:"Fried (2pc)", cal:480}, right:{name:"Grilled (2pc)", cal:280}, saved:200, accentColor:"#f59e0b", tag:"SMART SWAP" },
+  
+  // SA Low-Cal Snacks (100-150 cal range)
+  { name:"ps-mini", food:"P.S. Mini", subtitle:"Single mini bar", calories:100, protein:1, carbs:12, fat:5, fibre:0, accentColor:"#a855f7", verdict:"100 cal chocolate fix. Better than raiding the full bar.", tag:"SMART SNACK" },
+  { name:"kitkat-mini", food:"KitKat Mini (2 Fingers)", subtitle:"The guilt-free break", calories:102, protein:1, carbs:13, fat:5, fibre:0, accentColor:"#ef4444", verdict:"102 cal for a chocolate break. That's 10 min walking.", tag:"SMART SNACK" },
+  { name:"trigz-sweet-chilli", food:"Trigz Sweet Chilli", subtitle:"28g popped chips", calories:107, protein:2, carbs:18, fat:3, fibre:1, accentColor:"#f97316", verdict:"Popped not fried. Crunchy + low cal = snack hack.", tag:"SMART SNACK" },
+  { name:"vital-rice-cakes", food:"Vital Mini Rice Cakes", subtitle:"Small packet", calories:121, protein:2, carbs:24, fat:1, fibre:1, accentColor:"#22c55e", verdict:"Almost zero fat. Crunch without the guilt.", tag:"SMART SNACK" },
+  { name:"multigrain-seaweed-chips", food:"Multigrain & Seaweed Chips", subtitle:"25g packet", calories:127, protein:2, carbs:17, fat:6, fibre:1, accentColor:"#0ea5e9", verdict:"Sounds weird, tastes amazing. 127 cal well spent.", tag:"SMART SNACK" },
+  { name:"oven-baked-munchies", food:"Oven Baked Munchies", subtitle:"28g packet", calories:136, protein:2, carbs:17, fat:7, fibre:1, accentColor:"#f59e0b", verdict:"Baked not fried. Same crunch, way fewer calories.", tag:"SMART SNACK" },
+  { name:"woolies-popcorn", food:"Woolworths Popcorn", subtitle:"Small packet, sour cream & chives", calories:136, protein:3, carbs:16, fat:7, fibre:2, accentColor:"#8b5cf6", verdict:"Air popped = 136 cal. Cinema popcorn = 600+. Know the difference.", tag:"SMART SNACK" },
+  { name:"jalapeno-popper-corn", food:"Jalapeño Popper Corn Snack", subtitle:"30g packet", calories:142, protein:2, carbs:19, fat:7, fibre:1, accentColor:"#22c55e", verdict:"Spicy and crunchy. 142 cal — less than a banana + PB.", tag:"SMART SNACK" },
+  { name:"mini-oat-crunchies", food:"Mini Oat Crunchies", subtitle:"30g packet", calories:145, protein:2, carbs:20, fat:6, fibre:2, accentColor:"#f97316", verdict:"145 cal with fibre. Keeps you full longer than chips.", tag:"SMART SNACK" },
 ];
 
 // ═══════════════════════════════════════════
