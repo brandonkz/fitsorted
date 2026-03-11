@@ -4430,6 +4430,61 @@ cron.schedule("0 */2 * * *", () => {
   });
 });
 
+// ── Setup abandonment reminder ──
+// Checks every 30 min for users who started setup but didn't finish (30+ min ago)
+cron.schedule("*/30 * * * *", async () => {
+  try {
+    const users = loadUsers();
+    const now = Date.now();
+    let nudged = 0;
+    
+    for (const [phone, u] of Object.entries(users)) {
+      if (phone.includes('backup')) continue;
+      // User has a step (mid-setup) but setup not complete
+      if (u.step && !u.setup && !u.setupReminderSent) {
+        const created = new Date(u.created || u.joinedAt || 0).getTime();
+        const timeSinceSignup = now - created;
+        
+        // Only nudge if 30 min - 24 hours since signup (don't nag old users)
+        if (timeSinceSignup >= 30 * 60 * 1000 && timeSinceSignup <= 24 * 60 * 60 * 1000) {
+          await send(phone,
+            "Hey! 👋 Looks like you started setting up but didn't finish.\n\n" +
+            "It only takes 30 seconds — just tap a button below to pick up where you left off.\n\n" +
+            "Your free calorie tracker is waiting! 🍽️"
+          );
+          
+          // Re-trigger the setup step they were on
+          await handleSetup(phone, u, '', users);
+          
+          u.setupReminderSent = true;
+          saveUsers(users);
+          nudged++;
+          console.log(`[setup-reminder] Nudged ${phone.slice(0,5)}***`);
+        }
+      }
+      
+      // Also catch users who never even started (no step, no setup, created 30+ min ago)
+      if (!u.step && !u.setup && !u.goal && !u.setupReminderSent) {
+        const created = new Date(u.created || u.joinedAt || 0).getTime();
+        const timeSinceSignup = now - created;
+        
+        if (timeSinceSignup >= 30 * 60 * 1000 && timeSinceSignup <= 24 * 60 * 60 * 1000) {
+          // Restart setup from scratch
+          u.step = null;
+          await handleSetup(phone, u, '', users);
+          
+          u.setupReminderSent = true;
+          saveUsers(users);
+          nudged++;
+          console.log(`[setup-reminder] Re-started setup for ${phone.slice(0,5)}***`);
+        }
+      }
+    }
+    
+    if (nudged > 0) console.log(`[setup-reminder] Nudged ${nudged} user(s)`);
+  } catch(e) { console.error('[setup-reminder] Error:', e.message); }
+}, { timezone: "Africa/Johannesburg" });
+
 cron.schedule("*/5 * * * *", () => {
   console.log('[cron] Regenerating stats...');
   const { exec } = require('child_process');
