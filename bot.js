@@ -4904,7 +4904,7 @@ function getStopDrinkingNudge(totalUnits, gender) {
   if (totalUnits <= 2) return `💚 Still in the safe zone. Keep it here and you'll thank yourself tomorrow.`;
   if (totalUnits <= 3) return `💛 You're feeling it. This is a good place to switch to water — you'll still have fun and wake up fine.`;
   if (totalUnits <= 5) return `🟠 Your judgment is impaired right now. No more driving. Consider switching to water — sleep quality drops significantly after this point.`;
-  if (overLimit) return `🔴 You are over the SA legal driving limit. Your reaction time, judgment, and coordination are all affected. *Stop drinking now.* Drink water, eat something, call an Uber if you need to get home.`;
+  if (overLimit) return `🔴 You have had a lot. Slow down, drink water, eat something, and avoid driving. If you need to get home, take an Uber.`;
   return `🔴 This is doing real damage. Your liver is working overtime, your sleep will be wrecked, and tomorrow will be rough. Stop now and drink water.`;
 }
 
