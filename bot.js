@@ -1896,6 +1896,31 @@ async function handleSetup(from, user, msg, users) {
     return;
   }
 
+  // Back/undo during onboarding
+  if (step && ["back","undo","go back","oops","mistake","wrong"].includes(msgLower)) {
+    const stepOrder = ["awaiting_gender", "weight", "height", "age", "activity", "target", "pace", "name"];
+    const currentIdx = stepOrder.indexOf(step);
+    if (currentIdx <= 0) {
+      await send(from, "You're at the first step already. Let's go 👇");
+      user.step = "awaiting_gender";
+      await sendButtons(from, "What's your biological sex?", [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]);
+      return;
+    }
+    const prevStep = stepOrder[currentIdx - 1];
+    user.step = prevStep;
+    saveUsers(users);
+    const prompts = {
+      "awaiting_gender": async () => await sendButtons(from, "What's your biological sex?", [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]),
+      "weight": async () => await send(from, "↩️ No worries! What's your current weight in kg? (e.g. *86*)"),
+      "height": async () => await send(from, "↩️ Got it. What's your height in cm? (e.g. *178*)"),
+      "age": async () => await send(from, "↩️ And your age?"),
+      "activity": async () => await sendButtons(from, "↩️ How active are you?", [{ id: "setup:sedentary", title: "Desk job 🪑" }, { id: "setup:light", title: "Light exercise" }, { id: "setup:active", title: "Very active 💪" }]),
+      "target": async () => await sendButtons(from, "↩️ What's your goal?", [{ id: "setup:lose", title: "Lose weight" }, { id: "setup:maintain", title: "Maintain" }, { id: "setup:gain", title: "Build muscle" }]),
+    };
+    if (prompts[prevStep]) await prompts[prevStep]();
+    return;
+  }
+
   if (step === "weight") {
     const w = parseFloat(msg);
     if (isNaN(w) || w < 30 || w > 300) {
