@@ -2221,6 +2221,11 @@ async function handleMessage(from, text, imageId) {
         const result = await estimateCalories(pending.text, user);
         const today = getToday();
         if (!user.log[today]) user.log[today] = [];
+        
+        // Detect alcohol from pending text AND AI result
+        const alcoholMatch = detectAlcohol(pending.text) || detectAlcohol(result.food);
+        const alcoholUnits = alcoholMatch ? (alcoholMatch.units || 0) : 0;
+        
         user.log[today].push({
           food: result.food,
           calories: result.calories,
@@ -2228,13 +2233,28 @@ async function handleMessage(from, text, imageId) {
           carbs: result.carbs || 0,
           fat: result.fat || 0,
       fibre: result.fibre || 0,
-          time: new Date().toISOString()
+          time: new Date().toISOString(),
+          isAlcohol: !!alcoholMatch,
+          units: alcoholUnits,
         });
         delete user.pendingFood;
         saveUsers(users);
         const total = getTodayTotal(user);
         const effectiveGoal = getEffectiveGoal(user);
-        await send(from, `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+        
+        // Show drunk-o-meter for alcohol
+        if (alcoholMatch) {
+          const todayDrinks = getTodayAlcohol(user);
+          const totalUnits = todayDrinks.reduce((s, e) => s + (e.units || 0), 0);
+          const totalAlcoholCal = todayDrinks.reduce((s, e) => s + e.calories, 0);
+          const gender = user.profile?.gender || "male";
+          let alcoholMsg = `✅ *${result.food}* logged — ${result.calories} cal | ${alcoholUnits.toFixed(1)} units\n\n`;
+          alcoholMsg += buildDrunkOMeterMessage(totalUnits, totalAlcoholCal, gender, todayDrinks);
+          alcoholMsg += `\n\n📊 Today total: *${total} / ${effectiveGoal} cal*`;
+          await send(from, alcoholMsg);
+        } else {
+          await send(from, `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+        }
         await maybePromptPro(from, user);
       } catch (err) {
         delete user.pendingFood;
@@ -3917,7 +3937,7 @@ async function handleMessage(from, text, imageId) {
             continue;
           }
           
-          const alcoholMatch = detectAlcohol(item);
+          const alcoholMatch = detectAlcohol(item) || detectAlcohol(result.food);
           const alcoholUnits = alcoholMatch ? (alcoholMatch.units || 0) : 0;
           
           user.log[logDate].push({
