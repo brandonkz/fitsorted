@@ -4932,11 +4932,7 @@ function buildDrunkOMeterMessage(totalUnits, totalCal, gender, drinks) {
   
   msg += `⏱️ *Sober by:* ~${hours} hour${hours !== 1 ? "s" : ""} from now\n\n`;
 
-  if (overLimit) {
-    msg += `🚨 *OVER THE LEGAL DRIVING LIMIT*\n`;
-    msg += `SA law: 0.05g/100ml BAC. You're above it.\n`;
-    msg += `🚗 *Do NOT drive. Call an Uber.*\n\n`;
-  }
+  // NOTE: We no longer state legal limit status explicitly
 
   // Drink swap suggestion — show a lower-cal alternative
   if (totalCal > 200) {
