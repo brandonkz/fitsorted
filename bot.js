@@ -1897,7 +1897,7 @@ async function handleSetup(from, user, msg, users) {
   }
 
   // Back/undo during onboarding
-  if (step && ["back","undo","go back","oops","mistake","wrong"].includes(msgLower)) {
+  if (step && ["back","undo","go back","oops","mistake","wrong"].includes(msg.toLowerCase())) {
     const stepOrder = ["awaiting_gender", "weight", "height", "age", "activity", "target", "pace", "name"];
     const currentIdx = stepOrder.indexOf(step);
     if (currentIdx <= 0) {
