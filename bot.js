@@ -4037,8 +4037,8 @@ async function handleMessage(from, text, imageId) {
     }
 
     if (!user.log[logDate]) user.log[logDate] = [];
-    // Detect alcohol
-    const alcoholMatch = detectAlcohol(foodText);
+    // Detect alcohol (check both user input AND AI result name for photo logs)
+    const alcoholMatch = detectAlcohol(foodText) || detectAlcohol(result.food);
     const alcoholUnits = alcoholMatch ? (alcoholMatch.units || 0) : 0;
 
     user.log[logDate].push({
