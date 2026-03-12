@@ -2699,25 +2699,7 @@ async function handleMessage(from, text, imageId) {
       user.profile.gender = val;
       user.step = "weight";
       saveUsers(users);
-      // Offer premium right after gender — catch early excitement
-      const monthlyLink = getPayFastMonthlyLink(from, 39); // EARLYBIRD price
-      const annualLink = getPayFastAnnualLink(from, 39);
-      try {
-        await sendButtons(from,
-          `Got it! 💪\n\n` +
-          `Before we set up your goals — want to lock in our *early bird price* while it lasts?\n\n` +
-          `☕ *R18/mo* (launch price) — 30 days free, then auto-billed.\n` +
-          `Includes photo logging, meal plans, weekly insights + more coming soon.\n\n` +
-          `Or just continue for free — you can always upgrade later.`,
-          [
-            { id: "earlybird:monthly", title: "R18/mo 🔥" },
-            { id: "earlybird:annual", title: "R100/yr 🏆" },
-            { id: "earlybird:skip", title: "Continue free" }
-          ]
-        );
-      } catch {
-        await send(from, `Got it. What's your current weight in kg? (e.g. *86*)`);
-      }
+      await send(from, `Got it! 💪 What's your current weight in kg? (e.g. *86*)`);
       return;
     }
 
