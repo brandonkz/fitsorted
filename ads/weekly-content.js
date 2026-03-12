@@ -158,6 +158,122 @@ async function generateImage(prompt, filename) {
 }
 
 // ═══════════════════════════════════════════
+// CHEAT SHEET / INFOGRAPHIC LIBRARY
+// ═══════════════════════════════════════════
+const allCheatSheets = [
+  { name: "high-protein-snacks", title: "High Protein Snacks Under 200 Cal", subtitle: "Save this for when hunger hits", accentColor: "#22c55e", tag: "CHEAT SHEET",
+    items: [
+      { food: "Biltong (50g)", cal: 125, highlight: "20g protein" },
+      { food: "Droëwors (50g)", cal: 150, highlight: "20g protein" },
+      { food: "2 Boiled Eggs", cal: 140, highlight: "12g protein" },
+      { food: "Greek Yoghurt (150g)", cal: 130, highlight: "15g protein" },
+      { food: "Woolworths Chicken Strips", cal: 180, highlight: "22g protein" },
+      { food: "Cottage Cheese (100g)", cal: 98, highlight: "11g protein" },
+      { food: "Tuna Tin (80g)", cal: 90, highlight: "19g protein" },
+      { food: "Peanut Butter (2 tbsp)", cal: 190, highlight: "8g protein" },
+    ]},
+  { name: "sa-braai-cheat-sheet", title: "The SA Braai Calorie Guide", subtitle: "Know before you braai", accentColor: "#f97316", tag: "BRAAI GUIDE",
+    items: [
+      { food: "Boerewors (1 coil)", cal: 450, highlight: "28g protein" },
+      { food: "Chicken drumstick", cal: 130, highlight: "15g protein" },
+      { food: "T-bone steak (250g)", cal: 500, highlight: "45g protein" },
+      { food: "Lamb chop x2", cal: 320, highlight: "25g protein" },
+      { food: "Pap + sauce (cup)", cal: 200, highlight: "4g protein" },
+      { food: "Braai broodjie", cal: 280, highlight: "10g protein" },
+      { food: "Potato salad (scoop)", cal: 250, highlight: "3g protein" },
+      { food: "Green salad (bowl)", cal: 45, highlight: "2g fibre" },
+    ]},
+  { name: "coffee-shop-calories", title: "Coffee Shop Calorie Guide", subtitle: "Your daily coffee might be a meal", accentColor: "#92400e", tag: "COFFEE GUIDE",
+    items: [
+      { food: "Americano (black)", cal: 15, highlight: "Almost free" },
+      { food: "Flat White", cal: 120, highlight: "7g protein" },
+      { food: "Cappuccino", cal: 130, highlight: "7g protein" },
+      { food: "Latte (full cream)", cal: 190, highlight: "10g protein" },
+      { food: "Mocha", cal: 290, highlight: "8g protein" },
+      { food: "Frappuccino", cal: 380, highlight: "Sugar bomb" },
+      { food: "Chai Latte", cal: 200, highlight: "12g sugar" },
+      { food: "Hot Chocolate", cal: 320, highlight: "Dessert in a cup" },
+    ]},
+  { name: "woolworths-ready-meals", title: "Woolworths Ready Meals Ranked", subtitle: "Best to worst by calories", accentColor: "#8b5cf6", tag: "WOOLIES GUIDE",
+    items: [
+      { food: "Chicken Stir Fry", cal: 280, highlight: "Best pick" },
+      { food: "Butter Chicken + Rice", cal: 380, highlight: "Solid choice" },
+      { food: "Thai Green Curry", cal: 350, highlight: "Watch the rice" },
+      { food: "Cottage Pie", cal: 420, highlight: "Comfort food" },
+      { food: "Mac & Cheese", cal: 480, highlight: "Cheesy trap" },
+      { food: "Chicken Schnitzel", cal: 520, highlight: "The crumb adds up" },
+      { food: "Lasagne", cal: 560, highlight: "Share it" },
+      { food: "Chicken Alfredo", cal: 600, highlight: "Cream overload" },
+    ]},
+  { name: "kauai-menu-guide", title: "Kauai Menu: Calories Exposed", subtitle: "Not all smoothie bowls are healthy", accentColor: "#22c55e", tag: "KAUAI GUIDE",
+    items: [
+      { food: "Active Green Smoothie", cal: 180, highlight: "Best choice" },
+      { food: "Lean Chicken Wrap", cal: 350, highlight: "High protein" },
+      { food: "Acai Bowl (regular)", cal: 420, highlight: "Sugar hiding" },
+      { food: "Peanut Butter Smoothie", cal: 450, highlight: "Liquid meal" },
+      { food: "Power Breakfast", cal: 480, highlight: "Big portions" },
+      { food: "Chicken Schnitzel Bowl", cal: 520, highlight: "Not light" },
+      { food: "Vegan Buddha Bowl", cal: 380, highlight: "Decent option" },
+      { food: "Berry Bliss Smoothie", cal: 310, highlight: "Fruity sugar" },
+    ]},
+  { name: "nandos-calorie-hack", title: "Nando's: Smart Ordering Guide", subtitle: "How to eat Nando's under 600 cal", accentColor: "#ef4444", tag: "NANDO'S HACK",
+    items: [
+      { food: "Quarter chicken (breast)", cal: 210, highlight: "Best base" },
+      { food: "Quarter chicken (leg)", cal: 280, highlight: "More fat" },
+      { food: "Spicy rice (reg)", cal: 200, highlight: "Skip for salad" },
+      { food: "Coleslaw (reg)", cal: 130, highlight: "Sneaky mayo" },
+      { food: "Mediterranean salad", cal: 80, highlight: "Smart side" },
+      { food: "Corn on the cob", cal: 90, highlight: "Clean carbs" },
+      { food: "Garlic bread (4 slices)", cal: 320, highlight: "Calorie trap" },
+      { food: "Full chicken platter", cal: 1400, highlight: "Share it!" },
+    ]},
+  { name: "low-cal-alcohol", title: "Low Calorie Drinks for a Night Out", subtitle: "If you're going to drink, drink smart", accentColor: "#6ee7b7", tag: "DRINK SMART",
+    items: [
+      { food: "Vodka + soda + lime", cal: 65, highlight: "Lowest option" },
+      { food: "Gin & slimline tonic", cal: 70, highlight: "Classic low cal" },
+      { food: "Prosecco (125ml)", cal: 80, highlight: "Celebrate smart" },
+      { food: "Light beer (340ml)", cal: 95, highlight: "Castle Lite" },
+      { food: "Dry white wine (150ml)", cal: 120, highlight: "Sip slowly" },
+      { food: "Savanna Dry", cal: 174, highlight: "SA favourite" },
+      { food: "Long Island Iced Tea", cal: 350, highlight: "Danger zone" },
+      { food: "Piña Colada", cal: 490, highlight: "A milkshake with rum" },
+    ]},
+  { name: "high-fibre-foods", title: "High Fibre Foods SA", subtitle: "Most South Africans get half the fibre they need", accentColor: "#84cc16", tag: "FIBRE FIX",
+    items: [
+      { food: "All Bran Flakes (cup)", cal: 120, highlight: "13g fibre" },
+      { food: "Avo (half)", cal: 160, highlight: "7g fibre" },
+      { food: "Lentils (cup cooked)", cal: 230, highlight: "16g fibre" },
+      { food: "Popcorn (3 cups)", cal: 90, highlight: "4g fibre" },
+      { food: "Sweet potato (medium)", cal: 103, highlight: "4g fibre" },
+      { food: "Pear (medium)", cal: 100, highlight: "6g fibre" },
+      { food: "Brown rice (cup)", cal: 215, highlight: "4g fibre" },
+      { food: "Baked beans (half tin)", cal: 160, highlight: "7g fibre" },
+    ]},
+  { name: "fast-food-under-500", title: "Fast Food Meals Under 500 Cal", subtitle: "Yes, it's possible", accentColor: "#3b82f6", tag: "UNDER 500",
+    items: [
+      { food: "Nando's quarter + salad", cal: 290, highlight: "Best option" },
+      { food: "Steers Junior burger", cal: 350, highlight: "Skip the fries" },
+      { food: "KFC grilled 2-piece", cal: 380, highlight: "Not fried" },
+      { food: "Fishaways grilled fish", cal: 420, highlight: "Ask for grilled" },
+      { food: "Roosters grilled wrap", cal: 450, highlight: "Decent macros" },
+      { food: "McDonald's Happy Meal", cal: 475, highlight: "Adult hack" },
+      { food: "Spur house salad + chicken", cal: 380, highlight: "No dressing" },
+      { food: "Vida e Caffè wrap", cal: 400, highlight: "Coffee shop win" },
+    ]},
+  { name: "midnight-snack-guide", title: "Late Night Snacks: Ranked", subtitle: "Because we all raid the kitchen at 11pm", accentColor: "#a855f7", tag: "MIDNIGHT MUNCH",
+    items: [
+      { food: "Apple + peanut butter", cal: 200, highlight: "Best choice" },
+      { food: "Greek yoghurt + honey", cal: 170, highlight: "Protein hit" },
+      { food: "2 slices toast + cheese", cal: 280, highlight: "Quick fix" },
+      { food: "Simba chips (small bag)", cal: 230, highlight: "Mindless eating" },
+      { food: "Bowl of cereal + milk", cal: 300, highlight: "Depends on cereal" },
+      { food: "Leftover pizza (1 slice)", cal: 280, highlight: "Just one!" },
+      { food: "Ice cream (scoop)", cal: 200, highlight: "Keep it to one" },
+      { food: "Entire tub of ice cream", cal: 1200, highlight: "We've all been there" },
+    ]},
+];
+
+// ═══════════════════════════════════════════
 // HTML TEMPLATES
 // ═══════════════════════════════════════════
 function foodHTML(post, imgSrc) {
@@ -249,26 +365,71 @@ function drinkCaption(post) {
   return `${post.food} = ${post.calories} cal. ${runMin(post.calories)} min running. ${post.verdict} #fitsorted #drinkingcalories #southafrica #calorietracker`;
 }
 
+function cheatSheetHTML(post) {
+  const rows = post.items.map((item, i) => {
+    const barWidth = Math.min(95, Math.round((item.cal / 600) * 95));
+    const barColor = item.cal <= 200 ? '#22c55e' : item.cal <= 400 ? '#f59e0b' : '#ef4444';
+    return `<div class="row${i === 0 ? ' first' : ''}"><div class="row-left"><span class="row-num">${i+1}</span><span class="row-food">${item.food}</span></div><div class="row-right"><div class="bar-bg"><div class="bar" style="width:${barWidth}%;background:${barColor};"></div></div><span class="row-cal">${item.cal} cal</span><span class="row-hl">${item.highlight}</span></div></div>`;
+  }).join('');
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{width:1080px;height:1080px;font-family:-apple-system,system-ui,sans-serif;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%,#1a1a2e 100%);color:#fff;padding:60px;}
+    .tag{background:rgba(0,0,0,0.6);border:1px solid ${post.accentColor}40;color:${post.accentColor};font-size:20px;font-weight:700;padding:8px 24px;border-radius:50px;letter-spacing:2px;display:inline-block;margin-bottom:20px;}
+    .title{font-size:46px;font-weight:800;line-height:1.15;margin-bottom:8px;}
+    .subtitle{font-size:22px;color:#888;margin-bottom:35px;}
+    .rows{display:flex;flex-direction:column;gap:10px;}
+    .row{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px 20px;}
+    .row.first{border-color:${post.accentColor}40;background:rgba(255,255,255,0.08);}
+    .row-left{display:flex;align-items:center;gap:14px;min-width:320px;}
+    .row-num{font-size:20px;font-weight:800;color:${post.accentColor};width:28px;}
+    .row-food{font-size:22px;font-weight:600;}
+    .row-right{display:flex;align-items:center;gap:14px;flex:1;}
+    .bar-bg{flex:1;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;}
+    .bar{height:100%;border-radius:4px;transition:width 0.3s;}
+    .row-cal{font-size:20px;font-weight:700;color:#fff;min-width:70px;text-align:right;}
+    .row-hl{font-size:16px;color:${post.accentColor};min-width:120px;text-align:right;font-weight:600;}
+    .brand{display:flex;align-items:center;gap:12px;position:absolute;bottom:45px;left:60px;}
+    .brand-badge{background:rgba(37,211,102,0.2);border:1px solid rgba(37,211,102,0.3);color:#25D366;font-size:20px;font-weight:700;padding:8px 20px;border-radius:50px;}
+    .brand-sub{color:rgba(255,255,255,0.5);font-size:18px;}
+    .save-tag{position:absolute;bottom:45px;right:60px;color:rgba(255,255,255,0.4);font-size:18px;}
+  </style></head><body>
+    <div class="tag">${post.tag}</div>
+    <div class="title">${post.title}</div>
+    <div class="subtitle">${post.subtitle}</div>
+    <div class="rows">${rows}</div>
+    <div class="brand"><div class="brand-badge">🏋️ FITSORTED</div><div class="brand-sub">Track on WhatsApp 🇿🇦</div></div>
+    <div class="save-tag">📌 Save this</div>
+  </body></html>`;
+}
+
+function cheatSheetCaption(post) {
+  const top3 = post.items.slice(0, 3).map(i => `${i.food} (${i.cal} cal)`).join(', ');
+  return `${post.title} 📋\n\nTop picks: ${top3}\n\nSave this for later 📌\n\n#fitsorted #calorietracker #southafrica #nutrition #cheatsheet #healthyeating`;
+}
+
 // ═══════════════════════════════════════════
 // MAIN
 // ═══════════════════════════════════════════
 (async () => {
   const used = getUsed();
   
-  // Pick 7 foods + 7 drinks
+  // Pick 7 foods + 7 drinks + 2 cheat sheets
   const foods = pickItems(allFoods, used.foods, 7);
   const drinks = pickItems(allDrinks, used.drinks, 7);
+  const cheatSheets = pickItems(allCheatSheets, used.cheatSheets || [], 2);
   
   console.log('📋 This week\'s food posts:');
   foods.forEach(f => console.log(`  - ${f.food} (${f.calories || f.left?.cal + ' vs ' + f.right?.cal} cal)`));
   console.log('\n🍸 This week\'s drink posts:');
   drinks.forEach(d => console.log(`  - ${d.food} (${d.calories} cal)`));
+  console.log('\n📊 This week\'s cheat sheets:');
+  cheatSheets.forEach(c => console.log(`  - ${c.title}`));
   
   // Generate images
   const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch({ headless: true });
   
-  const allItems = [...foods.map(f => ({...f, type:'food'})), ...drinks.map(d => ({...d, type:'drink'}))];
+  const allItems = [...foods.map(f => ({...f, type:'food'})), ...drinks.map(d => ({...d, type:'drink'})), ...cheatSheets.map(c => ({...c, type:'cheatsheet'}))];
   
   for (const item of allItems) {
     const imgPath = path.join(DIR, `img-${item.name}.png`);
@@ -281,7 +442,7 @@ function drinkCaption(post) {
     // Generate HTML
     const imgBase64 = fs.readFileSync(imgPath).toString('base64');
     const imgSrc = `data:image/png;base64,${imgBase64}`;
-    const html = item.type === 'food' ? foodHTML(item, imgSrc) : drinkHTML(item, imgSrc);
+    const html = item.type === 'cheatsheet' ? cheatSheetHTML(item) : item.type === 'food' ? foodHTML(item, imgSrc) : drinkHTML(item, imgSrc);
     const htmlPath = path.join(DIR, `weekly-${item.name}.html`);
     fs.writeFileSync(htmlPath, html);
     
@@ -369,9 +530,35 @@ function drinkCaption(post) {
     }
   }
   
+  // Schedule cheat sheets (Wed at 1PM and Sat at 1PM SA = 11:00 UTC)
+  const cheatDays = [2, 5]; // Wed=2, Sat=5 (Mon=0 based)
+  for (let ci = 0; ci < cheatSheets.length && ci < cheatDays.length; ci++) {
+    const cs = cheatSheets[ci];
+    const date = new Date(monday);
+    date.setDate(monday.getDate() + cheatDays[ci]);
+    const dateStr = date.toISOString().slice(0,10);
+    
+    if (uploads[cs.name]) {
+      const cap = cheatSheetCaption(cs);
+      try {
+        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[cs.name]}" -s "${dateStr}T11:00:00Z" --settings '${S_POST}' -i "${IG_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+        console.log(`✅ ${days[cheatDays[ci]]} 1PM IG cheat sheet: ${cs.title}`);
+      } catch(e) { console.error(`❌ Cheat sheet IG: ${e.message.slice(0,100)}`); }
+      await new Promise(r => setTimeout(r, 8000));
+      
+      try {
+        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[cs.name]}" -s "${dateStr}T11:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+        console.log(`✅ ${days[cheatDays[ci]]} 1:30PM TT cheat sheet: ${cs.title}`);
+      } catch(e) { console.error(`❌ Cheat sheet TT: ${e.message.slice(0,100)}`); }
+      await new Promise(r => setTimeout(r, 8000));
+    }
+  }
+
   // Save used items
   used.foods.push(...foods.map(f => f.name));
   used.drinks.push(...drinks.map(d => d.name));
+  if (!used.cheatSheets) used.cheatSheets = [];
+  used.cheatSheets.push(...cheatSheets.map(c => c.name));
   saveUsed(used);
   
   console.log('\n🎉 Weekly content generation complete!');
