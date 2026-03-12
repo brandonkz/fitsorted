@@ -270,6 +270,18 @@
  function gtag(){dataLayer.push(arguments);}
  gtag('js', new Date());
  gtag('config', 'G-GMW4LWNXK1');
+
+ // Track WhatsApp CTA clicks
+ document.addEventListener('click', function(e) {
+   var link = e.target.closest('a[href*="wa.me"]');
+   if (link) {
+     gtag('event', 'whatsapp_click', {
+       event_category: 'conversion',
+       event_label: link.textContent.trim(),
+       transport_type: 'beacon'
+     });
+   }
+ });
 </script>
 </head>
 <body>
