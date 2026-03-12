@@ -4868,6 +4868,8 @@ const SA_DRINKS = {
   "cocktail": { cal: 250, units: 1.8, vol: 200 },
   "mojito": { cal: 217, units: 1.7, vol: 240 },
   "margarita": { cal: 274, units: 2.0, vol: 200 },
+  "martini": { cal: 120, units: 1.6, vol: 150 },
+  "dry martini": { cal: 120, units: 1.6, vol: 150 },
   "pina colada": { cal: 245, units: 1.5, vol: 200 },
   "long island": { cal: 275, units: 3.5, vol: 300 },
   "gin and tonic": { cal: 120, units: 1.3, vol: 200 },
