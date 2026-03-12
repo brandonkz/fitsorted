@@ -2288,6 +2288,33 @@ async function handleMessage(from, text, imageId) {
     }
   }
 
+  // ── Admin: "users" shows user count + activity ──
+  if (msgLower === "users" && from === ADMIN_NUMBER) {
+    const now = new Date();
+    const oneDay = 86400000;
+    const allUsers = Object.entries(users).filter(([p]) => !p.includes('backup'));
+    let active1d = 0, active7d = 0, active30d = 0;
+    for (const [phone, u] of allUsers) {
+      const dates = Object.keys(u.log || {}).sort().reverse();
+      if (!dates.length) continue;
+      const last = new Date(dates[0] + 'T23:59:59');
+      const days = (now - last) / oneDay;
+      if (days <= 1) active1d++;
+      if (days <= 7) active7d++;
+      if (days <= 30) active30d++;
+    }
+    const totalLogs = allUsers.reduce((sum, [,u]) => sum + Object.values(u.log || {}).reduce((s, arr) => s + (Array.isArray(arr) ? arr.length : 0), 0), 0);
+    await send(from,
+      `📊 *FitSorted Users*\n\n` +
+      `👥 Total: *${allUsers.length}*\n` +
+      `🟢 Active today: *${active1d}*\n` +
+      `🟡 Active 7 days: *${active7d}*\n` +
+      `🔵 Active 30 days: *${active30d}*\n` +
+      `📝 Total food logs: *${totalLogs}*`
+    );
+    return;
+  }
+
   // ── Admin stats: "stats CODE" or "stats all" ──
   if (msgLower.startsWith("stats") && from === ADMIN_NUMBER) {
     const parts = msg.split(" ");
