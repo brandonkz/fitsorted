@@ -1784,6 +1784,28 @@ async function maybePromptEmail(from, user, users) {
   saveUsers(users);
 }
 
+async function maybeFirstLogMenu(from, user) {
+  if (user.sentMenuCard) return;
+  const totalEntries = Object.values(user.log || {}).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0);
+  if (totalEntries === 1) {
+    user.sentMenuCard = true;
+    saveUsers(loadUsers());
+    await send(from,
+      `🎉 *First meal logged!*\n\nKeep going — just type your next meal whenever you eat.\n\n` +
+      `📌 *Pin this for quick reference:*\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `📊 *log* — today's entries\n` +
+      `⚖️ *weight 82.5* — log weigh-in\n` +
+      `🍺 *drinks* — drunk-o-meter\n` +
+      `↩️ *undo* — remove last entry\n` +
+      `💡 *suggest* — meal ideas\n` +
+      `📸 Send a photo — I'll ID it\n` +
+      `📋 *commands* — full menu\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━`
+    );
+  }
+}
+
 async function maybePromptPro(from, user) {
   if (!PRO_LAUNCH) return;
   if (user.proPrompted) return;
@@ -1996,47 +2018,16 @@ async function handleSetup(from, user, msg, users) {
     await send(from,
       `✅ *All set, ${user.name}!*\n\n` +
       `Your goal: *${user.goal} cal/day*${budgetMsg}\n\n` +
-      `Now just tell me what you eat throughout the day and I'll track it. 🍽️\n\n` +
-      `🎁 *You're on a 30-day free trial* — full access to everything including macro tracking, coaching, food budgets, and photo logging.\n\n` +
-      `After 30 days, upgrade to Premium for just R18/mo to keep all features. ` +
-      `Or continue free with calorie tracking and exercise logging.\n\n` +
-      `Send *log* to see today's total or *help* for commands.`
+      `Let's log your first meal right now 👇\n\n` +
+      `Just type what you've eaten today, like:\n` +
+      `_"2 eggs on toast"_\n` +
+      `_"coffee with milk"_\n` +
+      `_"woolworths chicken wrap"_\n\n` +
+      `Or snap a photo of your plate 📸\n\n` +
+      `Go — what did you have for breakfast?`
     );
 
-    // Send pinnable menu card
-    await send(from,
-      `📌 *Pin this message for quick access!*\n` +
-      `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-      `🏋️ *FitSorted - Quick Menu*\n` +
-      `━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
-      `🍽️ *Log Food*\n` +
-      `Just type what you ate:\n` +
-      `_"2 eggs and toast"_\n` +
-      `_"large Kauai smoothie"_\n\n` +
-      `🏃 *Log Exercise*\n` +
-      `_"ran 5km"_ · _"45 min weights"_\n\n` +
-      `📊 *Check Progress*\n` +
-      `• *log* - today's entries\n` +
-      `• *summary* - daily overview\n` +
-      `• *weight history* - weight trend\n\n` +
-      `⚖️ *Update Weight*\n` +
-      `• *weight 82.5* - log weigh-in\n\n` +
-      `🍔 *Custom Foods*\n` +
-      `• *save [food] = [cal]* - save a food\n` +
-      `• *custom [food] [cal]* - alt syntax\n` +
-      `• *my foods* - see your list\n\n` +
-      `↩️ *Fix Mistakes*\n` +
-      `• *undo* - remove last entry\n\n` +
-      `🧠 *Ask Me Anything*\n` +
-      `_"what can I eat under 400 cal?"_\n` +
-      `_"suggest a high protein meal"_\n\n` +
-      `⚙️ *Settings*\n` +
-      `• *start* - recalculate goals\n` +
-      `• *export* - download your data\n` +
-      `• *help* - full command list\n` +
-      `━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-      `_Long-press this message → Pin_ 📌`
-    );
+    // Menu card now sent after first food log (see maybeFirstLogMenu below)
     return;
   }
 
@@ -2255,6 +2246,7 @@ async function handleMessage(from, text, imageId) {
         } else {
           await send(from, `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
         }
+        await maybeFirstLogMenu(from, user);
         await maybePromptPro(from, user);
       } catch (err) {
         delete user.pendingFood;
@@ -2935,6 +2927,7 @@ async function handleMessage(from, text, imageId) {
     }
 
     await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*${macroStr}\n${deficitMessage(total, effectiveGoal)}`);
+        await maybeFirstLogMenu(from, user);
         await maybePromptPro(from, user);
     return;
   }
@@ -4009,7 +4002,8 @@ async function handleMessage(from, text, imageId) {
       } else {
         await send(from, `${itemLines.join("\n")}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${priceTag}${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
       }
-      await maybePromptPro(from, user);
+      await maybeFirstLogMenu(from, user);
+        await maybePromptPro(from, user);
       await maybePromptEmail(from, user, users);
       return;
     }
@@ -4128,7 +4122,8 @@ async function handleMessage(from, text, imageId) {
       } else {
         await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
       }
-      await maybePromptPro(from, user);
+      await maybeFirstLogMenu(from, user);
+        await maybePromptPro(from, user);
       await maybePromptEmail(from, user, users);
     }
   } catch (err) {
