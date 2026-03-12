@@ -4972,7 +4972,7 @@ function buildDrunkOMeterMessage(totalUnits, totalCal, gender, drinks) {
     }
   }
 
-  if (nudge) msg += `\n${nudge}`;
+  // Removed nudge lines per request
 
   msg += `\n⚠️ *Rough estimate only.* Can be off by 20–40% based on drink size, timing, and body size. Don’t use this to decide if you can drive.`;
   return msg;
