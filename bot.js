@@ -1890,7 +1890,7 @@ async function handleSetup(from, user, msg, users) {
   if (!step || step === "gender") {
     user.step = "awaiting_gender";
     await sendButtons(from,
-      "Howzit! 👋 Welcome to *FitSorted* — your free calorie tracker on WhatsApp.\n\nNo app. No login. Just chat like you're messaging a mate.\n\n*100% free to use:*\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n📊 Running calorie deficit in real time\n🧠 Ask me anything — meal ideas, what can I eat under 400 cal?\n\n✨ *Want more?* Premium unlocks photo logging, personalised meal plans, weekly insights, and massive upgrades coming soon — starting at just R18/mo (launch price).\n\n🍺 *Bonus:* Built-in drunk-o-meter — log your drinks and I'll tell you exactly how drunk you are, how many calories you've drunk, and whether you're over the legal driving limit.\n\nLet's get your calorie goal sorted — takes 30 seconds 👇\n\nFirst, what's your biological sex?",
+      "Howzit! 👋 Welcome to *FitSorted* — your calorie tracker on WhatsApp.\n\nNo app. No login. Just chat like you're messaging a mate.\n\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n📸 Snap a photo of your plate — I'll ID it\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n🍺 Built-in drunk-o-meter\n🧠 Ask me anything — meal ideas, what to eat under 400 cal\n\nLet's get you set up — takes 30 seconds 👇\n\nWhat's your biological sex?",
       [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]
     );
     return;
