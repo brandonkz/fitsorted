@@ -4535,6 +4535,43 @@ cron.schedule("0 9 * * 5", async () => {
   }
 }, { timezone: "Africa/Johannesburg" });
 
+// ── Sunday 8 AM weight reminder ──
+cron.schedule("0 8 * * 0", async () => {
+  if (cronAlreadyRan('weight-reminder')) { console.log('[cron] Weight reminder already sent, skipping'); return; }
+  markCronRan('weight-reminder');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.goal) continue;
+    
+    // Check if they've logged weight in the last 7 days
+    const weights = user.weights || [];
+    if (weights.length === 0) {
+      // Never logged weight - send gentle nudge
+      try {
+        await send(phone, `⚖️ *Weekly weigh-in reminder*\n\nHaven't seen a weight log from you yet!\n\nJust send your weight like: *weight 75*\n\nIt helps track your progress and shows if you're on track 📊`);
+      } catch (err) {
+        console.error(`Weight reminder failed for ${phone}:`, err.message);
+      }
+      continue;
+    }
+    
+    const lastWeight = weights[weights.length - 1];
+    const lastWeightDate = new Date(lastWeight.date || lastWeight.time);
+    const daysSinceLastWeight = Math.floor((Date.now() - lastWeightDate.getTime()) / 86400000);
+    
+    // If it's been more than 7 days, remind them
+    if (daysSinceLastWeight >= 7) {
+      try {
+        const name = user.name || "Hey";
+        await send(phone, `⚖️ *${name}, time for a weigh-in*\n\nIt's been ${daysSinceLastWeight} days since you last logged your weight.\n\nJump on the scale and send me the number: *weight 75*\n\nConsistent tracking = better results 💪`);
+      } catch (err) {
+        console.error(`Weight reminder failed for ${phone}:`, err.message);
+      }
+    }
+  }
+}, { timezone: "Africa/Johannesburg" });
+
 // ── 1 PM nudge (every 2nd day, zero logs only) ──
 cron.schedule("0 13 * * *", async () => {
   if (!ENABLE_NUDGES) { console.log('[cron] Nudge disabled'); return; }
