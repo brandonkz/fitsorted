@@ -648,6 +648,48 @@ function getMacroTargets(user) {
   return { protein: proteinTarget, carbs: carbTarget, fat: fatTarget, fibre: fibreTarget };
 }
 
+// Calculate weight projection based on calorie adherence
+function calculateWeightProjection(user) {
+  if (!user.weights || user.weights.length === 0) return null;
+  if (!user.goal) return null;
+  
+  const startWeight = user.weights[0].kg;
+  const startDate = new Date(user.weights[0].date || user.weights[0].time);
+  const currentWeight = user.weights[user.weights.length - 1].kg;
+  
+  // Calculate cumulative deficit/surplus from all logged days
+  let cumulativeDeficit = 0;
+  let daysLogged = 0;
+  
+  const logs = user.log || {};
+  for (const [date, entries] of Object.entries(logs)) {
+    const logDate = new Date(date);
+    if (logDate >= startDate) {
+      const dailyTotal = entries.reduce((sum, e) => sum + (e.calories || 0), 0);
+      if (dailyTotal > 0) {
+        cumulativeDeficit += (user.goal - dailyTotal);
+        daysLogged++;
+      }
+    }
+  }
+  
+  if (daysLogged === 0) return null;
+  
+  // Convert cumulative deficit to kg (7700 cal = 1kg)
+  const expectedWeightChange = cumulativeDeficit / 7700;
+  const projectedWeight = startWeight - expectedWeightChange;
+  const difference = currentWeight - projectedWeight;
+  
+  return {
+    projected: Math.round(projectedWeight * 10) / 10,
+    current: currentWeight,
+    difference: Math.round(difference * 10) / 10,
+    cumulativeDeficit: Math.round(cumulativeDeficit),
+    daysLogged,
+    startWeight
+  };
+}
+
 // ── TDEE / calorie goal calculator ──
 // Mifflin-St Jeor BMR → × activity multiplier → adjust for goal
 function calculateGoal(profile) {
@@ -2534,7 +2576,8 @@ async function handleMessage(from, text, imageId) {
   console.log(`[handleMessage] from=${from} msgLower="${msgLower}"`);
   const menuMap = {
     "menu:log": "log", "menu:undo": "undo", "menu:weight_history": "weight history",
-    "menu:my_foods": "my foods", "menu:start": "start", "menu:export": "export", "menu:help": "help",
+    "menu:projection": "projection", "menu:my_foods": "my foods", "menu:start": "start", 
+    "menu:export": "export", "menu:help": "help",
   };
   if (menuMap[msgLower]) { console.log(`[menu] Redirecting ${msgLower} → ${menuMap[msgLower]}`); msgLower = menuMap[msgLower]; }
 
@@ -3240,6 +3283,42 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
+  // Weight projection
+  if (/^(projection|what if|if i stuck|weight projection|should weigh|could weigh)$/i.test(msgLower)) {
+    const projection = calculateWeightProjection(user);
+    
+    if (!projection) {
+      await send(from, "Log your first weigh-in with *weight 75* and track a few days to see projections.");
+      return;
+    }
+    
+    if (projection.daysLogged < 3) {
+      await send(from, `You've only logged ${projection.daysLogged} day${projection.daysLogged === 1 ? '' : 's'} of food. Log at least 3 days to see a meaningful projection.`);
+      return;
+    }
+    
+    let msg = `⚖️ *Weight Projection*\n\n`;
+    msg += `Based on ${projection.daysLogged} days of tracking:\n\n`;
+    msg += `If you'd stuck to *${user.goal} cal* every day, you'd weigh *${projection.projected} kg* now.\n\n`;
+    msg += `Your current weight: *${projection.current} kg*\n`;
+    msg += `Starting weight: *${projection.startWeight} kg*\n\n`;
+    
+    const diff = projection.difference;
+    if (diff > 0.5) {
+      msg += `📊 You're *${Math.abs(diff)} kg behind* where you could be.\n\n`;
+      msg += `Tighten up your tracking and you'll catch up fast 💪`;
+    } else if (diff < -0.5) {
+      msg += `🔥 You're *${Math.abs(diff)} kg ahead* of plan!\n\n`;
+      msg += `Crushing it. Keep going! 🎯`;
+    } else {
+      msg += `🎯 *Perfect execution.*\n\n`;
+      msg += `You're right on track with your calorie goal!`;
+    }
+    
+    await send(from, msg);
+    return;
+  }
+
   // Undo
   // "This was last night" / "that was yesterday" - move last entry to a past date
   const moveMatch = msgLower.match(/^(?:this|that|it)\s+was\s+(?:from\s+)?(yesterday|last\s*night|monday|tuesday|wednesday|thursday|friday|saturday|sunday|(\d+)\s*days?\s*ago)/i);
@@ -3630,6 +3709,7 @@ async function handleMessage(from, text, imageId) {
             { id: "menu:undo", title: "↩️ Undo Last Entry", description: "Remove your last logged item" },
             { id: "menu:weight", title: "⚖️ Log Weight", description: "Record today's weigh-in" },
             { id: "menu:weight_history", title: "📈 Weight History", description: "See your weight trend over time" },
+            { id: "menu:projection", title: "🎯 Weight Projection", description: "See where you could be if you'd stuck to plan" },
           ],
         },
         {
@@ -4331,8 +4411,34 @@ cron.schedule("30 6 * * *", async () => {
         yesterdayStr = `\n\n📊 *Yesterday's recap:*\n${foodList}\n\n🔢 *${yesterdayTotal} / ${user.goal} cal* - ${verdict}${macroStr}`;
       }
 
+      // Weight projection (show every 7 days)
+      let projectionStr = "";
+      if (user.weights && user.weights.length > 0) {
+        const startDate = new Date(user.weights[0].date || user.weights[0].time);
+        const daysSinceStart = Math.floor((Date.now() - startDate.getTime()) / 86400000);
+        
+        // Show projection every 7 days
+        if (daysSinceStart >= 7 && daysSinceStart % 7 === 0) {
+          const projection = calculateWeightProjection(user);
+          if (projection && projection.daysLogged >= 3) {
+            const diff = projection.difference;
+            projectionStr = `\n\n⚖️ *Weight check:*\n`;
+            projectionStr += `If you'd stuck to ${user.goal} cal every day, you'd weigh *${projection.projected} kg* now.\n`;
+            projectionStr += `Current: *${projection.current} kg*\n`;
+            
+            if (diff > 0.5) {
+              projectionStr += `You're ${Math.abs(diff)}kg behind. Time to tighten up 💪`;
+            } else if (diff < -0.5) {
+              projectionStr += `You're ${Math.abs(diff)}kg ahead of plan! 🔥`;
+            } else {
+              projectionStr += `Right on track 🎯`;
+            }
+          }
+        }
+      }
+
       const greeting = user.name ? `☀️ *Morning, ${user.name}!*` : `☀️ *Morning!*`;
-      await send(phone, `${greeting}${yesterdayStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
+      await send(phone, `${greeting}${yesterdayStr}${projectionStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
       users[phone].lastMorning = new Date().toISOString();
     } catch (err) {
       console.error(`Morning message failed for ${phone}:`, err.message);
