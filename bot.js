@@ -1696,9 +1696,16 @@ async function estimateCalories(food, user) {
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
   const result = JSON.parse(content);
   
+  console.log(`[AI RAW] Input: "${food}" → ${result.food} (${result.calories} cal)`);
+  
   // Clean up duplicate quantity phrases like "(2 eggs) (2 eggs)" → "(2 eggs)"
+  // More aggressive: remove any duplicate parenthesized text
   if (result.food) {
-    result.food = result.food.replace(/(\([^)]+\))\s*\1/g, '$1');
+    const before = result.food;
+    result.food = result.food.replace(/(\([^)]+\))\s*\1+/g, '$1'); // Match one or more duplicates
+    if (before !== result.food) {
+      console.log(`[CLEANUP] Removed duplicate: "${before}" → "${result.food}"`);
+    }
   }
   
   // Post-processing: enforce singular/plural rules
@@ -1720,6 +1727,7 @@ async function estimateCalories(food, user) {
     if (inputLower.includes(rule.plural) && !inputLower.match(/\d/) && !inputLower.includes('one ')) {
       // Check if AI returned roughly 1 portion (within 20% of single cal)
       if (rule.singleCal && result.calories < rule.singleCal * 1.5) {
+        console.log(`[PLURAL FIX] Input "${food}" has plural "${rule.plural}" but AI returned ${result.calories} cal (<${rule.singleCal * 1.5}) → doubling`);
         // User said plural, AI returned singular - double it
         result.calories *= 2;
         result.protein = (result.protein || 0) * 2;
@@ -1747,6 +1755,7 @@ async function estimateCalories(food, user) {
     
     if (hasSingular && !hasPlural) {
       if (rule.singleCal && result.calories > rule.singleCal * 1.5) {
+        console.log(`[SINGULAR FIX] Input "${food}" has singular "${rule.singular}" but AI returned ${result.calories} cal (>${rule.singleCal * 1.5}) → halving`);
         // User said singular, AI returned plural - halve it
         result.calories = Math.round(result.calories / 2);
         result.protein = Math.round((result.protein || 0) / 2);
@@ -1761,6 +1770,7 @@ async function estimateCalories(food, user) {
     }
   }
   
+  console.log(`[AI FINAL] "${food}" → ${result.food} (${result.calories} cal)`);
   return result;
 }
 
