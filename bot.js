@@ -651,13 +651,13 @@ function getMacroTargets(user) {
 // Calculate weight projection assuming perfect calorie adherence
 function calculateWeightProjection(user) {
   if (!user.weights || user.weights.length === 0) return null;
-  if (!user.goal || !user.profile) return null;
+  if (!user.goal || !user.profile || !user.joinedAt) return null;
   
   const startWeight = user.weights[0].kg;
-  const startDate = new Date(user.weights[0].date || user.weights[0].time);
+  const startDate = new Date(user.joinedAt); // Use signup date, not first weight log
   const currentWeight = user.weights[user.weights.length - 1].kg;
   
-  // Calculate days since starting weight
+  // Calculate days since signup
   const daysSinceStart = Math.floor((Date.now() - startDate.getTime()) / 86400000);
   if (daysSinceStart < 1) return null;
   
