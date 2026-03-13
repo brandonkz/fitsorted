@@ -1952,7 +1952,7 @@ async function handleSetup(from, user, msg, users) {
   if (!step || step === "gender") {
     user.step = "awaiting_gender";
     await sendButtons(from,
-      "Howzit! 👋 Welcome to *FitSorted* — your calorie tracker on WhatsApp.\n\nNo app. No login. Just chat like you're messaging a mate.\n\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n📸 Snap a photo of your plate — I'll ID it\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n🍺 Built-in drunk-o-meter\n🧠 Ask me anything — meal ideas, what to eat under 400 cal\n\nLet's get you set up — takes 30 seconds 👇\n\nWhat's your biological sex?",
+      "Howzit! 👋 Welcome to *FitSorted* — your calorie tracker on WhatsApp.\n\n✅ *Free forever* — calorie tracking with no limits\n💎 *30-day Premium bonus* — unlock all features\n\nNo app. No login. Just chat like you're messaging a mate.\n\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n📸 Snap a photo of your plate — I'll ID it\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n🍺 Built-in drunk-o-meter\n🧠 Ask me anything — meal ideas, what to eat under 400 cal\n\nLet's get you set up — takes 30 seconds 👇\n\nWhat's your biological sex?",
       [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]
     );
     return;
@@ -3578,13 +3578,18 @@ async function handleMessage(from, text, imageId) {
   // Subscription status
   if (msgLower === "status" || msgLower === "subscription" || msgLower === "my plan") {
     const premium = await isPremium(from);
+    const inTrial = isInTrial(user);
+    
     if (premium) {
-      const { data: user } = await supabaseAdmin.from("users").select("id").eq("phone", from).single();
-      const { data: sub } = user ? await supabaseAdmin.from("subscriptions").select("ends_at").eq("user_id", user.id).eq("status", "active").single() : { data: null };
+      const { data: dbUser } = await supabaseAdmin.from("users").select("id").eq("phone", from).single();
+      const { data: sub } = dbUser ? await supabaseAdmin.from("subscriptions").select("ends_at").eq("user_id", dbUser.id).eq("status", "active").single() : { data: null };
       const expiryStr = sub?.ends_at ? new Date(sub.ends_at).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" }) : "unknown";
       await send(from, `✅ *FitSorted Premium* — Active\n\nRenews: ${expiryStr}\n\nType *upgrade* to renew early.`);
+    } else if (inTrial) {
+      const daysLeft = Math.ceil(30 - ((Date.now() - new Date(user.joinedAt).getTime()) / (1000 * 60 * 60 * 24)));
+      await send(from, `✅ *FitSorted Premium* — Free 30-day bonus\n\n${daysLeft} days left of all features.\n\nAfter that, calorie tracking stays free forever.\n\nUpgrade for R18/mo to keep Premium features — type *upgrade*`);
     } else {
-      await send(from, `📋 *Your Plan:* Free\n\nUpgrade to Premium for R18/mo:\n📸 Photo logging\n🍽️ Meal suggestions\n📊 Weekly insights\n\nType *upgrade* to subscribe.`);
+      await send(from, `✅ *FitSorted* — Free forever\n\nYou can track calories for life, no limits.\n\nUpgrade to Premium for R18/mo to unlock:\n🥩 Macro tracking\n🧠 Coaching mode\n📧 Email exports\n💰 Budget tracking\n\nType *upgrade* to subscribe.`);
     }
     return;
   }
@@ -3646,9 +3651,9 @@ async function handleMessage(from, text, imageId) {
     const annualLink = getPayFastAnnualLink(from, discount);
     await send(from,
       `🎉 Code *${code}* applied — *${discount}% off*!\n\n` +
-      `30 days free, then:\n\n` +
-      `📅 *Monthly — R${monthlyPrice}/mo* (launch price)\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R${annualPrice}/year* _(was R708)_\n👉 ${annualLink}`
+      `Free forever + 30-day Premium bonus, then:\n\n` +
+      `📅 *Monthly — R${monthlyPrice}/mo*\n👉 ${monthlyLink}\n\n` +
+      `🏆 *Annual — R${annualPrice}/year* _(save R${280-annualPrice})_\n👉 ${annualLink}`
     );
     return;
   }
@@ -3670,13 +3675,14 @@ async function handleMessage(from, text, imageId) {
     await send(from,
       `*FitSorted Premium* 🚀\n\n` +
       promoLine +
-      `30 days free, then choose your plan:\n\n` +
+      `✅ Calorie tracking is free forever\n\n` +
+      `Get 30 days of Premium features free, then just R18/mo:\n\n` +
       `📅 *Monthly — R${monthlyPrice}/mo*\n` +
       `👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R${annualPrice}/year* _(50% off)_\n` +
+      `🏆 *Annual — R${annualPrice}/year* _(save R${280-annualPrice})_\n` +
       `👉 ${annualLink}\n\n` +
       `Got a promo code? Type *promo CODE*\n` +
-      `Cancel anytime by texting *cancel*. ✅`
+      `Cancel anytime — free tier stays forever. ✅`
     );
     return;
   }
@@ -3914,15 +3920,15 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
-  // Trial expired reminder (but still allow basic calorie logging)
+  // Premium features expired - remind about upgrade (but still allow basic calorie logging)
   const userHasAccess = await hasAccess(from, user);
   if (!userHasAccess && !user.shownFreeForeverMessage) {
     const monthlyLink = getPayFastMonthlyLink(from);
     const annualLink = getPayFastAnnualLink(from);
     await send(from,
-      `⏰ Your 30-day trial ended.\n\n` +
-      `✅ *You can still log calories for free forever*\n\n` +
-      `But you'll miss:\n` +
+      `✅ *FitSorted is free forever*\n\n` +
+      `You can track calories for as long as you want.\n\n` +
+      `Your first 30 days of Premium features have ended. Upgrade for just *R18/mo* to unlock:\n\n` +
       `• 🥩 Macro tracking (protein, carbs, fat)\n` +
       `• 🧠 Coaching mode (meal suggestions, Q&A)\n` +
       `• 📧 Email exports\n` +
