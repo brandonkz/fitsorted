@@ -1960,7 +1960,7 @@ async function handleSetup(from, user, msg, users) {
 
   // Back/undo during onboarding
   if (step && ["back","undo","go back","oops","mistake","wrong"].includes(msg.toLowerCase())) {
-    const stepOrder = ["awaiting_gender", "weight", "height", "age", "activity", "target", "pace", "name"];
+    const stepOrder = ["awaiting_gender", "weight", "height", "age", "activity", "target", "pace", "name", "email", "budget"];
     const currentIdx = stepOrder.indexOf(step);
     if (currentIdx <= 0) {
       await send(from, "You're at the first step already. Let's go 👇");
@@ -1978,6 +1978,9 @@ async function handleSetup(from, user, msg, users) {
       "age": async () => await send(from, "↩️ And your age?"),
       "activity": async () => await sendButtons(from, "↩️ How active are you?", [{ id: "setup:sedentary", title: "Desk job 🪑" }, { id: "setup:light", title: "Light exercise" }, { id: "setup:active", title: "Very active 💪" }]),
       "target": async () => await sendButtons(from, "↩️ What's your goal?", [{ id: "setup:lose", title: "Lose weight" }, { id: "setup:maintain", title: "Maintain" }, { id: "setup:gain", title: "Build muscle" }]),
+      "name": async () => await send(from, "↩️ What should I call you? (first name)"),
+      "email": async () => await send(from, `↩️ What's your email?\n\nI'll send you daily food logs and weekly reports.\n\n_(Type *skip* if you'd rather not)_`),
+      "budget": async () => await sendButtons(from, "↩️ Want to set a daily food budget?", [{ id: "setup:budget_100", title: "R100/day" }, { id: "setup:budget_150", title: "R150/day" }, { id: "setup:budget_200", title: "R200/day" }, { id: "setup:budget_skip", title: "Skip for now" }]),
     };
     if (prompts[prevStep]) await prompts[prevStep]();
     return;
@@ -2052,12 +2055,52 @@ async function handleSetup(from, user, msg, users) {
       return;
     }
     user.name = name;
+    user.step = "email";
+    saveUsers(users);
+
+    await send(from, `Nice one, ${name}! 👋\n\nWhat's your email?\n\nI'll send you daily food logs and weekly reports.\n\n_(Type *skip* if you'd rather not)_`);
+    return;
+  }
+
+  if (step === "email") {
+    const emailText = msg.trim().toLowerCase();
+    
+    if (emailText === "skip" || emailText === "no") {
+      // Skip email, go to budget
+      user.step = "budget";
+      saveUsers(users);
+      
+      try {
+        await sendButtons(from,
+          `No worries! Last thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
+          [
+            { id: "setup:budget_100", title: "R100/day" },
+            { id: "setup:budget_150", title: "R150/day" },
+            { id: "setup:budget_200", title: "R200/day" },
+            { id: "setup:budget_skip", title: "Skip for now" },
+          ]
+        );
+      } catch {
+        await send(from, `No worries! Last thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
+      }
+      return;
+    }
+    
+    // Validate email
+    const emailMatch = emailText.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+    if (!emailMatch) {
+      await send(from, `That doesn't look like a valid email.\n\nTry again, or type *skip* to continue without email.`);
+      return;
+    }
+    
+    if (!user.profile) user.profile = {};
+    user.profile.exportEmail = emailText;
     user.step = "budget";
     saveUsers(users);
 
     try {
       await sendButtons(from,
-        `Nice one, ${name}! 👋\n\nOne last thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
+        `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
         [
           { id: "setup:budget_100", title: "R100/day" },
           { id: "setup:budget_150", title: "R150/day" },
@@ -2066,7 +2109,7 @@ async function handleSetup(from, user, msg, users) {
         ]
       );
     } catch {
-      await send(from, `Nice one, ${name}! 👋\n\nOne last thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
+      await send(from, `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
     }
     return;
   }
@@ -2101,10 +2144,14 @@ async function handleSetup(from, user, msg, users) {
     const budgetMsg = user.profile?.foodBudget
       ? `\n💰 Food budget: *R${user.profile.foodBudget}/day*`
       : "";
+    
+    const emailMsg = user.profile?.exportEmail
+      ? `\n📧 Email exports: *${user.profile.exportEmail}*`
+      : "";
 
     await send(from,
       `✅ *All set, ${user.name}!*\n\n` +
-      `Your goal: *${user.goal} cal/day*${budgetMsg}\n\n` +
+      `Your goal: *${user.goal} cal/day*${budgetMsg}${emailMsg}\n\n` +
       `Let's log your first meal right now 👇\n\n` +
       `Just type what you've eaten today, like:\n` +
       `_"2 eggs on toast"_\n` +
