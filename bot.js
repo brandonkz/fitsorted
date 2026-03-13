@@ -3297,23 +3297,14 @@ async function handleMessage(from, text, imageId) {
       return;
     }
     
+    const startWeight = projection.startWeight;
+    const projectedLoss = startWeight - projection.projected;
+    
     let msg = `⚖️ *Weight Projection*\n\n`;
     msg += `Based on ${projection.daysLogged} days of tracking:\n\n`;
-    msg += `If you'd stuck to *${user.goal} cal* every day, you'd weigh *${projection.projected} kg* now.\n\n`;
-    msg += `Your current weight: *${projection.current} kg*\n`;
-    msg += `Starting weight: *${projection.startWeight} kg*\n\n`;
-    
-    const diff = projection.difference;
-    if (diff > 0.5) {
-      msg += `📊 You're *${Math.abs(diff)} kg behind* where you could be.\n\n`;
-      msg += `Tighten up your tracking and you'll catch up fast 💪`;
-    } else if (diff < -0.5) {
-      msg += `🔥 You're *${Math.abs(diff)} kg ahead* of plan!\n\n`;
-      msg += `Crushing it. Keep going! 🎯`;
-    } else {
-      msg += `🎯 *Perfect execution.*\n\n`;
-      msg += `You're right on track with your calorie goal!`;
-    }
+    msg += `If you'd stuck to *${user.goal} cal* every day, you would have lost *${projectedLoss.toFixed(1)} kg* by now.\n\n`;
+    msg += `Starting weight: *${startWeight} kg*\n`;
+    msg += `You'd weigh: *${projection.projected} kg*`;
     
     await send(from, msg);
     return;
@@ -4509,24 +4500,13 @@ cron.schedule("0 9 * * 5", async () => {
       if (!projection || projection.daysLogged < 3) continue;
       
       const name = user.name || "Brandon";
-      const diff = projection.difference;
+      const startWeight = projection.startWeight;
+      const projectedLoss = startWeight - projection.projected;
       
       let msg = `Hey ${name} 👋\n\n`;
-      
-      if (diff > 0.5) {
-        msg += `If you'd kept to your calories this week, you'd weigh *${projection.projected} kg* right now.\n\n`;
-        msg += `You're at *${projection.current} kg* - about ${Math.abs(diff)}kg behind where you could be.\n\n`;
-        msg += `Tighten up next week and you'll catch up fast 💪`;
-      } else if (diff < -0.5) {
-        msg += `If you'd kept to your calories this week, you'd weigh *${projection.projected} kg* right now.\n\n`;
-        msg += `You're at *${projection.current} kg* - you're ${Math.abs(diff)}kg ahead of plan! 🔥\n\n`;
-        msg += `Crushing it. Keep going 🎯`;
-      } else {
-        msg += `Perfect week. You're right on track with your calorie goal.\n\n`;
-        msg += `Current weight: *${projection.current} kg*\n`;
-        msg += `Projected: *${projection.projected} kg*\n\n`;
-        msg += `That's exactly where you should be 🎯`;
-      }
+      msg += `If you'd stuck to your calories, you would have lost *${projectedLoss.toFixed(1)} kg* by now.\n\n`;
+      msg += `Starting weight: *${startWeight} kg*\n`;
+      msg += `You'd weigh: *${projection.projected} kg*`;
       
       await send(phone, msg);
     } catch (err) {
