@@ -1701,6 +1701,66 @@ async function estimateCalories(food, user) {
     result.food = result.food.replace(/(\([^)]+\))\s*\1/g, '$1');
   }
   
+  // Post-processing: enforce singular/plural rules
+  // If user typed plural but AI returned singular calories, fix it
+  const inputLower = food.toLowerCase().trim();
+  const resultLower = result.food.toLowerCase();
+  
+  // Common plural foods that should be 2x when plural
+  const pluralRules = [
+    { singular: 'egg', plural: 'eggs', singleCal: 70 },
+    { singular: 'banana', plural: 'bananas', singleCal: 105 },
+    { singular: 'apple', plural: 'apples', singleCal: 95 },
+    { singular: 'orange', plural: 'oranges', singleCal: 65 },
+    { singular: 'slice', plural: 'slices', singleCal: null }, // context-dependent
+  ];
+  
+  for (const rule of pluralRules) {
+    // User typed plural (e.g., "eggs") but AI returned ~1 portion
+    if (inputLower.includes(rule.plural) && !inputLower.match(/\d/) && !inputLower.includes('one ')) {
+      // Check if AI returned roughly 1 portion (within 20% of single cal)
+      if (rule.singleCal && result.calories < rule.singleCal * 1.5) {
+        // User said plural, AI returned singular - double it
+        result.calories *= 2;
+        result.protein = (result.protein || 0) * 2;
+        result.carbs = (result.carbs || 0) * 2;
+        result.fat = (result.fat || 0) * 2;
+        result.fibre = (result.fibre || 0) * 2;
+        
+        // Update food name to show 2x
+        if (!result.food.match(/^2x|^2 /i)) {
+          result.food = `2x ${result.food}`;
+        }
+        break;
+      }
+    }
+    
+    // User typed singular (e.g., "egg" or "scrambled egg") but AI returned ~2 portions
+    const hasSingular = inputLower === rule.singular || 
+                        inputLower.includes(` ${rule.singular} `) || 
+                        inputLower.endsWith(` ${rule.singular}`) ||
+                        inputLower === `scrambled ${rule.singular}` ||
+                        inputLower === `fried ${rule.singular}` ||
+                        inputLower === `boiled ${rule.singular}`;
+    
+    const hasPlural = inputLower.includes(rule.plural);
+    
+    if (hasSingular && !hasPlural) {
+      if (rule.singleCal && result.calories > rule.singleCal * 1.5) {
+        // User said singular, AI returned plural - halve it
+        result.calories = Math.round(result.calories / 2);
+        result.protein = Math.round((result.protein || 0) / 2);
+        result.carbs = Math.round((result.carbs || 0) / 2);
+        result.fat = Math.round((result.fat || 0) / 2);
+        result.fibre = Math.round((result.fibre || 0) / 2);
+        
+        // Update food name to remove 2x/plural if present
+        result.food = result.food.replace(/^2x\s*/i, '').replace(/^2\s+/, '').replace(/eggs/i, 'egg').replace(/bananas/i, 'banana');
+        break;
+      }
+    }
+  }
+  
   return result;
 }
 
