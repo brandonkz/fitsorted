@@ -4589,6 +4589,96 @@ cron.schedule("0 9 * * *", async () => {
   saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
+// ── 10 AM Day 3 nudge (danger zone) ──
+cron.schedule("0 10 * * *", async () => {
+  if (cronAlreadyRan('day3-nudge')) { console.log('[cron] Day 3 nudge already sent, skipping'); return; }
+  markCronRan('day3-nudge');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay3Nudge) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 3) continue;
+    
+    try {
+      const daysLogged = Object.keys(user.log || {}).length;
+      const name = user.name || "Hey";
+      
+      let msg;
+      if (daysLogged >= 3) {
+        // Streak celebration
+        msg = `${name} 🔥\n\n3 days tracked! You're building a real habit here.\n\nKeep the streak alive today 💪`;
+      } else if (daysLogged === 0) {
+        // Never logged - stronger nudge
+        msg = `${name} 👋\n\nYou signed up 3 days ago but haven't logged any meals yet.\n\nJust try one day - tell me what you eat today and I'll count it for you.\n\nNo pressure, just track 🍽️`;
+      } else {
+        // Logged some but not consistent
+        msg = `${name} 👋\n\nYou've logged ${daysLogged} day${daysLogged === 1 ? '' : 's'} so far.\n\nLet's keep the momentum going - log something today! 💪`;
+      }
+      
+      await send(phone, msg);
+      users[phone].sentDay3Nudge = true;
+    } catch (err) {
+      console.error(`Day 3 nudge failed for ${phone}:`, err.message);
+    }
+  }
+  
+  saveUsers(users);
+}, { timezone: "Africa/Johannesburg" });
+
+// ── 11 AM Day 7 re-engagement ──
+cron.schedule("0 11 * * *", async () => {
+  if (cronAlreadyRan('day7-reengagement')) { console.log('[cron] Day 7 re-engagement already sent, skipping'); return; }
+  markCronRan('day7-reengagement');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay7Reengagement) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 7) continue;
+    
+    try {
+      // Check if active in last 3 days
+      const threeDaysAgo = Date.now() - (3 * 24 * 60 * 60 * 1000);
+      const recentlyActive = Object.values(user.log || {}).some(entries =>
+        entries.some(e => new Date(e.time) > threeDaysAgo)
+      );
+      
+      // Only send if inactive
+      if (recentlyActive) {
+        users[phone].sentDay7Reengagement = true;
+        continue;
+      }
+      
+      const daysLogged = Object.keys(user.log || {}).length;
+      const name = user.name || "Hey";
+      
+      let msg = `${name} 👋\n\n`;
+      if (daysLogged > 0) {
+        msg += `You logged ${daysLogged} day${daysLogged === 1 ? '' : 's'} last week but went quiet.\n\n`;
+        msg += `Life gets busy - I get it.\n\n`;
+        msg += `But even logging one meal helps you stay aware.\n\n`;
+        msg += `Give it another shot today? 🍽️`;
+      } else {
+        msg += `It's been a week since you signed up.\n\n`;
+        msg += `Still interested in tracking calories?\n\n`;
+        msg += `Just send me any meal and I'll help you get started 💪`;
+      }
+      
+      await send(phone, msg);
+      users[phone].sentDay7Reengagement = true;
+    } catch (err) {
+      console.error(`Day 7 re-engagement failed for ${phone}:`, err.message);
+    }
+  }
+  
+  saveUsers(users);
+}, { timezone: "Africa/Johannesburg" });
+
 // ── Sunday 8 AM weight reminder ──
 cron.schedule("0 8 * * 0", async () => {
   if (cronAlreadyRan('weight-reminder')) { console.log('[cron] Weight reminder already sent, skipping'); return; }
