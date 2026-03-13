@@ -4283,8 +4283,13 @@ async function handleMessage(from, text, imageId) {
       // Logging to a past date
       await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📅 _Logged to ${dateInfo.label} (${logDate})_\n📊 ${dateInfo.label}: *${logDateTotal} cal total*`);
     } else {
-      // Normal today logging - keep it simple, no redundant macro breakdown
-      // (Users can type "log" to see full day summary anytime)
+      // Normal today logging
+      let macroProgress = "";
+      if (userHasPremium && macroTargets && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
+        const fibrePct2 = Math.round(((todayMacros.fibre || 0) / macroTargets.fibre) * 100);
+        const fibreIcon2 = fibrePct2 >= 100 ? '✅' : fibrePct2 >= 50 ? '🟡' : '🔴';
+        macroProgress = `\n\n*Macros Today:*\n🥩 Protein: ${todayMacros.protein}g / ${macroTargets.protein}g\n🍞 Carbs: ${todayMacros.carbs}g / ${macroTargets.carbs}g\n🥑 Fat: ${todayMacros.fat}g / ${macroTargets.fat}g\n🌾 Fibre: ${todayMacros.fibre || 0}g / ${macroTargets.fibre}g ${fibreIcon2}`;
+      }
       
       // Alcohol tracking
       if (alcoholMatch) {
@@ -4298,7 +4303,7 @@ async function handleMessage(from, text, imageId) {
         alcoholMsg += `\n\n📊 Today total: *${total} / ${effectiveGoal} cal*`;
         await send(from, alcoholMsg);
       } else {
-        await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+        await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
       }
       await maybeFirstLogMenu(from, user);
         await maybePromptPro(from, user);
