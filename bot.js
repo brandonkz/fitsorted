@@ -948,6 +948,9 @@ ${customFoodList.length > 0 ? customFoodList.join(", ") : "None saved yet"}
 }
 
 async function estimateCalories(food, user) {
+  const aiDebugLog = `/Users/brandonkatz/.openclaw/workspace/fitsorted/debug-ai.log`;
+  fs.appendFileSync(aiDebugLog, `\n[${new Date().toISOString()}] estimateCalories() CALLED with food="${food}"\n`);
+  
   // 0. Input validation: reject very short or nonsensical inputs
   const lower = food.toLowerCase().trim();
   if (food.trim().length === 1 || (food.trim().length === 2 && !/\d/.test(food))) {
@@ -1640,7 +1643,47 @@ async function estimateCalories(food, user) {
   }
 
   // 4. Check SA database (491 SA foods from Supabase)
-  const saMatch = await lookupSAFood(food);
+  let saMatch = await lookupSAFood(food);
+  fs.appendFileSync(aiDebugLog, `[SA DB] Checked "${food}" → ${saMatch ? `FOUND: ${saMatch.food} (${saMatch.calories} cal)` : 'not found'}\n`);
+  
+  // Apply singular/plural fix to SA results too
+  if (saMatch) {
+    // Clean up duplicate text like "(2 eggs) (2 eggs)"
+    const before = saMatch.food;
+    saMatch.food = saMatch.food.replace(/(\([^)]+\))\s*\1+/g, '$1');
+    if (before !== saMatch.food) {
+      fs.appendFileSync(aiDebugLog, `[SA DB CLEANUP] Removed duplicate: "${before}" → "${saMatch.food}"\n`);
+    }
+    
+    const inputLower = food.toLowerCase().trim();
+    const pluralRules = [
+      { singular: 'egg', plural: 'eggs', singleCal: 70 },
+      { singular: 'banana', plural: 'bananas', singleCal: 105 },
+    ];
+    
+    for (const rule of pluralRules) {
+      const hasSingular = inputLower === rule.singular || 
+                          inputLower.includes(` ${rule.singular} `) || 
+                          inputLower.endsWith(` ${rule.singular}`) ||
+                          inputLower === `scrambled ${rule.singular}` ||
+                          inputLower === `fried ${rule.singular}` ||
+                          inputLower === `boiled ${rule.singular}`;
+      
+      const hasPlural = inputLower.includes(rule.plural);
+      
+      // User typed singular but SA returned plural calories
+      if (hasSingular && !hasPlural && saMatch.calories > rule.singleCal * 1.5) {
+        fs.appendFileSync(aiDebugLog, `[SA DB SINGULAR FIX] Input "${food}" has singular but SA returned ${saMatch.calories} cal → halving\n`);
+        saMatch.calories = Math.round(saMatch.calories / 2);
+        saMatch.protein = Math.round(saMatch.protein / 2);
+        saMatch.carbs = Math.round(saMatch.carbs / 2);
+        saMatch.fat = Math.round(saMatch.fat / 2);
+        saMatch.food = saMatch.food.replace(/^2x\s*/i, '').replace(/eggs/i, 'egg').replace(/\(2 eggs\)/g, '(1 egg)');
+        break;
+      }
+    }
+  }
+  
   if (saMatch) {
     // SA DB doesn't have fibre — quick AI lookup to fill it in
     if (OPENAI_API_KEY && !saMatch.fibre) {
@@ -1677,6 +1720,8 @@ async function estimateCalories(food, user) {
     return { food, calories: 200 };
   }
 
+  fs.appendFileSync(aiDebugLog, `[OPENAI] Calling API for "${food}"\n`);
+  
   const res = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
@@ -1696,7 +1741,7 @@ async function estimateCalories(food, user) {
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
   const result = JSON.parse(content);
   
-  console.log(`[AI RAW] Input: "${food}" → ${result.food} (${result.calories} cal)`);
+  fs.appendFileSync(aiDebugLog, `\n[${new Date().toISOString()}] AI RAW: "${food}" → ${result.food} (${result.calories} cal)\n`);
   
   // Clean up duplicate quantity phrases like "(2 eggs) (2 eggs)" → "(2 eggs)"
   // More aggressive: remove any duplicate parenthesized text
@@ -1704,7 +1749,7 @@ async function estimateCalories(food, user) {
     const before = result.food;
     result.food = result.food.replace(/(\([^)]+\))\s*\1+/g, '$1'); // Match one or more duplicates
     if (before !== result.food) {
-      console.log(`[CLEANUP] Removed duplicate: "${before}" → "${result.food}"`);
+      fs.appendFileSync(aiDebugLog, `[CLEANUP] Removed duplicate: "${before}" → "${result.food}"\n`);
     }
   }
   
@@ -1727,7 +1772,7 @@ async function estimateCalories(food, user) {
     if (inputLower.includes(rule.plural) && !inputLower.match(/\d/) && !inputLower.includes('one ')) {
       // Check if AI returned roughly 1 portion (within 20% of single cal)
       if (rule.singleCal && result.calories < rule.singleCal * 1.5) {
-        console.log(`[PLURAL FIX] Input "${food}" has plural "${rule.plural}" but AI returned ${result.calories} cal (<${rule.singleCal * 1.5}) → doubling`);
+        fs.appendFileSync(aiDebugLog, `[PLURAL FIX] Input "${food}" has plural "${rule.plural}" but AI returned ${result.calories} cal (<${rule.singleCal * 1.5}) → doubling\n`);
         // User said plural, AI returned singular - double it
         result.calories *= 2;
         result.protein = (result.protein || 0) * 2;
@@ -1755,7 +1800,7 @@ async function estimateCalories(food, user) {
     
     if (hasSingular && !hasPlural) {
       if (rule.singleCal && result.calories > rule.singleCal * 1.5) {
-        console.log(`[SINGULAR FIX] Input "${food}" has singular "${rule.singular}" but AI returned ${result.calories} cal (>${rule.singleCal * 1.5}) → halving`);
+        fs.appendFileSync(aiDebugLog, `[SINGULAR FIX] Input "${food}" has singular "${rule.singular}" but AI returned ${result.calories} cal (>${rule.singleCal * 1.5}) → halving\n`);
         // User said singular, AI returned plural - halve it
         result.calories = Math.round(result.calories / 2);
         result.protein = Math.round((result.protein || 0) / 2);
@@ -1770,7 +1815,7 @@ async function estimateCalories(food, user) {
     }
   }
   
-  console.log(`[AI FINAL] "${food}" → ${result.food} (${result.calories} cal)`);
+  fs.appendFileSync(aiDebugLog, `[AI FINAL] "${food}" → ${result.food} (${result.calories} cal)\n`);
   return result;
 }
 
@@ -4074,6 +4119,9 @@ async function handleMessage(from, text, imageId) {
   }
 
   try {
+    const debugLog = `/Users/brandonkatz/.openclaw/workspace/fitsorted/debug-food-entry.log`;
+    fs.appendFileSync(debugLog, `\n[${new Date().toISOString()}] FOOD ENTRY: "${msg}" from ${from}\n`);
+    
     const dateInfo = parseDatePrefix(msg);
     const foodText = dateInfo ? dateInfo.food : msg;
     const logDate = dateInfo ? dateInfo.date : getToday();
