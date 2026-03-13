@@ -650,12 +650,21 @@ function getMacroTargets(user) {
 
 // Calculate weight projection assuming perfect calorie adherence
 function calculateWeightProjection(user) {
-  if (!user.weights || user.weights.length === 0) return null;
   if (!user.goal || !user.profile || !user.joinedAt) return null;
   
-  const startWeight = user.weights[0].kg;
-  const startDate = new Date(user.joinedAt); // Use signup date, not first weight log
-  const currentWeight = user.weights[user.weights.length - 1].kg;
+  // Use logged weight if available, otherwise use signup profile weight
+  const startWeight = user.weights && user.weights.length > 0 
+    ? user.weights[0].kg 
+    : user.profile.weight;
+  
+  if (!startWeight) return null;
+  
+  const startDate = new Date(user.joinedAt);
+  
+  // Current weight: latest logged weight or profile weight
+  const currentWeight = user.weights && user.weights.length > 0
+    ? user.weights[user.weights.length - 1].kg
+    : user.profile.weight;
   
   // Calculate days since signup
   const daysSinceStart = Math.floor((Date.now() - startDate.getTime()) / 86400000);
@@ -4494,7 +4503,6 @@ cron.schedule("0 9 * * 5", async () => {
   
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
-    if (!user.weights || user.weights.length === 0) continue;
     
     try {
       const projection = calculateWeightProjection(user);
@@ -4514,6 +4522,71 @@ cron.schedule("0 9 * * 5", async () => {
       console.error(`Friday projection failed for ${phone}:`, err.message);
     }
   }
+}, { timezone: "Africa/Johannesburg" });
+
+// ── 9 AM new user motivation (day 1) ──
+cron.schedule("0 9 * * *", async () => {
+  if (cronAlreadyRan('day1-motivation')) { console.log('[cron] Day 1 motivation already sent, skipping'); return; }
+  markCronRan('day1-motivation');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.goal || !user.joinedAt) continue;
+    
+    // Skip if already sent this message
+    if (user.sentDay1Motivation) continue;
+    
+    const joinedAt = new Date(user.joinedAt);
+    const daysSinceJoin = Math.floor((Date.now() - joinedAt.getTime()) / 86400000);
+    
+    // Only send on day 1 (24-48 hours after signup)
+    if (daysSinceJoin !== 1) continue;
+    
+    try {
+      const { gender, weight, height, age, activity } = user.profile || {};
+      if (!gender || !weight || !height || !age || !activity) continue;
+      
+      // Calculate TDEE
+      let bmr;
+      if (gender === "male") {
+        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+      } else {
+        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+      }
+      
+      const multipliers = {
+        sedentary: 1.2,
+        light: 1.375,
+        moderate: 1.55,
+        active: 1.725,
+        veryActive: 1.9
+      };
+      
+      const tdee = bmr * (multipliers[activity] || 1.2);
+      const dailyDeficit = tdee - user.goal;
+      
+      // 7-day projection
+      const weekDeficit = dailyDeficit * 7;
+      const weekLoss = weekDeficit / 7700;
+      const weekWeight = weight - weekLoss;
+      
+      const name = user.name || "Hey";
+      
+      let msg = `${name} 👋\n\n`;
+      msg += `If you stick to your calorie goals, you'll weigh *${weekWeight.toFixed(1)} kg* in one week.\n\n`;
+      msg += `That's *${weekLoss.toFixed(1)} kg* down from where you started.\n\n`;
+      msg += `Keep it up 💪`;
+      
+      await send(phone, msg);
+      
+      // Mark as sent
+      users[phone].sentDay1Motivation = true;
+    } catch (err) {
+      console.error(`Day 1 motivation failed for ${phone}:`, err.message);
+    }
+  }
+  
+  saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
 // ── Sunday 8 AM weight reminder ──
