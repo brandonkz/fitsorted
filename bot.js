@@ -3020,10 +3020,17 @@ async function handleMessage(from, text, imageId) {
         macroStr = `\n\n🥩 Protein: ${todayMacros.protein}g | 🍞 Carbs: ${todayMacros.carbs}g | 🥑 Fat: ${todayMacros.fat}g | 🌾 Fibre: ${todayMacros.fibre || 0}g`;
       }
     } else if (!logHasAccess && (todayMacros.protein > 0)) {
-      macroStr = `\n\n_🔒 Macro tracking is a Premium feature_`;
+      macroStr = `\n\n_🔒 Macro tracking is Premium - upgrade for protein/carbs/fat breakdown_`;
     }
 
-    await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*${macroStr}\n${deficitMessage(total, effectiveGoal)}`);
+    let premiumCTA = "";
+    if (!logHasAccess && !user.seenPremiumCTA) {
+      premiumCTA = `\n\n💎 Want macros + coaching? Upgrade for R18/mo — type *upgrade*`;
+      users[from].seenPremiumCTA = true;
+      saveUsers(users);
+    }
+
+    await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*${macroStr}${premiumCTA}\n${deficitMessage(total, effectiveGoal)}`);
         await maybeFirstLogMenu(from, user);
         await maybePromptPro(from, user);
     return;
@@ -3907,19 +3914,25 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
-  // Trial / subscription gate
+  // Trial expired reminder (but still allow basic calorie logging)
   const userHasAccess = await hasAccess(from, user);
-  if (!userHasAccess) {
+  if (!userHasAccess && !user.shownFreeForeverMessage) {
     const monthlyLink = getPayFastMonthlyLink(from);
     const annualLink = getPayFastAnnualLink(from);
     await send(from,
-      `⏰ Your 30-day free trial has ended.\n\n` +
-      `Subscribe to keep tracking:\n\n` +
+      `⏰ Your 30-day trial ended.\n\n` +
+      `✅ *You can still log calories for free forever*\n\n` +
+      `But you'll miss:\n` +
+      `• 🥩 Macro tracking (protein, carbs, fat)\n` +
+      `• 🧠 Coaching mode (meal suggestions, Q&A)\n` +
+      `• 📧 Email exports\n` +
+      `• 💰 Food budget tracking\n\n` +
       `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}\n\n` +
-      `All your data is safe — pick up right where you left off. 💪`
+      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
     );
-    return;
+    users[from].shownFreeForeverMessage = true;
+    saveUsers(users);
+    // DON'T return - let them continue logging
   }
 
   // Food log (with optional date prefix: "yesterday: chicken stir fry")
