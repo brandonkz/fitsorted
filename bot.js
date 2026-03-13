@@ -1694,7 +1694,14 @@ async function estimateCalories(food, user) {
   );
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
-  return JSON.parse(content);
+  const result = JSON.parse(content);
+  
+  // Clean up duplicate quantity phrases like "(2 eggs) (2 eggs)" → "(2 eggs)"
+  if (result.food) {
+    result.food = result.food.replace(/(\([^)]+\))\s*\1/g, '$1');
+  }
+  
+  return result;
 }
 
 // ── Deficit message ──
