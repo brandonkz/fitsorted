@@ -1098,6 +1098,28 @@ async function estimateCalories(food, user) {
     "biltong and cheese": { food: "Biltong & Cheese Platter", calories: 500, protein: 40, carbs: 5, fat: 35, fibre: 0 },
     "caesar salad": { food: "Caesar Salad", calories: 400, protein: 15, carbs: 20, fat: 28, fibre: 3 },
     "chai latte": { food: "Chai Latte", calories: 180, protein: 5, carbs: 28, fat: 5, fibre: 0 },
+    // Round 8 - nightly edge case test 2026-03-14
+    "boerewors roll": { food: "Boerewors Roll", calories: 425, protein: 18, carbs: 35, fat: 22, fibre: 2 },
+    "chicken and rice": { food: "Chicken & Rice (serving)", calories: 450, protein: 35, carbs: 45, fat: 12, fibre: 2 },
+    "eggs on toast": { food: "Eggs on Toast (2 eggs, 2 slices)", calories: 310, protein: 18, carbs: 30, fat: 14, fibre: 2 },
+    "gin and tonic": { food: "Gin & Tonic (single)", calories: 120, protein: 0, carbs: 8, fat: 0, fibre: 0 },
+    "debonairs medium pizza": { food: "Debonairs Medium Pizza (whole)", calories: 1500, protein: 60, carbs: 160, fat: 60, fibre: 8 },
+    "debonairs pizza": { food: "Debonairs Medium Pizza (whole)", calories: 1500, protein: 60, carbs: 160, fat: 60, fibre: 8 },
+    "chicken stirfry": { food: "Chicken Stir-Fry (serving)", calories: 400, protein: 30, carbs: 30, fat: 14, fibre: 4 },
+    "chicken stir fry": { food: "Chicken Stir-Fry (serving)", calories: 400, protein: 30, carbs: 30, fat: 14, fibre: 4 },
+    "ocean basket calamari": { food: "Ocean Basket Calamari", calories: 500, protein: 28, carbs: 35, fat: 25, fibre: 2 },
+    "ocean basket prawns": { food: "Ocean Basket Prawns", calories: 400, protein: 30, carbs: 15, fat: 22, fibre: 2 },
+    "vida e caffe latte": { food: "Vida e Caffè Latte", calories: 180, protein: 8, carbs: 16, fat: 8, fibre: 0 },
+    "vida latte": { food: "Vida e Caffè Latte", calories: 180, protein: 8, carbs: 16, fat: 8, fibre: 0 },
+    "checkers chicken strips": { food: "Checkers Chicken Strips", calories: 400, protein: 25, carbs: 30, fat: 20, fibre: 2 },
+    "spur cheese burger": { food: "Spur Cheese Burger", calories: 650, protein: 35, carbs: 45, fat: 35, fibre: 3 },
+    "spur cheeseburger": { food: "Spur Cheese Burger", calories: 650, protein: 35, carbs: 45, fat: 35, fibre: 3 },
+    "sparletta pine nut": { food: "Sparletta Pine Nut 330ml", calories: 180, protein: 0, carbs: 45, fat: 0, fibre: 0 },
+    "sparletta": { food: "Sparletta 330ml", calories: 180, protein: 0, carbs: 45, fat: 0, fibre: 0 },
+    "woolworths sushi 12 pack": { food: "Woolworths Sushi 12 Pack", calories: 500, protein: 20, carbs: 70, fat: 12, fibre: 4 },
+    "woolworths sushi": { food: "Woolworths Sushi 12 Pack", calories: 500, protein: 20, carbs: 70, fat: 12, fibre: 4 },
+    "simba chips original": { food: "Simba Chips Original (125g)", calories: 500, protein: 5, carbs: 60, fat: 28, fibre: 4 },
+    "simba chips": { food: "Simba Chips (125g)", calories: 500, protein: 5, carbs: 60, fat: 28, fibre: 4 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
