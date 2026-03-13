@@ -648,44 +648,55 @@ function getMacroTargets(user) {
   return { protein: proteinTarget, carbs: carbTarget, fat: fatTarget, fibre: fibreTarget };
 }
 
-// Calculate weight projection based on calorie adherence
+// Calculate weight projection assuming perfect calorie adherence
 function calculateWeightProjection(user) {
   if (!user.weights || user.weights.length === 0) return null;
-  if (!user.goal) return null;
+  if (!user.goal || !user.profile) return null;
   
   const startWeight = user.weights[0].kg;
   const startDate = new Date(user.weights[0].date || user.weights[0].time);
   const currentWeight = user.weights[user.weights.length - 1].kg;
   
-  // Calculate cumulative deficit/surplus from all logged days
-  let cumulativeDeficit = 0;
-  let daysLogged = 0;
+  // Calculate days since starting weight
+  const daysSinceStart = Math.floor((Date.now() - startDate.getTime()) / 86400000);
+  if (daysSinceStart < 1) return null;
   
-  const logs = user.log || {};
-  for (const [date, entries] of Object.entries(logs)) {
-    const logDate = new Date(date);
-    if (logDate >= startDate) {
-      const dailyTotal = entries.reduce((sum, e) => sum + (e.calories || 0), 0);
-      if (dailyTotal > 0) {
-        cumulativeDeficit += (user.goal - dailyTotal);
-        daysLogged++;
-      }
-    }
+  // Calculate TDEE (maintenance calories)
+  const { gender, weight, height, age, activity } = user.profile;
+  if (!gender || !weight || !height || !age || !activity) return null;
+  
+  let bmr;
+  if (gender === "male") {
+    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
   }
   
-  if (daysLogged === 0) return null;
+  const multipliers = {
+    sedentary: 1.2,
+    light: 1.375,
+    moderate: 1.55,
+    active: 1.725,
+    veryActive: 1.9
+  };
   
-  // Convert cumulative deficit to kg (7700 cal = 1kg)
-  const expectedWeightChange = cumulativeDeficit / 7700;
-  const projectedWeight = startWeight - expectedWeightChange;
-  const difference = currentWeight - projectedWeight;
+  const tdee = bmr * (multipliers[activity] || 1.2);
+  
+  // Daily deficit if they hit their goal every day
+  const dailyDeficit = tdee - user.goal;
+  
+  // Total deficit over all days
+  const totalDeficit = dailyDeficit * daysSinceStart;
+  
+  // Convert to kg (7700 cal = 1kg)
+  const expectedWeightLoss = totalDeficit / 7700;
+  const projectedWeight = startWeight - expectedWeightLoss;
   
   return {
     projected: Math.round(projectedWeight * 10) / 10,
     current: currentWeight,
-    difference: Math.round(difference * 10) / 10,
-    cumulativeDeficit: Math.round(cumulativeDeficit),
-    daysLogged,
+    expectedLoss: Math.round(expectedWeightLoss * 10) / 10,
+    daysSinceStart,
     startWeight
   };
 }
@@ -3288,22 +3299,14 @@ async function handleMessage(from, text, imageId) {
     const projection = calculateWeightProjection(user);
     
     if (!projection) {
-      await send(from, "Log your first weigh-in with *weight 75* and track a few days to see projections.");
+      await send(from, "Log your first weigh-in with *weight 75* to see projections.");
       return;
     }
-    
-    if (projection.daysLogged < 3) {
-      await send(from, `You've only logged ${projection.daysLogged} day${projection.daysLogged === 1 ? '' : 's'} of food. Log at least 3 days to see a meaningful projection.`);
-      return;
-    }
-    
-    const startWeight = projection.startWeight;
-    const projectedLoss = startWeight - projection.projected;
     
     let msg = `⚖️ *Weight Projection*\n\n`;
-    msg += `Based on ${projection.daysLogged} days of tracking:\n\n`;
-    msg += `If you'd stuck to *${user.goal} cal* every day, you would have lost *${projectedLoss.toFixed(1)} kg* by now.\n\n`;
-    msg += `Starting weight: *${startWeight} kg*\n`;
+    msg += `${projection.daysSinceStart} days since you started tracking.\n\n`;
+    msg += `If you'd hit *${user.goal} cal* every day, you would have lost *${projection.expectedLoss} kg* by now.\n\n`;
+    msg += `Starting weight: *${projection.startWeight} kg*\n`;
     msg += `You'd weigh: *${projection.projected} kg*`;
     
     await send(from, msg);
@@ -4496,16 +4499,14 @@ cron.schedule("0 9 * * 5", async () => {
     try {
       const projection = calculateWeightProjection(user);
       
-      // Need at least 3 days of tracking to show meaningful projection
-      if (!projection || projection.daysLogged < 3) continue;
+      // Need at least 7 days to show meaningful projection
+      if (!projection || projection.daysSinceStart < 7) continue;
       
       const name = user.name || "Brandon";
-      const startWeight = projection.startWeight;
-      const projectedLoss = startWeight - projection.projected;
       
       let msg = `Hey ${name} 👋\n\n`;
-      msg += `If you'd stuck to your calories, you would have lost *${projectedLoss.toFixed(1)} kg* by now.\n\n`;
-      msg += `Starting weight: *${startWeight} kg*\n`;
+      msg += `If you'd hit your calories every day, you would have lost *${projection.expectedLoss} kg* by now.\n\n`;
+      msg += `Starting weight: *${projection.startWeight} kg*\n`;
       msg += `You'd weigh: *${projection.projected} kg*`;
       
       await send(phone, msg);
