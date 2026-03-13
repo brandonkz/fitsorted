@@ -4411,34 +4411,8 @@ cron.schedule("30 6 * * *", async () => {
         yesterdayStr = `\n\n📊 *Yesterday's recap:*\n${foodList}\n\n🔢 *${yesterdayTotal} / ${user.goal} cal* - ${verdict}${macroStr}`;
       }
 
-      // Weight projection (show every 7 days)
-      let projectionStr = "";
-      if (user.weights && user.weights.length > 0) {
-        const startDate = new Date(user.weights[0].date || user.weights[0].time);
-        const daysSinceStart = Math.floor((Date.now() - startDate.getTime()) / 86400000);
-        
-        // Show projection every 7 days
-        if (daysSinceStart >= 7 && daysSinceStart % 7 === 0) {
-          const projection = calculateWeightProjection(user);
-          if (projection && projection.daysLogged >= 3) {
-            const diff = projection.difference;
-            projectionStr = `\n\n⚖️ *Weight check:*\n`;
-            projectionStr += `If you'd stuck to ${user.goal} cal every day, you'd weigh *${projection.projected} kg* now.\n`;
-            projectionStr += `Current: *${projection.current} kg*\n`;
-            
-            if (diff > 0.5) {
-              projectionStr += `You're ${Math.abs(diff)}kg behind. Time to tighten up 💪`;
-            } else if (diff < -0.5) {
-              projectionStr += `You're ${Math.abs(diff)}kg ahead of plan! 🔥`;
-            } else {
-              projectionStr += `Right on track 🎯`;
-            }
-          }
-        }
-      }
-
       const greeting = user.name ? `☀️ *Morning, ${user.name}!*` : `☀️ *Morning!*`;
-      await send(phone, `${greeting}${yesterdayStr}${projectionStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
+      await send(phone, `${greeting}${yesterdayStr}\n\nFresh day. ${user.goal} cal to ${targetMsg}.\n\nLog your breakfast when you're ready 👊`);
       users[phone].lastMorning = new Date().toISOString();
     } catch (err) {
       console.error(`Morning message failed for ${phone}:`, err.message);
@@ -4514,6 +4488,49 @@ cron.schedule("0 20 * * *", async () => {
       }
     } catch (err) {
       console.error(`Summary failed for ${phone}:`, err.message);
+    }
+  }
+}, { timezone: "Africa/Johannesburg" });
+
+// ── Friday 9 AM weight projection ──
+cron.schedule("0 9 * * 5", async () => {
+  if (cronAlreadyRan('friday-projection')) { console.log('[cron] Friday projection already sent, skipping'); return; }
+  markCronRan('friday-projection');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.goal) continue;
+    if (!user.weights || user.weights.length === 0) continue;
+    
+    try {
+      const projection = calculateWeightProjection(user);
+      
+      // Need at least 3 days of tracking to show meaningful projection
+      if (!projection || projection.daysLogged < 3) continue;
+      
+      const name = user.name || "Brandon";
+      const diff = projection.difference;
+      
+      let msg = `Hey ${name} 👋\n\n`;
+      
+      if (diff > 0.5) {
+        msg += `If you'd kept to your calories this week, you'd weigh *${projection.projected} kg* right now.\n\n`;
+        msg += `You're at *${projection.current} kg* - about ${Math.abs(diff)}kg behind where you could be.\n\n`;
+        msg += `Tighten up next week and you'll catch up fast 💪`;
+      } else if (diff < -0.5) {
+        msg += `If you'd kept to your calories this week, you'd weigh *${projection.projected} kg* right now.\n\n`;
+        msg += `You're at *${projection.current} kg* - you're ${Math.abs(diff)}kg ahead of plan! 🔥\n\n`;
+        msg += `Crushing it. Keep going 🎯`;
+      } else {
+        msg += `Perfect week. You're right on track with your calorie goal.\n\n`;
+        msg += `Current weight: *${projection.current} kg*\n`;
+        msg += `Projected: *${projection.projected} kg*\n\n`;
+        msg += `That's exactly where you should be 🎯`;
+      }
+      
+      await send(phone, msg);
+    } catch (err) {
+      console.error(`Friday projection failed for ${phone}:`, err.message);
     }
   }
 }, { timezone: "Africa/Johannesburg" });
