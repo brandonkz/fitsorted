@@ -1,0 +1,108 @@
+{
+  "date": "Saturday, 14 March 2026",
+  "weather": "Cape Town 25°C ⛅ | Johannesburg 22°C ⛅ | Durban 28°C ☀️",
+  "rand": "R16.87/$",
+  "loadshedding": "Status unknown",
+  "stories": [
+    {
+      "title": "News24 | JSE hits a 10% correction as Iran war hurts emerging markets",
+      "link": "https://www.news24.com/business/markets/equities/jse-hits-a-10-correction-as-iran-war-hurts-emerging-markets-20260314-0466",
+      "description": "",
+      "pubDate": "Saturday Mar 14 2026 09:13:44",
+      "source": "News24",
+      "emoji": "🔴",
+      "summary": "The JSE has dropped 10% as the ongoing war in Iran is shaking up emerging markets. This downturn could have a ripple effect on South Africa's economy, impacting investments and job security.",
+      "slug": "jse-10-percent-correction"
+    },
+    {
+      "title": "News24 | WATCH | SANDF continues Gauteng crackdown for third day, targeting illegal mining",
+      "link": "https://www.news24.com/southafrica/crime-and-courts/sandf-continues-gauteng-crackdown-for-third-day-targeting-illegal-mining-20260313-0677",
+      "description": "",
+      "pubDate": "Friday Mar 13 2026 14:51:22",
+      "source": "News24",
+      "emoji": "🔒",
+      "summary": "The SANDF is ramping up its crackdown on illegal mining in Gauteng, continuing operations for a third day. This move aims to tackle the crime and chaos associated with illegal mining activities.",
+      "slug": "sandf-crackdown-illegal-mining"
+    },
+    {
+      "title": "Kgosientsho Ramokgopa under fire",
+      "link": "https://mybroadband.co.za/news/energy/633277-kgosientsho-ramokgopa-under-fire.html",
+      "description": "The Department of Electricity and Energy says that South Africa is waiting on its latest power strategy due to disagreements with Spain.",
+      "pubDate": "Sat, 14 Mar 2026 06:00:54 +0000",
+      "source": "MyBroadband",
+      "emoji": "⚡",
+      "summary": "Kgosientsho Ramokgopa is facing criticism as South Africa awaits a new power strategy amid ongoing energy issues. The delays are raising concerns about potential power shortages and rising costs.",
+      "slug": "power-strategy-delays"
+    },
+    {
+      "title": "SA Post Office on the verge of collapse",
+      "link": "https://mybroadband.co.za/news/government/633374-post-office-on-the-verge-of-collapse.html",
+      "description": "The South African Post Office's business rescue practitioners (BRPs) intend to liquidate the state-owned company.",
+      "pubDate": "Fri, 13 Mar 2026 15:11:38 +0000",
+      "source": "MyBroadband",
+      "emoji": "🔒",
+      "summary": "The South African Post Office is on the brink of collapse, with plans for liquidation underway. This could affect postal services and jobs across the country.",
+      "slug": "post-office-collapse"
+    },
+    {
+      "title": "ELECTRICITY CRISIS: Nelson Mandela Bay councillors walk out of critical electricity meeting amid widespread blackouts",
+      "link": "https://www.dailymaverick.co.za/article/nelson-mandela-bay-councillors-walk-out-of-critical-electricity-meeting-amid-widespread-blackouts",
+      "description": "Nelson Mandela Bay’s electricity committee collapsed after ANC councillors walked out when the department head left, amid ongoing citywide power outages.",
+      "pubDate": "Fri, 13 Mar 2026 16:05:13 GMT",
+      "source": "Daily Maverick",
+      "emoji": "⚡",
+      "summary": "In Nelson Mandela Bay, councillors walked out of a crucial electricity meeting due to ongoing blackouts. This highlights the city's struggle with power supply issues and political tensions.",
+      "slug": "nelson-mandela-bay-blackouts"
+    },
+    {
+      "title": "One government decision that could end in disaster for South Africa",
+      "link": "https://businesstech.co.za/news/energy/853705/one-government-decision-that-could-end-in-disaster-for-south-africa/",
+      "description": "An energy economist warned that years of government inaction have left the country dangerously exposed to rising prices and potential shortages.",
+      "pubDate": "Sat, 14 Mar 2026 05:00:00 +0000",
+      "source": "BusinessTech",
+      "emoji": "💰",
+      "summary": "An energy economist warns that South Africa's years of inaction could lead to a disaster with rising energy prices and shortages. This situation is critical for households and businesses alike.",
+      "slug": "energy-disaster-warning"
+    },
+    {
+      "title": "News24 | Ukraine finds new role as protector of US, Gulf allies amid Iran war",
+      "link": "https://www.news24.com/world/ukraine-finds-new-role-as-protector-of-us-gulf-allies-amid-iran-war-20260313-1150",
+      "description": "",
+      "pubDate": "Friday Mar 13 2026 19:10:24",
+      "source": "News24",
+      "emoji": "🌍",
+      "summary": "The conflict in Ukraine is evolving as the country positions itself as a protector for the US and Gulf allies amid the Iran war. This shift could have significant geopolitical implications.",
+      "slug": "ukraine-protector-role"
+    },
+    {
+      "title": "100 countries South Africans can travel to visa-free",
+      "link": "https://businesstech.co.za/news/lifestyle/850377/100-countries-south-africans-can-travel-to-visa-free/",
+      "description": "South African passport holders can now visit 100 countries without a visa, down from 101 in January, ranking the South African passport 47th globally.",
+      "pubDate": "Sat, 14 Mar 2026 11:00:00 +0000",
+      "source": "BusinessTech",
+      "emoji": "🌍",
+      "summary": "South African passport holders can now visit 100 countries without a visa, though this is a slight decline from earlier this year. This news is a mixed bag for travelers looking for hassle-free trips.",
+      "slug": "visa-free-countries"
+    },
+    {
+      "title": "Netflix show made in South Africa hits number 1 worldwide — renewed for another season",
+      "link": "https://mybroadband.co.za/news/broadcasting/633225-netflix-show-made-in-south-africa-hits-number-1-worldwide-renewed-for-another-season.html",
+      "description": "The second season of the live-action One Piece series has proven popular among Netflix audiences globally.",
+      "pubDate": "Sat, 14 Mar 2026 08:00:47 +0000",
+      "source": "MyBroadband",
+      "emoji": "🎭",
+      "summary": "A South African Netflix show has hit number one worldwide and has been renewed for another season. This success showcases the growing influence of South African content on global platforms.",
+      "slug": "south-africa-netflix-success"
+    },
+    {
+      "title": "News24 | High-profile wildlife trafficker arrested in staged rhino horn theft case",
+      "link": "https://www.news24.com/southafrica/crime-and-courts/high-profile-wildlife-trafficker-arrested-in-staged-rhino-horn-theft-case-20260313-0892",
+      "description": "",
+      "pubDate": "Friday Mar 13 2026 14:53:47",
+      "source": "News24",
+      "emoji": "🔒",
+      "summary": "A high-profile wildlife trafficker has been arrested in a staged rhino horn theft case, highlighting the ongoing battle against wildlife crime in South Africa. This arrest could deter future illegal activities.",
+      "slug": "wildlife-trafficker-arrest"
+    }
+  ]
+}
