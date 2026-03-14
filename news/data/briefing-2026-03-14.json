@@ -10,39 +10,9 @@
       "description": "",
       "pubDate": "Saturday Mar 14 2026 09:13:44",
       "source": "News24",
-      "emoji": "🔴",
-      "summary": "The JSE has dropped 10% as the ongoing war in Iran is shaking up emerging markets. This downturn could have a ripple effect on South Africa's economy, impacting investments and job security.",
-      "slug": "jse-10-percent-correction"
-    },
-    {
-      "title": "News24 | WATCH | SANDF continues Gauteng crackdown for third day, targeting illegal mining",
-      "link": "https://www.news24.com/southafrica/crime-and-courts/sandf-continues-gauteng-crackdown-for-third-day-targeting-illegal-mining-20260313-0677",
-      "description": "",
-      "pubDate": "Friday Mar 13 2026 14:51:22",
-      "source": "News24",
-      "emoji": "🔒",
-      "summary": "The SANDF is ramping up its crackdown on illegal mining in Gauteng, continuing operations for a third day. This move aims to tackle the crime and chaos associated with illegal mining activities.",
-      "slug": "sandf-crackdown-illegal-mining"
-    },
-    {
-      "title": "Kgosientsho Ramokgopa under fire",
-      "link": "https://mybroadband.co.za/news/energy/633277-kgosientsho-ramokgopa-under-fire.html",
-      "description": "The Department of Electricity and Energy says that South Africa is waiting on its latest power strategy due to disagreements with Spain.",
-      "pubDate": "Sat, 14 Mar 2026 06:00:54 +0000",
-      "source": "MyBroadband",
-      "emoji": "⚡",
-      "summary": "Kgosientsho Ramokgopa is facing criticism as South Africa awaits a new power strategy amid ongoing energy issues. The delays are raising concerns about potential power shortages and rising costs.",
-      "slug": "power-strategy-delays"
-    },
-    {
-      "title": "SA Post Office on the verge of collapse",
-      "link": "https://mybroadband.co.za/news/government/633374-post-office-on-the-verge-of-collapse.html",
-      "description": "The South African Post Office's business rescue practitioners (BRPs) intend to liquidate the state-owned company.",
-      "pubDate": "Fri, 13 Mar 2026 15:11:38 +0000",
-      "source": "MyBroadband",
-      "emoji": "🔒",
-      "summary": "The South African Post Office is on the brink of collapse, with plans for liquidation underway. This could affect postal services and jobs across the country.",
-      "slug": "post-office-collapse"
+      "emoji": "💰",
+      "summary": "The JSE has taken a hit, dropping 10% as the ongoing war in Iran shakes up emerging markets. This downturn could have serious implications for South Africa's economy and investments.",
+      "slug": "jse-correction-iran-war"
     },
     {
       "title": "ELECTRICITY CRISIS: Nelson Mandela Bay councillors walk out of critical electricity meeting amid widespread blackouts",
@@ -51,7 +21,7 @@
       "pubDate": "Fri, 13 Mar 2026 16:05:13 GMT",
       "source": "Daily Maverick",
       "emoji": "⚡",
-      "summary": "In Nelson Mandela Bay, councillors walked out of a crucial electricity meeting due to ongoing blackouts. This highlights the city's struggle with power supply issues and political tensions.",
+      "summary": "In Nelson Mandela Bay, a critical electricity meeting fell apart when ANC councillors walked out amid ongoing blackouts. This highlights the ongoing electricity crisis affecting many South Africans.",
       "slug": "nelson-mandela-bay-blackouts"
     },
     {
@@ -60,29 +30,69 @@
       "description": "An energy economist warned that years of government inaction have left the country dangerously exposed to rising prices and potential shortages.",
       "pubDate": "Sat, 14 Mar 2026 05:00:00 +0000",
       "source": "BusinessTech",
-      "emoji": "💰",
-      "summary": "An energy economist warns that South Africa's years of inaction could lead to a disaster with rising energy prices and shortages. This situation is critical for households and businesses alike.",
-      "slug": "energy-disaster-warning"
+      "emoji": "⚡",
+      "summary": "An energy economist warns that South Africa's government inaction could lead to rising energy prices and shortages. This is a serious concern for all South Africans as loadshedding continues to disrupt daily life.",
+      "slug": "energy-crisis-warning"
     },
     {
-      "title": "News24 | Ukraine finds new role as protector of US, Gulf allies amid Iran war",
-      "link": "https://www.news24.com/world/ukraine-finds-new-role-as-protector-of-us-gulf-allies-amid-iran-war-20260313-1150",
+      "title": "News24 | WATCH | SANDF continues Gauteng crackdown for third day, targeting illegal mining",
+      "link": "https://www.news24.com/southafrica/crime-and-courts/sandf-continues-gauteng-crackdown-for-third-day-targeting-illegal-mining-20260313-0677",
       "description": "",
-      "pubDate": "Friday Mar 13 2026 19:10:24",
+      "pubDate": "Friday Mar 13 2026 14:51:22",
       "source": "News24",
-      "emoji": "🌍",
-      "summary": "The conflict in Ukraine is evolving as the country positions itself as a protector for the US and Gulf allies amid the Iran war. This shift could have significant geopolitical implications.",
-      "slug": "ukraine-protector-role"
+      "emoji": "🔒",
+      "summary": "The SANDF is cracking down on illegal mining in Gauteng, continuing their operations for the third day. This ongoing effort aims to tackle crime and illegal activities that affect many communities.",
+      "slug": "sandag-crackdown-illegal-mining"
     },
     {
-      "title": "100 countries South Africans can travel to visa-free",
-      "link": "https://businesstech.co.za/news/lifestyle/850377/100-countries-south-africans-can-travel-to-visa-free/",
-      "description": "South African passport holders can now visit 100 countries without a visa, down from 101 in January, ranking the South African passport 47th globally.",
-      "pubDate": "Sat, 14 Mar 2026 11:00:00 +0000",
+      "title": "SA Post Office on the verge of collapse",
+      "link": "https://mybroadband.co.za/news/government/633374-post-office-on-the-verge-of-collapse.html",
+      "description": "The South African Post Office's business rescue practitioners (BRPs) intend to liquidate the state-owned company.",
+      "pubDate": "Fri, 13 Mar 2026 15:11:38 +0000",
+      "source": "MyBroadband",
+      "emoji": "🔒",
+      "summary": "The South African Post Office is on the verge of collapse, with plans for liquidation underway. This could impact postal services for millions of South Africans who rely on them.",
+      "slug": "post-office-collapse"
+    },
+    {
+      "title": "South Africa literally collapsing in front of everyone&#8217;s eyes",
+      "link": "https://businesstech.co.za/news/business-opinion/853365/south-africa-literally-collapsing-in-plain-sight/",
+      "description": "Incidents of collapse are increasing across South Africa and points to serious failures in the regulated construction industry.",
+      "pubDate": "Sat, 14 Mar 2026 12:00:00 +0000",
       "source": "BusinessTech",
-      "emoji": "🌍",
-      "summary": "South African passport holders can now visit 100 countries without a visa, though this is a slight decline from earlier this year. This news is a mixed bag for travelers looking for hassle-free trips.",
-      "slug": "visa-free-countries"
+      "emoji": "🔒",
+      "summary": "Reports indicate that incidents of collapse are increasing across South Africa, pointing to failures in the construction industry. This raises concerns about safety and infrastructure for all citizens.",
+      "slug": "construction-collapse-issues"
+    },
+    {
+      "title": "News24 | The Courier Guy, DHL add surcharge to air parcels as Iran war triggers fuel hikes",
+      "link": "https://www.news24.com/business/economy/the-courier-guy-adds-surcharge-to-air-parcels-as-iran-war-triggers-fuel-hikes-20260313-0793",
+      "description": "",
+      "pubDate": "Saturday Mar 14 2026 09:15:53",
+      "source": "News24",
+      "emoji": "💰",
+      "summary": "Fuel hikes due to the Iran war are prompting courier companies like The Courier Guy and DHL to add surcharges to air parcels. This could affect online shopping and delivery costs for many South Africans.",
+      "slug": "fuel-hikes-courier-surcharges"
+    },
+    {
+      "title": "HEALTH INEQUITY: Red Cross Children’s Hospital doctor using donated ‘miracle’ cystic fibrosis drug to save lives",
+      "link": "https://www.dailymaverick.co.za/article/red-cross-childrens-hospital-doctor-using-donated-miracle-cystic-fibrosis-drug-to-save-lives",
+      "description": "Trikafta, a ‘miracle’ cystic fibrosis drug, has the potential to radically improve lung function and life expectancy for patients living with the condition. However, it remains inaccessible for patients in South Africa’s public health system, pushing doctors like paediatric pulmonologist Marco Zampo",
+      "pubDate": "Fri, 13 Mar 2026 12:31:15 GMT",
+      "source": "Daily Maverick",
+      "emoji": "🏥",
+      "summary": "A doctor at Red Cross Children’s Hospital is using a new cystic fibrosis drug that could significantly improve patients' lives. This breakthrough offers hope to families affected by this condition.",
+      "slug": "cystic-fibrosis-drug-breakthrough"
+    },
+    {
+      "title": "Kgosientsho Ramokgopa under fire",
+      "link": "https://mybroadband.co.za/news/energy/633277-kgosientsho-ramokgopa-under-fire.html",
+      "description": "The Department of Electricity and Energy says that South Africa is waiting on its latest power strategy due to disagreements with Spain.",
+      "pubDate": "Sat, 14 Mar 2026 06:00:54 +0000",
+      "source": "MyBroadband",
+      "emoji": "⚡",
+      "summary": "Kgosientsho Ramokgopa is under fire as South Africa awaits a new power strategy amid ongoing energy challenges. This situation is crucial as the country grapples with frequent loadshedding.",
+      "slug": "power-strategy-delays"
     },
     {
       "title": "Netflix show made in South Africa hits number 1 worldwide — renewed for another season",
@@ -91,18 +101,8 @@
       "pubDate": "Sat, 14 Mar 2026 08:00:47 +0000",
       "source": "MyBroadband",
       "emoji": "🎭",
-      "summary": "A South African Netflix show has hit number one worldwide and has been renewed for another season. This success showcases the growing influence of South African content on global platforms.",
-      "slug": "south-africa-netflix-success"
-    },
-    {
-      "title": "News24 | High-profile wildlife trafficker arrested in staged rhino horn theft case",
-      "link": "https://www.news24.com/southafrica/crime-and-courts/high-profile-wildlife-trafficker-arrested-in-staged-rhino-horn-theft-case-20260313-0892",
-      "description": "",
-      "pubDate": "Friday Mar 13 2026 14:53:47",
-      "source": "News24",
-      "emoji": "🔒",
-      "summary": "A high-profile wildlife trafficker has been arrested in a staged rhino horn theft case, highlighting the ongoing battle against wildlife crime in South Africa. This arrest could deter future illegal activities.",
-      "slug": "wildlife-trafficker-arrest"
+      "summary": "A South African Netflix show has hit number one worldwide and is set for another season. This success highlights the growing influence of local content on global platforms.",
+      "slug": "south-africa-netflix-show-success"
     }
   ]
 }
