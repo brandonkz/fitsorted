@@ -1,0 +1,173 @@
+{"food":"white monster","min":0,"max":15,"calories":230,"status":"FAIL"}
+{"food":"monster zero","min":0,"max":15,"calories":0,"status":"PASS"}
+{"food":"coke zero","min":0,"max":5,"calories":0,"status":"PASS"}
+{"food":"diet coke","min":0,"max":5,"calories":0,"status":"PASS"}
+{"food":"red bull zero","min":0,"max":10,"calories":0,"status":"PASS"}
+{"food":"pepsi max","min":0,"max":5,"calories":0,"status":"PASS"}
+{"food":"sprite zero","min":0,"max":5,"calories":0,"status":"PASS"}
+{"food":"monster energy","min":200,"max":260,"calories":230,"status":"PASS"}
+{"food":"red bull","min":100,"max":130,"calories":112,"status":"PASS"}
+{"food":"coke","min":120,"max":180,"calories":139,"status":"PASS"}
+{"food":"biltong 50g","min":100,"max":160,"calories":125,"status":"PASS"}
+{"food":"droewors 50g","min":120,"max":180,"calories":150,"status":"PASS"}
+{"food":"boerewors roll","min":350,"max":500,"calories":500,"status":"PASS"}
+{"food":"bunny chow quarter","min":500,"max":800,"calories":650,"status":"PASS"}
+{"food":"pap and vleis","min":400,"max":700,"calories":800,"status":"FAIL"}
+{"food":"chicken and rice","min":350,"max":600,"calories":-1,"status":"ERROR"}
+{"food":"1 slice of cheese","min":40,"max":80,"calories":60,"status":"PASS"}
+{"food":"1 egg","min":60,"max":85,"calories":70,"status":"PASS"}
+{"food":"1 banana","min":80,"max":120,"calories":105,"status":"PASS"}
+{"food":"tablespoon peanut butter","min":80,"max":110,"calories":95,"status":"PASS"}
+{"food":"handful of almonds","min":130,"max":200,"calories":160,"status":"PASS"}
+{"food":"3 eggs","min":180,"max":250,"calories":210,"status":"PASS"}
+{"food":"glass of wine","min":100,"max":150,"calories":125,"status":"PASS"}
+{"food":"bottle of wine","min":450,"max":650,"calories":625,"status":"PASS"}
+{"food":"double vodka","min":120,"max":170,"calories":140,"status":"PASS"}
+{"food":"beer","min":130,"max":200,"calories":155,"status":"PASS"}
+{"food":"craft beer","min":170,"max":250,"calories":180,"status":"PASS"}
+{"food":"water","min":0,"max":0,"calories":0,"status":"PASS"}
+{"food":"black coffee","min":0,"max":10,"calories":2,"status":"PASS"}
+{"food":"americano","min":0,"max":15,"calories":0,"status":"PASS"}
+{"food":"gatsby steak","min":900,"max":1200,"calories":800,"status":"FAIL"}
+{"food":"amagwinya","min":250,"max":400,"calories":250,"status":"PASS"}
+{"food":"fat cake","min":250,"max":400,"calories":200,"status":"FAIL"}
+{"food":"pap and wors","min":500,"max":750,"calories":800,"status":"FAIL"}
+{"food":"chakalaka and pap","min":250,"max":400,"calories":400,"status":"PASS"}
+{"food":"savanna light","min":80,"max":120,"calories":130,"status":"FAIL"}
+{"food":"corona","min":120,"max":180,"calories":155,"status":"PASS"}
+{"food":"cup of milo","min":150,"max":250,"calories":120,"status":"FAIL"}
+{"food":"koeksister","min":200,"max":300,"calories":200,"status":"PASS"}
+{"food":"rusks","min":120,"max":160,"calories":100,"status":"FAIL"}
+{"food":"samp and beans","min":250,"max":400,"calories":200,"status":"FAIL"}
+{"food":"castle lager","min":130,"max":180,"calories":155,"status":"PASS"}
+{"food":"black label","min":150,"max":200,"calories":155,"status":"PASS"}
+{"food":"windhoek","min":140,"max":185,"calories":155,"status":"PASS"}
+{"food":"savanna","min":140,"max":200,"calories":170,"status":"PASS"}
+{"food":"whisky neat","min":55,"max":90,"calories":110,"status":"FAIL"}
+{"food":"steers wacky wednesday","min":550,"max":750,"calories":500,"status":"FAIL"}
+{"food":"kfc zinger","min":400,"max":600,"calories":500,"status":"PASS"}
+{"food":"woolworths chicken wrap","min":300,"max":450,"calories":400,"status":"PASS"}
+{"food":"nandos quarter chicken","min":550,"max":750,"calories":400,"status":"FAIL"}
+{"food":"tex bar","min":220,"max":300,"calories":120,"status":"FAIL"}
+{"food":"lunch bar","min":220,"max":300,"calories":120,"status":"FAIL"}
+{"food":"future life cereal","min":200,"max":300,"calories":-1,"status":"ERROR"}
+{"food":"jungle oats","min":250,"max":380,"calories":150,"status":"FAIL"}
+{"food":"vodka lime soda","min":70,"max":120,"calories":200,"status":"FAIL"}
+{"food":"kfc bucket 8 piece","min":1600,"max":2400,"calories":3200,"status":"FAIL"}
+{"food":"umfino","min":100,"max":200,"calories":-1,"status":"ERROR"}
+{"food":"amadumbe","min":150,"max":250,"calories":130,"status":"FAIL"}
+{"food":"uphuthu","min":200,"max":350,"calories":200,"status":"PASS"}
+{"food":"simba chipniks","min":350,"max":550,"calories":120,"status":"FAIL"}
+{"food":"nik naks","min":350,"max":550,"calories":250,"status":"FAIL"}
+{"food":"ghost pops","min":300,"max":500,"calories":-1,"status":"ERROR"}
+{"food":"appletiser","min":80,"max":160,"calories":140,"status":"PASS"}
+{"food":"nandos espetada","min":400,"max":600,"calories":600,"status":"PASS"}
+{"food":"boerekos","min":500,"max":800,"calories":-1,"status":"ERROR"}
+{"food":"vienna and bread","min":250,"max":400,"calories":150,"status":"FAIL"}
+{"food":"checkers rotisserie chicken","min":800,"max":1400,"calories":400,"status":"FAIL"}
+{"food":"mass gainer scoop","min":300,"max":500,"calories":-1,"status":"ERROR"}
+{"food":"pre workout","min":0,"max":20,"calories":-1,"status":"ERROR"}
+{"food":"yogi sip","min":100,"max":200,"calories":100,"status":"PASS"}
+{"food":"ice cream scoop","min":100,"max":200,"calories":150,"status":"PASS"}
+{"food":"cappuccino large","min":150,"max":250,"calories":120,"status":"FAIL"}
+{"food":"melkkos","min":200,"max":350,"calories":300,"status":"PASS"}
+{"food":"skilpadjies","min":200,"max":350,"calories":300,"status":"PASS"}
+{"food":"frikkadel","min":150,"max":280,"calories":200,"status":"PASS"}
+{"food":"sosatie","min":250,"max":400,"calories":250,"status":"PASS"}
+{"food":"bredie","min":350,"max":550,"calories":-1,"status":"ERROR"}
+{"food":"polony sandwich","min":250,"max":400,"calories":300,"status":"PASS"}
+{"food":"whey protein scoop","min":100,"max":150,"calories":120,"status":"PASS"}
+{"food":"eggs on toast","min":250,"max":400,"calories":320,"status":"PASS"}
+{"food":"cheese toastie","min":250,"max":400,"calories":300,"status":"PASS"}
+{"food":"2 minute noodles","min":300,"max":450,"calories":400,"status":"PASS"}
+{"food":"glass of milk","min":100,"max":170,"calories":150,"status":"PASS"}
+{"food":"chocolate milk","min":180,"max":280,"calories":150,"status":"FAIL"}
+{"food":"chocolate cake slice","min":300,"max":500,"calories":350,"status":"PASS"}
+{"food":"pancake with syrup","min":200,"max":400,"calories":200,"status":"PASS"}
+{"food":"milkshake","min":350,"max":600,"calories":300,"status":"FAIL"}
+{"food":"orange juice","min":80,"max":150,"calories":110,"status":"PASS"}
+{"food":"apple juice","min":80,"max":150,"calories":110,"status":"PASS"}
+{"food":"gin and tonic","min":100,"max":170,"calories":150,"status":"PASS"}
+{"food":"vodka soda","min":60,"max":110,"calories":100,"status":"PASS"}
+{"food":"pina colada","min":300,"max":550,"calories":500,"status":"PASS"}
+{"food":"big mac","min":450,"max":600,"calories":550,"status":"PASS"}
+{"food":"debonairs medium pizza","min":1200,"max":2000,"calories":2000,"status":"PASS"}
+{"food":"fish and chips","min":600,"max":900,"calories":800,"status":"PASS"}
+{"food":"bacon and eggs","min":300,"max":450,"calories":140,"status":"FAIL"}
+{"food":"full english breakfast","min":700,"max":1100,"calories":800,"status":"PASS"}
+{"food":"chicken stirfry","min":350,"max":550,"calories":-1,"status":"ERROR"}
+{"food":"pasta bolognese","min":450,"max":650,"calories":600,"status":"PASS"}
+{"food":"steak and chips","min":600,"max":850,"calories":700,"status":"PASS"}
+{"food":"bobotie and rice","min":500,"max":750,"calories":600,"status":"PASS"}
+{"food":"lamb chop","min":180,"max":300,"calories":250,"status":"PASS"}
+{"food":"t-bone steak","min":500,"max":800,"calories":500,"status":"PASS"}
+{"food":"chicken breast 200g","min":250,"max":340,"calories":330,"status":"PASS"}
+{"food":"protein shake","min":100,"max":200,"calories":200,"status":"PASS"}
+{"food":"protein bar","min":180,"max":250,"calories":200,"status":"PASS"}
+{"food":"avocado toast","min":300,"max":500,"calories":320,"status":"PASS"}
+{"food":"caesar salad","min":350,"max":600,"calories":300,"status":"FAIL"}
+{"food":"spur milkshake","min":400,"max":650,"calories":500,"status":"PASS"}
+{"food":"wimpy breakfast","min":600,"max":1000,"calories":-1,"status":"ERROR"}
+{"food":"flat white","min":80,"max":160,"calories":120,"status":"PASS"}
+{"food":"cappuccino","min":80,"max":160,"calories":120,"status":"PASS"}
+{"food":"chai latte","min":150,"max":250,"calories":120,"status":"FAIL"}
+{"food":"droewors 100g","min":240,"max":360,"calories":300,"status":"PASS"}
+{"food":"woolworths chicken pie","min":350,"max":550,"calories":400,"status":"PASS"}
+{"food":"steers rib burger","min":500,"max":750,"calories":500,"status":"PASS"}
+{"food":"pick n pay baguette","min":250,"max":400,"calories":250,"status":"PASS"}
+{"food":"rooibos tea with milk","min":30,"max":70,"calories":30,"status":"PASS"}
+{"food":"biltong and cheese platter","min":400,"max":650,"calories":185,"status":"FAIL"}
+{"food":"ocean basket calamari","min":400,"max":650,"calories":300,"status":"FAIL"}
+{"food":"nandos peri peri chips","min":250,"max":400,"calories":310,"status":"PASS"}
+{"food":"kauai smoothie bowl","min":350,"max":550,"calories":300,"status":"FAIL"}
+{"food":"mugg and bean toasted sandwich","min":400,"max":650,"calories":400,"status":"PASS"}
+{"food":"vida e caffe latte","min":150,"max":250,"calories":120,"status":"FAIL"}
+{"food":"pronutro with milk","min":250,"max":400,"calories":300,"status":"PASS"}
+{"food":"2 slices toast with butter","min":200,"max":340,"calories":200,"status":"PASS"}
+{"food":"mcflurry","min":350,"max":550,"calories":300,"status":"FAIL"}
+{"food":"roman's pizza slice","min":250,"max":400,"calories":250,"status":"PASS"}
+{"food":"boerewors 100g","min":250,"max":350,"calories":300,"status":"PASS"}
+{"food":"provita with cottage cheese","min":80,"max":160,"calories":150,"status":"PASS"}
+{"food":"oros cordial glass","min":40,"max":100,"calories":100,"status":"PASS"}
+{"food":"sasko bread 2 slices","min":120,"max":200,"calories":160,"status":"PASS"}
+{"food":"spur ribs half rack","min":500,"max":800,"calories":600,"status":"PASS"}
+{"food":"biltong 100g","min":200,"max":320,"calories":250,"status":"PASS"}
+{"food":"gatsby chicken","min":800,"max":1200,"calories":800,"status":"PASS"}
+{"food":"spur cheese burger","min":550,"max":800,"calories":800,"status":"PASS"}
+{"food":"wimpy toasted sandwich","min":350,"max":550,"calories":400,"status":"PASS"}
+{"food":"checkers chicken strips","min":300,"max":500,"calories":-1,"status":"ERROR"}
+{"food":"woolworths mac and cheese","min":350,"max":550,"calories":350,"status":"PASS"}
+{"food":"pnp cream soda 2l","min":600,"max":900,"calories":840,"status":"PASS"}
+{"food":"stoney ginger beer","min":150,"max":240,"calories":230,"status":"PASS"}
+{"food":"iron brew","min":150,"max":230,"calories":210,"status":"PASS"}
+{"food":"sparletta pine nut","min":150,"max":230,"calories":0,"status":"FAIL"}
+{"food":"pie from garage","min":350,"max":550,"calories":400,"status":"PASS"}
+{"food":"nandos full chicken","min":1800,"max":2600,"calories":2000,"status":"PASS"}
+{"food":"chicken licken hotwings 6","min":500,"max":750,"calories":720,"status":"PASS"}
+{"food":"fishaways hake and chips","min":500,"max":800,"calories":800,"status":"PASS"}
+{"food":"ocean basket prawns","min":350,"max":550,"calories":-1,"status":"ERROR"}
+{"food":"vida e caffe croissant","min":250,"max":400,"calories":300,"status":"PASS"}
+{"food":"woolworths sushi 12 pack","min":400,"max":650,"calories":480,"status":"PASS"}
+{"food":"spur ribs full rack","min":900,"max":1400,"calories":1200,"status":"PASS"}
+{"food":"two slices polony on bread","min":200,"max":380,"calories":320,"status":"PASS"}
+{"food":"simba chips original","min":400,"max":600,"calories":210,"status":"FAIL"}
+{"food":"chicken licken big john","min":550,"max":750,"calories":800,"status":"FAIL"}
+{"food":"spur wings 6","min":450,"max":650,"calories":900,"status":"FAIL"}
+{"food":"steers king steer","min":650,"max":900,"calories":800,"status":"PASS"}
+{"food":"mcdonalds mcchicken","min":350,"max":500,"calories":400,"status":"PASS"}
+{"food":"beacon flings","min":350,"max":520,"calories":-1,"status":"ERROR"}
+{"food":"lays salt and vinegar","min":400,"max":580,"calories":270,"status":"FAIL"}
+{"food":"bar one","min":220,"max":300,"calories":240,"status":"PASS"}
+{"food":"astros","min":180,"max":260,"calories":0,"status":"FAIL"}
+{"food":"ps chocolate slab","min":450,"max":650,"calories":540,"status":"PASS"}
+{"food":"brutal fruit","min":150,"max":220,"calories":170,"status":"PASS"}
+{"food":"smirnoff spin","min":150,"max":230,"calories":155,"status":"PASS"}
+{"food":"schweppes granadilla twist","min":120,"max":200,"calories":200,"status":"PASS"}
+{"food":"liqui fruit orange","min":150,"max":230,"calories":440,"status":"FAIL"}
+{"food":"tropika dairy blend","min":150,"max":250,"calories":220,"status":"PASS"}
+{"food":"potjiekos","min":450,"max":700,"calories":-1,"status":"ERROR"}
+{"food":"vetkoek with mince","min":400,"max":600,"calories":500,"status":"PASS"}
+{"food":"breyani","min":500,"max":750,"calories":600,"status":"PASS"}
+{"food":"bunny chow half","min":900,"max":1400,"calories":325,"status":"FAIL"}
+{"food":"bobotie","min":350,"max":550,"calories":400,"status":"PASS"}
+{"food":"chicken breast 150g","min":180,"max":270,"calories":248,"status":"PASS"}

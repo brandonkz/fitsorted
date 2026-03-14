@@ -809,14 +809,17 @@ async function estimateCaloriesBurned(activity) {
 
 // ── Calorie lookup from Supabase SA Foods database (414 items) ──
 async function lookupSAFood(food) {
+  if (!food) return null;
   const lower = food.toLowerCase();
 
   try {
     // Query Supabase for matching foods
+    // Sanitize input: commas break .or() queries, remove special chars
+    const sanitized = lower.replace(/[,(){}%]/g, ' ').replace(/\s+/g, ' ').trim();
     const { data, error } = await supabase
       .from('foods')
       .select('*')
-      .or(`name.ilike.%${lower}%,name_alt.cs.{${lower}}`);
+      .or(`name.ilike.%${sanitized}%,name_alt.cs.{${sanitized}}`);
 
     if (error) {
       console.error('Supabase lookup error:', error.message);
@@ -1120,6 +1123,26 @@ async function estimateCalories(food, user) {
     "woolworths sushi": { food: "Woolworths Sushi 12 Pack", calories: 500, protein: 20, carbs: 70, fat: 12, fibre: 4 },
     "simba chips original": { food: "Simba Chips Original (125g)", calories: 500, protein: 5, carbs: 60, fat: 28, fibre: 4 },
     "simba chips": { food: "Simba Chips (125g)", calories: 500, protein: 5, carbs: 60, fat: 28, fibre: 4 },
+    // Round 9 - nightly edge case test 2026-03-15
+    "chicken licken big john": { food: "Chicken Licken Big John Burger", calories: 650, protein: 30, carbs: 50, fat: 35, fibre: 3 },
+    "big john": { food: "Chicken Licken Big John Burger", calories: 650, protein: 30, carbs: 50, fat: 35, fibre: 3 },
+    "spur wings 6": { food: "Spur Chicken Wings (6)", calories: 540, protein: 36, carbs: 15, fat: 38, fibre: 1 },
+    "spur wings": { food: "Spur Chicken Wings (6)", calories: 540, protein: 36, carbs: 15, fat: 38, fibre: 1 },
+    "lays salt and vinegar": { food: "Lay's Salt & Vinegar (120g)", calories: 480, protein: 5, carbs: 55, fat: 28, fibre: 3 },
+    "lays": { food: "Lay's Chips (120g)", calories: 480, protein: 5, carbs: 55, fat: 28, fibre: 3 },
+    "astros": { food: "Astros (40g box)", calories: 210, protein: 3, carbs: 25, fat: 11, fibre: 1 },
+    "liqui fruit orange": { food: "Liqui-Fruit Orange (330ml)", calories: 180, protein: 1, carbs: 42, fat: 0, fibre: 0 },
+    "liqui fruit": { food: "Liqui-Fruit (330ml)", calories: 180, protein: 1, carbs: 42, fat: 0, fibre: 0 },
+    "bunny chow half": { food: "Bunny Chow (half)", calories: 1100, protein: 40, carbs: 120, fat: 45, fibre: 8 },
+    "half bunny chow": { food: "Bunny Chow (half)", calories: 1100, protein: 40, carbs: 120, fat: 45, fibre: 8 },
+    "beacon flings": { food: "Beacon Flings (100g bag)", calories: 430, protein: 4, carbs: 52, fat: 23, fibre: 2 },
+    "flings": { food: "Beacon Flings (100g bag)", calories: 430, protein: 4, carbs: 52, fat: 23, fibre: 2 },
+    "potjiekos": { food: "Potjiekos (serving)", calories: 550, protein: 30, carbs: 35, fat: 30, fibre: 4 },
+    "potjie": { food: "Potjiekos (serving)", calories: 550, protein: 30, carbs: 35, fat: 30, fibre: 4 },
+    "kauai smoothie bowl": { food: "Kauai Smoothie Bowl", calories: 450, protein: 10, carbs: 65, fat: 15, fibre: 6 },
+    "bredie": { food: "Bredie (SA stew serving)", calories: 450, protein: 25, carbs: 30, fat: 25, fibre: 5 },
+    "tomato bredie": { food: "Tomato Bredie (serving)", calories: 450, protein: 25, carbs: 30, fat: 25, fibre: 5 },
+    "wimpy breakfast": { food: "Wimpy Full Breakfast", calories: 800, protein: 35, carbs: 60, fat: 45, fibre: 4 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
@@ -2770,7 +2793,6 @@ async function handleMessage(from, text, imageId) {
     ].join("\n");
 
     // Save to file
-    const fs = require('fs');
     const exportPath = '/Users/brandonkatz/.openclaw/workspace/fitsorted/email-export.csv';
     fs.writeFileSync(exportPath, csv);
 
@@ -4578,6 +4600,9 @@ cron.schedule("30 6 * * *", async () => {
   const users = loadUsers();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
+    // Only send to users active in last 7 days (saves API costs + avoids failed sends)
+    const lastLog = user.log ? Object.keys(user.log).sort().pop() : null;
+    if (!lastLog || (Date.now() - new Date(lastLog).getTime()) > 7 * 86400000) continue;
     // Only send morning check-in every 3 days per user
     if (user.lastMorning) {
       const daysSince = Math.floor((Date.now() - new Date(user.lastMorning)) / 86400000);

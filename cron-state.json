@@ -1,7 +1,11 @@
 {
   "nudge": "2026-03-07",
-  "evening": "2026-03-10",
-  "admin_report": "2026-03-10",
-  "morning": "2026-03-11",
-  "expand_foods": "2026-03-11"
+  "evening": "2026-03-14",
+  "admin_report": "2026-03-14",
+  "morning": "2026-03-14",
+  "expand_foods": "2026-03-14",
+  "friday-projection": "2026-03-13",
+  "day3-nudge": "2026-03-14",
+  "day7-reengagement": "2026-03-14",
+  "day1-motivation": "2026-03-14"
 }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; background: #0a0a0a; color: #fff; overflow: hidden; }
+  
+  .container { width: 1080px; height: 1080px; padding: 44px 44px 32px; display: flex; flex-direction: column; }
+  
+  .tag { display: inline-block; background: #22c55e; color: #000; font-size: 15px; font-weight: 800; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase; }
+  .title { font-size: 38px; font-weight: 800; margin-top: 10px; line-height: 1.15; }
+  .title span { color: #22c55e; }
+  
+  .list { margin-top: 22px; flex: 1; }
+  
+  .row {
+    display: flex;
+    align-items: center;
+    height: 82px;
+    background: #151515;
+    border-radius: 14px;
+    margin-bottom: 7px;
+    padding: 0 18px;
+    border: 1px solid #1e1e1e;
+  }
+  
+  .num { font-size: 24px; font-weight: 800; color: #444; width: 36px; flex-shrink: 0; }
+  .name { font-size: 21px; font-weight: 700; flex: 1; margin-left: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .detail { font-size: 13px; color: #666; margin-left: 10px; flex-shrink: 0; white-space: nowrap; }
+  .cal { font-size: 22px; font-weight: 800; background: #22c55e; color: #000; padding: 8px 14px; border-radius: 10px; margin-left: 14px; flex-shrink: 0; min-width: 70px; text-align: center; }
+  
+  .row:nth-child(1) .num { color: #22c55e; }
+  .row:nth-child(7) .cal, .row:nth-child(8) .cal, .row:nth-child(9) .cal { background: #f59e0b; }
+  
+  .bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+  .verdict { font-size: 17px; color: #22c55e; font-weight: 700; }
+  .logo { font-size: 20px; font-weight: 800; color: #22c55e; }
+  .cta { font-size: 14px; color: #666; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div><div class="tag">Smart Snacks 🇿🇦</div></div>
+  <div class="title">9 Crunchy Snacks <span>Under 150 Cal</span></div>
+  
+  <div class="list">
+    <div class="row">
+      <div class="num">1</div>
+      <div class="name">P.S. Mini</div>
+      <div class="detail">Chocolate bar</div>
+      <div class="cal">100</div>
+    </div>
+    <div class="row">
+      <div class="num">2</div>
+      <div class="name">KitKat Mini</div>
+      <div class="detail">2 fingers</div>
+      <div class="cal">102</div>
+    </div>
+    <div class="row">
+      <div class="num">3</div>
+      <div class="name">Trigz Sweet Chilli</div>
+      <div class="detail">Popped 28g</div>
+      <div class="cal">107</div>
+    </div>
+    <div class="row">
+      <div class="num">4</div>
+      <div class="name">Vital Mini Rice Cakes</div>
+      <div class="detail">1g fat only</div>
+      <div class="cal">121</div>
+    </div>
+    <div class="row">
+      <div class="num">5</div>
+      <div class="name">Seaweed & Multigrain Chips</div>
+      <div class="detail">25g packet</div>
+      <div class="cal">127</div>
+    </div>
+    <div class="row">
+      <div class="num">6</div>
+      <div class="name">Oven Baked Munchies</div>
+      <div class="detail">Not fried</div>
+      <div class="cal">136</div>
+    </div>
+    <div class="row">
+      <div class="num">7</div>
+      <div class="name">Woolies Popcorn</div>
+      <div class="detail">Sour cream</div>
+      <div class="cal">136</div>
+    </div>
+    <div class="row">
+      <div class="num">8</div>
+      <div class="name">Jalapeño Popper Corn</div>
+      <div class="detail">30g packet</div>
+      <div class="cal">142</div>
+    </div>
+    <div class="row">
+      <div class="num">9</div>
+      <div class="name">Mini Oat Crunchies</div>
+      <div class="detail">2g fibre</div>
+      <div class="cal">145</div>
+    </div>
+  </div>
+  
+  <div class="bottom">
+    <div class="verdict">All under 150 cal. No excuses. 🏋️</div>
+    <div style="text-align:right">
+      <div class="logo">🏋️ FitSorted</div>
+      <div class="cta">wa.me/27690684940</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

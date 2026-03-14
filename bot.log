@@ -1,17 +1,26 @@
-/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:146
-	if (!trimmedUrl) throw new Error("supabaseUrl is required.");
-	                 ^
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
 
-Error: supabaseUrl is required.
-    at validateSupabaseUrl (/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:146:25)
-    at new SupabaseClient (/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:195:19)
-    at createClient (/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/@supabase/supabase-js/dist/index.cjs:388:9)
-    at Object.<anonymous> (/Users/brandonkatz/.openclaw/workspace/fitsorted/bot.js:23:18)
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at Function.listen (/Users/brandonkatz/.openclaw/workspace/fitsorted/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/brandonkatz/.openclaw/workspace/fitsorted/bot.js:5353:5)
     at Module._compile (node:internal/modules/cjs/loader:1706:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1839:10)
     at Module.load (node:internal/modules/cjs/loader:1441:32)
     at Module._load (node:internal/modules/cjs/loader:1263:12)
     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
 
 Node.js v22.22.0

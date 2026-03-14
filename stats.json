@@ -1,11 +1,179 @@
 {
-  "totalUsers": 25,
-  "activeUsers": 10,
-  "totalLogs": 218,
+  "totalUsers": 53,
+  "activeUsers": 25,
+  "totalLogs": 424,
   "premiumUsers": 0,
   "totalReferrals": 0,
   "topReferrers": [],
   "recentSignups": [
+    {
+      "id": "***4248",
+      "joinedAt": "2026-03-14T21:32:42.290Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***4196",
+      "joinedAt": "2026-03-14T20:00:55.955Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***9542",
+      "joinedAt": "2026-03-14T13:18:40.037Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***3066",
+      "joinedAt": "2026-03-14T12:33:32.614Z",
+      "logs": 2,
+      "isPro": false
+    },
+    {
+      "id": "***5538",
+      "joinedAt": "2026-03-14T09:35:16.794Z",
+      "logs": 9,
+      "isPro": false
+    },
+    {
+      "id": "***0475",
+      "joinedAt": "2026-03-14T04:01:17.432Z",
+      "logs": 19,
+      "isPro": false
+    },
+    {
+      "id": "***0149",
+      "joinedAt": "2026-03-13T22:45:05.168Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***6124",
+      "joinedAt": "2026-03-13T22:05:46.652Z",
+      "logs": 7,
+      "isPro": false
+    },
+    {
+      "id": "***6538",
+      "joinedAt": "2026-03-13T20:06:01.371Z",
+      "logs": 2,
+      "isPro": false
+    },
+    {
+      "id": "***0782",
+      "joinedAt": "2026-03-13T19:59:35.017Z",
+      "logs": 1,
+      "isPro": false
+    },
+    {
+      "id": "***1782",
+      "joinedAt": "2026-03-13T17:01:47.779Z",
+      "logs": 2,
+      "isPro": false
+    },
+    {
+      "id": "***4768",
+      "joinedAt": "2026-03-13T15:40:21.093Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***5007",
+      "joinedAt": "2026-03-13T15:20:49.655Z",
+      "logs": 3,
+      "isPro": false
+    },
+    {
+      "id": "***0287",
+      "joinedAt": "2026-03-13T14:49:02.502Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***3126",
+      "joinedAt": "2026-03-13T10:00:35.823Z",
+      "logs": 1,
+      "isPro": false
+    },
+    {
+      "id": "***2352",
+      "joinedAt": "2026-03-13T08:53:47.089Z",
+      "logs": 5,
+      "isPro": false
+    },
+    {
+      "id": "***6081",
+      "joinedAt": "2026-03-13T07:10:31.313Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***9932",
+      "joinedAt": "2026-03-13T05:50:20.305Z",
+      "logs": 7,
+      "isPro": false
+    },
+    {
+      "id": "***1438",
+      "joinedAt": "2026-03-12T23:07:49.492Z",
+      "logs": 1,
+      "isPro": false
+    },
+    {
+      "id": "***7069",
+      "joinedAt": "2026-03-12T20:34:21.082Z",
+      "logs": 5,
+      "isPro": false
+    },
+    {
+      "id": "***2932",
+      "joinedAt": "2026-03-12T17:39:01.635Z",
+      "logs": 13,
+      "isPro": false
+    },
+    {
+      "id": "***4046",
+      "joinedAt": "2026-03-12T08:20:05.069Z",
+      "logs": 10,
+      "isPro": false
+    },
+    {
+      "id": "***0602",
+      "joinedAt": "2026-03-12T05:45:21.846Z",
+      "logs": 3,
+      "isPro": false
+    },
+    {
+      "id": "***3808",
+      "joinedAt": "2026-03-12T02:21:50.905Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***5854",
+      "joinedAt": "2026-03-11T23:07:27.091Z",
+      "logs": 0,
+      "isPro": false
+    },
+    {
+      "id": "***3348",
+      "joinedAt": "2026-03-11T20:56:59.887Z",
+      "logs": 5,
+      "isPro": false
+    },
+    {
+      "id": "***4580",
+      "joinedAt": "2026-03-11T19:27:36.567Z",
+      "logs": 20,
+      "isPro": false
+    },
+    {
+      "id": "***4942",
+      "joinedAt": "2026-03-11T18:48:14.083Z",
+      "logs": 0,
+      "isPro": false
+    },
     {
       "id": "***5798",
       "joinedAt": "2026-03-11T16:10:58.310Z",
@@ -33,13 +201,13 @@
     {
       "id": "***7003",
       "joinedAt": "2026-03-11T12:21:03.021Z",
-      "logs": 2,
+      "logs": 3,
       "isPro": false
     },
     {
       "id": "***9984",
       "joinedAt": "2026-03-11T11:16:46.410Z",
-      "logs": 2,
+      "logs": 19,
       "isPro": false
     },
     {
@@ -69,7 +237,7 @@
     {
       "id": "***3354",
       "joinedAt": "2026-03-09T13:56:14.030Z",
-      "logs": 5,
+      "logs": 25,
       "isPro": false
     },
     {
@@ -95,31 +263,7 @@
       "joinedAt": "2026-03-09T07:53:51.807Z",
       "logs": 0,
       "isPro": false
-    },
-    {
-      "id": "***2067",
-      "joinedAt": "2026-03-06T18:03:47.813Z",
-      "logs": 6,
-      "isPro": false
-    },
-    {
-      "id": "***7970",
-      "joinedAt": "2026-03-06T15:58:33.513Z",
-      "logs": 108,
-      "isPro": false
-    },
-    {
-      "id": "***6213",
-      "joinedAt": "2026-03-05T09:27:01.632Z",
-      "logs": 0,
-      "isPro": false
-    },
-    {
-      "id": "***6350",
-      "joinedAt": "2026-03-04T18:17:51.675Z",
-      "logs": 0,
-      "isPro": false
     }
   ],
-  "lastUpdated": "2026-03-11T16:25:00.720Z"
+  "lastUpdated": "2026-03-14T23:05:00.967Z"
 }
