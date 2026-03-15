@@ -37,6 +37,8 @@ for (const [phone, u] of Object.entries(users)) {
     budget: u.profile?.foodBudget || null,
     weight: u.profile?.weight || null,
     target: u.profile?.target || null,
+    age: u.profile?.age || null,
+    hasLoggedFood: totalLogs > 0,
   });
 }
 userData.sort((a, b) => b.totalLogs - a.totalLogs);
