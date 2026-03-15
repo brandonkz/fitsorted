@@ -705,6 +705,11 @@
 
         // Heatmap
         buildHeatmap(logSummary, goal);
+        // Auto-scroll heatmap to the end (where data is)
+        requestAnimationFrame(() => {
+          const hg = $('heatmapGrid');
+          if(hg) hg.scrollLeft = hg.scrollWidth;
+        });
         bindTooltip();
         const totalDays = logSummary.length;
         const avgCals = Math.round(logSummary.reduce((a,d)=>a+d.totals.calories,0)/totalDays);
