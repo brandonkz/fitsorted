@@ -1860,6 +1860,73 @@ async function estimateCalories(food, user) {
     }
   }
   
+  // Post-processing: reject 0-calorie results for real food (not water/black coffee/etc)
+  // If AI returned 0 calories for something that's clearly food, estimate based on description
+  const zeroCalAllowed = ['water', 'black coffee', 'diet', 'zero', 'sugar free', 'sparkling', 'ice', 'tea unsweetened', 'magnesium', 'hydrate', 'pre workout', 'supplement', 'vitamin', 'electrolyte', 'bcaa'];
+  const isZeroCalOk = zeroCalAllowed.some(z => inputLower.includes(z));
+  
+  if (result.calories === 0 && !isZeroCalOk) {
+    fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] AI returned 0 cal for "${food}" — estimating based on description\n`);
+    
+    // Estimate based on food type keywords
+    let estimatedCal = 250; // default fallback for unknown food
+    let estP = 10, estC = 30, estF = 10;
+    
+    if (inputLower.includes('pizza') || inputLower.includes('pasta') || inputLower.includes('biryani') || inputLower.includes('curry')) {
+      estimatedCal = 500; estP = 20; estC = 60; estF = 18;
+    } else if (inputLower.includes('salad')) {
+      estimatedCal = 200; estP = 8; estC = 15; estF = 12;
+    } else if (inputLower.includes('stew') || inputLower.includes('soup') || inputLower.includes('broth')) {
+      estimatedCal = 350; estP = 20; estC = 25; estF = 15;
+    } else if (inputLower.includes('cake') || inputLower.includes('cheesecake') || inputLower.includes('dessert') || inputLower.includes('brownie')) {
+      estimatedCal = 350; estP = 5; estC = 45; estF = 18;
+    } else if (inputLower.includes('chicken') || inputLower.includes('beef') || inputLower.includes('lamb') || inputLower.includes('fish') || inputLower.includes('meat') || inputLower.includes('pork')) {
+      estimatedCal = 400; estP = 30; estC = 15; estF = 22;
+    } else if (inputLower.includes('rice') || inputLower.includes('noodle') || inputLower.includes('bread') || inputLower.includes('wrap') || inputLower.includes('roti')) {
+      estimatedCal = 350; estP = 10; estC = 55; estF = 8;
+    } else if (inputLower.includes('smoothie') || inputLower.includes('shake') || inputLower.includes('juice') || inputLower.includes('latte') || inputLower.includes('cappuccino')) {
+      estimatedCal = 200; estP = 5; estC = 35; estF = 5;
+    } else if (inputLower.includes('egg') || inputLower.includes('omelette') || inputLower.includes('frittata')) {
+      estimatedCal = 200; estP = 14; estC = 2; estF = 15;
+    } else if (inputLower.includes('fruit') || inputLower.includes('berry') || inputLower.includes('melon')) {
+      estimatedCal = 80; estP = 1; estC = 20; estF = 0;
+    } else if (inputLower.includes('amala') || inputLower.includes('fufu') || inputLower.includes('ugali') || inputLower.includes('sadza') || inputLower.includes('keema') || inputLower.includes('tagine') || inputLower.includes('jollof')) {
+      estimatedCal = 500; estP = 20; estC = 55; estF = 20;
+    } else if (inputLower.includes('plate') || inputLower.includes('meal') || inputLower.includes('dinner') || inputLower.includes('lunch') || inputLower.includes('serving')) {
+      estimatedCal = 500; estP = 25; estC = 45; estF = 20;
+    }
+    
+    result.calories = estimatedCal;
+    result.protein = estP;
+    result.carbs = estC;
+    result.fat = estF;
+    result.food = result.food + ' (est.)';
+    
+    fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] Estimated: ${result.food} → ${estimatedCal} cal | P:${estP}g C:${estC}g F:${estF}g\n`);
+  }
+  
+  // Also catch suspiciously low calories for substantial foods (< 20 cal for non-drinks)
+  if (result.calories > 0 && result.calories < 20 && !isZeroCalOk && !inputLower.includes('gum') && !inputLower.includes('mint') && !inputLower.includes('pickle')) {
+    fs.appendFileSync(aiDebugLog, `[LOW-CAL FIX] AI returned only ${result.calories} cal for "${food}" — bumping to minimum 50 cal\n`);
+    result.calories = Math.max(result.calories, 50);
+  }
+  
+  // Macro sanity check: macros should roughly add up to calories (P*4 + C*4 + F*9 ≈ calories)
+  // Allow 30% tolerance — if wildly off, recalculate macros from calories
+  const macroCal = (result.protein || 0) * 4 + (result.carbs || 0) * 4 + (result.fat || 0) * 9;
+  if (result.calories > 0 && macroCal > 0) {
+    const ratio = macroCal / result.calories;
+    if (ratio > 2.0 || ratio < 0.3) {
+      fs.appendFileSync(aiDebugLog, `[MACRO FIX] Macros don't add up for "${food}": macros=${macroCal} cal vs reported=${result.calories} cal (ratio: ${ratio.toFixed(2)}) — recalculating\n`);
+      // Recalculate macros to roughly match calories using typical ratios
+      // Assume 30% protein, 40% carbs, 30% fat
+      result.protein = Math.round((result.calories * 0.30) / 4);
+      result.carbs = Math.round((result.calories * 0.40) / 4);
+      result.fat = Math.round((result.calories * 0.30) / 9);
+      fs.appendFileSync(aiDebugLog, `[MACRO FIX] Recalculated: P:${result.protein}g C:${result.carbs}g F:${result.fat}g\n`);
+    }
+  }
+
   fs.appendFileSync(aiDebugLog, `[AI FINAL] "${food}" → ${result.food} (${result.calories} cal)\n`);
   return result;
 }
