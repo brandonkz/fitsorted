@@ -298,17 +298,24 @@
       requestAnimationFrame(tick);
     }
 
-    function tipLogic(entries, totals, goal){
+    function tipLogic(entries, totals, goal, weeklyAvg){
       const foods = entries.map(e => (e.food||'').toLowerCase());
       const hasAlcohol = foods.some(f => /beer|wine|whisky|vodka|gin|rum|cider|tequila|brandy/.test(f));
-      const hasFastFood = foods.some(f => /(mcdonalds|kfc|steers|nandos)/.test(f));
+      const hasFastFood = foods.some(f => /(mcdonalds|kfc|steers|nandos|debonairs|burger king|spur|wimpy)/.test(f));
+      const todayDiff = totals.calories - goal;
+      const weeklyOver = weeklyAvg && weeklyAvg > goal;
+
       if(entries.length <= 2) return "This can't be everything... right?";
       if(hasAlcohol) return "The liquid calories hit different, don't they?";
       if(hasFastFood) return "At least you tracked it. That's more than most.";
-      const diff = totals.calories - goal;
-      if(diff <= 0 && totals.protein > 100) return "Clean eating machine. Your gym bro is proud.";
-      if(diff <= 0) return "Under goal. The discipline is showing.";
-      if(diff < 200) return "Slightly over. We'll call it a maintenance day.";
+
+      // Today under but weekly trend is over — don't congratulate
+      if(todayDiff <= 0 && weeklyOver) return "Good day, but the weekly trend is still over. Keep this up.";
+      // Today under and weekly also under — real praise
+      if(todayDiff <= 0 && totals.protein > 100) return "Clean eating machine. Your gym bro is proud.";
+      if(todayDiff <= 0) return "Under goal. The discipline is showing. 💪";
+      if(todayDiff < 200) return "Slightly over. We'll call it a maintenance day.";
+      if(weeklyOver) return "Weekly trend is up. A few under-goal days will flip it.";
       return "The calories were generous today. Tomorrow's a new receipt.";
     }
 
@@ -597,11 +604,11 @@
             <div class="row"><span>FAT</span><span>${log.totals.fat}g</span></div>
           `;
           $('receiptBudget').innerHTML = `
-            <div class="row"><span>BUDGET</span><span>${goal.toLocaleString()} cal</span></div>
-            <div class="row"><span>SPENT</span><span>${(log.totals.calories || 0).toLocaleString()} cal</span></div>
+            <div class="row"><span>GOAL</span><span>${goal.toLocaleString()} cal</span></div>
+            <div class="row"><span>EATEN</span><span>${(log.totals.calories || 0).toLocaleString()} cal</span></div>
             <div class="row"><span>REMAINING</span><span>${(goal-(log.totals.calories||0)).toLocaleString()} cal</span></div>
           `;
-          $('receiptTip').textContent = tipLogic(log.entries, log.totals, goal);
+          $('receiptTip').textContent = tipLogic(log.entries, log.totals, goal, receiptAvgDaily);
 
           if(receiptWeight) {
             const rw30 = receiptWeight - (receiptDeficit * 30 / 7700);
