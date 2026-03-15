@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#22c55e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>FitSorted Dashboard</title>
+  <link rel="manifest" href="/app/manifest.json" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #22c55e;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif; }
+    body { min-height: 100vh; scroll-behavior: smooth; }
+    .app { max-width: 420px; margin: 0 auto; padding: 16px 16px 90px; }
+    .card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    .muted { color: var(--muted); }
+    .header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .brand { font-weight: 700; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+    .goal { font-size: 13px; color: var(--muted); }
+    .hero { display: grid; gap: 16px; }
+    .ring { width: 160px; height: 160px; border-radius: 50%; background: conic-gradient(var(--accent) 0deg, #334155 0deg); display: grid; place-items: center; margin: 0 auto; position: relative; }
+    .ring::after { content: ""; position: absolute; inset: 12px; background: var(--bg); border-radius: 50%; }
+    .ring-content { position: relative; z-index: 1; text-align: center; }
+    .ring-content h2 { margin: 0; font-size: 28px; }
+    .ring-content span { font-size: 12px; color: var(--muted); }
+    .macro-bars { display: grid; gap: 10px; }
+    .macro { display: grid; gap: 6px; }
+    .macro label { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; }
+    .bar { height: 8px; background: #334155; border-radius: 999px; overflow: hidden; }
+    .bar > span { display: block; height: 100%; width: 0; border-radius: 999px; }
+    .protein { background: #38bdf8; }
+    .carbs { background: #f97316; }
+    .fat { background: #a855f7; }
+    .budget { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+    .section { margin-top: 18px; display: none; }
+    .section.active { display: block; }
+    .section h3 { margin: 0 0 12px; font-size: 16px; }
+    .subsection { margin-top: 18px; }
+    .subsection h3 { margin: 0 0 12px; font-size: 16px; }
+    .food-entry { background: #111827; border-radius: 10px; padding: 10px; margin-bottom: 10px; display: grid; gap: 6px; }
+    .food-entry .row { display: flex; justify-content: space-between; font-size: 13px; }
+    .totals { display: flex; justify-content: space-between; font-weight: 600; margin-top: 8px; }
+    canvas { width: 100% !important; height: 220px !important; }
+    .stats-grid { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+    .stat { background: #111827; border-radius: 10px; padding: 10px; font-size: 12px; }
+    .stat strong { display: block; font-size: 16px; margin-top: 4px; }
+    details { background: #111827; border-radius: 10px; padding: 10px; margin-bottom: 10px; }
+    summary { cursor: pointer; font-weight: 600; }
+    .nav { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.95); border-top: 1px solid #1f2937; display: flex; justify-content: space-around; padding: 10px 8px; backdrop-filter: blur(10px); }
+    .nav button { background: none; border: none; color: var(--muted); font-size: 12px; display: grid; gap: 4px; place-items: center; }
+    .nav button.active { color: var(--accent); }
+    .pill { background: #0b1222; border-radius: 999px; padding: 6px 10px; font-size: 12px; color: var(--muted); }
+    .pull { text-align: center; font-size: 11px; color: var(--muted); margin-top: -6px; }
+    .empty { text-align: center; margin-top: 40px; }
+    .badge { background: rgba(34,197,94,0.15); color: var(--accent); padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="pull">↓ Pull for freshness</div>
+    <header class="header">
+      <div>
+        <div class="brand">🥗 FitSorted</div>
+        <div id="userName" class="goal">Loading...</div>
+      </div>
+      <div class="pill" id="todayDate"></div>
+    </header>
+
+    <section id="today" class="section active">
+      <div class="card hero">
+        <div class="ring" id="calorieRing">
+          <div class="ring-content">
+            <h2 id="remainingCalories">--</h2>
+            <span>kcal left</span>
+          </div>
+        </div>
+        <div class="macro-bars">
+          <div class="macro">
+            <label><span>Protein</span><span id="proteinVal">0g</span></label>
+            <div class="bar"><span class="protein" id="proteinBar"></span></div>
+          </div>
+          <div class="macro">
+            <label><span>Carbs</span><span id="carbsVal">0g</span></label>
+            <div class="bar"><span class="carbs" id="carbsBar"></span></div>
+          </div>
+          <div class="macro">
+            <label><span>Fat</span><span id="fatVal">0g</span></label>
+            <div class="bar"><span class="fat" id="fatBar"></span></div>
+          </div>
+        </div>
+        <div class="budget" id="foodBudget"></div>
+      </div>
+
+      <div class="subsection">
+        <h3>Food Diary</h3>
+        <div id="foodList"></div>
+      </div>
+
+      <div class="subsection">
+        <h3>Weekly Overview</h3>
+        <div class="card"><canvas id="weeklyChart"></canvas></div>
+      </div>
+
+      <div class="subsection">
+        <h3>Streak & Stats</h3>
+        <div class="stats-grid" id="statsGrid"></div>
+      </div>
+
+      <div class="subsection">
+        <h3>Macro Breakdown</h3>
+        <div class="card"><canvas id="macroChart"></canvas></div>
+      </div>
+    </section>
+
+    <section id="history" class="section">
+      <h3>Daily History</h3>
+      <div id="historyList"></div>
+    </section>
+
+    <section id="weight" class="section">
+      <h3>Weight Trend</h3>
+      <div class="card"><canvas id="weightChart"></canvas></div>
+    </section>
+
+    <section id="profile" class="section">
+      <div class="card" id="profileCard"></div>
+    </section>
+
+    <div id="emptyState" class="empty" style="display:none;">
+      <h3>Open this link from your FitSorted WhatsApp chat to see your dashboard 🥗</h3>
+      <p class="muted">WhatsApp: +27690684940</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <button data-target="today" class="active">📊<span>Today</span></button>
+    <button data-target="history">📅<span>History</span></button>
+    <button data-target="weight">⚖️<span>Weight</span></button>
+    <button data-target="profile">👤<span>Profile</span></button>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const fmtDate = (d) => new Date(d).toLocaleDateString('en-ZA', { weekday: 'short', month: 'short', day: 'numeric' });
+    const token = new URLSearchParams(location.search).get('t');
+
+    function showEmpty() {
+      document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+      $('emptyState').style.display = 'block';
+    }
+
+    function setRing(percent) {
+      const deg = Math.min(100, Math.max(0, percent)) * 3.6;
+      $('calorieRing').style.background = `conic-gradient(var(--accent) ${deg}deg, #334155 ${deg}deg)`;
+    }
+
+    function calcStreak(dates) {
+      const set = new Set(dates);
+      let streak = 0;
+      let day = new Date(dates[dates.length - 1]);
+      while (set.has(day.toISOString().slice(0,10))) {
+        streak++;
+        day.setDate(day.getDate() - 1);
+      }
+      return streak;
+    }
+
+    function mostLoggedFood(logSummary) {
+      const counts = {};
+      logSummary.forEach(d => d.entries.forEach(e => { counts[e.food] = (counts[e.food] || 0) + 1; }));
+      const top = Object.entries(counts).sort((a,b) => b[1]-a[1])[0];
+      return top ? top[0] : '-';
+    }
+
+    async function load() {
+      if (!token) return showEmpty();
+      try {
+        const res = await fetch(`./data/${token}.json`);
+        if (!res.ok) return showEmpty();
+        const data = await res.json();
+
+        const logSummary = data.logSummary || [];
+        if (!logSummary.length) return showEmpty();
+
+        const dates = logSummary.map(d => d.date).sort();
+        const today = dates.includes(new Date().toISOString().slice(0,10)) ? new Date().toISOString().slice(0,10) : dates[dates.length - 1];
+        const todayLog = logSummary.find(d => d.date === today) || logSummary[logSummary.length - 1];
+
+        $('userName').textContent = `${data.name || 'FitSorted Member'} • Goal ${data.goal || '--'} kcal`;
+        $('todayDate').textContent = fmtDate(today);
+
+        const goal = data.goal || 2000;
+        const eaten = todayLog.totals.calories || 0;
+        const remaining = Math.max(goal - eaten, 0);
+        $('remainingCalories').textContent = remaining;
+        setRing((eaten / goal) * 100);
+
+        const macroTotal = todayLog.totals.protein + todayLog.totals.carbs + todayLog.totals.fat || 1;
+        const pPct = (todayLog.totals.protein / macroTotal) * 100;
+        const cPct = (todayLog.totals.carbs / macroTotal) * 100;
+        const fPct = (todayLog.totals.fat / macroTotal) * 100;
+        $('proteinVal').textContent = `${todayLog.totals.protein}g`;
+        $('carbsVal').textContent = `${todayLog.totals.carbs}g`;
+        $('fatVal').textContent = `${todayLog.totals.fat}g`;
+        $('proteinBar').style.width = `${pPct}%`;
+        $('carbsBar').style.width = `${cPct}%`;
+        $('fatBar').style.width = `${fPct}%`;
+
+        const budget = data.profile?.foodBudget;
+        if (budget) {
+          $('foodBudget').textContent = `R${todayLog.totals.priceZAR || 0} spent / R${budget} budget`;
+        } else {
+          $('foodBudget').textContent = `R${todayLog.totals.priceZAR || 0} spent today`;
+        }
+
+        const foodList = $('foodList');
+        foodList.innerHTML = '';
+        todayLog.entries.forEach(e => {
+          const div = document.createElement('div');
+          div.className = 'food-entry';
+          div.innerHTML = `
+            <div class="row"><strong>${e.food}</strong><span>${e.calories} kcal</span></div>
+            <div class="row muted"><span>${new Date(e.time || today).toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' })}</span><span>P${e.protein} C${e.carbs} F${e.fat}</span></div>
+          `;
+          foodList.appendChild(div);
+        });
+        const totals = document.createElement('div');
+        totals.className = 'totals';
+        totals.innerHTML = `<span>Total</span><span>${eaten} kcal</span>`;
+        foodList.appendChild(totals);
+
+        const last7 = logSummary.slice(-7);
+        const labels = last7.map(d => new Date(d.date).toLocaleDateString('en-ZA', { weekday: 'short' }));
+        const calories = last7.map(d => d.totals.calories);
+        const colors = calories.map(c => c <= goal ? '#22c55e' : '#ef4444');
+        new Chart($('weeklyChart'), {
+          type: 'bar',
+          data: {
+            labels,
+            datasets: [
+              { label: 'Calories', data: calories, backgroundColor: colors, borderRadius: 6 },
+              { label: 'Goal', data: calories.map(() => goal), type: 'line', borderColor: '#94a3b8', borderDash: [6,6], pointRadius: 0 }
+            ]
+          },
+          options: { plugins: { legend: { display: false } }, scales: { y: { grid: { color: '#1f2937' }, ticks: { color: '#94a3b8' } }, x: { ticks: { color: '#94a3b8' }, grid: { display: false } } } }
+        });
+
+        const macro7 = last7.reduce((acc, d) => {
+          acc.p += d.totals.protein; acc.c += d.totals.carbs; acc.f += d.totals.fat; return acc;
+        }, { p: 0, c: 0, f: 0 });
+        new Chart($('macroChart'), {
+          type: 'doughnut',
+          data: { labels: ['Protein', 'Carbs', 'Fat'], datasets: [{ data: [macro7.p, macro7.c, macro7.f], backgroundColor: ['#38bdf8', '#f97316', '#a855f7'] }] },
+          options: { plugins: { legend: { labels: { color: '#e2e8f0' } } } }
+        });
+
+        const history = $('historyList');
+        history.innerHTML = '';
+        logSummary.slice().reverse().forEach(d => {
+          const details = document.createElement('details');
+          const status = d.totals.calories <= goal ? '<span class="badge">Under goal</span>' : '<span class="badge" style="color:#ef4444;">Over goal</span>';
+          details.innerHTML = `
+            <summary>${fmtDate(d.date)} • ${d.totals.calories} kcal ${status}</summary>
+            ${d.entries.map(e => `<div class="row" style="margin-top:6px;"><span>${e.food}</span><span>${e.calories} kcal</span></div>`).join('')}
+            <div class="row" style="margin-top:6px; font-weight:600;"><span>Total</span><span>${d.totals.calories} kcal</span></div>
+          `;
+          history.appendChild(details);
+        });
+
+        const weights = Array.isArray(data.weights) ? data.weights : [];
+        const weightLabels = weights.map(w => w.date || w.time?.slice(0,10));
+        const weightVals = weights.map(w => w.kg || w.weight || 0);
+        const datasets = [{ label: 'Weight', data: weightVals, borderColor: '#22c55e', tension: 0.3 }];
+        const targetWeight = data.profile?.targetWeight || data.profile?.goalWeight || data.profile?.targetKg;
+        if (targetWeight) datasets.push({ label: 'Target', data: weightVals.map(() => targetWeight), borderColor: '#94a3b8', borderDash: [6,6], pointRadius: 0 });
+        new Chart($('weightChart'), {
+          type: 'line',
+          data: { labels: weightLabels, datasets },
+          options: { plugins: { legend: { display: false } }, scales: { y: { ticks: { color: '#94a3b8' }, grid: { color: '#1f2937' } }, x: { ticks: { color: '#94a3b8' }, grid: { display: false } } } }
+        });
+
+        const stats = $('statsGrid');
+        const totalDays = logSummary.length;
+        const avgCals = Math.round(logSummary.reduce((a,d) => a + d.totals.calories, 0) / totalDays);
+        const totalSpend = Math.round(logSummary.reduce((a,d) => a + (d.totals.priceZAR || 0), 0));
+        const streak = calcStreak(dates);
+        stats.innerHTML = `
+          <div class="stat">Current streak<strong>${streak} days</strong></div>
+          <div class="stat">Total days logged<strong>${totalDays}</strong></div>
+          <div class="stat">Avg daily calories<strong>${avgCals}</strong></div>
+          <div class="stat">Most logged food<strong>${mostLoggedFood(logSummary)}</strong></div>
+          <div class="stat">Total food spend<strong>R${totalSpend}</strong></div>
+          <div class="stat">Goal calories<strong>${goal}</strong></div>
+        `;
+
+        $('profileCard').innerHTML = `
+          <h3 style="margin-top:0;">Profile</h3>
+          <p class="muted">${data.profile?.gender || '-'} • ${data.profile?.age || '-'} yrs</p>
+          <div class="row" style="display:flex; justify-content:space-between;">
+            <span>Weight</span><strong>${data.profile?.weight || '-'} kg</strong>
+          </div>
+          <div class="row" style="display:flex; justify-content:space-between; margin-top:6px;">
+            <span>Height</span><strong>${data.profile?.height || '-'} cm</strong>
+          </div>
+          <div class="row" style="display:flex; justify-content:space-between; margin-top:6px;">
+            <span>Target</span><strong>${data.profile?.target || '-'}</strong>
+          </div>
+          ${budget ? `<div class="row" style="display:flex; justify-content:space-between; margin-top:6px;"><span>Food budget</span><strong>R${budget}</strong></div>` : ''}
+        `;
+      } catch (err) {
+        showEmpty();
+      }
+    }
+
+    document.querySelectorAll('.nav button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        const target = document.getElementById(btn.dataset.target);
+        if (target) target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    load();
+  </script>
+</body>
+</html>

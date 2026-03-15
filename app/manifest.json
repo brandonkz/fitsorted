@@ -1,0 +1,9 @@
+{
+  "name": "FitSorted",
+  "short_name": "FitSorted",
+  "start_url": "/app/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#22c55e",
+  "description": "Your WhatsApp calorie tracker companion"
+}
