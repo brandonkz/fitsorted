@@ -497,7 +497,8 @@
         return sortDir === 'desc' ? (valB - valA) : (valA - valB);
       });
       const currentIndex = sorted.findIndex(e=>e.token === token);
-      $('leaderboardRank').textContent = currentIndex >=0 ? `#${currentIndex+1} of ${sorted.length} users` : `${sorted.length} users`;
+      const yourRank = currentIndex >= 0 ? currentIndex + 1 : null;
+      $('leaderboardRank').textContent = yourRank ? `You're #${yourRank}` : '';
 
       const header = `
         <tr>
@@ -507,10 +508,18 @@
           <th data-key="totalLogs">Logs</th>
         </tr>`;
 
-      const rows = sorted.map((u, idx) => {
-        const medals = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `${idx+1}`;
+      // Show top 10 + current user's row if outside top 10
+      const top10 = sorted.slice(0, 10);
+      const showUser = yourRank && yourRank > 10;
+      const display = showUser ? [...top10, sorted[currentIndex]] : top10;
+
+      const rows = display.map((u, idx) => {
+        const realIdx = sorted.indexOf(u);
+        const rank = realIdx + 1;
+        const medals = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `${rank}`;
         const badges = badgeList(u).map(b=>`<span class="badge-pill">${b}</span>`).join('');
-        return `
+        const separator = (showUser && idx === 10) ? '<tr><td colspan="4" style="text-align:center;color:var(--muted);font-size:12px;padding:8px 0">· · ·</td></tr>' : '';
+        return `${separator}
           <tr class="board-row ${u.token === token ? 'highlight':''}">
             <td>
               <strong>${medals} ${u.name}</strong><br>
@@ -650,7 +659,7 @@
           const streak = calcStreak(dates);
           const avgDaily = Math.round(receiptAvgDaily);
           $('storyStreak').textContent = `🔥 ${streak}`;
-          $('storyRank').textContent = leaderboardRank !== '-' ? `${leaderboardRank} of ${leaderboardTotal}` : '#- of -';
+          $('storyRank').textContent = leaderboardRank !== '-' ? `${leaderboardRank}` : '-';
           $('storyAvg').textContent = `📊 ${avgDaily.toLocaleString()}/day`;
 
           const grad = storyGradient(eatenDay, goal);
@@ -658,7 +667,7 @@
           card.style.background = grad.bg;
           card.classList.toggle('way-over', grad.wayOver);
 
-          const shareText = `<img src="logo.png" alt="FS" style="height:28px;vertical-align:middle;margin-right:6px"> FitSorted Day Report\n\n${eatenDay} cal today ${status.emoji}\n"${roast}"\n\n🔥 ${streak} day streak | ${leaderboardRank !== '-' ? `${leaderboardRank} of ${leaderboardTotal} users` : 'Community' }\n${dailyDeficit >=0 ? '↓' : '↑'} ${Math.abs(weeklyRate).toFixed(1)}kg/wk → ${projectedWeight ? projectedWeight.toFixed(0) : '-'}kg by ${month}\n\nTrack your food → fitsorted.co.za`;
+          const shareText = `<img src="logo.png" alt="FS" style="height:28px;vertical-align:middle;margin-right:6px"> FitSorted Day Report\n\n${eatenDay} cal today ${status.emoji}\n"${roast}"\n\n🔥 ${streak} day streak | ${leaderboardRank !== '-' ? `Ranked ${leaderboardRank}` : 'Community' }\n${dailyDeficit >=0 ? '↓' : '↑'} ${Math.abs(weeklyRate).toFixed(1)}kg/wk → ${projectedWeight ? projectedWeight.toFixed(0) : '-'}kg by ${month}\n\nTrack your food → fitsorted.co.za`;
 
           $('shareBtn').onclick = async () => {
             if(navigator.share){
