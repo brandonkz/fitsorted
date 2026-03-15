@@ -1,0 +1,52 @@
+{
+  "name": "Tiffany",
+  "goal": 1284,
+  "profile": {
+    "age": 33,
+    "weight": 99,
+    "height": 165,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-15": [
+      {
+        "activity": "Log workout",
+        "calories": 0,
+        "time": "2026-03-15T11:12:52.135Z"
+      },
+      {
+        "activity": "Log workout",
+        "calories": 330,
+        "time": "2026-03-15T11:13:33.431Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 120,
+        "protein": 10,
+        "carbs": 15,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "First Choice High Protein Recovery Strawberry Vanilla Flavoured Low Fat Milk 250ml",
+          "calories": 120,
+          "protein": 10,
+          "carbs": 15,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-15T11:11:34.343Z"
+        }
+      ]
+    }
+  ]
+}
