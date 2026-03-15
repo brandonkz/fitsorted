@@ -8,6 +8,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>FitSorted PWA</title>
   <link rel="manifest" href="/app/manifest.json" />
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
   <style>
     :root{
       --bg:#0f172a;--card:#1e293b;--accent:#22c55e;--text:#e2e8f0;--muted:#94a3b8;--danger:#ef4444;--radius:14px;
@@ -124,7 +126,7 @@
   <div class="app">
     <header class="header">
       <div>
-        <div class="brand">🥗 FitSorted</div>
+        <div class="brand"><img src="logo.png" alt="FS" style="height:28px;vertical-align:middle;margin-right:6px"> FitSorted</div>
         <div id="userName" class="muted" style="font-size:12px">Loading...</div>
       </div>
       <div class="pill" id="todayDate"></div>
@@ -152,7 +154,7 @@
           <div id="storyAvg">📊 0/day</div>
         </div>
         <div class="story-footer">
-          <span>🥗 fitsorted.co.za</span>
+          <span><img src="logo.png" alt="FS" style="height:16px;vertical-align:middle;margin-right:4px"> fitsorted.co.za</span>
           <span class="muted">Share</span>
         </div>
       </div>
@@ -183,7 +185,7 @@
           <div id="receiptProjection" style="font-size:12px;margin:8px 0"></div>
           <div class="dots"></div>
           <div class="tip"><span>💡</span><span id="receiptTip"></span></div>
-          <div class="receipt-footer">#FitSorted 🥗</div>
+          <div class="receipt-footer">#FitSorted</div>
           <div class="tear"></div>
         </div>
       </div>
@@ -257,7 +259,7 @@
     </section>
 
     <div id="emptyState" class="empty" style="display:none;">
-      <h3>Open this link from your FitSorted WhatsApp chat to see your dashboard 🥗</h3>
+      <h3><img src="logo.png" alt="FS" style="height:48px;display:block;margin:0 auto 16px">Open this link from your FitSorted WhatsApp chat to see your dashboard</h3>
       <p class="muted">WhatsApp: +27690684940</p>
     </div>
   </div>
@@ -656,7 +658,7 @@
           card.style.background = grad.bg;
           card.classList.toggle('way-over', grad.wayOver);
 
-          const shareText = `🥗 FitSorted Day Report\n\n${eatenDay} cal today ${status.emoji}\n"${roast}"\n\n🔥 ${streak} day streak | ${leaderboardRank !== '-' ? `${leaderboardRank} of ${leaderboardTotal} users` : 'Community' }\n${dailyDeficit >=0 ? '↓' : '↑'} ${Math.abs(weeklyRate).toFixed(1)}kg/wk → ${projectedWeight ? projectedWeight.toFixed(0) : '-'}kg by ${month}\n\nTrack your food → fitsorted.co.za`;
+          const shareText = `<img src="logo.png" alt="FS" style="height:28px;vertical-align:middle;margin-right:6px"> FitSorted Day Report\n\n${eatenDay} cal today ${status.emoji}\n"${roast}"\n\n🔥 ${streak} day streak | ${leaderboardRank !== '-' ? `${leaderboardRank} of ${leaderboardTotal} users` : 'Community' }\n${dailyDeficit >=0 ? '↓' : '↑'} ${Math.abs(weeklyRate).toFixed(1)}kg/wk → ${projectedWeight ? projectedWeight.toFixed(0) : '-'}kg by ${month}\n\nTrack your food → fitsorted.co.za`;
 
           $('shareBtn').onclick = async () => {
             if(navigator.share){
