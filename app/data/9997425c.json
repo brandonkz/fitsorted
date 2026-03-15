@@ -1,6 +1,7 @@
 {
   "name": "FitSorted Member",
   "goal": 2562,
+  "joinedAt": null,
   "profile": {
     "age": 42,
     "weight": 88,
