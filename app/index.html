@@ -307,7 +307,7 @@
       if(hasFastFood) return "At least you tracked it. That's more than most.";
       const diff = totals.calories - goal;
       if(diff <= 0 && totals.protein > 100) return "Clean eating machine. Your gym bro is proud.";
-      if(diff <= 0) return "Under budget. The discipline is showing.";
+      if(diff <= 0) return "Under goal. The discipline is showing.";
       if(diff < 200) return "Slightly over. We'll call it a maintenance day.";
       return "The calories were generous today. Tomorrow's a new receipt.";
     }
@@ -346,7 +346,7 @@
       const diff = (todayLog.totals.calories || 0) - goal;
       if(diff > 500) return "Ambitious day. We don't judge. (We judge a little.)";
       if(diff > 0 && diff < 200) return "Slightly over. We'll call it a maintenance day.";
-      if(diff <= 0) return "Under budget. The discipline is showing. 💪";
+      if(diff <= 0) return "Under goal. The discipline is showing. 💪";
 
       const hasVeg = foods.some(f => /(salad|vegetable|broccoli|spinach|carrot|cucumber)/.test(f));
       if(!hasVeg) return "0 vegetables detected. Bold strategy.";
@@ -358,8 +358,8 @@
       const diff = eaten - goal;
       const within = Math.abs(diff) <= goal * 0.1;
       if(within) return {text:`🎯 ON TARGET`, emoji:'🎯', tone:'gold', detail:`${Math.abs(diff)} cal ${diff>=0?'over':'remaining'}`};
-      if(diff <= 0) return {text:`✅ UNDER BUDGET`, emoji:'✅', tone:'green', detail:`${Math.abs(diff)} cal remaining`};
-      return {text:`⚠️ OVER BUDGET`, emoji:'⚠️', tone:'red', detail:`${Math.abs(diff)} cal over`};
+      if(diff <= 0) return {text:`✅ UNDER GOAL`, emoji:'✅', tone:'green', detail:`${Math.abs(diff)} cal remaining`};
+      return {text:`⚠️ OVER GOAL`, emoji:'⚠️', tone:'red', detail:`${Math.abs(diff)} cal over`};
     }
 
     function storyGradient(eaten, goal){
@@ -605,7 +605,7 @@
               <div class="row"><span>IN 30 DAYS</span><span>${rw30.toFixed(1)} kg</span></div>
               <div class="row"><span>IN 90 DAYS</span><span>${rw90.toFixed(1)} kg</span></div>
               <div class="row"><span>RATE</span><span>${rateLabel} ${Math.abs(receiptWeeklyRate).toFixed(2)} kg/wk</span></div>
-              ${receiptDeficit < 0 ? '<div style="margin-top:6px;text-align:center;font-size:11px">⚠️ OVER BUDGET — WEIGHT TRENDING UP</div>' : '<div style="margin-top:6px;text-align:center;font-size:11px">✅ ON TRACK — KEEP GOING</div>'}
+              ${receiptDeficit < 0 ? '<div style="margin-top:6px;text-align:center;font-size:11px">⚠️ OVER GOAL — WEIGHT TRENDING UP</div>' : '<div style="margin-top:6px;text-align:center;font-size:11px">✅ ON TRACK — KEEP GOING</div>'}
             `;
           }
         }
