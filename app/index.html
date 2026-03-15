@@ -442,7 +442,7 @@
           running += e.calories || 0;
           const row = document.createElement('div');
           row.className = 'row';
-          const time = e.time ? e.time.slice(0,5) : '--:--';
+          const time = e.time ? new Date(e.time).toLocaleTimeString('en-ZA', {hour:'2-digit',minute:'2-digit'}) : '--:--';
           row.innerHTML = `<span>${time}  ${e.food}</span><span>${e.calories} • ${running}</span>`;
           items.appendChild(row);
         });
@@ -519,8 +519,8 @@
         const w30 = currentWeight - (dailyDeficit * 30 / 7700);
         const w60 = currentWeight - (dailyDeficit * 60 / 7700);
         const w90 = currentWeight - (dailyDeficit * 90 / 7700);
-        const targetWeight = data.profile?.target === 'lose' ? (currentWeight - 10) : null;
-        const daysToTarget = targetWeight && dailyDeficit > 0 ? Math.ceil(((currentWeight - targetWeight) * 7700) / dailyDeficit) : null;
+        const projTargetWeight = data.profile?.target === 'lose' ? (currentWeight - 10) : null;
+        const daysToTarget = projTargetWeight && dailyDeficit > 0 ? Math.ceil(((currentWeight - projTargetWeight) * 7700) / dailyDeficit) : null;
         const paceText = `At your current pace: ${Math.abs(weeklyRate).toFixed(1)}kg/week`;
         const proj30Text = `In 30 days: ${w30.toFixed(1)}kg`;
         const proj90Text = `In 90 days: ${w90.toFixed(1)}kg`;
