@@ -232,12 +232,12 @@
     {
       "date": "2026-03-15",
       "totals": {
-        "calories": 1704,
-        "protein": 70,
-        "carbs": 220,
-        "fat": 68,
-        "fibre": 38,
-        "priceZAR": 140
+        "calories": 1914,
+        "protein": 90,
+        "carbs": 235,
+        "fat": 78,
+        "fibre": 41,
+        "priceZAR": 160
       },
       "entries": [
         {
@@ -359,6 +359,16 @@
           "fibre": 10,
           "priceZAR": 20,
           "time": "2026-03-15T10:06:27.219Z"
+        },
+        {
+          "food": "1 cup Greek yoghurt with 1 tablespoon cocoa",
+          "calories": 210,
+          "protein": 20,
+          "carbs": 15,
+          "fat": 10,
+          "fibre": 3,
+          "priceZAR": 20,
+          "time": "2026-03-15T12:55:31.596Z"
         }
       ]
     }

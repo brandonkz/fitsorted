@@ -1757,12 +1757,12 @@
     {
       "date": "2026-03-15",
       "totals": {
-        "calories": 500,
-        "protein": 12,
-        "carbs": 85,
-        "fat": 16,
-        "fibre": 4,
-        "priceZAR": 36
+        "calories": 1140,
+        "protein": 49,
+        "carbs": 148,
+        "fat": 46,
+        "fibre": 8,
+        "priceZAR": 98
       },
       "entries": [
         {
@@ -1784,6 +1784,36 @@
           "fibre": 0,
           "priceZAR": 20,
           "time": "2026-03-15T07:14:43.218Z"
+        },
+        {
+          "food": "toasted cheese sandwich",
+          "calories": 400,
+          "protein": 16,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-15T12:30:10.475Z"
+        },
+        {
+          "food": "3x mango strips",
+          "calories": 90,
+          "protein": 1,
+          "carbs": 23,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 12,
+          "time": "2026-03-15T12:30:53.024Z"
+        },
+        {
+          "food": "1x droewors",
+          "calories": 150,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-15T12:31:08.795Z"
         }
       ]
     }

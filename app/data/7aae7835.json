@@ -211,6 +211,16 @@
           "fibre": 7,
           "priceZAR": 20,
           "time": "2026-03-15T10:04:17.304Z"
+        },
+        {
+          "food": "yogurt with blueberries",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-15T12:09:35.983Z"
         }
       ]
     }
