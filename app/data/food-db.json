@@ -1,0 +1,5854 @@
+[
+  {
+    "name": "1 slice cheese (SA processed)",
+    "calories": 60,
+    "protein": 4,
+    "carbs": 1,
+    "fat": 5
+  },
+  {
+    "name": "4th street sweet red 250ml",
+    "calories": 205,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "acai bowl",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Açaí Bowl",
+    "calories": 450,
+    "protein": 6,
+    "carbs": 65,
+    "fat": 18
+  },
+  {
+    "name": "ale",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "all bran",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "almond butter",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "almond milk latte",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "almonds",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Amadumbe (SA yam)",
+    "calories": 200,
+    "protein": 2,
+    "carbs": 45,
+    "fat": 0
+  },
+  {
+    "name": "Amagwinya (fat cake)",
+    "calories": 300,
+    "protein": 4,
+    "carbs": 35,
+    "fat": 16
+  },
+  {
+    "name": "amarula 50ml shot",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "americano",
+    "calories": 10,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "amstel lager 340ml",
+    "calories": 135,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "apple",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Apple (medium)",
+    "calories": 80,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0
+  },
+  {
+    "name": "apple juice",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Appletiser 330ml",
+    "calories": 120,
+    "protein": 0,
+    "carbs": 30,
+    "fat": 0
+  },
+  {
+    "name": "appletiser 750ml",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "asparagus",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Astros (40g box)",
+    "calories": 210,
+    "protein": 3,
+    "carbs": 25,
+    "fat": 11
+  },
+  {
+    "name": "avo",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "avocado",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bacon",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Bacon & Eggs (2 rashers, 2 eggs)",
+    "calories": 350,
+    "protein": 24,
+    "carbs": 1,
+    "fat": 27
+  },
+  {
+    "name": "bacon rasher",
+    "calories": 40,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "baked chicken",
+    "calories": 165,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "baked potato",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Bakers Choice Assorted (1)",
+    "calories": 47,
+    "protein": 1,
+    "carbs": 7,
+    "fat": 2
+  },
+  {
+    "name": "banana",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bar one",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "basmati rice",
+    "calories": 190,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Beacon Flings (100g bag)",
+    "calories": 430,
+    "protein": 4,
+    "carbs": 52,
+    "fat": 23
+  },
+  {
+    "name": "beans",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef and rice",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef biltong sliced 100g",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef curry",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef jerky",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef mince",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef patty",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef stew",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beef stir fry",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "beer",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Beer (440ml)",
+    "calories": 155,
+    "protein": 1,
+    "carbs": 12,
+    "fat": 0
+  },
+  {
+    "name": "bell pepper",
+    "calories": 30,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bernini blush 275ml",
+    "calories": 145,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "berries",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "berry smoothie",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "big mac",
+    "calories": 550,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "biltong",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Biltong & Cheese Platter",
+    "calories": 500,
+    "protein": 40,
+    "carbs": 5,
+    "fat": 35
+  },
+  {
+    "name": "biltong 100g",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "biltong 200g",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "biltong 50g pack",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "biltong snap stick",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "biscuit",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "black beans",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "black label 340ml",
+    "calories": 145,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "black label 500ml",
+    "calories": 215,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "blueberries",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bobotie",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Boerekos (mixed plate)",
+    "calories": 650,
+    "protein": 35,
+    "carbs": 60,
+    "fat": 30
+  },
+  {
+    "name": "boerewors",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Boerewors Roll",
+    "calories": 425,
+    "protein": 18,
+    "carbs": 35,
+    "fat": 22
+  },
+  {
+    "name": "boiled egg",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bos iced tea lemon 330ml",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bos iced tea sugar free 330ml",
+    "calories": 5,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "braai meat",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bran flakes",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Brandy & Coke",
+    "calories": 210,
+    "protein": 0,
+    "carbs": 22,
+    "fat": 0
+  },
+  {
+    "name": "bread",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "breakfast bowl",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "breakfast burrito",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "breakfast wrap",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Bredie (SA stew serving)",
+    "calories": 450,
+    "protein": 25,
+    "carbs": 30,
+    "fat": 25
+  },
+  {
+    "name": "broccoli",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "brown bread",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "brown rice",
+    "calories": 215,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "brownie",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "brutal fruit spritzer 275ml",
+    "calories": 135,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "bunny chow",
+    "calories": 600,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Bunny Chow (half)",
+    "calories": 1100,
+    "protein": 40,
+    "carbs": 120,
+    "fat": 45
+  },
+  {
+    "name": "burger",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king bacon king",
+    "calories": 890,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king cheeseburger",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king chicken nuggets 6",
+    "calories": 260,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king chicken nuggets 9",
+    "calories": 390,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king chicken royale",
+    "calories": 530,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king chocolate shake medium",
+    "calories": 580,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king double cheeseburger",
+    "calories": 460,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king double whopper",
+    "calories": 900,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king long chicken",
+    "calories": 640,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king medium fries",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king onion rings medium",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king onion rings small",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king small fries",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king vanilla shake medium",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king whopper",
+    "calories": 660,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king whopper jr",
+    "calories": 310,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burger king whopper with cheese",
+    "calories": 740,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burrito",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "burrito bowl",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Butter Chicken & Naan",
+    "calories": 750,
+    "protein": 35,
+    "carbs": 70,
+    "fat": 35
+  },
+  {
+    "name": "butternut",
+    "calories": 45,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cabbage",
+    "calories": 25,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Caesar Salad",
+    "calories": 400,
+    "protein": 15,
+    "carbs": 20,
+    "fat": 28
+  },
+  {
+    "name": "calamari",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "candy bar",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cappuccino",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "caramel popcorn",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Carling Black Label 440ml",
+    "calories": 175,
+    "protein": 1,
+    "carbs": 15,
+    "fat": 0
+  },
+  {
+    "name": "carrot",
+    "calories": 40,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "carrots",
+    "calories": 40,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cashews",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "castle lager 340ml",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Castle Lager 440ml",
+    "calories": 155,
+    "protein": 1,
+    "carbs": 12,
+    "fat": 0
+  },
+  {
+    "name": "castle lager 500ml",
+    "calories": 205,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "castle lite 340ml",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "castle lite 500ml",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cauliflower",
+    "calories": 30,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cereal bar",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ceres fruit juice 1l",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ceres fruit juice 200ml",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chai Latte",
+    "calories": 180,
+    "protein": 5,
+    "carbs": 28,
+    "fat": 5
+  },
+  {
+    "name": "chakalaka",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chakalaka & Pap",
+    "calories": 300,
+    "protein": 8,
+    "carbs": 50,
+    "fat": 6
+  },
+  {
+    "name": "champagne",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Checkers Chicken Strips",
+    "calories": 400,
+    "protein": 25,
+    "carbs": 30,
+    "fat": 20
+  },
+  {
+    "name": "checkers deli chicken wings 6",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers deli chicken wrap",
+    "calories": 440,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers deli pizza slice",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers deli roast chicken half",
+    "calories": 620,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers deli roast chicken quarter",
+    "calories": 310,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers deli sushi 10 piece",
+    "calories": 360,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers housebrand chicken pie",
+    "calories": 420,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers housebrand steak pie",
+    "calories": 440,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers ready meal beef curry",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers ready meal chicken tikka",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers ready meal lasagne",
+    "calories": 490,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "checkers ready meal mac and cheese",
+    "calories": 430,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Checkers Rotisserie Chicken (whole)",
+    "calories": 1100,
+    "protein": 90,
+    "carbs": 5,
+    "fat": 78
+  },
+  {
+    "name": "cheddar",
+    "calories": 115,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cheese",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cheese curls",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cheese puffs",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cheese sandwich",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cheeseburger",
+    "calories": 550,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cheetos",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken",
+    "calories": 165,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chicken & Rice (serving)",
+    "calories": 450,
+    "protein": 35,
+    "carbs": 45,
+    "fat": 12
+  },
+  {
+    "name": "chicken and chips",
+    "calories": 700,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken and rice",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken and veg",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken breast",
+    "calories": 165,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken burger",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken curry",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken drumstick",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chicken Fried Rice",
+    "calories": 525,
+    "protein": 22,
+    "carbs": 65,
+    "fat": 18
+  },
+  {
+    "name": "chicken licken 2 piece",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chicken Licken Big John Burger",
+    "calories": 650,
+    "protein": 30,
+    "carbs": 50,
+    "fat": 35
+  },
+  {
+    "name": "chicken licken burger",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken licken hotwings 12",
+    "calories": 840,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken licken hotwings 6",
+    "calories": 420,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken licken soul rider",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken pie",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken salad",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken sandwich",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken sausage",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken schnitzel",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken soup",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken stir fry",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chicken Stir-Fry (serving)",
+    "calories": 400,
+    "protein": 30,
+    "carbs": 30,
+    "fat": 14
+  },
+  {
+    "name": "chicken strips",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken tenders",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken thigh",
+    "calories": 210,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken wing",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chicken Wing (1)",
+    "calories": 90,
+    "protein": 8,
+    "carbs": 0,
+    "fat": 6
+  },
+  {
+    "name": "chicken wings",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chicken wrap",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chickpeas",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chilli biltong 100g",
+    "calories": 245,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chips",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chocolate",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "chocolate bar",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Chocolate Milk (250ml)",
+    "calories": 210,
+    "protein": 8,
+    "carbs": 28,
+    "fat": 8
+  },
+  {
+    "name": "cider",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cinnamon roll",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cod",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coffee",
+    "calories": 5,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coke",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coke 330ml",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coke 500ml",
+    "calories": 210,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coke zero",
+    "calories": 0,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coke zero 330ml",
+    "calories": 1,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coke zero 500ml",
+    "calories": 2,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cold brew",
+    "calories": 10,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "coleslaw",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cookie",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "corn",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "corn chips",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "corn flakes",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Corona 355ml",
+    "calories": 148,
+    "protein": 1,
+    "carbs": 14,
+    "fat": 0
+  },
+  {
+    "name": "cortado",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cosmopolitan",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cottage cheese",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Cottage Cheese (100g)",
+    "calories": 98,
+    "protein": 11,
+    "carbs": 3,
+    "fat": 4
+  },
+  {
+    "name": "courgette",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "couscous",
+    "calories": 190,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "crab",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "crackers",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Craft Beer (440ml)",
+    "calories": 210,
+    "protein": 2,
+    "carbs": 20,
+    "fat": 0
+  },
+  {
+    "name": "cream crackers",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cream soda",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cream soda 330ml",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "crisps",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "crumpet",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "cucumber",
+    "calories": 15,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Cup of Milo (with milk)",
+    "calories": 200,
+    "protein": 6,
+    "carbs": 30,
+    "fat": 6
+  },
+  {
+    "name": "cupcake",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "curry",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "danish",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "debonairs large margherita",
+    "calories": 1800,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "debonairs large something meaty",
+    "calories": 2200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Debonairs Medium Pizza (whole)",
+    "calories": 1500,
+    "protein": 60,
+    "carbs": 160,
+    "fat": 60
+  },
+  {
+    "name": "debonairs slice margherita",
+    "calories": 230,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "debonairs slice something meaty",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "debonairs triple decker slice",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "diet coke",
+    "calories": 0,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos cheesy bread",
+    "calories": 340,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos chicken strips 4",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos chicken wings 6",
+    "calories": 360,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos garlic bread",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos medium bbq chicken",
+    "calories": 1350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos medium hawaiian",
+    "calories": 1300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos medium margherita",
+    "calories": 1200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos medium meateor",
+    "calories": 1600,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos medium pepperoni",
+    "calories": 1400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos slice margherita",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dominos slice pepperoni",
+    "calories": 230,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "donut",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "doritos",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "doritos nacho cheese 145g",
+    "calories": 680,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "doritos small bag 45g",
+    "calories": 210,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "doritos sweet chilli 145g",
+    "calories": 680,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Double Brandy & Coke",
+    "calories": 420,
+    "protein": 0,
+    "carbs": 22,
+    "fat": 0
+  },
+  {
+    "name": "double espresso",
+    "calories": 10,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Double Vodka (50ml)",
+    "calories": 140,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0
+  },
+  {
+    "name": "doughnut",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "dried fruit",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "droewors",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "droewors 100g",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "droewors 200g",
+    "calories": 760,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "droewors 50g",
+    "calories": 190,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "duck",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "edamame",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "egg",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "egg mayo",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "egg white",
+    "calories": 17,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "egg yolk",
+    "calories": 55,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "eggs",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "eggs benedict",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Eggs on Toast (2 eggs, 2 slices)",
+    "calories": 310,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 14
+  },
+  {
+    "name": "energade",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "english muffin",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "espresso",
+    "calories": 5,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fanta",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fanta orange 330ml",
+    "calories": 145,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Fat Cake (amagwinya)",
+    "calories": 300,
+    "protein": 4,
+    "carbs": 35,
+    "fat": 16
+  },
+  {
+    "name": "fat free yogurt",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "feta",
+    "calories": 75,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fillet",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fish",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fish and chips",
+    "calories": 850,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fish and veg",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "five roses tea no sugar",
+    "calories": 2,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "five roses tea with milk and sugar",
+    "calories": 55,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "flat white",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "flying fish lemon 330ml",
+    "calories": 185,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers chicken wrap",
+    "calories": 460,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers deli chicken salad",
+    "calories": 260,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers deli pasta salad",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers deli pizza slice",
+    "calories": 290,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers deli roast chicken quarter",
+    "calories": 310,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers hot chicken pie",
+    "calories": 440,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers steak pie",
+    "calories": 470,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "food lovers sushi box 12 piece",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "french toast",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fresh juice",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fried chicken",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fried egg",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fries",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fritos honey bbq 120g",
+    "calories": 570,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "frittata",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fruit roll up",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "fruit smoothie",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Future Life Cereal (with milk)",
+    "calories": 250,
+    "protein": 12,
+    "carbs": 38,
+    "fat": 5
+  },
+  {
+    "name": "game",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "gammon",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "garlic bread",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "gatsby",
+    "calories": 1200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Ghost Pops (full bag)",
+    "calories": 400,
+    "protein": 3,
+    "carbs": 58,
+    "fat": 18
+  },
+  {
+    "name": "giant pretzel",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "gin",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Gin & Tonic (single)",
+    "calories": 120,
+    "protein": 0,
+    "carbs": 8,
+    "fat": 0
+  },
+  {
+    "name": "granola",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "granola bar",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "grapes",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Grapetiser 330ml",
+    "calories": 140,
+    "protein": 0,
+    "carbs": 35,
+    "fat": 0
+  },
+  {
+    "name": "grapetiser 750ml",
+    "calories": 385,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "greek salad",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "greek yogurt",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "green beans",
+    "calories": 35,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "green juice",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "green smoothie",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "grilled chicken",
+    "calories": 165,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "grilled salmon",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "hake",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ham",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Handful of almonds (~28g)",
+    "calories": 160,
+    "protein": 6,
+    "carbs": 6,
+    "fat": 14
+  },
+  {
+    "name": "hansa pilsener 340ml",
+    "calories": 135,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "hash brown",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "hot chocolate",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "hummus",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Hunter's Gold 330ml",
+    "calories": 180,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0
+  },
+  {
+    "name": "hunters dry 330ml",
+    "calories": 165,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "hunters extreme 275ml",
+    "calories": 170,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "hunters gold 330ml",
+    "calories": 185,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Ice Cream (1 scoop)",
+    "calories": 150,
+    "protein": 2,
+    "carbs": 18,
+    "fat": 8
+  },
+  {
+    "name": "iced coffee",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "iced latte",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "iron brew",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "iron brew 330ml",
+    "calories": 145,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Isidudu (soft porridge)",
+    "calories": 275,
+    "protein": 5,
+    "carbs": 55,
+    "fat": 3
+  },
+  {
+    "name": "Isopho (beef soup)",
+    "calories": 300,
+    "protein": 20,
+    "carbs": 25,
+    "fat": 12
+  },
+  {
+    "name": "jagermeister shot 25ml",
+    "calories": 55,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "John Dory's Fish",
+    "calories": 400,
+    "protein": 35,
+    "carbs": 30,
+    "fat": 18
+  },
+  {
+    "name": "John Dory's Fish & Chips",
+    "calories": 650,
+    "protein": 35,
+    "carbs": 55,
+    "fat": 30
+  },
+  {
+    "name": "juice",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "jungle energy bar",
+    "calories": 170,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "jungle oat bar",
+    "calories": 190,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "jungle oats",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Jungle Oats (with milk)",
+    "calories": 300,
+    "protein": 10,
+    "carbs": 45,
+    "fat": 8
+  },
+  {
+    "name": "Kauai Smoothie Bowl",
+    "calories": 450,
+    "protein": 10,
+    "carbs": 65,
+    "fat": 15
+  },
+  {
+    "name": "KFC 8-Piece Bucket",
+    "calories": 2000,
+    "protein": 140,
+    "carbs": 100,
+    "fat": 110
+  },
+  {
+    "name": "kfc burger",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kfc coleslaw",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kfc colonel burger",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kfc dunked wings 6",
+    "calories": 460,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kfc mash and gravy",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kfc streetwise 2",
+    "calories": 540,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kfc streetwise 3",
+    "calories": 780,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kfc zinger burger",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kidney beans",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kingklip",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kit kat",
+    "calories": 210,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "kiwi",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "klippies and coke 250ml",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Koeksister",
+    "calories": 250,
+    "protein": 3,
+    "carbs": 38,
+    "fat": 10
+  },
+  {
+    "name": "kota",
+    "calories": 650,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lager",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lamb",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lamb chop",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lamb curry",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lamb shank",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Large Cappuccino",
+    "calories": 200,
+    "protein": 8,
+    "carbs": 16,
+    "fat": 10
+  },
+  {
+    "name": "Large Fries",
+    "calories": 490,
+    "protein": 7,
+    "carbs": 66,
+    "fat": 23
+  },
+  {
+    "name": "lasagna",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "latte",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Lay's Chips (120g)",
+    "calories": 480,
+    "protein": 5,
+    "carbs": 55,
+    "fat": 28
+  },
+  {
+    "name": "Lay's Salt & Vinegar (120g)",
+    "calories": 480,
+    "protein": 5,
+    "carbs": 55,
+    "fat": 28
+  },
+  {
+    "name": "lays chips cheese 125g",
+    "calories": 555,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lays chips original 125g",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lays chips salt and vinegar 125g",
+    "calories": 550,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lays chips small bag 36g",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lean mince",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lentils",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lettuce",
+    "calories": 10,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "lipton iced tea 330ml",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "liqui fruit apple 330ml",
+    "calories": 155,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "liqui fruit orange 330ml",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Liqui-Fruit (330ml)",
+    "calories": 180,
+    "protein": 1,
+    "carbs": 42,
+    "fat": 0
+  },
+  {
+    "name": "Liqui-Fruit Orange (330ml)",
+    "calories": 180,
+    "protein": 1,
+    "carbs": 42,
+    "fat": 0
+  },
+  {
+    "name": "lobster",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "long black",
+    "calories": 10,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "low fat yogurt",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Lunch Bar",
+    "calories": 250,
+    "protein": 4,
+    "carbs": 30,
+    "fat": 12
+  },
+  {
+    "name": "mac and cheese",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "macchiato",
+    "calories": 40,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mackerel",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mango",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Mango (whole)",
+    "calories": 150,
+    "protein": 1,
+    "carbs": 35,
+    "fat": 1
+  },
+  {
+    "name": "margarita",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "margaritas",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Marie Biscuit (1)",
+    "calories": 35,
+    "protein": 1,
+    "carbs": 6,
+    "fat": 1
+  },
+  {
+    "name": "mashed potato",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Mass Gainer (1 scoop)",
+    "calories": 400,
+    "protein": 30,
+    "carbs": 55,
+    "fat": 8
+  },
+  {
+    "name": "matcha latte",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "McDonald's Large Fries",
+    "calories": 490,
+    "protein": 7,
+    "carbs": 66,
+    "fat": 23
+  },
+  {
+    "name": "mcdonalds apple pie",
+    "calories": 230,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds big mac",
+    "calories": 550,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds big tasty",
+    "calories": 840,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds cheeseburger",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds chicken mcnuggets 20",
+    "calories": 830,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds chicken mcnuggets 6",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds chicken mcnuggets 9",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds double cheeseburger",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds double quarter pounder",
+    "calories": 740,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds egg mcmuffin",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds filet o fish",
+    "calories": 390,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds garden salad",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds hash brown",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds hotcakes",
+    "calories": 580,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds mcchicken",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds mcfeast",
+    "calories": 530,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds mcflurry kit kat",
+    "calories": 530,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds mcflurry oreo",
+    "calories": 510,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds medium fries",
+    "calories": 340,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds quarter pounder with cheese",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds sausage mcmuffin",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds small fries",
+    "calories": 230,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds sundae chocolate",
+    "calories": 340,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mcdonalds vanilla cone",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "McFlurry",
+    "calories": 420,
+    "protein": 8,
+    "carbs": 62,
+    "fat": 16
+  },
+  {
+    "name": "meal replacement shake",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mealie pap",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Melkkos (serving)",
+    "calories": 300,
+    "protein": 8,
+    "carbs": 40,
+    "fat": 12
+  },
+  {
+    "name": "melon",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "milk",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Milkshake",
+    "calories": 450,
+    "protein": 10,
+    "carbs": 60,
+    "fat": 18
+  },
+  {
+    "name": "mince",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mixed nuts",
+    "calories": 170,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mixed veg",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mocha",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mojito",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "monster",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Monster Energy 500ml",
+    "calories": 230,
+    "protein": 0,
+    "carbs": 56,
+    "fat": 0
+  },
+  {
+    "name": "muesli",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "muesli bar",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mushrooms",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "mussels",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "naan",
+    "calories": 260,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nachos",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Nando's Espetada",
+    "calories": 500,
+    "protein": 45,
+    "carbs": 5,
+    "fat": 30
+  },
+  {
+    "name": "Nando's Quarter Chicken (with skin)",
+    "calories": 650,
+    "protein": 45,
+    "carbs": 5,
+    "fat": 50
+  },
+  {
+    "name": "nandos butterfly chicken",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos caesar salad",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos chicken breast fillet",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos chicken livers",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos coleslaw",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos corn on the cob",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos espetada",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos full chicken",
+    "calories": 1240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos garlic bread",
+    "calories": 270,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos half chicken",
+    "calories": 620,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos peri chips regular",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos peri peri chicken burger",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos peri peri chicken wrap",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos portuguese roll",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos quarter chicken",
+    "calories": 310,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos spicy rice",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos wing roulette 10",
+    "calories": 860,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nandos wing roulette 5",
+    "calories": 430,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nik naks",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Nik Naks (full bag)",
+    "calories": 450,
+    "protein": 5,
+    "carbs": 52,
+    "fat": 25
+  },
+  {
+    "name": "niknaks chilli cheese 135g",
+    "calories": 640,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "niknaks fruit chutney 135g",
+    "calories": 640,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "niknaks original 135g",
+    "calories": 640,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "niknaks small bag 40g",
+    "calories": 190,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "noodles",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "nuts",
+    "calories": 170,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "oat milk latte",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "oatmeal",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "oats",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Ocean Basket Calamari",
+    "calories": 500,
+    "protein": 28,
+    "carbs": 35,
+    "fat": 25
+  },
+  {
+    "name": "ocean basket fish and chips",
+    "calories": 680,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ocean basket grilled kingklip",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ocean basket hake",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ocean basket prawn platter",
+    "calories": 420,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Ocean Basket Prawns",
+    "calories": 400,
+    "protein": 30,
+    "carbs": 15,
+    "fat": 22
+  },
+  {
+    "name": "ocean basket rice",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ocean basket sushi platter 12",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "omelette",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "onion rings",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "orange",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Orange (medium)",
+    "calories": 65,
+    "protein": 1,
+    "carbs": 15,
+    "fat": 0
+  },
+  {
+    "name": "orange juice",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "oros squash glass",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "oros squash sugar free glass",
+    "calories": 5,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ostrich",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Ouma Rusk (1)",
+    "calories": 140,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 5
+  },
+  {
+    "name": "ouma rusks",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "overnight oats",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "oysters",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pancake",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pap",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Pap & Boerewors",
+    "calories": 600,
+    "protein": 25,
+    "carbs": 50,
+    "fat": 32
+  },
+  {
+    "name": "pasta",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pastry",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "patty",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "peach",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "peanut butter",
+    "calories": 190,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "peanuts",
+    "calories": 170,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pear",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "peas",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "penne",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "peppers",
+    "calories": 30,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pepsi",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pie",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pina colada",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pineapple",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pita",
+    "calories": 165,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pita chips",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza",
+    "calories": 285,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut chicken wings 6",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut garlic bread",
+    "calories": 260,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut medium hawaiian",
+    "calories": 1350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut medium margherita",
+    "calories": 1250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut medium meat feast",
+    "calories": 1650,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut medium pepperoni",
+    "calories": 1450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut pasta bolognese",
+    "calories": 650,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut pasta carbonara",
+    "calories": 720,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut slice margherita",
+    "calories": 210,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza hut slice pepperoni",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pizza slice",
+    "calories": 285,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "plum",
+    "calories": 45,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli chicken mayo roll",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli chicken pie",
+    "calories": 430,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli chicken wrap",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli coleslaw",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli lasagne",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli mac and cheese",
+    "calories": 440,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli potato salad",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli roast chicken half",
+    "calories": 600,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli roast chicken quarter",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli sausage roll",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp deli steak pie",
+    "calories": 460,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp no name butter chicken",
+    "calories": 420,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp no name cottage pie",
+    "calories": 360,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pnp no name lasagne ready meal",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "poached egg",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "popcorn",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pork",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pork chop",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pork loin",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pork sausage",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "porridge",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "potato",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "potatoes",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "potjie",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Potjiekos (serving)",
+    "calories": 550,
+    "protein": 30,
+    "carbs": 35,
+    "fat": 30
+  },
+  {
+    "name": "powerade",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "prawns",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Pre-Workout",
+    "calories": 10,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0
+  },
+  {
+    "name": "pressed juice",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pretzel",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pretzel bites",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pretzel knots",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pretzels",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pronutro",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "protein bar",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "protein shake",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "protein smoothie",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "provita",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "provita original 6 crackers",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "provita wholewheat 6 crackers",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "pumpkin",
+    "calories": 40,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "quarter pounder",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "quesadilla",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "quest bar",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "quiche",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "quinoa",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "red bull",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Red Bull 250ml",
+    "calories": 112,
+    "protein": 0,
+    "carbs": 27,
+    "fat": 0
+  },
+  {
+    "name": "red wine",
+    "calories": 125,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ribeye",
+    "calories": 290,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rice",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rice cakes",
+    "calories": 35,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rice crackers",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "ritz crackers",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "roasted chicken",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "robertson natural sweet rose 250ml",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rooibos tea no sugar",
+    "calories": 2,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rooibos tea with milk",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rooibos tea with milk and sugar",
+    "calories": 55,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "roti",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Rotisserie Chicken (whole)",
+    "calories": 1100,
+    "protein": 90,
+    "carbs": 5,
+    "fat": 78
+  },
+  {
+    "name": "rum",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rump steak",
+    "calories": 260,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "rusks",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "safari cashew nuts 100g",
+    "calories": 580,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "safari dried mango 100g",
+    "calories": 310,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "safari mixed nuts 100g",
+    "calories": 590,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "safari peanuts roasted 100g",
+    "calories": 570,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "safari raisins 100g",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "salad",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "salmon",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "salmon and rice",
+    "calories": 430,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "salticrax",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Samp & Beans (serving)",
+    "calories": 320,
+    "protein": 12,
+    "carbs": 55,
+    "fat": 4
+  },
+  {
+    "name": "sandwich",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sardines",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sausage",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Savanna Dry 330ml",
+    "calories": 170,
+    "protein": 0,
+    "carbs": 18,
+    "fat": 0
+  },
+  {
+    "name": "savanna dry 500ml",
+    "calories": 255,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Savanna Light 330ml",
+    "calories": 105,
+    "protein": 0,
+    "carbs": 8,
+    "fat": 0
+  },
+  {
+    "name": "scrambled eggs",
+    "calories": 70,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "seaweed snacks",
+    "calories": 30,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "shrimp",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "side salad",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Simba Chipniks (full bag)",
+    "calories": 450,
+    "protein": 5,
+    "carbs": 55,
+    "fat": 24
+  },
+  {
+    "name": "simba chips",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Simba Chips (125g)",
+    "calories": 500,
+    "protein": 5,
+    "carbs": 60,
+    "fat": 28
+  },
+  {
+    "name": "simba chips bbq 125g",
+    "calories": 555,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "simba chips cheese and onion 125g",
+    "calories": 555,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "simba chips chutney 125g",
+    "calories": 555,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Simba Chips Original (125g)",
+    "calories": 500,
+    "protein": 5,
+    "carbs": 60,
+    "fat": 28
+  },
+  {
+    "name": "simba chips original 125g",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "simba chips salt and vinegar 125g",
+    "calories": 550,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "simba chips small bag 36g",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sirloin",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "slice of bread",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "slice of toast",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "smirnoff spin 300ml",
+    "calories": 175,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "smoked salmon",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "smoothie",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "smoothie bowl",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "snoek",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "soft pretzel",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sosatie",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "soup",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "soy latte",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spaghetti",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Sparletta 330ml",
+    "calories": 180,
+    "protein": 0,
+    "carbs": 45,
+    "fat": 0
+  },
+  {
+    "name": "Sparletta Pine Nut 330ml",
+    "calories": 180,
+    "protein": 0,
+    "carbs": 45,
+    "fat": 0
+  },
+  {
+    "name": "special k",
+    "calories": 110,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spinach",
+    "calories": 25,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sprite",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sprite 330ml",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sprite zero 330ml",
+    "calories": 2,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spur burger",
+    "calories": 650,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Spur Cheese Burger",
+    "calories": 650,
+    "protein": 35,
+    "carbs": 45,
+    "fat": 35
+  },
+  {
+    "name": "spur cheese griller",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Spur Chicken Wings (6)",
+    "calories": 540,
+    "protein": 36,
+    "carbs": 15,
+    "fat": 38
+  },
+  {
+    "name": "spur chicken wings 10",
+    "calories": 780,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spur chips regular",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spur nachos",
+    "calories": 720,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spur ribs full rack",
+    "calories": 1100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spur ribs half rack",
+    "calories": 580,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spur rump steak 300g",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "spur t-bone steak",
+    "calories": 680,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "squid",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steak",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Steak Gatsby",
+    "calories": 1050,
+    "protein": 40,
+    "carbs": 95,
+    "fat": 50
+  },
+  {
+    "name": "steak pie",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers burger",
+    "calories": 600,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers cheese sauce",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers chicken burger",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers chips regular",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers dagwood burger",
+    "calories": 950,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers king steer burger",
+    "calories": 750,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers onion rings",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "steers rib burger",
+    "calories": 680,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Steers Wacky Wednesday Burger",
+    "calories": 600,
+    "protein": 30,
+    "carbs": 45,
+    "fat": 30
+  },
+  {
+    "name": "stir fry",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "stir fry veg",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "stoney",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "stoney ginger beer 330ml",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "strawberries",
+    "calories": 50,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch chicken breast",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch chicken teriyaki",
+    "calories": 330,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch italian bmt",
+    "calories": 410,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch meatball marinara",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch roast beef",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch spicy italian",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch steak and cheese",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch tuna",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch turkey breast",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway 6 inch veggie delite",
+    "calories": 230,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway cookie chocolate chip",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway cookie white choc macadamia",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway footlong chicken teriyaki",
+    "calories": 660,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway footlong italian bmt",
+    "calories": 820,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway footlong meatball marinara",
+    "calories": 960,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "subway footlong turkey breast",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sushi",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Sushi Platter (~20 pieces)",
+    "calories": 800,
+    "protein": 30,
+    "carbs": 110,
+    "fat": 15
+  },
+  {
+    "name": "sushi roll",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "sweet potato",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tacos",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tempeh",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tennis biscuit",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tequila",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Tex Bar",
+    "calories": 250,
+    "protein": 3,
+    "carbs": 32,
+    "fat": 12
+  },
+  {
+    "name": "toast",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "toasted sandwich",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tofu",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tomato",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Tomato Bredie (serving)",
+    "calories": 450,
+    "protein": 25,
+    "carbs": 30,
+    "fat": 25
+  },
+  {
+    "name": "tomatoes",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tortilla",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tortilla chips",
+    "calories": 140,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "trail mix",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "trout",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tuna",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tuna can",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tuna salad",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tuna sandwich",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "tuna steak",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "turkey",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "turkey breast",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "turkey mince",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Umfino (wild greens)",
+    "calories": 150,
+    "protein": 5,
+    "carbs": 15,
+    "fat": 8
+  },
+  {
+    "name": "Uphuthu (crumbly pap)",
+    "calories": 275,
+    "protein": 5,
+    "carbs": 58,
+    "fat": 2
+  },
+  {
+    "name": "veggie chips",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "venison",
+    "calories": 160,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "vetkoek",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Vida e Caffè Latte",
+    "calories": 180,
+    "protein": 8,
+    "carbs": 16,
+    "fat": 8
+  },
+  {
+    "name": "Vienna & Bread",
+    "calories": 325,
+    "protein": 10,
+    "carbs": 35,
+    "fat": 16
+  },
+  {
+    "name": "Vienna Sausage (1)",
+    "calories": 160,
+    "protein": 6,
+    "carbs": 2,
+    "fat": 14
+  },
+  {
+    "name": "vodka",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Vodka Lime & Soda",
+    "calories": 90,
+    "protein": 0,
+    "carbs": 2,
+    "fat": 0
+  },
+  {
+    "name": "waffle",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "walnuts",
+    "calories": 185,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "watermelon",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "weetbix",
+    "calories": 60,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "whey shake",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "whiskey",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Whisky (single, neat)",
+    "calories": 70,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0
+  },
+  {
+    "name": "Whisky (single)",
+    "calories": 70,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0
+  },
+  {
+    "name": "white bread",
+    "calories": 80,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "white fish",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "white rice",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "white wine",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "whole wheat pasta",
+    "calories": 340,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "whopper",
+    "calories": 660,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "willards crinkle cut 125g",
+    "calories": 560,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "wimpy burger",
+    "calories": 550,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Wimpy Full Breakfast",
+    "calories": 800,
+    "protein": 35,
+    "carbs": 60,
+    "fat": 45
+  },
+  {
+    "name": "windhoek draught 440ml",
+    "calories": 170,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "windhoek lager 330ml",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Windhoek Lager 440ml",
+    "calories": 160,
+    "protein": 1,
+    "carbs": 13,
+    "fat": 0
+  },
+  {
+    "name": "windhoek lager 500ml",
+    "calories": 195,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "wine",
+    "calories": 125,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies bagel",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies biltong",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies cheese platter",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies chicken",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies croissant",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies curry",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies droewors",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies energy bar",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies fruit salad",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies guacamole",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies hummus",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies meal",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies muffin",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies pasta",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies pie",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies protein ball",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies quiche",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies ready meal",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies roast chicken",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies salad",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies sandwich",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies scone",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies smoothie",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies sushi",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies trail mix",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies wrap",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolies yoghurt",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths aura sparkling water",
+    "calories": 0,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths bagel",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths beef bolognese ready meal",
+    "calories": 440,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths beef stroganoff ready meal",
+    "calories": 460,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths biltong",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths biltong 100g",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Woolworths Butter Chicken",
+    "calories": 500,
+    "protein": 30,
+    "carbs": 35,
+    "fat": 25
+  },
+  {
+    "name": "woolworths butter chicken ready meal",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths cheese platter",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken",
+    "calories": 300,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken caesar wrap",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken mayo sandwich",
+    "calories": 420,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken pie",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken salad",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken schnitzel ready meal",
+    "calories": 390,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken sosaties 4",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken strips 300g",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths chicken tikka ready meal",
+    "calories": 420,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths cottage pie ready meal",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths croissant",
+    "calories": 240,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths crumbed chicken strips",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths curry",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths double cream yoghurt",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths droewors",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths droewors 100g",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths energy bar",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths fat free yoghurt",
+    "calories": 90,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths fruit salad",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths granola",
+    "calories": 210,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths greek salad",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths guacamole",
+    "calories": 120,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths hummus",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths lasagne ready meal",
+    "calories": 520,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths mac and cheese ready meal",
+    "calories": 460,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths meal",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths muffin",
+    "calories": 280,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths pad thai ready meal",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths pasta",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths pie",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths protein ball",
+    "calories": 150,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths protein yoghurt",
+    "calories": 130,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths quiche",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths ready meal",
+    "calories": 500,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths roast chicken",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths roast chicken half",
+    "calories": 640,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths roast chicken quarter",
+    "calories": 320,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths salad",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths salmon fishcakes 2",
+    "calories": 340,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths sandwich",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths scone",
+    "calories": 220,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths smoothie",
+    "calories": 200,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths steak pie",
+    "calories": 480,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths sushi",
+    "calories": 250,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths sushi 10 piece",
+    "calories": 380,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Woolworths Sushi 12 Pack",
+    "calories": 500,
+    "protein": 20,
+    "carbs": 70,
+    "fat": 12
+  },
+  {
+    "name": "woolworths sushi 16 piece",
+    "calories": 610,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths thai green curry ready meal",
+    "calories": 470,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths trail mix",
+    "calories": 180,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths wrap",
+    "calories": 400,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "woolworths yoghurt",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "wrap",
+    "calories": 350,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "Yogi Sip",
+    "calories": 150,
+    "protein": 5,
+    "carbs": 22,
+    "fat": 4
+  },
+  {
+    "name": "yogurt",
+    "calories": 100,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "zinger burger",
+    "calories": 450,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  },
+  {
+    "name": "zucchini",
+    "calories": 20,
+    "protein": null,
+    "carbs": null,
+    "fat": null
+  }
+]

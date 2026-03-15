@@ -114,6 +114,20 @@
     .badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
     .badge-pill{background:#0b1222;border:1px solid #1f2937;color:#e2e8f0;border-radius:999px;padding:3px 8px;font-size:11px}
 
+    /* Search */
+    .search-bar{display:flex;align-items:center;gap:10px;background:#1e293b;border:1px solid #1f2937;padding:10px 12px;border-radius:12px;margin-top:12px}
+    .search-bar:focus-within{border-color:var(--accent);box-shadow:0 0 0 2px rgba(34,197,94,.15)}
+    .search-icon{color:#94a3b8}
+    .search-input{flex:1;background:transparent;border:none;color:#e2e8f0;font-size:16px;outline:none}
+    .search-stats{display:flex;justify-content:space-between;align-items:center}
+    .search-results{display:grid;gap:10px;margin-top:12px;opacity:0;transform:translateY(6px);transition:all .2s ease}
+    .search-results.active{opacity:1;transform:translateY(0)}
+    .food-card{background:#111827;border:1px solid #1f2937;border-radius:12px;padding:12px}
+    .food-name{font-weight:700}
+    .food-cal{color:#22c55e;font-size:20px;font-weight:800}
+    .food-macros{font-size:12px;color:#94a3b8;margin-top:4px}
+    .category-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+
     /* Nav */
     .nav{position:fixed;left:0;right:0;bottom:0;background:rgba(15,23,42,.85);border-top:1px solid #1f2937;display:flex;justify-content:space-around;padding:10px 8px;backdrop-filter:blur(12px)}
     .nav button{background:none;border:none;color:var(--muted);font-size:12px;display:grid;gap:4px;place-items:center}
@@ -243,7 +257,23 @@
       </div>
     </section>
 
-    <section id="board" class="section">
+    
+    <section id="search" class="section">
+      <div class="card">
+        <div class="search-stats">
+          <h3 style="margin:0">🔍 Food Search</h3>
+          <span class="muted" id="foodDbStats" style="font-size:12px">-- foods in database</span>
+        </div>
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input id="foodSearchInput" class="search-input" type="text" placeholder="Search foods... e.g. nandos, oats, beer" />
+        </div>
+        <div class="category-pills" id="categoryPills"></div>
+      </div>
+      <div class="search-results" id="foodSearchResults"></div>
+    </section>
+
+<section id="board" class="section">
       <div class="card">
         <h3 style="margin:0 0 6px">🏆 Leaderboard</h3>
         <div class="muted" style="font-size:12px">Your community progress — keep the streak alive</div>
@@ -268,6 +298,7 @@
     <button data-target="receipt" class="active">📱<span>Today</span></button>
     <button data-target="heatmap">🟩<span>Heatmap</span></button>
     <button data-target="stats">📊<span>Stats</span></button>
+    <button data-target="search">🔍<span>Search</span></button>
     <button data-target="board">🏆<span>Board</span></button>
     <button data-target="profile">👤<span>Profile</span></button>
   </nav>
@@ -455,6 +486,100 @@
         span.textContent = label ? label.label : '';
         months.appendChild(span);
       }
+    }
+
+
+    let foodDb = [];
+    let foodDbReady = false;
+
+    async function loadFoodDb(){
+      if(foodDbReady) return;
+      try{
+        const res = await fetch('./data/food-db.json');
+        if(!res.ok) return;
+        foodDb = await res.json();
+        foodDbReady = true;
+        if($('foodDbStats')) $('foodDbStats').textContent = `${foodDb.length} foods in database`;
+      }catch(e){ /* ignore */ }
+    }
+
+    const categories = [
+      { label: '🍺 Drinks', keywords: ['beer','wine','whisky','whiskey','vodka','gin','cider','rum','tequila','brandy','lager','savanna','hunters','cocktail'] },
+      { label: '🍔 Fast Food', keywords: ['nandos','kfc','mcdonalds','steers','spur','wimpy','debonairs','burger king','chicken licken','dominos','pizza hut'] },
+      { label: '🥣 Breakfast', keywords: ['oats','egg','eggs','toast','cereal','muesli','yogurt','yoghurt','omelette','bacon'] },
+      { label: '🥩 Protein', keywords: ['chicken','steak','eggs','fish','tuna','protein','beef','lamb','pork'] },
+      { label: '🍫 Snacks', keywords: ['chips','chocolate','biltong','nuts','bar','cookie','biscuit','doritos','niknaks','simba'] },
+      { label: '🇿🇦 SA Foods', keywords: ['boerewors','biltong','bunny chow','gatsby','koeksister','pap','chakalaka','vetkoek','magwinya','potjiekos','samp'] },
+    ];
+
+    function renderCategories(){
+      const wrap = $('categoryPills');
+      if(!wrap) return;
+      wrap.innerHTML = '';
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'badge-pill';
+        btn.textContent = cat.label;
+        btn.onclick = () => runSearch(cat.keywords.join(' '), true);
+        wrap.appendChild(btn);
+      });
+    }
+
+    function matchesQuery(name, query){
+      if(!query) return false;
+      const q = query.toLowerCase().trim();
+      if(!q) return false;
+      const tokens = q.split(/\s+/).filter(Boolean);
+      const lower = name.toLowerCase();
+      return tokens.every(t => lower.includes(t));
+    }
+
+    function renderResults(list){
+      const results = $('foodSearchResults');
+      if(!results) return;
+      results.innerHTML = '';
+      list.slice(0,20).forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'food-card';
+        const p = item.protein == null ? '—' : item.protein;
+        const c = item.carbs == null ? '—' : item.carbs;
+        const f = item.fat == null ? '—' : item.fat;
+        card.innerHTML = `
+          <div class="food-name">${item.name}</div>
+          <div class="food-cal">${item.calories} cal</div>
+          <div class="food-macros">P: ${p}g | C: ${c}g | F: ${f}g</div>
+        `;
+        results.appendChild(card);
+      });
+      results.classList.toggle('active', list.length > 0);
+    }
+
+    let searchTimer = null;
+    async function runSearch(value, fromCategory=false){
+      await loadFoodDb();
+      const input = $('foodSearchInput');
+      const query = value != null ? value : (input ? input.value : '');
+      const trimmed = (query || '').trim();
+      const results = $('foodSearchResults');
+      if(!trimmed){
+        if(results){ results.innerHTML = ''; results.classList.remove('active'); }
+        return;
+      }
+      const matched = foodDb.filter(item => matchesQuery(item.name, trimmed));
+      renderResults(matched);
+      if(fromCategory && input){
+        input.value = '';
+      }
+    }
+
+    function setupSearch(){
+      renderCategories();
+      const input = $('foodSearchInput');
+      if(!input) return;
+      input.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => runSearch(), 300);
+      });
     }
 
     function bindTooltip(){
@@ -840,10 +965,16 @@
         document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
         const target = document.getElementById(btn.dataset.target);
         if(target) target.classList.add('active');
+        if(btn.dataset.target === 'search'){
+          const input = $('foodSearchInput');
+          if(input) setTimeout(()=>input.focus(), 120);
+        }
         window.scrollTo({top:0,behavior:'smooth'});
       });
     });
 
+    setupSearch();
+    loadFoodDb();
     load();
   </script>
 </body>
