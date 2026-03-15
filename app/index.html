@@ -31,6 +31,7 @@
     .receipt:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 0);background-size:3px 3px;mix-blend-mode:multiply;opacity:.35;pointer-events:none;border-radius:6px}
     .receipt h1{margin:0;text-align:center;font-size:18px;letter-spacing:4px}
     .receipt .date{text-align:center;font-size:12px;margin-top:4px}
+    .receipt .transaction{text-align:center;font-size:11px;color:#4b5563;margin-top:2px}
     .dash{border-top:1px dashed #9ca3af;margin:10px 0}
     .dots{border-top:1px dotted #9ca3af;margin:10px 0}
     .row{display:flex;justify-content:space-between;gap:8px;font-size:13px}
@@ -68,6 +69,23 @@
     .protein{background:#38bdf8}.carbs{background:#f97316}.fat{background:#a855f7}
     canvas{width:100%!important;height:220px!important}
 
+    .projection-card{border:1px solid #1f2937;border-radius:var(--radius);padding:14px}
+    .projection-card.good{box-shadow:0 0 0 1px rgba(34,197,94,.35)}
+    .projection-card.warn{box-shadow:0 0 0 1px rgba(234,179,8,.35)}
+    .projection-card.bad{box-shadow:0 0 0 1px rgba(239,68,68,.35)}
+    .projection-stats{display:grid;gap:6px;margin-top:10px;font-size:12px;color:var(--muted)}
+    .projection-stats strong{color:#e2e8f0}
+
+    /* Leaderboard */
+    .board-table{width:100%;border-collapse:collapse;font-size:12px}
+    .board-table th,.board-table td{padding:8px 6px;border-bottom:1px solid #1f2937;text-align:left}
+    .board-table th{color:var(--muted);font-weight:600;cursor:pointer}
+    .board-table tr.highlight{box-shadow:0 0 0 2px rgba(34,197,94,.4);border-radius:8px}
+    .board-row{background:#0b1222}
+    .rank-pill{font-size:11px;color:var(--muted)}
+    .badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+    .badge-pill{background:#0b1222;border:1px solid #1f2937;color:#e2e8f0;border-radius:999px;padding:3px 8px;font-size:11px}
+
     /* Nav */
     .nav{position:fixed;left:0;right:0;bottom:0;background:rgba(15,23,42,.85);border-top:1px solid #1f2937;display:flex;justify-content:space-around;padding:10px 8px;backdrop-filter:blur(12px)}
     .nav button{background:none;border:none;color:var(--muted);font-size:12px;display:grid;gap:4px;place-items:center}
@@ -91,6 +109,7 @@
         <div class="receipt" id="receiptCard">
           <h1>FITSORTED</h1>
           <div class="date" id="receiptDate">--</div>
+          <div class="transaction" id="receiptTransaction">TRANSACTION #--</div>
           <div class="dash"></div>
           <div id="receiptItems"></div>
           <div class="dots"></div>
@@ -149,6 +168,24 @@
       </div>
       <div class="card" style="margin-top:12px"><canvas id="weeklyChart"></canvas></div>
       <div class="card" style="margin-top:12px"><canvas id="weightChart"></canvas></div>
+      <div class="card" style="margin-top:12px">
+        <h3 style="margin:0 0 8px">📉 Projection</h3>
+        <div class="projection-card" id="projectionCard">
+          <canvas id="projectionChart"></canvas>
+          <div class="projection-stats" id="projectionStats"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="board" class="section">
+      <div class="card">
+        <h3 style="margin:0 0 6px">🏆 Leaderboard</h3>
+        <div class="muted" style="font-size:12px">Your community progress — keep the streak alive</div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <div class="rank-pill" id="leaderboardRank"></div>
+        <table class="board-table" id="leaderboardTable"></table>
+      </div>
     </section>
 
     <section id="profile" class="section">
@@ -165,6 +202,7 @@
     <button data-target="receipt" class="active">🧾<span>Receipt</span></button>
     <button data-target="heatmap">🟩<span>Heatmap</span></button>
     <button data-target="stats">📊<span>Stats</span></button>
+    <button data-target="board">🏆<span>Board</span></button>
     <button data-target="profile">👤<span>Profile</span></button>
   </nav>
 
@@ -313,6 +351,63 @@
       return streak;
     }
 
+    function daysBetween(a,b){
+      return Math.floor((b - a) / 86400000);
+    }
+
+    function badgeList({streak, goalAccuracy, totalLogs, joinedAt}){
+      const badges = [];
+      if(streak >= 7) badges.push('🔥 On Fire');
+      if(goalAccuracy >= 0.9) badges.push('🎯 Sniper');
+      if(totalLogs >= 100) badges.push('📝 Logger');
+      if(joinedAt && (Date.now() - new Date(joinedAt).getTime()) < 7*86400000) badges.push('🌱 Newbie');
+      return badges;
+    }
+
+    function renderLeaderboard(entries, sortKey = 'streak', sortDir = 'desc'){
+      const table = $('leaderboardTable');
+      if(!entries.length){ table.innerHTML = '<tr><td class="muted">No data yet</td></tr>'; return; }
+      const sorted = [...entries].sort((a,b)=>{
+        const valA = a[sortKey] ?? 0; const valB = b[sortKey] ?? 0;
+        return sortDir === 'desc' ? (valB - valA) : (valA - valB);
+      });
+      const currentIndex = sorted.findIndex(e=>e.token === token);
+      $('leaderboardRank').textContent = currentIndex >=0 ? `#${currentIndex+1} of ${sorted.length} users` : `${sorted.length} users`;
+
+      const header = `
+        <tr>
+          <th data-key="streak">Streak</th>
+          <th data-key="totalDaysLogged">Days</th>
+          <th data-key="goalAccuracy">Accuracy</th>
+          <th data-key="totalLogs">Logs</th>
+        </tr>`;
+
+      const rows = sorted.map((u, idx) => {
+        const medals = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `${idx+1}`;
+        const badges = badgeList(u).map(b=>`<span class="badge-pill">${b}</span>`).join('');
+        return `
+          <tr class="board-row ${u.token === token ? 'highlight':''}">
+            <td>
+              <strong>${medals} ${u.name}</strong><br>
+              <span class="muted" style="font-size:11px">🔥 ${u.streak} days</span>
+              <div class="badges">${badges}</div>
+            </td>
+            <td>${u.totalDaysLogged}</td>
+            <td>${Math.round(u.goalAccuracy*100)}%</td>
+            <td>${u.totalLogs}</td>
+          </tr>`;
+      }).join('');
+
+      table.innerHTML = header + rows;
+      table.querySelectorAll('th').forEach(th=>{
+        th.onclick = () => {
+          const key = th.dataset.key;
+          const dir = sortKey === key && sortDir === 'desc' ? 'asc' : 'desc';
+          renderLeaderboard(entries, key, dir);
+        };
+      });
+    }
+
     async function load(){
       if(!token) return showEmpty();
       try{
@@ -325,6 +420,9 @@
         const dates = logSummary.map(d=>d.date).sort();
         const today = dates.includes(new Date().toISOString().slice(0,10)) ? new Date().toISOString().slice(0,10) : dates[dates.length-1];
         const todayLog = logSummary.find(d=>d.date===today) || logSummary[logSummary.length-1];
+        const joinedAt = data.joinedAt || data.profile?.joinedAt || dates[0];
+        const joinedDate = joinedAt ? new Date(joinedAt) : new Date(dates[0]);
+        const transactionNum = daysBetween(joinedDate, new Date(today)) + 1;
 
         const goal = data.goal || 2000;
         const eaten = todayLog.totals.calories || 0;
@@ -333,15 +431,19 @@
         $('userName').textContent = `${data.name || 'FitSorted Member'} • Goal ${goal} kcal`;
         $('todayDate').textContent = fmtDate(today);
         $('receiptDate').textContent = fmtDate(today);
+        $('receiptTransaction').textContent = `TRANSACTION #${transactionNum}`;
         animateNumber($('remainingCalories'), remaining);
         setRing((eaten/goal)*100);
 
         const items = $('receiptItems');
         items.innerHTML = '';
+        let running = 0;
         todayLog.entries.forEach(e => {
+          running += e.calories || 0;
           const row = document.createElement('div');
           row.className = 'row';
-          row.innerHTML = `<span>${e.food}</span><span>${e.calories}</span>`;
+          const time = e.time ? e.time.slice(0,5) : '--:--';
+          row.innerHTML = `<span>${time}  ${e.food}</span><span>${e.calories} • ${running}</span>`;
           items.appendChild(row);
         });
 
@@ -408,14 +510,82 @@
           options:{plugins:{legend:{display:false}},scales:{y:{ticks:{color:'#94a3b8'},grid:{color:'#1f2937'}},x:{ticks:{color:'#94a3b8'},grid:{display:false}}}}
         });
 
+        // Projection
+        const last7Days = logSummary.slice(-7);
+        const avgDaily = last7Days.length ? (last7Days.reduce((a,d)=>a+d.totals.calories,0) / last7Days.length) : eaten;
+        const dailyDeficit = (goal - avgDaily);
+        const weeklyRate = (dailyDeficit * 7) / 7700;
+        const currentWeight = data.profile?.weight || weightVals[weightVals.length-1] || 0;
+        const w30 = currentWeight - (dailyDeficit * 30 / 7700);
+        const w60 = currentWeight - (dailyDeficit * 60 / 7700);
+        const w90 = currentWeight - (dailyDeficit * 90 / 7700);
+        const targetWeight = data.profile?.target === 'lose' ? (currentWeight - 10) : null;
+        const daysToTarget = targetWeight && dailyDeficit > 0 ? Math.ceil(((currentWeight - targetWeight) * 7700) / dailyDeficit) : null;
+        const paceText = `At your current pace: ${Math.abs(weeklyRate).toFixed(1)}kg/week`;
+        const proj30Text = `In 30 days: ${w30.toFixed(1)}kg`;
+        const proj90Text = `In 90 days: ${w90.toFixed(1)}kg`;
+        const statusClass = dailyDeficit > 50 ? 'good' : (dailyDeficit < -50 ? 'bad' : 'warn');
+        const warnText = dailyDeficit < 0 ? `⚠️ At current pace, you'll gain ${(Math.abs(dailyDeficit) * 30 / 7700).toFixed(1)}kg in 30 days` : '';
+        $('projectionCard').classList.add(statusClass);
+        $('projectionStats').innerHTML = `
+          <div><strong>Current weight</strong> ${currentWeight ? currentWeight.toFixed(1) + 'kg' : '-'}</div>
+          <div><strong>Daily deficit</strong> ${dailyDeficit.toFixed(0)} kcal</div>
+          <div>${paceText}</div>
+          <div>${proj30Text}</div>
+          <div>${proj90Text}</div>
+          ${daysToTarget ? `<div><strong>Target date</strong> ~${new Date(Date.now() + daysToTarget*86400000).toLocaleDateString('en-ZA')}</div>` : ''}
+          ${warnText ? `<div style="color:#fca5a5">${warnText}</div>` : ''}
+        `;
+        if(currentWeight){
+          new Chart($('projectionChart'), {
+            type:'line',
+            data:{labels:['Today','30d','60d','90d'],datasets:[{data:[currentWeight,w30,w60,w90],borderColor: dailyDeficit >=0 ? '#22c55e' : '#ef4444',tension:.3,pointRadius:3}]},
+            options:{plugins:{legend:{display:false}},scales:{y:{ticks:{color:'#94a3b8'},grid:{color:'#1f2937'}},x:{ticks:{color:'#94a3b8'},grid:{display:false}}}}
+          });
+        }
+
         // Profile
+        const totalLogs = logSummary.reduce((a,d)=>a+d.entries.length,0);
+        const totalSpend = logSummary.reduce((a,d)=>a+d.totals.priceZAR,0);
+        const avgSpend = totalDays ? (totalSpend/totalDays) : 0;
+        const foodCounts = {};
+        logSummary.forEach(d=>d.entries.forEach(e=>{const k=(e.food||'').trim(); if(!k) return; foodCounts[k]=(foodCounts[k]||0)+1;}));
+        const favFood = Object.entries(foodCounts).sort((a,b)=>b[1]-a[1])[0]?.[0] || '-';
+        const goalAccuracy = totalDays ? (logSummary.filter(d=> Math.abs(d.totals.calories - goal) <= goal*0.1).length / totalDays) : 0;
+        const badges = badgeList({streak, goalAccuracy, totalLogs, joinedAt}).map(b=>`<span class="badge-pill">${b}</span>`).join('');
+
         $('profileCard').innerHTML = `
           <h3 style="margin-top:0">Profile</h3>
           <p class="muted">${data.profile?.gender || '-'} • ${data.profile?.age || '-'} yrs</p>
           <div class="row" style="margin-top:6px"><span>Weight</span><strong>${data.profile?.weight || '-'} kg</strong></div>
           <div class="row" style="margin-top:6px"><span>Height</span><strong>${data.profile?.height || '-'} cm</strong></div>
           <div class="row" style="margin-top:6px"><span>Target</span><strong>${data.profile?.target || '-'} </strong></div>
+          <div class="row" style="margin-top:6px"><span>Member since</span><strong>${joinedAt ? fmtDate(joinedAt) : '-'}</strong></div>
+          <div class="row" style="margin-top:6px"><span>Total food entries</span><strong>${totalLogs}</strong></div>
+          <div class="row" style="margin-top:6px"><span>Favorite food</span><strong>${favFood}</strong></div>
+          <div class="row" style="margin-top:6px"><span>Average daily spend</span><strong>R${avgSpend.toFixed(0)}</strong></div>
+          <div style="margin-top:10px">
+            <div class="muted" style="font-size:12px;margin-bottom:6px">Badges earned</div>
+            <div class="badges">${badges || '<span class="muted">None yet</span>'}</div>
+          </div>
+          <div style="margin-top:12px" class="row">
+            <span>Share your receipt →</span>
+            <button id="copyLinkBtn" class="badge-pill" style="cursor:pointer">Copy link</button>
+          </div>
         `;
+        const copyBtn = $('copyLinkBtn');
+        if(copyBtn) copyBtn.onclick = async () => {
+          try{ await navigator.clipboard.writeText(location.href); copyBtn.textContent='Copied!'; setTimeout(()=>copyBtn.textContent='Copy link',1200);}catch(e){}
+        };
+
+        // Leaderboard
+        try{
+          const lbRes = await fetch('./data/leaderboard.json');
+          const lb = await lbRes.json();
+          renderLeaderboard(lb || []);
+        }catch(e){
+          renderLeaderboard([]);
+        }
       }catch(e){showEmpty();}
     }
 
