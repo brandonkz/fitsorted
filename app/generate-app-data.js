@@ -122,7 +122,7 @@ for (const [phone, user] of Object.entries(users)) {
 
     leaderboard.push({
       token,
-      name: anonymizeName(user.name || 'Member'),
+      name: '***' + String(phone).slice(-4),
       streak: calcStreak(dates),
       totalDaysLogged,
       avgCalories,
