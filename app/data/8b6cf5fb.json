@@ -1,0 +1,59 @@
+{
+  "name": "Caleigh",
+  "goal": 1512,
+  "profile": {
+    "age": 24,
+    "weight": 87,
+    "height": 169,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 1060,
+        "protein": 50,
+        "carbs": 112,
+        "fat": 50,
+        "fibre": 9,
+        "priceZAR": 105
+      },
+      "entries": [
+        {
+          "food": "2.5x scrambled eggs with mushrooms, cherry tomatoes and bacon",
+          "calories": 410,
+          "protein": 30,
+          "carbs": 15,
+          "fat": 30,
+          "fibre": 4,
+          "priceZAR": 35,
+          "time": "2026-03-12T08:16:42.671Z"
+        },
+        {
+          "food": "1x steri stumpie",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 37,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-12T11:14:23.772Z"
+        },
+        {
+          "food": "1x mince roti",
+          "calories": 500,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 50,
+          "time": "2026-03-12T12:38:38.083Z"
+        }
+      ]
+    }
+  ]
+}

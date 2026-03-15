@@ -1,0 +1,1790 @@
+{
+  "name": "Brandon",
+  "goal": 1999,
+  "profile": {
+    "age": 38,
+    "weight": 84,
+    "height": 186,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [
+    {
+      "kg": 84,
+      "date": "2026-03-13",
+      "time": "2026-03-13T06:07:04.692Z"
+    },
+    {
+      "kg": 84.5,
+      "date": "2026-03-13",
+      "time": "2026-03-13T06:09:25.545Z"
+    }
+  ],
+  "exercise": {
+    "2026-03-11": [
+      {
+        "activity": "running",
+        "calories": 300,
+        "time": "2026-03-11T06:56:46.281Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-01",
+      "totals": {
+        "calories": 3402,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "half chicken",
+          "calories": 400,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:04:09.511Z"
+        },
+        {
+          "food": "black coffee",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:04:29.113Z"
+        },
+        {
+          "food": "Hamburger",
+          "calories": 250,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:05:42.534Z"
+        },
+        {
+          "food": "McDonald's hamburger",
+          "calories": 250,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:05:53.280Z"
+        },
+        {
+          "food": "McChicken",
+          "calories": 400,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:06:05.786Z"
+        },
+        {
+          "food": "Big Mac",
+          "calories": 540,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:06:15.561Z"
+        },
+        {
+          "food": "steak fillet",
+          "calories": 660,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:06:50.313Z"
+        },
+        {
+          "food": "biltong",
+          "calories": 900,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-01T19:07:09.835Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "totals": {
+        "calories": 1907,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Coffee with almond milk",
+          "calories": 30,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-02T08:27:20.622Z"
+        },
+        {
+          "food": "Coffee with almond milk",
+          "calories": 30,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-02T09:05:58.789Z"
+        },
+        {
+          "food": "Kauai Peanut Butter Bomb (Large 500ml)",
+          "calories": 764,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-02T09:25:10.161Z"
+        },
+        {
+          "food": "2x toasted cheese sandwich",
+          "calories": 800,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-02T12:09:33.152Z"
+        },
+        {
+          "food": "3x dates",
+          "calories": 63,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-02T14:32:28.726Z"
+        },
+        {
+          "food": "0.5x fried bassa fish",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-02T16:16:50.214Z"
+        },
+        {
+          "food": "5x individual pretzel chips",
+          "calories": 70,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-02T17:45:52.572Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-03",
+      "totals": {
+        "calories": 2574,
+        "protein": 133,
+        "carbs": 272,
+        "fat": 110,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T06:02:03.428Z"
+        },
+        {
+          "food": "2x toasted cheese",
+          "calories": 600,
+          "protein": 24,
+          "carbs": 60,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T09:08:47.978Z"
+        },
+        {
+          "food": "100g popcorn",
+          "calories": 387,
+          "protein": 12,
+          "carbs": 78,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:41:53.596Z"
+        },
+        {
+          "food": "1x banana",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:46:31.604Z"
+        },
+        {
+          "food": "Nandos chicken burger",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T16:35:06.054Z"
+        },
+        {
+          "food": "potato wedges",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 50,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T17:46:48.428Z"
+        },
+        {
+          "food": "Smarties small",
+          "calories": 70,
+          "protein": 0,
+          "carbs": 17,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T19:48:45.330Z"
+        },
+        {
+          "food": "Braai steak (sirloin, 150g) (150g)",
+          "calories": 360,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T06:55:00.342Z"
+        },
+        {
+          "food": "steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T06:57:25.499Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-04",
+      "totals": {
+        "calories": 1225,
+        "protein": 82,
+        "carbs": 100,
+        "fat": 62,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Coffee black no sugar (1 cup (250ml))",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T05:38:49.313Z"
+        },
+        {
+          "food": "steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T06:54:24.244Z"
+        },
+        {
+          "food": "Protein bar (average) (1 bar (60g))",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 22,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T09:41:23.145Z"
+        },
+        {
+          "food": "3x Finn crisps",
+          "calories": 120,
+          "protein": 3,
+          "carbs": 24,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T10:53:25.112Z"
+        },
+        {
+          "food": "Nandos pap",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T15:22:25.053Z"
+        },
+        {
+          "food": "4x slices of cheese",
+          "calories": 400,
+          "protein": 28,
+          "carbs": 4,
+          "fat": 32,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T15:22:45.323Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "totals": {
+        "calories": 1840,
+        "protein": 138,
+        "carbs": 120,
+        "fat": 97,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T09:34:03.812Z"
+        },
+        {
+          "food": "6x ostrich meat balls",
+          "calories": 540,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T12:28:57.276Z"
+        },
+        {
+          "food": "1x peanut butter bomb smoothie",
+          "calories": 450,
+          "protein": 15,
+          "carbs": 40,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T12:29:28.182Z"
+        },
+        {
+          "food": "barbell protein bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 25,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T14:19:16.839Z"
+        },
+        {
+          "food": "Barebells Caramel Choco Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T14:28:16.136Z"
+        },
+        {
+          "food": "stir fry with halloumi cheese",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T16:05:51.232Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "totals": {
+        "calories": 895,
+        "protein": 17,
+        "carbs": 135,
+        "fat": 9.5,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Rusk buttermilk (1 rusk (35g))",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 4.5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T05:56:39.741Z"
+        },
+        {
+          "food": "Pap (stiff, cooked) (1 cup (250g))",
+          "calories": 240,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T06:14:46.850Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T06:30:21.303Z"
+        },
+        {
+          "food": "1x piece of kitka",
+          "calories": 200,
+          "protein": 6,
+          "carbs": 40,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T14:41:23.745Z"
+        },
+        {
+          "food": "Margarita cocktail (1 glass (250ml))",
+          "calories": 275,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T16:48:39.143Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "totals": {
+        "calories": 750,
+        "protein": 33,
+        "carbs": 95,
+        "fat": 31,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "3x scrambled eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 3,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T06:30:12.207Z"
+        },
+        {
+          "food": "2x French toast",
+          "calories": 400,
+          "protein": 12,
+          "carbs": 60,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T11:04:41.953Z"
+        },
+        {
+          "food": "2x coffee",
+          "calories": 10,
+          "protein": 0,
+          "carbs": 2,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T11:05:07.855Z"
+        },
+        {
+          "food": "1x small potato",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T11:31:59.236Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-08",
+      "totals": {
+        "calories": 450,
+        "protein": 36,
+        "carbs": 9,
+        "fat": 30,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-08T09:03:55.435Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-08T09:29:44.865Z"
+        },
+        {
+          "food": "Droewors (50g) (50g)",
+          "calories": 220,
+          "protein": 20,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-08T19:58:07.092Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-09",
+      "totals": {
+        "calories": 2805,
+        "protein": 41,
+        "carbs": 205,
+        "fat": 27,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "coffee",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T05:13:32.976Z"
+        },
+        {
+          "food": "Nu Peanut Butter Bomb Regular (regular (350ml))",
+          "calories": 400,
+          "protein": 13,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T08:35:57.826Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:25:30.999Z"
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:33:42.929Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:33:49.052Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:35:50.252Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:35:59.424Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:37:11.639Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:37:35.230Z"
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:39:11.460Z"
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:39:19.396Z"
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:39:26.144Z"
+        },
+        {
+          "food": "coke",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:39:31.990Z"
+        },
+        {
+          "food": "egg",
+          "calories": 70,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:39:50.359Z"
+        },
+        {
+          "food": "4x egg",
+          "calories": 280,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:41:35.507Z"
+        },
+        {
+          "food": "5x apple",
+          "calories": 400,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:41:44.196Z"
+        },
+        {
+          "food": "2x margarita",
+          "calories": 440,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T12:43:36.543Z"
+        },
+        {
+          "food": "pretzel",
+          "calories": 110,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T13:00:43.118Z"
+        },
+        {
+          "food": "pretzel",
+          "calories": 110,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T13:04:33.117Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "totals": {
+        "calories": 4330,
+        "protein": 121,
+        "carbs": 255,
+        "fat": 87,
+        "fibre": 0,
+        "priceZAR": 546
+      },
+      "entries": [
+        {
+          "food": "apple",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T05:39:36.335Z"
+        },
+        {
+          "food": "coffee",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T07:07:25.793Z"
+        },
+        {
+          "food": "droewors",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T08:53:35.578Z"
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:05:38.331Z"
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:06:02.372Z"
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:07:33.511Z"
+        },
+        {
+          "food": "Nandos quarter chicken (1 quarter)",
+          "calories": 290,
+          "protein": 37,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:10:11.205Z"
+        },
+        {
+          "food": "Nando's wedges 150g",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:20:32.753Z"
+        },
+        {
+          "food": "2x egg",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:30:01.704Z"
+        },
+        {
+          "food": "coffee",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:30:36.364Z"
+        },
+        {
+          "food": "peanut butter",
+          "calories": 190,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-10T09:35:33.654Z"
+        },
+        {
+          "food": "The nutter",
+          "calories": 450,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 65,
+          "time": "2026-03-10T09:36:01.762Z"
+        },
+        {
+          "food": "kingklip",
+          "calories": 130,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-10T10:19:04.007Z"
+        },
+        {
+          "food": "coffee",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-10T11:03:34.637Z"
+        },
+        {
+          "food": "3x egg",
+          "calories": 210,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-10T11:29:22.584Z"
+        },
+        {
+          "food": "apple",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-10T11:34:08.637Z"
+        },
+        {
+          "food": "pasta",
+          "calories": 350,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-10T14:45:40.203Z"
+        },
+        {
+          "food": "tuna pasta 1 serving",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 50,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-10T14:48:57.906Z"
+        },
+        {
+          "food": "tuna pasta 1 serving",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-10T15:09:24.399Z"
+        },
+        {
+          "food": "pasta with sauce 1 cup",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T15:09:51.530Z"
+        },
+        {
+          "food": "mojito",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 85,
+          "time": "2026-03-10T19:59:40.366Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "totals": {
+        "calories": 4217,
+        "protein": 207.2,
+        "carbs": 304,
+        "fat": 109.5,
+        "fibre": 20.6,
+        "priceZAR": 766
+      },
+      "entries": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-11T05:24:19.854Z"
+        },
+        {
+          "food": "3x scrambled eggs",
+          "calories": 210,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-11T05:24:58.221Z"
+        },
+        {
+          "food": "3x scrambled eggs",
+          "calories": 210,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-11T05:35:57.952Z"
+        },
+        {
+          "food": "1x banana",
+          "calories": 89,
+          "protein": 1,
+          "carbs": 23,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-11T05:36:01.375Z"
+        },
+        {
+          "food": "2x dates",
+          "calories": 46,
+          "protein": 0.4,
+          "carbs": 12,
+          "fat": 0.1,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-11T05:36:04.445Z"
+        },
+        {
+          "food": "1x coffee and 1x rusk",
+          "calories": 120,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-11T05:36:25.258Z"
+        },
+        {
+          "food": "margarita",
+          "calories": 220,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-11T05:54:18.287Z"
+        },
+        {
+          "food": "margarita",
+          "calories": 220,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-11T06:30:26.837Z"
+        },
+        {
+          "food": "Water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-11T08:13:28.193Z"
+        },
+        {
+          "food": "avocado",
+          "calories": 240,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-11T08:23:36.565Z"
+        },
+        {
+          "food": "Avocado (1 medium) (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-11T08:26:35.864Z"
+        },
+        {
+          "food": "Avocado (1 medium) (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-11T08:26:46.946Z"
+        },
+        {
+          "food": "Apple (1 medium) (1 medium)",
+          "calories": 95,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-11T08:27:25.423Z"
+        },
+        {
+          "food": "Avocado (1 medium) (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 10,
+          "time": "2026-03-11T08:31:39.483Z"
+        },
+        {
+          "food": "mango strips 100g",
+          "calories": 60,
+          "protein": 0.8,
+          "carbs": 15,
+          "fat": 0.4,
+          "fibre": 1.6,
+          "priceZAR": 30,
+          "time": "2026-03-11T08:41:04.328Z"
+        },
+        {
+          "food": "Barebells Caramel Choco Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 8,
+          "fibre": 6,
+          "priceZAR": 0,
+          "time": "2026-03-11T09:32:18.309Z"
+        },
+        {
+          "food": "12x sushi pieces",
+          "calories": 360,
+          "protein": 24,
+          "carbs": 60,
+          "fat": 6,
+          "fibre": 3,
+          "priceZAR": 120,
+          "time": "2026-03-11T10:04:52.221Z"
+        },
+        {
+          "food": "biltong 100g",
+          "calories": 250,
+          "protein": 50,
+          "carbs": 3,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 100,
+          "time": "2026-03-11T12:48:33.334Z"
+        },
+        {
+          "food": "White Monster Energy Drink 500ml",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 50,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-11T13:04:19.096Z"
+        },
+        {
+          "food": "200g biltong",
+          "calories": 500,
+          "protein": 100,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-11T15:23:42.102Z"
+        },
+        {
+          "food": "Paloma cocktail",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-11T18:33:20.950Z"
+        },
+        {
+          "food": "Margarita cocktail (1 glass (250ml))",
+          "calories": 275,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-11T18:47:08.531Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 2943,
+        "protein": 25,
+        "carbs": 273,
+        "fat": 27,
+        "fibre": 9,
+        "priceZAR": 590
+      },
+      "entries": [
+        {
+          "food": "Margarita cocktail (1 glass (250ml))",
+          "calories": 275,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-12T06:46:47.436Z"
+        },
+        {
+          "food": "Margarita cocktail (1 glass (250ml))",
+          "calories": 275,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-12T06:58:10.662Z"
+        },
+        {
+          "food": "Margarita cocktail (1 glass (250ml))",
+          "calories": 275,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-12T07:02:44.516Z"
+        },
+        {
+          "food": "smoothie",
+          "calories": 600,
+          "protein": 15,
+          "carbs": 90,
+          "fat": 15,
+          "fibre": 8,
+          "priceZAR": 65,
+          "time": "2026-03-12T09:45:40.518Z"
+        },
+        {
+          "food": "hotdog",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 12,
+          "fibre": 1,
+          "priceZAR": 40,
+          "time": "2026-03-12T11:36:53.265Z"
+        },
+        {
+          "food": "Sprite (1 can (330ml))",
+          "calories": 130,
+          "protein": 0,
+          "carbs": 33,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-12T14:02:46.848Z"
+        },
+        {
+          "food": "Martini (150ml)",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-12T15:47:51.211Z"
+        },
+        {
+          "food": "Long Island ice tea",
+          "calories": 300,
+          "protein": 0,
+          "carbs": 40,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 85,
+          "time": "2026-03-12T15:48:10.227Z"
+        },
+        {
+          "food": "vodka shot",
+          "calories": 64,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-12T18:30:43.743Z"
+        },
+        {
+          "food": "tequila 50ml",
+          "calories": 110,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-12T18:33:23.125Z"
+        },
+        {
+          "food": "Vodka and soda (1 glass (250ml))",
+          "calories": 97,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-12T18:34:19.287Z"
+        },
+        {
+          "food": "Martini (150ml)",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-12T18:38:27.103Z"
+        },
+        {
+          "food": "Vodka and soda (1 glass (250ml))",
+          "calories": 97,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-12T18:38:52.802Z"
+        },
+        {
+          "food": "Spicy margarita",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-12T19:27:48.082Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 7044,
+        "protein": 386,
+        "carbs": 316,
+        "fat": 439,
+        "fibre": 9,
+        "priceZAR": 1221
+      },
+      "entries": [
+        {
+          "food": "Challah (1 slice)",
+          "calories": 120,
+          "protein": 4,
+          "carbs": 24,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-03-13T06:52:30.667Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T08:28:51.622Z"
+        },
+        {
+          "food": "3x scrambled eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 3,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-13T08:41:58.948Z"
+        },
+        {
+          "food": "1x apple",
+          "calories": 52,
+          "protein": 0,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 4,
+          "time": "2026-03-13T08:42:53.774Z"
+        },
+        {
+          "food": "1x tequila shot",
+          "calories": 64,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-13T08:43:04.724Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-13T09:02:46.907Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:02:58.311Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:07:17.696Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:10:37.278Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:10:50.404Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:13:44.259Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:17:28.113Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:17:51.751Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:23:16.818Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:25:34.782Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:25:42.013Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:25:56.531Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs) (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:26:12.653Z"
+        },
+        {
+          "food": "Scrambled egg (1 egg)",
+          "calories": 90,
+          "protein": 7,
+          "carbs": 1,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-13T09:29:11.094Z"
+        },
+        {
+          "food": "2x scrambled eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T09:29:33.110Z"
+        },
+        {
+          "food": "15x hamburger",
+          "calories": 3750,
+          "protein": 150,
+          "carbs": 225,
+          "fat": 225,
+          "fibre": 0,
+          "priceZAR": 975,
+          "time": "2026-03-13T12:59:35.583Z"
+        },
+        {
+          "food": "Freezochino",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 65,
+          "time": "2026-03-13T13:09:26.645Z"
+        },
+        {
+          "food": "Barebells Caramel Choco Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 6,
+          "priceZAR": 0,
+          "time": "2026-03-13T14:02:14.668Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 1622,
+        "protein": 72,
+        "carbs": 337,
+        "fat": 67,
+        "fibre": 24,
+        "priceZAR": 216
+      },
+      "entries": [
+        {
+          "food": "3x scrambled eggs and 3 slices of toast",
+          "calories": 570,
+          "protein": 21,
+          "carbs": 240,
+          "fat": 15,
+          "fibre": 6,
+          "priceZAR": 16,
+          "time": "2026-03-14T10:00:00.089Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-14T10:00:14.222Z"
+        },
+        {
+          "food": "salted vinegar chips",
+          "calories": 150,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-14T10:01:00.714Z"
+        },
+        {
+          "food": "Magnesium drink",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-14T10:35:04.640Z"
+        },
+        {
+          "food": "fried chicken strips 200 gm",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 20,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-14T16:24:14.282Z"
+        },
+        {
+          "food": "chickpea curry",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 45,
+          "fat": 10,
+          "fibre": 10,
+          "priceZAR": 30,
+          "time": "2026-03-14T16:57:52.812Z"
+        },
+        {
+          "food": "raspberries 100g",
+          "calories": 52,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 7,
+          "priceZAR": 30,
+          "time": "2026-03-14T18:00:20.083Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 500,
+        "protein": 12,
+        "carbs": 85,
+        "fat": 16,
+        "fibre": 4,
+        "priceZAR": 36
+      },
+      "entries": [
+        {
+          "food": "2x French toast",
+          "calories": 400,
+          "protein": 12,
+          "carbs": 60,
+          "fat": 16,
+          "fibre": 4,
+          "priceZAR": 16,
+          "time": "2026-03-15T07:03:27.465Z"
+        },
+        {
+          "food": "small jelly tots",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-15T07:14:43.218Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Dorian",
+  "goal": 3506,
+  "profile": {
+    "age": 33,
+    "weight": 85,
+    "height": 187,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

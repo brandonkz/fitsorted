@@ -1,0 +1,15 @@
+{
+  "name": "Ola",
+  "goal": 1821,
+  "profile": {
+    "age": 27,
+    "weight": 90,
+    "height": 176,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

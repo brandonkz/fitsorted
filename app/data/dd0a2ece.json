@@ -1,0 +1,28 @@
+{
+  "name": "Kate",
+  "goal": 1607,
+  "profile": {
+    "age": 20,
+    "weight": 76.8,
+    "height": 164,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-15": [
+      {
+        "activity": "food consumption",
+        "calories": 0,
+        "time": "2026-03-15T06:33:01.745Z"
+      },
+      {
+        "activity": "food consumption",
+        "calories": 0,
+        "time": "2026-03-15T06:34:23.676Z"
+      }
+    ]
+  },
+  "logSummary": []
+}

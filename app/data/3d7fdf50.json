@@ -1,0 +1,15 @@
+{
+  "name": "Meko",
+  "goal": 3182,
+  "profile": {
+    "age": 30,
+    "weight": 78,
+    "height": 175,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

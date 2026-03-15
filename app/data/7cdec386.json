@@ -1,0 +1,99 @@
+{
+  "name": "Jualene",
+  "goal": 1046,
+  "profile": {
+    "age": 30,
+    "weight": 83.9,
+    "height": 155,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 1990,
+        "protein": 61,
+        "carbs": 270,
+        "fat": 67,
+        "fibre": 16,
+        "priceZAR": 187
+      },
+      "entries": [
+        {
+          "food": "3x Nutrifix with 3 spoons sugar and milk",
+          "calories": 660,
+          "protein": 18,
+          "carbs": 108,
+          "fat": 12,
+          "fibre": 6,
+          "priceZAR": 45,
+          "time": "2026-03-13T22:08:52.126Z"
+        },
+        {
+          "food": "1 slice white bread with butter and peanut butter and syrup",
+          "calories": 320,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 12,
+          "time": "2026-03-13T22:10:34.398Z"
+        },
+        {
+          "food": "beef burger with chips and 3 chicken nuggets",
+          "calories": 800,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 40,
+          "fibre": 5,
+          "priceZAR": 100,
+          "time": "2026-03-13T22:11:24.625Z"
+        },
+        {
+          "food": "unknown",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-13T22:12:58.067Z"
+        },
+        {
+          "food": "2x rice cakes",
+          "calories": 70,
+          "protein": 1,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-14T09:10:48.572Z"
+        },
+        {
+          "food": "2x rice cake",
+          "calories": 70,
+          "protein": 1,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-14T09:11:50.479Z"
+        },
+        {
+          "food": "2x rice cake",
+          "calories": 70,
+          "protein": 1,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-14T09:12:27.911Z"
+        }
+      ]
+    }
+  ]
+}

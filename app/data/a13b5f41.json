@@ -1,0 +1,380 @@
+{
+  "name": "Avi",
+  "goal": 1867,
+  "profile": {
+    "age": 37,
+    "weight": 82,
+    "height": 173,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-11": [
+      {
+        "activity": "gym workout",
+        "calories": 300,
+        "time": "2026-03-11T05:41:26.674Z"
+      },
+      {
+        "activity": "indoor soccer",
+        "calories": 525,
+        "time": "2026-03-11T19:11:00.100Z"
+      }
+    ],
+    "2026-03-12": [
+      {
+        "activity": "walking",
+        "calories": 240,
+        "time": "2026-03-12T16:48:49.872Z"
+      }
+    ],
+    "2026-03-13": [
+      {
+        "activity": "crunchie",
+        "calories": 0,
+        "time": "2026-03-13T13:27:33.068Z"
+      },
+      {
+        "activity": "crunchier chocolate bar",
+        "calories": 0,
+        "time": "2026-03-13T13:29:30.198Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-11",
+      "totals": {
+        "calories": 1980,
+        "protein": 126,
+        "carbs": 125,
+        "fat": 90,
+        "fibre": 11,
+        "priceZAR": 218
+      },
+      "entries": [
+        {
+          "food": "2x fried egg",
+          "calories": 180,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-11T05:41:50.582Z"
+        },
+        {
+          "food": "1x brown toast",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-11T05:42:00.592Z"
+        },
+        {
+          "food": "1x tin sardines",
+          "calories": 200,
+          "protein": 25,
+          "carbs": 0,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-11T05:42:14.624Z"
+        },
+        {
+          "food": "1/2 avocado",
+          "calories": 120,
+          "protein": 2,
+          "carbs": 6,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-11T05:42:21.382Z"
+        },
+        {
+          "food": "cortado",
+          "calories": 60,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-11T07:09:33.778Z"
+        },
+        {
+          "food": "1x salmon cream cheese bagel",
+          "calories": 450,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 25,
+          "fibre": 3,
+          "priceZAR": 80,
+          "time": "2026-03-11T16:58:19.001Z"
+        },
+        {
+          "food": "1x hamburger patty",
+          "calories": 250,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-11T16:58:45.853Z"
+        },
+        {
+          "food": "4x Tuna mayo on plain corn cakes",
+          "calories": 640,
+          "protein": 56,
+          "carbs": 64,
+          "fat": 24,
+          "fibre": 8,
+          "priceZAR": 32,
+          "time": "2026-03-11T19:10:18.137Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 2080,
+        "protein": 119,
+        "carbs": 135,
+        "fat": 113,
+        "fibre": 13,
+        "priceZAR": 275
+      },
+      "entries": [
+        {
+          "food": "2x cortado",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-12T07:27:10.126Z"
+        },
+        {
+          "food": "1x peppa pig yoghurt, 1 teaspoon chia seeds, 1 nectarine, 50g assorted nuts",
+          "calories": 410,
+          "protein": 9,
+          "carbs": 43,
+          "fat": 24,
+          "fibre": 8,
+          "priceZAR": 40,
+          "time": "2026-03-12T08:11:35.241Z"
+        },
+        {
+          "food": "3x Woolworths chicken sausages",
+          "calories": 540,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 42,
+          "fibre": 0,
+          "priceZAR": 60,
+          "time": "2026-03-12T15:45:10.819Z"
+        },
+        {
+          "food": "500g Woolworths lasagne",
+          "calories": 800,
+          "protein": 40,
+          "carbs": 80,
+          "fat": 40,
+          "fibre": 5,
+          "priceZAR": 60,
+          "time": "2026-03-12T16:43:41.234Z"
+        },
+        {
+          "food": "1x nibble biltong",
+          "calories": 125,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-12T16:48:24.474Z"
+        },
+        {
+          "food": "1x glass of white wine",
+          "calories": 125,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-12T16:49:06.665Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 970,
+        "protein": 42,
+        "carbs": 90,
+        "fat": 53,
+        "fibre": 12,
+        "priceZAR": 348
+      },
+      "entries": [
+        {
+          "food": "1x peppa pig yoghurt",
+          "calories": 100,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-13T06:57:25.675Z"
+        },
+        {
+          "food": "1x teaspoon chia seeds",
+          "calories": 20,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 3,
+          "time": "2026-03-13T06:57:29.719Z"
+        },
+        {
+          "food": "1x nectarine",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-13T06:57:35.505Z"
+        },
+        {
+          "food": "50g assorted nuts and seeds",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 10,
+          "fat": 25,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-13T06:57:38.575Z"
+        },
+        {
+          "food": "1x cortado",
+          "calories": 60,
+          "protein": 2,
+          "carbs": 6,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-13T06:57:52.401Z"
+        },
+        {
+          "food": "lasagne 200g",
+          "calories": 300,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 3,
+          "priceZAR": 35,
+          "time": "2026-03-13T12:21:55.831Z"
+        },
+        {
+          "food": "small lentil salad with tahina",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-13T12:22:03.612Z"
+        },
+        {
+          "food": "cortado",
+          "calories": 60,
+          "protein": 2,
+          "carbs": 6,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-13T12:22:57.426Z"
+        },
+        {
+          "food": "1x cortado",
+          "calories": 70,
+          "protein": 3,
+          "carbs": 6,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-13T13:27:21.994Z"
+        },
+        {
+          "food": "pumpkin based pizza",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-13T18:00:35.130Z"
+        },
+        {
+          "food": "Andiccio pumpkin based pizza",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 95,
+          "time": "2026-03-13T18:01:24.679Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 510,
+        "protein": 44,
+        "carbs": 39,
+        "fat": 21,
+        "fibre": 5,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "egg omelette",
+          "calories": 70,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-15T07:56:16.077Z"
+        },
+        {
+          "food": "multi grain wrap",
+          "calories": 200,
+          "protein": 6,
+          "carbs": 36,
+          "fat": 4,
+          "fibre": 5,
+          "priceZAR": 20,
+          "time": "2026-03-15T07:56:30.602Z"
+        },
+        {
+          "food": "80g pastrami",
+          "calories": 240,
+          "protein": 32,
+          "carbs": 2,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-15T07:57:10.827Z"
+        }
+      ]
+    }
+  ]
+}

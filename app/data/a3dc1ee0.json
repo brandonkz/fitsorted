@@ -1,0 +1,39 @@
+{
+  "name": "Joseph",
+  "goal": 2828,
+  "profile": {
+    "age": 31,
+    "weight": 63,
+    "height": 167,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 550,
+        "protein": 36,
+        "carbs": 54,
+        "fat": 18,
+        "fibre": 8,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "3x eggs, 2 slices sourdough toast, 1 tablespoon fat free cottage cheese, 1 teaspoon reduced mayonnaise, 10 cherry tomatoes, handful of spinach",
+          "calories": 550,
+          "protein": 36,
+          "carbs": 54,
+          "fat": 18,
+          "fibre": 8,
+          "priceZAR": 30,
+          "time": "2026-03-13T10:04:05.814Z"
+        }
+      ]
+    }
+  ]
+}

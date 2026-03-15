@@ -1,0 +1,39 @@
+{
+  "name": "Dan",
+  "goal": 2127,
+  "profile": {
+    "age": 24,
+    "weight": 135,
+    "height": 186,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 90,
+        "protein": 2,
+        "carbs": 20,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "coffee with 3 sugars and 50ml milk",
+          "calories": 90,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-13T14:09:24.030Z"
+        }
+      ]
+    }
+  ]
+}

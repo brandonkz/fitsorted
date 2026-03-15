@@ -1,0 +1,57 @@
+{
+  "name": "Nkay",
+  "goal": 2153,
+  "profile": {
+    "age": 33,
+    "weight": 99,
+    "height": 163,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-13": [
+      {
+        "activity": "step training",
+        "calories": 262,
+        "time": "2026-03-13T18:47:45.766Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 400,
+        "protein": 5,
+        "carbs": 70,
+        "fat": 10,
+        "fibre": 5,
+        "priceZAR": 100
+      },
+      "entries": [
+        {
+          "food": "salted caramel smoothie",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 70,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 65,
+          "time": "2026-03-13T17:04:10.964Z"
+        },
+        {
+          "food": "Amala and Nigerian stew with beef",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-13T17:05:24.150Z"
+        }
+      ]
+    }
+  ]
+}

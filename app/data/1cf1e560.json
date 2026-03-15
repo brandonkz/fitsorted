@@ -1,0 +1,150 @@
+{
+  "name": "Kelly",
+  "goal": 2669,
+  "profile": {
+    "age": 36,
+    "weight": 143,
+    "height": 197,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-12": [
+      {
+        "activity": "weight training",
+        "calories": 262,
+        "time": "2026-03-12T18:58:53.975Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 1358,
+        "protein": 60,
+        "carbs": 190,
+        "fat": 47,
+        "fibre": 11,
+        "priceZAR": 140
+      },
+      "entries": [
+        {
+          "food": "2x fried egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-12T08:22:25.489Z"
+        },
+        {
+          "food": "8 slices of cucumber",
+          "calories": 8,
+          "protein": 0,
+          "carbs": 2,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-03-12T08:22:28.560Z"
+        },
+        {
+          "food": "2x cup of black coffee",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-12T08:23:39.082Z"
+        },
+        {
+          "food": "cucumber slices with dip",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 8,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-12T11:23:17.254Z"
+        },
+        {
+          "food": "4 tablespoons of yogurt",
+          "calories": 60,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-12T11:23:43.156Z"
+        },
+        {
+          "food": "crab stick pasta",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-12T16:39:57.488Z"
+        },
+        {
+          "food": "2x piece of fudge",
+          "calories": 200,
+          "protein": 2,
+          "carbs": 40,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-12T16:41:00.770Z"
+        },
+        {
+          "food": "crab stick pasta",
+          "calories": 500,
+          "protein": 20,
+          "carbs": 70,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-12T16:41:37.224Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 55,
+        "protein": 3,
+        "carbs": 6,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 24
+      },
+      "entries": [
+        {
+          "food": "1x pickle",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-13T07:23:59.482Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup) (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-13T07:24:11.287Z"
+        }
+      ]
+    }
+  ]
+}

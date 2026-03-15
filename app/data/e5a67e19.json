@@ -1,0 +1,15 @@
+{
+  "name": "Jo",
+  "goal": 2816,
+  "profile": {
+    "age": 25,
+    "weight": 69,
+    "height": 178,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

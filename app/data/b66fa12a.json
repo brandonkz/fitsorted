@@ -1,0 +1,39 @@
+{
+  "name": "FitSorted Member",
+  "goal": 1589,
+  "profile": {
+    "age": 42,
+    "weight": 94,
+    "height": 152,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-03",
+      "totals": {
+        "calories": 80,
+        "protein": 3,
+        "carbs": 15,
+        "fat": 1,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "bread",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:18:50.961Z"
+        }
+      ]
+    }
+  ]
+}

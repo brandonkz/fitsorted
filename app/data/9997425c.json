@@ -1,0 +1,119 @@
+{
+  "name": "FitSorted Member",
+  "goal": 2562,
+  "profile": {
+    "age": 42,
+    "weight": 88,
+    "height": 176,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-03",
+      "totals": {
+        "calories": 1086,
+        "protein": 77,
+        "carbs": 108,
+        "fat": 41,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "3x corn thins",
+          "calories": 90,
+          "protein": 3,
+          "carbs": 18,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:01:13.863Z"
+        },
+        {
+          "food": "fat free chunky cottage cheese - 120g",
+          "calories": 60,
+          "protein": 11,
+          "carbs": 6,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:01:31.366Z"
+        },
+        {
+          "food": "avocado - 50g",
+          "calories": 80,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:01:38.149Z"
+        },
+        {
+          "food": "2x big tomatoes",
+          "calories": 44,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:01:54.588Z"
+        },
+        {
+          "food": "3x almond flat white",
+          "calories": 240,
+          "protein": 6,
+          "carbs": 18,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:02:02.671Z"
+        },
+        {
+          "food": "2x slices rye toast",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:02:15.091Z"
+        },
+        {
+          "food": "1x tinned tuna in brine drained",
+          "calories": 132,
+          "protein": 28,
+          "carbs": 0,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:02:22.280Z"
+        },
+        {
+          "food": "20g of perinaise",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 2,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:02:29.552Z"
+        },
+        {
+          "food": "1x futurelife lite 40g protein bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T14:02:54.436Z"
+        }
+      ]
+    }
+  ]
+}

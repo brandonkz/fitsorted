@@ -1,0 +1,59 @@
+{
+  "name": "Shivali",
+  "goal": 1184,
+  "profile": {
+    "age": 19,
+    "weight": 70,
+    "height": 154,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-11",
+      "totals": {
+        "calories": 1500,
+        "protein": 70,
+        "carbs": 200,
+        "fat": 50,
+        "fibre": 11,
+        "priceZAR": 130
+      },
+      "entries": [
+        {
+          "food": "Future Life slim thick shake 250ml",
+          "calories": 200,
+          "protein": 15,
+          "carbs": 30,
+          "fat": 5,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-11T12:24:09.581Z"
+        },
+        {
+          "food": "1x Debonairs chicken mayo wrap",
+          "calories": 550,
+          "protein": 25,
+          "carbs": 50,
+          "fat": 30,
+          "fibre": 3,
+          "priceZAR": 70,
+          "time": "2026-03-11T12:24:12.154Z"
+        },
+        {
+          "food": "1.5 cup rice with chicken curry",
+          "calories": 750,
+          "protein": 30,
+          "carbs": 120,
+          "fat": 15,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-11T17:51:07.714Z"
+        }
+      ]
+    }
+  ]
+}

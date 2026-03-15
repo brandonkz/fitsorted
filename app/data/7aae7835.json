@@ -1,0 +1,217 @@
+{
+  "name": "Tash",
+  "goal": 2237,
+  "profile": {
+    "age": 45,
+    "weight": 59,
+    "height": 147,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-14": [
+      {
+        "activity": "running",
+        "calories": 1000,
+        "time": "2026-03-14T18:01:36.678Z"
+      }
+    ],
+    "2026-03-15": [
+      {
+        "activity": "strength exercise",
+        "calories": 175,
+        "time": "2026-03-15T04:32:28.707Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 1740,
+        "protein": 96,
+        "carbs": 171,
+        "fat": 76,
+        "fibre": 15,
+        "priceZAR": 330
+      },
+      "entries": [
+        {
+          "food": "gluten-sugar free cheesecake",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-14T09:35:39.136Z"
+        },
+        {
+          "food": "1x egg, spoon of avocado, spoon of cottage cheese, small slice of bacon, sourdough bread",
+          "calories": 340,
+          "protein": 16,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-14T10:48:55.113Z"
+        },
+        {
+          "food": "1 scoop of protein shake",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-14T10:51:46.022Z"
+        },
+        {
+          "food": "rice and stew with vegetables",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-14T12:21:43.965Z"
+        },
+        {
+          "food": "lamb biryani",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 120,
+          "time": "2026-03-14T12:30:45.156Z"
+        },
+        {
+          "food": "Keema with sweet potato and yogurt sauce",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-14T17:46:38.214Z"
+        },
+        {
+          "food": "handful of sweet potato",
+          "calories": 80,
+          "protein": 2,
+          "carbs": 18,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-14T17:46:46.590Z"
+        },
+        {
+          "food": "mince",
+          "calories": 250,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-14T17:46:48.772Z"
+        },
+        {
+          "food": "slice of chocolate cake",
+          "calories": 350,
+          "protein": 4,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 45,
+          "time": "2026-03-14T18:27:23.823Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 1521,
+        "protein": 50,
+        "carbs": 176,
+        "fat": 69.2,
+        "fibre": 23,
+        "priceZAR": 265
+      },
+      "entries": [
+        {
+          "food": "Vetkoek (mince filled) (1 medium)",
+          "calories": 420,
+          "protein": 16,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 35,
+          "time": "2026-03-15T10:02:58.188Z"
+        },
+        {
+          "food": "wrap",
+          "calories": 250,
+          "protein": 8,
+          "carbs": 40,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 80,
+          "time": "2026-03-15T10:03:01.598Z"
+        },
+        {
+          "food": "wrap",
+          "calories": 200,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 70,
+          "time": "2026-03-15T10:04:08.365Z"
+        },
+        {
+          "food": "Vetkoek (mince filled) (1 medium)",
+          "calories": 420,
+          "protein": 16,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 35,
+          "time": "2026-03-15T10:04:10.107Z"
+        },
+        {
+          "food": "Carrots cooked (1 cup (150g))",
+          "calories": 55,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0.2,
+          "fibre": 5,
+          "priceZAR": 15,
+          "time": "2026-03-15T10:04:12.512Z"
+        },
+        {
+          "food": "cucumbers",
+          "calories": 16,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-15T10:04:14.814Z"
+        },
+        {
+          "food": "avocado",
+          "calories": 160,
+          "protein": 2,
+          "carbs": 9,
+          "fat": 15,
+          "fibre": 7,
+          "priceZAR": 20,
+          "time": "2026-03-15T10:04:17.304Z"
+        }
+      ]
+    }
+  ]
+}

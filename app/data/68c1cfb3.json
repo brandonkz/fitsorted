@@ -1,0 +1,137 @@
+{
+  "name": "Robyn",
+  "goal": 1859,
+  "profile": {
+    "age": 36,
+    "weight": 57,
+    "height": 159,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-10": [
+      {
+        "activity": "eating",
+        "calories": 150,
+        "time": "2026-03-10T09:55:25.030Z"
+      },
+      {
+        "activity": "weight training",
+        "calories": 180,
+        "time": "2026-03-10T09:56:22.171Z"
+      },
+      {
+        "activity": "eating all bran",
+        "calories": 150,
+        "time": "2026-03-10T09:56:38.457Z"
+      },
+      {
+        "activity": "Allbran",
+        "calories": 0,
+        "time": "2026-03-10T09:56:57.382Z"
+      },
+      {
+        "activity": "Allbran cereal",
+        "calories": 0,
+        "time": "2026-03-10T09:58:59.259Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-10",
+      "totals": {
+        "calories": 910,
+        "protein": 2,
+        "carbs": 38,
+        "fat": 11,
+        "fibre": 0,
+        "priceZAR": 15
+      },
+      "entries": [
+        {
+          "food": "2x dates",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 11,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:57:18.497Z"
+        },
+        {
+          "food": "2x provita",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:58:00.813Z"
+        },
+        {
+          "food": "cheese",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:58:20.040Z"
+        },
+        {
+          "food": "milk",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T09:58:33.046Z"
+        },
+        {
+          "food": "salad",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T10:22:52.637Z"
+        },
+        {
+          "food": "chicken",
+          "calories": 165,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T10:23:04.857Z"
+        },
+        {
+          "food": "feta",
+          "calories": 75,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-10T10:23:24.412Z"
+        },
+        {
+          "food": "Kitkat 1 bar",
+          "calories": 220,
+          "protein": 2,
+          "carbs": 27,
+          "fat": 11,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-10T11:12:10.639Z"
+        }
+      ]
+    }
+  ]
+}

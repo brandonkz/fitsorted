@@ -1,0 +1,49 @@
+{
+  "name": "Pieter",
+  "goal": 3434,
+  "profile": {
+    "age": 36,
+    "weight": 90,
+    "height": 184,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 560,
+        "protein": 28,
+        "carbs": 60,
+        "fat": 25,
+        "fibre": 8,
+        "priceZAR": 68
+      },
+      "entries": [
+        {
+          "food": "6x egg",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 18,
+          "time": "2026-03-14T12:35:42.970Z"
+        },
+        {
+          "food": "bowl of oats with milk and blueberries",
+          "calories": 350,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 50,
+          "time": "2026-03-14T12:35:45.522Z"
+        }
+      ]
+    }
+  ]
+}

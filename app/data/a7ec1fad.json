@@ -1,0 +1,15 @@
+{
+  "name": "Chris",
+  "goal": 2083,
+  "profile": {
+    "age": 47,
+    "weight": 109,
+    "height": 192,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

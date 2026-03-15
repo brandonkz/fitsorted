@@ -1,0 +1,89 @@
+{
+  "name": "Shane",
+  "goal": 2263,
+  "profile": {
+    "age": 99,
+    "weight": 78,
+    "height": 182,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-06",
+      "totals": {
+        "calories": 1614,
+        "protein": 139,
+        "carbs": 49,
+        "fat": 85,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "steak with tartar sauce and lobster",
+          "calories": 600,
+          "protein": 50,
+          "carbs": 5,
+          "fat": 40,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T18:13:57.962Z"
+        },
+        {
+          "food": "Braai steak (sirloin, 150g) (150g)",
+          "calories": 360,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T18:14:39.391Z"
+        },
+        {
+          "food": "lobster 100g",
+          "calories": 90,
+          "protein": 19,
+          "carbs": 0,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T18:14:59.780Z"
+        },
+        {
+          "food": "Chicken Schnitzel",
+          "calories": 300,
+          "protein": 25,
+          "carbs": 20,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T18:16:50.771Z"
+        },
+        {
+          "food": "Debonairs medium Margherita pizza (1 slice)",
+          "calories": 200,
+          "protein": 9,
+          "carbs": 24,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T18:19:35.999Z"
+        },
+        {
+          "food": "tequila 1 shot (30ml)",
+          "calories": 64,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T18:19:57.448Z"
+        }
+      ]
+    }
+  ]
+}

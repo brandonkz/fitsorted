@@ -1,0 +1,15 @@
+{
+  "name": "Tasneem",
+  "goal": 1434,
+  "profile": {
+    "age": 58,
+    "weight": 82,
+    "height": 166,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

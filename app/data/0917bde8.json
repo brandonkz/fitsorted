@@ -1,0 +1,119 @@
+{
+  "name": "FitSorted Member",
+  "goal": 1204,
+  "profile": {
+    "age": 36,
+    "weight": 53,
+    "height": 168,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-03": [
+      {
+        "activity": "weight training",
+        "calories": 180,
+        "time": "2026-03-03T13:13:09.874Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-03",
+      "totals": {
+        "calories": 2330,
+        "protein": 126,
+        "carbs": 260,
+        "fat": 95,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Americano with almond milk",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T13:11:04.513Z"
+        },
+        {
+          "food": "2x boiled egg, small plate of veggies with halloumi, 2 slices cracker bread with fat free cottage cheese",
+          "calories": 460,
+          "protein": 32,
+          "carbs": 36,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-03T13:12:06.130Z"
+        },
+        {
+          "food": "sea bass fish with rice",
+          "calories": 500,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T07:02:19.389Z"
+        },
+        {
+          "food": "2x mini caramel magnum ice cream",
+          "calories": 320,
+          "protein": 4,
+          "carbs": 32,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T07:04:35.377Z"
+        },
+        {
+          "food": "2x small caramel magnum ice cream",
+          "calories": 400,
+          "protein": 4,
+          "carbs": 40,
+          "fat": 28,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T07:03:06.492Z"
+        },
+        {
+          "food": "small fat free yoghurt with sliced mango and strawberries",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T07:05:12.039Z"
+        },
+        {
+          "food": "sea bass fish with rice",
+          "calories": 450,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T06:05:51.346Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-04",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": []
+    }
+  ]
+}

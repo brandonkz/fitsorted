@@ -1,0 +1,92 @@
+{
+  "name": "FitSorted Member",
+  "goal": 1247,
+  "profile": {
+    "age": 35,
+    "weight": 60,
+    "height": 161,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-04",
+      "totals": {
+        "calories": 785,
+        "protein": 42,
+        "carbs": 89,
+        "fat": 34,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "1 mug of coffee with almond milk and Canderel sweetener",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T17:08:57.420Z"
+        },
+        {
+          "food": "smoked salmon and cream cheese bagel",
+          "calories": 450,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T17:09:53.367Z"
+        },
+        {
+          "food": "Banana (1 medium) (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T17:10:08.069Z"
+        },
+        {
+          "food": "Future Life Lite Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T17:10:20.069Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "totals": {
+        "calories": 30,
+        "protein": 1,
+        "carbs": 2,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "1x mug of coffee with almond milk and Canderel sweetener",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T04:59:33.587Z"
+        }
+      ]
+    }
+  ]
+}

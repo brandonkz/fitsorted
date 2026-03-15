@@ -1,0 +1,469 @@
+{
+  "name": "Mineen",
+  "goal": 1377,
+  "profile": {
+    "age": 61,
+    "weight": 75,
+    "height": 173,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-04",
+      "totals": {
+        "calories": 210,
+        "protein": 8,
+        "carbs": 40,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "1x banana, 1x cereal, 1x fat free milk",
+          "calories": 210,
+          "protein": 8,
+          "carbs": 40,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-04T07:03:56.315Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "totals": {
+        "calories": 709,
+        "protein": 23,
+        "carbs": 120,
+        "fat": 13,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "1x paw paw",
+          "calories": 59,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T06:13:15.133Z"
+        },
+        {
+          "food": "1 bowl of Pronutro with milk",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T06:56:49.662Z"
+        },
+        {
+          "food": "Woolworths sushi 9 piece (1 pack (9pc))",
+          "calories": 350,
+          "protein": 12,
+          "carbs": 55,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-05T18:08:57.924Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "totals": {
+        "calories": 1002,
+        "protein": 44,
+        "carbs": 150,
+        "fat": 29,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T05:17:34.555Z"
+        },
+        {
+          "food": "muesli with fruit and plain yogurt",
+          "calories": 350,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T06:08:37.262Z"
+        },
+        {
+          "food": "gnocchi (100g)",
+          "calories": 150,
+          "protein": 4,
+          "carbs": 30,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T13:23:33.357Z"
+        },
+        {
+          "food": "hake with chips",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-06T18:32:08.076Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "totals": {
+        "calories": 830,
+        "protein": 43,
+        "carbs": 98,
+        "fat": 31.5,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "paw paw with lemon",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T06:37:08.908Z"
+        },
+        {
+          "food": "USN whey protein shake (1 scoop (30g) with water)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1.5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T08:40:32.543Z"
+        },
+        {
+          "food": "1x smoked salmon on sourdough bread with cream cheese and cucumber",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T18:01:11.900Z"
+        },
+        {
+          "food": "carrot cake slice",
+          "calories": 350,
+          "protein": 3,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-07T18:01:35.960Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-08",
+      "totals": {
+        "calories": 1202,
+        "protein": 91,
+        "carbs": 128,
+        "fat": 43,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "black coffee 1 cup",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-08T05:13:31.133Z"
+        },
+        {
+          "food": "Biltong (100g) (100g)",
+          "calories": 350,
+          "protein": 56,
+          "carbs": 8,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-08T07:34:28.739Z"
+        },
+        {
+          "food": "Freezochino",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-08T09:02:07.341Z"
+        },
+        {
+          "food": "butter chicken curry with rice and 1 apple",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-08T13:48:02.384Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-09",
+      "totals": {
+        "calories": 120,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "juice",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-09T14:30:44.340Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "totals": {
+        "calories": 320,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 29
+      },
+      "entries": [
+        {
+          "food": "2x bread",
+          "calories": 160,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-10T11:55:18.213Z"
+        },
+        {
+          "food": "apple",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-10T11:55:27.426Z"
+        },
+        {
+          "food": "bread",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-10T11:55:46.680Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "totals": {
+        "calories": 552,
+        "protein": 20,
+        "carbs": 70,
+        "fat": 20,
+        "fibre": 8,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "black coffee",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-11T04:47:09.692Z"
+        },
+        {
+          "food": "Peanut protein shake with sourdough bread and egg plant paste and grapes",
+          "calories": 550,
+          "protein": 20,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 8,
+          "priceZAR": 30,
+          "time": "2026-03-11T11:32:32.548Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 250,
+        "protein": 10,
+        "carbs": 40,
+        "fat": 2,
+        "fibre": 5,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Pronutro gluten free with fat free milk",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 2,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-12T05:35:42.841Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 602,
+        "protein": 40,
+        "carbs": 84,
+        "fat": 13,
+        "fibre": 10,
+        "priceZAR": 179
+      },
+      "entries": [
+        {
+          "food": "Greek yogurt with muesli and honey",
+          "calories": 350,
+          "protein": 15,
+          "carbs": 50,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 60,
+          "time": "2026-03-13T07:31:04.057Z"
+        },
+        {
+          "food": "500ml water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-13T07:55:16.056Z"
+        },
+        {
+          "food": "Apple (medium)",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-13T09:16:53.908Z"
+        },
+        {
+          "food": "apple",
+          "calories": 52,
+          "protein": 0,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-13T13:06:56.837Z"
+        },
+        {
+          "food": "Freezo",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-13T13:07:02.120Z"
+        },
+        {
+          "food": "hake",
+          "calories": 120,
+          "protein": 25,
+          "carbs": 0,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-13T18:28:50.648Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 292,
+        "protein": 15,
+        "carbs": 50,
+        "fat": 2,
+        "fibre": 5,
+        "priceZAR": 40
+      },
+      "entries": [
+        {
+          "food": "black coffee",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-15T05:41:22.382Z"
+        },
+        {
+          "food": "Pronutro with fat free milk and 1 plum",
+          "calories": 290,
+          "protein": 15,
+          "carbs": 50,
+          "fat": 2,
+          "fibre": 5,
+          "priceZAR": 20,
+          "time": "2026-03-15T07:57:42.182Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "S",
+  "goal": 940,
+  "profile": {
+    "age": 39,
+    "weight": 55,
+    "height": 161,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 1355,
+        "protein": 58,
+        "carbs": 161,
+        "fat": 47,
+        "fibre": 4,
+        "priceZAR": 165
+      },
+      "entries": [
+        {
+          "food": "2x eggs on toast",
+          "calories": 320,
+          "protein": 20,
+          "carbs": 16,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-12T20:39:21.915Z"
+        },
+        {
+          "food": "1 slice toast with coffee (milk + 1 sugar) + chicken à la king with brown rice + 62.5g chuckles honeycomb",
+          "calories": 1035,
+          "protein": 38,
+          "carbs": 145,
+          "fat": 25,
+          "fibre": 4,
+          "priceZAR": 120,
+          "time": "2026-03-12T20:39:24.673Z"
+        },
+        {
+          "food": "unknown",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-12T20:40:26.427Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 440,
+        "protein": 28,
+        "carbs": 32,
+        "fat": 20,
+        "fibre": 2,
+        "priceZAR": 32
+      },
+      "entries": [
+        {
+          "food": "2x large eggs on toast",
+          "calories": 220,
+          "protein": 14,
+          "carbs": 16,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 16,
+          "time": "2026-03-13T13:24:58.052Z"
+        },
+        {
+          "food": "2x large eggs on toast",
+          "calories": 220,
+          "protein": 14,
+          "carbs": 16,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 16,
+          "time": "2026-03-13T13:26:13.485Z"
+        }
+      ]
+    }
+  ]
+}

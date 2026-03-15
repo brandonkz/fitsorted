@@ -1,0 +1,28 @@
+{
+  "name": "Idan",
+  "goal": 3299,
+  "profile": {
+    "age": 35,
+    "weight": 86,
+    "height": 177,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-05",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": []
+    }
+  ]
+}

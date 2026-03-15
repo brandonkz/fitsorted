@@ -1,0 +1,78 @@
+{
+  "name": "Talisha",
+  "goal": 1851,
+  "profile": {
+    "age": 27,
+    "weight": 115,
+    "height": 166,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [
+    {
+      "kg": 115,
+      "date": "2026-03-15",
+      "time": "2026-03-15T07:57:18.073Z"
+    }
+  ],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 800,
+        "protein": 48,
+        "carbs": 80,
+        "fat": 34,
+        "fibre": 7,
+        "priceZAR": 135
+      },
+      "entries": [
+        {
+          "food": "croissant with scrambled egg and 3 pieces of bacon",
+          "calories": 260,
+          "protein": 12,
+          "carbs": 20,
+          "fat": 16,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-14T14:14:51.611Z"
+        },
+        {
+          "food": "3x rice paper spring roll with coleslaw and shrimp",
+          "calories": 540,
+          "protein": 36,
+          "carbs": 60,
+          "fat": 18,
+          "fibre": 6,
+          "priceZAR": 85,
+          "time": "2026-03-14T15:02:32.952Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 570,
+        "protein": 18,
+        "carbs": 64,
+        "fat": 30,
+        "fibre": 3,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "hash brown and sausage McMuffin with crème soda",
+          "calories": 570,
+          "protein": 18,
+          "carbs": 64,
+          "fat": 30,
+          "fibre": 3,
+          "priceZAR": 60,
+          "time": "2026-03-15T07:57:54.470Z"
+        }
+      ]
+    }
+  ]
+}

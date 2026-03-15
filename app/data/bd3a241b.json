@@ -1,0 +1,72 @@
+{
+  "name": "Junaid",
+  "goal": 2031,
+  "profile": {
+    "age": 39,
+    "weight": 105,
+    "height": 186,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 330,
+        "protein": 15,
+        "carbs": 54,
+        "fat": 6,
+        "fibre": 6,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "3x Weet-Bix with milk",
+          "calories": 330,
+          "protein": 15,
+          "carbs": 54,
+          "fat": 6,
+          "fibre": 6,
+          "priceZAR": 30,
+          "time": "2026-03-13T15:38:56.817Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 210,
+        "protein": 9,
+        "carbs": 45,
+        "fat": 3,
+        "fibre": 6,
+        "priceZAR": 42
+      },
+      "entries": [
+        {
+          "food": "3x wheat bix",
+          "calories": 210,
+          "protein": 9,
+          "carbs": 45,
+          "fat": 3,
+          "fibre": 6,
+          "priceZAR": 12,
+          "time": "2026-03-14T05:43:17.230Z"
+        },
+        {
+          "food": "Nutritech hydrate",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-14T05:47:30.972Z"
+        }
+      ]
+    }
+  ]
+}

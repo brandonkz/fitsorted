@@ -1,0 +1,39 @@
+{
+  "name": "Karin",
+  "goal": 1636,
+  "profile": {
+    "age": 52,
+    "weight": 98,
+    "height": 162,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 400,
+        "protein": 8,
+        "carbs": 80,
+        "fat": 6,
+        "fibre": 4,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "2x hotcross bun",
+          "calories": 400,
+          "protein": 8,
+          "carbs": 80,
+          "fat": 6,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-13T20:01:43.842Z"
+        }
+      ]
+    }
+  ]
+}

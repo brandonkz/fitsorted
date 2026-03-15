@@ -1,0 +1,282 @@
+{
+  "name": "Dilshad",
+  "goal": 1103,
+  "profile": {
+    "age": 35,
+    "weight": 93,
+    "height": 152,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-11": [
+      {
+        "activity": "cooking",
+        "calories": 0,
+        "time": "2026-03-11T19:38:40.640Z"
+      },
+      {
+        "activity": "cooking",
+        "calories": 0,
+        "time": "2026-03-11T19:39:06.808Z"
+      },
+      {
+        "activity": "calories burned for food preparation",
+        "calories": 0,
+        "time": "2026-03-11T19:41:24.833Z"
+      },
+      {
+        "activity": "calories burned for food consumption",
+        "calories": 0,
+        "time": "2026-03-11T19:41:58.965Z"
+      }
+    ],
+    "2026-03-12": [
+      {
+        "activity": "eating biscuits",
+        "calories": 0,
+        "time": "2026-03-12T13:51:00.074Z"
+      },
+      {
+        "activity": "eating tennis biscuits",
+        "calories": 0,
+        "time": "2026-03-12T13:51:29.411Z"
+      },
+      {
+        "activity": "Tennis",
+        "calories": 300,
+        "time": "2026-03-12T13:51:46.699Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-11",
+      "totals": {
+        "calories": 1946,
+        "protein": 51.7,
+        "carbs": 247.5,
+        "fat": 98.3,
+        "fibre": 25.4,
+        "priceZAR": 295
+      },
+      "entries": [
+        {
+          "food": "2x bun with atchaar and Flanagan's plain salted chips",
+          "calories": 680,
+          "protein": 12,
+          "carbs": 100,
+          "fat": 30,
+          "fibre": 6,
+          "priceZAR": 50,
+          "time": "2026-03-11T19:35:26.229Z"
+        },
+        {
+          "food": "Kauai peanut butter berry bliss smoothie",
+          "calories": 450,
+          "protein": 15,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 8,
+          "priceZAR": 65,
+          "time": "2026-03-11T19:36:31.593Z"
+        },
+        {
+          "food": "200g plain Clover full fat yogurt",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 10,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-11T19:40:15.565Z"
+        },
+        {
+          "food": "1x teaspoon of nut butter",
+          "calories": 32,
+          "protein": 1,
+          "carbs": 1,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-11T19:40:20.468Z"
+        },
+        {
+          "food": "keto peanut butter bar",
+          "calories": 200,
+          "protein": 8,
+          "carbs": 5,
+          "fat": 18,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-11T19:40:23.949Z"
+        },
+        {
+          "food": "0.5x Kauai banana muffin",
+          "calories": 150,
+          "protein": 2,
+          "carbs": 25,
+          "fat": 6,
+          "fibre": 1,
+          "priceZAR": 32,
+          "time": "2026-03-11T19:44:17.483Z"
+        },
+        {
+          "food": "1 cup cooked jungle oats",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 12,
+          "time": "2026-03-11T19:52:48.008Z"
+        },
+        {
+          "food": "1x tablespoon pecan and macadamia nut butter",
+          "calories": 95,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-11T19:52:50.362Z"
+        },
+        {
+          "food": "100g blueberries",
+          "calories": 57,
+          "protein": 0.7,
+          "carbs": 14.5,
+          "fat": 0.3,
+          "fibre": 2.4,
+          "priceZAR": 30,
+          "time": "2026-03-11T19:52:52.749Z"
+        },
+        {
+          "food": "1x cup coffee",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-11T19:53:17.133Z"
+        },
+        {
+          "food": "1 tsp cremora",
+          "calories": 10,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 1,
+          "time": "2026-03-11T19:53:19.077Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 1997,
+        "protein": 90,
+        "carbs": 187,
+        "fat": 107,
+        "fibre": 25,
+        "priceZAR": 222
+      },
+      "entries": [
+        {
+          "food": "2x egg with tsp olive oil and half yellow pepper and 4 baby marrows",
+          "calories": 210,
+          "protein": 14,
+          "carbs": 14,
+          "fat": 14,
+          "fibre": 5,
+          "priceZAR": 20,
+          "time": "2026-03-12T10:43:03.142Z"
+        },
+        {
+          "food": "2x tablespoon cream cheese",
+          "calories": 100,
+          "protein": 2,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-12T10:43:31.913Z"
+        },
+        {
+          "food": "Atchaar (100g)",
+          "calories": 100,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 4,
+          "fibre": 3,
+          "priceZAR": 25,
+          "time": "2026-03-12T10:44:55.065Z"
+        },
+        {
+          "food": "1x coney roll",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 40,
+          "time": "2026-03-12T10:44:57.114Z"
+        },
+        {
+          "food": "handful Flanagan's plain salted crisps",
+          "calories": 160,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-12T10:44:59.567Z"
+        },
+        {
+          "food": "0.5x apple, 1 tsp low GI brown sugar, 2 tbsp Clover plain yogurt",
+          "calories": 85,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 12,
+          "time": "2026-03-12T10:47:17.605Z"
+        },
+        {
+          "food": "Rhodes baked beans (1 cup) (1 cup (250g))",
+          "calories": 240,
+          "protein": 12,
+          "carbs": 40,
+          "fat": 2,
+          "fibre": 10,
+          "priceZAR": 20,
+          "time": "2026-03-12T13:52:50.046Z"
+        },
+        {
+          "food": "mince roll",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 50,
+          "time": "2026-03-12T13:52:51.996Z"
+        },
+        {
+          "food": "white cheddar 100g",
+          "calories": 402,
+          "protein": 25,
+          "carbs": 1,
+          "fat": 33,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-12T13:52:54.867Z"
+        }
+      ]
+    }
+  ]
+}

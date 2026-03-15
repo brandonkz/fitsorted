@@ -1,0 +1,112 @@
+{
+  "name": "Meg",
+  "goal": 1779,
+  "profile": {
+    "age": 36,
+    "weight": 113,
+    "height": 168,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 1405,
+        "protein": 74,
+        "carbs": 170,
+        "fat": 55,
+        "fibre": 16,
+        "priceZAR": 210
+      },
+      "entries": [
+        {
+          "food": "Chocolate Futurelife 75g",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 45,
+          "fat": 8,
+          "fibre": 6,
+          "priceZAR": 30,
+          "time": "2026-03-13T05:53:24.724Z"
+        },
+        {
+          "food": "2x hard-boiled egg, 150g boiled potato, 100g cucumber, 20g mayonnaise",
+          "calories": 360,
+          "protein": 16,
+          "carbs": 50,
+          "fat": 18,
+          "fibre": 4,
+          "priceZAR": 0,
+          "time": "2026-03-13T05:58:17.221Z"
+        },
+        {
+          "food": "150g Woolworths low fat plain yoghurt with 5g chia seeds",
+          "calories": 95,
+          "protein": 8,
+          "carbs": 10,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 60,
+          "time": "2026-03-13T06:10:01.375Z"
+        },
+        {
+          "food": "Woolworths lemon condensed hot cross bun",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 45,
+          "fat": 7,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-13T06:27:34.280Z"
+        },
+        {
+          "food": "chicken schnitzel",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 20,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 90,
+          "time": "2026-03-13T16:13:27.368Z"
+        },
+        {
+          "food": "fried chicken with vegetables and roasted potatoes",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-13T16:21:09.231Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 330,
+        "protein": 18,
+        "carbs": 45,
+        "fat": 9,
+        "fibre": 5,
+        "priceZAR": 19
+      },
+      "entries": [
+        {
+          "food": "75g chocolate Futurelife with 63ml low fat milk",
+          "calories": 330,
+          "protein": 18,
+          "carbs": 45,
+          "fat": 9,
+          "fibre": 5,
+          "priceZAR": 19,
+          "time": "2026-03-14T05:54:36.632Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "name": "Jarred",
+  "goal": 1648,
+  "profile": {
+    "age": 35,
+    "weight": 86,
+    "height": 176,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 1977,
+        "protein": 92.5,
+        "carbs": 269.1,
+        "fat": 66.6,
+        "fibre": 36,
+        "priceZAR": 241
+      },
+      "entries": [
+        {
+          "food": "Strawberries (1 cup (150g))",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0.5,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-12T17:41:16.010Z"
+        },
+        {
+          "food": "Dates medjool (1 date (24g))",
+          "calories": 65,
+          "protein": 0.4,
+          "carbs": 18,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-12T17:41:18.017Z"
+        },
+        {
+          "food": "Oats (1 cup cooked) (1 cup)",
+          "calories": 150,
+          "protein": 6,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 15,
+          "time": "2026-03-12T17:41:19.730Z"
+        },
+        {
+          "food": "Banana (1 medium) (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 5,
+          "time": "2026-03-12T17:41:21.885Z"
+        },
+        {
+          "food": "Peanut butter (2 tbsp) (2 tbsp (32g))",
+          "calories": 190,
+          "protein": 8,
+          "carbs": 6,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-12T17:41:23.723Z"
+        },
+        {
+          "food": "2x date",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 11,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-12T17:41:44.718Z"
+        },
+        {
+          "food": "100g steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-12T17:42:09.854Z"
+        },
+        {
+          "food": "small roll",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-12T17:42:12.466Z"
+        },
+        {
+          "food": "Mashed potatoes (1 cup (250ml))",
+          "calories": 180,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 6,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-12T17:42:14.845Z"
+        },
+        {
+          "food": "butter (10g)",
+          "calories": 72,
+          "protein": 0.1,
+          "carbs": 0.1,
+          "fat": 8.1,
+          "fibre": 0,
+          "priceZAR": 3,
+          "time": "2026-03-12T17:42:17.384Z"
+        },
+        {
+          "food": "chicken breast burger with lettuce",
+          "calories": 350,
+          "protein": 30,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 65,
+          "time": "2026-03-12T17:47:23.767Z"
+        },
+        {
+          "food": "popcorn 100g",
+          "calories": 375,
+          "protein": 12,
+          "carbs": 78,
+          "fat": 4,
+          "fibre": 15,
+          "priceZAR": 15,
+          "time": "2026-03-12T17:47:33.187Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 400,
+        "protein": 25,
+        "carbs": 40,
+        "fat": 15,
+        "fibre": 3,
+        "priceZAR": 85
+      },
+      "entries": [
+        {
+          "food": "salmon bagel",
+          "calories": 400,
+          "protein": 25,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 3,
+          "priceZAR": 85,
+          "time": "2026-03-13T09:23:24.215Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Rael",
+  "goal": 1603,
+  "profile": {
+    "age": 39,
+    "weight": 83,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

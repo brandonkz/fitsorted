@@ -1,0 +1,365 @@
+{
+  "name": "Simbai",
+  "goal": 2875,
+  "profile": {
+    "age": 41,
+    "weight": 105,
+    "height": 177,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-14": [
+      {
+        "activity": "nutrition",
+        "calories": 0,
+        "time": "2026-03-14T07:54:17.124Z"
+      },
+      {
+        "activity": "heavy leg day workout",
+        "calories": 525,
+        "time": "2026-03-14T18:05:24.625Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-14",
+      "totals": {
+        "calories": 2059,
+        "protein": 205,
+        "carbs": 168,
+        "fat": 65.5,
+        "fibre": 27,
+        "priceZAR": 310
+      },
+      "entries": [
+        {
+          "food": "Apple (medium)",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-14T06:29:21.848Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 5,
+          "time": "2026-03-14T06:29:26.136Z"
+        },
+        {
+          "food": "chia seeds 1 tbsp",
+          "calories": 58,
+          "protein": 2,
+          "carbs": 5,
+          "fat": 4,
+          "fibre": 5,
+          "priceZAR": 5,
+          "time": "2026-03-14T06:29:29.015Z"
+        },
+        {
+          "food": "250ml low fat milk",
+          "calories": 100,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 2.5,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-14T06:29:31.519Z"
+        },
+        {
+          "food": "USN whey protein shake (1 scoop (30g) with water)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1.5,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-14T06:29:33.212Z"
+        },
+        {
+          "food": "half cup oats",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-14T06:29:35.771Z"
+        },
+        {
+          "food": "sourdough bread slice",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-14T07:56:11.300Z"
+        },
+        {
+          "food": "can of tuna",
+          "calories": 200,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-14T07:56:13.593Z"
+        },
+        {
+          "food": "2x boiled egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-14T07:56:15.957Z"
+        },
+        {
+          "food": "1 tbsp reduced fat mayo",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-14T07:56:18.296Z"
+        },
+        {
+          "food": "half cup carrots and cucumber",
+          "calories": 25,
+          "protein": 1,
+          "carbs": 6,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-14T07:56:20.484Z"
+        },
+        {
+          "food": "half cup cooked brown rice",
+          "calories": 108,
+          "protein": 3,
+          "carbs": 22,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-14T07:59:18.724Z"
+        },
+        {
+          "food": "Chicken breast (grilled, 150g) (150g)",
+          "calories": 248,
+          "protein": 46,
+          "carbs": 0,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-14T07:59:20.756Z"
+        },
+        {
+          "food": "green salad",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 10,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-14T07:59:22.880Z"
+        },
+        {
+          "food": "1 tbsp cottage cheese",
+          "calories": 20,
+          "protein": 3,
+          "carbs": 1,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-14T07:59:25.172Z"
+        },
+        {
+          "food": "2x rice cake",
+          "calories": 70,
+          "protein": 2,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-14T08:00:45.240Z"
+        },
+        {
+          "food": "whey protein smoothie",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-14T08:01:45.945Z"
+        },
+        {
+          "food": "USN whey protein shake (1 scoop (30g) with water)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1.5,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-14T08:02:29.429Z"
+        },
+        {
+          "food": "ground beef",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-14T11:41:53.853Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 1704,
+        "protein": 70,
+        "carbs": 220,
+        "fat": 68,
+        "fibre": 38,
+        "priceZAR": 140
+      },
+      "entries": [
+        {
+          "food": "half cup oats",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-15T08:49:51.250Z"
+        },
+        {
+          "food": "half medium banana",
+          "calories": 55,
+          "protein": 0,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 5,
+          "time": "2026-03-15T08:49:53.701Z"
+        },
+        {
+          "food": "1 tbsp chia seeds",
+          "calories": 58,
+          "protein": 2,
+          "carbs": 5,
+          "fat": 4,
+          "fibre": 5,
+          "priceZAR": 5,
+          "time": "2026-03-15T08:49:56.474Z"
+        },
+        {
+          "food": "USN whey protein scoop",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-15T08:49:59.138Z"
+        },
+        {
+          "food": "green apple",
+          "calories": 95,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-15T08:50:02.105Z"
+        },
+        {
+          "food": "Big Korn Bites Tomato Flavoured Maize Chips 100g",
+          "calories": 500,
+          "protein": 6,
+          "carbs": 70,
+          "fat": 25,
+          "fibre": 4,
+          "priceZAR": 0,
+          "time": "2026-03-15T10:03:50.038Z"
+        },
+        {
+          "food": "taco plate",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-15T10:04:49.326Z"
+        },
+        {
+          "food": "2x wholewheat wrap",
+          "calories": 320,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 6,
+          "fibre": 8,
+          "priceZAR": 20,
+          "time": "2026-03-15T10:06:18.328Z"
+        },
+        {
+          "food": "half carrot",
+          "calories": 12,
+          "protein": 0,
+          "carbs": 3,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-03-15T10:06:20.666Z"
+        },
+        {
+          "food": "quarter cucumber",
+          "calories": 4,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-15T10:06:23.021Z"
+        },
+        {
+          "food": "half cup cooked mince",
+          "calories": 150,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-15T10:06:25.559Z"
+        },
+        {
+          "food": "Avocado (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 20,
+          "time": "2026-03-15T10:06:27.219Z"
+        }
+      ]
+    }
+  ]
+}

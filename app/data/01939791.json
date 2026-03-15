@@ -1,0 +1,107 @@
+{
+  "name": "Brooklyn",
+  "goal": 2549,
+  "profile": {
+    "age": 22,
+    "weight": 76,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-11": [
+      {
+        "activity": "running",
+        "calories": 640,
+        "time": "2026-03-11T21:04:09.924Z"
+      }
+    ],
+    "2026-03-12": [
+      {
+        "activity": "running",
+        "calories": 400,
+        "time": "2026-03-12T18:00:45.129Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 1425,
+        "protein": 130,
+        "carbs": 50,
+        "fat": 90,
+        "fibre": 4,
+        "priceZAR": 202
+      },
+      "entries": [
+        {
+          "food": "5x egg",
+          "calories": 350,
+          "protein": 35,
+          "carbs": 0,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-12T07:54:23.344Z"
+        },
+        {
+          "food": "5x scrambled eggs and 1 hot cross bun",
+          "calories": 395,
+          "protein": 35,
+          "carbs": 40,
+          "fat": 25,
+          "fibre": 2,
+          "priceZAR": 42,
+          "time": "2026-03-12T07:59:26.331Z"
+        },
+        {
+          "food": "2x air fried chicken strip and 3x lemon and herb chicken kebab",
+          "calories": 680,
+          "protein": 60,
+          "carbs": 10,
+          "fat": 40,
+          "fibre": 2,
+          "priceZAR": 145,
+          "time": "2026-03-12T18:20:06.229Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 1220,
+        "protein": 58,
+        "carbs": 120,
+        "fat": 64,
+        "fibre": 7,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "4x egg omelette with salty crackers",
+          "calories": 370,
+          "protein": 28,
+          "carbs": 20,
+          "fat": 24,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-13T07:40:45.609Z"
+        },
+        {
+          "food": "butter chicken roti with chips",
+          "calories": 850,
+          "protein": 30,
+          "carbs": 100,
+          "fat": 40,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-13T13:55:49.327Z"
+        }
+      ]
+    }
+  ]
+}

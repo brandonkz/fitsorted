@@ -1,0 +1,245 @@
+{
+  "name": "Yael",
+  "goal": 2514,
+  "profile": {
+    "age": 37,
+    "weight": 60,
+    "height": 174,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-11",
+      "totals": {
+        "calories": 540,
+        "protein": 42,
+        "carbs": 30,
+        "fat": 36,
+        "fibre": 3,
+        "priceZAR": 82
+      },
+      "entries": [
+        {
+          "food": "3x eggs and gluten free toast",
+          "calories": 330,
+          "protein": 24,
+          "carbs": 30,
+          "fat": 21,
+          "fibre": 3,
+          "priceZAR": 70,
+          "time": "2026-03-11T11:20:30.549Z"
+        },
+        {
+          "food": "3x eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-11T11:21:05.874Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "calories": 1024,
+        "protein": 81.5,
+        "carbs": 105,
+        "fat": 34,
+        "fibre": 18.5,
+        "priceZAR": 137
+      },
+      "entries": [
+        {
+          "food": "1/2 cup oats with 1 TBS peanut butter and 1 egg white",
+          "calories": 305,
+          "protein": 12,
+          "carbs": 37,
+          "fat": 13,
+          "fibre": 5,
+          "priceZAR": 12,
+          "time": "2026-03-12T12:43:49.781Z"
+        },
+        {
+          "food": "1.5 cups chicken soup",
+          "calories": 180,
+          "protein": 15,
+          "carbs": 20,
+          "fat": 5,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-12T12:44:04.327Z"
+        },
+        {
+          "food": "Barebells Coco Choco Protein Bar",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 9,
+          "priceZAR": 0,
+          "time": "2026-03-12T13:00:35.674Z"
+        },
+        {
+          "food": "2x cup of filter coffee with almond milk",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 2,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-12T13:15:14.345Z"
+        },
+        {
+          "food": "almond milk cappuccino",
+          "calories": 80,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 3,
+          "fibre": 1,
+          "priceZAR": 40,
+          "time": "2026-03-12T13:15:26.646Z"
+        },
+        {
+          "food": "half chicken breast",
+          "calories": 165,
+          "protein": 31,
+          "carbs": 0,
+          "fat": 3.6,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-12T16:02:52.909Z"
+        },
+        {
+          "food": "0.5x mango",
+          "calories": 60,
+          "protein": 0.5,
+          "carbs": 15,
+          "fat": 0.4,
+          "fibre": 1.5,
+          "priceZAR": 2,
+          "time": "2026-03-12T16:03:05.409Z"
+        },
+        {
+          "food": "1/5 of a cucumber",
+          "calories": 4,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 3,
+          "time": "2026-03-12T16:03:37.808Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "calories": 1840,
+        "protein": 124,
+        "carbs": 211,
+        "fat": 65,
+        "fibre": 13,
+        "priceZAR": 472
+      },
+      "entries": [
+        {
+          "food": "2x scrambled egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-13T07:08:21.376Z"
+        },
+        {
+          "food": "40g salmon",
+          "calories": 80,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-13T07:08:59.426Z"
+        },
+        {
+          "food": "1x almond milk Quartado",
+          "calories": 150,
+          "protein": 4,
+          "carbs": 12,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 45,
+          "time": "2026-03-13T07:50:32.518Z"
+        },
+        {
+          "food": "4x salmon rose sushi",
+          "calories": 320,
+          "protein": 28,
+          "carbs": 40,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 120,
+          "time": "2026-03-13T16:10:35.954Z"
+        },
+        {
+          "food": "6x rainbow roll with mayo",
+          "calories": 720,
+          "protein": 36,
+          "carbs": 108,
+          "fat": 18,
+          "fibre": 6,
+          "priceZAR": 120,
+          "time": "2026-03-13T16:11:08.543Z"
+        },
+        {
+          "food": "1 plum",
+          "calories": 30,
+          "protein": 0,
+          "carbs": 8,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 4,
+          "time": "2026-03-13T16:11:18.112Z"
+        },
+        {
+          "food": "oat milk quartardo",
+          "calories": 200,
+          "protein": 4,
+          "carbs": 30,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-13T16:11:29.667Z"
+        },
+        {
+          "food": "spinach and cream cheese dim sum",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 6,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-13T16:12:06.775Z"
+        },
+        {
+          "food": "half portion of beef tataki",
+          "calories": 150,
+          "protein": 20,
+          "carbs": 5,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 85,
+          "time": "2026-03-13T16:12:43.936Z"
+        }
+      ]
+    }
+  ]
+}
