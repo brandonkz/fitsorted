@@ -26,7 +26,6 @@
     .muted{color:var(--muted)}
 
     /* Receipt */
-    .receipt-wrap{display:grid;place-items:center;margin-top:8px}
     .receipt{font-family:"Courier New",Courier,monospace;background:var(--paper);color:var(--paper-ink);width:100%;padding:18px 16px 28px;border-radius:6px;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.35);transform:rotate(-1deg);animation:slideUp .45s ease}
     .receipt:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 0);background-size:3px 3px;mix-blend-mode:multiply;opacity:.35;pointer-events:none;border-radius:6px}
     .receipt h1{margin:0;text-align:center;font-size:18px;letter-spacing:4px}
@@ -43,6 +42,33 @@
     .receipt-footer{text-align:left;font-size:12px;margin-top:10px}
     .tear{position:absolute;left:0;right:0;bottom:-10px;height:12px;background:var(--paper);clip-path:polygon(0 0,5% 100%,10% 0,15% 100%,20% 0,25% 100%,30% 0,35% 100%,40% 0,45% 100%,50% 0,55% 100%,60% 0,65% 100%,70% 0,75% 100%,80% 0,85% 100%,90% 0,95% 100%,100% 0,100% 100%,0 100%)}
     @keyframes slideUp{from{transform:translateY(16px) rotate(-1deg);opacity:.5}to{transform:translateY(0) rotate(-1deg);opacity:1}}
+
+    /* Story Card */
+    .story-nav{display:flex;align-items:center;justify-content:space-between;margin:4px 0 12px}
+    .story-nav button{background:#0b1222;border:1px solid #1f2937;color:#e2e8f0;border-radius:10px;padding:6px 10px;cursor:pointer}
+    .story-card{position:relative;border-radius:16px;overflow:hidden;padding:20px;min-height:70vh;display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 40px rgba(0,0,0,.4);animation:storyIn .5s ease;cursor:pointer;color:#fff}
+    .story-card:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 0);background-size:3px 3px;opacity:.2;pointer-events:none}
+    .story-hero{text-align:center;margin-top:10px;position:relative}
+    .story-cal{font-size:56px;font-weight:800;letter-spacing:1px}
+    .story-cal-label{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7)}
+    .story-flame{position:absolute;right:18px;top:-8px;font-size:22px;opacity:.8;display:none}
+    .story-card.way-over .story-flame{display:block;filter:drop-shadow(0 0 8px rgba(255,94,0,.6))}
+    .story-badge{align-self:center;padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+    .story-roast{font-style:italic;text-align:center;padding:10px 12px;border-radius:999px;background:rgba(0,0,0,.25);font-size:14px}
+    .story-projection{text-align:center;font-size:14px;color:rgba(255,255,255,.8)}
+    .story-stats{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.85);margin-top:auto}
+    .story-footer{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.7)}
+    .story-actions{display:grid;gap:8px;margin-top:12px}
+    .share-btn{background:#22c55e;border:none;color:#0f172a;padding:12px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer}
+    .copy-btn{background:#0b1222;border:1px solid #1f2937;color:#e2e8f0;padding:8px;border-radius:10px;font-size:12px;cursor:pointer}
+    .link-btn{background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline}
+    @keyframes storyIn{from{transform:scale(.95);opacity:.6}to{transform:scale(1);opacity:1}}
+
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:50}
+    .modal.hidden{display:none}
+    .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+    .modal-content{position:relative;z-index:1;width:min(420px,90vw);max-height:90vh;overflow:auto;padding:12px}
+    .modal-close{position:absolute;right:8px;top:8px;background:#0b1222;border:1px solid #1f2937;color:#e2e8f0;border-radius:999px;padding:6px 10px;cursor:pointer}
 
     /* Heatmap */
     .heatmap-card{background:#0b1222;border:1px solid #1f2937;border-radius:12px;padding:14px}
@@ -105,7 +131,43 @@
     </header>
 
     <section id="receipt" class="section active">
-      <div class="receipt-wrap">
+      <div class="story-nav">
+        <button id="prevDay" aria-label="Previous day">←</button>
+        <div id="storyDate" class="muted" style="font-size:12px">--</div>
+        <button id="nextDay" aria-label="Next day">→</button>
+      </div>
+
+      <div class="story-card" id="storyCard">
+        <div class="story-hero">
+          <div class="story-cal" id="storyCalories">0</div>
+          <div class="story-cal-label">calories</div>
+          <div class="story-flame" id="storyFlame">🔥</div>
+        </div>
+        <div class="story-badge" id="storyBadge">--</div>
+        <div class="story-roast" id="storyRoast">"--"</div>
+        <div class="story-projection" id="storyProjectionLine">--</div>
+        <div class="story-stats">
+          <div id="storyStreak">🔥 0</div>
+          <div id="storyRank">#- of -</div>
+          <div id="storyAvg">📊 0/day</div>
+        </div>
+        <div class="story-footer">
+          <span>🥗 fitsorted.co.za</span>
+          <span class="muted">Share</span>
+        </div>
+      </div>
+
+      <div class="story-actions">
+        <button class="share-btn" id="shareBtn">📤 Share to WhatsApp</button>
+        <button class="copy-btn" id="copyBtn">📋 Copy</button>
+        <button class="link-btn" id="openReceipt">See full receipt</button>
+      </div>
+    </section>
+
+    <div id="receiptModal" class="modal hidden">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">✕</button>
         <div class="receipt" id="receiptCard">
           <h1>FITSORTED</h1>
           <div class="date" id="receiptDate">--</div>
@@ -125,7 +187,7 @@
           <div class="tear"></div>
         </div>
       </div>
-    </section>
+    </div>
 
     <section id="heatmap" class="section">
       <div class="card" style="margin-bottom:12px">
@@ -201,7 +263,7 @@
   </div>
 
   <nav class="nav">
-    <button data-target="receipt" class="active">🧾<span>Receipt</span></button>
+    <button data-target="receipt" class="active">📱<span>Today</span></button>
     <button data-target="heatmap">🟩<span>Heatmap</span></button>
     <button data-target="stats">📊<span>Stats</span></button>
     <button data-target="board">🏆<span>Board</span></button>
@@ -246,6 +308,65 @@
       if(diff <= 0) return "Under budget. The discipline is showing.";
       if(diff < 200) return "Slightly over. We'll call it a maintenance day.";
       return "The calories were generous today. Tomorrow's a new receipt.";
+    }
+
+    function roastLine(logSummary, todayLog, goal){
+      const entries = todayLog.entries || [];
+      const foods = entries.map(e => (e.food||'').toLowerCase());
+      if(entries.length === 0) return "The fridge called. It says you're ignoring it.";
+      if(entries.length <= 2) return "This can't be everything... right?";
+
+      const last7 = logSummary.slice(-7);
+      const weekCounts = {};
+      last7.forEach(d=>d.entries.forEach(e=>{const k=(e.food||'').trim(); if(!k) return; weekCounts[k]=(weekCounts[k]||0)+1;}));
+      const topWeek = Object.entries(weekCounts).sort((a,b)=>b[1]-a[1])[0];
+      if(topWeek && topWeek[1] >= 4) return `${topWeek[0]} again? That's ${topWeek[1]} times this week. It's a personality trait now.`;
+
+      const hasAlcohol = foods.some(f => /(beer|wine|vodka|whisky|brandy|gin|tequila|cocktail|margarita|savanna|cider)/.test(f));
+      if(hasAlcohol) return "The liquid calories hit different, don't they?";
+      const hasFastFood = foods.some(f => /(mcdonalds|kfc|steers|nandos|debonairs|burger king|spur|wimpy|romans)/.test(f));
+      if(hasFastFood) return "At least you tracked it. That's more than most.";
+
+      const times = entries.map(e => e.time ? new Date(e.time) : null).filter(Boolean);
+      if(times.length && times.every(t => t.getHours() < 10)) return "Front-loaded. Bold breakfast strategy.";
+
+      const lateCalories = entries.reduce((a,e)=>{
+        const t = e.time ? new Date(e.time) : null; if(!t) return a;
+        return t.getHours() >= 20 ? a + (e.calories||0) : a;
+      },0);
+      if(lateCalories && lateCalories > (todayLog.totals.calories || 0) * 0.5) return "Night shift energy. Most of your calories came after 8pm.";
+
+      if((todayLog.totals.protein || 0) > 120) return "Clean eating machine. Your gym bro is proud.";
+
+      const spend = todayLog.totals.priceZAR || entries.reduce((a,e)=>a+(e.priceZAR||0),0);
+      if(spend > 250) return `R${Math.round(spend)} on food today. Your wallet is also on a diet.`;
+
+      const diff = (todayLog.totals.calories || 0) - goal;
+      if(diff > 500) return "Ambitious day. We don't judge. (We judge a little.)";
+      if(diff > 0 && diff < 200) return "Slightly over. We'll call it a maintenance day.";
+      if(diff <= 0) return "Under budget. The discipline is showing. 💪";
+
+      const hasVeg = foods.some(f => /(salad|vegetable|broccoli|spinach|carrot|cucumber)/.test(f));
+      if(!hasVeg) return "0 vegetables detected. Bold strategy.";
+
+      return "Keep going. You're building a new normal.";
+    }
+
+    function storyStatus(eaten, goal){
+      const diff = eaten - goal;
+      const within = Math.abs(diff) <= goal * 0.1;
+      if(within) return {text:`🎯 ON TARGET`, emoji:'🎯', tone:'gold', detail:`${Math.abs(diff)} cal ${diff>=0?'over':'remaining'}`};
+      if(diff <= 0) return {text:`✅ UNDER BUDGET`, emoji:'✅', tone:'green', detail:`${Math.abs(diff)} cal remaining`};
+      return {text:`⚠️ OVER BUDGET`, emoji:'⚠️', tone:'red', detail:`${Math.abs(diff)} cal over`};
+    }
+
+    function storyGradient(eaten, goal){
+      const diff = eaten - goal;
+      const within = Math.abs(diff) <= goal * 0.1;
+      if(within) return {bg:'linear-gradient(160deg,#1f2937,#000)', wayOver:false};
+      if(diff <= 0) return {bg:'linear-gradient(160deg,#0a2e1a,#000)', wayOver:false};
+      if(diff <= 200) return {bg:'linear-gradient(160deg,#2e1a0a,#000)', wayOver:false};
+      return {bg:'linear-gradient(160deg,#2e0a0a,#000)', wayOver: diff > 500};
     }
 
     function colorFor(cal, goal){
@@ -421,10 +542,11 @@
 
         const dates = logSummary.map(d=>d.date).sort();
         const today = dates.includes(new Date().toISOString().slice(0,10)) ? new Date().toISOString().slice(0,10) : dates[dates.length-1];
-        const todayLog = logSummary.find(d=>d.date===today) || logSummary[logSummary.length-1];
+        const dateMap = new Map(logSummary.map(d=>[d.date,d]));
+        let currentIndex = dates.indexOf(today);
+        const todayLog = dateMap.get(today) || logSummary[logSummary.length-1];
         const joinedAt = data.joinedAt || data.profile?.joinedAt || dates[0];
         const joinedDate = joinedAt ? new Date(joinedAt) : new Date(dates[0]);
-        const transactionNum = daysBetween(joinedDate, new Date(today)) + 1;
 
         const goal = data.goal || 2000;
         const eaten = todayLog.totals.calories || 0;
@@ -432,56 +554,140 @@
 
         $('userName').textContent = `${data.name || 'FitSorted Member'} • Goal ${goal} kcal`;
         $('todayDate').textContent = fmtDate(today);
-        $('receiptDate').textContent = fmtDate(today);
-        $('receiptTransaction').textContent = `TRANSACTION #${transactionNum}`;
         animateNumber($('remainingCalories'), remaining);
         setRing((eaten/goal)*100);
 
-        const items = $('receiptItems');
-        items.innerHTML = '';
-        let running = 0;
-        todayLog.entries.forEach(e => {
-          running += e.calories || 0;
-          const row = document.createElement('div');
-          row.className = 'row';
-          const time = e.time ? new Date(e.time).toLocaleTimeString('en-ZA', {hour:'2-digit',minute:'2-digit'}) : '--:--';
-          row.innerHTML = `<span>${time}  ${e.food}</span><span>${e.calories} • ${running}</span>`;
-          items.appendChild(row);
-        });
-
-        $('receiptTotal').textContent = `${eaten} cal`;
-        $('receiptMacros').innerHTML = `
-          <div class="row"><span>PROTEIN</span><span>${todayLog.totals.protein}g</span></div>
-          <div class="row"><span>CARBS</span><span>${todayLog.totals.carbs}g</span></div>
-          <div class="row"><span>FAT</span><span>${todayLog.totals.fat}g</span></div>
-        `;
-        $('receiptBudget').innerHTML = `
-          <div class="row"><span>BUDGET</span><span>${goal.toLocaleString()} cal</span></div>
-          <div class="row"><span>SPENT</span><span>${eaten.toLocaleString()} cal</span></div>
-          <div class="row"><span>REMAINING</span><span>${(goal-eaten).toLocaleString()} cal</span></div>
-        `;
-        $('receiptTip').textContent = tipLogic(todayLog.entries, todayLog.totals, goal);
-
-        // Receipt projection
         const receiptLast7 = logSummary.slice(-7);
         const receiptAvgDaily = receiptLast7.length ? (receiptLast7.reduce((a,d)=>a+d.totals.calories,0) / receiptLast7.length) : eaten;
         const receiptDeficit = goal - receiptAvgDaily;
         const receiptWeeklyRate = (receiptDeficit * 7) / 7700;
         const receiptWeight = data.profile?.weight || 0;
-        if(receiptWeight) {
-          const rw30 = receiptWeight - (receiptDeficit * 30 / 7700);
-          const rw90 = receiptWeight - (receiptDeficit * 90 / 7700);
-          const arrow = receiptDeficit >= 0 ? '↓' : '↑';
-          const rateLabel = receiptDeficit >= 0 ? 'LOSING' : 'GAINING';
-          $('receiptProjection').innerHTML = `
-            <div class="row" style="font-weight:700;margin-bottom:6px"><span>📉 PROJECTION</span><span>${arrow} ${Math.abs(receiptWeeklyRate).toFixed(1)}kg/wk</span></div>
-            <div class="row"><span>NOW</span><span>${receiptWeight.toFixed(1)} kg</span></div>
-            <div class="row"><span>IN 30 DAYS</span><span>${rw30.toFixed(1)} kg</span></div>
-            <div class="row"><span>IN 90 DAYS</span><span>${rw90.toFixed(1)} kg</span></div>
-            <div class="row"><span>RATE</span><span>${rateLabel} ${Math.abs(receiptWeeklyRate).toFixed(2)} kg/wk</span></div>
-            ${receiptDeficit < 0 ? '<div style="margin-top:6px;text-align:center;font-size:11px">⚠️ OVER BUDGET — WEIGHT TRENDING UP</div>' : '<div style="margin-top:6px;text-align:center;font-size:11px">✅ ON TRACK — KEEP GOING</div>'}
+
+        function renderReceipt(log, date){
+          const transactionNum = daysBetween(joinedDate, new Date(date)) + 1;
+          $('receiptDate').textContent = fmtDate(date);
+          $('receiptTransaction').textContent = `TRANSACTION #${transactionNum}`;
+          const items = $('receiptItems');
+          items.innerHTML = '';
+          let running = 0;
+          log.entries.forEach(e => {
+            running += e.calories || 0;
+            const row = document.createElement('div');
+            row.className = 'row';
+            const time = e.time ? new Date(e.time).toLocaleTimeString('en-ZA', {hour:'2-digit',minute:'2-digit'}) : '--:--';
+            row.innerHTML = `<span>${time}  ${e.food}</span><span>${e.calories} • ${running}</span>`;
+            items.appendChild(row);
+          });
+
+          $('receiptTotal').textContent = `${log.totals.calories || 0} cal`;
+          $('receiptMacros').innerHTML = `
+            <div class="row"><span>PROTEIN</span><span>${log.totals.protein}g</span></div>
+            <div class="row"><span>CARBS</span><span>${log.totals.carbs}g</span></div>
+            <div class="row"><span>FAT</span><span>${log.totals.fat}g</span></div>
           `;
+          $('receiptBudget').innerHTML = `
+            <div class="row"><span>BUDGET</span><span>${goal.toLocaleString()} cal</span></div>
+            <div class="row"><span>SPENT</span><span>${(log.totals.calories || 0).toLocaleString()} cal</span></div>
+            <div class="row"><span>REMAINING</span><span>${(goal-(log.totals.calories||0)).toLocaleString()} cal</span></div>
+          `;
+          $('receiptTip').textContent = tipLogic(log.entries, log.totals, goal);
+
+          if(receiptWeight) {
+            const rw30 = receiptWeight - (receiptDeficit * 30 / 7700);
+            const rw90 = receiptWeight - (receiptDeficit * 90 / 7700);
+            const arrow = receiptDeficit >= 0 ? '↓' : '↑';
+            const rateLabel = receiptDeficit >= 0 ? 'LOSING' : 'GAINING';
+            $('receiptProjection').innerHTML = `
+              <div class="row" style="font-weight:700;margin-bottom:6px"><span>📉 PROJECTION</span><span>${arrow} ${Math.abs(receiptWeeklyRate).toFixed(1)}kg/wk</span></div>
+              <div class="row"><span>NOW</span><span>${receiptWeight.toFixed(1)} kg</span></div>
+              <div class="row"><span>IN 30 DAYS</span><span>${rw30.toFixed(1)} kg</span></div>
+              <div class="row"><span>IN 90 DAYS</span><span>${rw90.toFixed(1)} kg</span></div>
+              <div class="row"><span>RATE</span><span>${rateLabel} ${Math.abs(receiptWeeklyRate).toFixed(2)} kg/wk</span></div>
+              ${receiptDeficit < 0 ? '<div style="margin-top:6px;text-align:center;font-size:11px">⚠️ OVER BUDGET — WEIGHT TRENDING UP</div>' : '<div style="margin-top:6px;text-align:center;font-size:11px">✅ ON TRACK — KEEP GOING</div>'}
+            `;
+          }
         }
+
+        let leaderboardRank = '-'; let leaderboardTotal = '-';
+        try{
+          const lbRes = await fetch('./data/leaderboard.json');
+          const lb = await lbRes.json();
+          renderLeaderboard(lb || []);
+          const sorted = [...(lb||[])].sort((a,b)=> (b.streak||0) - (a.streak||0));
+          const idx = sorted.findIndex(e=>e.token === token);
+          leaderboardRank = idx >= 0 ? `#${idx+1}` : '-';
+          leaderboardTotal = sorted.length || '-';
+        }catch(e){
+          renderLeaderboard([]);
+        }
+
+        function renderStory(log, date){
+          $('storyDate').textContent = fmtDate(date);
+          const eatenDay = log.totals.calories || 0;
+          $('storyCalories').textContent = eatenDay.toLocaleString();
+          const status = storyStatus(eatenDay, goal);
+          $('storyBadge').textContent = `${status.text} • ${status.detail}`;
+          $('storyBadge').style.background = status.tone === 'green' ? 'rgba(34,197,94,.2)' : status.tone === 'red' ? 'rgba(239,68,68,.2)' : 'rgba(234,179,8,.2)';
+          $('storyBadge').style.border = status.tone === 'green' ? '1px solid rgba(34,197,94,.6)' : status.tone === 'red' ? '1px solid rgba(239,68,68,.6)' : '1px solid rgba(234,179,8,.6)';
+
+          const roast = roastLine(logSummary, log, goal);
+          $('storyRoast').textContent = `"${roast}"`;
+
+          const dailyDeficit = receiptDeficit;
+          const weeklyRate = (dailyDeficit * 7) / 7700;
+          const projectedWeight = receiptWeight ? (receiptWeight - (dailyDeficit * 30 / 7700)) : null;
+          const month = new Date(Date.now() + 30*86400000).toLocaleDateString('en-ZA', { month:'long' });
+          if(projectedWeight){
+            const arrow = dailyDeficit >= 0 ? '↓' : '↑';
+            const warn = dailyDeficit < 0 ? ' ⚠️' : '';
+            $('storyProjectionLine').textContent = `${arrow} ${Math.abs(weeklyRate).toFixed(1)}kg/wk → ${projectedWeight.toFixed(0)}kg by ${month}${warn}`;
+          }else{
+            $('storyProjectionLine').textContent = 'Projection unavailable';
+          }
+
+          const streak = calcStreak(dates);
+          const avgDaily = Math.round(receiptAvgDaily);
+          $('storyStreak').textContent = `🔥 ${streak}`;
+          $('storyRank').textContent = leaderboardRank !== '-' ? `${leaderboardRank} of ${leaderboardTotal}` : '#- of -';
+          $('storyAvg').textContent = `📊 ${avgDaily.toLocaleString()}/day`;
+
+          const grad = storyGradient(eatenDay, goal);
+          const card = $('storyCard');
+          card.style.background = grad.bg;
+          card.classList.toggle('way-over', grad.wayOver);
+
+          const shareText = `🥗 FitSorted Day Report\n\n${eatenDay} cal today ${status.emoji}\n"${roast}"\n\n🔥 ${streak} day streak | ${leaderboardRank !== '-' ? `${leaderboardRank} of ${leaderboardTotal} users` : 'Community' }\n${dailyDeficit >=0 ? '↓' : '↑'} ${Math.abs(weeklyRate).toFixed(1)}kg/wk → ${projectedWeight ? projectedWeight.toFixed(0) : '-'}kg by ${month}\n\nTrack your food → fitsorted.co.za`;
+
+          $('shareBtn').onclick = async () => {
+            if(navigator.share){
+              try{ await navigator.share({text: shareText}); return; }catch(e){}
+            }
+            location.href = `whatsapp://send?text=${encodeURIComponent(shareText)}`;
+          };
+          $('copyBtn').onclick = async () => {
+            try{ await navigator.clipboard.writeText(shareText); $('copyBtn').textContent = 'Copied!'; setTimeout(()=>$('copyBtn').textContent='📋 Copy',1200);}catch(e){}
+          };
+        }
+
+        renderReceipt(todayLog, today);
+        renderStory(todayLog, today);
+
+        const prevBtn = $('prevDay');
+        const nextBtn = $('nextDay');
+        const updateNav = () => {
+          prevBtn.disabled = currentIndex <= 0;
+          nextBtn.disabled = currentIndex >= dates.length-1;
+          prevBtn.style.opacity = prevBtn.disabled ? .4 : 1;
+          nextBtn.style.opacity = nextBtn.disabled ? .4 : 1;
+        };
+        prevBtn.onclick = () => { if(currentIndex>0){ currentIndex--; const d = dates[currentIndex]; renderStory(dateMap.get(d), d); renderReceipt(dateMap.get(d), d); updateNav(); }};
+        nextBtn.onclick = () => { if(currentIndex<dates.length-1){ currentIndex++; const d = dates[currentIndex]; renderStory(dateMap.get(d), d); renderReceipt(dateMap.get(d), d); updateNav(); }};
+        updateNav();
+
+        $('storyCard').onclick = () => $('receiptModal').classList.remove('hidden');
+        $('openReceipt').onclick = () => $('receiptModal').classList.remove('hidden');
+        $('modalBackdrop').onclick = () => $('receiptModal').classList.add('hidden');
+        $('modalClose').onclick = () => $('receiptModal').classList.add('hidden');
 
         // Macro bars
         const macroTotal = todayLog.totals.protein + todayLog.totals.carbs + todayLog.totals.fat || 1;
@@ -601,14 +807,6 @@
           try{ await navigator.clipboard.writeText(location.href); copyBtn.textContent='Copied!'; setTimeout(()=>copyBtn.textContent='Copy link',1200);}catch(e){}
         };
 
-        // Leaderboard
-        try{
-          const lbRes = await fetch('./data/leaderboard.json');
-          const lb = await lbRes.json();
-          renderLeaderboard(lb || []);
-        }catch(e){
-          renderLeaderboard([]);
-        }
       }catch(e){showEmpty();}
     }
 
