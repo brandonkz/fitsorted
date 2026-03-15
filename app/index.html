@@ -117,6 +117,8 @@
           <div class="dash"></div>
           <div class="row total"><span>TOTAL</span><span id="receiptTotal">0 cal</span></div>
           <div class="budget" id="receiptBudget"></div>
+          <div class="dash"></div>
+          <div id="receiptProjection" style="font-size:12px;margin:8px 0"></div>
           <div class="dots"></div>
           <div class="tip"><span>💡</span><span id="receiptTip"></span></div>
           <div class="receipt-footer">#FitSorted 🥗</div>
@@ -459,6 +461,27 @@
           <div class="row"><span>REMAINING</span><span>${(goal-eaten).toLocaleString()} cal</span></div>
         `;
         $('receiptTip').textContent = tipLogic(todayLog.entries, todayLog.totals, goal);
+
+        // Receipt projection
+        const receiptLast7 = logSummary.slice(-7);
+        const receiptAvgDaily = receiptLast7.length ? (receiptLast7.reduce((a,d)=>a+d.totals.calories,0) / receiptLast7.length) : eaten;
+        const receiptDeficit = goal - receiptAvgDaily;
+        const receiptWeeklyRate = (receiptDeficit * 7) / 7700;
+        const receiptWeight = data.profile?.weight || 0;
+        if(receiptWeight) {
+          const rw30 = receiptWeight - (receiptDeficit * 30 / 7700);
+          const rw90 = receiptWeight - (receiptDeficit * 90 / 7700);
+          const arrow = receiptDeficit >= 0 ? '↓' : '↑';
+          const rateLabel = receiptDeficit >= 0 ? 'LOSING' : 'GAINING';
+          $('receiptProjection').innerHTML = `
+            <div class="row" style="font-weight:700;margin-bottom:6px"><span>📉 PROJECTION</span><span>${arrow} ${Math.abs(receiptWeeklyRate).toFixed(1)}kg/wk</span></div>
+            <div class="row"><span>NOW</span><span>${receiptWeight.toFixed(1)} kg</span></div>
+            <div class="row"><span>IN 30 DAYS</span><span>${rw30.toFixed(1)} kg</span></div>
+            <div class="row"><span>IN 90 DAYS</span><span>${rw90.toFixed(1)} kg</span></div>
+            <div class="row"><span>RATE</span><span>${rateLabel} ${Math.abs(receiptWeeklyRate).toFixed(2)} kg/wk</span></div>
+            ${receiptDeficit < 0 ? '<div style="margin-top:6px;text-align:center;font-size:11px">⚠️ OVER BUDGET — WEIGHT TRENDING UP</div>' : '<div style="margin-top:6px;text-align:center;font-size:11px">✅ ON TRACK — KEEP GOING</div>'}
+          `;
+        }
 
         // Macro bars
         const macroTotal = todayLog.totals.protein + todayLog.totals.carbs + todayLog.totals.fat || 1;
