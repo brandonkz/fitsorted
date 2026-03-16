@@ -1143,6 +1143,25 @@ async function estimateCalories(food, user) {
     "bredie": { food: "Bredie (SA stew serving)", calories: 450, protein: 25, carbs: 30, fat: 25, fibre: 5 },
     "tomato bredie": { food: "Tomato Bredie (serving)", calories: 450, protein: 25, carbs: 30, fat: 25, fibre: 5 },
     "wimpy breakfast": { food: "Wimpy Full Breakfast", calories: 800, protein: 35, carbs: 60, fat: 45, fibre: 4 },
+    // Round 10 - nightly edge case test 2026-03-16
+    "white monster": { food: "Monster Ultra (Zero Sugar) 500ml", calories: 5, protein: 0, carbs: 1, fat: 0, fibre: 0 },
+    "monster zero": { food: "Monster Zero Sugar 500ml", calories: 5, protein: 0, carbs: 1, fat: 0, fibre: 0 },
+    "pap and vleis": { food: "Pap & Vleis (serving)", calories: 550, protein: 35, carbs: 55, fat: 20, fibre: 3 },
+    "avocado toast": { food: "Avocado Toast", calories: 350, protein: 8, carbs: 35, fat: 20, fibre: 7 },
+    "nandos peri peri chips": { food: "Nando's Peri-Peri Chips", calories: 320, protein: 4, carbs: 40, fat: 16, fibre: 4 },
+    "nandos chips": { food: "Nando's Peri-Peri Chips", calories: 320, protein: 4, carbs: 40, fat: 16, fibre: 4 },
+    "tropika dairy blend": { food: "Tropika Dairy Blend (330ml)", calories: 190, protein: 3, carbs: 30, fat: 6, fibre: 0 },
+    "tropika": { food: "Tropika Dairy Blend (330ml)", calories: 190, protein: 3, carbs: 30, fat: 6, fibre: 0 },
+    "chicken licken soul fire wings 6": { food: "Chicken Licken Soul Fire Wings (6)", calories: 550, protein: 35, carbs: 20, fat: 35, fibre: 1 },
+    "soul fire wings": { food: "Chicken Licken Soul Fire Wings (6)", calories: 550, protein: 35, carbs: 20, fat: 35, fibre: 1 },
+    "walkie talkies": { food: "Walkie Talkies (chicken feet)", calories: 200, protein: 18, carbs: 0, fat: 14, fibre: 0 },
+    "chicken feet": { food: "Chicken Feet (walkie talkies)", calories: 200, protein: 18, carbs: 0, fat: 14, fibre: 0 },
+    "macaroni and cheese": { food: "Macaroni & Cheese (serving)", calories: 400, protein: 15, carbs: 45, fat: 18, fibre: 2 },
+    "mac and cheese": { food: "Macaroni & Cheese (serving)", calories: 400, protein: 15, carbs: 45, fat: 18, fibre: 2 },
+    "ocean basket grilled linefish": { food: "Ocean Basket Grilled Linefish", calories: 380, protein: 40, carbs: 15, fat: 18, fibre: 2 },
+    "grilled linefish": { food: "Grilled Linefish (with sides)", calories: 380, protein: 40, carbs: 15, fat: 18, fibre: 2 },
+    "coo-ee orange": { food: "Coo-ee Orange 500ml", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
+    "coo-ee": { food: "Coo-ee 500ml", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
@@ -2098,6 +2117,16 @@ async function maybeFirstLogMenu(from, user) {
       `📸 Send a photo — I'll ID it\n` +
       `📋 *commands* — full menu\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━`
+    );
+  }
+  // PWA dashboard nudge — show once on 3rd entry
+  if (!user.sentPwaNudge && totalEntries === 3) {
+    user.sentPwaNudge = true;
+    saveUsers(loadUsers());
+    await send(from,
+      `💡 *Did you know?* We have a full dashboard with a meal database, your daily stats, and macro breakdowns.\n\n` +
+      `📱 Check it out: fitsorted.co.za/app\n\n` +
+      `_Add it to your home screen for quick access — it works like an app!_`
     );
   }
 }
