@@ -3702,13 +3702,37 @@ async function handleMessage(from, text, imageId) {
 
   if (/^(undo|undo that|oops|take that back|remove last|undo last|cancel last|delete last|wrong|that was wrong|made a mistake|undo last entry)$/i.test(msgLower)) {
     const today = getToday();
-    const entries = user.log[today] || [];
-    if (!entries.length) { await send(from, "Nothing to undo."); return; }
-    const removed = entries.pop();
-    user.log[today] = entries;
-    saveUsers(users);
-    const total = getTodayTotal(user);
-    await send(from, `↩️ Removed: *${removed.food}* (${removed.calories} cal)\n\n${deficitMessage(total, user.goal)}`);
+    const foodEntries = user.log[today] || [];
+    const exerciseEntries = (user.exercise && user.exercise[today]) || [];
+
+    // Find the most recent entry across both food and exercise
+    const lastFood = foodEntries.length ? foodEntries[foodEntries.length - 1] : null;
+    const lastExercise = exerciseEntries.length ? exerciseEntries[exerciseEntries.length - 1] : null;
+
+    if (!lastFood && !lastExercise) { await send(from, "Nothing to undo."); return; }
+
+    // Compare timestamps to find which was logged last
+    const foodTime = lastFood && lastFood.time ? new Date(lastFood.time).getTime() : 0;
+    const exTime = lastExercise && lastExercise.time ? new Date(lastExercise.time).getTime() : 0;
+
+    if (exTime > foodTime && lastExercise) {
+      // Undo exercise
+      exerciseEntries.pop();
+      user.exercise[today] = exerciseEntries;
+      saveUsers(users);
+      const effectiveGoal = getEffectiveGoal(user);
+      const total = getTodayTotal(user);
+      await send(from, `↩️ Removed: *${lastExercise.activity}* (${lastExercise.calories} cal burned)\n\n${deficitMessage(total, effectiveGoal)}`);
+    } else if (lastFood) {
+      // Undo food
+      foodEntries.pop();
+      user.log[today] = foodEntries;
+      saveUsers(users);
+      const total = getTodayTotal(user);
+      await send(from, `↩️ Removed: *${lastFood.food}* (${lastFood.calories} cal)\n\n${deficitMessage(total, user.goal)}`);
+    } else {
+      await send(from, "Nothing to undo.");
+    }
     return;
   }
 
