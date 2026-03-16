@@ -1,0 +1,36 @@
+{
+  "title": "A healthy day\nunder your goal",
+  "goalCalories": 2000,
+  "meals": [
+    {
+      "name": "Oats with berries",
+      "calories": 320,
+      "time": "Breakfast",
+      "img": "food/eggs-toast.png"
+    },
+    {
+      "name": "Apple + almonds",
+      "calories": 180,
+      "time": "Mid-morning",
+      "img": "food/nu-nutter.png"
+    },
+    {
+      "name": "Grilled chicken salad",
+      "calories": 450,
+      "time": "Lunch",
+      "img": "food/chicken-salad.png"
+    },
+    {
+      "name": "Greek yoghurt",
+      "calories": 150,
+      "time": "Snack",
+      "img": "food/biltong.png"
+    },
+    {
+      "name": "Grilled fish + vegetables",
+      "calories": 480,
+      "time": "Dinner",
+      "img": "food/stir-fry.png"
+    }
+  ]
+}

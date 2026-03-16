@@ -1,0 +1,36 @@
+{
+  "title": "Weekend braai day\n(it adds up fast!)",
+  "goalCalories": 2000,
+  "meals": [
+    {
+      "name": "Full English breakfast",
+      "calories": 850,
+      "time": "Breakfast",
+      "img": "food/eggs-toast.png"
+    },
+    {
+      "name": "Beers x3",
+      "calories": 450,
+      "time": "Mid-afternoon",
+      "img": "food/nu-nutter.png"
+    },
+    {
+      "name": "Boerewors roll",
+      "calories": 520,
+      "time": "Braai snack",
+      "img": "food/chicken-salad.png"
+    },
+    {
+      "name": "Steak + pap + chakalaka",
+      "calories": 980,
+      "time": "Braai main",
+      "img": "food/biltong.png"
+    },
+    {
+      "name": "Malva pudding + ice cream",
+      "calories": 650,
+      "time": "Dessert",
+      "img": "food/stir-fry.png"
+    }
+  ]
+}

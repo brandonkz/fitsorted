@@ -1,0 +1,36 @@
+{
+  "title": "What 2000 calories\nactually looks like",
+  "goalCalories": 2000,
+  "meals": [
+    {
+      "name": "Eggs on toast",
+      "calories": 350,
+      "time": "Breakfast",
+      "img": "food/eggs-toast.png"
+    },
+    {
+      "name": "Nu Large Nutter",
+      "calories": 800,
+      "time": "Mid-morning",
+      "img": "food/nu-nutter.png"
+    },
+    {
+      "name": "Woolworths Chicken Salad",
+      "calories": 280,
+      "time": "Lunch",
+      "img": "food/chicken-salad.png"
+    },
+    {
+      "name": "Biltong (50g)",
+      "calories": 206,
+      "time": "Snack",
+      "img": "food/biltong.png"
+    },
+    {
+      "name": "Chicken stir fry + rice",
+      "calories": 520,
+      "time": "Dinner",
+      "img": "food/stir-fry.png"
+    }
+  ]
+}
