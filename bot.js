@@ -31,12 +31,12 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_bDTutSXR_G4Q84ays1Noi7J
 
 // Promo codes — { CODE: discountPercent } (use 100 for free/founder access)
 // Promo codes — { CODE: discountPercent }
-// At R18 base, EARLYBIRD no longer needed but kept for existing users
+// At R36 base, EARLYBIRD no longer needed but kept for existing users
 const PROMO_CODES = {
   SPRING: 10,
   LAUNCH: 20,
   FITFAM: 15,
-  EARLYBIRD: 0,   // R18 is already the launch price
+  EARLYBIRD: 0,   // R36 is already the launch price
   FOUNDER: 100,
 };
 
@@ -119,7 +119,7 @@ function applyDiscount(price, discountPct) {
 
 // Generate PayFast monthly subscription link (30-day free trial)
 function getPayFastMonthlyLink(phone, discountPct = 0) {
-  const monthly = parseFloat(applyDiscount(18, discountPct));
+  const monthly = parseFloat(applyDiscount(36, discountPct));
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -144,7 +144,7 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
 
 // Generate PayFast annual subscription link (30-day free trial)
 function getPayFastAnnualLink(phone, discountPct = 0) {
-  const annual = parseFloat(applyDiscount(100, discountPct)); // R18 x 12 = R216, discounted to R100/yr
+  const annual = parseFloat(applyDiscount(200, discountPct)); // R36 x 12 = R432, discounted to R200/yr
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -2148,8 +2148,8 @@ async function maybePromptPro(from, user) {
     await send(from,
       `You've logged 3 days in a row ✅\n\n` +
       `Subscribe to keep going:\n\n` +
-      `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
+      `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
+      `🏆 *Annual — R200/year* _(save R232)_\n👉 ${annualLink}`
     );
   }
 }
@@ -2547,8 +2547,8 @@ async function handleMessage(from, text, imageId) {
         await send(from,
           `📸 Your 30-day free trial has ended.\n\n` +
           `Subscribe to keep using FitSorted:\n\n` +
-          `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
-          `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
+          `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
+          `🏆 *Annual — R200/year* _(save R232)_\n👉 ${annualLink}`
         );
         return;
       }
@@ -3107,7 +3107,7 @@ async function handleMessage(from, text, imageId) {
       } else {
         const isAnnual = val === "earlybird:annual";
         const link = isAnnual ? getPayFastAnnualLink(from, 39) : getPayFastMonthlyLink(from, 39);
-        const price = isAnnual ? "R100/year" : "R18/mo";
+        const price = isAnnual ? "R200/year" : "R18/mo";
         user.promoCode = "EARLYBIRD";
         user.promoDiscount = 39;
         saveUsers(users);
@@ -3980,7 +3980,7 @@ async function handleMessage(from, text, imageId) {
     user.promoCode = code;
     user.promoDiscount = discount;
     saveUsers(users);
-    const monthlyPrice = applyDiscount(18, discount);
+    const monthlyPrice = applyDiscount(36, discount);
     const annualPrice = applyDiscount(280, discount);
     const monthlyLink = getPayFastMonthlyLink(from, discount);
     const annualLink = getPayFastAnnualLink(from, discount);
@@ -4002,7 +4002,7 @@ async function handleMessage(from, text, imageId) {
     }
     const discount = user.promoDiscount || 0;
     const promoCode = user.promoCode || null;
-    const monthlyPrice = applyDiscount(18, discount);
+    const monthlyPrice = applyDiscount(36, discount);
     const annualPrice = applyDiscount(280, discount);
     const monthlyLink = getPayFastMonthlyLink(from, discount);
     const annualLink = getPayFastAnnualLink(from, discount);
@@ -4268,8 +4268,8 @@ async function handleMessage(from, text, imageId) {
       `• 🧠 Coaching mode (meal suggestions, Q&A)\n` +
       `• 📧 Email exports\n` +
       `• 💰 Food budget tracking\n\n` +
-      `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
+      `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
+      `🏆 *Annual — R200/year* _(save R232)_\n👉 ${annualLink}`
     );
     users[from].shownFreeForeverMessage = true;
     saveUsers(users);
