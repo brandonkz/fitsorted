@@ -1804,6 +1804,11 @@ async function estimateCalories(food, user) {
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
   const result = JSON.parse(content);
+
+  // Guard against null/NaN calories or missing food name
+  if (result.calories == null || Number.isNaN(Number(result.calories))) result.calories = 0;
+  if (!result.food || typeof result.food !== 'string') result.food = food;
+  result.calories = Number(result.calories);
   
   fs.appendFileSync(aiDebugLog, `\n[${new Date().toISOString()}] AI RAW: "${food}" → ${result.food} (${result.calories} cal)\n`);
   
