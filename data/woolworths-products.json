@@ -168,171 +168,1242 @@
     "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Indian/Lamb-Rogan-Josh-350-g/_/A-6007875250121?isFromPLP=true"
   },
   {
-    "name": "5% Tranexamic Acid + 1% Hexylresorcinol, Melanoclear",
-    "price": 240,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/15-off-Skin-Functional-Promo-Code/Skin-functional-5-Tranexamic-Acid-1-Hexylresorcinol-Melanoclear/_/A-509227132?isFromPLP=true"
+    "name": "Asian Style Cucumber Shake-It Cup™ 190 g",
+    "price": 34.99,
+    "size": "190 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Salads-To-Go/Asian-Style-Cucumber-Shake-It-Cup-190-g/_/A-6009245449951?isFromPLP=true"
   },
   {
-    "name": "The Hyaluronic Acid 3 Serum",
-    "price": 599,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/COSRX-The-Hyaluronic-Acid-3-Serum/_/A-510883222?isFromPLP=true"
+    "name": "Deli-Style Potato Salad 250 g",
+    "price": 44.99,
+    "size": "250 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Salads-To-Go/Deli-Style-Potato-Salad-250-g/_/A-6009195201135?isFromPLP=true"
   },
   {
-    "name": "Bouncy & Firm Lip Treatment",
-    "price": 550,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Bouncy-Firm-Lip-Treatment/_/A-510161266?isFromPLP=true"
+    "name": "Aromatic Chicken Pasta Salad 250 g",
+    "price": 58.99,
+    "size": "250 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Salads-To-Go/Aromatic-Chicken-Pasta-Salad-250-g/_/A-20164966?isFromPLP=true"
   },
   {
-    "name": "Mini Lip Glowy Balm Set",
-    "price": 485,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Mini-Lip-Glowy-Balm-Set/_/A-510128360?isFromPLP=true"
+    "name": "Chicken Caesar Pasta Salad 200 g",
+    "price": 58.99,
+    "size": "200 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Salads-To-Go/Chicken-Caesar-Pasta-Salad-200-g/_/A-20154950?isFromPLP=true"
   },
   {
-    "name": "The Rejuvenating Eye Cream",
-    "price": 4300,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Skincare/Treatments/La-Mer-The-Rejuvenating-Eye-Cream/_/A-511800166?isFromPLP=true"
+    "name": "Prawn & Avo Pasta Salad 270 g",
+    "price": 66.99,
+    "size": "270 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Salads-To-Go/Prawn-Avo-Pasta-Salad-270-g/_/A-6005000774658?isFromPLP=true"
   },
   {
-    "name": "Plump & Hydrate Trio Set",
-    "price": 630,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Plump-Hydrate-Trio-Set/_/A-510129136?isFromPLP=true"
+    "name": "Roasted Vegetable Couscous Salad 435 g",
+    "price": 74.99,
+    "size": "435 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Salads-To-Go/Roasted-Vegetable-Couscous-Salad-435-g/_/A-6005000177480?isFromPLP=true"
   },
   {
-    "name": "S'more Kisses Set",
-    "price": 570,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-S-more-Kisses-Set/_/A-510128344?isFromPLP=true"
+    "name": "Crunchy Summer Leaf Salad 310 g",
+    "price": 49.99,
+    "size": "310 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Crunchy-Summer-Leaf-Salad-310-g/_/A-6009182982160?isFromPLP=true"
   },
   {
-    "name": "Bouncy & Firm Eye Sleeping Mask",
-    "price": 670,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Bouncy-Firm-Eye-Sleeping-Mask/_/A-510161258?isFromPLP=true"
+    "name": "Bacon, Cheese & Rosa Tomato Pasta Salad 445 g",
+    "price": 78.99,
+    "size": "445 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Bacon-Cheese-Rosa-Tomato-Pasta-Salad-445-g/_/A-6009101869923?isFromPLP=true"
   },
   {
-    "name": "Supremya Anti-aging Eye Cream",
-    "price": 7000,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Anti-aging-Eye-Cream/_/A-510407380?isFromPLP=true"
+    "name": "Rosa Tomato Leaf Salad 190 g",
+    "price": 36.99,
+    "size": "190 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Rosa-Tomato-Leaf-Salad-190-g/_/A-20158422?isFromPLP=true"
   },
   {
-    "name": "Supremya Anti-aging Eye Cream Refill",
-    "price": 5700,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Anti-aging-Eye-Cream-Refill/_/A-510407402?isFromPLP=true"
+    "name": "Greek Leaf Salad 285 g",
+    "price": 62.99,
+    "size": "285 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Greek-Leaf-Salad-285-g/_/A-20082000?isFromPLP=true"
   },
   {
-    "name": "Supremya Baume At Night Cream",
-    "price": 13900,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Baume-At-Night-Cream/_/A-510407372?isFromPLP=true"
+    "name": "Smoky Four Bean Salad 250 g",
+    "price": 46.99,
+    "size": "250 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Smoky-Four-Bean-Salad-250-g/_/A-6009211676534?isFromPLP=true"
   },
   {
-    "name": "Body Sun Lotion Sensitive SPF50",
-    "price": 389.99,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/Body-Sun-Lotion-Sensitive-SPF50/_/A-506130290?isFromPLP=true"
+    "name": "Bulgur Wheat & Lentil Salad 280 g",
+    "price": 46.99,
+    "size": "280 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Bulgur-Wheat-Lentil-Salad-280-g/_/A-6009000539477?isFromPLP=true"
   },
   {
-    "name": "Cellular Performance Throat and Bust Lifting Effect",
-    "price": 2615,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/25-off-2-Selected-Beauty-Products/Skincare/Moisturizers/Day-Creams/SENSAI-Cellular-Performance-Throat-and-Bust-Lifting-Effect/_/A-505702488?isFromPLP=true"
+    "name": "Sweet Curry Pasta Salad 250 g",
+    "price": 45.99,
+    "size": "250 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Sweet-Curry-Pasta-Salad-250-g/_/A-6009195201173?isFromPLP=true"
   },
   {
-    "name": "Ultimate The Emulsion",
-    "price": 8555,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/SENSAI-Ultimate-The-Emulsion/_/A-507826644?isFromPLP=true"
+    "name": "Classic Greek Salad 390 g",
+    "price": 74.99,
+    "size": "390 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Classic-Greek-Salad-390-g/_/A-6001009010957?isFromPLP=true"
   },
   {
-    "name": "Precious La Lotion",
-    "price": 2230,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/Clarins-Precious-La-Lotion/_/A-509271130?isFromPLP=true"
+    "name": "Crunchy Asian-Style Slaw 160 g",
+    "price": 44.99,
+    "size": "160 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Crunchy-Asian-Style-Slaw-160-g/_/A-6009175599832?isFromPLP=true"
   },
   {
-    "name": "Zinc Power Lotion",
-    "price": 465,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Cleansing/Nuxe-Zinc-Power-Lotion/_/A-510352156?isFromPLP=true"
+    "name": "Greek Leaf Salad 170 g",
+    "price": 46.99,
+    "size": "170 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Greek-Leaf-Salad-170-g/_/A-20089405?isFromPLP=true"
   },
   {
-    "name": "Longevity Essential Serum",
-    "price": 9900,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Sisley-Longevity-Essential-Serum/_/A-511714716?isFromPLP=true"
+    "name": "Coleslaw 350 g",
+    "price": 44.99,
+    "size": "350 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Coleslaw-350-g/_/A-20004507?isFromPLP=true"
   },
   {
-    "name": "Black Rose Collection Coffret",
-    "price": 8350,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Sisley-Black-Rose-Collection-Coffret/_/A-511786162?isFromPLP=true"
+    "name": "Green Pesto Bulgur Wheat Salad 260 g",
+    "price": 46.99,
+    "size": "260 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Green-Pesto-Bulgur-Wheat-Salad-260-g/_/A-6009195201319?isFromPLP=true"
   },
   {
-    "name": "Ruby Marine Barrier Rescue Set",
-    "price": 769.95,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Ruby-Marine-Barrier-Rescue-Set/_/A-510352198?isFromPLP=true"
+    "name": "Crunchy Asian Style Slaw Salad 260 g",
+    "price": 58.99,
+    "size": "260 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Crunchy-Asian-Style-Slaw-Salad-260-g/_/A-6009204657601?isFromPLP=true"
   },
   {
-    "name": "Hydra Zen Day Cream",
-    "price": 780,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Lancome-Hydra-Zen-Day-Cream/_/A-511608238?isFromPLP=true"
+    "name": "Summer Bean Salad 250 g",
+    "price": 46.99,
+    "size": "250 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Summer-Bean-Salad-250-g/_/A-6009195201166?isFromPLP=true"
   },
   {
-    "name": "Hydra Zen Gel Cream",
-    "price": 780,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Lancome-Hydra-Zen-Gel-Cream/_/A-511608132?isFromPLP=true"
+    "name": "Classic Potato Salad 300 g",
+    "price": 42.99,
+    "size": "300 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Classic-Potato-Salad-300-g/_/A-20020996?isFromPLP=true"
   },
   {
-    "name": "Ultimate Ageing Moisturiser",
-    "price": 385,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/15-off-Skin-Functional-Promo-Code/Skin-functional-Ultimate-Ageing-Moisturiser/_/A-507689366?isFromPLP=true"
+    "name": "Crunchy Summer Leaf Salad 170 g",
+    "price": 36.99,
+    "size": "170 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Crunchy-Summer-Leaf-Salad-170-g/_/A-6009178891148?isFromPLP=true"
   },
   {
-    "name": "Oh Sherbet Azelaic Acid 10% Exfoliating Clay Mask",
-    "price": 449.95,
-    "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Treatments-Serums/Facial-Masks/Oh-Sherbet-Azelaic-Acid-10-Exfoliating-Clay-Mask/_/A-510128134?isFromPLP=true"
+    "name": "Baby Spinach & Mixed Grain Salad 200 g",
+    "price": 46.99,
+    "size": "200 g",
+    "category": "Salads",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Prepared-Salads/Baby-Spinach-Mixed-Grain-Salad-200-g/_/A-6009204131897?isFromPLP=true"
   },
   {
-    "name": "Ultra Smart Pro-collagen Eye Treatment Duo",
-    "price": 3850,
+    "name": "Roast Chicken & Bacon Club Sandwich on White Bread",
+    "price": 74.99,
     "size": null,
-    "category": "Dairy",
-    "url": "https://www.woolworths.co.za/prod/Beauty/Elemis/Shop-All/Ultra-Smart-Pro-collagen-Eye-Treatment-Duo/_/A-508696142?isFromPLP=true"
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Roast-Chicken-Bacon-Club-Sandwich-on-White-Bread/_/A-6009245227580?isFromPLP=true"
+  },
+  {
+    "name": "Beech Smoked Ham & Cheese Sandwich on Brown Bread",
+    "price": 53.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Kids/Kids-School-Lunches/Sandwiches-Wraps-Pies-Puffs-Samoosa-s/Beech-Smoked-Ham-Cheese-Sandwich-on-Brown-Bread/_/A-6009233063329?isFromPLP=true"
+  },
+  {
+    "name": "Spicy Crumbed Chicken Wrap",
+    "price": 68.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Spicy-Crumbed-Chicken-Wrap/_/A-6009226773426?isFromPLP=true"
+  },
+  {
+    "name": "Free Range Egg Mayonnaise Sandwich on Brown Bread",
+    "price": 53.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Free-Range-Egg-Mayonnaise-Sandwich-on-Brown-Bread/_/A-20007935?isFromPLP=true"
+  },
+  {
+    "name": "Mexican Style Beef Burrito Wrap",
+    "price": 69.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Mexican-Style-Beef-Burrito-Wrap/_/A-6009207079875?isFromPLP=true"
+  },
+  {
+    "name": "Roast Chicken & Avocado Sandwich on Seeded Bread",
+    "price": 69.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Recipes/Good-to-Go/Roast-Chicken-Avocado-Sandwich-on-Seeded-Bread/_/A-6009178038666?isFromPLP=true"
+  },
+  {
+    "name": "Roast Chicken & Bacon Club Sandwich on Brown Bread",
+    "price": 74.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Roast-Chicken-Bacon-Club-Sandwich-on-Brown-Bread/_/A-20057688?isFromPLP=true"
+  },
+  {
+    "name": "Roast Chicken & Mayonnaise Sandwich on Brown Bread",
+    "price": 53.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Recipes/Good-to-Go/Roast-Chicken-Mayonnaise-Sandwich-on-Brown-Bread/_/A-20007928?isFromPLP=true"
+  },
+  {
+    "name": "BBQ Roast Chicken & Mayonnaise Sandwich on Brown Bread",
+    "price": 53.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/BBQ-Roast-Chicken-Mayonnaise-Sandwich-on-Brown-Bread/_/A-20125646?isFromPLP=true"
+  },
+  {
+    "name": "Roast Chicken, Bacon & Pasta Wrap",
+    "price": 68.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Roast-Chicken-Bacon-Pasta-Wrap/_/A-6008000080811?isFromPLP=true"
+  },
+  {
+    "name": "Corned Beef & Mustard Mayo Sandwich on Brown Bread",
+    "price": 67.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Recipes/Good-to-Go/Corned-Beef-Mustard-Mayo-Sandwich-on-Brown-Bread/_/A-6009211207912?isFromPLP=true"
+  },
+  {
+    "name": "Chicken & Bacon Caesar Sandwich on Brown Bread",
+    "price": 69.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Chicken-Bacon-Caesar-Sandwich-on-Brown-Bread/_/A-20179908?isFromPLP=true"
+  },
+  {
+    "name": "Chicken Caesar Wrap",
+    "price": 68.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Chicken-Caesar-Wrap/_/A-6008000576314?isFromPLP=true"
+  },
+  {
+    "name": "Roast Veg & Halloumi Wrap",
+    "price": 68.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Roast-Veg-Halloumi-Wrap/_/A-6009195772901?isFromPLP=true"
+  },
+  {
+    "name": "Sesame Chicken Wrap",
+    "price": 68.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sandwiches-Wraps-To-Go/Sesame-Chicken-Wrap/_/A-6007875736427?isFromPLP=true"
+  },
+  {
+    "name": "Coronation Chicken Wrap",
+    "price": 68.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-Basket/Banners/Make-It-Winning/Effortless-Lunches/Coronation-Chicken-Wrap/_/A-6009207294124?isFromPLP=true"
+  },
+  {
+    "name": "Beech Smoked Ham & Cheese Sandwich on White Bread",
+    "price": 53.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-both-for-R45/Sandwich/Beech-Smoked-Ham-Cheese-Sandwich-on-White-Bread/_/A-20046132?isFromPLP=true"
+  },
+  {
+    "name": "Butter Chicken Naan Wrap",
+    "price": 65.99,
+    "size": null,
+    "category": "Sandwiches & Wraps",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Butter-Chicken-Naan-Wrap/_/A-6009233951305?isFromPLP=true"
+  },
+  {
+    "name": "BBQ Chicken Sliders 2 pk",
+    "price": 42.99,
+    "size": null,
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/BBQ-Chicken-Sliders-2-pk/_/A-6009189862380?isFromPLP=true"
+  },
+  {
+    "name": "Mini Beef Prego Sliders 8 pk",
+    "price": 104.99,
+    "size": null,
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Snacks-To-Go/Mini-Beef-Prego-Sliders-8-pk/_/A-6008000350235?isFromPLP=true"
+  },
+  {
+    "name": "Carrot & Celery Fingers 200 g",
+    "price": 26.99,
+    "size": "200 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Salads-Herbs/Spring-Onions-Celery-Radish-Other/Carrot-Celery-Fingers-200-g/_/A-20168094?isFromPLP=true"
+  },
+  {
+    "name": "Cheddar Cheese 75 g",
+    "price": 39.99,
+    "size": "75 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Snacks-To-Go/Cheddar-Cheese-75-g/_/A-6009217530441?isFromPLP=true"
+  },
+  {
+    "name": "Emmental Cheese 75 g",
+    "price": 39.99,
+    "size": "75 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Snacks-To-Go/Emmental-Cheese-75-g/_/A-6009217530434?isFromPLP=true"
+  },
+  {
+    "name": "Smoked Ham & Gouda Rolls 55 g",
+    "price": 39.99,
+    "size": "55 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Recipes/Mogau-Oxtail-stew/Smoked-Ham-Gouda-Rolls-55-g/_/A-6009214793429?isFromPLP=true"
+  },
+  {
+    "name": "BBQ Beef Sliders 8 pk",
+    "price": 104.99,
+    "size": null,
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Deli-Entertaining/Savoury-Snacks/BBQ-Beef-Sliders-8-pk/_/A-20160494?isFromPLP=true"
+  },
+  {
+    "name": "BBQ Chicken Sliders 8 pk",
+    "price": 99.99,
+    "size": null,
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Deli-Entertaining/Savoury-Snacks/BBQ-Chicken-Sliders-8-pk/_/A-20160500?isFromPLP=true"
+  },
+  {
+    "name": "Salami & Mozzarella Rolls 40 g",
+    "price": 39.99,
+    "size": "40 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Snacks-To-Go/Salami-Mozzarella-Rolls-40-g/_/A-6009226105500?isFromPLP=true"
+  },
+  {
+    "name": "Beech Wood Smoked Cocktail Sausages 80 g",
+    "price": 29.99,
+    "size": "80 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Deli-Entertaining/Deli-Meats/Beech-Wood-Smoked-Cocktail-Sausages-80-g/_/A-6009233946219?isFromPLP=true"
+  },
+  {
+    "name": "Beef Pastrami & Biltong Spread Rolls 70 g",
+    "price": 54.99,
+    "size": "70 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Deli-Entertaining/Deli-Meats/Beef-Pastrami-Biltong-Spread-Rolls-70-g/_/A-6009233942280?isFromPLP=true"
+  },
+  {
+    "name": "Beef Sliders 2 pk",
+    "price": 42.99,
+    "size": null,
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Snacks-To-Go/Beef-Sliders-2-pk/_/A-6009233958038?isFromPLP=true"
+  },
+  {
+    "name": "Organic Fat Free Plain Chunky Cottage Cheese 4 x 75 g",
+    "price": 56.99,
+    "size": "75 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Snacks-To-Go/Organic-Fat-Free-Plain-Chunky-Cottage-Cheese-4-x-75-g/_/A-6009245351551?isFromPLP=true"
+  },
+  {
+    "name": "Organic Fat Free Plain Smooth Cottage Cheese 4 x 75 g",
+    "price": 56.99,
+    "size": "75 g",
+    "category": "Snacks",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Snacks-To-Go/Organic-Fat-Free-Plain-Smooth-Cottage-Cheese-4-x-75-g/_/A-6009245351544?isFromPLP=true"
+  },
+  {
+    "name": "Beef Burger Pie",
+    "price": 41.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Beef-Burger-Pie/_/A-2563370000004?isFromPLP=true"
+  },
+  {
+    "name": "Chicken & Mushroom Pie",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Chicken-Mushroom-Pie/_/A-2505560000005?isFromPLP=true"
+  },
+  {
+    "name": "Cheese Puff",
+    "price": 8.79,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Cheese-Puff/_/A-2067400000007?isFromPLP=true"
+  },
+  {
+    "name": "Beef Sausage Roll",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Beef-Sausage-Roll/_/A-2503770000006?isFromPLP=true"
+  },
+  {
+    "name": "Beef Steak Pie",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Beef-Steak-Pie/_/A-2532630000009?isFromPLP=true"
+  },
+  {
+    "name": "Cocktail Beef Sausage Roll",
+    "price": 8.79,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Cocktail-Beef-Sausage-Roll/_/A-2072840000005?isFromPLP=true"
+  },
+  {
+    "name": "Steak & Kidney Pie",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Steak-Kidney-Pie/_/A-2532620000002?isFromPLP=true"
+  },
+  {
+    "name": "Roast Chicken Pie",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Roast-Chicken-Pie/_/A-2503890000009?isFromPLP=true"
+  },
+  {
+    "name": "Mini Spinach & South African Feta Puff",
+    "price": 8.79,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Mini-Spinach-South-African-Feta-Puff/_/A-2571590000001?isFromPLP=true"
+  },
+  {
+    "name": "Pepper Steak Pie",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Pepper-Steak-Pie/_/A-2503910000002?isFromPLP=true"
+  },
+  {
+    "name": "Mini Chicken Puff Pie",
+    "price": 8.79,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Mini-Chicken-Puff-Pie/_/A-2097430000005?isFromPLP=true"
+  },
+  {
+    "name": "Spinach & South African Feta Pie",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Spinach-South-African-Feta-Pie/_/A-2501490000009?isFromPLP=true"
+  },
+  {
+    "name": "Chicken Mayonnaise Pie",
+    "price": 36.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Chicken-Mayonnaise-Pie/_/A-2575750000009?isFromPLP=true"
+  },
+  {
+    "name": "Beef Samoosa",
+    "price": 20.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Beef-Samoosa/_/A-2576150000002?isFromPLP=true"
+  },
+  {
+    "name": "Chicken Samoosa",
+    "price": 20.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Chicken-Samoosa/_/A-2576160000009?isFromPLP=true"
+  },
+  {
+    "name": "Cheese Griller Sausage Roll",
+    "price": 41.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Pies-Puffs-Samoosa-s/Cheese-Griller-Sausage-Roll/_/A-2580730000009?isFromPLP=true"
+  },
+  {
+    "name": "Farmstyle Chicken Pie",
+    "price": 69.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Farmstyle-Chicken-Pie/_/A-2580880000003?isFromPLP=true"
+  },
+  {
+    "name": "Farmstyle Pepper Steak Pie",
+    "price": 69.99,
+    "size": null,
+    "category": "Pies & Samoosas",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Farmstyle-Pepper-Steak-Pie/_/A-2580870000006?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Salmon Poke Bowl 328 g",
+    "price": 139.99,
+    "size": "328 g",
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Salmon-Poke-Bowl-328-g/_/A-6009245645957?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Stacker & Rose Selection 9 Pcs",
+    "price": 129.99,
+    "size": null,
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Stacker-Rose-Selection-9-Pcs/_/A-6009245651507?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Caterpillar Combo",
+    "price": 129.99,
+    "size": null,
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Caterpillar-Combo/_/A-6009226866845?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Salmon Combo",
+    "price": 129.99,
+    "size": null,
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Salmon-Combo/_/A-6009226866340?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Salmon Roses 6 pk",
+    "price": 99.99,
+    "size": null,
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Salmon-Roses-6-pk/_/A-6009226866333?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Salmon Burrito 2 pk",
+    "price": 89.99,
+    "size": null,
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Salmon-Burrito-2-pk/_/A-6009226866012?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Cali & Rose Combo 9 Pcs",
+    "price": 129.99,
+    "size": null,
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Cali-Rose-Combo-9-Pcs/_/A-6009245651514?isFromPLP=true"
+  },
+  {
+    "name": "Our Sushi Salmon & Avo Sandwich",
+    "price": 89.99,
+    "size": null,
+    "category": "Sushi",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Our-Sushi-Salmon-Avo-Sandwich/_/A-6009226865534?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Cheese-a-roni Macaroni Cheese 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Kids-Meals/Kids-Cheese-a-roni-Macaroni-Cheese-200-g/_/A-20196356?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Chicken Noodle Doo 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Kids-Meals/Kids-Chicken-Noodle-Doo-200-g/_/A-20196349?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Chirpy Chicken Pie 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Kids/Kids-Toiletries-Food/Kids-Meals/Kids-Chirpy-Chicken-Pie-200-g/_/A-6009214621081?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Eezy Cheesy Chicken 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Kids-Meals/Kids-Eezy-Cheesy-Chicken-200-g/_/A-6008000747493?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Meaty Macaroni & Cheese 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Kids-Meals/Kids-Meaty-Macaroni-Cheese-200-g/_/A-20184469?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Pasta Pillows 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Kids-Meals/Kids-Pasta-Pillows-200-g/_/A-20196370?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Spaghetti with Savoury Beef Mince 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Kids-Meals/Kids-Spaghetti-with-Savoury-Beef-Mince-200-g/_/A-6009101225699?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Twisty Tuna Pasta 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-5-save-R25/Kids-Meals/Kids-Twisty-Tuna-Pasta-200-g/_/A-6009178037805?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Buttery Butter Chicken 200 g",
+    "price": 62.99,
+    "size": "200 g",
+    "category": "Kids Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Single-Meals/Kids-Buttery-Butter-Chicken-200-g/_/A-6009233882876?isFromPLP=true"
+  },
+  {
+    "name": "Medium Rotisserie Chicken",
+    "price": 109.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-Basket/Banners/Dash-Categories/Lunch-Run/Medium-Rotisserie-Chicken/_/A-2500470000008?isFromPLP=true"
+  },
+  {
+    "name": "Crumbed Chicken Strip",
+    "price": 6.83,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/Poultry/Crumbed-Chicken-Strip/_/A-2563650000007?isFromPLP=true"
+  },
+  {
+    "name": "Free Range Sundried Tomato Thigh Espetada",
+    "price": 42.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/Poultry/Free-Range-Sundried-Tomato-Thigh-Espetada/_/A-2095760000009?isFromPLP=true"
+  },
+  {
+    "name": "Free Range BBQ Drumlets or Winglets",
+    "price": 7.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/Poultry/Free-Range-BBQ-Drumlets-or-Winglets/_/A-2571580000004?isFromPLP=true"
+  },
+  {
+    "name": "Medium BBQ Rotisserie Chicken",
+    "price": 109.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Medium-BBQ-Rotisserie-Chicken/_/A-2505730000002?isFromPLP=true"
+  },
+  {
+    "name": "Free Range Medium Rotisserie Chicken",
+    "price": 114.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Recipes/Thai-style-green-chicken-soup/Free-Range-Medium-Rotisserie-Chicken/_/A-2505460000006?isFromPLP=true"
+  },
+  {
+    "name": "BBQ Chicken Leg",
+    "price": 44.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/BBQ-Chicken-Leg/_/A-2503970000004?isFromPLP=true"
+  },
+  {
+    "name": "Crumbed Chicken Thigh",
+    "price": 24.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/Crumbed-Chicken-Thigh/_/A-2579820000005?isFromPLP=true"
+  },
+  {
+    "name": "Crumbed Chicken Drumstick",
+    "price": 21.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/Crumbed-Chicken-Drumstick/_/A-2579800000001?isFromPLP=true"
+  },
+  {
+    "name": "Crumbed Chicken Schnitzel",
+    "price": 24.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/Crumbed-Chicken-Schnitzel/_/A-2579810000008?isFromPLP=true"
+  },
+  {
+    "name": "Free Range Rotisserie Duck",
+    "price": 189.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Rotisserie/Free-Range-Rotisserie-Duck/_/A-2579110000005?isFromPLP=true"
+  },
+  {
+    "name": "Free Range BBQ Rotisserie Chicken",
+    "price": 114.99,
+    "size": null,
+    "category": "Rotisserie",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Free-Range-BBQ-Rotisserie-Chicken/_/A-2581080000008?isFromPLP=true"
+  },
+  {
+    "name": "BBQ Chicken Pancakes 4 pk",
+    "price": 42.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/BBQ-Chicken-Pancakes-4-pk/_/A-6008000823142?isFromPLP=true"
+  },
+  {
+    "name": "Cape Malay Style Beef Mince Curry Roti",
+    "price": 65.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Cape-Malay-Style-Beef-Mince-Curry-Roti/_/A-20203740?isFromPLP=true"
+  },
+  {
+    "name": "Cape Malay Style Lamb Mince Curry Roti",
+    "price": 65.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Cape-Malay-Style-Lamb-Mince-Curry-Roti/_/A-6001009021281?isFromPLP=true"
+  },
+  {
+    "name": "Cape Malay Style Chicken Curry Roti",
+    "price": 65.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Cape-Malay-Style-Chicken-Curry-Roti/_/A-20203757?isFromPLP=true"
+  },
+  {
+    "name": "Cinnamon Sugar Mini Pancakes 4 pk",
+    "price": 35.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Cinnamon-Sugar-Mini-Pancakes-4-pk/_/A-6009184387017?isFromPLP=true"
+  },
+  {
+    "name": "BBQ Chicken Sliders 2 pk",
+    "price": 42.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/BBQ-Chicken-Sliders-2-pk/_/A-6009189862380?isFromPLP=true"
+  },
+  {
+    "name": "Cape Malay Style Butternut & Chickpea Curry Roti",
+    "price": 52.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Cape-Malay-Style-Butternut-Chickpea-Curry-Roti/_/A-6009207865676?isFromPLP=true"
+  },
+  {
+    "name": "Chicken Frikkadels 80 g",
+    "price": 44.99,
+    "size": "80 g",
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Chicken-Frikkadels-80-g/_/A-6009189196966?isFromPLP=true"
+  },
+  {
+    "name": "Asian Style Chicken & Kimchi Bao Bun",
+    "price": 51.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Asian-Style-Chicken-Kimchi-Bao-Bun/_/A-6009233951527?isFromPLP=true"
+  },
+  {
+    "name": "Egg, Butternut, Feta & Bacon Muffins 90 g",
+    "price": 41.99,
+    "size": "90 g",
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Egg-Butternut-Feta-Bacon-Muffins-90-g/_/A-6009245356273?isFromPLP=true"
+  },
+  {
+    "name": "Butter Chicken Naan Wrap",
+    "price": 65.99,
+    "size": null,
+    "category": "Takeaways",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/Butter-Chicken-Naan-Wrap/_/A-6009233951305?isFromPLP=true"
+  },
+  {
+    "name": "Chocolate Caramel Cake Slice 100 g",
+    "price": 43.99,
+    "size": "100 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sweet-Treats-Desserts-To-Go/Chocolate-Caramel-Cake-Slice-100-g/_/A-6009226522840?isFromPLP=true"
+  },
+  {
+    "name": "Chocolate Mousse 175 ml",
+    "price": 18.99,
+    "size": "175 ml",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Chocolate-Mousse-175-ml/_/A-6009226889165?isFromPLP=true"
+  },
+  {
+    "name": "Fresh Custard with Vanilla Bean Seeds 175 ml",
+    "price": 18.99,
+    "size": "175 ml",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Fresh-Custard-with-Vanilla-Bean-Seeds-175-ml/_/A-6009226889172?isFromPLP=true"
+  },
+  {
+    "name": "Toffee Caramel Cheesecake Mousse Dessert 4 x 100 ml",
+    "price": 59.99,
+    "size": "100 ml",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Toffee-Caramel-Cheesecake-Mousse-Dessert-4-x-100-ml/_/A-6009245214863?isFromPLP=true"
+  },
+  {
+    "name": "Tiramisu 100 g",
+    "price": 57.99,
+    "size": "100 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Tiramisu-100-g/_/A-6009245397757?isFromPLP=true"
+  },
+  {
+    "name": "Pistachio Tiramisu 95 g",
+    "price": 57.99,
+    "size": "95 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Pistachio-Tiramisu-95-g/_/A-6009245397917?isFromPLP=true"
+  },
+  {
+    "name": "Belgium Dark Chocolate Dessert in Glass 60 g",
+    "price": 57.99,
+    "size": "60 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Belgium-Dark-Chocolate-Dessert-in-Glass-60-g/_/A-6009245613178?isFromPLP=true"
+  },
+  {
+    "name": "Mini Chocolate Mousse Bites 6 x 35 g",
+    "price": 149.99,
+    "size": "35 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Mini-Chocolate-Mousse-Bites-6-x-35-g/_/A-6009245614571?isFromPLP=true"
+  },
+  {
+    "name": "Mocha Cake Slice 100 g",
+    "price": 43.99,
+    "size": "100 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Valentines-Day/Foodie-Gifts/Mocha-Cake-Slice-100-g/_/A-6009245214832?isFromPLP=true"
+  },
+  {
+    "name": "Neapolitan Cake Slice 100 g",
+    "price": 43.99,
+    "size": "100 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Valentines-Day/Foodie-Gifts/Neapolitan-Cake-Slice-100-g/_/A-6009245214849?isFromPLP=true"
+  },
+  {
+    "name": "Vanilla Caramel Cake in a Cup 70 g",
+    "price": 30.99,
+    "size": "70 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sweet-Treats-Desserts-To-Go/Vanilla-Caramel-Cake-in-a-Cup-70-g/_/A-6009233782275?isFromPLP=true"
+  },
+  {
+    "name": "Cookie Dough Brownie Cakesicle",
+    "price": 28.99,
+    "size": null,
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Sweet-Treats-Desserts-To-Go/Cookie-Dough-Brownie-Cakesicle/_/A-6009233575990?isFromPLP=true"
+  },
+  {
+    "name": "Peppermint Caramel Sundae 90 g",
+    "price": 44.99,
+    "size": "90 g",
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Puddings-Desserts/Peppermint-Caramel-Sundae-90-g/_/A-6001009016171?isFromPLP=true"
+  },
+  {
+    "name": "Teatime Sweet Treats Selection Snack Box 24 Pcs",
+    "price": 199.99,
+    "size": null,
+    "category": "Sweet Treats & Desserts",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-Basket/Banners/High-Tea-Fit-for-the-Ton/Teatime-Sweet-Treats-Selection-Snack-Box-24-Pcs/_/A-6009245615226?isFromPLP=true"
+  },
+  {
+    "name": "Citrus Honey Chicken Booster Bowl™ 350 g",
+    "price": 99.99,
+    "size": "350 g",
+    "category": "Soups & Bowls",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Booster-Soup-Bowls/Citrus-Honey-Chicken-Booster-Bowl-350-g/_/A-6009226142291?isFromPLP=true"
+  },
+  {
+    "name": "Chilli Crunch Chicken Booster Bowl™ 350 g",
+    "price": 99.99,
+    "size": "350 g",
+    "category": "Soups & Bowls",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-To-Go/Booster-Soup-Bowls/Chilli-Crunch-Chicken-Booster-Bowl-350-g/_/A-6009233946271?isFromPLP=true"
+  },
+  {
+    "name": "Asian Style Chicken Potsticker Soup Bowl 387 g",
+    "price": 94.99,
+    "size": "387 g",
+    "category": "Soups & Bowls",
+    "url": "https://www.woolworths.co.za/prod/Food/Soup-Shop/Fresh-Soup/Asian-Style-Chicken-Potsticker-Soup-Bowl-387-g/_/A-6009233075025?isFromPLP=true"
+  },
+  {
+    "name": "Glazed Doughnut",
+    "price": 7.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Glazed-Doughnut/_/A-2577180000000?isFromPLP=true"
+  },
+  {
+    "name": "Apple Crumble",
+    "price": 29.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Apple-Crumble/_/A-2062970000006?isFromPLP=true"
+  },
+  {
+    "name": "Caramel Donut 73 g",
+    "price": 18.99,
+    "size": "73 g",
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Caramel-Donut-73-g/_/A-2566530000005?isFromPLP=true"
+  },
+  {
+    "name": "Chocolate Croissant",
+    "price": 18.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Chocolate-Croissant/_/A-2066600000008?isFromPLP=true"
+  },
+  {
+    "name": "Chocolate Sprinkles Ring Donut",
+    "price": 14.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Chocolate-Sprinkles-Ring-Donut/_/A-2069410000008?isFromPLP=true"
+  },
+  {
+    "name": "Cinnamon Doughnut",
+    "price": 12.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Cinnamon-Doughnut/_/A-2080540000003?isFromPLP=true"
+  },
+  {
+    "name": "Dark Chocolate Ring Donut",
+    "price": 18.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Dark-Chocolate-Ring-Donut/_/A-2084480000000?isFromPLP=true"
+  },
+  {
+    "name": "Farmstyle Bread",
+    "price": 42.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Farmstyle-Bread/_/A-2571860000007?isFromPLP=true"
+  },
+  {
+    "name": "Full French Baguette",
+    "price": 29.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Full-French-Baguette/_/A-2576910000006?isFromPLP=true"
+  },
+  {
+    "name": "Long Crusty Roll",
+    "price": 8.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Long-Crusty-Roll/_/A-2570170000004?isFromPLP=true"
+  },
+  {
+    "name": "Maple Pecan Plait",
+    "price": 16.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Maple-Pecan-Plait/_/A-2086620000000?isFromPLP=true"
+  },
+  {
+    "name": "Half Baguette",
+    "price": 16.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Half-Baguette/_/A-2576890000003?isFromPLP=true"
+  },
+  {
+    "name": "Mini Doughnuts",
+    "price": 3.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Mini-Doughnuts/_/A-2062890000001?isFromPLP=true"
+  },
+  {
+    "name": "Strawberry Square Donut",
+    "price": 18.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Strawberry-Square-Donut/_/A-2566520000008?isFromPLP=true"
+  },
+  {
+    "name": "Almond Croissant",
+    "price": 18.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Almond-Croissant/_/A-2066590000002?isFromPLP=true"
+  },
+  {
+    "name": "Plain Butter Croissant",
+    "price": 16.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Plain-Butter-Croissant/_/A-2570150000000?isFromPLP=true"
+  },
+  {
+    "name": "Portuguese Custard Tart",
+    "price": 18.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Portuguese-Custard-Tart/_/A-2066550000004?isFromPLP=true"
+  },
+  {
+    "name": "Brioche Loaf",
+    "price": 64.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Brioche-Loaf/_/A-2581560000009?isFromPLP=true"
+  },
+  {
+    "name": "Kitka Bread",
+    "price": 42.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Kitka-Bread/_/A-2581420000002?isFromPLP=true"
+  },
+  {
+    "name": "Portuguese Roll",
+    "price": 6.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Portuguese-Roll/_/A-2573340000002?isFromPLP=true"
+  },
+  {
+    "name": "Sourdough Bread",
+    "price": 52.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Sourdough-Bread/_/A-2571850000000?isFromPLP=true"
+  },
+  {
+    "name": "Salted Pretzel",
+    "price": 18.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Salted-Pretzel/_/A-2071660000004?isFromPLP=true"
+  },
+  {
+    "name": "Cinnamon Sugar Cronut",
+    "price": 21.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Cinnamon-Sugar-Cronut/_/A-2584150000007?isFromPLP=true"
+  },
+  {
+    "name": "Pain Au Chocolat",
+    "price": 19.99,
+    "size": null,
+    "category": "Fresh Bakery",
+    "url": "https://www.woolworths.co.za/prod/Food/Bakery/Fresh-Bakery-Counter/Pain-Au-Chocolat/_/A-2533870000002?isFromPLP=true"
+  },
+  {
+    "name": "Pick & Mix Crisp Watermelon 250 g",
+    "price": 34.99,
+    "size": "250 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-3-for-R60/Pick-MIx-Fruit/Pick-Mix-Crisp-Watermelon-250-g/_/A-6009184997568?isFromPLP=true"
+  },
+  {
+    "name": "Watermelon Snackpot 180 g",
+    "price": 27.99,
+    "size": "180 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-3-save-R15/Prepared-Fruit-Snackpots/Watermelon-Snackpot-180-g/_/A-6009217093724?isFromPLP=true"
+  },
+  {
+    "name": "Sweet Orange Melon 350 g",
+    "price": 46.99,
+    "size": "350 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Melons-Watermelons-Mangoes/Sweet-Orange-Melon-350-g/_/A-20102753?isFromPLP=true"
+  },
+  {
+    "name": "Melon 350 g",
+    "price": 46.99,
+    "size": "350 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Melons-Watermelons-Mangoes/Melon-350-g/_/A-6007875700503?isFromPLP=true"
+  },
+  {
+    "name": "Mango Fusion Fruit Salad 300 g",
+    "price": 62.99,
+    "size": "300 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Mango-Fusion-Fruit-Salad-300-g/_/A-6009226758591?isFromPLP=true"
+  },
+  {
+    "name": "Pick & Mix Citrus 350 g",
+    "price": 34.99,
+    "size": "350 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-2-Save-20-/Clemengold-Tray-or-Bag/Pick-Mix-Citrus-350-g/_/A-6009184997629?isFromPLP=true"
+  },
+  {
+    "name": "Seasonal Fruit Salad Snackpot 200 g",
+    "price": 29.99,
+    "size": "200 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Cut-Fruit/Seasonal-Fruit-Salad-Snackpot-200-g/_/A-6009000878378?isFromPLP=true"
+  },
+  {
+    "name": "Seasonal Fruit Salad 300 g",
+    "price": 42.99,
+    "size": "300 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Cut-Fruit/Seasonal-Fruit-Salad-300-g/_/A-6009000470596?isFromPLP=true"
+  },
+  {
+    "name": "Queen Pineapple Snackpot 180 g",
+    "price": 25.99,
+    "size": "180 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Cut-Fruit/Queen-Pineapple-Snackpot-180-g/_/A-6008000458382?isFromPLP=true"
+  },
+  {
+    "name": "Queen Pineapple 350 g",
+    "price": 46.99,
+    "size": "350 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Papaya-Mango-Pineapple-Kiwi-Fruit/Queen-Pineapple-350-g/_/A-6001009025692?isFromPLP=true"
+  },
+  {
+    "name": "Fruit Punch Fruit Salad 300 g",
+    "price": 54.99,
+    "size": "300 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Cut-Fruit/Fruit-Punch-Fruit-Salad-300-g/_/A-6009178983843?isFromPLP=true"
+  },
+  {
+    "name": "Pick & Mix Pineapple 250 g",
+    "price": 34.99,
+    "size": "250 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-3-for-R60/Pick-MIx-Fruit/Pick-Mix-Pineapple-250-g/_/A-6009184997421?isFromPLP=true"
+  },
+  {
+    "name": "Coconut Chunks 160 g",
+    "price": 40.99,
+    "size": "160 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Cut-Fruit/Coconut-Chunks-160-g/_/A-6009101477999?isFromPLP=true"
+  },
+  {
+    "name": "Rainbow Fruit Salad 300 g",
+    "price": 46.99,
+    "size": "300 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Rainbow-Fruit-Salad-300-g/_/A-6009223143376?isFromPLP=true"
+  },
+  {
+    "name": "Sun-Ripened Mango 350 g",
+    "price": 46.99,
+    "size": "350 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Sun-Ripened-Mango-350-g/_/A-6001009030566?isFromPLP=true"
+  },
+  {
+    "name": "Mango, Pine & Orange Melon Snackpot 180 g",
+    "price": 25.99,
+    "size": "180 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Mango-Pine-Orange-Melon-Snackpot-180-g/_/A-6009204509849?isFromPLP=true"
+  },
+  {
+    "name": "Seasonal Fruit Breakfast Pot 150 g",
+    "price": 34.99,
+    "size": "150 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Seasonal-Fruit-Breakfast-Pot-150-g/_/A-6009245632841?isFromPLP=true"
+  },
+  {
+    "name": "Tropical Fruit Breakfast Pot 150 g",
+    "price": 34.99,
+    "size": "150 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Tropical-Fruit-Breakfast-Pot-150-g/_/A-6009245632858?isFromPLP=true"
+  },
+  {
+    "name": "Mango & Berry Snackpot 160 g",
+    "price": 34.99,
+    "size": "160 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-3-save-R15/Prepared-Fruit-Snackpots/Mango-Berry-Snackpot-160-g/_/A-6009189559464?isFromPLP=true"
+  },
+  {
+    "name": "Mango & Fig Fruit Salad 300 g",
+    "price": 54.99,
+    "size": "300 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Mango-Fig-Fruit-Salad-300-g/_/A-6009178984222?isFromPLP=true"
+  },
+  {
+    "name": "Kids™ Blueberries 3 x 50 g",
+    "price": 57.99,
+    "size": "50 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-2-Save-20-/Assorted-Blueberries/Kids-Blueberries-3-x-50-g/_/A-6009184971902?isFromPLP=true"
+  },
+  {
+    "name": "Mango & Dragon Fruit Snackpot 180 g",
+    "price": 34.99,
+    "size": "180 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Mango-Dragon-Fruit-Snackpot-180-g/_/A-6009217093731?isFromPLP=true"
+  },
+  {
+    "name": "Mango Slices 250 g",
+    "price": 56.99,
+    "size": "250 g",
+    "category": "Cut Fruit",
+    "url": "https://www.woolworths.co.za/prod/Food/Fruit-Vegetables-Salads/Fresh-Fruit/Melons-Watermelons-Mangoes/Mango-Slices-250-g/_/A-6009217109258?isFromPLP=true"
   }
 ]
