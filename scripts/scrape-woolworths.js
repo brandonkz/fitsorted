@@ -15,6 +15,8 @@ const OUTPUT_FILE = path.join(__dirname, '../data/woolworths-products.json');
 const FOOD_DB_FILE = path.join(__dirname, '../data/woolworths-food-db.json');
 const EXTRA_FOODS_FILE = path.join(__dirname, '../extra-foods.json');
 
+// NOTE: Some category URLs may be outdated or return no results.
+// Verify URLs by browsing woolworths.co.za manually if categories return 0 products.
 const CATEGORIES = {
   'ready-meals': {
     name: 'Ready Meals',
@@ -22,23 +24,23 @@ const CATEGORIES = {
   },
   'salads': {
     name: 'Salads',
-    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Salads/_/N-1z13rvx'
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Salads/_/N-1z13rvx'  // ⚠️ Returns no results
   },
   'sandwiches': {
     name: 'Sandwiches & Wraps',
-    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Sandwiches-Wraps/_/N-1z13rvy'
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Sandwiches-Wraps/_/N-1z13rvy'  // ⚠️ Returns no results
   },
   'snacks': {
     name: 'Snacks',
-    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Snacks/_/N-1z13rvz'
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Snacks/_/N-1z13rvz'  // ⚠️ Navigation timeout
   },
   'meat': {
     name: 'Meat & Poultry',
-    url: 'https://www.woolworths.co.za/cat/Food/Meat-Poultry-Fish/_/N-1z13s1d'
+    url: 'https://www.woolworths.co.za/cat/Food/Meat-Poultry-Fish/_/N-1z13s1d'  // ⚠️ Returns no results
   },
   'dairy': {
     name: 'Dairy',
-    url: 'https://www.woolworths.co.za/cat/Food/Dairy-Eggs-Milk/_/N-1z13ryp'
+    url: 'https://www.woolworths.co.za/cat/Food/Dairy-Eggs-Milk/_/N-1z13ryp'  // ⚠️ May include beauty products
   }
 };
 
@@ -66,6 +68,21 @@ function extractSize(name) {
   const sizeRegex = /(\d+(?:\.\d+)?)\s*(g|kg|ml|l|pack|count|piece)/i;
   const match = name.match(sizeRegex);
   return match ? match[0] : null;
+}
+
+/**
+ * Filter out non-food items based on keywords
+ */
+function isFoodItem(name) {
+  const nonFoodKeywords = [
+    'cream', 'lotion', 'serum', 'mask', 'spf', 'sunscreen', 'balm',
+    'eye treatment', 'lip treatment', 'moisturiser', 'cleanser', 'toner',
+    'anti-aging', 'collagen', 'retinol', 'hyaluronic', 'vitamin c',
+    'facial', 'skin care', 'beauty', 'cosmetic'
+  ];
+  
+  const lowerName = name.toLowerCase();
+  return !nonFoodKeywords.some(keyword => lowerName.includes(keyword));
 }
 
 /**
@@ -147,7 +164,8 @@ async function scrapeCategory(browser, categoryKey, categoryData) {
         const price = parsePrice(item.priceText);
         const size = extractSize(item.name);
         
-        if (price) {
+        // Filter out non-food items
+        if (price && isFoodItem(item.name)) {
           products.push({
             name: item.name,
             price,
