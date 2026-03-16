@@ -2123,9 +2123,11 @@ async function maybeFirstLogMenu(from, user) {
   if (!user.sentPwaNudge && totalEntries === 3) {
     user.sentPwaNudge = true;
     saveUsers(loadUsers());
+    const crypto = require('crypto');
+    const pwaToken = crypto.createHash('sha256').update(String(from)).digest('hex').slice(0, 8);
     await send(from,
       `💡 *Did you know?* We have a full dashboard with a meal database, your daily stats, and macro breakdowns.\n\n` +
-      `📱 Check it out: fitsorted.co.za/app\n\n` +
+      `📱 Your personal dashboard: https://fitsorted.co.za/app?t=${pwaToken}\n\n` +
       `_Add it to your home screen for quick access — it works like an app!_`
     );
   }
