@@ -28,6 +28,13 @@
         "calories": 250,
         "time": "2026-03-15T18:17:46.370Z"
       }
+    ],
+    "2026-03-16": [
+      {
+        "activity": "eating",
+        "calories": 0,
+        "time": "2026-03-16T04:42:55.382Z"
+      }
     ]
   },
   "logSummary": [

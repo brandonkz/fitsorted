@@ -29,6 +29,13 @@
         "calories": 300,
         "time": "2026-03-11T06:56:46.281Z"
       }
+    ],
+    "2026-03-16": [
+      {
+        "activity": "weight training",
+        "calories": 175,
+        "time": "2026-03-16T09:37:04.333Z"
+      }
     ]
   },
   "logSummary": [
@@ -1824,6 +1831,129 @@
           "fibre": 5,
           "priceZAR": 350,
           "time": "2026-03-15T18:04:05.232Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "totals": {
+        "calories": 2024,
+        "protein": 101,
+        "carbs": 204,
+        "fat": 97,
+        "fibre": 18,
+        "priceZAR": 203
+      },
+      "entries": [
+        {
+          "food": "rusk",
+          "calories": 100,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 3,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-16T06:29:49.512Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-16T06:30:12.849Z"
+        },
+        {
+          "food": "2x date",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 11,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-16T07:07:53.850Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-16T07:40:49.995Z"
+        },
+        {
+          "food": "large nutter",
+          "calories": 800,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 50,
+          "fibre": 8,
+          "priceZAR": 65,
+          "time": "2026-03-16T10:13:44.500Z"
+        },
+        {
+          "food": "2x droewors",
+          "calories": 300,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-16T12:03:27.512Z"
+        },
+        {
+          "food": "100g raisins",
+          "calories": 299,
+          "protein": 3,
+          "carbs": 79,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-16T12:03:35.151Z"
+        },
+        {
+          "food": "breaded fish with rice and broccoli",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-16T15:44:30.725Z"
+        },
+        {
+          "food": "breaded fish",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 15,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-16T16:00:25.745Z"
+        },
+        {
+          "food": "10 grapes",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 9,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-16T16:00:48.442Z"
+        },
+        {
+          "food": "1x droewors",
+          "calories": 150,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-16T17:59:19.773Z"
         }
       ]
     }

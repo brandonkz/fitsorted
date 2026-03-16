@@ -48,6 +48,79 @@
           "time": "2026-03-15T11:11:34.343Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-16",
+      "totals": {
+        "calories": 703,
+        "protein": 68,
+        "carbs": 24,
+        "fat": 21.1,
+        "fibre": 5,
+        "priceZAR": 89
+      },
+      "entries": [
+        {
+          "food": "spicy egg cup",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-16T07:49:31.219Z"
+        },
+        {
+          "food": "grilled chicken breast",
+          "calories": 165,
+          "protein": 31,
+          "carbs": 0,
+          "fat": 3.6,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-16T11:28:52.526Z"
+        },
+        {
+          "food": "quarter cup wholewheat couscous",
+          "calories": 57,
+          "protein": 2,
+          "carbs": 12,
+          "fat": 0.5,
+          "fibre": 2,
+          "priceZAR": 6,
+          "time": "2026-03-16T11:28:55.733Z"
+        },
+        {
+          "food": "2x mushroom",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-16T11:28:59.492Z"
+        },
+        {
+          "food": "bell peppers",
+          "calories": 31,
+          "protein": 1,
+          "carbs": 7,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-16T11:29:02.358Z"
+        },
+        {
+          "food": "steak",
+          "calories": 250,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-16T17:44:29.482Z"
+        }
+      ]
     }
   ]
 }

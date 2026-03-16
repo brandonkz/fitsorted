@@ -75,6 +75,39 @@
           "time": "2026-03-13T16:19:25.463Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-16",
+      "totals": {
+        "calories": 250,
+        "protein": 10,
+        "carbs": 30,
+        "fat": 10,
+        "fibre": 0,
+        "priceZAR": 15
+      },
+      "entries": [
+        {
+          "food": "New day (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-16T08:38:46.931Z"
+        },
+        {
+          "food": "tricep pull downs",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-16T08:45:33.659Z"
+        }
+      ]
     }
   ]
 }

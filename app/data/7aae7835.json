@@ -40,6 +40,13 @@
         "calories": 400,
         "time": "2026-03-15T17:18:56.580Z"
       }
+    ],
+    "2026-03-16": [
+      {
+        "activity": "running",
+        "calories": 400,
+        "time": "2026-03-16T06:53:30.208Z"
+      }
     ]
   },
   "logSummary": [
@@ -246,6 +253,39 @@
           "fibre": 2,
           "priceZAR": 24,
           "time": "2026-03-15T18:33:34.207Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "totals": {
+        "calories": 445,
+        "protein": 44,
+        "carbs": 50,
+        "fat": 13,
+        "fibre": 5,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "1x egg and small pancake",
+          "calories": 75,
+          "protein": 4,
+          "carbs": 10,
+          "fat": 3,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-03-16T07:47:06.321Z"
+        },
+        {
+          "food": "1 can tuna with 2 slices sourdough bread",
+          "calories": 370,
+          "protein": 40,
+          "carbs": 40,
+          "fat": 10,
+          "fibre": 4,
+          "priceZAR": 60,
+          "time": "2026-03-16T17:05:24.502Z"
         }
       ]
     }

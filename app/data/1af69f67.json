@@ -11,7 +11,15 @@
     "foodBudget": 200
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-16": [
+      {
+        "activity": "KFC Double Crunch Burger",
+        "calories": 0,
+        "time": "2026-03-16T12:13:41.990Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-13",
@@ -33,6 +41,29 @@
           "fibre": 0,
           "priceZAR": 20,
           "time": "2026-03-13T14:09:24.030Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "totals": {
+        "calories": 1300,
+        "protein": 80,
+        "carbs": 0,
+        "fat": 100,
+        "fibre": 0,
+        "priceZAR": 150
+      },
+      "entries": [
+        {
+          "food": "10x KFC Dunked Wings",
+          "calories": 1300,
+          "protein": 80,
+          "carbs": 0,
+          "fat": 100,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-16T12:12:39.283Z"
         }
       ]
     }

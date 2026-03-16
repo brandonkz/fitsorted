@@ -1,0 +1,50 @@
+{
+  "name": "Hanika",
+  "goal": 1422,
+  "joinedAt": "2026-03-16T08:08:21.324Z",
+  "profile": {
+    "age": 38,
+    "weight": 68,
+    "height": 171,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-16",
+      "totals": {
+        "calories": 545,
+        "protein": 10,
+        "carbs": 87,
+        "fat": 21,
+        "fibre": 5,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "150ml egg white liquid, 2x fig, 10ml honey, 1 slice sourdough bread",
+          "calories": 145,
+          "protein": 6,
+          "carbs": 31,
+          "fat": 1,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-16T11:22:10.605Z"
+        },
+        {
+          "food": "4x oreo cookies",
+          "calories": 400,
+          "protein": 4,
+          "carbs": 56,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-16T15:02:23.666Z"
+        }
+      ]
+    }
+  ]
+}
