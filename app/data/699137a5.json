@@ -232,11 +232,11 @@
     {
       "date": "2026-03-15",
       "totals": {
-        "calories": 1914,
-        "protein": 90,
-        "carbs": 235,
-        "fat": 78,
-        "fibre": 41,
+        "calories": 2078,
+        "protein": 99,
+        "carbs": 262,
+        "fat": 80,
+        "fibre": 49,
         "priceZAR": 160
       },
       "entries": [
@@ -369,6 +369,16 @@
           "fibre": 3,
           "priceZAR": 20,
           "time": "2026-03-15T12:55:31.596Z"
+        },
+        {
+          "food": "chickpeas",
+          "calories": 164,
+          "protein": 9,
+          "carbs": 27,
+          "fat": 2,
+          "fibre": 8,
+          "priceZAR": 0,
+          "time": "2026-03-15T18:00:51.017Z"
         }
       ]
     }

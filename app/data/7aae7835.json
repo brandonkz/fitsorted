@@ -24,6 +24,21 @@
         "activity": "strength exercise",
         "calories": 175,
         "time": "2026-03-15T04:32:28.707Z"
+      },
+      {
+        "activity": "leg strength exercises",
+        "calories": 175,
+        "time": "2026-03-15T17:08:18.643Z"
+      },
+      {
+        "activity": "strength training",
+        "calories": 300,
+        "time": "2026-03-15T17:08:48.648Z"
+      },
+      {
+        "activity": "running 5km",
+        "calories": 400,
+        "time": "2026-03-15T17:18:56.580Z"
       }
     ]
   },
@@ -134,12 +149,12 @@
     {
       "date": "2026-03-15",
       "totals": {
-        "calories": 1521,
-        "protein": 50,
-        "carbs": 176,
-        "fat": 69.2,
-        "fibre": 23,
-        "priceZAR": 265
+        "calories": 1921,
+        "protein": 78,
+        "carbs": 216,
+        "fat": 86.2,
+        "fibre": 28,
+        "priceZAR": 359
       },
       "entries": [
         {
@@ -213,14 +228,24 @@
           "time": "2026-03-15T10:04:17.304Z"
         },
         {
-          "food": "yogurt with blueberries",
-          "calories": 0,
-          "protein": 0,
-          "carbs": 0,
-          "fat": 0,
-          "fibre": 0,
-          "priceZAR": 0,
-          "time": "2026-03-15T12:09:35.983Z"
+          "food": "wrap",
+          "calories": 250,
+          "protein": 8,
+          "carbs": 35,
+          "fat": 10,
+          "fibre": 3,
+          "priceZAR": 70,
+          "time": "2026-03-15T18:33:30.612Z"
+        },
+        {
+          "food": "60g mince, 1 tablespoon cottage cheese, spinach",
+          "calories": 150,
+          "protein": 20,
+          "carbs": 5,
+          "fat": 7,
+          "fibre": 2,
+          "priceZAR": 24,
+          "time": "2026-03-15T18:33:34.207Z"
         }
       ]
     }

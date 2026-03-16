@@ -42,6 +42,13 @@
         "calories": 0,
         "time": "2026-03-13T13:29:30.198Z"
       }
+    ],
+    "2026-03-15": [
+      {
+        "activity": "treadmill",
+        "calories": 300,
+        "time": "2026-03-15T14:39:38.684Z"
+      }
     ]
   },
   "logSummary": [
@@ -337,12 +344,12 @@
     {
       "date": "2026-03-15",
       "totals": {
-        "calories": 510,
-        "protein": 44,
-        "carbs": 39,
-        "fat": 21,
-        "fibre": 5,
-        "priceZAR": 60
+        "calories": 1390,
+        "protein": 116,
+        "carbs": 78,
+        "fat": 74,
+        "fibre": 8,
+        "priceZAR": 210
       },
       "entries": [
         {
@@ -374,6 +381,46 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-15T07:57:10.827Z"
+        },
+        {
+          "food": "2x chicken wing",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-15T14:38:47.264Z"
+        },
+        {
+          "food": "chicken kebab",
+          "calories": 250,
+          "protein": 30,
+          "carbs": 10,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 70,
+          "time": "2026-03-15T14:38:56.494Z"
+        },
+        {
+          "food": "3x Lindt ball",
+          "calories": 180,
+          "protein": 2,
+          "carbs": 24,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-15T14:39:15.755Z"
+        },
+        {
+          "food": "100g chicken wors",
+          "calories": 250,
+          "protein": 20,
+          "carbs": 5,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-15T14:39:52.521Z"
         }
       ]
     }

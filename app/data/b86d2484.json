@@ -1757,12 +1757,12 @@
     {
       "date": "2026-03-15",
       "totals": {
-        "calories": 1140,
-        "protein": 49,
-        "carbs": 148,
-        "fat": 46,
-        "fibre": 8,
-        "priceZAR": 98
+        "calories": 2390,
+        "protein": 99,
+        "carbs": 298,
+        "fat": 106,
+        "fibre": 13,
+        "priceZAR": 448
       },
       "entries": [
         {
@@ -1814,6 +1814,16 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-15T12:31:08.795Z"
+        },
+        {
+          "food": "5x pizza",
+          "calories": 1250,
+          "protein": 50,
+          "carbs": 150,
+          "fat": 60,
+          "fibre": 5,
+          "priceZAR": 350,
+          "time": "2026-03-15T18:04:05.232Z"
         }
       ]
     }

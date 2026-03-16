@@ -1,0 +1,58 @@
+{
+  "name": "Mihle",
+  "goal": 1993,
+  "joinedAt": "2026-03-15T16:57:59.628Z",
+  "profile": {
+    "age": 21,
+    "weight": 62,
+    "height": 152,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-15": [
+      {
+        "activity": "All bran cereal with full cream milk",
+        "calories": 0,
+        "time": "2026-03-15T17:20:34.191Z"
+      },
+      {
+        "activity": "So there are no calories in all bran",
+        "calories": 0,
+        "time": "2026-03-15T17:21:08.085Z"
+      },
+      {
+        "activity": "weight training",
+        "calories": 250,
+        "time": "2026-03-15T18:17:46.370Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-15",
+      "totals": {
+        "calories": 400,
+        "protein": 25,
+        "carbs": 50,
+        "fat": 10,
+        "fibre": 5,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "pilchard and macaroni",
+          "calories": 400,
+          "protein": 25,
+          "carbs": 50,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 20,
+          "time": "2026-03-15T17:21:32.765Z"
+        }
+      ]
+    }
+  ]
+}

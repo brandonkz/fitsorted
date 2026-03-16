@@ -4,9 +4,9 @@
     "name": "***7970",
     "streak": 15,
     "totalDaysLogged": 15,
-    "avgCalories": 3443,
+    "avgCalories": 3622,
     "goalAccuracy": 0.13333333333333333,
-    "totalLogs": 159,
+    "totalLogs": 160,
     "joinedDate": "2026-03-06T15:58:33.513Z",
     "target": "lose"
   },
@@ -50,7 +50,7 @@
     "totalDaysLogged": 11,
     "avgCalories": 477,
     "goalAccuracy": 0,
-    "totalLogs": 31,
+    "totalLogs": 32,
     "joinedDate": "2026-03-04T07:03:54.109Z",
     "target": "lose"
   },
@@ -103,9 +103,9 @@
     "name": "***3354",
     "streak": 1,
     "totalDaysLogged": 4,
-    "avgCalories": 1385,
+    "avgCalories": 1605,
     "goalAccuracy": 0.25,
-    "totalLogs": 28,
+    "totalLogs": 32,
     "joinedDate": "2026-03-09T13:56:14.030Z",
     "target": "lose"
   },
@@ -323,9 +323,9 @@
     "name": "***0475",
     "streak": 2,
     "totalDaysLogged": 2,
-    "avgCalories": 1987,
+    "avgCalories": 2069,
     "goalAccuracy": 0,
-    "totalLogs": 32,
+    "totalLogs": 33,
     "joinedDate": "2026-03-14T04:01:17.432Z",
     "target": "lose"
   },
@@ -334,9 +334,9 @@
     "name": "***5538",
     "streak": 2,
     "totalDaysLogged": 2,
-    "avgCalories": 1631,
+    "avgCalories": 1831,
     "goalAccuracy": 0,
-    "totalLogs": 17,
+    "totalLogs": 18,
     "joinedDate": "2026-03-14T09:35:16.794Z",
     "target": "gain"
   },
@@ -361,5 +361,16 @@
     "totalLogs": 1,
     "joinedDate": "2026-03-15T11:09:25.137Z",
     "target": "lose"
+  },
+  {
+    "token": "e7fba8f6",
+    "name": "***1524",
+    "streak": 1,
+    "totalDaysLogged": 1,
+    "avgCalories": 400,
+    "goalAccuracy": 0,
+    "totalLogs": 1,
+    "joinedDate": "2026-03-15T16:57:59.628Z",
+    "target": "gain"
   }
 ]

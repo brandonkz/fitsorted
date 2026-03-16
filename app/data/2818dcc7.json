@@ -11,7 +11,15 @@
     "foodBudget": null
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-15": [
+      {
+        "activity": "food consumption",
+        "calories": 0,
+        "time": "2026-03-15T18:15:30.589Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-04",
@@ -441,7 +449,7 @@
         "carbs": 50,
         "fat": 2,
         "fibre": 5,
-        "priceZAR": 40
+        "priceZAR": 60
       },
       "entries": [
         {
@@ -463,6 +471,16 @@
           "fibre": 5,
           "priceZAR": 20,
           "time": "2026-03-15T07:57:42.182Z"
+        },
+        {
+          "food": "Freezo",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-15T18:15:49.789Z"
         }
       ]
     }
