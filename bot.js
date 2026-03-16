@@ -3700,7 +3700,7 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
-  if (/^(undo|undo that|oops|take that back|remove last|undo last|cancel last|delete last|wrong|that was wrong|made a mistake|undo last entry)$/i.test(msgLower)) {
+  if (/^(undo|u do|undo that|oops|take that back|remove last|undo last|cancel last|delete last|wrong|that was wrong|made a mistake|undo last entry)$/i.test(msgLower)) {
     const today = getToday();
     const foodEntries = user.log[today] || [];
     const exerciseEntries = (user.exercise && user.exercise[today]) || [];
