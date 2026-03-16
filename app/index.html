@@ -677,7 +677,7 @@
     async function load(){
       if(!token) return showEmpty();
       try{
-        const res = await fetch(`./data/${token}.json`);
+        const res = await fetch(`./data/${token}.json?v=${Date.now()}`);
         if(!res.ok) return showEmpty();
         const data = await res.json();
         const logSummary = data.logSummary || [];
