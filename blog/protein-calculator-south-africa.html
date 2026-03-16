@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How Much Protein Do South Africans Actually Need? (Calculator + Guide) | FitSorted</title>
+  <meta name="description" content="Calculate your exact protein needs based on bodyweight (1.6-2.2g/kg). Includes SA protein sources ranked by cost, Woolworths picks, and how to track protein automatically." />
+  <meta property="og:title" content="How Much Protein Do South Africans Actually Need? (Calculator + Guide)" />
+  <meta property="og:description" content="Find out exactly how much protein you need per day and the cheapest SA sources to hit your target." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fitsorted.co.za/blog/protein-calculator-south-africa.html" />
+  <link rel="canonical" href="https://fitsorted.co.za/blog/protein-calculator-south-africa.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22c55e;
+      --accent-dark: #16a34a;
+      --ring: rgba(34, 197, 94, 0.3);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(720px, 92vw); margin: 0 auto; padding: 48px 0 80px; }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); margin-bottom: 40px; }
+    .back:hover { color: var(--accent); }
+    .meta { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+    .meta .tag {
+      background: rgba(34, 197, 94, 0.15); color: var(--accent);
+      padding: 3px 12px; border-radius: 99px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .meta .date { font-size: 14px; color: var(--muted); }
+    h1 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .lead { font-size: 18px; color: var(--muted); line-height: 1.6; margin-bottom: 40px; border-left: 3px solid var(--accent); padding-left: 20px; }
+    article h2 { font-size: 22px; font-weight: 600; margin: 40px 0 16px; }
+    article h3 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; color: var(--accent); }
+    article p { margin-bottom: 18px; color: #cbd5e1; font-size: 16px; }
+    article ul { margin: 0 0 18px 24px; }
+    article ul li { margin-bottom: 8px; color: #cbd5e1; font-size: 16px; }
+    article ul li strong { color: var(--text); }
+    .calorie-table {
+      width: 100%; border-collapse: collapse; margin: 24px 0;
+      background: var(--surface); border-radius: 8px; overflow: hidden;
+    }
+    .calorie-table th {
+      background: rgba(34, 197, 94, 0.1); color: var(--accent);
+      padding: 12px; text-align: left; font-size: 14px; font-weight: 600;
+    }
+    .calorie-table td {
+      padding: 12px; border-top: 1px solid #334155; font-size: 15px;
+    }
+    .calorie-table tr:hover {
+      background: rgba(34, 197, 94, 0.05);
+    }
+    .highlight-box {
+      background: var(--surface); border: 1px solid #334155; border-radius: 12px;
+      padding: 24px; margin: 32px 0;
+    }
+    .highlight-box h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--accent); }
+    .highlight-box p, .highlight-box li { font-size: 15px; color: #cbd5e1; }
+    .highlight-box ul { margin-top: 12px; }
+    .calculator-box {
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border: 2px solid var(--accent); border-radius: 16px;
+      padding: 32px; margin: 40px 0;
+    }
+    .calculator-box h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; text-align: center; }
+    .cta-box {
+      background: linear-gradient(135deg, var(--accent-dark), #15803d);
+      border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0;
+    }
+    .cta-box h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .cta-box p { color: #dcfce7; margin-bottom: 20px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: #15803d; font-weight: 600; font-size: 16px;
+      padding: 14px 32px; border-radius: 99px; text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: scale(1.03); text-decoration: none; }
+    @media (max-width: 600px) {
+      h1 { font-size: 28px; }
+      .lead { font-size: 16px; }
+      .calorie-table { font-size: 13px; }
+      .calorie-table th, .calorie-table td { padding: 8px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Much Protein Do South Africans Actually Need? (Calculator + Guide)",
+    "datePublished": "2026-03-16",
+    "author": { "@type": "Organization", "name": "FitSorted" },
+    "publisher": { "@type": "Organization", "name": "FitSorted", "url": "https://fitsorted.co.za" },
+    "description": "Calculate your exact protein needs and find the cheapest South African protein sources to hit your daily target."
+  }
+  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GMW4LWNXK1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-GMW4LWNXK1');
+</script>
+</head>
+<body>
+  <div class="container">
+    <a href="/blog/" class="back">← Back to Blog</a>
+    
+    <div class="meta">
+      <span class="tag">Protein Guide</span>
+      <span class="date">March 16, 2026</span>
+    </div>
+
+    <h1>How Much Protein Do South Africans Actually Need? (Calculator + Guide)</h1>
+    
+    <p class="lead">Most people either under-eat protein and lose muscle, or overpay for it because they don't know the actual numbers. Here's exactly how much you need based on your bodyweight, and the cheapest SA protein sources to hit your target.</p>
+
+    <article>
+      <h2>The Quick Answer</h2>
+      <p>If you're training (weights, running, sports, anything that breaks down muscle), you need <strong>1.6-2.2 grams of protein per kilogram of bodyweight</strong> per day.</p>
+      
+      <p>That's the range backed by actual research. Not bro-science. Not Instagram fitness influencers. Actual peer-reviewed studies on muscle protein synthesis and recovery.</p>
+
+      <p>If you weigh 70kg and you train regularly, you need 112-154g of protein per day. If you're eating less than that, you're making it harder to build or maintain muscle. If you're eating way more, you're just making expensive pee.</p>
+
+      <div class="calculator-box">
+        <h3>🧮 Protein Calculator (South African Bodyweights)</h3>
+        <table class="calorie-table">
+          <thead>
+            <tr>
+              <th>Your Bodyweight</th>
+              <th>Minimum Protein/Day</th>
+              <th>Optimal Protein/Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>60kg</td>
+              <td>96g</td>
+              <td>132g</td>
+            </tr>
+            <tr>
+              <td>65kg</td>
+              <td>104g</td>
+              <td>143g</td>
+            </tr>
+            <tr>
+              <td>70kg</td>
+              <td>112g</td>
+              <td>154g</td>
+            </tr>
+            <tr>
+              <td>75kg</td>
+              <td>120g</td>
+              <td>165g</td>
+            </tr>
+            <tr>
+              <td>80kg</td>
+              <td>128g</td>
+              <td>176g</td>
+            </tr>
+            <tr>
+              <td>85kg</td>
+              <td>136g</td>
+              <td>187g</td>
+            </tr>
+            <tr>
+              <td>90kg</td>
+              <td>144g</td>
+              <td>198g</td>
+            </tr>
+            <tr>
+              <td>95kg</td>
+              <td>152g</td>
+              <td>209g</td>
+            </tr>
+            <tr>
+              <td>100kg</td>
+              <td>160g</td>
+              <td>220g</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 16px; font-size: 14px; color: var(--muted); text-align: center;">
+          <strong>Formula:</strong> Bodyweight (kg) × 1.6 (minimum) or × 2.2 (optimal for training)
+        </p>
+      </div>
+
+      <h2>Why Protein Actually Matters</h2>
+      <p>Protein is made of amino acids. Amino acids are the building blocks your body uses to repair muscle tissue after you train. If you don't eat enough protein, your body can't rebuild what you broke down in the gym.</p>
+
+      <p>That means:</p>
+      <ul>
+        <li>Slower muscle recovery</li>
+        <li>Less strength gains over time</li>
+        <li>Higher risk of losing muscle when cutting calories</li>
+        <li>Feeling hungrier because protein keeps you full longer than carbs or fat</li>
+      </ul>
+
+      <p>This isn't just for bodybuilders. If you run, play rugby, do CrossFit, or even just lift 3 times a week, you're breaking down muscle tissue. You need protein to recover properly.</p>
+
+      <h2>Best South African Protein Sources (Ranked by Cost)</h2>
+      <p>Here's where most people mess up: they know they need protein, so they buy expensive stuff. Protein powder. Biltong. Pre-cooked chicken breasts from Woolworths. But you don't need to overpay.</p>
+
+      <p>Here are the cheapest, most effective protein sources in South Africa, ranked by cost per gram of protein:</p>
+
+      <table class="calorie-table">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Protein per 100g</th>
+            <th>Price (approx.)</th>
+            <th>Cost per 30g Protein</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Eggs</strong> (large, 6-pack)</td>
+            <td>13g per egg</td>
+            <td>R24.99 / 6</td>
+            <td><strong>R9.61</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Chicken Breasts</strong> (raw, bulk)</td>
+            <td>31g</td>
+            <td>R69.99 / kg</td>
+            <td><strong>R6.77</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Peanut Butter</strong> (no sugar added)</td>
+            <td>25g</td>
+            <td>R49.99 / 400g</td>
+            <td><strong>R14.99</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Greek Yogurt</strong> (plain, Woolworths)</td>
+            <td>10g per 100g</td>
+            <td>R34.99 / 500g</td>
+            <td><strong>R20.99</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Biltong</strong> (sliced, average)</td>
+            <td>50g</td>
+            <td>R149.99 / 200g</td>
+            <td><strong>R44.99</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Cottage Cheese</strong> (low-fat)</td>
+            <td>11g per 100g</td>
+            <td>R29.99 / 500g</td>
+            <td><strong>R16.35</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Tuna Cans</strong> (in brine)</td>
+            <td>25g per can (170g)</td>
+            <td>R19.99 / can</td>
+            <td><strong>R23.99</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Whey Protein</strong> (budget brand)</td>
+            <td>24g per scoop</td>
+            <td>R399 / 2kg (66 servings)</td>
+            <td><strong>R7.50</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box">
+        <h3>💰 The Cheapest Way to Hit 150g Protein/Day</h3>
+        <p><strong>Total cost: ~R50/day</strong></p>
+        <ul>
+          <li><strong>6 eggs</strong> (78g protein) - R24.99</li>
+          <li><strong>200g chicken breast</strong> (62g protein) - R13.99</li>
+          <li><strong>1 scoop whey protein</strong> (24g protein) - R6.05</li>
+        </ul>
+        <p style="margin-top: 12px;"><strong>Total:</strong> 164g protein for R45.03</p>
+        <p>That's cheaper than a single meal at most restaurants, and it covers your full daily protein needs.</p>
+      </div>
+
+      <h2>High-Protein Picks at Woolworths</h2>
+      <p>If you're grabbing food on the go, here are the best Woolworths options for protein:</p>
+
+      <h3>Ready-to-Eat Protein</h3>
+      <table class="calorie-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Protein</th>
+            <th>Calories</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Grilled Chicken Breast (200g)</td>
+            <td>62g</td>
+            <td>220</td>
+            <td>R44.99</td>
+          </tr>
+          <tr>
+            <td>Boiled Eggs (2-pack)</td>
+            <td>26g</td>
+            <td>140</td>
+            <td>R12.99</td>
+          </tr>
+          <tr>
+            <td>Greek Yogurt (500g tub)</td>
+            <td>50g</td>
+            <td>350</td>
+            <td>R34.99</td>
+          </tr>
+          <tr>
+            <td>Biltong Snack Pack (50g)</td>
+            <td>25g</td>
+            <td>120</td>
+            <td>R39.99</td>
+          </tr>
+          <tr>
+            <td>Cottage Cheese (250g)</td>
+            <td>28g</td>
+            <td>180</td>
+            <td>R19.99</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>High-Protein Ready Meals</h3>
+      <table class="calorie-table">
+        <thead>
+          <tr>
+            <th>Meal</th>
+            <th>Protein</th>
+            <th>Calories</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chicken Schnitzel & Mash</td>
+            <td>45g</td>
+            <td>560</td>
+            <td>R59.99</td>
+          </tr>
+          <tr>
+            <td>Beef Stroganoff</td>
+            <td>40g</td>
+            <td>610</td>
+            <td>R69.99</td>
+          </tr>
+          <tr>
+            <td>Grilled Chicken Salad</td>
+            <td>38g</td>
+            <td>310</td>
+            <td>R49.99</td>
+          </tr>
+          <tr>
+            <td>Salmon & Broccoli</td>
+            <td>35g</td>
+            <td>340</td>
+            <td>R69.99</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Common Protein Mistakes</h2>
+      
+      <div class="highlight-box">
+        <h3>❌ Mistake 1: Only eating protein at dinner</h3>
+        <p>Your body can only absorb about 30-40g of protein at once. If you eat 150g of protein in one meal, you're wasting most of it. Spread it out: 30-40g at breakfast, lunch, and dinner.</p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>❌ Mistake 2: Thinking you need 2g per pound</h3>
+        <p>That's 2g per <em>kilogram</em>, not pound. If you weigh 70kg, you don't need 140g (2×70lb = 154lb), you need 112-154g. Big difference.</p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>❌ Mistake 3: Buying expensive protein when cheap works fine</h3>
+        <p>Biltong is R44.99 for 30g of protein. Eggs are R9.61 for the same amount. Your muscles don't care which one you ate. Save your money.</p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>❌ Mistake 4: Not tracking protein intake</h3>
+        <p>Most people think they're eating enough protein. Then they actually track it and realize they're getting 60-80g per day instead of 150g. Track for at least a week to see where you really stand.</p>
+      </div>
+
+      <h2>How to Hit Your Protein Target Every Day</h2>
+      <p>Here's a simple 3-meal framework to hit 150g protein without thinking too hard:</p>
+
+      <h3>Breakfast (40g protein)</h3>
+      <ul>
+        <li>4 eggs scrambled (52g protein) OR</li>
+        <li>Greek yogurt (200g) + 1 scoop protein powder (44g protein) OR</li>
+        <li>3 eggs + 2 slices toast with peanut butter (42g protein)</li>
+      </ul>
+
+      <h3>Lunch (50g protein)</h3>
+      <ul>
+        <li>200g grilled chicken + veggies (62g protein) OR</li>
+        <li>2 tuna cans + salad (50g protein) OR</li>
+        <li>Woolworths Grilled Chicken Salad (38g) + boiled eggs (26g) = 64g protein</li>
+      </ul>
+
+      <h3>Dinner (50g protein)</h3>
+      <ul>
+        <li>200g chicken breast + rice + veg (62g protein) OR</li>
+        <li>Woolworths Beef Stroganoff (40g) + cottage cheese side (12g) = 52g protein OR</li>
+        <li>Lamb chops (150g) + sweet potato (48g protein)</li>
+      </ul>
+
+      <p><strong>Total: 140-160g protein across 3 meals.</strong> No supplements needed if you plan ahead.</p>
+
+      <h2>Why Tracking Protein Matters</h2>
+      <p>You can't improve what you don't measure. Most people have no idea how much protein they actually eat. They think a chicken wrap has 40g of protein when it's really 18g. They skip breakfast and wonder why they can't hit their target.</p>
+
+      <p>The only way to know for sure is to track. Not forever. Just until you get a feel for what 30-40g of protein looks like in a meal.</p>
+
+      <div class="cta-box">
+        <h3>Track Your Protein Automatically on FitSorted</h3>
+        <p>Every SA food is already in our database. Text what you ate, get instant protein counts.</p>
+        <a href="https://wa.me/27690684940?text=Hi" class="cta-btn">
+          Start Tracking on WhatsApp →
+        </a>
+        <p style="margin-top: 16px; font-size: 14px;">R36/month. Cancel anytime. No app required.</p>
+      </div>
+
+      <h2>The Bottom Line</h2>
+      <p>If you weigh 70kg and you train, you need 112-154g of protein per day. You can hit that for under R50/day if you buy smart. Eggs and chicken are your best value. Spread your protein across 3 meals. Track it for at least a week to see if you're actually hitting your target.</p>
+
+      <p>That's it. No magic. No hacks. Just the actual numbers and the cheapest way to hit them in South Africa.</p>
+
+    </article>
+  </div>
+</body>
+</html>
