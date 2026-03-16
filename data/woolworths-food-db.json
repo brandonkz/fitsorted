@@ -1,0 +1,482 @@
+{
+  "bbq chicken & bacon pasta 300 g": {
+    "calories": 600,
+    "protein": 25,
+    "carbs": 70,
+    "fat": 20,
+    "price": 84.99,
+    "size": "300 g",
+    "pricePerServing": 84.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/BBQ-Chicken-Bacon-Pasta-300-g/_/A-6009182630214?isFromPLP=true"
+  },
+  "basil & ricotta ravioli 400 g": {
+    "calories": 250,
+    "protein": 10,
+    "carbs": 40,
+    "fat": 7,
+    "price": 104.99,
+    "size": "400 g",
+    "pricePerServing": 104.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Food-Basket/Banners/Italian-Bellissimo-Meals/Make-it-an-Italian-Feast/Basil-Ricotta-Ravioli-400-g/_/A-6009204359239?isFromPLP=true"
+  },
+  "beef lasagne 300 g": {
+    "calories": 250,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 10,
+    "price": 86.99,
+    "size": "300 g",
+    "pricePerServing": 86.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Beef-Lasagne-300-g/_/A-20034948?isFromPLP=true"
+  },
+  "chicken lasagne 350 g": {
+    "calories": 300,
+    "protein": 20,
+    "carbs": 30,
+    "fat": 15,
+    "price": 86.99,
+    "size": "350 g",
+    "pricePerServing": 86.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Chicken-Lasagne-350-g/_/A-6001009000811?isFromPLP=true"
+  },
+  "chilli prawn linguine 400 g": {
+    "calories": 600,
+    "protein": 25,
+    "carbs": 70,
+    "fat": 20,
+    "price": 119.99,
+    "size": "400 g",
+    "pricePerServing": 119.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-3-save-R25/Prepared-Italian-Meals-Bowls/Chilli-Prawn-Linguine-400-g/_/A-6009207839264?isFromPLP=true"
+  },
+  "macaroni cheese & beef bolognese 300 g": {
+    "calories": 450,
+    "protein": 20,
+    "carbs": 50,
+    "fat": 20,
+    "price": 84.99,
+    "size": "300 g",
+    "pricePerServing": 84.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Macaroni-Cheese-Beef-Bolognese-300-g/_/A-20152130?isFromPLP=true"
+  },
+  "macaroni cheese 300 g": {
+    "calories": 450,
+    "protein": 15,
+    "carbs": 60,
+    "fat": 18,
+    "price": 84.99,
+    "size": "300 g",
+    "pricePerServing": 84.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Macaroni-Cheese-300-g/_/A-20039707?isFromPLP=true"
+  },
+  "macaroni cheese with bacon 300 g": {
+    "calories": 450,
+    "protein": 20,
+    "carbs": 50,
+    "fat": 20,
+    "price": 86.99,
+    "size": "300 g",
+    "pricePerServing": 86.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Macaroni-Cheese-with-Bacon-300-g/_/A-20080709?isFromPLP=true"
+  },
+  "spaghetti bolognese 350 g": {
+    "calories": 350,
+    "protein": 20,
+    "carbs": 45,
+    "fat": 10,
+    "price": 84.99,
+    "size": "350 g",
+    "pricePerServing": 84.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Spaghetti-Bolognese-350-g/_/A-20152123?isFromPLP=true"
+  },
+  "spaghetti bolognese 400 g": {
+    "calories": 300,
+    "protein": 20,
+    "carbs": 40,
+    "fat": 10,
+    "price": 94.99,
+    "size": "400 g",
+    "pricePerServing": 94.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Italian-Meals/Spaghetti-Bolognese-400-g/_/A-6009182759540?isFromPLP=true"
+  },
+  "spaghetti carbonara 350 g": {
+    "calories": 600,
+    "protein": 20,
+    "carbs": 70,
+    "fat": 25,
+    "price": 86.99,
+    "size": "350 g",
+    "pricePerServing": 86.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Italian-Meals/Spaghetti-Carbonara-350-g/_/A-20123895?isFromPLP=true"
+  },
+  "spinach & ricotta cannelloni 400 g": {
+    "calories": 280,
+    "protein": 12,
+    "carbs": 35,
+    "fat": 10,
+    "price": 94.99,
+    "size": "400 g",
+    "pricePerServing": 94.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Spinach-Ricotta-Cannelloni-400-g/_/A-20149284?isFromPLP=true"
+  },
+  "tagliatelle alfredo 350 g": {
+    "calories": 800,
+    "protein": 20,
+    "carbs": 100,
+    "fat": 30,
+    "price": 86.99,
+    "size": "350 g",
+    "pricePerServing": 86.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Tagliatelle-Alfredo-350-g/_/A-20082154?isFromPLP=true"
+  },
+  "tuna penne 300 g": {
+    "calories": 450,
+    "protein": 25,
+    "carbs": 50,
+    "fat": 15,
+    "price": 84.99,
+    "size": "300 g",
+    "pricePerServing": 84.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Tuna-Penne-300-g/_/A-6009182759595?isFromPLP=true"
+  },
+  "braised beef stew 350 g": {
+    "calories": 250,
+    "protein": 20,
+    "carbs": 15,
+    "fat": 12,
+    "price": 104.99,
+    "size": "350 g",
+    "pricePerServing": 104.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Braised-Beef-Stew-350-g/_/A-6009189968822?isFromPLP=true"
+  },
+  "chicken a la king with rice 400 g": {
+    "calories": 350,
+    "protein": 20,
+    "carbs": 40,
+    "fat": 12,
+    "price": 104.99,
+    "size": "400 g",
+    "pricePerServing": 104.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Chicken-A-La-King-with-Rice-400-g/_/A-20139797?isFromPLP=true"
+  },
+  "chicken biryani 350 g": {
+    "calories": 450,
+    "protein": 25,
+    "carbs": 60,
+    "fat": 15,
+    "price": 104.99,
+    "size": "350 g",
+    "pricePerServing": 104.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Chicken-Biryani-350-g/_/A-6009207099569?isFromPLP=true"
+  },
+  "chicken broccoli 350 g": {
+    "calories": 350,
+    "protein": 30,
+    "carbs": 20,
+    "fat": 15,
+    "price": 104.99,
+    "size": "350 g",
+    "pricePerServing": 104.99,
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Content/Family-Meal-Ideas/Chicken-Broccoli-350-g/_/A-20102135?isFromPLP=true"
+  },
+  "cottage pie 350 g": {
+    "calories": 250,
+    "protein": 12,
+    "carbs": 30,
+    "fat": 10,
+    "price": 99.99,
+    "size": "350 g",
+    "pricePerServing": 99.99,
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Content/Family-Meal-Ideas/Cottage-Pie-350-g/_/A-20007294?isFromPLP=true"
+  },
+  "mince curry & rice 350 g": {
+    "calories": 450,
+    "protein": 20,
+    "carbs": 60,
+    "fat": 15,
+    "price": 99.99,
+    "size": "350 g",
+    "pricePerServing": 99.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Mince-Curry-Rice-350-g/_/A-6009000346075?isFromPLP=true"
+  },
+  "beef chow mein 400 g": {
+    "calories": 600,
+    "protein": 30,
+    "carbs": 70,
+    "fat": 20,
+    "price": 119.99,
+    "size": "400 g",
+    "pricePerServing": 119.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Beef-Chow-Mein-400-g/_/A-6009204041158?isFromPLP=true"
+  },
+  "butter chicken 350 g": {
+    "calories": 400,
+    "protein": 20,
+    "carbs": 30,
+    "fat": 25,
+    "price": 109.99,
+    "size": "350 g",
+    "pricePerServing": 109.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Butter-Chicken-350-g/_/A-20128883?isFromPLP=true"
+  },
+  "cashew nut chicken 400 g": {
+    "calories": 600,
+    "protein": 30,
+    "carbs": 40,
+    "fat": 35,
+    "price": 109.99,
+    "size": "400 g",
+    "pricePerServing": 109.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Cashew-Nut-Chicken-400-g/_/A-6009204041141?isFromPLP=true"
+  },
+  "lamb rogan josh 350 g": {
+    "calories": 350,
+    "protein": 25,
+    "carbs": 20,
+    "fat": 20,
+    "price": 119.99,
+    "size": "350 g",
+    "pricePerServing": 119.99,
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Indian/Lamb-Rogan-Josh-350-g/_/A-6007875250121?isFromPLP=true"
+  },
+  "5% tranexamic acid + 1% hexylresorcinol, melanoclear": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 240,
+    "size": "unknown",
+    "pricePerServing": 240,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/15-off-Skin-Functional-Promo-Code/Skin-functional-5-Tranexamic-Acid-1-Hexylresorcinol-Melanoclear/_/A-509227132?isFromPLP=true"
+  },
+  "the hyaluronic acid 3 serum": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 599,
+    "size": "unknown",
+    "pricePerServing": 599,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/COSRX-The-Hyaluronic-Acid-3-Serum/_/A-510883222?isFromPLP=true"
+  },
+  "bouncy & firm lip treatment": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 550,
+    "size": "unknown",
+    "pricePerServing": 550,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Bouncy-Firm-Lip-Treatment/_/A-510161266?isFromPLP=true"
+  },
+  "mini lip glowy balm set": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 485,
+    "size": "unknown",
+    "pricePerServing": 485,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Mini-Lip-Glowy-Balm-Set/_/A-510128360?isFromPLP=true"
+  },
+  "the rejuvenating eye cream": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 4300,
+    "size": "unknown",
+    "pricePerServing": 4300,
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Skincare/Treatments/La-Mer-The-Rejuvenating-Eye-Cream/_/A-511800166?isFromPLP=true"
+  },
+  "plump & hydrate trio set": {
+    "calories": 150,
+    "protein": 2,
+    "carbs": 20,
+    "fat": 7,
+    "price": 630,
+    "size": "unknown",
+    "pricePerServing": 630,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Plump-Hydrate-Trio-Set/_/A-510129136?isFromPLP=true"
+  },
+  "s'more kisses set": {
+    "calories": 150,
+    "protein": 1,
+    "carbs": 25,
+    "fat": 5,
+    "price": 570,
+    "size": "unknown",
+    "pricePerServing": 570,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-S-more-Kisses-Set/_/A-510128344?isFromPLP=true"
+  },
+  "bouncy & firm eye sleeping mask": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 670,
+    "size": "unknown",
+    "pricePerServing": 670,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Bouncy-Firm-Eye-Sleeping-Mask/_/A-510161258?isFromPLP=true"
+  },
+  "supremya anti-aging eye cream": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 7000,
+    "size": "unknown",
+    "pricePerServing": 7000,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Anti-aging-Eye-Cream/_/A-510407380?isFromPLP=true"
+  },
+  "supremya anti-aging eye cream refill": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 5700,
+    "size": "unknown",
+    "pricePerServing": 5700,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Anti-aging-Eye-Cream-Refill/_/A-510407402?isFromPLP=true"
+  },
+  "supremya baume at night cream": {
+    "calories": 100,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 10,
+    "price": 13900,
+    "size": "unknown",
+    "pricePerServing": 13900,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Baume-At-Night-Cream/_/A-510407372?isFromPLP=true"
+  },
+  "body sun lotion sensitive spf50": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 389.99,
+    "size": "unknown",
+    "pricePerServing": 389.99,
+    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/Body-Sun-Lotion-Sensitive-SPF50/_/A-506130290?isFromPLP=true"
+  },
+  "cellular performance throat and bust lifting effect": {
+    "calories": 50,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 0,
+    "price": 2615,
+    "size": "unknown",
+    "pricePerServing": 2615,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/25-off-2-Selected-Beauty-Products/Skincare/Moisturizers/Day-Creams/SENSAI-Cellular-Performance-Throat-and-Bust-Lifting-Effect/_/A-505702488?isFromPLP=true"
+  },
+  "ultimate the emulsion": {
+    "calories": 100,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 11,
+    "price": 8555,
+    "size": "unknown",
+    "pricePerServing": 8555,
+    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/SENSAI-Ultimate-The-Emulsion/_/A-507826644?isFromPLP=true"
+  },
+  "precious la lotion": {
+    "calories": 50,
+    "protein": 0,
+    "carbs": 12,
+    "fat": 0,
+    "price": 2230,
+    "size": "unknown",
+    "pricePerServing": 2230,
+    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/Clarins-Precious-La-Lotion/_/A-509271130?isFromPLP=true"
+  },
+  "zinc power lotion": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 465,
+    "size": "unknown",
+    "pricePerServing": 465,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Cleansing/Nuxe-Zinc-Power-Lotion/_/A-510352156?isFromPLP=true"
+  },
+  "longevity essential serum": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 9900,
+    "size": "unknown",
+    "pricePerServing": 9900,
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Sisley-Longevity-Essential-Serum/_/A-511714716?isFromPLP=true"
+  },
+  "black rose collection coffret": {
+    "calories": 150,
+    "protein": 2,
+    "carbs": 20,
+    "fat": 7,
+    "price": 8350,
+    "size": "unknown",
+    "pricePerServing": 8350,
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Sisley-Black-Rose-Collection-Coffret/_/A-511786162?isFromPLP=true"
+  },
+  "ruby marine barrier rescue set": {
+    "calories": 150,
+    "protein": 10,
+    "carbs": 5,
+    "fat": 8,
+    "price": 769.95,
+    "size": "unknown",
+    "pricePerServing": 769.95,
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Ruby-Marine-Barrier-Rescue-Set/_/A-510352198?isFromPLP=true"
+  },
+  "hydra zen day cream": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 780,
+    "size": "unknown",
+    "pricePerServing": 780,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Lancome-Hydra-Zen-Day-Cream/_/A-511608238?isFromPLP=true"
+  },
+  "hydra zen gel cream": {
+    "calories": 50,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 5,
+    "price": 780,
+    "size": "unknown",
+    "pricePerServing": 780,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Lancome-Hydra-Zen-Gel-Cream/_/A-511608132?isFromPLP=true"
+  },
+  "ultimate ageing moisturiser": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 385,
+    "size": "unknown",
+    "pricePerServing": 385,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/15-off-Skin-Functional-Promo-Code/Skin-functional-Ultimate-Ageing-Moisturiser/_/A-507689366?isFromPLP=true"
+  },
+  "oh sherbet azelaic acid 10% exfoliating clay mask": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 449.95,
+    "size": "unknown",
+    "pricePerServing": 449.95,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Treatments-Serums/Facial-Masks/Oh-Sherbet-Azelaic-Acid-10-Exfoliating-Clay-Mask/_/A-510128134?isFromPLP=true"
+  },
+  "ultra smart pro-collagen eye treatment duo": {
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "price": 3850,
+    "size": "unknown",
+    "pricePerServing": 3850,
+    "url": "https://www.woolworths.co.za/prod/Beauty/Elemis/Shop-All/Ultra-Smart-Pro-collagen-Eye-Treatment-Duo/_/A-508696142?isFromPLP=true"
+  }
+}

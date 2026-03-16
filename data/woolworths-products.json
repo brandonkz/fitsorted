@@ -1,0 +1,338 @@
+[
+  {
+    "name": "BBQ Chicken & Bacon Pasta 300 g",
+    "price": 84.99,
+    "size": "300 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/BBQ-Chicken-Bacon-Pasta-300-g/_/A-6009182630214?isFromPLP=true"
+  },
+  {
+    "name": "Basil & Ricotta Ravioli 400 g",
+    "price": 104.99,
+    "size": "400 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Food-Basket/Banners/Italian-Bellissimo-Meals/Make-it-an-Italian-Feast/Basil-Ricotta-Ravioli-400-g/_/A-6009204359239?isFromPLP=true"
+  },
+  {
+    "name": "Beef Lasagne 300 g",
+    "price": 86.99,
+    "size": "300 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Beef-Lasagne-300-g/_/A-20034948?isFromPLP=true"
+  },
+  {
+    "name": "Chicken Lasagne 350 g",
+    "price": 86.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Chicken-Lasagne-350-g/_/A-6001009000811?isFromPLP=true"
+  },
+  {
+    "name": "Chilli Prawn Linguine 400 g",
+    "price": 119.99,
+    "size": "400 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-3-save-R25/Prepared-Italian-Meals-Bowls/Chilli-Prawn-Linguine-400-g/_/A-6009207839264?isFromPLP=true"
+  },
+  {
+    "name": "Macaroni Cheese & Beef Bolognese 300 g",
+    "price": 84.99,
+    "size": "300 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Macaroni-Cheese-Beef-Bolognese-300-g/_/A-20152130?isFromPLP=true"
+  },
+  {
+    "name": "Macaroni Cheese 300 g",
+    "price": 84.99,
+    "size": "300 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Macaroni-Cheese-300-g/_/A-20039707?isFromPLP=true"
+  },
+  {
+    "name": "Macaroni Cheese with Bacon 300 g",
+    "price": 86.99,
+    "size": "300 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Macaroni-Cheese-with-Bacon-300-g/_/A-20080709?isFromPLP=true"
+  },
+  {
+    "name": "Spaghetti Bolognese 350 g",
+    "price": 84.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Spaghetti-Bolognese-350-g/_/A-20152123?isFromPLP=true"
+  },
+  {
+    "name": "Spaghetti Bolognese 400 g",
+    "price": 94.99,
+    "size": "400 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Italian-Meals/Spaghetti-Bolognese-400-g/_/A-6009182759540?isFromPLP=true"
+  },
+  {
+    "name": "Spaghetti Carbonara 350 g",
+    "price": 86.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Italian-Meals/Spaghetti-Carbonara-350-g/_/A-20123895?isFromPLP=true"
+  },
+  {
+    "name": "Spinach & Ricotta Cannelloni 400 g",
+    "price": 94.99,
+    "size": "400 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Spinach-Ricotta-Cannelloni-400-g/_/A-20149284?isFromPLP=true"
+  },
+  {
+    "name": "Tagliatelle Alfredo 350 g",
+    "price": 86.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Tagliatelle-Alfredo-350-g/_/A-20082154?isFromPLP=true"
+  },
+  {
+    "name": "Tuna Penne 300 g",
+    "price": 84.99,
+    "size": "300 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Promotions/Buy-2-Or-More-And-Save/Buy-any-4-save-R30/Italian-Meals/Tuna-Penne-300-g/_/A-6009182759595?isFromPLP=true"
+  },
+  {
+    "name": "Braised Beef Stew 350 g",
+    "price": 104.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Braised-Beef-Stew-350-g/_/A-6009189968822?isFromPLP=true"
+  },
+  {
+    "name": "Chicken A La King with Rice 400 g",
+    "price": 104.99,
+    "size": "400 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Chicken-A-La-King-with-Rice-400-g/_/A-20139797?isFromPLP=true"
+  },
+  {
+    "name": "Chicken Biryani 350 g",
+    "price": 104.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Chicken-Biryani-350-g/_/A-6009207099569?isFromPLP=true"
+  },
+  {
+    "name": "Chicken Broccoli 350 g",
+    "price": 104.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Content/Family-Meal-Ideas/Chicken-Broccoli-350-g/_/A-20102135?isFromPLP=true"
+  },
+  {
+    "name": "Cottage Pie 350 g",
+    "price": 99.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Online-Feature/Content/Family-Meal-Ideas/Cottage-Pie-350-g/_/A-20007294?isFromPLP=true"
+  },
+  {
+    "name": "Mince Curry & Rice 350 g",
+    "price": 99.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Mince-Curry-Rice-350-g/_/A-6009000346075?isFromPLP=true"
+  },
+  {
+    "name": "Beef Chow Mein 400 g",
+    "price": 119.99,
+    "size": "400 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Beef-Chow-Mein-400-g/_/A-6009204041158?isFromPLP=true"
+  },
+  {
+    "name": "Butter Chicken 350 g",
+    "price": 109.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Butter-Chicken-350-g/_/A-20128883?isFromPLP=true"
+  },
+  {
+    "name": "Cashew Nut Chicken 400 g",
+    "price": 109.99,
+    "size": "400 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Cashew-Nut-Chicken-400-g/_/A-6009204041141?isFromPLP=true"
+  },
+  {
+    "name": "Lamb Rogan Josh 350 g",
+    "price": 119.99,
+    "size": "350 g",
+    "category": "Ready Meals",
+    "url": "https://www.woolworths.co.za/prod/Food/Ready-Meals/Global-Cuisine/Indian/Lamb-Rogan-Josh-350-g/_/A-6007875250121?isFromPLP=true"
+  },
+  {
+    "name": "5% Tranexamic Acid + 1% Hexylresorcinol, Melanoclear",
+    "price": 240,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/15-off-Skin-Functional-Promo-Code/Skin-functional-5-Tranexamic-Acid-1-Hexylresorcinol-Melanoclear/_/A-509227132?isFromPLP=true"
+  },
+  {
+    "name": "The Hyaluronic Acid 3 Serum",
+    "price": 599,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/COSRX-The-Hyaluronic-Acid-3-Serum/_/A-510883222?isFromPLP=true"
+  },
+  {
+    "name": "Bouncy & Firm Lip Treatment",
+    "price": 550,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Bouncy-Firm-Lip-Treatment/_/A-510161266?isFromPLP=true"
+  },
+  {
+    "name": "Mini Lip Glowy Balm Set",
+    "price": 485,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Mini-Lip-Glowy-Balm-Set/_/A-510128360?isFromPLP=true"
+  },
+  {
+    "name": "The Rejuvenating Eye Cream",
+    "price": 4300,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Skincare/Treatments/La-Mer-The-Rejuvenating-Eye-Cream/_/A-511800166?isFromPLP=true"
+  },
+  {
+    "name": "Plump & Hydrate Trio Set",
+    "price": 630,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Plump-Hydrate-Trio-Set/_/A-510129136?isFromPLP=true"
+  },
+  {
+    "name": "S'more Kisses Set",
+    "price": 570,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-S-more-Kisses-Set/_/A-510128344?isFromPLP=true"
+  },
+  {
+    "name": "Bouncy & Firm Eye Sleeping Mask",
+    "price": 670,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/LANEIGE-Bouncy-Firm-Eye-Sleeping-Mask/_/A-510161258?isFromPLP=true"
+  },
+  {
+    "name": "Supremya Anti-aging Eye Cream",
+    "price": 7000,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Anti-aging-Eye-Cream/_/A-510407380?isFromPLP=true"
+  },
+  {
+    "name": "Supremya Anti-aging Eye Cream Refill",
+    "price": 5700,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Anti-aging-Eye-Cream-Refill/_/A-510407402?isFromPLP=true"
+  },
+  {
+    "name": "Supremya Baume At Night Cream",
+    "price": 13900,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Sisley/Shop-All/Sisley-Supremya-Baume-At-Night-Cream/_/A-510407372?isFromPLP=true"
+  },
+  {
+    "name": "Body Sun Lotion Sensitive SPF50",
+    "price": 389.99,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/Body-Sun-Lotion-Sensitive-SPF50/_/A-506130290?isFromPLP=true"
+  },
+  {
+    "name": "Cellular Performance Throat and Bust Lifting Effect",
+    "price": 2615,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/25-off-2-Selected-Beauty-Products/Skincare/Moisturizers/Day-Creams/SENSAI-Cellular-Performance-Throat-and-Bust-Lifting-Effect/_/A-505702488?isFromPLP=true"
+  },
+  {
+    "name": "Ultimate The Emulsion",
+    "price": 8555,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/SENSAI-Ultimate-The-Emulsion/_/A-507826644?isFromPLP=true"
+  },
+  {
+    "name": "Precious La Lotion",
+    "price": 2230,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Valentines-Day/Promotions/25-off-2-Selected-Beauty/25-Off-2-Selected-Beauty/Clarins-Precious-La-Lotion/_/A-509271130?isFromPLP=true"
+  },
+  {
+    "name": "Zinc Power Lotion",
+    "price": 465,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Cleansing/Nuxe-Zinc-Power-Lotion/_/A-510352156?isFromPLP=true"
+  },
+  {
+    "name": "Longevity Essential Serum",
+    "price": 9900,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Sisley-Longevity-Essential-Serum/_/A-511714716?isFromPLP=true"
+  },
+  {
+    "name": "Black Rose Collection Coffret",
+    "price": 8350,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Sisley-Black-Rose-Collection-Coffret/_/A-511786162?isFromPLP=true"
+  },
+  {
+    "name": "Ruby Marine Barrier Rescue Set",
+    "price": 769.95,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/New-In/Ruby-Marine-Barrier-Rescue-Set/_/A-510352198?isFromPLP=true"
+  },
+  {
+    "name": "Hydra Zen Day Cream",
+    "price": 780,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Lancome-Hydra-Zen-Day-Cream/_/A-511608238?isFromPLP=true"
+  },
+  {
+    "name": "Hydra Zen Gel Cream",
+    "price": 780,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Lancome-Hydra-Zen-Gel-Cream/_/A-511608132?isFromPLP=true"
+  },
+  {
+    "name": "Ultimate Ageing Moisturiser",
+    "price": 385,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Promotions/15-off-Skin-Functional-Promo-Code/Skin-functional-Ultimate-Ageing-Moisturiser/_/A-507689366?isFromPLP=true"
+  },
+  {
+    "name": "Oh Sherbet Azelaic Acid 10% Exfoliating Clay Mask",
+    "price": 449.95,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Skincare/Treatments-Serums/Facial-Masks/Oh-Sherbet-Azelaic-Acid-10-Exfoliating-Clay-Mask/_/A-510128134?isFromPLP=true"
+  },
+  {
+    "name": "Ultra Smart Pro-collagen Eye Treatment Duo",
+    "price": 3850,
+    "size": null,
+    "category": "Dairy",
+    "url": "https://www.woolworths.co.za/prod/Beauty/Elemis/Shop-All/Ultra-Smart-Pro-collagen-Eye-Treatment-Duo/_/A-508696142?isFromPLP=true"
+  }
+]
