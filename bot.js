@@ -856,7 +856,7 @@ async function lookupSAFood(food) {
 
 // ── Custom food database (per user) ──
 function lookupCustomFood(user, food) {
-  if (!user.customFoods) return null;
+  if (!user.customFoods || !food) return null;
   const lower = food.toLowerCase().trim();
   for (const [name, calories] of Object.entries(user.customFoods)) {
     if (lower.includes(name.toLowerCase()) || name.toLowerCase().includes(lower)) {
@@ -953,6 +953,10 @@ ${customFoodList.length > 0 ? customFoodList.join(", ") : "None saved yet"}
 async function estimateCalories(food, user) {
   const aiDebugLog = `/Users/brandonkatz/.openclaw/workspace/fitsorted/debug-ai.log`;
   fs.appendFileSync(aiDebugLog, `\n[${new Date().toISOString()}] estimateCalories() CALLED with food="${food}"\n`);
+
+  if (!food || typeof food !== 'string') {
+    throw new Error("Invalid food input");
+  }
   
   // 0. Input validation: reject very short or nonsensical inputs
   const lower = food.toLowerCase().trim();
@@ -1803,7 +1807,21 @@ async function estimateCalories(food, user) {
   );
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
-  const result = JSON.parse(content);
+  let result;
+  try {
+    result = JSON.parse(content);
+  } catch (e) {
+    const match = content.match(/\{[\s\S]*\}/);
+    if (match) {
+      try {
+        result = JSON.parse(match[0]);
+      } catch (e2) {
+        result = { food, calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 };
+      }
+    } else {
+      result = { food, calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 };
+    }
+  }
 
   // Guard against null/NaN calories or missing food name
   if (result.calories == null || Number.isNaN(Number(result.calories))) result.calories = 0;
