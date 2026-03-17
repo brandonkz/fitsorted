@@ -2190,6 +2190,7 @@ async function maybePromptPro(from, user) {
 }
 
 async function sendButtons(to, body, buttons) {
+  console.log('[sendButtons] Called with:', { to, bodyLength: body.length, buttonCount: buttons.length });
   try {
     // WhatsApp enforces: body max 1024 chars, button title max 20 chars, button id max 256 chars, max 3 buttons
     const safeBtns = buttons.slice(0, 3).map(b => ({
@@ -2685,6 +2686,7 @@ async function handleMessage(from, text, imageId) {
           await send(from, alcoholMsg);
         } else {
           const message = `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`;
+          console.log('[FOOD] Attempting to send buttons for:', result.food);
           await sendButtons(from, message, [
             { id: 'correct_last', title: '✏️ Correct' },
             { id: 'undo_last', title: '❌ Remove' }
@@ -4691,7 +4693,12 @@ async function handleMessage(from, text, imageId) {
         alcoholMsg += `\n\n📊 Today total: *${total} / ${effectiveGoal} cal*`;
         await send(from, alcoholMsg);
       } else {
-        await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
+        const message = `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`;
+        console.log('[FOOD] Sending food log with buttons');
+        await sendButtons(from, message, [
+          { id: 'correct_last', title: '✏️ Correct' },
+          { id: 'undo_last', title: '❌ Remove' }
+        ]);
       }
       await maybeFirstLogMenu(from, user);
         await maybePromptPro(from, user);
