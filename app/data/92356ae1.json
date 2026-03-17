@@ -1,0 +1,60 @@
+{
+  "name": "Seth",
+  "goal": 3454,
+  "joinedAt": "2026-03-17T08:58:17.660Z",
+  "profile": {
+    "age": 21,
+    "weight": 70,
+    "height": 178,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 1700,
+        "protein": 87,
+        "carbs": 232,
+        "fat": 43,
+        "fibre": 29,
+        "priceZAR": 95
+      },
+      "entries": [
+        {
+          "food": "250g oats with 1 scoop of NPL Pro Gains",
+          "calories": 1000,
+          "protein": 40,
+          "carbs": 150,
+          "fat": 20,
+          "fibre": 25,
+          "priceZAR": 30,
+          "time": "2026-03-17T09:02:46.298Z"
+        },
+        {
+          "food": "4x slices bread with 2x chicken strips",
+          "calories": 520,
+          "protein": 34,
+          "carbs": 80,
+          "fat": 10,
+          "fibre": 4,
+          "priceZAR": 45,
+          "time": "2026-03-17T11:34:36.900Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-17T11:34:39.691Z"
+        }
+      ]
+    }
+  ]
+}

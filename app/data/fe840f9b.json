@@ -1,0 +1,29 @@
+{
+  "name": "D",
+  "goal": 3687,
+  "joinedAt": "2026-03-17T11:43:29.722Z",
+  "profile": {
+    "age": 31,
+    "weight": 81,
+    "height": 190,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": []
+    }
+  ]
+}

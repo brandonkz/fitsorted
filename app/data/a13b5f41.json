@@ -423,6 +423,29 @@
           "time": "2026-03-15T14:39:52.521Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 320,
+        "protein": 14,
+        "carbs": 30,
+        "fat": 20,
+        "fibre": 7,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "2x fried egg, 1 slice rye toast, 1/3 avocado, 1/2 teaspoon jam",
+          "calories": 320,
+          "protein": 14,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 7,
+          "priceZAR": 20,
+          "time": "2026-03-17T06:47:27.404Z"
+        }
+      ]
     }
   ]
 }

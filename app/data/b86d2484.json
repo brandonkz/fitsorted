@@ -1956,6 +1956,149 @@
           "time": "2026-03-16T17:59:19.773Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 3981,
+        "protein": 212,
+        "carbs": 436,
+        "fat": 116,
+        "fibre": 29,
+        "priceZAR": 462
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-17T05:46:14.403Z"
+        },
+        {
+          "food": "Ouma Rusk (1)",
+          "calories": 140,
+          "protein": 3,
+          "carbs": 22,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-17T05:46:25.680Z"
+        },
+        {
+          "food": "3x scrambled eggs and 2 slices of toast",
+          "calories": 290,
+          "protein": 22,
+          "carbs": 29,
+          "fat": 10,
+          "fibre": 4,
+          "priceZAR": 12,
+          "time": "2026-03-17T05:46:36.213Z"
+        },
+        {
+          "food": "Coca-Cola (330ml) (330ml can)",
+          "calories": 139,
+          "protein": 0,
+          "carbs": 35,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-17T11:11:44.397Z"
+        },
+        {
+          "food": "6x ostrich meat balls",
+          "calories": 540,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-17T11:32:34.391Z"
+        },
+        {
+          "food": "6x ostrich meat balls",
+          "calories": 540,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-17T11:41:13.901Z"
+        },
+        {
+          "food": "100g raisins",
+          "calories": 299,
+          "protein": 3,
+          "carbs": 79,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-17T14:25:58.638Z"
+        },
+        {
+          "food": "raisins 150g",
+          "calories": 450,
+          "protein": 4,
+          "carbs": 120,
+          "fat": 1,
+          "fibre": 6,
+          "priceZAR": 30,
+          "time": "2026-03-17T14:26:36.850Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-17T16:39:01.599Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-17T16:41:09.108Z"
+        },
+        {
+          "food": "chicken potstickers",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 40,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-17T18:59:04.631Z"
+        },
+        {
+          "food": "12x potstickers",
+          "calories": 720,
+          "protein": 36,
+          "carbs": 96,
+          "fat": 24,
+          "fibre": 12,
+          "priceZAR": 45,
+          "time": "2026-03-17T19:00:44.574Z"
+        },
+        {
+          "food": "12 chicken potstickers (manual)",
+          "calories": 413,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-17T19:01:38.234Z"
+        }
+      ]
     }
   ]
 }

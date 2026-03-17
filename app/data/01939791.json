@@ -153,6 +153,39 @@
           "time": "2026-03-16T17:19:19.683Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 670,
+        "protein": 20,
+        "carbs": 105,
+        "fat": 20,
+        "fibre": 10,
+        "priceZAR": 65
+      },
+      "entries": [
+        {
+          "food": "2.5x weetbix with milk",
+          "calories": 270,
+          "protein": 10,
+          "carbs": 45,
+          "fat": 5,
+          "fibre": 5,
+          "priceZAR": 20,
+          "time": "2026-03-17T10:13:46.492Z"
+        },
+        {
+          "food": "curry roti",
+          "calories": 400,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-17T18:00:50.619Z"
+        }
+      ]
     }
   ]
 }

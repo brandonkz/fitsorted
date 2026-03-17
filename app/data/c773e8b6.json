@@ -1,0 +1,60 @@
+{
+  "name": "Ronelle",
+  "goal": 2004,
+  "joinedAt": "2026-03-17T13:30:01.595Z",
+  "profile": {
+    "age": 42,
+    "weight": 81,
+    "height": 162,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 640,
+        "protein": 62,
+        "carbs": 12,
+        "fat": 40,
+        "fibre": 2,
+        "priceZAR": 73
+      },
+      "entries": [
+        {
+          "food": "2x boiled egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-17T13:32:10.523Z"
+        },
+        {
+          "food": "150g steak",
+          "calories": 300,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-17T14:23:45.122Z"
+        },
+        {
+          "food": "200g Greek yogurt with seeds",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 10,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-17T14:24:22.385Z"
+        }
+      ]
+    }
+  ]
+}

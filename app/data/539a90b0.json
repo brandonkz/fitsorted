@@ -1,0 +1,90 @@
+{
+  "name": "Bianca",
+  "goal": 1771,
+  "joinedAt": "2026-03-17T11:34:08.150Z",
+  "profile": {
+    "age": 23,
+    "weight": 70,
+    "height": 166,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 1358,
+        "protein": 54,
+        "carbs": 215,
+        "fat": 37,
+        "fibre": 23,
+        "priceZAR": 185
+      },
+      "entries": [
+        {
+          "food": "overnight oats",
+          "calories": 493,
+          "protein": 30,
+          "carbs": 61,
+          "fat": 16,
+          "fibre": 10,
+          "priceZAR": 20,
+          "time": "2026-03-17T11:37:32.527Z"
+        },
+        {
+          "food": "Ouma muesli rusk",
+          "calories": 100,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-17T11:38:07.753Z"
+        },
+        {
+          "food": "chunky rusk",
+          "calories": 100,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-17T11:39:14.374Z"
+        },
+        {
+          "food": "rusk",
+          "calories": 180,
+          "protein": 4,
+          "carbs": 36,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-17T11:39:45.462Z"
+        },
+        {
+          "food": "brown seeded roll with ham, cheese, avocado, mayonnaise, Greek salad, and a large green apple",
+          "calories": 335,
+          "protein": 15,
+          "carbs": 40,
+          "fat": 13,
+          "fibre": 5,
+          "priceZAR": 100,
+          "time": "2026-03-17T11:41:31.047Z"
+        },
+        {
+          "food": "mango and green grapes",
+          "calories": 150,
+          "protein": 1,
+          "carbs": 38,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-17T12:56:38.533Z"
+        }
+      ]
+    }
+  ]
+}

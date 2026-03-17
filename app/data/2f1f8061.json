@@ -1,0 +1,50 @@
+{
+  "name": "Ndzali",
+  "goal": 1840,
+  "joinedAt": "2026-03-17T11:48:17.224Z",
+  "profile": {
+    "age": 18,
+    "weight": 90,
+    "height": 171,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 720,
+        "protein": 35,
+        "carbs": 111,
+        "fat": 25,
+        "fibre": 9,
+        "priceZAR": 55
+      },
+      "entries": [
+        {
+          "food": "8x slice of peanut butter white bread",
+          "calories": 640,
+          "protein": 32,
+          "carbs": 96,
+          "fat": 24,
+          "fibre": 8,
+          "priceZAR": 40,
+          "time": "2026-03-17T11:51:01.516Z"
+        },
+        {
+          "food": "Blue Ribbon bread",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-17T11:51:04.587Z"
+        }
+      ]
+    }
+  ]
+}

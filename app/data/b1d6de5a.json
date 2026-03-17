@@ -1,0 +1,70 @@
+{
+  "name": "Xadace",
+  "goal": 2941,
+  "joinedAt": "2026-03-17T08:35:11.189Z",
+  "profile": {
+    "age": 22,
+    "weight": 68.3,
+    "height": 179,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 1185,
+        "protein": 83,
+        "carbs": 135,
+        "fat": 42,
+        "fibre": 17,
+        "priceZAR": 110
+      },
+      "entries": [
+        {
+          "food": "Futurelife 100g",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 10,
+          "priceZAR": 30,
+          "time": "2026-03-17T08:43:38.382Z"
+        },
+        {
+          "food": "cous cous with lettuce, cucumber, 1x chicken breast, 1 egg",
+          "calories": 240,
+          "protein": 25,
+          "carbs": 20,
+          "fat": 8,
+          "fibre": 3,
+          "priceZAR": 38,
+          "time": "2026-03-17T08:49:19.273Z"
+        },
+        {
+          "food": "Indomie hot and spicy noodles with 1 egg",
+          "calories": 185,
+          "protein": 7,
+          "carbs": 27,
+          "fat": 6,
+          "fibre": 1,
+          "priceZAR": 12,
+          "time": "2026-03-17T09:38:26.310Z"
+        },
+        {
+          "food": "cous cous with lettuce, cucumber, tuna, mayo and egg",
+          "calories": 360,
+          "protein": 21,
+          "carbs": 28,
+          "fat": 18,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-17T18:01:27.783Z"
+        }
+      ]
+    }
+  ]
+}

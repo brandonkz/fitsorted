@@ -1,0 +1,50 @@
+{
+  "name": "George",
+  "goal": 2603,
+  "joinedAt": "2026-03-17T14:36:51.408Z",
+  "profile": {
+    "age": 21,
+    "weight": 90,
+    "height": 183,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 280,
+        "protein": 28,
+        "carbs": 0,
+        "fat": 20,
+        "fibre": 0,
+        "priceZAR": 34
+      },
+      "entries": [
+        {
+          "food": "4x eggs",
+          "calories": 280,
+          "protein": 28,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 16,
+          "time": "2026-03-17T14:38:37.678Z"
+        },
+        {
+          "food": "Coke Zero 330ml",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 18,
+          "time": "2026-03-17T14:38:38.585Z"
+        }
+      ]
+    }
+  ]
+}

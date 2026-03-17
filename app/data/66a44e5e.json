@@ -1,0 +1,40 @@
+{
+  "name": "Karabo",
+  "goal": 3449,
+  "joinedAt": "2026-03-17T14:55:35.477Z",
+  "profile": {
+    "age": 22,
+    "weight": 82,
+    "height": 187,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 650,
+        "protein": 40,
+        "carbs": 70,
+        "fat": 25,
+        "fibre": 5,
+        "priceZAR": 85
+      },
+      "entries": [
+        {
+          "food": "200g chicken strips and chips",
+          "calories": 650,
+          "protein": 40,
+          "carbs": 70,
+          "fat": 25,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-17T14:58:32.631Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Carl Aaron Pillay",
+  "goal": 1683,
+  "joinedAt": "2026-03-17T12:09:57.552Z",
+  "profile": {
+    "age": 36,
+    "weight": 70,
+    "height": 170,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 110,
+        "protein": 2,
+        "carbs": 24,
+        "fat": 0,
+        "fibre": 1,
+        "priceZAR": 5
+      },
+      "entries": [
+        {
+          "food": "cornflakes 30g",
+          "calories": 110,
+          "protein": 2,
+          "carbs": 24,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-03-17T13:02:05.804Z"
+        }
+      ]
+    }
+  ]
+}

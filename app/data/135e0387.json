@@ -1,0 +1,29 @@
+{
+  "name": "Nicole",
+  "goal": 2090,
+  "joinedAt": "2026-03-17T14:58:01.788Z",
+  "profile": {
+    "age": 32,
+    "weight": 128,
+    "height": 177,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": []
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Prudence",
+  "goal": 1693,
+  "joinedAt": "2026-03-17T10:47:28.683Z",
+  "profile": {
+    "age": 32,
+    "weight": 80,
+    "height": 150,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 1205,
+        "protein": 71,
+        "carbs": 140,
+        "fat": 45,
+        "fibre": 12,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "3x boiled eggs with sweet potatoes and chakalaka",
+          "calories": 470,
+          "protein": 21,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 10,
+          "priceZAR": 30,
+          "time": "2026-03-17T10:53:42.103Z"
+        },
+        {
+          "food": "fried chicken with pap",
+          "calories": 485,
+          "protein": 40,
+          "carbs": 50,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-17T17:58:33.719Z"
+        },
+        {
+          "food": "Can you calculate calories only (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-17T18:03:21.861Z"
+        }
+      ]
+    }
+  ]
+}

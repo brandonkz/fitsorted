@@ -1,0 +1,40 @@
+{
+  "name": "Milan",
+  "goal": 2991,
+  "joinedAt": "2026-03-17T13:34:36.855Z",
+  "profile": {
+    "age": 27,
+    "weight": 64,
+    "height": 168,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 320,
+        "protein": 7,
+        "carbs": 49,
+        "fat": 9,
+        "fibre": 0,
+        "priceZAR": 34
+      },
+      "entries": [
+        {
+          "food": "3 scrambled eggs \nBig croissant with cheese and Tomato \nBooger Protein shake (est.)",
+          "calories": 320,
+          "protein": 7,
+          "carbs": 49,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 34,
+          "time": "2026-03-17T13:36:55.911Z"
+        }
+      ]
+    }
+  ]
+}

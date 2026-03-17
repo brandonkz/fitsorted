@@ -16,12 +16,12 @@
     {
       "date": "2026-03-17",
       "totals": {
-        "calories": 205,
-        "protein": 4,
-        "carbs": 45,
-        "fat": 0,
-        "fibre": 0,
-        "priceZAR": 0
+        "calories": 695,
+        "protein": 19,
+        "carbs": 125,
+        "fat": 11,
+        "fibre": 2,
+        "priceZAR": 18
       },
       "entries": [
         {
@@ -33,6 +33,26 @@
           "fibre": 0,
           "priceZAR": 0,
           "time": "2026-03-17T01:55:58.289Z"
+        },
+        {
+          "food": "not eating breakfast (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-17T07:06:39.793Z"
+        },
+        {
+          "food": "Pap (stiff, cooked) (1 cup (250g))",
+          "calories": 240,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 18,
+          "time": "2026-03-17T14:57:19.724Z"
         }
       ]
     }

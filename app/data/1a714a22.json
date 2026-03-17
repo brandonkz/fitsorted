@@ -1,0 +1,40 @@
+{
+  "name": "Juliet",
+  "goal": 2371,
+  "joinedAt": "2026-03-17T12:57:39.902Z",
+  "profile": {
+    "age": 68,
+    "weight": 65.8,
+    "height": 167,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 350,
+        "protein": 30,
+        "carbs": 15,
+        "fat": 15,
+        "fibre": 5,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "small salad with lettuce, tomato, cucumber and half a can of tuna with cottage cheese",
+          "calories": 350,
+          "protein": 30,
+          "carbs": 15,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-17T13:01:11.543Z"
+        }
+      ]
+    }
+  ]
+}

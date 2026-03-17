@@ -23,6 +23,18 @@
         "calories": 330,
         "time": "2026-03-15T11:13:33.431Z"
       }
+    ],
+    "2026-03-17": [
+      {
+        "activity": "Log workout",
+        "calories": 266,
+        "time": "2026-03-17T06:15:44.300Z"
+      },
+      {
+        "activity": "Nutri-go gourmet caramel biscuit crunch layered protein bar",
+        "calories": 0,
+        "time": "2026-03-17T12:06:51.590Z"
+      }
     ]
   },
   "logSummary": [
@@ -139,6 +151,89 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-16T18:01:36.191Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 1053,
+        "protein": 83,
+        "carbs": 108,
+        "fat": 18.1,
+        "fibre": 7.5,
+        "priceZAR": 128
+      },
+      "entries": [
+        {
+          "food": "spicy egg cup",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-17T06:15:54.952Z"
+        },
+        {
+          "food": "First Choice High Protein Recovery Strawberry Vanilla Flavoured Low Fat Milk 1L",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 60,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-17T07:04:46.038Z"
+        },
+        {
+          "food": "Nutri-Go Gourmet Caramel Biscuit Crunch Layered Protein Bar",
+          "calories": 200,
+          "protein": 15,
+          "carbs": 25,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-17T12:05:08.159Z"
+        },
+        {
+          "food": "grilled chicken breast",
+          "calories": 165,
+          "protein": 31,
+          "carbs": 0,
+          "fat": 3.6,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-17T12:05:43.713Z"
+        },
+        {
+          "food": "quarter cup wholewheat couscous",
+          "calories": 57,
+          "protein": 2,
+          "carbs": 12,
+          "fat": 0.5,
+          "fibre": 1.5,
+          "priceZAR": 5,
+          "time": "2026-03-17T12:05:47.436Z"
+        },
+        {
+          "food": "2x mushroom",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-17T12:05:50.365Z"
+        },
+        {
+          "food": "bell peppers",
+          "calories": 31,
+          "protein": 1,
+          "carbs": 6,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-17T12:05:53.632Z"
         }
       ]
     }

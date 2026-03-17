@@ -1,0 +1,40 @@
+{
+  "name": "Theshaya",
+  "goal": 1155,
+  "joinedAt": "2026-03-17T13:42:32.052Z",
+  "profile": {
+    "age": 25,
+    "weight": 83,
+    "height": 167,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 640,
+        "protein": 48,
+        "carbs": 16,
+        "fat": 48,
+        "fibre": 0,
+        "priceZAR": 120
+      },
+      "entries": [
+        {
+          "food": "8x Thai chicken wings",
+          "calories": 640,
+          "protein": 48,
+          "carbs": 16,
+          "fat": 48,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-17T13:46:58.544Z"
+        }
+      ]
+    }
+  ]
+}

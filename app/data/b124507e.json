@@ -1,0 +1,90 @@
+{
+  "name": "Clarisse",
+  "goal": 1754,
+  "joinedAt": "2026-03-17T13:28:16.023Z",
+  "profile": {
+    "age": 22,
+    "weight": 61,
+    "height": 178,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 813,
+        "protein": 73,
+        "carbs": 86,
+        "fat": 18,
+        "fibre": 8,
+        "priceZAR": 114
+      },
+      "entries": [
+        {
+          "food": "protein milkshake",
+          "calories": 300,
+          "protein": 30,
+          "carbs": 30,
+          "fat": 5,
+          "fibre": 2,
+          "priceZAR": 45,
+          "time": "2026-03-17T13:31:16.758Z"
+        },
+        {
+          "food": "4x teaspoon of honey",
+          "calories": 64,
+          "protein": 0,
+          "carbs": 17,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-17T13:31:19.932Z"
+        },
+        {
+          "food": "1x teaspoon of yum tum peanut butter",
+          "calories": 31,
+          "protein": 1,
+          "carbs": 1,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-17T13:31:22.646Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 5,
+          "time": "2026-03-17T13:31:24.316Z"
+        },
+        {
+          "food": "cinnamon and unsweetened almond milk",
+          "calories": 48,
+          "protein": 1,
+          "carbs": 1,
+          "fat": 4,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-17T13:31:28.099Z"
+        },
+        {
+          "food": "1x skinless chicken breast with 1/4 can of Rhodes onion and tomato mix",
+          "calories": 265,
+          "protein": 40,
+          "carbs": 10,
+          "fat": 6,
+          "fibre": 2,
+          "priceZAR": 34,
+          "time": "2026-03-17T17:55:20.989Z"
+        }
+      ]
+    }
+  ]
+}

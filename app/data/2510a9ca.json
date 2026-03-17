@@ -1,0 +1,24 @@
+{
+  "name": "Charne",
+  "goal": 1290,
+  "joinedAt": "2026-03-17T11:32:57.094Z",
+  "profile": {
+    "age": 39,
+    "weight": 57,
+    "height": 155,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-17": [
+      {
+        "activity": "snack",
+        "calories": 200,
+        "time": "2026-03-17T11:35:44.681Z"
+      }
+    ]
+  },
+  "logSummary": []
+}

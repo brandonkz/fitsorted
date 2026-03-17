@@ -10,7 +10,37 @@
     "target": "lose",
     "foodBudget": 100
   },
-  "weights": [],
+  "weights": [
+    {
+      "kg": 82,
+      "date": "2026-03-17",
+      "time": "2026-03-17T05:08:01.439Z"
+    }
+  ],
   "exercise": {},
-  "logSummary": []
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 600,
+        "protein": 12,
+        "carbs": 72,
+        "fat": 30,
+        "fibre": 3,
+        "priceZAR": 45
+      },
+      "entries": [
+        {
+          "food": "3x mini pie",
+          "calories": 600,
+          "protein": 12,
+          "carbs": 72,
+          "fat": 30,
+          "fibre": 3,
+          "priceZAR": 45,
+          "time": "2026-03-17T05:08:20.780Z"
+        }
+      ]
+    }
+  ]
 }

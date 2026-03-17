@@ -1,0 +1,60 @@
+{
+  "name": "Kate",
+  "goal": 1991,
+  "joinedAt": "2026-03-17T15:14:46.364Z",
+  "profile": {
+    "age": 50,
+    "weight": 74,
+    "height": 179,
+    "gender": "female",
+    "target": "maintain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 398,
+        "protein": 17,
+        "carbs": 41,
+        "fat": 20,
+        "fibre": 6,
+        "priceZAR": 55
+      },
+      "entries": [
+        {
+          "food": "toast",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 15,
+          "time": "2026-03-17T15:17:02.282Z"
+        },
+        {
+          "food": "2x tablespoon peanut butter",
+          "calories": 188,
+          "protein": 8,
+          "carbs": 6,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-17T15:17:09.623Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-17T15:17:16.561Z"
+        }
+      ]
+    }
+  ]
+}

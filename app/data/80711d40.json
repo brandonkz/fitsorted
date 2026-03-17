@@ -1,0 +1,153 @@
+{
+  "name": "Carla",
+  "goal": 3660,
+  "joinedAt": "2026-03-17T14:40:38.240Z",
+  "profile": {
+    "age": 25,
+    "weight": 166,
+    "height": 166,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-17": [
+      {
+        "activity": "meal preparation",
+        "calories": 0,
+        "time": "2026-03-17T14:44:49.327Z"
+      },
+      {
+        "activity": "food consumption",
+        "calories": 0,
+        "time": "2026-03-17T14:45:13.187Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 2032,
+        "protein": 59,
+        "carbs": 214,
+        "fat": 66,
+        "fibre": 30,
+        "priceZAR": 174
+      },
+      "entries": [
+        {
+          "food": "bowl of oats",
+          "calories": 240,
+          "protein": 7,
+          "carbs": 38,
+          "fat": 5,
+          "fibre": 4,
+          "priceZAR": 12,
+          "time": "2026-03-17T14:45:37.249Z"
+        },
+        {
+          "food": "3 tablespoons low fat yoghurt",
+          "calories": 45,
+          "protein": 4,
+          "carbs": 6,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-17T14:46:12.421Z"
+        },
+        {
+          "food": "6 walnuts",
+          "calories": 96,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 9,
+          "fibre": 2,
+          "priceZAR": 12,
+          "time": "2026-03-17T14:46:28.758Z"
+        },
+        {
+          "food": "1 tablespoon chia seeds",
+          "calories": 58,
+          "protein": 2,
+          "carbs": 5,
+          "fat": 4,
+          "fibre": 5,
+          "priceZAR": 4,
+          "time": "2026-03-17T14:46:36.645Z"
+        },
+        {
+          "food": "1 scoop of protein powder",
+          "calories": 80,
+          "protein": 16,
+          "carbs": 2,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-17T14:46:54.357Z"
+        },
+        {
+          "food": "cheese and tomato brown bread sandwich",
+          "calories": 320,
+          "protein": 12,
+          "carbs": 40,
+          "fat": 12,
+          "fibre": 6,
+          "priceZAR": 20,
+          "time": "2026-03-17T14:47:14.325Z"
+        },
+        {
+          "food": "400g watermelon",
+          "calories": 120,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 16,
+          "time": "2026-03-17T14:47:35.932Z"
+        },
+        {
+          "food": "chocolate brownie",
+          "calories": 250,
+          "protein": 3,
+          "carbs": 35,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-17T14:47:49.145Z"
+        },
+        {
+          "food": "avocado toast",
+          "calories": 300,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 18,
+          "fibre": 7,
+          "priceZAR": 50,
+          "time": "2026-03-17T16:50:27.249Z"
+        },
+        {
+          "food": "toast with Bovril",
+          "calories": 160,
+          "protein": 4,
+          "carbs": 24,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-17T17:18:30.032Z"
+        },
+        {
+          "food": "boxing for 1 hour",
+          "calories": 363,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-17T18:03:33.681Z"
+        }
+      ]
+    }
+  ]
+}

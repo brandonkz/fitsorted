@@ -1,0 +1,50 @@
+{
+  "name": "Banele",
+  "goal": 1986,
+  "joinedAt": "2026-03-17T14:26:16.943Z",
+  "profile": {
+    "age": 21,
+    "weight": 99,
+    "height": 176,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 645,
+        "protein": 59,
+        "carbs": 45,
+        "fat": 27,
+        "fibre": 1,
+        "priceZAR": 61
+      },
+      "entries": [
+        {
+          "food": "4x egg",
+          "calories": 280,
+          "protein": 28,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 16,
+          "time": "2026-03-17T14:28:51.368Z"
+        },
+        {
+          "food": "rice and chicken breast",
+          "calories": 365,
+          "protein": 31,
+          "carbs": 45,
+          "fat": 7,
+          "fibre": 1,
+          "priceZAR": 45,
+          "time": "2026-03-17T14:28:56.870Z"
+        }
+      ]
+    }
+  ]
+}
