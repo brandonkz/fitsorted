@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-17T21:43:49.904Z",
+    "date": "2026-03-17",
+    "phone": "5185",
+    "userId": "27725835",
+    "food": "oats",
+    "calories": 200,
+    "protein": 8,
+    "carbs": 36,
+    "fat": 4,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-17T19:55:16.451Z",
     "date": "2026-03-17",
     "phone": "3227",
