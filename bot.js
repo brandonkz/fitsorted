@@ -1947,10 +1947,22 @@ async function estimateCalories(food, user) {
     fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] Estimated: ${result.food} → ${estimatedCal} cal | P:${estP}g C:${estC}g F:${estF}g\n`);
   }
   
-  // Also catch suspiciously low calories for substantial foods (< 20 cal for non-drinks)
+  // Also catch suspiciously low calories for substantial foods
+  // Anything marketed as a "bar", "nutter", "biscuit", "cookie", "cake", "muffin", "scone" should be at least 150 cal
+  const isSubstantialSnack = /\b(bar|nutter|biscuit|cookie|cake|muffin|scone|brownie|slice|tart|pastry|croissant|donut|doughnut)\b/i.test(inputLower);
+  
   if (result.calories > 0 && result.calories < 20 && !isZeroCalOk && !inputLower.includes('gum') && !inputLower.includes('mint') && !inputLower.includes('pickle')) {
     fs.appendFileSync(aiDebugLog, `[LOW-CAL FIX] AI returned only ${result.calories} cal for "${food}" — bumping to minimum 50 cal\n`);
     result.calories = Math.max(result.calories, 50);
+  }
+  
+  // Catch substantial snacks that AI grossly underestimated
+  if (isSubstantialSnack && result.calories < 150) {
+    fs.appendFileSync(aiDebugLog, `[SNACK-CAL FIX] "${food}" is a substantial snack but AI returned only ${result.calories} cal — bumping to minimum 400 cal\n`);
+    result.calories = Math.max(result.calories, 400);
+    result.protein = Math.max(result.protein, 5);
+    result.carbs = Math.max(result.carbs, 40);
+    result.fat = Math.max(result.fat, 15);
   }
   
   // Macro sanity check: macros should roughly add up to calories (P*4 + C*4 + F*9 ≈ calories)
