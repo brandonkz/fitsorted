@@ -28,6 +28,7 @@ const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID || "10803069";
 const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY || "heptrxgjismzp";
 const ITN_URL = "https://fuddzrlnbrseofguuikp.supabase.co/functions/v1/payfast-itn";
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_bDTutSXR_G4Q84ays1Noi7JqwuEGoS2tM";
+const FOOD_LOG_SHEET_ID = "1RIOOA4F425JPJXq5MiQ_qoqfh1NiEQAifT0zGYE0yfk";
 
 // Promo codes — { CODE: discountPercent } (use 100 for free/founder access)
 // Promo codes — { CODE: discountPercent }
@@ -355,6 +356,34 @@ function loadUsers() {
   catch { return {}; }
 }
 function saveUsers(u) { fs.writeFileSync(USERS_FILE, JSON.stringify(u, null, 2)); }
+
+// ── Google Sheets Food Log Append ──
+async function appendToFoodLogSheet(phone, userId, food, calories, protein, carbs, fat, fibre, source) {
+  try {
+    const { execSync } = require('child_process');
+    const row = [
+      new Date().toISOString(),
+      phone,
+      userId,
+      food,
+      calories,
+      protein || 0,
+      carbs || 0,
+      fat || 0,
+      fibre || 0,
+      source || 'unknown'
+    ].join('\t');
+    
+    // Use gog to append row
+    execSync(`echo "${row}" | gog sheets append ${FOOD_LOG_SHEET_ID} --range "All Logs!A:J" --delimiter "\t"`, { 
+      timeout: 5000,
+      stdio: 'ignore' // Don't block on output
+    });
+  } catch (e) {
+    console.error('[sheets append error]', e.message);
+    // Silent fail - don't block user experience if Sheets API fails
+  }
+}
 
 // ── Failed Lookups Tracking ──
 function loadFailedLookups() {
@@ -984,8 +1013,11 @@ async function estimateCalories(food, user) {
     "diet coke": { food: "Diet Coke 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
     "pepsi max": { food: "Pepsi Max 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
     "sprite zero": { food: "Sprite Zero 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "fanta zero": { food: "Fanta Zero Orange 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "stoney zero": { food: "Stoney Zero 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
   };
-  const zeroDrinkKey = Object.keys(zeroDrinks).find(k => lower === k || lower.includes(k));
+  // Match exact or partial (e.g. "coke zero" matches "coke zero 500ml" input)
+  const zeroDrinkKey = Object.keys(zeroDrinks).find(k => lower === k || lower.includes(k) || k.includes(lower.replace(/\s+/g, ' ')));
   if (zeroDrinkKey) return zeroDrinks[zeroDrinkKey];
 
   // 1c. Common items AI consistently gets wrong (SA portions)
@@ -2703,7 +2735,7 @@ async function handleMessage(from, text, imageId) {
           const message = `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`;
           console.log('[FOOD] Attempting to send buttons for:', result.food);
           await sendButtons(from, message, [
-            { id: 'correct_last', title: '✏️ Correct' },
+            { id: 'correct_last', title: '✏️ Edit' },
             { id: 'undo_last', title: '❌ Remove' }
           ]);
         }
@@ -4534,6 +4566,9 @@ async function handleMessage(from, text, imageId) {
             units: alcoholUnits,
           });
           
+          // Append to Google Sheets (async, non-blocking)
+          appendToFoodLogSheet(from, user.id || from, result.food, result.calories, result.protein || 0, result.carbs || 0, result.fat || 0, result.fibre || 0, result.source || 'AI').catch(e => console.error('[sheets]', e.message));
+          
           results.push(result);
         } catch (e) {
           console.error(`[multi-item] Failed to process "${item}":`, e.message);
@@ -4662,6 +4697,9 @@ async function handleMessage(from, text, imageId) {
     const todayMacros = getTodayMacros(user);
     const macroTargets = getMacroTargets(user);
     saveUsers(users);
+    
+    // Append to Google Sheets (async, non-blocking)
+    appendToFoodLogSheet(from, user.id || from, result.food, result.calories, result.protein, result.carbs, result.fat, result.fibre, result.source || 'AI').catch(e => console.error('[sheets]', e.message));
 
     const sourceTag = result.source === "custom" ? " _(your saved entry)_" : "";
     const userHasPremium = await hasAccess(from, user);
@@ -4711,7 +4749,7 @@ async function handleMessage(from, text, imageId) {
         const message = `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`;
         console.log('[FOOD] Sending food log with buttons');
         await sendButtons(from, message, [
-          { id: 'correct_last', title: '✏️ Correct' },
+          { id: 'correct_last', title: '✏️ Edit' },
           { id: 'undo_last', title: '❌ Remove' }
         ]);
       }

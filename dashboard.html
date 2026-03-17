@@ -136,7 +136,10 @@
       <button onclick="unlock()">Enter</button>
     </div>
     <div id="dashboard" style="display:none;">
-      <h1>🥗 FitSorted Dashboard</h1>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <h1 style="margin:0;">🥗 FitSorted Dashboard</h1>
+        <a href="https://docs.google.com/spreadsheets/d/1RIOOA4F425JPJXq5MiQ_qoqfh1NiEQAifT0zGYE0yfk/edit" target="_blank" style="padding:8px 16px;background:#22c55e;color:#0f172a;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;">📊 View All Food Logs</a>
+      </div>
       <p class="subtitle" id="updated"></p>
       <div class="stats-grid" id="stats-grid"></div>
       <input class="search" type="text" placeholder="Search users..." id="search" oninput="filterUsers()">
