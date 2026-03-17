@@ -2960,6 +2960,8 @@ async function handleMessage(from, text, imageId) {
     { patterns: [/how much do i weigh/i, /my weight/i, /weight (trend|history|progress|graph)/i, /show.*weight/i, /weigh-?ins?/i, /track.*weight/i], redirect: "weight history" },
     // Undo
     { patterns: [/that('?s| was| is) wrong/i, /take (that|it) back/i, /made a mistake/i, /remove (the )?last/i, /wrong (one|entry|food|item)/i, /didn'?t (eat|have|mean) that/i, /oops/i, /scratch that/i, /cancel (that|last)/i], redirect: "undo" },
+    // Correct / manual entry
+    { patterns: [/(wrong|incorrect) (calorie|calories|cal|amount)/i, /(fix|correct|adjust|change) (the )?(calorie|calories|last entry)/i, /manual(ly)? (enter|add|log)/i, /let me (enter|type|add) (it|calories) manual/i], redirect: "correct" },
     // Meal suggestions
     { patterns: [/what (should|can|could) i eat/i, /suggest.*(meal|food|snack|lunch|dinner|breakfast)/i, /meal idea/i, /what('?s| is) (good|healthy) to eat/i, /i'?m hungry/i, /snack idea/i, /low cal.*(idea|option|suggestion|meal)/i, /under \d+ cal/i], redirect: "menu:suggest" },
     // Help / menu
@@ -3768,6 +3770,45 @@ async function handleMessage(from, text, imageId) {
     } else {
       await send(from, "Nothing to undo.");
     }
+    return;
+  }
+
+  // ── Correct/Manual Entry ──
+  if (msgLower === 'correct' || /^(wrong|incorrect) (calorie|calories)/i.test(msgLower) || /manual(ly)? (enter|log)/i.test(msgLower)) {
+    await send(from, `📝 *Manual Entry Mode*\n\nType your entry in this format:\n\n*food name | calories*\n\nExample:\n_the nutter | 865_\n\nI'll log it exactly as you say.`);
+    return;
+  }
+
+  // Check if message is manual entry format: "food name | calories"
+  const manualMatch = msg.match(/^(.+?)\s*\|\s*(\d+)$/);
+  if (manualMatch) {
+    const foodName = manualMatch[1].trim();
+    const calories = parseInt(manualMatch[2]);
+    
+    if (calories < 1 || calories > 5000) {
+      await send(from, `⚠️ Calories must be between 1-5000. Try again with a realistic value.`);
+      return;
+    }
+
+    const today = getToday();
+    if (!user.log[today]) user.log[today] = [];
+    
+    const entry = {
+      food: foodName + ' (manual)',
+      calories: calories,
+      protein: 0,
+      carbs: 0,
+      fat: 0,
+      fibre: 0,
+      priceZAR: 0,
+      time: new Date().toISOString()
+    };
+    
+    user.log[today].push(entry);
+    saveUsers(users);
+
+    const total = getTodayTotal(user);
+    await send(from, `✅ Logged: *${foodName}* (${calories} cal)\n\n` + deficitMessage(total, user.goal));
     return;
   }
 
