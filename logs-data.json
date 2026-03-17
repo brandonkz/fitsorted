@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-17T19:01:38.234Z",
+    "date": "2026-03-17",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "12 chicken potstickers (manual)",
+    "calories": 413,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "Manual"
+  },
+  {
+    "timestamp": "2026-03-17T19:00:44.574Z",
+    "date": "2026-03-17",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "12x potstickers",
+    "calories": 720,
+    "protein": 36,
+    "carbs": 96,
+    "fat": 24,
+    "fibre": 12,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-17T18:59:04.631Z",
+    "date": "2026-03-17",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "chicken potstickers",
+    "calories": 300,
+    "protein": 15,
+    "carbs": 40,
+    "fat": 10,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-17T18:03:33.681Z",
     "date": "2026-03-17",
     "phone": "5716",
