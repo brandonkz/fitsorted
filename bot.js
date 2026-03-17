@@ -1670,7 +1670,7 @@ async function estimateCalories(food, user) {
   } catch (e) { console.error('[foods] Error loading extra-foods.json:', e.message); }
   
   // Skip simple lookup if input mentions a restaurant/chain (those need specific data)
-  const restaurantNames = ['nando', 'steers', 'kfc', 'kauai', 'woolworths', 'woolies', 'spur', 'mcdonalds', 'mcdonald', 'burger king', 'wimpy', 'ocean basket', 'debonairs', 'roman', 'chicken licken', 'fishaways', 'pedros', 'col\'cacchio', 'mugg', 'vida', 'starbucks'];
+  const restaurantNames = ['nando', 'steers', 'kfc', 'kauai', 'woolworths', 'woolies', 'spur', 'mcdonalds', 'mcdonald', 'burger king', 'wimpy', 'ocean basket', 'debonairs', 'roman', 'chicken licken', 'fishaways', 'pedros', 'col\'cacchio', 'mugg', 'vida', 'starbucks', 'nu ', 'nu food', 'nu juice'];
   const isRestaurantItem = restaurantNames.some(r => lower.includes(r));
 
   if (!isRestaurantItem) {
