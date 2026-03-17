@@ -2678,7 +2678,11 @@ async function handleMessage(from, text, imageId) {
           alcoholMsg += `\n\n📊 Today total: *${total} / ${effectiveGoal} cal*`;
           await send(from, alcoholMsg);
         } else {
-          await send(from, `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+          const message = `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`;
+          await sendButtons(from, message, [
+            { id: 'correct_last', title: '✏️ Correct' },
+            { id: 'undo_last', title: '❌ Remove' }
+          ]);
         }
         await maybeFirstLogMenu(from, user);
         await maybePromptPro(from, user);
@@ -2695,6 +2699,17 @@ async function handleMessage(from, text, imageId) {
       await send(from, "No worries. Please type the correct food details.");
       return;
     }
+  }
+
+  // ── Button callbacks: correct_last, undo_last ──
+  if (msgLower === 'correct_last') {
+    await send(from, `📝 *Enter correct calories*\n\nType: *food name | calories*\n\nExample:\n_the nutter large | 865_`);
+    return;
+  }
+
+  if (msgLower === 'undo_last') {
+    // Trigger undo flow
+    return handleMessage(from, 'undo', null);
   }
 
   // ── Admin: "users" shows user count + activity ──
