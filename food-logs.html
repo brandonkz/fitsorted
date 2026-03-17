@@ -82,51 +82,25 @@
 
     async function loadLogs() {
       try {
-        const response = await fetch('users.json');
-        const users = await response.json();
+        const response = await fetch('logs-data.json');
+        allLogs = await response.json();
         
-        allLogs = [];
-        let totalEntries = 0;
         let uniqueUsers = new Set();
         let today = new Date().toISOString().split('T')[0];
         let todayEntries = 0;
         let totalCalories = 0;
 
-        Object.entries(users).forEach(([phone, user]) => {
-          if (user.log) {
-            uniqueUsers.add(user.phone || user.id || phone);
-            Object.entries(user.log).forEach(([date, entries]) => {
-              entries.forEach(entry => {
-                const source = entry.food?.includes('(manual)') ? 'Manual' : (entry.food?.includes('(DB)') ? 'DB' : 'AI');
-                allLogs.push({
-                  timestamp: entry.time || `${date}T12:00:00Z`,
-                  date: date,
-                  phone: user.phone || phone,
-                  userId: user.id || phone,
-                  food: entry.food || '',
-                  calories: entry.calories || 0,
-                  protein: entry.protein || 0,
-                  carbs: entry.carbs || 0,
-                  fat: entry.fat || 0,
-                  fibre: entry.fibre || 0,
-                  source: source
-                });
-                totalEntries++;
-                totalCalories += entry.calories || 0;
-                if (date === today) todayEntries++;
-              });
-            });
-          }
+        allLogs.forEach(log => {
+          uniqueUsers.add(log.phone);
+          totalCalories += log.calories;
+          if (log.date === today) todayEntries++;
         });
-
-        // Sort by timestamp descending
-        allLogs.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         
         // Update stats
         document.getElementById('stats').innerHTML = `
           <div class="stat-card">
             <div class="stat-label">Total Entries</div>
-            <div class="stat-value">${totalEntries.toLocaleString()}</div>
+            <div class="stat-value">${allLogs.length.toLocaleString()}</div>
           </div>
           <div class="stat-card">
             <div class="stat-label">Unique Users</div>
