@@ -307,7 +307,8 @@
   <script>
     const $ = (id) => document.getElementById(id);
     const fmtDate = (d) => new Date(d).toLocaleDateString('en-ZA', { weekday: 'short', month: 'short', day: 'numeric', year:'numeric' });
-    const token = new URLSearchParams(location.search).get('t');
+    const params = new URLSearchParams(location.search);
+    const token = params.get('t') || params.get('id');
 
     function showEmpty(){
       document.querySelectorAll('.section').forEach(s=>s.style.display='none');
