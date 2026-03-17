@@ -52,12 +52,12 @@
     {
       "date": "2026-03-16",
       "totals": {
-        "calories": 703,
-        "protein": 68,
-        "carbs": 24,
-        "fat": 21.1,
-        "fibre": 5,
-        "priceZAR": 89
+        "calories": 1083,
+        "protein": 73,
+        "carbs": 84,
+        "fat": 36.1,
+        "fibre": 6,
+        "priceZAR": 164
       },
       "entries": [
         {
@@ -119,6 +119,26 @@
           "fibre": 0,
           "priceZAR": 0,
           "time": "2026-03-16T17:44:29.482Z"
+        },
+        {
+          "food": "Log peppermint tart",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 45,
+          "time": "2026-03-16T18:01:00.928Z"
+        },
+        {
+          "food": "Log passion fruit slimzy (est.)",
+          "calories": 80,
+          "protein": 1,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-16T18:01:36.191Z"
         }
       ]
     }

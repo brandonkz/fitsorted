@@ -79,12 +79,12 @@
     {
       "date": "2026-03-16",
       "totals": {
-        "calories": 250,
-        "protein": 10,
-        "carbs": 30,
-        "fat": 10,
-        "fibre": 0,
-        "priceZAR": 15
+        "calories": 1050,
+        "protein": 50,
+        "carbs": 115,
+        "fat": 42,
+        "fibre": 5,
+        "priceZAR": 120
       },
       "entries": [
         {
@@ -106,6 +106,26 @@
           "fibre": 0,
           "priceZAR": 15,
           "time": "2026-03-16T08:45:33.659Z"
+        },
+        {
+          "food": "NY slice mince pizza",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 35,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 80,
+          "time": "2026-03-16T18:11:23.630Z"
+        },
+        {
+          "food": "mince and cheese toasted sandwich",
+          "calories": 500,
+          "protein": 25,
+          "carbs": 50,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 25,
+          "time": "2026-03-16T18:12:38.585Z"
         }
       ]
     }

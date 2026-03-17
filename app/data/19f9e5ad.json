@@ -1,0 +1,40 @@
+{
+  "name": "Duu",
+  "goal": 1488,
+  "joinedAt": "2026-03-13T22:45:05.168Z",
+  "profile": {
+    "age": 29,
+    "weight": 100,
+    "height": 154,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "calories": 205,
+        "protein": 4,
+        "carbs": 45,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Rice (1 cup cooked) (1 cup)",
+          "calories": 205,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-17T01:55:58.289Z"
+        }
+      ]
+    }
+  ]
+}
