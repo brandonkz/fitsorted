@@ -2190,28 +2190,34 @@ async function maybePromptPro(from, user) {
 }
 
 async function sendButtons(to, body, buttons) {
-  // WhatsApp enforces: body max 1024 chars, button title max 20 chars, button id max 256 chars, max 3 buttons
-  const safeBtns = buttons.slice(0, 3).map(b => ({
-    type: "reply",
-    reply: {
-      id: (b.id || "").slice(0, 256),
-      title: (b.title || "").slice(0, 20)
-    }
-  }));
-  await axios.post(
-    `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
-    {
-      messaging_product: "whatsapp",
-      to,
-      type: "interactive",
-      interactive: {
-        type: "button",
-        body: { text: (body || "").slice(0, 1024) },
-        action: { buttons: safeBtns }
+  try {
+    // WhatsApp enforces: body max 1024 chars, button title max 20 chars, button id max 256 chars, max 3 buttons
+    const safeBtns = buttons.slice(0, 3).map(b => ({
+      type: "reply",
+      reply: {
+        id: (b.id || "").slice(0, 256),
+        title: (b.title || "").slice(0, 20)
       }
-    },
-    { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
-  );
+    }));
+    await axios.post(
+      `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
+      {
+        messaging_product: "whatsapp",
+        to,
+        type: "interactive",
+        interactive: {
+          type: "button",
+          body: { text: (body || "").slice(0, 1024) },
+          action: { buttons: safeBtns }
+        }
+      },
+      { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
+    );
+  } catch (error) {
+    console.error('[sendButtons] Error sending buttons, falling back to plain message:', error.response?.data || error.message);
+    // Fallback to regular text message
+    await send(to, body);
+  }
 }
 
 async function sendList(to, body, buttonText, sections) {
