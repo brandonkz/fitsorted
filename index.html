@@ -100,6 +100,23 @@
       align-items: center;
     }
 
+    .hero-media {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-video {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-video video {
+      width: 100%;
+      display: block;
+    }
+
     .cta-row {
       display: flex;
       flex-wrap: wrap;
@@ -298,11 +315,18 @@
         <p>30-day free trial. Then from R18/month.</p>
         <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">🔒 Military-grade encrypted backups • 🇿🇦 POPIA compliant</p>
       </div>
-      <div class="card">
-        <p style="font-weight: 600; margin-bottom: 10px;">Example message</p>
-        <p>2 eggs on toast</p>
-        <p>Calories 420 | Protein 26g | Carbs 32g | Fat 18g</p>
-        <p style="margin-top: 12px;">Daily summary with progress bars delivered in WhatsApp.</p>
+      <div class="hero-media">
+        <div class="hero-video">
+          <video autoplay loop muted playsinline>
+            <source src="demo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="card">
+          <p style="font-weight: 600; margin-bottom: 10px;">Example message</p>
+          <p>2 eggs on toast</p>
+          <p>Calories 420 | Protein 26g | Carbs 32g | Fat 18g</p>
+          <p style="margin-top: 12px;">Daily summary with progress bars delivered in WhatsApp.</p>
+        </div>
       </div>
     </div>
   </section>
