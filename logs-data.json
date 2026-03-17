@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-17T16:50:27.249Z",
+    "date": "2026-03-17",
+    "phone": "5716",
+    "userId": "27795425",
+    "food": "avocado toast",
+    "calories": 300,
+    "protein": 6,
+    "carbs": 30,
+    "fat": 18,
+    "fibre": 7,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-17T16:41:09.108Z",
+    "date": "2026-03-17",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-17T16:40:57.863Z",
+    "date": "2026-03-17",
+    "phone": "8664",
+    "userId": "27764018",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-17T16:39:01.599Z",
+    "date": "2026-03-17",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-17T15:41:17.623Z",
     "date": "2026-03-17",
     "phone": "2203",
