@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-18T12:36:36.332Z",
+    "date": "2026-03-18",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "2x carrot",
+    "calories": 50,
+    "protein": 1,
+    "carbs": 12,
+    "fat": 0,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T12:36:11.452Z",
+    "date": "2026-03-18",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "2x boiled egg",
+    "calories": 140,
+    "protein": 12,
+    "carbs": 2,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T12:07:14.009Z",
+    "date": "2026-03-18",
+    "phone": "0782",
+    "userId": "27664990",
+    "food": "2x sourdough slices with mince and cheddar",
+    "calories": 680,
+    "protein": 40,
+    "carbs": 80,
+    "fat": 30,
+    "fibre": 6,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-18T11:39:10.025Z",
     "date": "2026-03-18",
     "phone": "7970",
