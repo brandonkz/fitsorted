@@ -53,6 +53,56 @@ serve(async (req) => {
       return new Response("OK", { status: 200 });
     }
 
+    // Check if this is a ChurchesNearMe payment
+    if (params.custom_str2 === "churchesnearme") {
+      const tier = params.custom_str1 || "featured";
+      const amount = params.amount_gross || params.recurring_amount || "?";
+      const paymentId = params.pf_payment_id || params.m_payment_id || "unknown";
+      const payerEmail = params.email_address || "no email";
+      const payerName = `${params.name_first || ""} ${params.name_last || ""}`.trim() || "Unknown";
+
+      console.log(`✅ ChurchesNearMe ${tier} payment: R${amount} from ${payerName} (${payerEmail}), payment ID: ${paymentId}`);
+
+      // Store in churches Supabase
+      const CNM_URL = "https://npfbrorgnwhrbpfbqiuh.supabase.co";
+      const CNM_KEY = Deno.env.get("CNM_SERVICE_KEY") || "";
+
+      if (CNM_KEY) {
+        try {
+          // Insert a submission record so Brandon sees it
+          await fetch(`${CNM_URL}/rest/v1/church_submissions`, {
+            method: "POST",
+            headers: {
+              "apikey": CNM_KEY,
+              "Authorization": `Bearer ${CNM_KEY}`,
+              "Content-Type": "application/json",
+              "Prefer": "return=minimal"
+            },
+            body: JSON.stringify({
+              name: `💰 PAID: ${tier.toUpperCase()} listing`,
+              address: `Payment ID: ${paymentId}`,
+              city: `R${amount}`,
+              province: "Payment",
+              email: payerEmail,
+              submitter_name: payerName,
+              submitter_email: payerEmail,
+              status: "paid_pending_activation"
+            })
+          });
+          console.log("Stored payment in churches Supabase");
+        } catch (dbErr) {
+          console.error("Churches DB insert failed:", dbErr);
+        }
+      }
+
+      // Also send email notification to Brandon via PayFast's built-in email (logged above)
+      // Manual activation: Brandon checks church_submissions for status=paid_pending_activation
+
+      return new Response("OK", { status: 200 });
+    }
+
+    // ── FitSorted payment flow below ──
+
     // Extract phone from custom_str1 (we'll pass it in the payment URL)
     const phone = params.custom_str1;
     if (!phone) {
