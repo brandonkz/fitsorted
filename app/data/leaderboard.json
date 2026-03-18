@@ -510,9 +510,9 @@
     "name": "***5185",
     "streak": 1,
     "totalDaysLogged": 1,
-    "avgCalories": 813,
+    "avgCalories": 1013,
     "goalAccuracy": 0,
-    "totalLogs": 6,
+    "totalLogs": 7,
     "joinedDate": "2026-03-17T13:28:16.023Z",
     "target": "lose"
   },
@@ -625,5 +625,16 @@
     "totalLogs": 3,
     "joinedDate": "2026-03-17T15:14:46.364Z",
     "target": "maintain"
+  },
+  {
+    "token": "412f8712",
+    "name": "***3227",
+    "streak": 1,
+    "totalDaysLogged": 1,
+    "avgCalories": 1390,
+    "goalAccuracy": 0,
+    "totalLogs": 9,
+    "joinedDate": "2026-03-17T19:51:17.280Z",
+    "target": "lose"
   }
 ]

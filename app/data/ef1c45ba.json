@@ -11,7 +11,15 @@
     "foodBudget": 100
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-17": [
+      {
+        "activity": "weight training",
+        "calories": 250,
+        "time": "2026-03-17T19:30:17.125Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-17",

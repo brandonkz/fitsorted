@@ -16,12 +16,12 @@
     {
       "date": "2026-03-17",
       "totals": {
-        "calories": 813,
-        "protein": 73,
-        "carbs": 86,
-        "fat": 18,
-        "fibre": 8,
-        "priceZAR": 114
+        "calories": 1013,
+        "protein": 81,
+        "carbs": 122,
+        "fat": 22,
+        "fibre": 13,
+        "priceZAR": 124
       },
       "entries": [
         {
@@ -83,6 +83,16 @@
           "fibre": 2,
           "priceZAR": 34,
           "time": "2026-03-17T17:55:20.989Z"
+        },
+        {
+          "food": "oats",
+          "calories": 200,
+          "protein": 8,
+          "carbs": 36,
+          "fat": 4,
+          "fibre": 5,
+          "priceZAR": 10,
+          "time": "2026-03-17T21:43:49.904Z"
         }
       ]
     }
