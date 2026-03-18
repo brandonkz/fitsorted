@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-18T10:09:02.121Z",
+    "date": "2026-03-18",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "3x slice of round bacon",
+    "calories": 210,
+    "protein": 15,
+    "carbs": 0,
+    "fat": 18,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T10:08:19.829Z",
+    "date": "2026-03-18",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "100g steak",
+    "calories": 250,
+    "protein": 26,
+    "carbs": 0,
+    "fat": 17,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T09:31:45.477Z",
+    "date": "2026-03-18",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "large nutter",
+    "calories": 600,
+    "protein": 20,
+    "carbs": 70,
+    "fat": 30,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-18T08:02:50.879Z",
     "date": "2026-03-18",
     "phone": "4196",
