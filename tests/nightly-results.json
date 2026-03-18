@@ -1,0 +1,212 @@
+{
+  "date": "2026-03-19",
+  "results": [
+    {
+      "food": "woolworths chicken salad",
+      "minCal": 250,
+      "maxCal": 450,
+      "aiCal": 350,
+      "pass": true,
+      "result": {
+        "food": "Woolworths chicken salad",
+        "calories": 350,
+        "protein": 30,
+        "carbs": 20,
+        "fat": 15,
+        "fibre": 5,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "gatsby polony",
+      "minCal": 700,
+      "maxCal": 1100,
+      "aiCal": 800,
+      "pass": true,
+      "result": {
+        "food": "gatsby with polony",
+        "calories": 800,
+        "protein": 30,
+        "carbs": 90,
+        "fat": 35,
+        "fibre": 5,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "hunters dry",
+      "minCal": 130,
+      "maxCal": 200,
+      "aiCal": 170,
+      "pass": true,
+      "result": {
+        "food": "Hunters Gold Cider 330ml",
+        "calories": 170,
+        "protein": 0,
+        "carbs": 18,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": 30
+      }
+    },
+    {
+      "food": "cremora coffee",
+      "minCal": 40,
+      "maxCal": 90,
+      "aiCal": 50,
+      "pass": true,
+      "result": {
+        "food": "cremora coffee",
+        "calories": 50,
+        "protein": 0,
+        "carbs": 10,
+        "fat": 1,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "prego roll",
+      "minCal": 400,
+      "maxCal": 650,
+      "aiCal": 600,
+      "pass": true,
+      "result": {
+        "food": "prego roll",
+        "calories": 600,
+        "protein": 30,
+        "carbs": 70,
+        "fat": 25,
+        "fibre": 3,
+        "estimatedPriceZAR": 85
+      }
+    },
+    {
+      "food": "chicken licken 4 piece",
+      "minCal": 700,
+      "maxCal": 1100,
+      "aiCal": 680,
+      "pass": false,
+      "result": {
+        "food": "4x chicken piece",
+        "calories": 680,
+        "protein": 56,
+        "carbs": 0,
+        "fat": 48,
+        "fibre": 0,
+        "estimatedPriceZAR": 95
+      }
+    },
+    {
+      "food": "woolworths biltong 80g",
+      "minCal": 160,
+      "maxCal": 260,
+      "aiCal": 200,
+      "pass": true,
+      "result": {
+        "food": "Woolworths biltong 80g",
+        "calories": 200,
+        "protein": 40,
+        "carbs": 0,
+        "fat": 8,
+        "fibre": 0,
+        "estimatedPriceZAR": 70
+      }
+    },
+    {
+      "food": "spur salad bar",
+      "minCal": 200,
+      "maxCal": 450,
+      "aiCal": 0,
+      "pass": false,
+      "result": {
+        "food": "salad from Spur salad bar",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "two provitas with peanut butter",
+      "minCal": 150,
+      "maxCal": 280,
+      "aiCal": 320,
+      "pass": false,
+      "result": {
+        "food": "2x provita with peanut butter",
+        "calories": 320,
+        "protein": 12,
+        "carbs": 40,
+        "fat": 16,
+        "fibre": 4,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "steers chips small",
+      "minCal": 150,
+      "maxCal": 300,
+      "aiCal": 300,
+      "pass": true,
+      "result": {
+        "food": "small Steers chips",
+        "calories": 300,
+        "protein": 4,
+        "carbs": 50,
+        "fat": 12,
+        "fibre": 4,
+        "estimatedPriceZAR": 30
+      }
+    }
+  ],
+  "failures": [
+    {
+      "food": "chicken licken 4 piece",
+      "minCal": 700,
+      "maxCal": 1100,
+      "aiCal": 680,
+      "result": {
+        "food": "4x chicken piece",
+        "calories": 680,
+        "protein": 56,
+        "carbs": 0,
+        "fat": 48,
+        "fibre": 0,
+        "estimatedPriceZAR": 95
+      }
+    },
+    {
+      "food": "spur salad bar",
+      "minCal": 200,
+      "maxCal": 450,
+      "aiCal": 0,
+      "result": {
+        "food": "salad from Spur salad bar",
+        "calories": null,
+        "protein": null,
+        "carbs": null,
+        "fat": null,
+        "fibre": null,
+        "estimatedPriceZAR": null
+      }
+    },
+    {
+      "food": "two provitas with peanut butter",
+      "minCal": 150,
+      "maxCal": 280,
+      "aiCal": 320,
+      "result": {
+        "food": "2x provita with peanut butter",
+        "calories": 320,
+        "protein": 12,
+        "carbs": 40,
+        "fat": 16,
+        "fibre": 4,
+        "estimatedPriceZAR": null
+      }
+    }
+  ]
+}

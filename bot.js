@@ -1199,6 +1199,12 @@ async function estimateCalories(food, user) {
     "grilled linefish": { food: "Grilled Linefish (with sides)", calories: 380, protein: 40, carbs: 15, fat: 18, fibre: 2 },
     "coo-ee orange": { food: "Coo-ee Orange 500ml", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
     "coo-ee": { food: "Coo-ee 500ml", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
+    // Round 11 - nightly edge case test 2026-03-19
+    "chicken licken 4 piece": { food: "Chicken Licken 4 Piece", calories: 880, protein: 60, carbs: 40, fat: 52, fibre: 2 },
+    "4 piece chicken licken": { food: "Chicken Licken 4 Piece", calories: 880, protein: 60, carbs: 40, fat: 52, fibre: 2 },
+    "spur salad bar": { food: "Spur Salad Bar (plate)", calories: 300, protein: 8, carbs: 25, fat: 18, fibre: 5 },
+    "two provitas with peanut butter": { food: "2x Provita with Peanut Butter", calories: 250, protein: 9, carbs: 22, fat: 14, fibre: 3 },
+    "provita with peanut butter": { food: "Provita with Peanut Butter", calories: 125, protein: 5, carbs: 11, fat: 7, fibre: 2 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
