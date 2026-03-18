@@ -374,8 +374,9 @@ async function appendToFoodLogSheet(phone, userId, food, calories, protein, carb
       source || 'unknown'
     ].join('\t');
     
-    // Use gog to append row
-    execSync(`echo "${row}" | gog sheets append ${FOOD_LOG_SHEET_ID} --range "All Logs!A:J" --delimiter "\t"`, { 
+    // Use gog to append row (v0.12.0+ syntax - values as arguments)
+    const escapedFood = food.replace(/"/g, '\\"');
+    execSync(`gog sheets append ${FOOD_LOG_SHEET_ID} "Sheet1!A:J" "${new Date().toISOString()}|${phone}|${userId}|${escapedFood}|${calories}|${protein||0}|${carbs||0}|${fat||0}|${fibre||0}|${source||'unknown'}" --account alphaxasset@gmail.com`, { 
       timeout: 5000,
       stdio: 'ignore' // Don't block on output
     });
@@ -1860,6 +1861,41 @@ async function estimateCalories(food, user) {
   if (!result.food || typeof result.food !== 'string') result.food = food;
   result.calories = Number(result.calories);
   
+  // Validation: Block invalid entries
+  const foodLower = result.food.toLowerCase();
+  const invalidKeywords = ['reset', 'nevermind', 'tdee', 'unknown', 'tricep', 'pull down', 'workout', 'exercise'];
+  if (invalidKeywords.some(kw => foodLower.includes(kw))) {
+    result.calories = 0;
+    result.protein = 0;
+    result.carbs = 0;
+    result.fat = 0;
+    result.fibre = 0;
+    fs.appendFileSync(aiDebugLog, `[VALIDATION FAIL] Invalid entry detected: "${result.food}"\n`);
+    return result; // Return early with 0 cal so user gets error message
+  }
+  
+  // Validation: Reject zero calories unless it's water or zero-cal drinks
+  const zeroCalAllowed = ['water', 'coke zero', 'diet coke', 'sprite zero', 'fanta zero', 'monster zero', 'red bull zero'];
+  if (result.calories === 0 && !zeroCalAllowed.some(kw => foodLower.includes(kw))) {
+    fs.appendFileSync(aiDebugLog, `[VALIDATION FAIL] Zero calories for non-zero-cal food: "${result.food}"\n`);
+    // Don't return - let macro check handle it
+  }
+  
+  // Validation: Macro sanity check
+  const macroCalories = (result.protein || 0) * 4 + (result.carbs || 0) * 4 + (result.fat || 0) * 9;
+  if (macroCalories > 50 && result.calories > 0) {
+    const diff = Math.abs(macroCalories - result.calories);
+    const tolerance = result.calories * 0.6; // 60% tolerance
+    if (diff > tolerance) {
+      fs.appendFileSync(aiDebugLog, `[VALIDATION WARN] Macro mismatch: ${result.calories} cal stated vs ${macroCalories} from macros (diff: ${diff})\n`);
+      // Use the higher value to be safe
+      if (macroCalories > result.calories * 1.3) {
+        result.calories = Math.round(macroCalories);
+        fs.appendFileSync(aiDebugLog, `[VALIDATION FIX] Adjusted calories to ${result.calories} based on macros\n`);
+      }
+    }
+  }
+  
   fs.appendFileSync(aiDebugLog, `\n[${new Date().toISOString()}] AI RAW: "${food}" → ${result.food} (${result.calories} cal)\n`);
   
   // Clean up duplicate quantity phrases like "(2 eggs) (2 eggs)" → "(2 eggs)"
@@ -1936,8 +1972,8 @@ async function estimateCalories(food, user) {
   
   // Post-processing: reject 0-calorie results for real food (not water/black coffee/etc)
   // If AI returned 0 calories for something that's clearly food, estimate based on description
-  const zeroCalAllowed = ['water', 'black coffee', 'diet', 'zero', 'sugar free', 'sparkling', 'ice', 'tea unsweetened', 'magnesium', 'hydrate', 'pre workout', 'supplement', 'vitamin', 'electrolyte', 'bcaa'];
-  const isZeroCalOk = zeroCalAllowed.some(z => inputLower.includes(z));
+  const zeroCalAllowed2 = ['water', 'black coffee', 'diet', 'zero', 'sugar free', 'sparkling', 'ice', 'tea unsweetened', 'magnesium', 'hydrate', 'pre workout', 'supplement', 'vitamin', 'electrolyte', 'bcaa'];
+  const isZeroCalOk = zeroCalAllowed2.some(z => inputLower.includes(z));
   
   if (result.calories === 0 && !isZeroCalOk) {
     fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] AI returned 0 cal for "${food}" — estimating based on description\n`);
@@ -2758,7 +2794,7 @@ async function handleMessage(from, text, imageId) {
 
   // ── Button callbacks: correct_last, undo_last ──
   if (msgLower === 'correct_last') {
-    await send(from, `📝 *Enter correct calories*\n\nType: *food name | calories*\n\nExample:\n_the nutter large | 865_`);
+    await send(from, `📝 *Enter correct calories*\n\nFormat: *food name | calories*\n(Use the pipe symbol | not slash /)\n\nExample:\n_the nutter large | 865_`);
     return;
   }
 
@@ -4660,7 +4696,7 @@ async function handleMessage(from, text, imageId) {
 
     // Guard: reject AI responses that look like placeholder/junk
     // Allow legitimate zero-calorie items (water, tea, coffee, etc.)
-    const legitimateZeroCalFoods = ['water', 'h2o', 'sparkling', 'soda water', 'mineral water', 'ice', 'tea', 'coffee'];
+    const legitimateZeroCalFoods = ['water', 'h2o', 'sparkling', 'soda water', 'mineral water', 'ice', 'tea', 'coffee', 'coke zero', 'diet coke', 'sprite zero', 'fanta zero'];
     const inputLower = foodText.toLowerCase();
     const resultLower = result.food.toLowerCase();
     const isLegitimateZeroCal = legitimateZeroCalFoods.some(f => 
@@ -4670,6 +4706,15 @@ async function handleMessage(from, text, imageId) {
     if ((result.calories === 0 && !isLegitimateZeroCal) || /^clean name/i.test(result.food) || /^unnamed/i.test(result.food)) {
       console.log(`[guard] Rejected junk AI result: "${result.food}" (${result.calories} cal) for input: "${foodText}"`);
       await send(from, `🤔 I couldn't figure out what that is. Try describing the food, e.g. _2 eggs on toast_`);
+      return;
+    }
+    
+    // Guard: Extreme values require confirmation (unless it's bulk meal prep like "10x")
+    if (result.calories > 2500 && !/\d+x/i.test(result.food)) {
+      console.log(`[guard] Extreme calories detected: "${result.food}" (${result.calories} cal)`);
+      await send(from, `⚠️ That's ${result.calories} calories - is that correct? Reply with:\n\n*yes* to log it\n*no* to cancel`);
+      user.pendingConfirmation = { action: 'logFood', data: result };
+      saveUsers(users);
       return;
     }
 
@@ -4872,8 +4917,9 @@ function markCronRan(jobName) {
   fs.writeFileSync(CRON_STATE_FILE, JSON.stringify(state, null, 2));
 }
 
-// ── 6:30 AM morning check-in ──
-cron.schedule("30 6 * * *", async () => {
+// ── 6:30 AM morning check-in ── DISABLED: 19% conversion, not worth the cost
+// cron.schedule("30 6 * * *", async () => {
+if (false) { (async () => {
   if (cronAlreadyRan('morning')) { console.log('[cron] Morning already sent today, skipping'); return; }
   markCronRan('morning');
   const users = loadUsers();
@@ -4939,7 +4985,7 @@ cron.schedule("30 6 * * *", async () => {
     }
   }
   saveUsers(users);
-}, { timezone: "Africa/Johannesburg" });
+})(); } // end disabled morning check-in
 
 // ── 8 PM daily summary ──
 cron.schedule("0 20 * * *", async () => {
@@ -5145,8 +5191,9 @@ cron.schedule("0 10 * * *", async () => {
   saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
-// ── 11 AM Day 7 re-engagement ──
-cron.schedule("0 11 * * *", async () => {
+// ── 11 AM Day 7 re-engagement ── DISABLED: 33% but tiny sample, both converts already active
+// cron.schedule("0 11 * * *", async () => {
+if (false) { (async () => {
   if (cronAlreadyRan('day7-reengagement')) { console.log('[cron] Day 7 re-engagement already sent, skipping'); return; }
   markCronRan('day7-reengagement');
   const users = loadUsers();
@@ -5194,7 +5241,7 @@ cron.schedule("0 11 * * *", async () => {
   }
   
   saveUsers(users);
-}, { timezone: "Africa/Johannesburg" });
+})(); } // end disabled day 7 re-engagement
 
 // ── Sunday 8 AM weight reminder ──
 cron.schedule("0 8 * * 0", async () => {
