@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-18T17:00:58.750Z",
+    "date": "2026-03-18",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "toasted cheese sandwich",
+    "calories": 320,
+    "protein": 16,
+    "carbs": 32,
+    "fat": 16,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T16:15:07.877Z",
+    "date": "2026-03-18",
+    "phone": "3348",
+    "userId": "27662543",
+    "food": "mince lasagna and 3 slices of garlic roll",
+    "calories": 800,
+    "protein": 40,
+    "carbs": 100,
+    "fat": 30,
+    "fibre": 6,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-18T14:14:03.639Z",
     "date": "2026-03-18",
     "phone": "8818",
