@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-18T17:58:37.370Z",
+    "date": "2026-03-18",
+    "phone": "6145",
+    "userId": "27726046",
+    "food": "lamb chops with salad and pasta salad",
+    "calories": 600,
+    "protein": 40,
+    "carbs": 60,
+    "fat": 30,
+    "fibre": 8,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T17:47:03.122Z",
+    "date": "2026-03-18",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "6x chicken neck",
+    "calories": 480,
+    "protein": 36,
+    "carbs": 0,
+    "fat": 36,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T17:34:33.822Z",
+    "date": "2026-03-18",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-18T17:00:58.750Z",
     "date": "2026-03-18",
     "phone": "7970",
