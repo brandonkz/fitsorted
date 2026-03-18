@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-18T10:24:08.471Z",
+    "date": "2026-03-18",
+    "phone": "5603",
+    "userId": "27784145",
+    "food": "3x boiled egg with banana bread",
+    "calories": 205,
+    "protein": 11,
+    "carbs": 23,
+    "fat": 11,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T10:17:25.730Z",
+    "date": "2026-03-18",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "pork sausage",
+    "calories": 300,
+    "protein": 12,
+    "carbs": 1,
+    "fat": 28,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-18T10:09:02.121Z",
     "date": "2026-03-18",
     "phone": "3287",
