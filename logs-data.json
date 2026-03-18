@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-18T06:02:40.096Z",
+    "date": "2026-03-18",
+    "phone": "8287",
+    "userId": "27832548",
+    "food": "coffee with almond milk and xylitol, 1 slice sourdough bread with unsweetened peanut butter",
+    "calories": 290,
+    "protein": 8,
+    "carbs": 34,
+    "fat": 14,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T05:40:34.576Z",
+    "date": "2026-03-18",
+    "phone": "1752",
+    "userId": "27710221",
+    "food": "pizza",
+    "calories": 400,
+    "protein": 16,
+    "carbs": 50,
+    "fat": 18,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-18T05:40:00.041Z",
+    "date": "2026-03-18",
+    "phone": "1752",
+    "userId": "27710221",
+    "food": "1 slice hot honey and chicken pizza",
+    "calories": 300,
+    "protein": 12,
+    "carbs": 36,
+    "fat": 12,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-17T21:43:49.904Z",
     "date": "2026-03-17",
     "phone": "5185",
