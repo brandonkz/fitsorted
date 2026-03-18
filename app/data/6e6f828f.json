@@ -1,0 +1,100 @@
+{
+  "name": "Johan",
+  "goal": 2033,
+  "joinedAt": "2026-03-18T14:03:55.153Z",
+  "profile": {
+    "age": 75,
+    "weight": 110,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 2410,
+        "protein": 147,
+        "carbs": 168,
+        "fat": 141,
+        "fibre": 10,
+        "priceZAR": 415
+      },
+      "entries": [
+        {
+          "food": "instant mielie meel",
+          "calories": 100,
+          "protein": 2,
+          "carbs": 22,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-18T14:07:48.746Z"
+        },
+        {
+          "food": "bowl (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-18T14:07:57.555Z"
+        },
+        {
+          "food": "Ouma Rusk (1)",
+          "calories": 140,
+          "protein": 3,
+          "carbs": 22,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-18T14:09:06.154Z"
+        },
+        {
+          "food": "dried pear",
+          "calories": 100,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 45,
+          "time": "2026-03-18T14:10:47.952Z"
+        },
+        {
+          "food": "2x dried peach",
+          "calories": 120,
+          "protein": 1,
+          "carbs": 32,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-18T14:10:56.451Z"
+        },
+        {
+          "food": "500g ribeye steak with 100ml spur cheese sauce",
+          "calories": 1450,
+          "protein": 120,
+          "carbs": 5,
+          "fat": 115,
+          "fibre": 0,
+          "priceZAR": 300,
+          "time": "2026-03-18T14:13:55.857Z"
+        },
+        {
+          "food": "Will this fit into my daily calorie balance (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-18T14:14:03.639Z"
+        }
+      ]
+    }
+  ]
+}

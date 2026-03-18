@@ -35,6 +35,29 @@
           "time": "2026-03-13T20:01:43.842Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 680,
+        "protein": 40,
+        "carbs": 80,
+        "fat": 30,
+        "fibre": 6,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "2x sourdough slices with mince and cheddar",
+          "calories": 680,
+          "protein": 40,
+          "carbs": 80,
+          "fat": 30,
+          "fibre": 6,
+          "priceZAR": 30,
+          "time": "2026-03-18T12:07:14.009Z"
+        }
+      ]
     }
   ]
 }

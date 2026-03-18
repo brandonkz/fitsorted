@@ -236,6 +236,29 @@
           "time": "2026-03-17T12:05:53.632Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 600,
+        "protein": 40,
+        "carbs": 60,
+        "fat": 30,
+        "fibre": 8,
+        "priceZAR": 120
+      },
+      "entries": [
+        {
+          "food": "lamb chops with salad and pasta salad",
+          "calories": 600,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 30,
+          "fibre": 8,
+          "priceZAR": 120,
+          "time": "2026-03-18T17:58:37.370Z"
+        }
+      ]
     }
   ]
 }

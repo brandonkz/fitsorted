@@ -93,6 +93,39 @@
           "time": "2026-03-17T14:41:11.825Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 700,
+        "protein": 28,
+        "carbs": 86,
+        "fat": 30,
+        "fibre": 4,
+        "priceZAR": 140
+      },
+      "entries": [
+        {
+          "food": "1 slice hot honey and chicken pizza",
+          "calories": 300,
+          "protein": 12,
+          "carbs": 36,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 40,
+          "time": "2026-03-18T05:40:00.041Z"
+        },
+        {
+          "food": "pizza",
+          "calories": 400,
+          "protein": 16,
+          "carbs": 50,
+          "fat": 18,
+          "fibre": 2,
+          "priceZAR": 100,
+          "time": "2026-03-18T05:40:34.576Z"
+        }
+      ]
     }
   ]
 }

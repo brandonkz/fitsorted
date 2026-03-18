@@ -35,6 +35,59 @@
           "time": "2026-03-17T13:01:11.543Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 710,
+        "protein": 23,
+        "carbs": 77,
+        "fat": 36,
+        "fibre": 11,
+        "priceZAR": 135
+      },
+      "entries": [
+        {
+          "food": "coffee with almond milk and xylitol, 1 slice sourdough bread with unsweetened peanut butter",
+          "calories": 290,
+          "protein": 8,
+          "carbs": 34,
+          "fat": 14,
+          "fibre": 4,
+          "priceZAR": 40,
+          "time": "2026-03-18T06:02:40.096Z"
+        },
+        {
+          "food": "medium cappuccino",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 12,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-18T11:35:10.853Z"
+        },
+        {
+          "food": "3x fin crisp with 1/4 avocado and 2 cherry tomatoes",
+          "calories": 270,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 7,
+          "priceZAR": 45,
+          "time": "2026-03-18T11:35:37.132Z"
+        },
+        {
+          "food": "3x tsp cottage cheese",
+          "calories": 30,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-18T11:35:45.202Z"
+        }
+      ]
     }
   ]
 }

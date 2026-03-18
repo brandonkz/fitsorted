@@ -55,6 +55,89 @@
           "time": "2026-03-17T14:24:22.385Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 1482,
+        "protein": 102,
+        "carbs": 29,
+        "fat": 109,
+        "fibre": 6,
+        "priceZAR": 135
+      },
+      "entries": [
+        {
+          "food": "green apple",
+          "calories": 52,
+          "protein": 0,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 4,
+          "time": "2026-03-18T06:56:33.059Z"
+        },
+        {
+          "food": "100g steak",
+          "calories": 250,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 17,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-18T10:08:19.829Z"
+        },
+        {
+          "food": "3x slice of round bacon",
+          "calories": 210,
+          "protein": 15,
+          "carbs": 0,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-18T10:09:02.121Z"
+        },
+        {
+          "food": "pork sausage",
+          "calories": 300,
+          "protein": 12,
+          "carbs": 1,
+          "fat": 28,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-18T10:17:25.730Z"
+        },
+        {
+          "food": "2x boiled egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-18T12:36:11.452Z"
+        },
+        {
+          "food": "2x carrot",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 8,
+          "time": "2026-03-18T12:36:36.332Z"
+        },
+        {
+          "food": "6x chicken neck",
+          "calories": 480,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 36,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-18T17:47:03.122Z"
+        }
+      ]
     }
   ]
 }

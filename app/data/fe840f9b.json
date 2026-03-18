@@ -24,6 +24,49 @@
         "priceZAR": 0
       },
       "entries": []
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 1980,
+        "protein": 89,
+        "carbs": 253,
+        "fat": 74,
+        "fibre": 34,
+        "priceZAR": 104
+      },
+      "entries": [
+        {
+          "food": "protein scoop, 1 cup Woolworths muesli, 2 cups soy milk, 1 banana",
+          "calories": 430,
+          "protein": 28,
+          "carbs": 58,
+          "fat": 10,
+          "fibre": 6,
+          "priceZAR": 34,
+          "time": "2026-03-18T07:23:17.133Z"
+        },
+        {
+          "food": "2x seitan steaks with 1 cup basmati rice, 1/2 avocado, 1/2 cup chickpeas, 1/2 cup black beans, 2 tablespoons olive oil",
+          "calories": 1030,
+          "protein": 45,
+          "carbs": 135,
+          "fat": 40,
+          "fibre": 20,
+          "priceZAR": 50,
+          "time": "2026-03-18T07:24:08.027Z"
+        },
+        {
+          "food": "2x brown bread slices with peanut butter and jam",
+          "calories": 520,
+          "protein": 16,
+          "carbs": 60,
+          "fat": 24,
+          "fibre": 8,
+          "priceZAR": 20,
+          "time": "2026-03-18T07:24:57.793Z"
+        }
+      ]
     }
   ]
 }

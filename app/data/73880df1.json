@@ -55,6 +55,29 @@
           "time": "2026-03-17T18:03:21.861Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 205,
+        "protein": 11,
+        "carbs": 23,
+        "fat": 11,
+        "fibre": 1,
+        "priceZAR": 28
+      },
+      "entries": [
+        {
+          "food": "3x boiled egg with banana bread",
+          "calories": 205,
+          "protein": 11,
+          "carbs": 23,
+          "fat": 11,
+          "fibre": 1,
+          "priceZAR": 28,
+          "time": "2026-03-18T10:24:08.471Z"
+        }
+      ]
     }
   ]
 }

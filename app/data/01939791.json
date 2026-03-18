@@ -186,6 +186,69 @@
           "time": "2026-03-17T18:00:50.619Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 2250,
+        "protein": 143,
+        "carbs": 216,
+        "fat": 113,
+        "fibre": 18,
+        "priceZAR": 200
+      },
+      "entries": [
+        {
+          "food": "5x scrambled eggs, 2x viennas, 2x slices of brown toast",
+          "calories": 740,
+          "protein": 50,
+          "carbs": 80,
+          "fat": 40,
+          "fibre": 8,
+          "priceZAR": 0,
+          "time": "2026-03-18T06:41:06.026Z"
+        },
+        {
+          "food": "5x scrambled eggs",
+          "calories": 350,
+          "protein": 35,
+          "carbs": 0,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-18T06:41:58.823Z"
+        },
+        {
+          "food": "2x vienna",
+          "calories": 200,
+          "protein": 10,
+          "carbs": 4,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-18T06:42:07.799Z"
+        },
+        {
+          "food": "2x slice of brown toast",
+          "calories": 160,
+          "protein": 8,
+          "carbs": 32,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-18T06:42:15.618Z"
+        },
+        {
+          "food": "mince lasagna and 3 slices of garlic roll",
+          "calories": 800,
+          "protein": 40,
+          "carbs": 100,
+          "fat": 30,
+          "fibre": 6,
+          "priceZAR": 120,
+          "time": "2026-03-18T16:15:07.877Z"
+        }
+      ]
     }
   ]
 }

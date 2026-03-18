@@ -41,6 +41,39 @@
           "time": "2026-03-17T05:08:20.780Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "calories": 1060,
+        "protein": 30,
+        "carbs": 120,
+        "fat": 49,
+        "fibre": 13,
+        "priceZAR": 205
+      },
+      "entries": [
+        {
+          "food": "Woolworths greek salad (1 bowl)",
+          "calories": 260,
+          "protein": 10,
+          "carbs": 20,
+          "fat": 14,
+          "fibre": 3,
+          "priceZAR": 85,
+          "time": "2026-03-18T08:02:43.109Z"
+        },
+        {
+          "food": "brinjal curry and 2x pie",
+          "calories": 800,
+          "protein": 20,
+          "carbs": 100,
+          "fat": 35,
+          "fibre": 10,
+          "priceZAR": 120,
+          "time": "2026-03-18T08:02:50.879Z"
+        }
+      ]
     }
   ]
 }
