@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-19T12:14:46.715Z",
+    "date": "2026-03-19",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Chicken & Rice (serving)",
+    "calories": 450,
+    "protein": 35,
+    "carbs": 45,
+    "fat": 12,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-19T10:26:33.360Z",
     "date": "2026-03-19",
     "phone": "5603",
