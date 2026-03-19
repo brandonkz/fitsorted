@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-19T10:26:33.360Z",
+    "date": "2026-03-19",
+    "phone": "5603",
+    "userId": "27784145",
+    "food": "banana bread",
+    "calories": 200,
+    "protein": 3,
+    "carbs": 40,
+    "fat": 6,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-19T10:26:28.574Z",
+    "date": "2026-03-19",
+    "phone": "5603",
+    "userId": "27784145",
+    "food": "tin beef",
+    "calories": 250,
+    "protein": 30,
+    "carbs": 0,
+    "fat": 15,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-19T10:26:22.814Z",
+    "date": "2026-03-19",
+    "phone": "5603",
+    "userId": "27784145",
+    "food": "2x boiled egg",
+    "calories": 140,
+    "protein": 12,
+    "carbs": 2,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-19T10:25:05.214Z",
+    "date": "2026-03-19",
+    "phone": "5603",
+    "userId": "27784145",
+    "food": "2x boiled eggs",
+    "calories": 140,
+    "protein": 12,
+    "carbs": 1,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-19T09:12:29.342Z",
     "date": "2026-03-19",
     "phone": "1752",
