@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-19T13:07:39.406Z",
+    "date": "2026-03-19",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "400g chicken schnitzel",
+    "calories": 880,
+    "protein": 80,
+    "carbs": 0,
+    "fat": 60,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-19T12:14:46.715Z",
     "date": "2026-03-19",
     "phone": "7970",
