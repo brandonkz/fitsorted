@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-19T08:20:47.121Z",
+    "date": "2026-03-19",
+    "phone": "6145",
+    "userId": "27726046",
+    "food": "First Choice High Protein Recovery Chocolate Flavoured Low Fat Milk 500ml",
+    "calories": 200,
+    "protein": 20,
+    "carbs": 30,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-19T08:20:05.439Z",
+    "date": "2026-03-19",
+    "phone": "6145",
+    "userId": "27726046",
+    "food": "spicy egg cup",
+    "calories": 150,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-19T07:18:50.472Z",
     "date": "2026-03-19",
     "phone": "4196",
