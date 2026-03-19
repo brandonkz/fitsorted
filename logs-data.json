@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-19T15:48:34.394Z",
+    "date": "2026-03-19",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "5x fish fingers",
+    "calories": 350,
+    "protein": 15,
+    "carbs": 30,
+    "fat": 20,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-19T13:07:39.406Z",
     "date": "2026-03-19",
     "phone": "3287",
