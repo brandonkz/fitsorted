@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-19T18:01:31.847Z",
+    "date": "2026-03-19",
+    "phone": "3348",
+    "userId": "27662543",
+    "food": "3x hotdog",
+    "calories": 600,
+    "protein": 18,
+    "carbs": 60,
+    "fat": 36,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-19T18:01:08.130Z",
+    "date": "2026-03-19",
+    "phone": "3348",
+    "userId": "27662543",
+    "food": "3x fried egg with 2 slices of bread",
+    "calories": 300,
+    "protein": 21,
+    "carbs": 40,
+    "fat": 15,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-19T16:46:57.948Z",
     "date": "2026-03-19",
     "phone": "3287",
