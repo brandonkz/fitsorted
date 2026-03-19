@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-19T18:30:08.705Z",
+    "date": "2026-03-19",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Caprese salad",
+    "calories": 300,
+    "protein": 15,
+    "carbs": 10,
+    "fat": 25,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-19T18:09:34.670Z",
+    "date": "2026-03-19",
+    "phone": "5603",
+    "userId": "27784145",
+    "food": "pap and chicken",
+    "calories": 600,
+    "protein": 40,
+    "carbs": 70,
+    "fat": 15,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-19T18:01:31.847Z",
     "date": "2026-03-19",
     "phone": "3348",
