@@ -138,6 +138,49 @@
           "time": "2026-03-18T17:47:03.122Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-19",
+      "totals": {
+        "calories": 1570,
+        "protein": 122,
+        "carbs": 47,
+        "fat": 95,
+        "fibre": 3,
+        "priceZAR": 148
+      },
+      "entries": [
+        {
+          "food": "jalapeño chicken burger",
+          "calories": 550,
+          "protein": 30,
+          "carbs": 45,
+          "fat": 25,
+          "fibre": 3,
+          "priceZAR": 80,
+          "time": "2026-03-19T09:05:14.360Z"
+        },
+        {
+          "food": "400g chicken schnitzel",
+          "calories": 880,
+          "protein": 80,
+          "carbs": 0,
+          "fat": 60,
+          "fibre": 0,
+          "priceZAR": 60,
+          "time": "2026-03-19T13:07:39.406Z"
+        },
+        {
+          "food": "2x boiled egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-19T16:46:57.948Z"
+        }
+      ]
     }
   ]
 }

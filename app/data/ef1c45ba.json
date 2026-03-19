@@ -126,6 +126,59 @@
           "time": "2026-03-18T05:40:34.576Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-19",
+      "totals": {
+        "calories": 1060,
+        "protein": 25,
+        "carbs": 100,
+        "fat": 35,
+        "fibre": 1,
+        "priceZAR": 32
+      },
+      "entries": [
+        {
+          "food": "mini muffin",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 12,
+          "time": "2026-03-19T09:09:21.965Z"
+        },
+        {
+          "food": "Mini muffin (manual)",
+          "calories": 160,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-19T09:10:52.696Z"
+        },
+        {
+          "food": "30g lean steak\n125ml low fat milk (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-19T09:11:17.782Z"
+        },
+        {
+          "food": "Remove (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-19T09:12:29.342Z"
+        }
+      ]
     }
   ]
 }

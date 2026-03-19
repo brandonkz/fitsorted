@@ -249,6 +249,79 @@
           "time": "2026-03-18T16:15:07.877Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-19",
+      "totals": {
+        "calories": 1990,
+        "protein": 57,
+        "carbs": 291,
+        "fat": 77,
+        "fibre": 11,
+        "priceZAR": 142
+      },
+      "entries": [
+        {
+          "food": "slice of banana loaf",
+          "calories": 320,
+          "protein": 3,
+          "carbs": 56,
+          "fat": 7,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-19T06:52:47.014Z"
+        },
+        {
+          "food": "slice of banana loaf",
+          "calories": 220,
+          "protein": 3,
+          "carbs": 40,
+          "fat": 7,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-19T06:54:39.929Z"
+        },
+        {
+          "food": "no bread (est.)",
+          "calories": 350,
+          "protein": 10,
+          "carbs": 55,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-19T06:54:48.181Z"
+        },
+        {
+          "food": "slice of banana loaf",
+          "calories": 200,
+          "protein": 2,
+          "carbs": 40,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-19T06:55:18.141Z"
+        },
+        {
+          "food": "3x fried egg with 2 slices of bread",
+          "calories": 300,
+          "protein": 21,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 12,
+          "time": "2026-03-19T18:01:08.130Z"
+        },
+        {
+          "food": "3x hotdog",
+          "calories": 600,
+          "protein": 18,
+          "carbs": 60,
+          "fat": 36,
+          "fibre": 3,
+          "priceZAR": 45,
+          "time": "2026-03-19T18:01:31.847Z"
+        }
+      ]
     }
   ]
 }

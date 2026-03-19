@@ -2192,6 +2192,59 @@
           "time": "2026-03-18T17:34:33.822Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-19",
+      "totals": {
+        "calories": 1180,
+        "protein": 67,
+        "carbs": 100,
+        "fat": 59,
+        "fibre": 8,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "1x rusk",
+          "calories": 80,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-03-19T06:25:57.646Z"
+        },
+        {
+          "food": "Chicken & Rice (serving)",
+          "calories": 450,
+          "protein": 35,
+          "carbs": 45,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 25,
+          "time": "2026-03-19T12:14:46.715Z"
+        },
+        {
+          "food": "5x fish fingers",
+          "calories": 350,
+          "protein": 15,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-19T15:48:34.394Z"
+        },
+        {
+          "food": "Caprese salad",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 10,
+          "fat": 25,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-19T18:30:08.705Z"
+        }
+      ]
     }
   ]
 }

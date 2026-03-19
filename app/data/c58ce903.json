@@ -35,6 +35,13 @@
         "calories": 0,
         "time": "2026-03-17T12:06:51.590Z"
       }
+    ],
+    "2026-03-19": [
+      {
+        "activity": "Log workout",
+        "calories": 287,
+        "time": "2026-03-19T08:19:52.143Z"
+      }
     ]
   },
   "logSummary": [
@@ -257,6 +264,39 @@
           "fibre": 8,
           "priceZAR": 120,
           "time": "2026-03-18T17:58:37.370Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-19",
+      "totals": {
+        "calories": 350,
+        "protein": 20,
+        "carbs": 30,
+        "fat": 5,
+        "fibre": 0,
+        "priceZAR": 8
+      },
+      "entries": [
+        {
+          "food": "spicy egg cup",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-19T08:20:05.439Z"
+        },
+        {
+          "food": "First Choice High Protein Recovery Chocolate Flavoured Low Fat Milk 500ml",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-19T08:20:47.121Z"
         }
       ]
     }

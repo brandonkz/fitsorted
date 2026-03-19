@@ -78,6 +78,69 @@
           "time": "2026-03-18T10:24:08.471Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-19",
+      "totals": {
+        "calories": 1330,
+        "protein": 97,
+        "carbs": 113,
+        "fat": 56,
+        "fibre": 7,
+        "priceZAR": 131
+      },
+      "entries": [
+        {
+          "food": "2x boiled eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 1,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-19T10:25:05.214Z"
+        },
+        {
+          "food": "2x boiled egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-19T10:26:22.814Z"
+        },
+        {
+          "food": "tin beef",
+          "calories": 250,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-19T10:26:28.574Z"
+        },
+        {
+          "food": "banana bread",
+          "calories": 200,
+          "protein": 3,
+          "carbs": 40,
+          "fat": 6,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-19T10:26:33.360Z"
+        },
+        {
+          "food": "pap and chicken",
+          "calories": 600,
+          "protein": 40,
+          "carbs": 70,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 43,
+          "time": "2026-03-19T18:09:34.670Z"
+        }
+      ]
     }
   ]
 }
