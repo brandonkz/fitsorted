@@ -220,6 +220,36 @@
     <h1>🏋️ FitSorted Admin Dashboard</h1>
     <div class="subtitle">Live stats • Failed lookups • User monitoring</div>
 
+    <!-- MONDAY LAUNCH MONITOR -->
+    <div class="stat-card" style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); border: 2px solid #3b82f6; margin-bottom: 24px; padding: 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h2 style="color: #93c5fd; font-size: 18px; margin: 0;">🚀 Monday Launch Monitor</h2>
+        <div style="color: #dbeafe; font-size: 13px;">Updates every 30 seconds</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;">
+        <div>
+          <div style="font-size: 32px; font-weight: 700; color: #60a5fa;" id="signupsToday">—</div>
+          <div style="font-size: 12px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.05em;">Signups Today</div>
+        </div>
+        <div>
+          <div style="font-size: 32px; font-weight: 700; color: #34d399;" id="signupsLastHour">—</div>
+          <div style="font-size: 12px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.05em;">Last Hour</div>
+        </div>
+        <div>
+          <div style="font-size: 32px; font-weight: 700; color: #fbbf24;" id="capacityPercent">—</div>
+          <div style="font-size: 12px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.05em;">Capacity Used</div>
+        </div>
+        <div>
+          <div style="font-size: 32px; font-weight: 700; color: #f472b6;" id="peakHour">—</div>
+          <div style="font-size: 12px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.05em;">Peak Hour</div>
+        </div>
+      </div>
+      <div style="margin-top: 16px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+        <div style="font-size: 13px; color: #dbeafe; margin-bottom: 4px;">WhatsApp API Tier: <span style="color: #60a5fa; font-weight: 600;">TIER_1K</span> (1,000 users/day limit)</div>
+        <div style="font-size: 13px; color: #dbeafe;">Status: <span id="tierStatus" style="color: #34d399; font-weight: 600;">✅ Safe</span></div>
+      </div>
+    </div>
+
     <!-- LIVE USER STATS -->
     <div class="stats" id="liveStats">
       <div class="stat-card">
@@ -350,13 +380,39 @@
         const res = await fetch('/api/stats');
         const s = await res.json();
         document.getElementById('totalUsers').textContent = s.totalUsers;
-        document.getElementById('signupsToday').textContent = s.signupsToday;
+        
+        // Duplicate signupsToday display (one in launch monitor, one in regular stats)
+        const signupsTodayElements = document.querySelectorAll('#signupsToday');
+        signupsTodayElements.forEach(el => el.textContent = s.signupsToday);
+        
         document.getElementById('signupsWeek').textContent = s.signupsThisWeek;
         document.getElementById('activeToday').textContent = s.activeToday;
         document.getElementById('activeWeek').textContent = s.activeWeek;
         document.getElementById('logsToday').textContent = s.logsToday;
         document.getElementById('totalLogs').textContent = s.totalLogsAllTime.toLocaleString();
         document.getElementById('proUsers').textContent = s.proUsers;
+        
+        // Monday Launch Monitor stats
+        const lastHour = s.signupsLastHour || 0;
+        const capacity = Math.round((s.signupsToday / 1000) * 100);
+        const peakHour = s.peakHour || '—';
+        
+        document.getElementById('signupsLastHour').textContent = lastHour;
+        document.getElementById('capacityPercent').textContent = capacity + '%';
+        document.getElementById('peakHour').textContent = peakHour;
+        
+        // Update tier status color
+        const tierStatusEl = document.getElementById('tierStatus');
+        if (capacity < 70) {
+          tierStatusEl.textContent = '✅ Safe';
+          tierStatusEl.style.color = '#34d399';
+        } else if (capacity < 90) {
+          tierStatusEl.textContent = '⚠️ Monitor';
+          tierStatusEl.style.color = '#fbbf24';
+        } else {
+          tierStatusEl.textContent = '🚨 Near Limit';
+          tierStatusEl.style.color = '#ef4444';
+        }
         
         const tbody = document.getElementById('signupsTable');
         if (s.recentSignups && s.recentSignups.length) {

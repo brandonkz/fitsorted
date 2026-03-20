@@ -5658,6 +5658,25 @@ app.get('/api/stats', (req, res) => {
     .sort((a, b) => b.created.localeCompare(a.created))
     .slice(0, 10);
   
+  // Monday Launch Monitor: signups in last hour
+  const oneHourAgo = new Date(Date.now() - 3600000).toISOString();
+  const signupsLastHour = phones.filter(p => {
+    const created = users[p].created || users[p].joinedAt || '';
+    return created >= oneHourAgo;
+  }).length;
+  
+  // Peak hour (hour with most signups today)
+  const signupsByHour = {};
+  for (const phone of phones) {
+    const created = users[phone].created || users[phone].joinedAt || '';
+    if (created.startsWith(today)) {
+      const hour = new Date(created).getHours();
+      signupsByHour[hour] = (signupsByHour[hour] || 0) + 1;
+    }
+  }
+  const peakHourNum = Object.entries(signupsByHour).sort((a, b) => b[1] - a[1])[0]?.[0];
+  const peakHour = peakHourNum !== undefined ? `${peakHourNum}:00` : '—';
+  
   res.json({
     totalUsers, setupComplete, proUsers,
     activeToday, activeYesterday, activeWeek,
@@ -5665,6 +5684,8 @@ app.get('/api/stats', (req, res) => {
     signupsToday, signupsYesterday, signupsThisWeek,
     signupsByDay,
     recentSignups,
+    signupsLastHour,
+    peakHour,
     timestamp: new Date().toISOString()
   });
 });
