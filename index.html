@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FitSorted 🇿🇦 | WhatsApp calorie tracker</title>
-  <meta name="description" content="Track your meals on WhatsApp. Built for South Africans. Get instant calories, protein, carbs and fat 100% free. No ads. No catch." />
+  <meta name="description" content="Track calories on WhatsApp. Ask anything — meal ideas, am I on track, what can I eat? Built for South Africans. Gets smarter the more you use it." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -97,25 +97,7 @@
     .hero-grid {
       display: grid;
       gap: 32px;
-      align-items: start;
-    }
-
-    .hero-media {
-      display: grid;
-      gap: 16px;
-      padding-top: 40px;
-    }
-
-    .hero-video {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .hero-video video {
-      width: 100%;
-      display: block;
+      align-items: center;
     }
 
     .cta-row {
@@ -212,6 +194,20 @@
       font-size: 1.2rem;
     }
 
+    .badge-soon {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: rgba(16,185,129,0.15);
+      color: #10b981;
+      border: 1px solid rgba(16,185,129,0.3);
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.04em;
+    }
+
     .price {
       font-size: 2.4rem;
       font-weight: 700;
@@ -278,29 +274,6 @@
       }
     }
   </style>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GMW4LWNXK1"></script>
-<script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
- gtag('config', 'G-GMW4LWNXK1');
-
- // Track WhatsApp CTA clicks
- document.addEventListener('click', function(e) {
-   var link = e.target.closest('a[href*="wa.me"]');
-   if (link) {
-     gtag('event', 'whatsapp_click', {
-       event_category: 'conversion',
-       event_label: link.textContent.trim(),
-       transport_type: 'beacon'
-     });
-   }
- });
-</script>
 </head>
 <body>
   <section class="hero">
@@ -308,26 +281,18 @@
       <div>
         <div class="badge">FitSorted 🇿🇦</div>
         <h1>Track your meals on WhatsApp. Built for South Africans.</h1>
-        <p class="lead">Just text what you ate. Get instant calories, protein, carbs and fat. Free. No ads. No catch.</p>
+        <p class="lead">Log meals, ask for meal ideas, track your deficit — all on WhatsApp. Gets smarter the more you use it.</p>
         <div class="cta-row">
           <a class="btn" href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener">Start on WhatsApp →</a>
           <a class="btn btn-outline" href="#how">How it works</a>
         </div>
-        <p>30-day free trial. Then from R18/month.</p>
-        <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">🔒 Military-grade encrypted backups • 🇿🇦 POPIA compliant</p>
+        <p>Free to start • Premium from R49/mo ☕</p>
       </div>
-      <div class="hero-media">
-        <div class="hero-video">
-          <video autoplay loop muted playsinline>
-            <source src="demo.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="card">
-          <p style="font-weight: 600; margin-bottom: 10px;">Example message</p>
-          <p>2 eggs on toast</p>
-          <p>Calories 420 | Protein 26g | Carbs 32g | Fat 18g</p>
-          <p style="margin-top: 12px;">Daily summary with progress bars delivered in WhatsApp.</p>
-        </div>
+      <div class="card">
+        <p style="font-weight: 600; margin-bottom: 10px;">Example message</p>
+        <p>2 eggs on toast</p>
+        <p>Calories 420 | Protein 26g | Carbs 32g | Fat 18g</p>
+        <p style="margin-top: 12px;">Daily summary with progress bars delivered in WhatsApp.</p>
       </div>
     </div>
   </section>
@@ -357,31 +322,8 @@
 
   <section>
     <div class="container">
-      <h2>Why WhatsApp?</h2>
-      <div class="grid grid-3">
-        <div class="card step">
-          <div class="step-icon">📱</div>
-          <p><strong>No downloads</strong></p>
-          <p>No app to install. No sign-ups. Just text.</p>
-        </div>
-        <div class="card step">
-          <div class="step-icon">🔋</div>
-          <p><strong>No battery drain</strong></p>
-          <p>No background tracking eating your battery.</p>
-        </div>
-        <div class="card step">
-          <div class="step-icon">💾</div>
-          <p><strong>No storage</strong></p>
-          <p>Zero space on your phone. It's just a chat.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2>Knows your food</h2>
-      <p class="lead">Thousands of SA foods and growing daily. From boerewors to bunny chow.</p>
+      <p class="lead">66+ SA foods and growing. From boerewors to bunny chow.</p>
       <div class="pill-list">
         <div class="pill">Braai</div>
         <div class="pill">Nando's</div>
@@ -403,23 +345,15 @@
         <div class="feature-list">
           <div class="feature-item"><span>🍽️</span><p>Log meals in plain English</p></div>
           <div class="feature-item"><span>🥩</span><p>Macro tracking (protein, carbs, fat)</p></div>
-          <div class="feature-item"><span>📊</span><p>Daily summary with progress bars</p></div>
+          <div class="feature-item"><span>🧠</span><p>Ask anything — "what can I eat under 400 cal?"</p></div>
+          <div class="feature-item"><span>📊</span><p>Real-time deficit tracking</p></div>
+          <div class="feature-item"><span>🏋️</span><p>Workout logging adds to your calorie budget</p></div>
+          <div class="feature-item"><span>🎯</span><p>Personalised — learns what you normally eat</p></div>
           <div class="feature-item"><span>⚖️</span><p>Weight tracking with trends</p></div>
-          <div class="feature-item"><span>🏋️</span><p>Workout logging</p></div>
-          <div class="feature-item"><span>💰</span><p>Food spend tracking with daily budget</p></div>
-          <div class="feature-item"><span>🧠</span><p>Ask questions - get meal suggestions</p></div>
-          <div class="feature-item"><span>☀️</span><p>Morning check-ins at 6:30 AM</p></div>
-          <div class="feature-item"><span>📧</span><p>Email export - send your log to anyone</p></div>
+          <div class="feature-item"><span>💧</span><p>Water tracking <span class="badge-soon">COMING SOON</span></p></div>
+          <div class="feature-item"><span>☀️</span><p>Morning check-in at 6:30 AM</p></div>
+          <div class="feature-item"><span>🌙</span><p>Daily summary at 8 PM</p></div>
           <div class="feature-item"><span>💬</span><p>No app to download. Just WhatsApp.</p></div>
-        </div>
-      </div>
-      <div class="card" style="margin-top: 24px;">
-        <p style="font-weight: 600; margin-bottom: 10px; color: var(--accent);">Coming Soon</p>
-        <div class="feature-list" style="opacity: 0.7;">
-          <div class="feature-item"><span>💧</span><p>Water tracking</p></div>
-          <div class="feature-item"><span>💉</span><p>Ozempic/GLP-1 tracking</p></div>
-          <div class="feature-item"><span>📸</span><p>Progress photos</p></div>
-          <div class="feature-item"><span>📈</span><p>Charts & visualizations</p></div>
         </div>
       </div>
     </div>
@@ -428,282 +362,39 @@
   <section>
     <div class="container">
       <h2>Pricing</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="price">Free</div>
-          <p style="color: var(--accent); font-weight: 600; margin-bottom: 8px;">Core features</p>
-          <div class="feature-list" style="font-size: 0.9rem;">
-            <div class="feature-item"><span>✅</span><p>Calorie tracking</p></div>
-            <div class="feature-item"><span>✅</span><p>Exercise logging</p></div>
-            <div class="feature-item"><span>✅</span><p>Weight tracking</p></div>
-            <div class="feature-item"><span>✅</span><p>Daily summaries</p></div>
-          </div>
-          <p style="margin-top: 12px; font-size: 0.85rem; color: var(--muted);">Free forever. No catch.</p>
-        </div>
-        <div class="card" style="border-color: var(--accent); position: relative;">
-          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #04120c; padding: 4px 14px; border-radius: 99px; font-size: 0.75rem; font-weight: 700;">LAUNCH PRICE</div>
-          <div class="price">R18<span style="font-size: 1rem; color: var(--muted);">/month</span></div>
-          <p style="color: var(--accent); font-weight: 600; margin-bottom: 8px;">Everything in Free, plus:</p>
-          <div class="feature-list" style="font-size: 0.9rem;">
-            <div class="feature-item"><span>✅</span><p>Macro tracking (protein, carbs, fat)</p></div>
-            <div class="feature-item"><span>✅</span><p>Food spend tracking + budgets</p></div>
-            <div class="feature-item"><span>✅</span><p>AI coaching mode</p></div>
-            <div class="feature-item"><span>✅</span><p>Email export</p></div>
-          </div>
-          <div class="cta-row" style="margin-top: 18px;">
-            <a class="btn" href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener">Start 30-day free trial →</a>
-          </div>
-          <p style="margin-top: 8px; font-size: 0.8rem; color: var(--muted);">30-day free trial. Cancel anytime.</p>
-        </div>
-        <div class="card">
-          <div class="price">R100<span style="font-size: 1rem; color: var(--muted);">/year</span></div>
-          <p style="color: var(--accent); font-weight: 600; margin-bottom: 8px;">Save R116 vs monthly</p>
-          <p style="font-size: 0.95rem;">That's R8.33/month. Lock in the launch price for a full year.</p>
-          <p style="margin-top: 12px; font-size: 0.85rem; color: var(--muted);">All premium features included.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2>Security & Privacy</h2>
-      <div class="grid grid-3">
-        <div class="card step">
-          <div class="step-icon">🔒</div>
-          <p><strong>Military-grade encryption</strong></p>
-          <p>Backups encrypted with AES-256 (same standard used by banks)</p>
-        </div>
-        <div class="card step">
-          <div class="step-icon">🇿🇦</div>
-          <p><strong>South African servers</strong></p>
-          <p>Your data stays in SA. POPIA compliant.</p>
-        </div>
-        <div class="card step">
-          <div class="step-icon">🚫</div>
-          <p><strong>Never sold</strong></p>
-          <p>We don't sell your data. Ever.</p>
-        </div>
-      </div>
-      <div class="card" style="margin-top: 24px;">
-        <p style="margin-bottom: 12px;"><strong>Your rights under POPIA:</strong></p>
-        <div class="feature-list">
-          <div class="feature-item"><span>📦</span><p>Export all your data anytime (type "export")</p></div>
-          <div class="feature-item"><span>🗑️</span><p>Delete your account permanently (type "delete")</p></div>
-          <div class="feature-item"><span>🔐</span><p>WhatsApp messages are end-to-end encrypted</p></div>
-          <div class="feature-item"><span>👁️</span><p>See our full <a href="privacy.html" style="color: var(--accent);">Privacy Policy</a></p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOD SPEND TRACKING SECTION -->
-  <section style="background: #0f0f0f;">
-    <div class="container">
-      <h2>💰 Track what you spend on food</h2>
-      <p class="lead">FitSorted estimates what your meals cost and tracks your daily food budget. See exactly where your money goes.</p>
       <div class="grid grid-2">
         <div class="card">
-          <p style="font-weight: 600; margin-bottom: 10px;">How it works</p>
-          <div class="feature-list">
-            <div class="feature-item"><span>🍔</span><p>Log your food normally. FitSorted estimates the cost automatically.</p></div>
-            <div class="feature-item"><span>📊</span><p>Set a daily budget (e.g. "budget R150") and track against it.</p></div>
-            <div class="feature-item"><span>🌙</span><p>Evening summary shows total spend vs budget with a visual breakdown.</p></div>
+          <h3 style="margin:0 0 8px;color:#2ecc71;">Free Forever</h3>
+          <div class="price" style="font-size:28px;">R0/month</div>
+          <p style="margin-top:12px;">✅ Calorie tracking via text</p>
+          <p>✅ SA food database (Nando's, Woolies, KFC...)</p>
+          <p>✅ Daily calorie totals</p>
+          <div class="cta-row" style="margin-top: 18px;">
+            <a class="btn" style="background:#2ecc71;" href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener">Start Free →</a>
           </div>
         </div>
-        <div class="card">
-          <p style="font-weight: 600; margin-bottom: 10px;">Example</p>
-          <p style="color: var(--muted);">You log: "Nando's quarter chicken and chips"</p>
-          <p style="margin-top: 8px;">🍽️ Nando's quarter chicken and chips</p>
-          <p>⚡ 680 cal | 💰 ~R75</p>
-          <p style="margin-top: 12px; color: var(--muted); font-size: 0.9rem;">Prices are estimates based on SA restaurant and grocery data.</p>
+        <div class="card" style="border:2px solid #2ecc71;">
+          <h3 style="margin:0 0 8px;color:#2ecc71;">Premium ✨</h3>
+          <div class="price">R49/month</div>
+          <p style="margin-top:12px;">Everything in Free, plus:</p>
+          <p>📸 AI photo food logging</p>
+          <p>🥩 Macro tracking (protein, carbs, fat)</p>
+          <p>☀️ Morning check-in at 6:30 AM</p>
+          <p>🌙 Evening summary at 8 PM</p>
+          <p>🧠 Coaching mode — ask anything</p>
+          <p>⚖️ Weight tracking with trends</p>
+          <p>🏋️ Exercise logging</p>
+          <p>🍺 Alcohol tracker</p>
+          <p>💰 Food cost tracking</p>
+          <p style="margin-top:12px;font-weight:bold;color:#2ecc71;">7-day free trial • Cancel anytime</p>
+          <div class="cta-row" style="margin-top: 18px;">
+            <a class="btn" href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener">Start 7-Day Trial →</a>
+          </div>
         </div>
       </div>
+      <p style="text-align:center;margin-top:16px;color:#888;">Less than R2/day. No contracts. Cancel anytime from WhatsApp.</p>
     </div>
   </section>
-
-  <!-- DRUNK-O-METER SECTION -->
-  <section id="drunk-o-meter" style="background: #0f0f0f;">
-    <div class="container">
-      <h2>🍺 Drunk-o-Meter</h2>
-      <p class="subtitle" style="margin-bottom: 10px;">Log your drinks on WhatsApp and FitSorted tracks your units, calories, and gives a rough BAC estimate.</p>
-      <p style="color:#8b8b8b;font-size:0.9rem;margin-bottom:32px;">⚠️ Rough estimate only. Can be off by 20–40%. Do not use to decide if you can drive.</p>
-
-      <div class="card" style="max-width: 560px; margin: 0 auto;">
-        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">Try it — what did you drink?</h3>
-
-        <div id="drink-list" style="margin-bottom: 16px;"></div>
-
-        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
-          <select id="drink-select" style="flex:1; padding: 10px 12px; border-radius: 10px; background: #1a1a1a; color: #f5f5f5; border: 1px solid #333; font-size: 0.95rem;">
-            <option value="">Choose a drink...</option>
-            <optgroup label="🍺 Beer">
-              <option value="castle|150|1.7">Castle Lager (340ml)</option>
-              <option value="black-label|158|1.9">Black Label (340ml)</option>
-              <option value="heineken|150|1.7">Heineken (330ml)</option>
-              <option value="windhoek|153|1.7">Windhoek Lager (340ml)</option>
-              <option value="hansa|143|1.6">Hansa (340ml)</option>
-            </optgroup>
-            <optgroup label="🍹 Ciders & RTDs">
-              <option value="savanna|174|2.0">Savanna Dry (330ml)</option>
-              <option value="hunters|186|2.1">Hunter's Dry (330ml)</option>
-              <option value="brutal-fruit|200|1.9">Brutal Fruit (275ml)</option>
-              <option value="flying-fish|168|2.0">Flying Fish (330ml)</option>
-            </optgroup>
-            <optgroup label="🥃 Spirits (25ml shot)">
-              <option value="tequila|65|1.0">Tequila Shot</option>
-              <option value="vodka|55|1.0">Vodka Shot</option>
-              <option value="whisky|65|1.0">Whisky</option>
-              <option value="gin|55|1.0">Gin</option>
-              <option value="brandy|65|1.0">Brandy</option>
-              <option value="amarula|114|0.8">Amarula</option>
-            </optgroup>
-            <optgroup label="🍷 Wine (150ml)">
-              <option value="red-wine|125|1.8">Red Wine</option>
-              <option value="white-wine|121|1.8">White Wine</option>
-              <option value="rosé|121|1.8">Rosé</option>
-              <option value="champagne|90|1.5">Champagne</option>
-            </optgroup>
-            <optgroup label="🍸 Cocktails">
-              <option value="gin-tonic|120|1.3">Gin & Tonic</option>
-              <option value="mojito|217|1.7">Mojito</option>
-              <option value="long-island|275|3.5">Long Island Iced Tea</option>
-              <option value="margarita|274|2.0">Margarita</option>
-            </optgroup>
-          </select>
-          <button onclick="addDrink()" style="padding: 10px 18px; background: var(--accent); color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; white-space: nowrap;">+ Add</button>
-        </div>
-
-        <!-- Meter display -->
-        <div id="meter-display" style="display:none; margin-top: 24px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-            <span style="font-size: 0.85rem; color: var(--muted);">Sober</span>
-            <span style="font-size: 0.85rem; color: var(--muted);">Hammered</span>
-          </div>
-          <div style="background: #1e1e1e; border-radius: 99px; height: 20px; overflow: hidden; margin-bottom: 12px;">
-            <div id="meter-bar" style="height: 100%; width: 0%; border-radius: 99px; transition: all 0.5s ease; background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);"></div>
-          </div>
-          <div id="meter-label" style="font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 16px;"></div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; text-align: center; margin-bottom: 16px;">
-            <div style="background: #1a1a1a; border-radius: 12px; padding: 12px;">
-              <div id="stat-units" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);"></div>
-              <div style="font-size: 0.75rem; color: var(--muted);">units</div>
-            </div>
-            <div style="background: #1a1a1a; border-radius: 12px; padding: 12px;">
-              <div id="stat-cal" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);"></div>
-              <div style="font-size: 0.75rem; color: var(--muted);">calories</div>
-            </div>
-            <div style="background: #1a1a1a; border-radius: 12px; padding: 12px;">
-              <div id="stat-bread" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);"></div>
-              <div style="font-size: 0.75rem; color: var(--muted);">slices of bread</div>
-            </div>
-          </div>
-
-          <div id="sober-time" style="text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 12px;"></div>
-          <div id="legal-warning" style="display:none; background: rgba(239,68,68,0.15); border: 1px solid #ef4444; border-radius: 12px; padding: 14px; text-align: center; color: #ef4444; font-weight: 600; margin-bottom: 12px;">
-            🚨 Over the SA legal driving limit (0.05 BAC)<br>
-            <span style="font-weight: 400; font-size: 0.9rem;">Do NOT drive. Call an Uber.</span>
-          </div>
-          <div id="nudge" style="font-size: 0.9rem; color: var(--muted); text-align: center; font-style: italic;"></div>
-        </div>
-
-        <div id="reset-row" style="display:none; text-align:center; margin-top: 20px;">
-          <button onclick="resetDrinks()" style="background: transparent; border: 1px solid #333; color: var(--muted); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem;">Reset</button>
-        </div>
-
-        <div style="margin-top: 24px; text-align: center; padding-top: 20px; border-top: 1px solid #222;">
-          <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 12px;">Track this automatically on WhatsApp — just text what you drank</p>
-          <a class="btn" href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener">Try FitSorted free →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    const drinks = [];
-
-    function addDrink() {
-      const sel = document.getElementById('drink-select');
-      if (!sel.value) return;
-      const [name, cal, units] = sel.value.split('|');
-      drinks.push({ name: sel.options[sel.selectedIndex].text, cal: parseFloat(cal), units: parseFloat(units) });
-      sel.value = '';
-      renderDrinks();
-    }
-
-    function removeDrink(i) {
-      drinks.splice(i, 1);
-      renderDrinks();
-    }
-
-    function resetDrinks() {
-      drinks.length = 0;
-      renderDrinks();
-    }
-
-    function renderDrinks() {
-      const list = document.getElementById('drink-list');
-      const meter = document.getElementById('meter-display');
-      const resetRow = document.getElementById('reset-row');
-
-      if (!drinks.length) {
-        list.innerHTML = '';
-        meter.style.display = 'none';
-        resetRow.style.display = 'none';
-        return;
-      }
-
-      list.innerHTML = drinks.map((d, i) =>
-        `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#1a1a1a;border-radius:8px;margin-bottom:6px;font-size:0.9rem;">
-          <span>${d.name}</span>
-          <span style="color:var(--muted);margin-left:12px;">${d.cal} cal · ${d.units} units</span>
-          <button onclick="removeDrink(${i})" style="background:none;border:none;color:#555;cursor:pointer;margin-left:12px;font-size:1rem;">✕</button>
-        </div>`
-      ).join('');
-
-      const totalUnits = drinks.reduce((s, d) => s + d.units, 0);
-      const totalCal = drinks.reduce((s, d) => s + d.cal, 0);
-      const breadSlices = Math.round(totalCal / 80);
-      const hoursToSober = Math.ceil(totalUnits);
-      const overLimit = totalUnits > 2.5;
-
-      // Meter levels
-      const levels = [
-        { max: 1,   label: 'Barely touched it 😇', pct: 10 },
-        { max: 2,   label: 'Warm 🌡️',              pct: 25 },
-        { max: 3,   label: 'Tipsy 🥴',              pct: 45 },
-        { max: 5,   label: 'Drunk 🍻',              pct: 65 },
-        { max: 7,   label: 'Very Drunk 😵',          pct: 82 },
-        { max: 10,  label: 'Hammered 🤯',            pct: 95 },
-        { max: 999, label: 'Send help 🚑',           pct: 100 },
-      ];
-      const level = levels.find(l => totalUnits <= l.max) || levels[levels.length - 1];
-
-      const nudges = [
-        '',
-        'Still in the safe zone. Keep it here.',
-        "You're feeling it. Good place to switch to water.",
-        'Your judgment is impaired. No more driving.',
-        'This is doing real damage. Stop now and drink water.',
-        'Seriously. Stop. Drink water. Sleep.',
-        'Call someone.',
-      ];
-      const nudgeIdx = Math.min(Math.floor(totalUnits / 1.5), nudges.length - 1);
-
-      document.getElementById('meter-bar').style.width = level.pct + '%';
-      document.getElementById('meter-label').textContent = level.label;
-      document.getElementById('stat-units').textContent = totalUnits.toFixed(1);
-      document.getElementById('stat-cal').textContent = totalCal;
-      document.getElementById('stat-bread').textContent = breadSlices;
-      document.getElementById('sober-time').textContent = `⏱️ Sober in ~${hoursToSober} hour${hoursToSober !== 1 ? 's' : ''}`;
-      document.getElementById('legal-warning').style.display = overLimit ? 'block' : 'none';
-      document.getElementById('nudge').textContent = nudges[nudgeIdx];
-
-      meter.style.display = 'block';
-      resetRow.style.display = 'block';
-    }
-  </script>
 
   <section id="faq">
     <div class="container">
@@ -719,11 +410,11 @@
         </details>
         <details>
           <summary>How accurate is it? <span>+</span></summary>
-          <p>We use a database of thousands of SA foods (growing daily) with verified nutritional data, plus AI for everything else.</p>
+          <p>We use a database of 66+ SA foods with verified nutritional data, plus AI for everything else.</p>
         </details>
         <details>
-          <summary>Does it track macros? <span>+</span></summary>
-          <p>Yes. Every food entry shows protein, carbs, and fat. Your daily log shows totals for each macro.</p>
+          <summary>Can it track Ozempic? <span>+</span></summary>
+          <p>Yes. Full GLP-1 tracking including medication, dose, injection schedule and side effects.</p>
         </details>
         <details>
           <summary>What about restaurant food? <span>+</span></summary>
@@ -739,9 +430,10 @@
 
   <footer>
     <div class="container" style="padding-top: 0;">
+      <p style="margin-bottom: 12px;">💡 Planning for retirement? <a href="https://retirementsorted.co.za" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">Check RetirementSorted</a> — health costs are your biggest expense.</p>
       <p>Built in Cape Town 🇿🇦</p>
-      <p><a href="privacy.html">Privacy Policy</a> · <a href="support.html">Support & Help</a> · <a href="/blog/">Blog</a></p>
-      <p>© 2026 FitSorted. A product of Alphax Asset Capital (Pty) Ltd.</p>
+      <p><a href="commands.html">Commands</a> · <a href="privacy.html">Privacy Policy</a></p>
+      <p>© 2026 FitSorted</p>
     </div>
   </footer>
 
@@ -761,3 +453,4 @@
   </script>
 </body>
 </html>
+<!-- cache bust 1773996046 -->

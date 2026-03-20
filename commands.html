@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commands — FitSorted WhatsApp Calorie Tracker</title>
+  <meta name="description" content="Full list of FitSorted commands and how to use the WhatsApp calorie tracker. Track food, log weight, ask questions, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --text: #f5f5f5;
+      --muted: #bdbdbd;
+      --accent: #10b981;
+      --accent-dark: #0b7a5a;
+      --border: #2a2a2a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(900px, 92vw);
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+
+    .command-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .command {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+      background: rgba(16, 185, 129, 0.05);
+      border-radius: 12px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .command-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-family: 'Courier New', monospace;
+    }
+
+    .command-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .command-example {
+      color: var(--text);
+      font-size: 0.9rem;
+      font-style: italic;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 48px;
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .cta h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .back-link {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-link">← Back to FitSorted</a>
+    
+    <header>
+      <h1>📋 Commands & How to Use FitSorted</h1>
+      <p class="subtitle">Everything you can do with the WhatsApp bot</p>
+    </header>
+
+    <div class="section">
+      <h2>🍽️ Log Food</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">Just type what you ate</div>
+          <div class="command-desc">Natural language — no special format needed</div>
+          <div class="command-example">Example: "2 eggs, toast, coffee"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">📸 Send a photo</div>
+          <div class="command-desc">Take a pic of your meal — FitSorted will identify it and log the calories</div>
+          <div class="command-example">Works for restaurant meals, home cooking, packaged foods</div>
+        </div>
+        <div class="command">
+          <div class="command-title">yesterday: [food]</div>
+          <div class="command-desc">Log something you ate yesterday</div>
+          <div class="command-example">Example: "yesterday: chicken curry"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">undo</div>
+          <div class="command-desc">Remove your last food entry</div>
+        </div>
+        <div class="command">
+          <div class="command-title">delete [food name]</div>
+          <div class="command-desc">Remove a specific food from today's log</div>
+          <div class="command-example">Example: "delete banana"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📊 Check Your Day</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">log</div>
+          <div class="command-desc">See everything you ate today + calories + macros</div>
+        </div>
+        <div class="command">
+          <div class="command-title">"how am I doing?"</div>
+          <div class="command-desc">Quick check — calories vs goal, where you're at</div>
+        </div>
+        <div class="command">
+          <div class="command-title">"can I eat [food]?"</div>
+          <div class="command-desc">Ask if a food fits your remaining calories <span class="badge">PREMIUM</span></div>
+          <div class="command-example">Example: "can I eat a burger?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>⚖️ Track Weight</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">weight [number]</div>
+          <div class="command-desc">Log your weight in kg</div>
+          <div class="command-example">Example: "weight 82.5"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">weight history</div>
+          <div class="command-desc">See your last 7 weigh-ins + trend</div>
+        </div>
+        <div class="command">
+          <div class="command-title">projection</div>
+          <div class="command-desc">Based on your weight trend, where will you be in 30/60/90 days?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🏃 Log Exercise</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">Just describe your workout</div>
+          <div class="command-desc">FitSorted tracks calories burned</div>
+          <div class="command-example">Example: "ran 5km" or "45 min gym"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">exercise log</div>
+          <div class="command-desc">See today's workouts</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🍺 Track Drinks</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">Log drinks like food</div>
+          <div class="command-desc">Type what you drank — calories are tracked</div>
+          <div class="command-example">Example: "2 beers" or "gin and tonic"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">drinks</div>
+          <div class="command-desc">See drunk-o-meter — how drunk are you? Can you drive?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🧠 Ask Questions <span class="badge">PREMIUM</span></h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">Ask anything</div>
+          <div class="command-desc">Meal ideas, nutrition advice, food swaps, macro help — personalised answers</div>
+          <div class="command-example">Example: "what should I eat for lunch?"</div>
+          <div class="command-example">Example: "is oats better than cereal?"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">suggest</div>
+          <div class="command-desc">Get meal ideas based on your remaining calories</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💰 Track Food Spending <span class="badge">PREMIUM</span></h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">R[number] or [food] R[number]</div>
+          <div class="command-desc">Log the cost of your meal</div>
+          <div class="command-example">Example: "R45" or "burger R65"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">budget</div>
+          <div class="command-desc">See how much you've spent on food today vs your daily budget</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📱 Account & Settings</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">status</div>
+          <div class="command-desc">Check your subscription (Free/Trial/Premium), trial days left, renewal date</div>
+        </div>
+        <div class="command">
+          <div class="command-title">upgrade</div>
+          <div class="command-desc">Get Premium — R49/mo with 7-day free trial</div>
+        </div>
+        <div class="command">
+          <div class="command-title">goal [number]</div>
+          <div class="command-desc">Change your daily calorie goal</div>
+          <div class="command-example">Example: "goal 2000"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">profile</div>
+          <div class="command-desc">See your stats (weight, height, age, activity level, goal)</div>
+        </div>
+        <div class="command">
+          <div class="command-title">reset</div>
+          <div class="command-desc">Start over with a fresh setup</div>
+        </div>
+        <div class="command">
+          <div class="command-title">export</div>
+          <div class="command-desc">Get your full food log as a CSV file</div>
+        </div>
+        <div class="command">
+          <div class="command-title">help</div>
+          <div class="command-desc">Quick command reference</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h3>Ready to start?</h3>
+      <p>Just send "Hi" to the WhatsApp bot</p>
+      <a href="https://wa.me/27690684940?text=Hi" class="btn" target="_blank" rel="noopener">Start Tracking →</a>
+    </div>
+
+    <footer>
+      <p>Built in Cape Town 🇿🇦</p>
+      <p><a href="privacy.html" style="color: var(--accent);">Privacy Policy</a> · <a href="/" style="color: var(--accent);">Home</a></p>
+      <p>© 2026 FitSorted</p>
+    </footer>
+  </div>
+</body>
+</html>
