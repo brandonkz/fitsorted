@@ -1276,6 +1276,14 @@ async function estimateCalories(food, user) {
     "spur salad bar": { food: "Spur Salad Bar (plate)", calories: 300, protein: 8, carbs: 25, fat: 18, fibre: 5 },
     "two provitas with peanut butter": { food: "2x Provita with Peanut Butter", calories: 250, protein: 9, carbs: 22, fat: 14, fibre: 3 },
     "provita with peanut butter": { food: "Provita with Peanut Butter", calories: 125, protein: 5, carbs: 11, fat: 7, fibre: 2 },
+    // Round 12 - nightly edge case test 2026-03-21
+    "amarula on ice": { food: "Amarula on Ice (100ml double)", calories: 280, protein: 1, carbs: 32, fat: 6, fibre: 0 },
+    "amarula": { food: "Amarula (100ml double)", calories: 280, protein: 1, carbs: 32, fat: 6, fibre: 0 },
+    "spur pancake stack": { food: "Spur Pancake Stack", calories: 650, protein: 10, carbs: 85, fat: 30, fibre: 2 },
+    "spur pancakes": { food: "Spur Pancake Stack", calories: 650, protein: 10, carbs: 85, fat: 30, fibre: 2 },
+    "checkers cheese grillers 2": { food: "Checkers Cheese Grillers (2)", calories: 300, protein: 16, carbs: 6, fat: 24, fibre: 0 },
+    "cheese grillers 2": { food: "Cheese Grillers (2)", calories: 300, protein: 16, carbs: 6, fat: 24, fibre: 0 },
+    "cheese griller": { food: "Cheese Griller (1)", calories: 150, protein: 8, carbs: 3, fat: 12, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
