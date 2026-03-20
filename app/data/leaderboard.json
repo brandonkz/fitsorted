@@ -2,11 +2,11 @@
   {
     "token": "b86d2484",
     "name": "***7970",
-    "streak": 19,
-    "totalDaysLogged": 19,
-    "avgCalories": 2837,
-    "goalAccuracy": 0.15789473684210525,
-    "totalLogs": 196,
+    "streak": 20,
+    "totalDaysLogged": 20,
+    "avgCalories": 1924,
+    "goalAccuracy": 0.15,
+    "totalLogs": 198,
     "joinedDate": "2026-03-06T15:58:33.513Z",
     "target": "lose"
   },
@@ -77,17 +77,6 @@
     "target": "gain"
   },
   {
-    "token": "daa35732",
-    "name": "***ckup",
-    "streak": 6,
-    "totalDaysLogged": 6,
-    "avgCalories": 1928,
-    "goalAccuracy": 0.3333333333333333,
-    "totalLogs": 40,
-    "joinedDate": "2026-03-03T19:20:41.635Z",
-    "target": "lose"
-  },
-  {
     "token": "1e4a37cf",
     "name": "***2067",
     "streak": 1,
@@ -102,10 +91,10 @@
     "token": "a13b5f41",
     "name": "***3354",
     "streak": 1,
-    "totalDaysLogged": 5,
-    "avgCalories": 1348,
-    "goalAccuracy": 0.2,
-    "totalLogs": 33,
+    "totalDaysLogged": 6,
+    "avgCalories": 1197,
+    "goalAccuracy": 0.16666666666666666,
+    "totalLogs": 34,
     "joinedDate": "2026-03-09T13:56:14.030Z",
     "target": "lose"
   },
@@ -519,11 +508,11 @@
   {
     "token": "c773e8b6",
     "name": "***3287",
-    "streak": 3,
-    "totalDaysLogged": 3,
-    "avgCalories": 1231,
+    "streak": 4,
+    "totalDaysLogged": 4,
+    "avgCalories": 1033,
     "goalAccuracy": 0,
-    "totalLogs": 13,
+    "totalLogs": 15,
     "joinedDate": "2026-03-17T13:30:01.595Z",
     "target": "lose"
   },

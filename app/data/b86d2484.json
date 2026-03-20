@@ -2245,6 +2245,39 @@
           "time": "2026-03-19T18:30:08.705Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-20",
+      "totals": {
+        "calories": 650,
+        "protein": 3,
+        "carbs": 5,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-20T07:42:28.707Z"
+        },
+        {
+          "food": "smoothie",
+          "calories": 600,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-20T07:42:36.182Z"
+        }
+      ]
     }
   ]
 }

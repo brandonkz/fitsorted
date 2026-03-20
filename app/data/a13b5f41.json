@@ -446,6 +446,29 @@
           "time": "2026-03-17T06:47:27.404Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-20",
+      "totals": {
+        "calories": 440,
+        "protein": 46,
+        "carbs": 0,
+        "fat": 28,
+        "fibre": 0,
+        "priceZAR": 120
+      },
+      "entries": [
+        {
+          "food": "200g fillet",
+          "calories": 440,
+          "protein": 46,
+          "carbs": 0,
+          "fat": 28,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-20T17:26:13.919Z"
+        }
+      ]
     }
   ]
 }

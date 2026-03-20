@@ -181,6 +181,39 @@
           "time": "2026-03-19T16:46:57.948Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-20",
+      "totals": {
+        "calories": 440,
+        "protein": 72,
+        "carbs": 2,
+        "fat": 16,
+        "fibre": 0,
+        "priceZAR": 458
+      },
+      "entries": [
+        {
+          "food": "2x boiled egg",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-20T08:52:29.476Z"
+        },
+        {
+          "food": "150 prawns",
+          "calories": 300,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 450,
+          "time": "2026-03-20T18:00:35.860Z"
+        }
+      ]
     }
   ]
 }
