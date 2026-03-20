@@ -459,17 +459,108 @@ function cheatSheetCaption(post) {
   
   // Upload to Postiz
   console.log('\n📤 Uploading to Postiz...');
-  const uploads = {};
+  const uploads = {};      // IG: comma-separated URLs for carousel
+  const ttUploads = {};    // TikTok: single mp4 video URL
+
+  // Helper: build 4-slide carousel HTML files for an item, render PNGs, stitch into mp4
+  const buildCarousel = (item) => {
+    const slides = buildSlides(item);
+    const pngPaths = [];
+    for (let si = 0; si < slides.length; si++) {
+      const htmlPath = path.join(DIR, `carousel-${item.name}-s${si+1}.html`);
+      const pngPath  = path.join(DIR, `carousel-${item.name}-s${si+1}.png`);
+      fs.writeFileSync(htmlPath, slides[si]);
+      execSync(`"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --screenshot="${pngPath}" --window-size=1080,1080 --default-background-color=000000 --no-sandbox "file://${htmlPath}" 2>/dev/null`);
+      pngPaths.push(pngPath);
+    }
+    return pngPaths;
+  };
+
+  // Helper: stitch PNGs into a slideshow mp4 (3s per slide, fade transitions)
+  const buildVideo = (name, pngPaths) => {
+    const mp4Path = path.join(DIR, `carousel-${name}.mp4`);
+    const inputs = pngPaths.map(p => `-loop 1 -t 3 -i "${p}"`).join(' ');
+    const n = pngPaths.length;
+    let filterParts = pngPaths.map((_, i) => {
+      const fadeOut = i < n - 1 ? `,fade=t=out:st=2.5:d=0.5` : '';
+      const fadeIn  = i > 0     ? `fade=t=in:st=0:d=0.5,` : '';
+      return `[${i}:v]scale=1080:1080,setsar=1,${fadeIn}setpts=PTS-STARTPTS${fadeOut}[v${i}]`;
+    });
+    const concatInputs = pngPaths.map((_, i) => `[v${i}]`).join('');
+    const filter = filterParts.join(';') + `;${concatInputs}concat=n=${n}:v=1:a=0[outv]`;
+    execSync(`ffmpeg -y ${inputs} -filter_complex "${filter}" -map "[outv]" -c:v libx264 -pix_fmt yuv420p -r 30 "${mp4Path}" 2>/dev/null`);
+    return mp4Path;
+  };
+
+  // Helper: generate 4 slides for a food/drink item
+  const buildSlides = (item) => {
+    const isComp = item.comparison;
+    const accent = item.accentColor || '#ff8c00';
+    const bg = `radial-gradient(ellipse at 60% 30%, ${accent}22 0%, #0d0700 50%, #000 100%)`;
+    const base = `*{margin:0;padding:0;box-sizing:border-box;}body{width:1080px;height:1080px;font-family:-apple-system,system-ui,sans-serif;overflow:hidden;position:relative;background:#0a0a0a;}.bg{position:absolute;inset:0;background:${bg};}.ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.65) 100%);}.c{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;height:100%;padding:60px 80px;}.dots{display:flex;gap:10px;margin-top:auto;padding-top:20px;}.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);}.dot.a{background:${accent};width:28px;border-radius:6px;}`;
+    const wrap = (style, body, dotActive) => {
+      const dotHtml = [0,1,2,3].map(i => `<div class="dot${i===dotActive?' a':''}"></div>`).join('');
+      return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${base}${style}</style></head><body><div class="bg"></div><div class="ov"></div><div class="c">${body}<div class="dots">${dotHtml}</div></div></body></html>`;
+    };
+
+    const cal = item.calories || (isComp ? item.left.cal : 0);
+    const runMin = Math.round(cal / 10);
+    const tag = item.tag || 'FITSORTED';
+
+    // Slide 1: Hook
+    const s1style = `.tag{background:${accent}22;border:1.5px solid ${accent}88;color:${accent};font-size:26px;font-weight:700;letter-spacing:3px;padding:10px 28px;border-radius:40px;text-transform:uppercase;margin-bottom:auto;margin-top:0;}.icon{font-size:100px;margin:20px 0 10px;}.q{font-size:48px;font-weight:900;color:rgba(255,255,255,0.5);text-align:center;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}.name{font-size:90px;font-weight:900;color:#fff;text-align:center;line-height:1;letter-spacing:-2px;margin-bottom:6px;}.sub{font-size:28px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:30px;}.calrow{display:flex;align-items:baseline;gap:12px;}.calbig{font-size:150px;font-weight:900;color:${accent};line-height:1;letter-spacing:-5px;}.callabel{font-size:38px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:4px;}.swipe{font-size:24px;color:rgba(255,255,255,0.3);margin-top:20px;}`;
+    const s1body = `<div class="tag">🇿🇦 ${tag}</div><div class="icon">🥘</div><div class="q">DO YOU KNOW HOW MANY CALORIES ARE IN</div><div class="name">${item.food}</div><div class="sub">${item.subtitle}</div><div class="calrow"><div class="calbig">${cal}</div><div class="callabel">CAL</div></div><div class="swipe">SWIPE FOR THE BREAKDOWN →</div>`;
+
+    // Slide 2: Breakdown
+    const s2style = `.lbl{font-size:26px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;margin-top:0;}.ttl{font-size:52px;font-weight:900;color:#fff;margin-bottom:40px;text-align:center;}.bars{display:flex;flex-direction:column;gap:24px;width:100%;}.br{display:flex;flex-direction:column;gap:10px;}.bm{display:flex;justify-content:space-between;align-items:baseline;}.bn{font-size:28px;font-weight:700;color:rgba(255,255,255,0.8);}.bv{font-size:36px;font-weight:900;color:#fff;}.bt{height:20px;background:rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;}.bf1{height:100%;border-radius:12px;background:linear-gradient(90deg,${accent},${accent}99);width:58%;}.bf2{height:100%;border-radius:12px;background:linear-gradient(90deg,#ff5555,#cc2200);width:42%;}.tot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.15);padding-top:24px;margin-top:8px;}.tl{font-size:30px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:2px;}.tv{font-size:68px;font-weight:900;color:${accent};}.run{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:16px 32px;margin-top:24px;font-size:26px;color:rgba(255,255,255,0.6);text-align:center;}`;
+    const s2body = `<div class="lbl">THE BREAKDOWN</div><div class="ttl">Where do the calories come from?</div><div class="bars"><div class="br"><div class="bm"><span class="bn">🥐 Dough / carbs</span><span class="bv">${Math.round(cal*0.58)} cal</span></div><div class="bt"><div class="bf1"></div></div></div><div class="br"><div class="bm"><span class="bn">🥩 Protein / filling</span><span class="bv">${Math.round(cal*0.42)} cal</span></div><div class="bt"><div class="bf2"></div></div></div></div><div class="tot"><span class="tl">TOTAL</span><span class="tv">${cal} cal</span></div><div class="run">🏃 ${runMin} min running to burn this off (~${(runMin*0.1).toFixed(1)}km)</div>`;
+
+    // Slide 3: Macros + hacks
+    const p = item.protein || 0; const carbs = item.carbs || 0; const fat = item.fat || 0;
+    const verdict = item.verdict || 'Track it. Know it. Own it.';
+    const s3style = `.lbl{font-size:26px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;margin-top:0;}.ttl{font-size:52px;font-weight:900;color:#fff;margin-bottom:36px;text-align:center;}.macros{display:flex;gap:20px;margin-bottom:36px;width:100%;}.mac{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:26px 20px;text-align:center;}.mv{font-size:50px;font-weight:900;color:#fff;}.ml{font-size:19px;color:rgba(255,255,255,0.4);letter-spacing:2px;font-weight:600;margin-top:6px;}.verdict{background:${accent}18;border:1px solid ${accent}44;border-radius:20px;padding:28px 36px;margin-bottom:16px;font-size:30px;color:rgba(255,255,255,0.85);line-height:1.5;text-align:center;font-style:italic;}`;
+    const s3body = `<div class="lbl">THE MACROS</div><div class="ttl">Full nutritional breakdown</div><div class="macros"><div class="mac"><div class="mv">${p}g</div><div class="ml">PROTEIN</div></div><div class="mac"><div class="mv">${carbs}g</div><div class="ml">CARBS</div></div><div class="mac"><div class="mv">${fat}g</div><div class="ml">FAT</div></div></div><div class="verdict">"${verdict}"</div>`;
+
+    // Slide 4: CTA
+    const s4style = `.icon{font-size:80px;margin-bottom:20px;}.hl{font-size:60px;font-weight:900;color:#fff;text-align:center;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;}.sub{font-size:28px;color:rgba(255,255,255,0.5);text-align:center;max-width:700px;line-height:1.5;margin-bottom:30px;}.cta{background:linear-gradient(135deg,${accent},${accent}99);border-radius:24px;padding:28px 56px;margin-bottom:16px;}.ct{font-size:34px;font-weight:900;color:#fff;text-align:center;letter-spacing:1px;}.cs{font-size:22px;color:rgba(255,255,255,0.8);text-align:center;margin-top:6px;}.num{font-size:26px;color:${accent}cc;margin-top:6px;}.badge{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;font-size:22px;font-weight:800;letter-spacing:2px;padding:10px 28px;border-radius:40px;margin-top:16px;}`;
+    const s4body = `<div class="icon">🏋️</div><div class="hl">Track everything you eat on WhatsApp</div><div class="sub">No app. Just message FitSorted — SA foods, local restaurants, macros.</div><div class="cta"><div class="ct">Try FitSorted FREE for 7 days</div><div class="cs">Then just R49/month 🇿🇦</div></div><div class="num">WhatsApp +27 69 068 4940</div><div class="badge">🏋️ FITSORTED</div>`;
+
+    return [
+      wrap(s1style, s1body, 0),
+      wrap(s2style, s2body, 1),
+      wrap(s3style, s3body, 2),
+      wrap(s4style, s4body, 3),
+    ];
+  };
+
   for (const item of allItems) {
     const pngPath = path.join(DIR, `weekly-${item.name}.png`);
     try {
-      const out = execSync(`postiz upload "${pngPath}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } }).toString();
-      const match = out.match(/"path":\s*"([^"]+)"/);
-      if (match) {
-        uploads[item.name] = match[1];
-        console.log(`✅ ${item.name} → ${match[1]}`);
+      // Build carousel slides
+      const slidePngs = buildCarousel(item);
+
+      // Upload all slide PNGs for Instagram carousel (comma-separated)
+      const igUrls = [];
+      for (const sp of slidePngs) {
+        const out = execSync(`postiz upload "${sp}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } }).toString();
+        const match = out.match(/"path":\s*"([^"]+)"/);
+        if (match) igUrls.push(match[1]);
+        await new Promise(r => setTimeout(r, 2000));
       }
-    } catch(e) { console.error(`❌ Upload failed: ${item.name}`); }
+      if (igUrls.length) {
+        uploads[item.name] = igUrls.join(',');
+        console.log(`✅ IG carousel ${item.name} → ${igUrls.length} slides`);
+      }
+
+      // Build mp4 slideshow for TikTok
+      const mp4Path = buildVideo(item.name, slidePngs);
+      const ttOut = execSync(`postiz upload "${mp4Path}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } }).toString();
+      const ttMatch = ttOut.match(/"path":\s*"([^"]+)"/);
+      if (ttMatch) {
+        ttUploads[item.name] = ttMatch[1];
+        console.log(`✅ TT video ${item.name} → ${ttMatch[1]}`);
+      }
+    } catch(e) { console.error(`❌ Upload failed: ${item.name} — ${e.message.slice(0,100)}`); }
     await new Promise(r => setTimeout(r, 3000));
   }
   
@@ -504,9 +595,9 @@ function cheatSheetCaption(post) {
       } catch(e) { console.error(`❌ ${days[i]} IG food: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
       
-      // TikTok food at 10:30AM SA = 08:30 UTC
-      try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[food.name]}" -s "${dateStr}T08:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+      // TikTok food at 10:30AM SA = 08:30 UTC (video slideshow)
+      if (ttUploads[food.name]) try {
+        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[food.name]}" -s "${dateStr}T08:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
         console.log(`✅ ${days[i]} 10:30AM TT: ${food.name}`);
       } catch(e) { console.error(`❌ ${days[i]} TT food: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
@@ -521,9 +612,9 @@ function cheatSheetCaption(post) {
       } catch(e) { console.error(`❌ ${days[i]} IG drink: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
       
-      // TikTok drink at 6:30PM SA = 16:30 UTC
-      try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[drink.name]}" -s "${dateStr}T16:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+      // TikTok drink at 6:30PM SA = 16:30 UTC (video slideshow)
+      if (ttUploads[drink.name]) try {
+        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[drink.name]}" -s "${dateStr}T16:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
         console.log(`✅ ${days[i]} 6:30PM TT: ${drink.name}`);
       } catch(e) { console.error(`❌ ${days[i]} TT drink: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
@@ -546,8 +637,8 @@ function cheatSheetCaption(post) {
       } catch(e) { console.error(`❌ Cheat sheet IG: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
       
-      try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[cs.name]}" -s "${dateStr}T11:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+      if (ttUploads[cs.name]) try {
+        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[cs.name]}" -s "${dateStr}T11:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
         console.log(`✅ ${days[cheatDays[ci]]} 1:30PM TT cheat sheet: ${cs.title}`);
       } catch(e) { console.error(`❌ Cheat sheet TT: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
