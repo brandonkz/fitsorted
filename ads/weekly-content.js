@@ -5,7 +5,7 @@ const { execSync } = require('child_process');
 
 const runMin = (cal) => Math.round(cal / 10);
 const DIR = __dirname;
-const POSTIZ_KEY = process.env.POSTIZ_API_KEY;
+const POSTIZ_KEY = process.env.POSTIZ_API_KEY || 'f106e11ea7991bcee68bb6e60e54e6bcf041b8a3a332ab8b88b70c43bc4c7edf';
 const IG_ID = "cmmkap1k000chqn0ygg2aihz1";
 const TT_ID = "cmmlw6wkv04yyqn0yt0mxv928";
 

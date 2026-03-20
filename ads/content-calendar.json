@@ -1,0 +1,157 @@
+{
+  "posts": [
+    {
+      "id": "nandos-1200",
+      "title": "Your Nando's Order is 1,200 Calories",
+      "status": "sent",
+      "sentDate": "2026-03-20",
+      "scheduled": "2026-03-20",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/nandos-1200-calories.png",
+      "slides": [
+        "slideshows/nandos-1200/slide-2.png",
+        "slideshows/nandos-1200/slide-3.png",
+        "slideshows/nandos-1200/slide-4.png",
+        "slideshows/nandos-1200/slide-5.png"
+      ],
+      "caption": "You think you're ordering healthy at Nando's. You're not. That \"standard\" order — half chicken, chips, coleslaw, Coke — is 1,360 calories. That's 68% of your daily budget in one meal. The chicken is genuinely good for you. It's everything around it that's the problem. Swipe to see the fix 👉",
+      "hashtags": "#nandos #nandossa #caloriecounting #fitsorted #eatoutsmart #southafrica #weightloss #healthyeating #mealplanning #calories #fitness #capetown #johannesburg #trackingcalories #fatloss"
+    },
+    {
+      "id": "woolies-rotisserie",
+      "title": "R100 Woolies Rotisserie = 4 Meals (Here's How)",
+      "status": "ready",
+      "scheduled": "2026-03-21",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/woolies-rotisserie.png",
+      "slides": [
+        "slideshows/woolies-rotisserie/slide-2.png",
+        "slideshows/woolies-rotisserie/slide-3.png",
+        "slideshows/woolies-rotisserie/slide-4.png"
+      ],
+      "caption": "R100 Woolies rotisserie chicken. One purchase. Four meals. Under R30 each with 40g+ protein per plate. This is the lazy person's meal prep and it actually works. Remove the skin (saves 100 cal per portion), pair with steam rice and frozen veg, done. Swipe to see the full breakdown 👉",
+      "hashtags": "#woolworths #woolworththsa #mealprep #highprotein #budgetmeals #fitsorted #southafrica #rotisseriechicken #healthyeating #cheapmeals #mealplanning #proteingoals #fitness #capetown #johannesburg"
+    },
+    {
+      "id": "nandos-quarter-chicken",
+      "title": "Quarter Chicken + Chips: The Smart Swap",
+      "status": "ready",
+      "scheduled": "2026-03-22",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/nandos-quarter-chicken.png",
+      "slides": [
+        "slideshows/nandos-quarter-chicken/slide-2.png",
+        "slideshows/nandos-quarter-chicken/slide-3.png",
+        "slideshows/nandos-quarter-chicken/slide-4.png"
+      ],
+      "caption": "Quarter chicken + chips sounds like the \"lighter\" order. It's still 745 calories. The chicken? Great — 35g protein, flame-grilled. The chips? 420 calories with basically zero protein. One simple swap changes the whole meal. Swipe to see exactly what to order instead 👉",
+      "hashtags": "#nandos #nandossa #quarterchicken #caloriecounting #fitsorted #healthyswaps #southafrica #fitness #fatloss #trackingcalories #eatoutsmart #healthyeating #weightloss #proteingoals #capetown"
+    },
+    {
+      "id": "woolies-meal-kits",
+      "title": "Woolworths Meal Kits — Actually Healthy?",
+      "status": "ready",
+      "scheduled": "2026-03-23",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/woolies-meal-kits.png",
+      "slides": [
+        "slideshows/woolies-meal-kits/slide-2.png",
+        "slideshows/woolies-meal-kits/slide-3.png",
+        "slideshows/woolies-meal-kits/slide-4.png",
+        "slideshows/woolies-meal-kits/slide-5.png"
+      ],
+      "caption": "\"It's from Woolies, it must be healthy.\" Not how that works. We checked 5 of their most popular meal kits. Butter chicken: 680 cal. Beef lasagne: 720 cal. And the serving sizes listed? No one eats that little. Swipe to see which ones are actually safe picks 👉",
+      "hashtags": "#woolworths #woolworththsa #mealkit #caloriecounting #fitsorted #southafrica #healthyeating #weightloss #trackingcalories #fitness #mealplanning #eatright #capetown #johannesburg #healthylifestyle"
+    },
+    {
+      "id": "nandos-wrap-vs-burger",
+      "title": "Nando's Wrap vs Burger — Which One Wins?",
+      "status": "ready",
+      "scheduled": "2026-03-24",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/nandos-wrap-vs-burger.png",
+      "slides": [
+        "slideshows/nandos-wrap-vs-burger/slide-2.png",
+        "slideshows/nandos-wrap-vs-burger/slide-3.png",
+        "slideshows/nandos-wrap-vs-burger/slide-4.png"
+      ],
+      "caption": "Everyone's got an opinion on this. Here are the actual numbers. The wrap wins — 70 fewer calories, more protein. Not by some huge margin but it adds up if you're eating Nando's regularly. And if you want to push it further, there's a pro move that gets you to 45g protein for under 600 cal total. Swipe 👉",
+      "hashtags": "#nandos #nandossa #wrap #burger #caloriecounting #fitsorted #southafrica #fitness #healthyeating #trackingcalories #highprotein #eatoutsmart #fatloss #weightloss #capetown"
+    },
+    {
+      "id": "woolies-vs-pnp-yoghurt",
+      "title": "Woolworths vs PnP Greek Yoghurt — Protein Per Rand",
+      "status": "ready",
+      "scheduled": "2026-03-25",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/woolies-vs-pnp-yoghurt.png",
+      "slides": [
+        "slideshows/woolies-vs-pnp-yoghurt/slide-2.png",
+        "slideshows/woolies-vs-pnp-yoghurt/slide-3.png",
+        "slideshows/woolies-vs-pnp-yoghurt/slide-4.png"
+      ],
+      "caption": "If you're buying Woolworths Greek yoghurt for the protein, you're paying 3x too much. PnP gives you more protein per 100g AND per Rand. Woolies tastes better (more cream = more fat) — so if you're having it as a treat, go for it. But if you're hitting protein targets, PnP is the obvious choice. Swipe for the breakdown 👉",
+      "hashtags": "#greekyoghurt #woolworths #picknpay #highprotein #caloriecounting #fitsorted #southafrica #budgetfitness #trackingcalories #macros #fitness #healthyeating #weightloss #protein #capetown"
+    },
+    {
+      "id": "nandos-cutting-order",
+      "title": "What I Order at Nando's When Cutting (Under 550 Cal)",
+      "status": "ready",
+      "scheduled": "2026-03-26",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/nandos-cutting-order.png",
+      "slides": [
+        "slideshows/nandos-cutting-order/slide-2.png",
+        "slideshows/nandos-cutting-order/slide-3.png",
+        "slideshows/nandos-cutting-order/slide-4.png"
+      ],
+      "caption": "This is the actual order. 545 calories, 42g protein, still feels like a proper meal out. Quarter breast, peri rice, side salad, water. The slides tell you exactly what to avoid too — and some of those extras will genuinely shock you. Garlic bread alone adds 280 cal. Swipe 👉",
+      "hashtags": "#nandos #nandossa #cutting #caloriedeficit #fitsorted #southafrica #fitness #fatloss #trackingcalories #healthyeating #highprotein #eatoutsmart #weightloss #macros #capetown"
+    },
+    {
+      "id": "woolies-protein-wraps",
+      "title": "Woolies Protein Wraps — Worth the R20 Extra?",
+      "status": "ready",
+      "scheduled": "2026-03-27",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/woolies-protein-wraps.png",
+      "slides": [
+        "slideshows/woolies-protein-wraps/slide-2.png",
+        "slideshows/woolies-protein-wraps/slide-3.png",
+        "slideshows/woolies-protein-wraps/slide-4.png"
+      ],
+      "caption": "Woolies protein wraps are genuinely better than the regular ones. More protein, fewer carbs, fewer calories. BUT — that R20 extra gets you 100g of chicken breast. Which has 31g of protein vs the 10g extra you're getting from the wrap. Use the protein wrap if you like it. Just don't count it as your protein source. Swipe for the full numbers 👉",
+      "hashtags": "#woolworths #woolworththsa #proteinwrap #highprotein #caloriecounting #fitsorted #southafrica #fitness #healthyeating #macros #trackingcalories #weightloss #fatloss #mealprep #capetown"
+    },
+    {
+      "id": "woolies-protein-snacks",
+      "title": "Best High Protein Snacks at Woolworths Under R30",
+      "status": "ready",
+      "scheduled": "2026-03-28",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/woolies-protein-snacks.png",
+      "slides": [
+        "slideshows/woolies-protein-snacks/slide-2.png",
+        "slideshows/woolies-protein-snacks/slide-3.png",
+        "slideshows/woolies-protein-snacks/slide-4.png"
+      ],
+      "caption": "All available in Woolies. All under R30. All actually worth buying if you're trying to hit protein without eating a full meal. Biltong wins on value, boiled eggs win on price, and protein bars — despite the packaging — are the worst option on the shelf. Swipe for the full list and rankings 👉",
+      "hashtags": "#woolworths #woolworththsa #highprotein #proteinsnacks #biltong #caloriecounting #fitsorted #southafrica #fitness #healthyeating #trackingcalories #macros #weightloss #snacks #capetown"
+    },
+    {
+      "id": "nandos-rice-vs-chips",
+      "title": "Nando's Rice vs Chips — 220 Calories, One Choice",
+      "status": "ready",
+      "scheduled": "2026-03-29",
+      "platform": ["tiktok", "instagram"],
+      "hookThumbnail": "thumbnails/nandos-rice-vs-chips.png",
+      "slides": [
+        "slideshows/nandos-rice-vs-chips/slide-2.png",
+        "slideshows/nandos-rice-vs-chips/slide-3.png",
+        "slideshows/nandos-rice-vs-chips/slide-4.png"
+      ],
+      "caption": "Same price. Same restaurant. One fills you up with 200 calories, the other hits you for 420 with 22g of fat and barely any protein. If you eat Nando's once a week and swap chips to rice every single time, that's 11,440 fewer calories per year. About 1.5kg of body fat. From ONE decision. Swipe 👉",
+      "hashtags": "#nandos #nandossa #riceorchips #caloriecounting #fitsorted #southafrica #fitness #fatloss #healthyswaps #trackingcalories #eatoutsmart #weightloss #healthyeating #macros #capetown"
+    }
+  ]
+}
