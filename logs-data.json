@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-20T18:00:35.860Z",
+    "date": "2026-03-20",
+    "phone": "3287",
+    "userId": "27736523",
+    "food": "150 prawns",
+    "calories": 300,
+    "protein": 60,
+    "carbs": 0,
+    "fat": 6,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-20T17:26:13.919Z",
+    "date": "2026-03-20",
+    "phone": "3354",
+    "userId": "97253952",
+    "food": "200g fillet",
+    "calories": 440,
+    "protein": 46,
+    "carbs": 0,
+    "fat": 28,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-20T08:52:29.476Z",
     "date": "2026-03-20",
     "phone": "3287",
