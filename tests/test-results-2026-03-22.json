@@ -1,0 +1,234 @@
+{
+  "date": "2026-03-22",
+  "tested": 10,
+  "passed": 6,
+  "failed": 4,
+  "results": [
+    {
+      "foodText": "woolworths rotisserie chicken leg",
+      "minCal": 200,
+      "maxCal": 350,
+      "aiCal": 250,
+      "aiResult": {
+        "food": "rotisserie chicken leg",
+        "calories": 250,
+        "protein": 30,
+        "carbs": 0,
+        "fat": 15,
+        "fibre": 0,
+        "estimatedPriceZAR": 50
+      },
+      "pass": true
+    },
+    {
+      "foodText": "two samoosas",
+      "minCal": 200,
+      "maxCal": 360,
+      "aiCal": 300,
+      "aiResult": {
+        "food": "2x samoosa",
+        "calories": 300,
+        "protein": 6,
+        "carbs": 36,
+        "fat": 15,
+        "fibre": 4,
+        "estimatedPriceZAR": 30
+      },
+      "pass": true
+    },
+    {
+      "foodText": "gatsby masala steak",
+      "minCal": 900,
+      "maxCal": 1300,
+      "aiCal": 800,
+      "aiResult": {
+        "food": "gatsby masala steak",
+        "calories": 800,
+        "protein": 50,
+        "carbs": 80,
+        "fat": 35,
+        "fibre": 5,
+        "estimatedPriceZAR": 85
+      },
+      "pass": false
+    },
+    {
+      "foodText": "mageu 1 litre",
+      "minCal": 350,
+      "maxCal": 600,
+      "aiCal": 600,
+      "aiResult": {
+        "food": "mageu 1 litre",
+        "calories": 600,
+        "protein": 20,
+        "carbs": 120,
+        "fat": 10,
+        "fibre": 5,
+        "estimatedPriceZAR": null
+      },
+      "pass": true
+    },
+    {
+      "foodText": "cremora rooibos tea",
+      "minCal": 30,
+      "maxCal": 80,
+      "aiCal": 0,
+      "aiResult": {
+        "food": "cremora rooibos tea",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      },
+      "pass": false
+    },
+    {
+      "foodText": "rocomamas wing roulette 6",
+      "minCal": 450,
+      "maxCal": 700,
+      "aiCal": 900,
+      "aiResult": {
+        "food": "6x RocoMamas wing roulette",
+        "calories": 900,
+        "protein": 60,
+        "carbs": 0,
+        "fat": 60,
+        "fibre": 0,
+        "estimatedPriceZAR": 120
+      },
+      "pass": false
+    },
+    {
+      "foodText": "checkers cheese and onion pie",
+      "minCal": 350,
+      "maxCal": 550,
+      "aiCal": 400,
+      "aiResult": {
+        "food": "Checkers cheese and onion pie",
+        "calories": 400,
+        "protein": 10,
+        "carbs": 40,
+        "fat": 20,
+        "fibre": 2,
+        "estimatedPriceZAR": 50
+      },
+      "pass": true
+    },
+    {
+      "foodText": "kfc coleslaw",
+      "minCal": 100,
+      "maxCal": 220,
+      "aiCal": 150,
+      "aiResult": {
+        "food": "KFC coleslaw",
+        "calories": 150,
+        "protein": 1,
+        "carbs": 15,
+        "fat": 10,
+        "fibre": 2,
+        "estimatedPriceZAR": 30
+      },
+      "pass": true
+    },
+    {
+      "foodText": "nandos corn on the cob",
+      "minCal": 80,
+      "maxCal": 200,
+      "aiCal": 150,
+      "aiResult": {
+        "food": "Nando's corn on the cob",
+        "calories": 150,
+        "protein": 4,
+        "carbs": 30,
+        "fat": 2,
+        "fibre": 3,
+        "estimatedPriceZAR": 30
+      },
+      "pass": true
+    },
+    {
+      "foodText": "castle milk stout",
+      "minCal": 180,
+      "maxCal": 280,
+      "aiCal": 155,
+      "aiResult": {
+        "food": "Castle Milk Stout 440ml",
+        "calories": 155,
+        "protein": 2,
+        "carbs": 15,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      },
+      "pass": false
+    }
+  ],
+  "failures": [
+    {
+      "foodText": "gatsby masala steak",
+      "minCal": 900,
+      "maxCal": 1300,
+      "aiCal": 800,
+      "aiResult": {
+        "food": "gatsby masala steak",
+        "calories": 800,
+        "protein": 50,
+        "carbs": 80,
+        "fat": 35,
+        "fibre": 5,
+        "estimatedPriceZAR": 85
+      },
+      "pass": false
+    },
+    {
+      "foodText": "cremora rooibos tea",
+      "minCal": 30,
+      "maxCal": 80,
+      "aiCal": 0,
+      "aiResult": {
+        "food": "cremora rooibos tea",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      },
+      "pass": false
+    },
+    {
+      "foodText": "rocomamas wing roulette 6",
+      "minCal": 450,
+      "maxCal": 700,
+      "aiCal": 900,
+      "aiResult": {
+        "food": "6x RocoMamas wing roulette",
+        "calories": 900,
+        "protein": 60,
+        "carbs": 0,
+        "fat": 60,
+        "fibre": 0,
+        "estimatedPriceZAR": 120
+      },
+      "pass": false
+    },
+    {
+      "foodText": "castle milk stout",
+      "minCal": 180,
+      "maxCal": 280,
+      "aiCal": 155,
+      "aiResult": {
+        "food": "Castle Milk Stout 440ml",
+        "calories": 155,
+        "protein": 2,
+        "carbs": 15,
+        "fat": 0,
+        "fibre": 0,
+        "estimatedPriceZAR": null
+      },
+      "pass": false
+    }
+  ]
+}

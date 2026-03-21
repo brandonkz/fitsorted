@@ -1284,6 +1284,17 @@ async function estimateCalories(food, user) {
     "checkers cheese grillers 2": { food: "Checkers Cheese Grillers (2)", calories: 300, protein: 16, carbs: 6, fat: 24, fibre: 0 },
     "cheese grillers 2": { food: "Cheese Grillers (2)", calories: 300, protein: 16, carbs: 6, fat: 24, fibre: 0 },
     "cheese griller": { food: "Cheese Griller (1)", calories: 150, protein: 8, carbs: 3, fat: 12, fibre: 0 },
+    // Round 13 - nightly edge case test 2026-03-22
+    "gatsby masala steak": { food: "Masala Steak Gatsby", calories: 1050, protein: 42, carbs: 100, fat: 45, fibre: 5 },
+    "masala steak gatsby": { food: "Masala Steak Gatsby", calories: 1050, protein: 42, carbs: 100, fat: 45, fibre: 5 },
+    "cremora rooibos tea": { food: "Rooibos Tea with Cremora", calories: 50, protein: 0, carbs: 6, fat: 3, fibre: 0 },
+    "cremora rooibos": { food: "Rooibos Tea with Cremora", calories: 50, protein: 0, carbs: 6, fat: 3, fibre: 0 },
+    "cremora tea": { food: "Tea with Cremora", calories: 50, protein: 0, carbs: 6, fat: 3, fibre: 0 },
+    "rocomamas wing roulette 6": { food: "RocoMamas Wing Roulette (6)", calories: 580, protein: 40, carbs: 12, fat: 38, fibre: 1 },
+    "rocomamas wings 6": { food: "RocoMamas Wings (6)", calories: 580, protein: 40, carbs: 12, fat: 38, fibre: 1 },
+    "rocomamas wings": { food: "RocoMamas Wings (6)", calories: 580, protein: 40, carbs: 12, fat: 38, fibre: 1 },
+    "castle milk stout": { food: "Castle Milk Stout 440ml", calories: 220, protein: 2, carbs: 22, fat: 0, fibre: 0 },
+    "milk stout": { food: "Castle Milk Stout 440ml", calories: 220, protein: 2, carbs: 22, fat: 0, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
@@ -2533,31 +2544,15 @@ async function handleSetup(from, user, msg, users) {
     user.step = "email";
     saveUsers(users);
 
-    await send(from, `Nice one, ${name}! 👋\n\nWhat's your email?\n\nI'll send you daily food logs and weekly reports.\n\n_(Type *skip* if you'd rather not)_`);
+    await send(from, `Nice one, ${name}! 👋\n\nWhat's your email address?\n\nI'll send you daily food logs and weekly progress reports. 📧`);
     return;
   }
 
   if (step === "email") {
     const emailText = msg.trim().toLowerCase();
     
-    if (emailText === "skip" || emailText === "no") {
-      // Skip email, go to budget
-      user.step = "budget";
-      saveUsers(users);
-      
-      try {
-        await sendButtons(from,
-          `No worries! Last thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
-          [
-            { id: "setup:budget_100", title: "R100/day" },
-            { id: "setup:budget_150", title: "R150/day" },
-            { id: "setup:budget_200", title: "R200/day" },
-            { id: "setup:budget_skip", title: "Skip for now" },
-          ]
-        );
-      } catch {
-        await send(from, `No worries! Last thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
-      }
+    if (emailText === "skip" || emailText === "no" || emailText === "n") {
+      await send(from, `I need your email to send you daily food logs and weekly reports — it's a big part of the experience! 💪\n\nJust type your email address:`);
       return;
     }
     
