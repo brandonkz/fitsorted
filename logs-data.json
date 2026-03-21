@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-21T10:52:22.702Z",
+    "date": "2026-03-21",
+    "phone": "5538",
+    "userId": "27843225",
+    "food": "sourdough bread",
+    "calories": 80,
+    "protein": 3,
+    "carbs": 15,
+    "fat": 1,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-21T10:52:18.119Z",
+    "date": "2026-03-21",
+    "phone": "5538",
+    "userId": "27843225",
+    "food": "chicken breast with pasta",
+    "calories": 365,
+    "protein": 40,
+    "carbs": 50,
+    "fat": 7,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-20T18:00:35.860Z",
     "date": "2026-03-20",
     "phone": "3287",
