@@ -47,6 +47,13 @@
         "calories": 400,
         "time": "2026-03-16T06:53:30.208Z"
       }
+    ],
+    "2026-03-21": [
+      {
+        "activity": "running",
+        "calories": 1200,
+        "time": "2026-03-21T10:51:33.784Z"
+      }
     ]
   },
   "logSummary": [
@@ -286,6 +293,39 @@
           "fibre": 4,
           "priceZAR": 60,
           "time": "2026-03-16T17:05:24.502Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-21",
+      "totals": {
+        "calories": 445,
+        "protein": 43,
+        "carbs": 65,
+        "fat": 8,
+        "fibre": 3,
+        "priceZAR": 125
+      },
+      "entries": [
+        {
+          "food": "chicken breast with pasta",
+          "calories": 365,
+          "protein": 40,
+          "carbs": 50,
+          "fat": 7,
+          "fibre": 2,
+          "priceZAR": 85,
+          "time": "2026-03-21T10:52:18.119Z"
+        },
+        {
+          "food": "sourdough bread",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 40,
+          "time": "2026-03-21T10:52:22.702Z"
         }
       ]
     }
