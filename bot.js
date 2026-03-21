@@ -23,7 +23,7 @@ const PRO_LAUNCH = true; // PayFast live
 const BETA_FEATURES = {
   priceEstimates: new Set(["27837787970"]), // Brandon only
 };
-const PRO_PRICE = process.env.PRO_PRICE || "49";
+const PRO_PRICE = process.env.PRO_PRICE || "36";
 const GRANDFATHER_DATE = new Date("2026-03-19T23:59:59Z"); // Users who joined before this get free access forever
 const TRIAL_DAYS = 7;
 const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID || "10803069";
@@ -188,7 +188,7 @@ function applyDiscount(price, discountPct) {
 
 // Generate PayFast monthly subscription link (7-day free trial)
 function getPayFastMonthlyLink(phone, discountPct = 0) {
-  const monthly = parseFloat(applyDiscount(49, discountPct));
+  const monthly = parseFloat(applyDiscount(36, discountPct));
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -213,7 +213,7 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
 
 // Generate PayFast annual subscription link (7-day free trial)
 function getPayFastAnnualLink(phone, discountPct = 0) {
-  const annual = parseFloat(applyDiscount(399, discountPct)); // R49 x 12 = R588, discounted to R399/yr
+  const annual = parseFloat(applyDiscount(399, discountPct)); // R36 x 12 = R432, discounted to R399/yr
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -2351,7 +2351,7 @@ async function maybePromptPro(from, user) {
     await send(from,
       `You've logged 3 days in a row ✅\n\n` +
       `Subscribe to keep going:\n\n` +
-      `📅 *Monthly — R49/mo*\n👉 ${monthlyLink}\n\n` +
+      `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
       `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
     );
   }
@@ -2613,7 +2613,7 @@ async function handleSetup(from, user, msg, users) {
       }
     }
     user.setup = true;
-    user.step = null;
+    user.step = "onboard_offer";
     saveUsers(users);
 
     const budgetMsg = user.profile?.foodBudget
@@ -2627,16 +2627,75 @@ async function handleSetup(from, user, msg, users) {
     await send(from,
       `✅ *All set, ${user.name}!*\n\n` +
       `Your goal: *${user.goal} cal/day*${budgetMsg}${emailMsg}\n\n` +
-      `Let's log your first meal right now 👇\n\n` +
-      `Just type what you've eaten today, like:\n` +
-      `_"2 eggs on toast"_\n` +
-      `_"coffee with milk"_\n` +
-      `_"woolworths chicken wrap"_\n\n` +
-      `Or snap a photo of your plate 📸\n\n` +
-      `Go — what did you have for breakfast?`
+      `You're on a *7-day free trial* with all features unlocked 🎉\n\n` +
+      `🔥 *Sign up now and get 10% off:*\n\n` +
+      `📅 *Annual — R33/mo* (R399/yr, save 32%)\n` +
+      `📅 *Monthly — R32.40/mo* (10% off R36)\n\n` +
+      `This offer is only available right now 👇`
     );
 
+    try {
+      await sendButtons(from,
+        `Lock in your 10% discount?`,
+        [
+          { id: "onboard_annual", title: "Annual R399/yr ⭐" },
+          { id: "onboard_subscribe", title: "Monthly R32.40/mo" },
+          { id: "onboard_skip", title: "Start Free Trial" },
+        ]
+      );
+    } catch {
+      await send(from, `💎 Subscribe now (10% off): ${discountLink}\n\nOr just start logging — type what you ate!`);
+      user.step = null;
+      saveUsers(users);
+    }
+
     // Menu card now sent after first food log (see maybeFirstLogMenu below)
+    return;
+  }
+
+  if (step === "onboard_offer") {
+    const response = msg.toLowerCase().trim();
+    if (response === "onboard_annual") {
+      const link = getPayFastAnnualLink(from, 0);
+      user.step = null;
+      saveUsers(users);
+      await send(from,
+        `🎉 Smart choice! Here's your secure payment link:\n\n` +
+        `${link}\n\n` +
+        `✅ *R399/year* (R33/mo — best value)\n` +
+        `✅ 7-day free trial — you won't be charged today\n` +
+        `✅ Cancel anytime\n\n` +
+        `While that's processing, let's log your first meal!\n\n` +
+        `Just type what you've eaten, like:\n_"2 eggs on toast"_`
+      );
+    } else if (response === "onboard_subscribe") {
+      const link = getPayFastMonthlyLink(from, 10);
+      user.step = null;
+      saveUsers(users);
+      await send(from,
+        `🎉 Great choice! Here's your secure payment link:\n\n` +
+        `${link}\n\n` +
+        `✅ 10% off locked in — *R32.40/month*\n` +
+        `✅ 7-day free trial — you won't be charged today\n` +
+        `✅ Cancel anytime\n\n` +
+        `While that's processing, let's log your first meal!\n\n` +
+        `Just type what you've eaten, like:\n_"2 eggs on toast"_`
+      );
+    } else {
+      // Skip or any other message — start free trial
+      user.step = null;
+      saveUsers(users);
+      await send(from,
+        `No problem! Your *7-day free trial* is active 🎉\n\n` +
+        `Let's log your first meal right now 👇\n\n` +
+        `Just type what you've eaten today, like:\n` +
+        `_"2 eggs on toast"_\n` +
+        `_"coffee with milk"_\n` +
+        `_"woolworths chicken wrap"_\n\n` +
+        `Or snap a photo of your plate 📸\n\n` +
+        `Go — what did you have for breakfast?`
+      );
+    }
     return;
   }
 
@@ -2757,7 +2816,7 @@ async function handleMessage(from, text, imageId) {
         await send(from,
           `📸 Your 7-day free trial has ended.\n\n` +
           `Subscribe to keep using FitSorted:\n\n` +
-          `📅 *Monthly — R49/mo*\n👉 ${monthlyLink}\n\n` +
+          `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
           `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
         );
         return;
@@ -3335,7 +3394,7 @@ async function handleMessage(from, text, imageId) {
       } else {
         const isAnnual = val === "earlybird:annual";
         const link = isAnnual ? getPayFastAnnualLink(from, 39) : getPayFastMonthlyLink(from, 39);
-        const price = isAnnual ? "R399/year" : "R49/mo";
+        const price = isAnnual ? "R399/year" : "R36/mo";
         user.promoCode = "EARLYBIRD";
         user.promoDiscount = 39;
         saveUsers(users);
@@ -3425,7 +3484,7 @@ async function handleMessage(from, text, imageId) {
   }
 
   // In setup text steps (including late email capture)
-  if (user.step && ["weight", "height", "age", "name", "email", "email_late", "budget"].includes(user.step)) {
+  if (user.step && ["weight", "height", "age", "name", "email", "email_late", "budget", "onboard_offer"].includes(user.step)) {
     await handleSetup(from, user, msg, users);
     saveUsers(users);
     return;
@@ -3564,7 +3623,7 @@ async function handleMessage(from, text, imageId) {
 
     let premiumCTA = "";
     if (!logHasAccess && !user.seenPremiumCTA) {
-      premiumCTA = `\n\n💎 Want macros + coaching? Upgrade for R49/mo — type *upgrade*`;
+      premiumCTA = `\n\n💎 Want macros + coaching? Upgrade for R36/mo — type *upgrade*`;
       users[from].seenPremiumCTA = true;
       saveUsers(users);
     }
@@ -4189,9 +4248,9 @@ async function handleMessage(from, text, imageId) {
       await send(from, `✅ *FitSorted Premium* — Active\n\nRenews: ${expiryStr}\n\nType *upgrade* to renew early.`);
     } else if (inTrial) {
       const daysLeft = Math.ceil(30 - ((Date.now() - new Date(user.joinedAt).getTime()) / (1000 * 60 * 60 * 24)));
-      await send(from, `✅ *FitSorted Premium* — 7-Day Free Trial\n\n${daysLeft} days left of all features.\n\nAfter that, calorie tracking stays free forever.\n\nUpgrade for R49/mo to keep Premium features — type *upgrade*`);
+      await send(from, `✅ *FitSorted Premium* — 7-Day Free Trial\n\n${daysLeft} days left of all features.\n\nAfter that, calorie tracking stays free forever.\n\nUpgrade for R36/mo to keep Premium features — type *upgrade*`);
     } else {
-      await send(from, `✅ *FitSorted* — Free forever\n\nYou can track calories for life, no limits.\n\nUpgrade to Premium for R49/mo to unlock:\n🥩 Macro tracking\n🧠 Coaching mode\n📧 Email exports\n💰 Budget tracking\n\nType *upgrade* to subscribe.`);
+      await send(from, `✅ *FitSorted* — Free forever\n\nYou can track calories for life, no limits.\n\nUpgrade to Premium for R36/mo to unlock:\n🥩 Macro tracking\n🧠 Coaching mode\n📧 Email exports\n💰 Budget tracking\n\nType *upgrade* to subscribe.`);
     }
     return;
   }
@@ -4210,7 +4269,7 @@ async function handleMessage(from, text, imageId) {
       const joinedAt = user.joinedAt ? new Date(user.joinedAt) : new Date();
       const daysSinceJoin = (Date.now() - joinedAt.getTime()) / (1000 * 60 * 60 * 24);
       if (daysSinceJoin > PROMO_EXPIRY_DAYS[code]) {
-        await send(from, `⏰ Sorry, the *${code}* early bird offer expired ${PROMO_EXPIRY_DAYS[code]} days after signup. The standard price is R49/mo.\n\nType *upgrade* to subscribe.`);
+        await send(from, `⏰ Sorry, the *${code}* early bird offer expired ${PROMO_EXPIRY_DAYS[code]} days after signup. The standard price is R36/mo.\n\nType *upgrade* to subscribe.`);
         return;
       }
     }
@@ -4278,7 +4337,7 @@ async function handleMessage(from, text, imageId) {
       `*FitSorted Premium* 🚀\n\n` +
       promoLine +
       `✅ Calorie tracking is free forever\n\n` +
-      `Get a 7-day free trial of Premium, then just R49/mo:\n\n` +
+      `Get a 7-day free trial of Premium, then just R36/mo:\n\n` +
       `📅 *Monthly — R${monthlyPrice}/mo*\n` +
       `👉 ${monthlyLink}\n\n` +
       `🏆 *Annual — R${annualPrice}/year* _(save R${280-annualPrice})_\n` +
@@ -4530,12 +4589,12 @@ async function handleMessage(from, text, imageId) {
     await send(from,
       `✅ *FitSorted is free forever*\n\n` +
       `You can track calories for as long as you want.\n\n` +
-      `Your 7-day free trial has ended. Upgrade for just *R49/mo* to unlock:\n\n` +
+      `Your 7-day free trial has ended. Upgrade for just *R36/mo* to unlock:\n\n` +
       `• 🥩 Macro tracking (protein, carbs, fat)\n` +
       `• 🧠 Coaching mode (meal suggestions, Q&A)\n` +
       `• 📧 Email exports\n` +
       `• 💰 Food budget tracking\n\n` +
-      `📅 *Monthly — R49/mo*\n👉 ${monthlyLink}\n\n` +
+      `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
       `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
     );
     users[from].shownFreeForeverMessage = true;
@@ -5131,9 +5190,9 @@ cron.schedule("0 20 * * *", async () => {
       let trialReminderStr = "";
       const trialDaysLeft = user.trialStartDate ? Math.ceil((TRIAL_DAYS * 86400000 - (Date.now() - new Date(user.trialStartDate).getTime())) / 86400000) : null;
       if (trialDaysLeft === 2) {
-        trialReminderStr = `\n\n⏰ Your free trial ends in 2 days — upgrade to keep Premium features! R49/mo`;
+        trialReminderStr = `\n\n⏰ Your free trial ends in 2 days — upgrade to keep Premium features! R36/mo`;
       } else if (trialDaysLeft !== null && trialDaysLeft <= 0) {
-        trialReminderStr = `\n\n Your free trial has ended. Upgrade to Premium for R49/mo or continue with free calorie tracking.`;
+        trialReminderStr = `\n\n Your free trial has ended. Upgrade to Premium for R36/mo or continue with free calorie tracking.`;
       }
 
       await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}${trialReminderStr}`);
