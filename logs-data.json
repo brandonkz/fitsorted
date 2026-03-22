@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-22T15:39:13.045Z",
+    "date": "2026-03-22",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "chicken with rice and avocado",
+    "calories": 485,
+    "protein": 36,
+    "carbs": 50,
+    "fat": 18,
+    "fibre": 7,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-21T10:52:22.702Z",
     "date": "2026-03-21",
     "phone": "5538",
