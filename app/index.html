@@ -308,7 +308,20 @@
     const $ = (id) => document.getElementById(id);
     const fmtDate = (d) => new Date(d).toLocaleDateString('en-ZA', { weekday: 'short', month: 'short', day: 'numeric', year:'numeric' });
     const params = new URLSearchParams(location.search);
-    const token = params.get('t') || params.get('id');
+    let token = params.get('t') || params.get('id');
+    // Fallback: check hash (WhatsApp sometimes strips query but keeps hash)
+    if (!token && location.hash) {
+      const hashParams = new URLSearchParams(location.hash.slice(1));
+      token = hashParams.get('t') || hashParams.get('id');
+    }
+    // Fallback: check localStorage
+    if (!token) {
+      token = localStorage.getItem('fs_token');
+    }
+    // Save token for future visits
+    if (token) {
+      localStorage.setItem('fs_token', token);
+    }
 
     function showEmpty(){
       document.querySelectorAll('.section').forEach(s=>s.style.display='none');
