@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-22T16:48:47.225Z",
+    "date": "2026-03-22",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Grilled chicken (leg and breast, ~150g) with cooked white rice (100g) and sliced avocado (50g)",
+    "calories": 490,
+    "protein": 36,
+    "carbs": 50,
+    "fat": 20,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-22T16:46:11.268Z",
+    "date": "2026-03-22",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "2x grilled chicken pieces (~200g), cooked white rice (~150g), sliced avocado (~50g)",
+    "calories": 650,
+    "protein": 60,
+    "carbs": 80,
+    "fat": 30,
+    "fibre": 10,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-22T15:39:13.045Z",
     "date": "2026-03-22",
     "phone": "7970",
