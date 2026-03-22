@@ -78,10 +78,69 @@
       font-size: 1.1rem;
     }
 
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 5vw;
+    }
+
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    nav .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    nav .nav-cta {
+      padding: 8px 18px;
+      background: var(--accent);
+      color: white !important;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+    }
+
+    nav .nav-cta:hover {
+      background: var(--accent-dark);
+    }
+
     .hero {
       position: relative;
       overflow: hidden;
-      padding-top: 80px;
+      padding-top: 120px;
     }
 
     .hero::before {
@@ -276,6 +335,18 @@
   </style>
 </head>
 <body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">🏋️ FitSorted</a>
+      <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="commands.html">Commands</a>
+        <a href="#pricing">Pricing</a>
+        <a href="support.html">Support</a>
+        <a href="https://wa.me/27690684940?text=Hi" target="_blank" rel="noopener" class="nav-cta">Start Free →</a>
+      </div>
+    </div>
+  </nav>
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -359,7 +430,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="pricing">
     <div class="container">
       <h2>Pricing</h2>
       <div class="grid grid-2">
