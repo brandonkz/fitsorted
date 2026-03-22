@@ -1924,7 +1924,7 @@ async function estimateCalories(food, user) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"fibre\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. CRITICAL RULES: 1) ONLY estimate what was explicitly mentioned - do NOT add extra foods. If user says 'scrambled', return 'scrambled eggs' ONLY - do not add toast, bacon, or other items unless specifically mentioned. If user says 'toast', return toast only - do not add eggs. 2) RESPECT SINGULAR vs PLURAL: 'egg' = 1 egg (~70 cal), 'eggs' = 2 eggs (~140 cal). 'slice of toast' = 1 slice, 'toast' = 2 slices. 'banana' = 1 banana. 'chicken breast' = 1 breast. Always default to the SINGULAR quantity unless the user uses plural or specifies a number. 3) If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"fibre\": 4, \"estimatedPriceZAR\": null}. 4) Use realistic everyday South African portion sizes - not restaurant or oversized portions. 5) Drinks must use FULL SERVING sizes: beer=440ml (~155 cal), Red Bull=250ml (~112 cal), Monster=500ml (~230 cal), wine glass=175ml (~125 cal), cider=330ml (~170 cal). NEVER use per-100ml values. 6) SA portions: 1 slice cheese=~60 cal (thin processed like Clover), 1 slice bread=~80 cal, 1 egg=~70 cal, biltong 50g=~125 cal, droewors 50g=~150 cal, handful of nuts=~160 cal (28g). 7) Bunny chow quarter=~650 cal (bread bowl + curry). 8) COOKING FATS: For fried/scrambled eggs add +30 cal per egg (oil/butter), for fried chicken/meat add +20% calories (oil), for sautéed vegetables add +50 cal (oil), for cooked rice/pasta assume butter/oil already included in base values. 9) COMPOSITE MEALS: When multiple ingredients are listed (e.g. 'chicken with rice and veg'), sum ALL components realistically. Chicken breast 165 cal + 1 cup rice 200 cal + vegetables 50 cal = 415 cal minimum. DO NOT underestimate. 10) If you return less than 200 cal for a meal with 3+ ingredients, you're probably wrong - recalculate. No extra text." },
+        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"fibre\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. CRITICAL RULES: 1) ONLY estimate what was explicitly mentioned - do NOT add extra foods. If user says 'scrambled', return 'scrambled eggs' ONLY - do not add toast, bacon, or other items unless specifically mentioned. If user says 'toast', return toast only - do not add eggs. 2) RESPECT SINGULAR vs PLURAL: 'egg' = 1 egg (~70 cal), 'eggs' = 2 eggs (~140 cal). 'slice of toast' = 1 slice, 'toast' = 2 slices. 'banana' = 1 banana. 'chicken breast' = 1 breast. Always default to the SINGULAR quantity unless the user uses plural or specifies a number. 3) If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"fibre\": 4, \"estimatedPriceZAR\": null}. 4) Use realistic everyday South African portion sizes - not restaurant or oversized portions. 5) Drinks must use FULL SERVING sizes: beer=440ml (~155 cal), Red Bull=250ml (~112 cal), Monster=500ml (~230 cal), wine glass=175ml (~125 cal), cider=330ml (~170 cal). NEVER use per-100ml values. 6) SA portions: 1 slice cheese=~60 cal (thin processed like Clover), 1 slice bread=~80 cal, 1 egg=~70 cal, biltong 50g=~125 cal, droewors 50g=~150 cal, handful of nuts=~160 cal (28g). 7) Bunny chow quarter=~650 cal (bread bowl + curry). 8) COOKING FATS: For fried/scrambled eggs add +30 cal per egg (oil/butter), for fried chicken/meat add +20% calories (oil), for sautéed vegetables add +50 cal (oil), for cooked rice/pasta assume butter/oil already included in base values. 9) COMPOSITE MEALS: When multiple ingredients are listed (e.g. 'chicken with rice and veg'), sum ALL components realistically. Chicken breast 165 cal + 1 cup rice 200 cal + vegetables 50 cal = 415 cal minimum. DO NOT underestimate. 10) If you return less than 200 cal for a meal with 3+ ingredients, you're probably wrong - recalculate. 11) PORTION SIZE: Always include estimated portion weight in the food name when the input is vague. 'chicken' → 'Chicken breast (~150g)', 'rice' → 'Rice (1 cup, ~200g)', 'pasta' → 'Pasta (1 cup cooked, ~200g)', 'steak' → 'Steak (~200g)'. If user specifies a size (e.g. 'large chicken breast', 'small portion'), adjust calories accordingly. Large portions = +40%, small = -30%. 12) CHICKEN GUIDE: Plain 'chicken' = 1 medium chicken breast (~150g, 230 cal). 'Chicken thigh' = 1 thigh with skin (~120g, 230 cal). 'Chicken drumstick' = 1 drumstick (~100g, 170 cal). 'Fried chicken' = 1 piece KFC-style (~200g, 320 cal). 'Half chicken' = ~400g, 550 cal. 'Quarter chicken' = ~200g, 280 cal (Nando's style). Always specify the cut and weight in the food name. No extra text." },
         { role: "user", content: `Nutrition for: ${food}` }
       ],
       temperature: 0.2
@@ -2266,9 +2266,9 @@ async function guessFoodFromImage(imageId) {
     const resp = await axios.post('https://api.openai.com/v1/chat/completions', {
       model: 'gpt-4o-mini',
       messages: [
-        { role: 'system', content: 'You are a nutrition assistant. Identify the food item in the image. Return a short, specific name (brand + item if visible). If unclear, return a generic guess like "protein bar".' },
+        { role: 'system', content: 'You are a nutrition assistant. Identify the food item in the image. Include an estimated portion size (e.g. "grilled chicken breast ~200g", "plate of pasta ~350g", "small bowl of rice ~150g"). If it\'s a branded item, include the brand. If unclear on size, estimate based on plate/bowl/hand size visible in the image. Always include a weight or size estimate.' },
         { role: 'user', content: [
-          { type: 'text', text: 'What food is this? Reply with just the food name.' },
+          { type: 'text', text: 'What food is this? Reply with the food name and estimated portion size.' },
           { type: 'image_url', image_url: { url: dataUrl } }
         ] }
       ],
@@ -2821,12 +2821,13 @@ async function handleMessage(from, text, imageId) {
         user.pendingFood = { text: guess, source: "image_guess", time: new Date().toISOString() };
         saveUsers(users);
         try {
-          await sendButtons(from, `I think this is:\n*${guess}*\n\nLog it?`, [
-            { id: "confirm_log", title: "Log it" },
-            { id: "cancel_log", title: "Wrong" }
+          await sendButtons(from, `I think this is:\n*${guess}*\n\nLook right? If the portion size is off, tell me (e.g. _"large"_ or _"small"_ or _"about 300g"_).`, [
+            { id: "confirm_log", title: "✅ Log it" },
+            { id: "portion_small", title: "🤏 Smaller" },
+            { id: "portion_large", title: "🍖 Bigger" }
           ]);
         } catch {
-          await send(from, `I think this is:\n*${guess}*\n\nReply *log it* to confirm, or *wrong* to cancel.`);
+          await send(from, `I think this is:\n*${guess}*\n\nReply *log it* to confirm.\nSay *smaller* or *bigger* to adjust portion.\nOr *wrong* to cancel.`);
         }
         return;
       }
@@ -2927,6 +2928,29 @@ async function handleMessage(from, text, imageId) {
       delete user.pendingFood;
       saveUsers(users);
       await send(from, "No worries. Please type the correct food details.");
+      return;
+    }
+    // Portion size adjustments
+    if (msgLower === "portion_small" || msgLower === "smaller" || msgLower === "small" || msgLower === "small portion" || msgLower === "🤏") {
+      pending.text = `small portion of ${pending.text}`;
+      user.pendingFood = pending;
+      saveUsers(users);
+      await send(from, `Got it — logging a *small portion* of ${pending.text.replace('small portion of ', '')}.\n\nReply *log it* to confirm.`);
+      return;
+    }
+    if (msgLower === "portion_large" || msgLower === "bigger" || msgLower === "large" || msgLower === "big" || msgLower === "big portion" || msgLower === "large portion" || msgLower === "🍖") {
+      pending.text = `large portion of ${pending.text}`;
+      user.pendingFood = pending;
+      saveUsers(users);
+      await send(from, `Got it — logging a *large portion* of ${pending.text.replace('large portion of ', '')}.\n\nReply *log it* to confirm.`);
+      return;
+    }
+    // User specifies exact size (e.g. "about 300g", "200 grams")
+    if (/\d+\s*g(rams?)?/i.test(msgLower)) {
+      pending.text = `${pending.text} (${msg.trim()})`;
+      user.pendingFood = pending;
+      saveUsers(users);
+      await send(from, `Got it — logging *${pending.text}*.\n\nReply *log it* to confirm.`);
       return;
     }
   }
