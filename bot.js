@@ -2341,7 +2341,7 @@ async function maybeFirstLogMenu(from, user) {
     const pwaToken = crypto.createHash('sha256').update(String(from)).digest('hex').slice(0, 8);
     await send(from,
       `💡 *Did you know?* We have a full dashboard with a meal database, your daily stats, and macro breakdowns.\n\n` +
-      `📱 Your personal dashboard: https://fitsorted.co.za/app?t=${pwaToken}\n\n` +
+      `📱 Your personal dashboard: https://fitsorted.co.za/app/?t=${pwaToken}\n\n` +
       `_Add it to your home screen for quick access — it works like an app!_`
     );
   }
