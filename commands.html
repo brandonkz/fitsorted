@@ -188,8 +188,8 @@
       <div class="command-list">
         <div class="command">
           <div class="command-title">Just type what you ate</div>
-          <div class="command-desc">Natural language — no special format needed</div>
-          <div class="command-example">Example: "2 eggs, toast, coffee"</div>
+          <div class="command-desc">Natural language — no special format needed. Log multiple items at once.</div>
+          <div class="command-example">Example: "2 eggs, toast, coffee with milk"</div>
         </div>
         <div class="command">
           <div class="command-title">📸 Send a photo</div>
@@ -198,17 +198,37 @@
         </div>
         <div class="command">
           <div class="command-title">yesterday: [food]</div>
-          <div class="command-desc">Log something you ate yesterday</div>
-          <div class="command-example">Example: "yesterday: chicken curry"</div>
+          <div class="command-desc">Log something you ate yesterday (or any past day)</div>
+          <div class="command-example">Example: "yesterday: chicken curry" or "monday: braai"</div>
         </div>
         <div class="command">
           <div class="command-title">undo</div>
-          <div class="command-desc">Remove your last food entry</div>
+          <div class="command-desc">Remove your last food entry. Also works: "oops", "take that back", "delete last"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">correct</div>
+          <div class="command-desc">Got wrong calories? Say "correct" or "wrong calories" to manually fix it</div>
         </div>
         <div class="command">
           <div class="command-title">delete [food name]</div>
           <div class="command-desc">Remove a specific food from today's log</div>
-          <div class="command-example">Example: "delete banana"</div>
+          <div class="command-example">Example: "delete banana" or "remove coffee"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🍽️ Custom Foods</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">save [name] = [calories]</div>
+          <div class="command-desc">Save a custom food with its calorie count for quick logging</div>
+          <div class="command-example">Example: "save mom's bobotie = 450"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">my foods</div>
+          <div class="command-desc">View all your saved custom foods</div>
+          <div class="command-example">Also works: "saved foods", "food list", "my list"</div>
         </div>
       </div>
     </div>
@@ -219,6 +239,12 @@
         <div class="command">
           <div class="command-title">log</div>
           <div class="command-desc">See everything you ate today + calories + macros</div>
+          <div class="command-example">Also works: "today", "summary", "what have I eaten", "day so far"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">yesterday summary</div>
+          <div class="command-desc">View a past day's full food log</div>
+          <div class="command-example">Also works: "summary monday", "log 3 days ago"</div>
         </div>
         <div class="command">
           <div class="command-title">"how am I doing?"</div>
@@ -237,16 +263,18 @@
       <div class="command-list">
         <div class="command">
           <div class="command-title">weight [number]</div>
-          <div class="command-desc">Log your weight in kg</div>
-          <div class="command-example">Example: "weight 82.5"</div>
+          <div class="command-desc">Log your weight in kg (or just type a number like "82.5")</div>
+          <div class="command-example">Example: "weight 82.5" or just "82.5"</div>
         </div>
         <div class="command">
           <div class="command-title">weight history</div>
           <div class="command-desc">See your last 7 weigh-ins + trend</div>
+          <div class="command-example">Also works: "my weight", "weight trend", "all weights"</div>
         </div>
         <div class="command">
           <div class="command-title">projection</div>
           <div class="command-desc">Based on your weight trend, where will you be in 30/60/90 days?</div>
+          <div class="command-example">Also works: "what if", "weight projection", "should weigh"</div>
         </div>
       </div>
     </div>
@@ -256,12 +284,8 @@
       <div class="command-list">
         <div class="command">
           <div class="command-title">Just describe your workout</div>
-          <div class="command-desc">FitSorted tracks calories burned</div>
-          <div class="command-example">Example: "ran 5km" or "45 min gym"</div>
-        </div>
-        <div class="command">
-          <div class="command-title">exercise log</div>
-          <div class="command-desc">See today's workouts</div>
+          <div class="command-desc">FitSorted estimates calories burned and adds them to your daily budget</div>
+          <div class="command-example">Example: "ran 5km", "45 min gym", "30 pushups", "walked to the shops"</div>
         </div>
       </div>
     </div>
@@ -271,12 +295,13 @@
       <div class="command-list">
         <div class="command">
           <div class="command-title">Log drinks like food</div>
-          <div class="command-desc">Type what you drank — calories are tracked</div>
-          <div class="command-example">Example: "2 beers" or "gin and tonic"</div>
+          <div class="command-desc">Type what you drank — calories and alcohol units are tracked</div>
+          <div class="command-example">Example: "2 beers", "gin and tonic", "glass of wine"</div>
         </div>
         <div class="command">
           <div class="command-title">drinks</div>
-          <div class="command-desc">See drunk-o-meter — how drunk are you? Can you drive?</div>
+          <div class="command-desc">Drunk-o-meter — how drunk are you? Can you drive? Estimated BAC.</div>
+          <div class="command-example">Also works: "alcohol", "drunk", "bac"</div>
         </div>
       </div>
     </div>
@@ -286,13 +311,14 @@
       <div class="command-list">
         <div class="command">
           <div class="command-title">Ask anything</div>
-          <div class="command-desc">Meal ideas, nutrition advice, food swaps, macro help — personalised answers</div>
+          <div class="command-desc">Meal ideas, nutrition advice, food swaps, macro help — personalised to your goals</div>
           <div class="command-example">Example: "what should I eat for lunch?"</div>
           <div class="command-example">Example: "is oats better than cereal?"</div>
+          <div class="command-example">Example: "high protein snacks under 200 cal?"</div>
         </div>
         <div class="command">
           <div class="command-title">suggest</div>
-          <div class="command-desc">Get meal ideas based on your remaining calories</div>
+          <div class="command-desc">Get meal ideas based on your remaining calories for the day</div>
         </div>
       </div>
     </div>
@@ -302,7 +328,7 @@
       <div class="command-list">
         <div class="command">
           <div class="command-title">R[number] or [food] R[number]</div>
-          <div class="command-desc">Log the cost of your meal</div>
+          <div class="command-desc">Log the cost of your meal alongside the calories</div>
           <div class="command-example">Example: "R45" or "burger R65"</div>
         </div>
         <div class="command">
@@ -313,36 +339,59 @@
     </div>
 
     <div class="section">
+      <h2>🎁 Invite Friends</h2>
+      <div class="command-list">
+        <div class="command">
+          <div class="command-title">invite</div>
+          <div class="command-desc">Get your personal referral link. Earn R10 off for every friend who joins!</div>
+          <div class="command-example">Also works: "referral", "share", "refer"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">promo [code]</div>
+          <div class="command-desc">Redeem a promo or coupon code</div>
+          <div class="command-example">Example: "promo FITSA50" or "code FRIEND10"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
       <h2>📱 Account & Settings</h2>
       <div class="command-list">
         <div class="command">
           <div class="command-title">status</div>
           <div class="command-desc">Check your subscription (Free/Trial/Premium), trial days left, renewal date</div>
+          <div class="command-example">Also works: "subscription", "my plan"</div>
         </div>
         <div class="command">
           <div class="command-title">upgrade</div>
           <div class="command-desc">Get Premium — R49/mo with 7-day free trial</div>
-        </div>
-        <div class="command">
-          <div class="command-title">goal [number]</div>
-          <div class="command-desc">Change your daily calorie goal</div>
-          <div class="command-example">Example: "goal 2000"</div>
-        </div>
-        <div class="command">
-          <div class="command-title">profile</div>
-          <div class="command-desc">See your stats (weight, height, age, activity level, goal)</div>
+          <div class="command-example">Also works: "pro"</div>
         </div>
         <div class="command">
           <div class="command-title">reset</div>
-          <div class="command-desc">Start over with a fresh setup</div>
+          <div class="command-desc">Recalculate your goals — update weight, height, age, activity level</div>
         </div>
         <div class="command">
           <div class="command-title">export</div>
-          <div class="command-desc">Get your full food log as a CSV file</div>
+          <div class="command-desc">Get your full food log as a CSV file (emailed to you)</div>
+        </div>
+        <div class="command">
+          <div class="command-title">export week</div>
+          <div class="command-desc">Get a weekly summary report emailed to you</div>
+        </div>
+        <div class="command">
+          <div class="command-title">support</div>
+          <div class="command-desc">Something not working? Report a bug or get help</div>
+          <div class="command-example">Also works: "stuck", "not working", "broken", "help me"</div>
+        </div>
+        <div class="command">
+          <div class="command-title">delete my account</div>
+          <div class="command-desc">Delete all your data permanently (POPIA compliant)</div>
         </div>
         <div class="command">
           <div class="command-title">help</div>
           <div class="command-desc">Quick command reference</div>
+          <div class="command-example">Also works: "menu", "commands", "features"</div>
         </div>
       </div>
     </div>
