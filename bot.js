@@ -1295,6 +1295,9 @@ async function estimateCalories(food, user) {
     "rocomamas wings": { food: "RocoMamas Wings (6)", calories: 580, protein: 40, carbs: 12, fat: 38, fibre: 1 },
     "castle milk stout": { food: "Castle Milk Stout 440ml", calories: 220, protein: 2, carbs: 22, fat: 0, fibre: 0 },
     "milk stout": { food: "Castle Milk Stout 440ml", calories: 220, protein: 2, carbs: 22, fat: 0, fibre: 0 },
+    // Round 14 - nightly edge case test 2026-03-23
+    "bunny chow beans": { food: "Bean Bunny Chow (quarter)", calories: 500, protein: 18, carbs: 75, fat: 12, fibre: 10 },
+    "bean bunny chow": { food: "Bean Bunny Chow (quarter)", calories: 500, protein: 18, carbs: 75, fat: 12, fibre: 10 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
