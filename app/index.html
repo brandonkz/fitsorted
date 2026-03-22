@@ -676,9 +676,13 @@
     }
 
     async function load(){
+      console.log('[PWA] token:', token, 'search:', location.search, 'href:', location.href);
       if(!token) return showEmpty();
       try{
-        const res = await fetch(`./data/${token}.json?v=${Date.now()}`);
+        const base = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+        const dataUrl = `${base}data/${token}.json?v=${Date.now()}`;
+        console.log('[PWA] fetching:', dataUrl);
+        const res = await fetch(dataUrl);
         if(!res.ok) return showEmpty();
         const data = await res.json();
         const logSummary = data.logSummary || [];
