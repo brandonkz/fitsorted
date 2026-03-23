@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-23T20:41:27.652Z",
+    "date": "2026-03-23",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Ouma Rusk (1)",
+    "calories": 140,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 5,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-23T20:16:47.547Z",
+    "date": "2026-03-23",
+    "phone": "8753",
+    "userId": "27713318",
+    "food": "Vanilla muffin (~100g)",
+    "calories": 350,
+    "protein": 4,
+    "carbs": 50,
+    "fat": 15,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-23T20:10:09.011Z",
+    "date": "2026-03-23",
+    "phone": "8753",
+    "userId": "27713318",
+    "food": "Coke Zero 330ml",
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-23T19:52:47.274Z",
     "date": "2026-03-23",
     "phone": "2618",
