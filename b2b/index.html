@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitSorted for MyBento — Employee Wellness on WhatsApp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #22c55e;
+            --secondary: #2563eb;
+            --dark: #0f172a;
+            --dark-2: #1e293b;
+            --dark-3: #334155;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Password Gate */
+        #password-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #password-gate.hidden {
+            display: none;
+        }
+
+        .password-box {
+            background: var(--dark-2);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--dark-3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-box h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .password-box input {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--dark);
+            border: 1px solid var(--dark-3);
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .password-box button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary);
+            border: none;
+            border-radius: 6px;
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .password-box button:hover {
+            background: #1ea34c;
+        }
+
+        .password-box .error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        /* Main Content */
+        #main-content {
+            display: none;
+        }
+
+        #main-content.visible {
+            display: block;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+        }
+
+        .hero h1 {
+            background: linear-gradient(135deg, var(--primary) 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+        }
+
+        .hero .stats {
+            display: inline-block;
+            background: var(--dark-2);
+            padding: 1.5rem 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--dark-3);
+            margin: 2rem 0;
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .hero .stats strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #1ea34c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--dark-2);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--dark-3);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: #ef4444;
+            transform: translateY(-5px);
+        }
+
+        .problem-card h3 {
+            color: #ef4444;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Solution Section */
+        .solution h2 {
+            color: var(--primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--dark-2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--dark-3);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            color: var(--text);
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .feature-card .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .status.live {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--primary);
+        }
+
+        .status.coming {
+            background: rgba(37, 99, 235, 0.2);
+            color: var(--secondary);
+        }
+
+        /* WhatsApp Mock */
+        .whatsapp-demo {
+            max-width: 400px;
+            margin: 3rem auto;
+            background: #0b141a;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .wa-header {
+            background: #1f2c34;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid #2a3942;
+        }
+
+        .wa-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .wa-info h4 {
+            font-size: 1rem;
+            color: #e9edef;
+            margin: 0;
+        }
+
+        .wa-info p {
+            font-size: 0.75rem;
+            color: #8696a0;
+            margin: 0;
+        }
+
+        .wa-messages {
+            padding: 1.5rem;
+            background: #0b141a;
+            min-height: 400px;
+        }
+
+        .wa-message {
+            margin-bottom: 1rem;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wa-message.user {
+            text-align: right;
+        }
+
+        .wa-bubble {
+            display: inline-block;
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .wa-message.user .wa-bubble {
+            background: #005c4b;
+            color: #e9edef;
+        }
+
+        .wa-message.bot .wa-bubble {
+            background: #1f2c34;
+            color: #e9edef;
+        }
+
+        .wa-time {
+            font-size: 0.7rem;
+            color: #8696a0;
+            margin-top: 0.25rem;
+        }
+
+        .wa-image {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            background: #374955;
+            padding: 0.5rem;
+            text-align: center;
+            color: #8696a0;
+            font-size: 0.85rem;
+        }
+
+        /* Why WhatsApp */
+        .why-whatsapp {
+            background: var(--dark-2);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .why-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card h4 {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-card p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Stats */
+        .stats-section h2 {
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--dark-2);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--dark-3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-dim);
+        }
+
+        /* HR Dashboard */
+        .hr-section {
+            background: var(--dark-2);
+        }
+
+        .hr-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .hr-card {
+            background: var(--dark);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .hr-card h4 {
+            color: var(--secondary);
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .hr-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Integration */
+        .integration-flow {
+            max-width: 800px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .flow-step {
+            background: var(--dark-2);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--dark-3);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .flow-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--primary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .flow-step h4 {
+            color: var(--text);
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-step p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: var(--dark-2);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--dark);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--dark-3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.25rem 3rem;
+            transform: rotate(45deg);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .pricing-name {
+            font-size: 1.25rem;
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            font-size: 1rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--dark-3);
+            font-size: 0.95rem;
+            color: var(--text-dim);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: 0.75rem;
+        }
+
+        .volume-discount {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--dark);
+            border-radius: 12px;
+            border: 1px solid var(--dark-3);
+        }
+
+        .volume-discount strong {
+            color: var(--primary);
+        }
+
+        /* CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark) 100%);
+        }
+
+        .final-cta h2 {
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--dark-3);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1.125rem;
+            color: var(--text);
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            border-top: 1px solid var(--dark-3);
+            font-size: 0.875rem;
+            color: var(--text-dim);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.125rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Gate -->
+    <div id="password-gate">
+        <div class="password-box">
+            <h2>Access Required</h2>
+            <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Enter password to view this demo</p>
+            <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+            <button onclick="checkPassword()">Enter</button>
+            <p class="error" id="error-msg">Incorrect password</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Employee Wellness on WhatsApp</h1>
+            <p class="subtitle">The wellness module your employees will actually use</p>
+            <div class="stats">
+                <strong>743 food logs</strong> tracked today.<br>
+                <strong>55% engagement rate.</strong><br>
+                Zero app downloads needed.
+            </div>
+            <br><br>
+            <a href="#demo" class="cta-button">See it in action</a>
+        </section>
+
+        <!-- The Problem -->
+        <section class="problem">
+            <h2>Why current wellness benefits fail</h2>
+            <p>Most wellness programmes look great on paper but fail in practice.</p>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>2-5% Engagement</h3>
+                    <p>Employees don't use wellness apps. Gym discounts go unused. Wellness days feel token.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>App Fatigue</h3>
+                    <p>Another app to download, another password to remember, another thing to open once and forget.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>No Data</h3>
+                    <p>HR has no idea if wellness programmes work. No metrics, no feedback, no ROI.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Performative</h3>
+                    <p>Wellness days and discounts feel like checkbox exercises, not genuine support.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution -->
+        <section class="solution">
+            <h2>WhatsApp Wellness — Built for Real People</h2>
+            <p>FitSorted brings wellness tracking directly to WhatsApp. No downloads, no logins, no friction.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🍳</div>
+                    <h4>Calorie & Nutrition Tracking</h4>
+                    <p>Track meals in seconds. SA food database included: Nando's, Woolworths, KFC, Steers.</p>
+                    <span class="status live">LIVE TODAY</span>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📸</div>
+                    <h4>Photo Recognition</h4>
+                    <p>Send a pic, get instant calories and macros. Works with local SA foods.</p>
+                    <span class="status live">LIVE TODAY</span>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">😊</div>
+                    <h4>Mood & Mental Health</h4>
+                    <p>Daily check-ins, burnout tracking, early warning signals for HR.</p>
+                    <span class="status coming">COMING SOON</span>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💧</div>
+                    <h4>Water Intake</h4>
+                    <p>Simple hydration tracking. Just text "500ml" or "2 glasses".</p>
+                    <span class="status coming">COMING SOON</span>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">😴</div>
+                    <h4>Sleep Logging</h4>
+                    <p>Track sleep patterns, identify burnout risks early.</p>
+                    <span class="status coming">COMING SOON</span>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🏆</div>
+                    <h4>Team Challenges</h4>
+                    <p>Leaderboards, department vs department, friendly competition.</p>
+                    <span class="status coming">COMING SOON</span>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h4>Pulse Surveys</h4>
+                    <p>Anonymous team feedback, sentiment tracking, early flight risk detection.</p>
+                    <span class="status coming">COMING SOON</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Demo -->
+        <section id="demo">
+            <h2 style="text-align: center;">See It in Action</h2>
+            <p style="text-align: center;">This is what your employees will experience — right in WhatsApp.</p>
+            <div class="whatsapp-demo">
+                <div class="wa-header">
+                    <div class="wa-avatar">FS</div>
+                    <div class="wa-info">
+                        <h4>FitSorted</h4>
+                        <p>online</p>
+                    </div>
+                </div>
+                <div class="wa-messages">
+                    <div class="wa-message user">
+                        <div class="wa-bubble">2 eggs on toast</div>
+                        <div class="wa-time">08:15</div>
+                    </div>
+                    <div class="wa-message bot">
+                        <div class="wa-bubble">
+                            🍳 2 Eggs on Toast<br>
+                            320 cal | P: 18g | C: 30g | F: 14g<br>
+                            Cost: ~R25
+                        </div>
+                        <div class="wa-time">08:15</div>
+                    </div>
+                    <div class="wa-message user">
+                        <div class="wa-bubble">How am I doing today?</div>
+                        <div class="wa-time">14:30</div>
+                    </div>
+                    <div class="wa-message bot">
+                        <div class="wa-bubble">
+                            📊 Today: 1,240 / 2,000 cal (62%)<br>
+                            Protein: 78g ✅<br>
+                            760 cal remaining
+                        </div>
+                        <div class="wa-time">14:30</div>
+                    </div>
+                    <div class="wa-message user">
+                        <div class="wa-bubble">
+                            <div class="wa-image">📷 [Woolworths wrap photo]</div>
+                        </div>
+                        <div class="wa-time">18:45</div>
+                    </div>
+                    <div class="wa-message bot">
+                        <div class="wa-bubble">
+                            📸 Woolworths Chicken Caesar Wrap<br>
+                            480 cal | P: 32g | C: 45g | F: 18g
+                        </div>
+                        <div class="wa-time">18:45</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why WhatsApp -->
+        <section class="why-whatsapp">
+            <h2>Why WhatsApp Works</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="icon">📱</div>
+                    <h4>95% Daily Usage</h4>
+                    <p>Nearly every South African uses WhatsApp daily. Meet them where they are.</p>
+                </div>
+                <div class="why-card">
+                    <div class="icon">⚡</div>
+                    <h4>Zero Friction</h4>
+                    <p>No app downloads, no logins, no training. Just text and go.</p>
+                </div>
+                <div class="why-card">
+                    <div class="icon">📞</div>
+                    <h4>Any Phone</h4>
+                    <p>Works on smartphones, feature phones, anything with WhatsApp.</p>
+                </div>
+                <div class="why-card">
+                    <div class="icon">🔒</div>
+                    <h4>Trusted Platform</h4>
+                    <p>Employees already trust WhatsApp. It feels personal, not corporate.</p>
+                </div>
+                <div class="why-card">
+                    <div class="icon">💬</div>
+                    <h4>Conversational</h4>
+                    <p>Natural language, not forms. "2 eggs on toast" not dropdowns.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Stats -->
+        <section class="stats-section">
+            <h2>Real Numbers from Real Users</h2>
+            <p style="text-align: center;">FitSorted is live today with paying users.</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">160+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">743+</div>
+                    <div class="stat-label">Food Entries Today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">55%</div>
+                    <div class="stat-label">First-Day Engagement</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">SA Food Database</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HR Dashboard -->
+        <section class="hr-section">
+            <h2>Built for HR & Benefits Managers</h2>
+            <p>Get the data you need to prove wellness ROI.</p>
+            <div class="hr-features">
+                <div class="hr-card">
+                    <h4>📈 Monthly Wellness Reports</h4>
+                    <p>Aggregate trends, engagement metrics, no individual data exposed.</p>
+                </div>
+                <div class="hr-card">
+                    <h4>🏢 Department Insights</h4>
+                    <p>Compare engagement and wellness trends across departments.</p>
+                </div>
+                <div class="hr-card">
+                    <h4>📊 Trend Data</h4>
+                    <p>Is your team getting healthier? Track progress over time.</p>
+                </div>
+                <div class="hr-card">
+                    <h4>🔒 Privacy-First</h4>
+                    <p>Zero individual data shared. All reporting is anonymized and aggregated.</p>
+                </div>
+                <div class="hr-card">
+                    <h4>🚨 Burnout Signals</h4>
+                    <p>Mood tracking reveals early warning signs before people quit.</p>
+                </div>
+                <div class="hr-card">
+                    <h4>✈️ Flight Risk Indicators</h4>
+                    <p>Detect disengagement early with sentiment and wellness trends.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integration -->
+        <section class="integration">
+            <h2>Seamless MyBento Integration</h2>
+            <p style="text-align: center;">FitSorted slots in as another benefits module alongside medical, insurance, and savings.</p>
+            <div class="integration-flow">
+                <div class="flow-step" data-step="1">
+                    <h4>Employee Enrolls via MyBento Portal</h4>
+                    <p>Click "Start Wellness", get WhatsApp link. No extra signup required.</p>
+                </div>
+                <div class="flow-step" data-step="2">
+                    <h4>FitSorted Bot Activates</h4>
+                    <p>Employee texts FitSorted on WhatsApp. Bot is already linked to their MyBento account.</p>
+                </div>
+                <div class="flow-step" data-step="3">
+                    <h4>Data Flows to MyBento Dashboard</h4>
+                    <p>Wellness metrics feed into MyBento reporting. HR sees aggregate trends.</p>
+                </div>
+                <div class="flow-step" data-step="4">
+                    <h4>Reporting & Insights</h4>
+                    <p>Monthly wellness reports, burnout alerts, engagement metrics — all in MyBento.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 3rem;"><strong>API available for custom integrations.</strong></p>
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing">
+            <h2>Simple, Scalable Pricing</h2>
+            <p style="text-align: center;">Per-employee pricing. Cancel anytime.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-name">Starter</div>
+                    <div class="pricing-price">R25</div>
+                    <div class="pricing-period">per employee / month</div>
+                    <ul class="pricing-features">
+                        <li>Nutrition & calorie tracking</li>
+                        <li>Photo recognition</li>
+                        <li>Basic reporting</li>
+                        <li>WhatsApp support</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-name">Growth</div>
+                    <div class="pricing-price">R45</div>
+                    <div class="pricing-period">per employee / month</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Starter</li>
+                        <li>Mood & mental health tracking</li>
+                        <li>Water & sleep logging</li>
+                        <li>HR dashboard</li>
+                        <li>Department insights</li>
+                        <li>Burnout alerts</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-name">Enterprise</div>
+                    <div class="pricing-price">R75</div>
+                    <div class="pricing-period">per employee / month</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Growth</li>
+                        <li>Team challenges & leaderboards</li>
+                        <li>Anonymous pulse surveys</li>
+                        <li>Custom branding</li>
+                        <li>API access</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+            </div>
+            <div class="volume-discount">
+                <p><strong>Volume discount:</strong> 500+ employees = 20% off</p>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" id="contact">
+            <h2>Let's Talk</h2>
+            <p>Ready to bring real wellness to your employees?</p>
+            <div class="cta-buttons">
+                <a href="mailto:brandonkz@gmail.com" class="cta-button">Email Brandon</a>
+                <a href="https://wa.me/27837787970" class="cta-button secondary" target="_blank">WhatsApp: +27 83 778 7970</a>
+            </div>
+            <div class="contact-info">
+                <h3>Or try it yourself</h3>
+                <p>Experience FitSorted firsthand:<br>
+                <a href="https://wa.me/27690684940" target="_blank">wa.me/27690684940</a></p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 FitSorted. Built for MyBento.</p>
+        </footer>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('password-input');
+            const error = document.getElementById('error-msg');
+            const gate = document.getElementById('password-gate');
+            const content = document.getElementById('main-content');
+
+            if (input.value === 'bento2026') {
+                gate.classList.add('hidden');
+                content.classList.add('visible');
+                sessionStorage.setItem('authorized', 'true');
+            } else {
+                error.style.display = 'block';
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        // Check if already authorized
+        if (sessionStorage.getItem('authorized') === 'true') {
+            document.getElementById('password-gate').classList.add('hidden');
+            document.getElementById('main-content').classList.add('visible');
+        }
+
+        // Allow Enter key to submit password
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Focus password input on load
+        document.getElementById('password-input').focus();
+    </script>
+</body>
+</html>
