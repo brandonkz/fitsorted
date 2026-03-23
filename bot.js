@@ -4,13 +4,18 @@ const axios = require("axios");
 const fs = require("fs");
 const cron = require("node-cron");
 const { createClient } = require('@supabase/supabase-js');
+const crypto = require("crypto");
 
 const app = express();
-app.use(express.json());
+app.use(express.json({
+  verify: (req, res, buf) => {
+    req.rawBody = buf;
+  }
+}));
 
 const TOKEN = process.env.WHATSAPP_TOKEN;
 const PHONE_ID = process.env.PHONE_NUMBER_ID;
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN || "fitsorted123";
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
 const PORT = process.env.PORT || 3001;
 const USERS_FILE = "./users.json";
@@ -26,11 +31,26 @@ const BETA_FEATURES = {
 const PRO_PRICE = process.env.PRO_PRICE || "36";
 const GRANDFATHER_DATE = new Date("2026-03-19T23:59:59Z"); // Users who joined before this get free access forever
 const TRIAL_DAYS = 7;
-const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID || "10803069";
-const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY || "heptrxgjismzp";
+const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID;
+const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY;
 const ITN_URL = "https://fuddzrlnbrseofguuikp.supabase.co/functions/v1/payfast-itn";
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_bDTutSXR_G4Q84ays1Noi7JqwuEGoS2tM";
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const FOOD_LOG_SHEET_ID = "1RIOOA4F425JPJXq5MiQ_qoqfh1NiEQAifT0zGYE0yfk";
+const ADMIN_SECRET = process.env.ADMIN_SECRET;
+const APP_SECRET = process.env.APP_SECRET;
+
+const requiredEnv = [
+  "VERIFY_TOKEN",
+  "PAYFAST_MERCHANT_ID",
+  "PAYFAST_MERCHANT_KEY",
+  "RESEND_API_KEY",
+  "ADMIN_SECRET",
+  // "APP_SECRET" — optional, enable when Meta app secret is configured
+];
+const missingEnv = requiredEnv.filter((key) => !process.env[key]);
+if (missingEnv.length) {
+  throw new Error(`Missing required env vars: ${missingEnv.join(", ")}`);
+}
 
 // Promo codes — { CODE: discountPercent } (use 100 for free/founder access)
 // Promo codes — { CODE: discountPercent }
@@ -186,7 +206,7 @@ function applyDiscount(price, discountPct) {
   return (price * (1 - discountPct / 100)).toFixed(2);
 }
 
-// Generate PayFast monthly subscription link (7-day free trial)
+// Generate PayFast monthly subscription link (pay immediately)
 function getPayFastMonthlyLink(phone, discountPct = 0) {
   const monthly = parseFloat(applyDiscount(36, discountPct));
   const params = new URLSearchParams({
@@ -198,11 +218,10 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
     name_first: "FitSorted",
     name_last: "User",
     m_payment_id: `fs_m_${phone}_${Date.now()}`,
-    amount: "0.00",
+    amount: monthly.toFixed(2),
     recurring_amount: monthly.toFixed(2),
     item_name: discountPct ? `FitSorted Premium Monthly (${discountPct}% off)` : "FitSorted Premium Monthly",
     subscription_type: "1",
-    billing_date: getTrialEndDate(),
     frequency: "3",
     cycles: "0",
     custom_str1: phone,
@@ -211,7 +230,7 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
   return `https://www.payfast.co.za/eng/process?${params.toString()}`;
 }
 
-// Generate PayFast annual subscription link (7-day free trial)
+// Generate PayFast annual subscription link (pay immediately)
 function getPayFastAnnualLink(phone, discountPct = 0) {
   const annual = parseFloat(applyDiscount(399, discountPct)); // R36 x 12 = R432, discounted to R399/yr
   const params = new URLSearchParams({
@@ -223,11 +242,10 @@ function getPayFastAnnualLink(phone, discountPct = 0) {
     name_first: "FitSorted",
     name_last: "User",
     m_payment_id: `fs_a_${phone}_${Date.now()}`,
-    amount: "0.00",
+    amount: annual.toFixed(2),
     recurring_amount: annual.toFixed(2),
     item_name: discountPct ? `FitSorted Premium Annual (50% off + ${discountPct}% promo)` : "FitSorted Premium Annual (50% off)",
     subscription_type: "1",
-    billing_date: getTrialEndDate(),
     frequency: "5",
     cycles: "0",
     custom_str1: phone,
@@ -428,9 +446,10 @@ function saveUsers(u) { fs.writeFileSync(USERS_FILE, JSON.stringify(u, null, 2))
 // ── Google Sheets Food Log Append ──
 async function appendToFoodLogSheet(phone, userId, food, calories, protein, carbs, fat, fibre, source) {
   try {
-    const { execSync } = require('child_process');
-    const row = [
-      new Date().toISOString(),
+    const { execFileSync } = require('child_process');
+    const timestamp = new Date().toISOString();
+    const rowValue = [
+      timestamp,
       phone,
       userId,
       food,
@@ -440,11 +459,18 @@ async function appendToFoodLogSheet(phone, userId, food, calories, protein, carb
       fat || 0,
       fibre || 0,
       source || 'unknown'
-    ].join('\t');
+    ].join('|');
     
     // Use gog to append row (v0.12.0+ syntax - values as arguments)
-    const escapedFood = food.replace(/"/g, '\\"');
-    execSync(`gog sheets append ${FOOD_LOG_SHEET_ID} "Sheet1!A:J" "${new Date().toISOString()}|${phone}|${userId}|${escapedFood}|${calories}|${protein||0}|${carbs||0}|${fat||0}|${fibre||0}|${source||'unknown'}" --account alphaxasset@gmail.com`, { 
+    execFileSync('gog', [
+      'sheets',
+      'append',
+      FOOD_LOG_SHEET_ID,
+      'Sheet1!A:J',
+      rowValue,
+      '--account',
+      'alphaxasset@gmail.com'
+    ], {
       timeout: 5000,
       stdio: 'ignore' // Don't block on output
     });
@@ -519,6 +545,33 @@ function getUser(users, phone) {
 
 function getToday() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+}
+
+function isAdminAuthorized(req) {
+  const authHeader = req.headers.authorization || "";
+  const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const queryKey = req.query.key;
+  return queryKey === ADMIN_SECRET || bearerToken === ADMIN_SECRET;
+}
+
+function requireAdmin(req, res, next) {
+  if (isAdminAuthorized(req)) return next();
+  return res.sendStatus(401);
+}
+
+function isValidWebhookSignature(req) {
+  const signature = req.get("X-Hub-Signature-256");
+  if (!signature) return false;
+  const [algo, hash] = signature.split("=");
+  if (algo !== "sha256" || !hash) return false;
+  const expected = crypto
+    .createHmac("sha256", APP_SECRET)
+    .update(req.rawBody || Buffer.from(""))
+    .digest("hex");
+  const signatureBuf = Buffer.from(hash, "hex");
+  const expectedBuf = Buffer.from(expected, "hex");
+  if (signatureBuf.length !== expectedBuf.length) return false;
+  return crypto.timingSafeEqual(signatureBuf, expectedBuf);
 }
 function getYesterday() {
   const yesterday = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
@@ -3146,7 +3199,7 @@ async function handleMessage(from, text, imageId) {
       return;
     }
 
-    const recipients = Object.entries(users).filter(([phone, u]) => u.setup && u.goal && phone !== ADMIN_NUMBER);
+    const recipients = Object.entries(users).filter(([phone, u]) => u.setup && u.goal && phone !== ADMIN_NUMBER && !u.optedOut);
     let sent = 0, failed = 0;
 
     for (const [phone, u] of recipients) {
@@ -3385,6 +3438,14 @@ async function handleMessage(from, text, imageId) {
 
   // Reset
   if (msgLower === "start" || msgLower === "/start" || msgLower === "reset" || msgLower === "hi" || msgLower === "hello") {
+    // Re-opt-in if previously opted out
+    if (user.optedOut) {
+      user.optedOut = false;
+      delete user.optedOutAt;
+      saveUsers(users);
+      await send(from, `Welcome back! 🎉 Great to have you here again.\n\nYour data is still saved. Just type what you're eating and I'll track it for you! 💪`);
+      return;
+    }
     user.setup = false;
     user.step = "gender";
     user.profile = {};
@@ -4006,6 +4067,15 @@ async function handleMessage(from, text, imageId) {
     saveUsers(users);
     const total = getTodayTotal(user);
     await send(from, `↩️ Removed: *${removed.food}* (${removed.calories} cal)\n\nSend the correct food and I'll log it.`);
+    return;
+  }
+
+  // ── Unsubscribe / Stop / Cancel handler ──
+  if (/^(unsubscribe|stop|stop messages|cancel|opt out|opt-out|leave|remove me|don'?t message me|stop messaging)$/i.test(msgLower)) {
+    user.optedOut = true;
+    user.optedOutAt = new Date().toISOString();
+    saveUsers();
+    await send(from, `No problem at all! 👋 I've stopped all messages.\n\nYour data is still saved — if you ever want to come back, just send *Hi* and we'll pick up where you left off.\n\nThanks for trying FitSorted! 🙏`);
     return;
   }
 
@@ -5021,6 +5091,9 @@ app.get("/webhook", (req, res) => {
 });
 
 app.post("/webhook", async (req, res) => {
+  if (APP_SECRET && !isValidWebhookSignature(req)) {
+    return res.sendStatus(403);
+  }
   res.sendStatus(200);
   try {
     const entry = req.body?.entry?.[0];
@@ -5091,6 +5164,7 @@ if (false) { (async () => {
   const users = loadUsers();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
+    if (user.optedOut) continue; // respect opt-out
     const lastActivity = getLastActivityDate(user);
     const daysSinceActivity = lastActivity ? (Date.now() - lastActivity.getTime()) / 86400000 : 999;
     if (!await hasAccess(phone, user)) continue; // skip free users
@@ -5162,6 +5236,7 @@ cron.schedule("0 20 * * *", async () => {
   const users = loadUsers();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
+    if (user.optedOut) continue; // respect opt-out
     try {
       const lastActivity = getLastActivityDate(user);
       const daysSinceActivity = lastActivity ? (Date.now() - lastActivity.getTime()) / 86400000 : 999;
@@ -5640,15 +5715,15 @@ cron.schedule("*/5 * * * *", () => {
 });
 
 // ── Admin Dashboard Endpoints ──
-app.get('/admin', (req, res) => {
+app.get('/admin', requireAdmin, (req, res) => {
   res.sendFile(__dirname + '/admin.html');
 });
 
-app.get('/dashboard', (req, res) => {
+app.get('/dashboard', requireAdmin, (req, res) => {
   res.sendFile(__dirname + '/dashboard.html');
 });
 
-app.get('/api/dashboard', (req, res) => {
+app.get('/api/dashboard', requireAdmin, (req, res) => {
   const users = loadUsers();
   const userData = [];
   for (const [phone, u] of Object.entries(users)) {
@@ -5687,7 +5762,7 @@ app.get('/api/dashboard', (req, res) => {
   res.json(userData);
 });
 
-app.get('/api/stats', (req, res) => {
+app.get('/api/stats', requireAdmin, (req, res) => {
   const users = loadUsers();
   const today = getToday();
   const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
@@ -5820,12 +5895,12 @@ function pushStats() {
 pushStats();
 setInterval(pushStats, 300000); // every 5 min
 
-app.get('/admin/failed-lookups', (req, res) => {
+app.get('/admin/failed-lookups', requireAdmin, (req, res) => {
   const failed = loadFailedLookups();
   res.json(failed);
 });
 
-app.post('/admin/add-food', async (req, res) => {
+app.post('/admin/add-food', requireAdmin, async (req, res) => {
   const { name, calories, protein, carbs, fat } = req.body;
 
   if (!name || !calories) {
@@ -5865,7 +5940,7 @@ app.post('/admin/add-food', async (req, res) => {
   }
 });
 
-app.post('/admin/dismiss-lookup', (req, res) => {
+app.post('/admin/dismiss-lookup', requireAdmin, (req, res) => {
   const { name } = req.body;
 
   if (!name) {
