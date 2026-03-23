@@ -1302,6 +1302,8 @@ async function estimateCalories(food, user) {
     // Round 14 - nightly edge case test 2026-03-23
     "bunny chow beans": { food: "Bean Bunny Chow (quarter)", calories: 500, protein: 18, carbs: 75, fat: 12, fibre: 10 },
     "bean bunny chow": { food: "Bean Bunny Chow (quarter)", calories: 500, protein: 18, carbs: 75, fat: 12, fibre: 10 },
+    // Round 15 - nightly edge case test 2026-03-24
+    "rooibos latte": { food: "Rooibos Latte (steamed milk)", calories: 120, protein: 5, carbs: 10, fat: 5, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
