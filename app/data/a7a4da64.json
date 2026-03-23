@@ -1,0 +1,110 @@
+{
+  "name": "Kowie",
+  "goal": 3224,
+  "joinedAt": "2026-03-23T04:24:36.711Z",
+  "profile": {
+    "age": 42,
+    "weight": 93,
+    "height": 183,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1432,
+        "protein": 84,
+        "carbs": 125,
+        "fat": 69,
+        "fibre": 9,
+        "priceZAR": 125
+      },
+      "entries": [
+        {
+          "food": "Black coffee (1 cup, ~240ml) with 1 sachet Canderel",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T05:23:30.522Z"
+        },
+        {
+          "food": "Olive oil (1 tablespoon, ~15ml)",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-23T11:08:20.896Z"
+        },
+        {
+          "food": "2x teaspoons pure bone broth powder chicken",
+          "calories": 20,
+          "protein": 5,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T12:27:05.138Z"
+        },
+        {
+          "food": "Kale salad (~250g)",
+          "calories": 150,
+          "protein": 5,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-23T15:15:11.220Z"
+        },
+        {
+          "food": "Tortilla (~30g)",
+          "calories": 90,
+          "protein": 2,
+          "carbs": 18,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-03-23T15:15:44.794Z"
+        },
+        {
+          "food": "Woolworths Chicken Strips (100g)",
+          "calories": 250,
+          "protein": 22,
+          "carbs": 16,
+          "fat": 12,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-23T15:16:04.305Z"
+        },
+        {
+          "food": "Woolworths crumbed chicken strips (250g)",
+          "calories": 550,
+          "protein": 40,
+          "carbs": 40,
+          "fat": 25,
+          "fibre": 2,
+          "priceZAR": 60,
+          "time": "2026-03-23T15:18:54.046Z"
+        },
+        {
+          "food": "It’s not a drink (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T15:19:58.868Z"
+        }
+      ]
+    }
+  ]
+}

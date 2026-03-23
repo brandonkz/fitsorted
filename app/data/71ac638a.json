@@ -1,0 +1,100 @@
+{
+  "name": "Simon",
+  "goal": 2773,
+  "joinedAt": "2026-03-23T04:38:11.221Z",
+  "profile": {
+    "age": 31,
+    "weight": 98,
+    "height": 194,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2968,
+        "protein": 179,
+        "carbs": 150,
+        "fat": 141,
+        "fibre": 12,
+        "priceZAR": 350
+      },
+      "entries": [
+        {
+          "food": "2x eggs + Woolworths gluten free roll (~70g) + tomato (~100g)",
+          "calories": 370,
+          "protein": 24,
+          "carbs": 38,
+          "fat": 20,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T05:02:20.739Z"
+        },
+        {
+          "food": "Flat white with full cream milk (~240ml)",
+          "calories": 150,
+          "protein": 7,
+          "carbs": 12,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-23T05:07:27.427Z"
+        },
+        {
+          "food": "2x chicken drumsticks (~170g) and 2x chicken thighs (~200g)",
+          "calories": 680,
+          "protein": 70,
+          "carbs": 0,
+          "fat": 40,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-23T05:23:17.905Z"
+        },
+        {
+          "food": "Rice (1 cup, ~150g) and 2x zucchini (~200g)",
+          "calories": 368,
+          "protein": 8,
+          "carbs": 70,
+          "fat": 2,
+          "fibre": 8,
+          "priceZAR": 30,
+          "time": "2026-03-23T05:23:24.139Z"
+        },
+        {
+          "food": "1.5x short rib (~300g)",
+          "calories": 750,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 60,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-23T18:19:28.729Z"
+        },
+        {
+          "food": "small spoon of potatoe mash and then a handful of green beans (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-23T18:19:34.443Z"
+        },
+        {
+          "food": "swimming (500m)",
+          "calories": 400,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:19:48.562Z"
+        }
+      ]
+    }
+  ]
+}

@@ -61,6 +61,49 @@
           "time": "2026-03-22T16:48:47.225Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 710,
+        "protein": 62,
+        "carbs": 36,
+        "fat": 36,
+        "fibre": 4,
+        "priceZAR": 72
+      },
+      "entries": [
+        {
+          "food": "2x rusk",
+          "calories": 200,
+          "protein": 4,
+          "carbs": 36,
+          "fat": 6,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:05:51.607Z"
+        },
+        {
+          "food": "3x boiled eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-23T12:00:00.025Z"
+        },
+        {
+          "food": "2x ostrich balls",
+          "calories": 300,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-23T18:00:50.465Z"
+        }
+      ]
     }
   ]
 }

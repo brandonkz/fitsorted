@@ -1,0 +1,40 @@
+{
+  "name": "Minda",
+  "goal": 2205,
+  "joinedAt": "2026-03-23T06:00:02.561Z",
+  "profile": {
+    "age": 63,
+    "weight": 168,
+    "height": 168,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 200,
+        "protein": 14,
+        "carbs": 6,
+        "fat": 14,
+        "fibre": 0,
+        "priceZAR": 12
+      },
+      "entries": [
+        {
+          "food": "scrambled eggs (2 eggs) with full cream milk and xylitol in Nescafe coffee",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 6,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-23T06:06:12.990Z"
+        }
+      ]
+    }
+  ]
+}

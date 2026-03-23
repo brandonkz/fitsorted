@@ -1,0 +1,88 @@
+{
+  "name": "Emile",
+  "goal": 2394,
+  "joinedAt": "2026-03-23T07:13:56.473Z",
+  "profile": {
+    "age": 39,
+    "weight": 83,
+    "height": 166,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "weight training",
+        "calories": 300,
+        "time": "2026-03-23T18:02:32.412Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1672,
+        "protein": 175,
+        "carbs": 143,
+        "fat": 48,
+        "fibre": 7,
+        "priceZAR": 261
+      },
+      "entries": [
+        {
+          "food": "2x boiled eggs, small tub low fat yoghurt (~150g), whey protein scoop (~30g)",
+          "calories": 370,
+          "protein": 40,
+          "carbs": 20,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 27,
+          "time": "2026-03-23T07:17:02.225Z"
+        },
+        {
+          "food": "2x chicken breast (~260g)",
+          "calories": 400,
+          "protein": 76,
+          "carbs": 0,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-23T11:05:30.308Z"
+        },
+        {
+          "food": "mielie (~100g)",
+          "calories": 96,
+          "protein": 3,
+          "carbs": 21,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-23T11:05:34.184Z"
+        },
+        {
+          "food": "Yoghurt (200g) with whey protein (30g) and banana (1)",
+          "calories": 256,
+          "protein": 21,
+          "carbs": 32,
+          "fat": 5,
+          "fibre": 2,
+          "priceZAR": 34,
+          "time": "2026-03-23T18:03:20.292Z"
+        },
+        {
+          "food": "Chicken korma (~150g) with white rice (1 cup, ~150g)",
+          "calories": 550,
+          "protein": 35,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 120,
+          "time": "2026-03-23T18:03:41.202Z"
+        }
+      ]
+    }
+  ]
+}

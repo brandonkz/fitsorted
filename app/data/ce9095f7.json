@@ -1,0 +1,90 @@
+{
+  "name": "Misha",
+  "goal": 1842,
+  "joinedAt": "2026-03-23T09:22:14.899Z",
+  "profile": {
+    "age": 40,
+    "weight": 125,
+    "height": 170,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1135,
+        "protein": 25,
+        "carbs": 105,
+        "fat": 58,
+        "fibre": 5,
+        "priceZAR": 55
+      },
+      "entries": [
+        {
+          "food": "White roll (~70g)",
+          "calories": 190,
+          "protein": 6,
+          "carbs": 36,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T09:24:53.336Z"
+        },
+        {
+          "food": "Cheese slice (~20g) and margarine (~10g)",
+          "calories": 120,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-23T09:24:58.718Z"
+        },
+        {
+          "food": "slice of bread",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T09:25:41.113Z"
+        },
+        {
+          "food": "Peanut butter (2 tablespoons, ~32g)",
+          "calories": 190,
+          "protein": 8,
+          "carbs": 6,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-23T09:25:46.332Z"
+        },
+        {
+          "food": "Margarine (Rama) (1 tsp (7g))",
+          "calories": 55,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 2,
+          "time": "2026-03-23T09:25:50.020Z"
+        },
+        {
+          "food": "Doritos nacho cheese (small) (1 packet (35g))",
+          "calories": 180,
+          "protein": 2,
+          "carbs": 22,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-23T09:25:53.219Z"
+        }
+      ]
+    }
+  ]
+}

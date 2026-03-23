@@ -1,0 +1,60 @@
+{
+  "name": "Carlo",
+  "goal": 2351,
+  "joinedAt": "2026-03-23T04:53:25.980Z",
+  "profile": {
+    "age": 30,
+    "weight": 110,
+    "height": 179,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1600,
+        "protein": 102,
+        "carbs": 155,
+        "fat": 72,
+        "fibre": 8,
+        "priceZAR": 137
+      },
+      "entries": [
+        {
+          "food": "2x egg, 2 slices brown bread with butter and jam, 2x cheese slice",
+          "calories": 600,
+          "protein": 32,
+          "carbs": 60,
+          "fat": 30,
+          "fibre": 4,
+          "priceZAR": 22,
+          "time": "2026-03-23T08:30:02.800Z"
+        },
+        {
+          "food": "One lamb chope \nOne piece of sosage \nPortion of potato bake \nTwo pieces of chicken drumsticks (est.)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 15,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 85,
+          "time": "2026-03-23T11:01:22.356Z"
+        },
+        {
+          "food": "2x tuna sandwich",
+          "calories": 600,
+          "protein": 40,
+          "carbs": 80,
+          "fat": 20,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:01:40.739Z"
+        }
+      ]
+    }
+  ]
+}

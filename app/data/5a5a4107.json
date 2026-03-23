@@ -1,0 +1,16 @@
+{
+  "name": "Caden",
+  "goal": 3178,
+  "joinedAt": "2026-03-23T04:48:23.199Z",
+  "profile": {
+    "age": 25,
+    "weight": 74,
+    "height": 177,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

@@ -1,0 +1,88 @@
+{
+  "name": "Ynz",
+  "goal": 2502,
+  "joinedAt": "2026-03-23T07:04:42.992Z",
+  "profile": {
+    "age": 31,
+    "weight": 79,
+    "height": 176,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "running",
+        "calories": 450,
+        "time": "2026-03-23T18:02:29.363Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1296,
+        "protein": 58,
+        "carbs": 168,
+        "fat": 44,
+        "fibre": 18,
+        "priceZAR": 171
+      },
+      "entries": [
+        {
+          "food": "3x black coffee",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-23T07:06:59.297Z"
+        },
+        {
+          "food": "Banana (~120g) and peanut butter (1 tbsp, ~16g)",
+          "calories": 290,
+          "protein": 8,
+          "carbs": 36,
+          "fat": 14,
+          "fibre": 4,
+          "priceZAR": 8,
+          "time": "2026-03-23T11:05:04.346Z"
+        },
+        {
+          "food": "2x green tea (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:05:22.770Z"
+        },
+        {
+          "food": "2x apple",
+          "calories": 156,
+          "protein": 0,
+          "carbs": 42,
+          "fat": 0,
+          "fibre": 8,
+          "priceZAR": 8,
+          "time": "2026-03-23T13:31:01.201Z"
+        },
+        {
+          "food": "2x chicken wrap (~150g each)",
+          "calories": 600,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 6,
+          "priceZAR": 80,
+          "time": "2026-03-23T18:02:43.427Z"
+        }
+      ]
+    }
+  ]
+}

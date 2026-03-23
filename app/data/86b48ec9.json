@@ -1,0 +1,68 @@
+{
+  "name": "Brandon",
+  "goal": 3785,
+  "joinedAt": "2026-03-23T04:53:54.375Z",
+  "profile": {
+    "age": 44,
+    "weight": 175,
+    "height": 175,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "strength training HIIT",
+        "calories": 262,
+        "time": "2026-03-23T18:30:57.240Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 628,
+        "protein": 37,
+        "carbs": 77,
+        "fat": 22,
+        "fibre": 8,
+        "priceZAR": 155
+      },
+      "entries": [
+        {
+          "food": "Coffee with macadamia milk",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T04:57:00.425Z"
+        },
+        {
+          "food": "2x cortado",
+          "calories": 128,
+          "protein": 6,
+          "carbs": 17,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-23T11:54:29.057Z"
+        },
+        {
+          "food": "Banana (~120g) with peanut butter (1 tbsp, ~16g) and oats (1/2 cup, ~40g) and protein powder (1 scoop, ~30g)",
+          "calories": 450,
+          "protein": 30,
+          "carbs": 55,
+          "fat": 15,
+          "fibre": 8,
+          "priceZAR": 65,
+          "time": "2026-03-23T11:54:33.461Z"
+        }
+      ]
+    }
+  ]
+}

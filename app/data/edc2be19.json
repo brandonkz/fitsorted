@@ -1,0 +1,16 @@
+{
+  "name": "Dilan",
+  "goal": 1713,
+  "joinedAt": "2026-03-23T07:06:16.996Z",
+  "profile": {
+    "age": 26,
+    "weight": 86,
+    "height": 169,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

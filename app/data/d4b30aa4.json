@@ -1,0 +1,40 @@
+{
+  "name": "Ngeli",
+  "goal": 1404,
+  "joinedAt": "2026-03-23T09:36:35.220Z",
+  "profile": {
+    "age": 39,
+    "weight": 86,
+    "height": 180,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 105,
+        "protein": 1,
+        "carbs": 27,
+        "fat": 0,
+        "fibre": 3,
+        "priceZAR": 4
+      },
+      "entries": [
+        {
+          "food": "1 banana",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-23T09:41:27.093Z"
+        }
+      ]
+    }
+  ]
+}

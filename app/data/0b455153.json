@@ -1,0 +1,90 @@
+{
+  "name": "Nicole",
+  "goal": 2853,
+  "joinedAt": "2026-03-23T10:58:35.118Z",
+  "profile": {
+    "age": 34,
+    "weight": 73,
+    "height": 173,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1190,
+        "protein": 99,
+        "carbs": 54,
+        "fat": 67,
+        "fibre": 6,
+        "priceZAR": 222
+      },
+      "entries": [
+        {
+          "food": "3x eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-23T12:04:09.363Z"
+        },
+        {
+          "food": "2x cup of black coffee",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T12:04:14.178Z"
+        },
+        {
+          "food": "small flat white (250ml)",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 12,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T12:04:17.865Z"
+        },
+        {
+          "food": "2x chicken thighs (~200g)",
+          "calories": 400,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 28,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T12:04:22.983Z"
+        },
+        {
+          "food": "Veggie bowl (quarter, ~150g)",
+          "calories": 320,
+          "protein": 7,
+          "carbs": 42,
+          "fat": 14,
+          "fibre": 6,
+          "priceZAR": 50,
+          "time": "2026-03-23T12:04:26.021Z"
+        },
+        {
+          "food": "Biltong (56g)",
+          "calories": 140,
+          "protein": 28,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T13:23:55.899Z"
+        }
+      ]
+    }
+  ]
+}

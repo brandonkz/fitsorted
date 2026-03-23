@@ -1,0 +1,88 @@
+{
+  "name": "Herman",
+  "goal": 2013,
+  "joinedAt": "2026-03-23T12:39:21.592Z",
+  "profile": {
+    "age": 41,
+    "weight": 94,
+    "height": 174,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "walking",
+        "calories": 120,
+        "time": "2026-03-23T18:04:54.703Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2315,
+        "protein": 148,
+        "carbs": 178,
+        "fat": 127,
+        "fibre": 7,
+        "priceZAR": 338
+      },
+      "entries": [
+        {
+          "food": "3 cups sliced watermelon (~450g)",
+          "calories": 135,
+          "protein": 3,
+          "carbs": 33,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 18,
+          "time": "2026-03-23T12:53:05.699Z"
+        },
+        {
+          "food": "Pork chop (~150g)",
+          "calories": 300,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-23T13:00:07.282Z"
+        },
+        {
+          "food": "Pasta salad (~150g) + 4 potato wedges (~100g)",
+          "calories": 400,
+          "protein": 10,
+          "carbs": 70,
+          "fat": 12,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-23T13:00:12.011Z"
+        },
+        {
+          "food": "KFC zinger wings (~150g)",
+          "calories": 360,
+          "protein": 25,
+          "carbs": 15,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-23T15:45:41.405Z"
+        },
+        {
+          "food": "KFC Streetwise 4 piece (~680g)",
+          "calories": 1120,
+          "protein": 80,
+          "carbs": 60,
+          "fat": 70,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-23T15:45:44.918Z"
+        }
+      ]
+    }
+  ]
+}

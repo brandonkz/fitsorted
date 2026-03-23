@@ -1,0 +1,50 @@
+{
+  "name": "Divan",
+  "goal": 2448,
+  "joinedAt": "2026-03-23T06:51:07.291Z",
+  "profile": {
+    "age": 28,
+    "weight": 160,
+    "height": 192,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 350,
+        "protein": 18,
+        "carbs": 30,
+        "fat": 20,
+        "fibre": 2,
+        "priceZAR": 110
+      },
+      "entries": [
+        {
+          "food": "Bacon and egg toasted sarmie on sourdough (~150g)",
+          "calories": 200,
+          "protein": 10,
+          "carbs": 15,
+          "fat": 13,
+          "fibre": 2,
+          "priceZAR": 65,
+          "time": "2026-03-23T09:45:07.592Z"
+        },
+        {
+          "food": "Plato Cappuccino (large, ~350ml)",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 15,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-23T12:53:09.914Z"
+        }
+      ]
+    }
+  ]
+}

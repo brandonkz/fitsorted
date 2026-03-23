@@ -1,0 +1,88 @@
+{
+  "name": "Camilla",
+  "goal": 2464,
+  "joinedAt": "2026-03-23T05:54:02.841Z",
+  "profile": {
+    "age": 36,
+    "weight": 173,
+    "height": 173,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "walking",
+        "calories": 120,
+        "time": "2026-03-23T18:02:05.033Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1308,
+        "protein": 57,
+        "carbs": 159,
+        "fat": 55,
+        "fibre": 5,
+        "priceZAR": 128
+      },
+      "entries": [
+        {
+          "food": "Cappuccino with whole milk (1 cup, ~240ml)",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 12,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T05:55:49.267Z"
+        },
+        {
+          "food": "Sourdough toast (1 slice) with salted butter (10g) and whole tomato (~150g)",
+          "calories": 288,
+          "protein": 6,
+          "carbs": 42,
+          "fat": 14,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:05:08.834Z"
+        },
+        {
+          "food": "Pancake (~100g) with golden syrup (~20g) and Beef mince (~100g)",
+          "calories": 400,
+          "protein": 25,
+          "carbs": 45,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 38,
+          "time": "2026-03-23T11:05:13.123Z"
+        },
+        {
+          "food": "just a few mouthfuls (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T11:05:19.013Z"
+        },
+        {
+          "food": "I want my target daily calorie goal to be 1500 (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:03:07.846Z"
+        }
+      ]
+    }
+  ]
+}

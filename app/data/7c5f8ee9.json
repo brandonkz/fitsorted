@@ -1,0 +1,70 @@
+{
+  "name": "Lauren",
+  "goal": 1646,
+  "joinedAt": "2026-03-23T07:52:53.160Z",
+  "profile": {
+    "age": 46,
+    "weight": 59,
+    "height": 161,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 945,
+        "protein": 22,
+        "carbs": 125,
+        "fat": 41,
+        "fibre": 9,
+        "priceZAR": 54
+      },
+      "entries": [
+        {
+          "food": "3x coffee with milk + 2x Biscoff biscuits + Greek yogurt (100g)",
+          "calories": 570,
+          "protein": 18,
+          "carbs": 60,
+          "fat": 30,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-23T07:56:41.720Z"
+        },
+        {
+          "food": "1x medium sized red apple",
+          "calories": 95,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 4,
+          "time": "2026-03-23T08:42:13.676Z"
+        },
+        {
+          "food": "Vital Crisps (Fruit Chutney, 20g)",
+          "calories": 100,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-23T10:19:06.269Z"
+        },
+        {
+          "food": "Salted Caramel Bar (40g)",
+          "calories": 180,
+          "protein": 3,
+          "carbs": 25,
+          "fat": 7,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-23T13:25:15.466Z"
+        }
+      ]
+    }
+  ]
+}

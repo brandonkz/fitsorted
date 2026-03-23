@@ -1,0 +1,163 @@
+{
+  "name": "Jan",
+  "goal": 3023,
+  "joinedAt": "2026-03-23T06:17:34.881Z",
+  "profile": {
+    "age": 43,
+    "weight": 109,
+    "height": 186,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "workout",
+        "calories": 175,
+        "time": "2026-03-23T15:46:52.913Z"
+      },
+      {
+        "activity": "workout",
+        "calories": 221,
+        "time": "2026-03-23T15:50:28.567Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2883,
+        "protein": 207,
+        "carbs": 161,
+        "fat": 157,
+        "fibre": 9,
+        "priceZAR": 369
+      },
+      "entries": [
+        {
+          "food": "coffee with milk (1 cup, ~240ml) and 1 Canderel",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 7,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T06:20:27.685Z"
+        },
+        {
+          "food": "Rooibos tea no sugar (1 cup (250ml))",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:20:58.428Z"
+        },
+        {
+          "food": "Venison droewors (150g)",
+          "calories": 450,
+          "protein": 45,
+          "carbs": 0,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-23T07:57:51.452Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-23T08:21:55.025Z"
+        },
+        {
+          "food": "handful of cashews (~28g)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 9,
+          "fat": 13,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T08:22:13.127Z"
+        },
+        {
+          "food": "Rooibos tea no sugar (1 cup (250ml))",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T08:24:25.324Z"
+        },
+        {
+          "food": "Smoked chicken breast (~150g)",
+          "calories": 250,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-23T09:15:25.372Z"
+        },
+        {
+          "food": "Chicken drumstick (~85g)",
+          "calories": 150,
+          "protein": 22,
+          "carbs": 0,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T12:23:37.453Z"
+        },
+        {
+          "food": "2x Rolo",
+          "calories": 104,
+          "protein": 1,
+          "carbs": 23,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T12:32:38.230Z"
+        },
+        {
+          "food": "water (1 liter)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T12:39:15.039Z"
+        },
+        {
+          "food": "Mixed rice dish with ground meat and vegetables (~300g)",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 75,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-23T15:37:30.375Z"
+        },
+        {
+          "food": "Spur ribs (400g)",
+          "calories": 980,
+          "protein": 60,
+          "carbs": 20,
+          "fat": 70,
+          "fibre": 0,
+          "priceZAR": 180,
+          "time": "2026-03-23T15:46:17.993Z"
+        }
+      ]
+    }
+  ]
+}

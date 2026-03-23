@@ -1,0 +1,50 @@
+{
+  "name": "Miri",
+  "goal": 2120,
+  "joinedAt": "2026-03-23T08:47:03.061Z",
+  "profile": {
+    "age": 41,
+    "weight": 86,
+    "height": 164,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 105,
+        "protein": 6,
+        "carbs": 14,
+        "fat": 3,
+        "fibre": 1,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "1 boiled egg + seeded bread (~40g)",
+          "calories": 75,
+          "protein": 4,
+          "carbs": 10,
+          "fat": 3,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-23T08:50:33.490Z"
+        },
+        {
+          "food": "coffee with fat free milk (~200ml)",
+          "calories": 30,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T08:51:16.090Z"
+        }
+      ]
+    }
+  ]
+}

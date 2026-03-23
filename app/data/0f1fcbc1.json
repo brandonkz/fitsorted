@@ -1,0 +1,150 @@
+{
+  "name": "No that is too much",
+  "goal": 2543,
+  "joinedAt": "2026-03-23T04:53:09.249Z",
+  "profile": {
+    "age": 28,
+    "weight": 62,
+    "height": 157,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 3422,
+        "protein": 204,
+        "carbs": 265,
+        "fat": 171,
+        "fibre": 22,
+        "priceZAR": 680
+      },
+      "entries": [
+        {
+          "food": "breakfast burrito with sun-dried tomato wrap (~150g)",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-23T05:58:14.843Z"
+        },
+        {
+          "food": "Cottage Cheese (100g)",
+          "calories": 98,
+          "protein": 11,
+          "carbs": 3,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T05:58:17.663Z"
+        },
+        {
+          "food": "Omelette with mushrooms, peppers and spinach (~2 eggs, ~150g)",
+          "calories": 384,
+          "protein": 22,
+          "carbs": 14,
+          "fat": 29,
+          "fibre": 3,
+          "priceZAR": 45,
+          "time": "2026-03-23T05:58:24.170Z"
+        },
+        {
+          "food": "Boerewors (~150g)",
+          "calories": 400,
+          "protein": 25,
+          "carbs": 0,
+          "fat": 35,
+          "fibre": 0,
+          "priceZAR": 60,
+          "time": "2026-03-23T05:59:05.161Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T08:19:48.944Z"
+        },
+        {
+          "food": "Chicken schnitzel (~150g) and small roasted sweet potato (~100g)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 4,
+          "priceZAR": 70,
+          "time": "2026-03-23T10:17:04.104Z"
+        },
+        {
+          "food": "breakfast (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-23T17:20:32.176Z"
+        },
+        {
+          "food": "Breakfast burrito (~250g) + Boerewors (~100g) + Chicken schnitzel (~150g) + Sweet potatoes (1 cup, ~200g)",
+          "calories": 1030,
+          "protein": 55,
+          "carbs": 110,
+          "fat": 45,
+          "fibre": 10,
+          "priceZAR": 120,
+          "time": "2026-03-23T17:20:38.081Z"
+        },
+        {
+          "food": "Chicken schnitzel (~150g)",
+          "calories": 330,
+          "protein": 30,
+          "carbs": 20,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 85,
+          "time": "2026-03-23T17:20:42.897Z"
+        },
+        {
+          "food": "2 cups of coffee",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-23T17:20:46.920Z"
+        },
+        {
+          "food": "black coffee (1 cup, ~240ml)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T17:20:51.017Z"
+        },
+        {
+          "food": "Coffee with milk (~200ml)",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T17:20:54.944Z"
+        }
+      ]
+    }
+  ]
+}

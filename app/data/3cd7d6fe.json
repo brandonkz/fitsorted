@@ -1,0 +1,40 @@
+{
+  "name": "Neil",
+  "goal": 1946,
+  "joinedAt": "2026-03-23T05:59:35.686Z",
+  "profile": {
+    "age": 48,
+    "weight": 87,
+    "height": 183,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 168,
+        "protein": 9,
+        "carbs": 23,
+        "fat": 5,
+        "fibre": 4,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Smoothie with 1 egg, Woolworths low carb muesli (50g), frozen berries (100g), Woolworths low fat yogurt (50g), 1/4 banana",
+          "calories": 168,
+          "protein": 9,
+          "carbs": 23,
+          "fat": 5,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T06:02:23.041Z"
+        }
+      ]
+    }
+  ]
+}

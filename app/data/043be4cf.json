@@ -1,0 +1,200 @@
+{
+  "name": "Vicky",
+  "goal": 1503,
+  "joinedAt": "2026-03-23T18:38:39.277Z",
+  "profile": {
+    "age": 37,
+    "weight": 69,
+    "height": 178,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2550,
+        "protein": 122,
+        "carbs": 407,
+        "fat": 50,
+        "fibre": 37,
+        "priceZAR": 390
+      },
+      "entries": [
+        {
+          "food": "Flapjacks (1 serving) with half a banana",
+          "calories": 125,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:41:14.726Z"
+        },
+        {
+          "food": "egg",
+          "calories": 70,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:41:19.230Z"
+        },
+        {
+          "food": "Cottage cheese (~100g) and oats (~40g) with skyr yogurt (~150g)",
+          "calories": 290,
+          "protein": 25,
+          "carbs": 35,
+          "fat": 5,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:41:23.936Z"
+        },
+        {
+          "food": "Berries (~150g) with honey (~10g)",
+          "calories": 90,
+          "protein": 1,
+          "carbs": 22,
+          "fat": 0,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-23T18:41:28.259Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup, ~240ml)",
+          "calories": 30,
+          "protein": 2,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:42:06.636Z"
+        },
+        {
+          "food": "collagen (1 teaspoon, ~5g)",
+          "calories": 20,
+          "protein": 5,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:42:26.910Z"
+        },
+        {
+          "food": "2x hot cross bun",
+          "calories": 400,
+          "protein": 8,
+          "carbs": 80,
+          "fat": 6,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:42:43.604Z"
+        },
+        {
+          "food": "4x marshmallow Easter egg",
+          "calories": 280,
+          "protein": 0,
+          "carbs": 70,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:42:56.712Z"
+        },
+        {
+          "food": "Woolworths biltong (~50g)",
+          "calories": 125,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-23T18:43:11.983Z"
+        },
+        {
+          "food": "Dried fruit squares (1 packet, ~100g)",
+          "calories": 350,
+          "protein": 2,
+          "carbs": 80,
+          "fat": 1,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:43:36.364Z"
+        },
+        {
+          "food": "Chicken thigh (braai, 1 piece) (1 piece (~120g))",
+          "calories": 260,
+          "protein": 25,
+          "carbs": 0,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:44:12.191Z"
+        },
+        {
+          "food": "Marrow (100g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:44:17.202Z"
+        },
+        {
+          "food": "Chickpeas cooked (1/2 cup (80g))",
+          "calories": 135,
+          "protein": 7,
+          "carbs": 23,
+          "fat": 2,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:44:20.436Z"
+        },
+        {
+          "food": "Red pepper (1 medium, ~150g) and carrot (1 medium, ~70g)",
+          "calories": 60,
+          "protein": 2,
+          "carbs": 14,
+          "fat": 0,
+          "fibre": 5,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:44:24.978Z"
+        },
+        {
+          "food": "2x pieces of pineapple (~200g)",
+          "calories": 100,
+          "protein": 1,
+          "carbs": 26,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:44:56.931Z"
+        },
+        {
+          "food": "2x tea with milk",
+          "calories": 60,
+          "protein": 2,
+          "carbs": 8,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:45:15.055Z"
+        },
+        {
+          "food": "3x rice cakes",
+          "calories": 105,
+          "protein": 3,
+          "carbs": 21,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-23T18:47:26.774Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "Raheel",
+  "goal": 1425,
+  "joinedAt": "2026-03-23T05:17:29.135Z",
+  "profile": {
+    "age": 56,
+    "weight": 81,
+    "height": 165,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 840,
+        "protein": 28,
+        "carbs": 145,
+        "fat": 18.5,
+        "fibre": 19,
+        "priceZAR": 128
+      },
+      "entries": [
+        {
+          "food": "breakfast (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-23T11:55:39.816Z"
+        },
+        {
+          "food": "5x chocolate Weet-Bix",
+          "calories": 370,
+          "protein": 10,
+          "carbs": 75,
+          "fat": 5,
+          "fibre": 10,
+          "priceZAR": 15,
+          "time": "2026-03-23T11:55:44.428Z"
+        },
+        {
+          "food": "Psyllium husk (1 tsp, ~5g)",
+          "calories": 20,
+          "protein": 0,
+          "carbs": 5,
+          "fat": 0,
+          "fibre": 5,
+          "priceZAR": 10,
+          "time": "2026-03-23T11:55:50.056Z"
+        },
+        {
+          "food": "Futurelife chocolate cereal protein (1 tbsp, ~15g)",
+          "calories": 60,
+          "protein": 5,
+          "carbs": 10,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-23T11:55:54.355Z"
+        },
+        {
+          "food": "3 tbsp cornflakes (~30g)",
+          "calories": 110,
+          "protein": 2,
+          "carbs": 24,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T11:55:58.657Z"
+        },
+        {
+          "food": "Almond milk (3/4 cup, ~180ml)",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 1,
+          "fat": 2.5,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-23T11:56:03.372Z"
+        }
+      ]
+    }
+  ]
+}

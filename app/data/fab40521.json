@@ -1,0 +1,70 @@
+{
+  "name": "Jane",
+  "goal": 1544,
+  "joinedAt": "2026-03-23T09:10:00.249Z",
+  "profile": {
+    "age": 57,
+    "weight": 82,
+    "height": 178,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 840,
+        "protein": 94,
+        "carbs": 68,
+        "fat": 26,
+        "fibre": 7,
+        "priceZAR": 85
+      },
+      "entries": [
+        {
+          "food": "2x eggs, 80g fat free cottage cheese, 1 slice ultima bread, handful baby tomatoes, 1 tsp olive oil",
+          "calories": 370,
+          "protein": 30,
+          "carbs": 30,
+          "fat": 18,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-23T09:12:46.416Z"
+        },
+        {
+          "food": "protein powder (1 scoop, ~30g)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-23T12:01:49.367Z"
+        },
+        {
+          "food": "Palsy protein plus (350ml)",
+          "calories": 210,
+          "protein": 30,
+          "carbs": 20,
+          "fat": 3,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-23T15:51:24.070Z"
+        },
+        {
+          "food": "Parmalat Protein Plus strawberry (350ml)",
+          "calories": 140,
+          "protein": 10,
+          "carbs": 15,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T15:52:11.790Z"
+        }
+      ]
+    }
+  ]
+}

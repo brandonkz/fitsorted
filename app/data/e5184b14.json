@@ -1,0 +1,90 @@
+{
+  "name": "Mart",
+  "goal": 1794,
+  "joinedAt": "2026-03-23T05:14:05.259Z",
+  "profile": {
+    "age": 49,
+    "weight": 102,
+    "height": 181,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1222,
+        "protein": 43,
+        "carbs": 182,
+        "fat": 36,
+        "fibre": 6,
+        "priceZAR": 127
+      },
+      "entries": [
+        {
+          "food": "1 hard boiled egg\n1 medium banana\n1 Nescafe cappuccino coffee\n1 filter coffee with unsweetened almond milk (est.)",
+          "calories": 200,
+          "protein": 5,
+          "carbs": 35,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 27,
+          "time": "2026-03-23T05:17:19.877Z"
+        },
+        {
+          "food": "Filter coffee (1 cup, ~240ml) with unsweetened almond milk (30ml)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T07:32:38.546Z"
+        },
+        {
+          "food": "Cheese roll with 1 slice of cheese and 1 slice of hickory ham",
+          "calories": 336,
+          "protein": 14,
+          "carbs": 34,
+          "fat": 14,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T09:18:56.831Z"
+        },
+        {
+          "food": "Coca-Cola (300ml)",
+          "calories": 126,
+          "protein": 0,
+          "carbs": 33,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T09:58:11.242Z"
+        },
+        {
+          "food": "2x tots of Roses lime cordial",
+          "calories": 60,
+          "protein": 0,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T15:39:59.824Z"
+        },
+        {
+          "food": "Spaghetti with meat sauce (~250g)",
+          "calories": 450,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-23T16:42:25.044Z"
+        }
+      ]
+    }
+  ]
+}

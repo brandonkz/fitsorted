@@ -1,0 +1,60 @@
+{
+  "name": "Aimee",
+  "goal": 1226,
+  "joinedAt": "2026-03-23T05:32:34.565Z",
+  "profile": {
+    "age": 39,
+    "weight": 63,
+    "height": 157,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 290,
+        "protein": 14,
+        "carbs": 46,
+        "fat": 7,
+        "fibre": 10,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Oats (1 cup cooked) (1 cup)",
+          "calories": 150,
+          "protein": 6,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-23T05:35:17.646Z"
+        },
+        {
+          "food": "Parmalat low fat milk (1 cup) (250ml)",
+          "calories": 110,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T05:35:24.552Z"
+        },
+        {
+          "food": "Psyllium husk (1 tablespoon, ~10g)",
+          "calories": 30,
+          "protein": 0,
+          "carbs": 7,
+          "fat": 0,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-23T05:35:32.182Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "name": "Kelly",
+  "goal": 1292,
+  "joinedAt": "2026-03-23T15:54:27.528Z",
+  "profile": {
+    "age": 31,
+    "weight": 77,
+    "height": 165,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "meal preparation",
+        "calories": 0,
+        "time": "2026-03-23T15:59:55.153Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 315,
+        "protein": 33,
+        "carbs": 39,
+        "fat": 5,
+        "fibre": 3,
+        "priceZAR": 100
+      },
+      "entries": [
+        {
+          "food": "Tea with milk (1 cup)",
+          "calories": 40,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T15:58:47.158Z"
+        },
+        {
+          "food": "Ostrich biltong (50g)",
+          "calories": 125,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-23T15:58:51.868Z"
+        },
+        {
+          "food": "Mango (whole)",
+          "calories": 150,
+          "protein": 1,
+          "carbs": 35,
+          "fat": 1,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-23T15:58:54.226Z"
+        }
+      ]
+    }
+  ]
+}

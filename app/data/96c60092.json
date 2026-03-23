@@ -1,0 +1,16 @@
+{
+  "name": "Stefan",
+  "goal": 3045,
+  "joinedAt": "2026-03-23T05:07:45.555Z",
+  "profile": {
+    "age": 35,
+    "weight": 105,
+    "height": 188,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

@@ -1,0 +1,80 @@
+{
+  "name": "Robyn",
+  "goal": 861,
+  "joinedAt": "2026-03-23T09:38:59.326Z",
+  "profile": {
+    "age": 49,
+    "weight": 75.5,
+    "height": 159,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1148,
+        "protein": 28,
+        "carbs": 150,
+        "fat": 39,
+        "fibre": 2,
+        "priceZAR": 115
+      },
+      "entries": [
+        {
+          "food": "coffee with milk and chocolate biscuit",
+          "calories": 288,
+          "protein": 4,
+          "carbs": 35,
+          "fat": 14,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-23T09:44:33.248Z"
+        },
+        {
+          "food": "glass of water (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T12:24:20.473Z"
+        },
+        {
+          "food": "Boschendal La Bouquet (300ml)",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 65,
+          "time": "2026-03-23T12:25:34.805Z"
+        },
+        {
+          "food": "Hot cocoa (1 cup, ~240ml) with honey (1 tbsp, ~21g)",
+          "calories": 210,
+          "protein": 4,
+          "carbs": 40,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T14:23:41.742Z"
+        },
+        {
+          "food": "400 calories burned (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:28:50.468Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Juanene",
+  "goal": 1871,
+  "joinedAt": "2026-03-23T07:59:28.004Z",
+  "profile": {
+    "age": 61,
+    "weight": 75,
+    "height": 164,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

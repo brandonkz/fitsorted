@@ -1,0 +1,90 @@
+{
+  "name": "Fuad",
+  "goal": 2053,
+  "joinedAt": "2026-03-23T08:57:48.598Z",
+  "profile": {
+    "age": 65,
+    "weight": 92,
+    "height": 172,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1294,
+        "protein": 72,
+        "carbs": 154,
+        "fat": 56,
+        "fibre": 18,
+        "priceZAR": 137
+      },
+      "entries": [
+        {
+          "food": "3x rolls with spiced beef",
+          "calories": 900,
+          "protein": 60,
+          "carbs": 120,
+          "fat": 30,
+          "fibre": 6,
+          "priceZAR": 75,
+          "time": "2026-03-23T09:05:31.242Z"
+        },
+        {
+          "food": "Cucumber (1 medium, ~150g)",
+          "calories": 24,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T09:05:36.260Z"
+        },
+        {
+          "food": "Avocado (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 25,
+          "time": "2026-03-23T09:05:41.106Z"
+        },
+        {
+          "food": "Lettuce (1 cup, ~50g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T09:05:46.391Z"
+        },
+        {
+          "food": "1 cup of tea with 1 sugar",
+          "calories": 30,
+          "protein": 0,
+          "carbs": 8,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T09:05:52.848Z"
+        },
+        {
+          "food": "dash of full cream milk (~10ml)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 2,
+          "time": "2026-03-23T09:05:57.663Z"
+        }
+      ]
+    }
+  ]
+}

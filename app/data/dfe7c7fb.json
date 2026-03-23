@@ -1,0 +1,50 @@
+{
+  "name": "Deidre",
+  "goal": 1208,
+  "joinedAt": "2026-03-23T05:29:11.405Z",
+  "profile": {
+    "age": 57,
+    "weight": 82,
+    "height": 168,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 300,
+        "protein": 12,
+        "carbs": 32,
+        "fat": 15,
+        "fibre": 1,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "Large cappuccino with full cream milk (~350ml)",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T05:32:26.273Z"
+        },
+        {
+          "food": "Peanut brittle (~30g)",
+          "calories": 150,
+          "protein": 4,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T11:07:53.814Z"
+        }
+      ]
+    }
+  ]
+}

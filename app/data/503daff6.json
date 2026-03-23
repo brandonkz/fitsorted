@@ -1,0 +1,16 @@
+{
+  "name": "Aviwe",
+  "goal": 2171,
+  "joinedAt": "2026-03-23T06:28:13.762Z",
+  "profile": {
+    "age": 28,
+    "weight": 88,
+    "height": 160,
+    "gender": "female",
+    "target": "maintain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

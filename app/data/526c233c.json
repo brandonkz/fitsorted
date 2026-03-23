@@ -1,0 +1,58 @@
+{
+  "name": "Khali",
+  "goal": 2306,
+  "joinedAt": "2026-03-23T06:40:13.536Z",
+  "profile": {
+    "age": 40,
+    "weight": 77,
+    "height": 168,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "walking",
+        "calories": 250,
+        "time": "2026-03-23T18:05:25.117Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 480,
+        "protein": 12,
+        "carbs": 68,
+        "fat": 21,
+        "fibre": 2,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "Muffin (~100g)",
+          "calories": 400,
+          "protein": 6,
+          "carbs": 60,
+          "fat": 18,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:50:55.595Z"
+        },
+        {
+          "food": "2x cup of coffee",
+          "calories": 80,
+          "protein": 6,
+          "carbs": 8,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T14:30:27.774Z"
+        }
+      ]
+    }
+  ]
+}

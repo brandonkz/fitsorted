@@ -1,0 +1,60 @@
+{
+  "name": "Nicholas",
+  "goal": 2945,
+  "joinedAt": "2026-03-23T09:36:54.036Z",
+  "profile": {
+    "age": 42,
+    "weight": 178,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1180,
+        "protein": 57,
+        "carbs": 130,
+        "fat": 53,
+        "fibre": 9,
+        "priceZAR": 100
+      },
+      "entries": [
+        {
+          "food": "Corn flakes and milk\nWhole wheat toast and peanut butter (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T09:40:57.295Z"
+        },
+        {
+          "food": "Corn flakes (40g) with full cream milk (100ml) and whole wheat toast (3 slices) with peanut butter (30g)",
+          "calories": 570,
+          "protein": 20,
+          "carbs": 70,
+          "fat": 25,
+          "fibre": 8,
+          "priceZAR": 30,
+          "time": "2026-03-23T09:42:51.266Z"
+        },
+        {
+          "food": "9x chicken nuggets",
+          "calories": 360,
+          "protein": 27,
+          "carbs": 30,
+          "fat": 18,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-23T11:14:39.939Z"
+        }
+      ]
+    }
+  ]
+}

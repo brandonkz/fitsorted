@@ -1,0 +1,168 @@
+{
+  "name": "La",
+  "goal": 2448,
+  "joinedAt": "2026-03-23T11:22:10.241Z",
+  "profile": {
+    "age": 37,
+    "weight": 93,
+    "height": 180,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "treadmill running",
+        "calories": 400,
+        "time": "2026-03-23T18:07:31.584Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 3001,
+        "protein": 123,
+        "carbs": 364,
+        "fat": 123,
+        "fibre": 35,
+        "priceZAR": 252
+      },
+      "entries": [
+        {
+          "food": "4 tbsp lactose free yoghurt (~60g) + 1/2 cup mixed berries (~75g) + Fruit and nut muesli (45g)",
+          "calories": 320,
+          "protein": 8,
+          "carbs": 56,
+          "fat": 8,
+          "fibre": 7,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:26:47.008Z"
+        },
+        {
+          "food": "Decaf latte with almond milk (1 cup, ~240ml) and 1 sweetener",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T11:27:37.161Z"
+        },
+        {
+          "food": "3x carrot and lentil rice cakes + 1 tin tuna in brine (~150g) + 3 tsp lite mayo + 3 cherry tomatoes + 3 spring onions",
+          "calories": 550,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 10,
+          "priceZAR": 45,
+          "time": "2026-03-23T11:29:03.096Z"
+        },
+        {
+          "food": "Jungle Berries Energy Bar (~40g)",
+          "calories": 160,
+          "protein": 4,
+          "carbs": 28,
+          "fat": 5,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:43:29.289Z"
+        },
+        {
+          "food": "4x provitas",
+          "calories": 160,
+          "protein": 4,
+          "carbs": 32,
+          "fat": 4,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-23T15:33:16.195Z"
+        },
+        {
+          "food": "margarine (10g)",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 2,
+          "time": "2026-03-23T15:33:23.574Z"
+        },
+        {
+          "food": "Thinly sliced white cheddar (1 slice) on Provita (1 cracker)",
+          "calories": 140,
+          "protein": 7,
+          "carbs": 10,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T15:33:28.552Z"
+        },
+        {
+          "food": "Iced cookie (medium size, ~50g)",
+          "calories": 250,
+          "protein": 2,
+          "carbs": 35,
+          "fat": 12,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T16:21:51.521Z"
+        },
+        {
+          "food": "2x chicken drumsticks (~170g)",
+          "calories": 300,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T16:51:29.002Z"
+        },
+        {
+          "food": "Chickpea and cucumber salad (125g) with 1/4 avocado (~50g)",
+          "calories": 336,
+          "protein": 11,
+          "carbs": 42,
+          "fat": 16,
+          "fibre": 7,
+          "priceZAR": 45,
+          "time": "2026-03-23T16:51:35.348Z"
+        },
+        {
+          "food": "Please let us know how we can assist you (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:02:50.854Z"
+        },
+        {
+          "food": "Office Hours are Monday-Thurs 8.00-17.00 and Friday 8.00-15.00",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:02:54.894Z"
+        },
+        {
+          "food": "3x zoo biscuits + 1x digestive biscuit",
+          "calories": 450,
+          "protein": 6,
+          "carbs": 66,
+          "fat": 18,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:27:46.264Z"
+        }
+      ]
+    }
+  ]
+}

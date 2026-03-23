@@ -1,0 +1,40 @@
+{
+  "name": "Praga",
+  "goal": 2267,
+  "joinedAt": "2026-03-23T04:59:01.056Z",
+  "profile": {
+    "age": 60,
+    "weight": 84,
+    "height": 175,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 420,
+        "protein": 30,
+        "carbs": 50,
+        "fat": 10,
+        "fibre": 10,
+        "priceZAR": 40
+      },
+      "entries": [
+        {
+          "food": "Overnight oats (1 cup, ~90g) with chia seeds (1 tbsp, ~12g) and protein powder (1 scoop, ~30g)",
+          "calories": 420,
+          "protein": 30,
+          "carbs": 50,
+          "fat": 10,
+          "fibre": 10,
+          "priceZAR": 40,
+          "time": "2026-03-23T05:02:05.989Z"
+        }
+      ]
+    }
+  ]
+}

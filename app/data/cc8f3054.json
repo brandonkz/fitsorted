@@ -1,0 +1,60 @@
+{
+  "name": "Suhayl",
+  "goal": 2209,
+  "joinedAt": "2026-03-23T06:10:34.708Z",
+  "profile": {
+    "age": 39,
+    "weight": 69,
+    "height": 177,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 510,
+        "protein": 26,
+        "carbs": 47,
+        "fat": 24,
+        "fibre": 1,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Scrambled eggs (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T06:12:53.778Z"
+        },
+        {
+          "food": "toast (1 slice)",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:12:59.010Z"
+        },
+        {
+          "food": "Intermittent fasting (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:07:01.374Z"
+        }
+      ]
+    }
+  ]
+}

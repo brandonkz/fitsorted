@@ -1,0 +1,140 @@
+{
+  "name": "Nick",
+  "goal": 1284,
+  "joinedAt": "2026-03-23T06:28:02.806Z",
+  "profile": {
+    "age": 34,
+    "weight": 30,
+    "height": 186,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2380,
+        "protein": 172,
+        "carbs": 132,
+        "fat": 134,
+        "fibre": 2,
+        "priceZAR": 18
+      },
+      "entries": [
+        {
+          "food": "Lancewood Double Cream Strawberry & Apple Smooth Yoghurt (100g)",
+          "calories": 120,
+          "protein": 4,
+          "carbs": 14,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T07:10:05.404Z"
+        },
+        {
+          "food": "Salami (~50g)",
+          "calories": 200,
+          "protein": 10,
+          "carbs": 1,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T07:11:15.395Z"
+        },
+        {
+          "food": "Chocolate Flavoured Low Fat Milk (250ml)",
+          "calories": 120,
+          "protein": 8,
+          "carbs": 18,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T08:55:26.464Z"
+        },
+        {
+          "food": "Lightly Dusted Chicken Strips (200g)",
+          "calories": 440,
+          "protein": 40,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-23T10:36:22.261Z"
+        },
+        {
+          "food": "Coffee (12 oz, ~355 mL)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T14:15:43.673Z"
+        },
+        {
+          "food": "Dried sausage sticks (50g)",
+          "calories": 200,
+          "protein": 10,
+          "carbs": 2,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:13:06.612Z"
+        },
+        {
+          "food": "Chocolate Flavoured Low Fat Milk (250ml)",
+          "calories": 120,
+          "protein": 8,
+          "carbs": 18,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:14:02.141Z"
+        },
+        {
+          "food": "Spoonfulls Strawberry Flavoured Instant Powdered Drink (30g)",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 30,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:22:52.577Z"
+        },
+        {
+          "food": "Milk (1 cup, ~240ml)",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:23:08.244Z"
+        },
+        {
+          "food": "Beef steak (~300g)",
+          "calories": 660,
+          "protein": 66,
+          "carbs": 0,
+          "fat": 42,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:25:42.255Z"
+        },
+        {
+          "food": "2x fried eggs",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-23T18:28:06.683Z"
+        }
+      ]
+    }
+  ]
+}

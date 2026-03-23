@@ -1,0 +1,40 @@
+{
+  "name": "Rehan",
+  "goal": 2293,
+  "joinedAt": "2026-03-23T10:14:02.547Z",
+  "profile": {
+    "age": 27,
+    "weight": 78,
+    "height": 175,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 50,
+        "protein": 3,
+        "carbs": 5,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 15
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T10:17:09.194Z"
+        }
+      ]
+    }
+  ]
+}

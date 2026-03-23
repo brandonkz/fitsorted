@@ -1,0 +1,68 @@
+{
+  "name": "Hendre",
+  "goal": 2475,
+  "joinedAt": "2026-03-23T13:35:43.800Z",
+  "profile": {
+    "age": 25,
+    "weight": 82,
+    "height": 176,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "unknown",
+        "calories": 0,
+        "time": "2026-03-23T13:41:07.491Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1020,
+        "protein": 74,
+        "carbs": 105,
+        "fat": 47,
+        "fibre": 10,
+        "priceZAR": 110
+      },
+      "entries": [
+        {
+          "food": "3 eggs with 2 slices sourdough bread and cream cheese",
+          "calories": 490,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 30,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T13:39:32.765Z"
+        },
+        {
+          "food": "2x coffee",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T13:40:31.678Z"
+        },
+        {
+          "food": "Tuna (~150g) on 2 slices sourdough bread",
+          "calories": 480,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 6,
+          "priceZAR": 40,
+          "time": "2026-03-23T13:41:36.726Z"
+        }
+      ]
+    }
+  ]
+}

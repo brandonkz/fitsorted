@@ -16,12 +16,12 @@
     {
       "date": "2026-03-23",
       "totals": {
-        "calories": 80,
-        "protein": 3,
-        "carbs": 14,
-        "fat": 2,
-        "fibre": 0,
-        "priceZAR": 30
+        "calories": 964,
+        "protein": 51,
+        "carbs": 109,
+        "fat": 32,
+        "fibre": 7,
+        "priceZAR": 80
       },
       "entries": [
         {
@@ -33,6 +33,36 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-23T04:28:24.594Z"
+        },
+        {
+          "food": "Jungle Muesli (50g) with Parmalat low fat yogurt (150g)",
+          "calories": 290,
+          "protein": 10,
+          "carbs": 45,
+          "fat": 6,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-23T05:56:33.006Z"
+        },
+        {
+          "food": "Lucky Star Pilchards in hot chilli sauce (155g)",
+          "calories": 210,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:15:40.157Z"
+        },
+        {
+          "food": "2x slice of toast with margarine",
+          "calories": 384,
+          "protein": 8,
+          "carbs": 50,
+          "fat": 14,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-23T11:15:45.062Z"
         }
       ]
     }

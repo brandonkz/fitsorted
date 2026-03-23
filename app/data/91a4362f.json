@@ -1,0 +1,100 @@
+{
+  "name": "Andrew",
+  "goal": 2480,
+  "joinedAt": "2026-03-23T07:37:50.085Z",
+  "profile": {
+    "age": 57,
+    "weight": 87,
+    "height": 182,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 597,
+        "protein": 14,
+        "carbs": 40,
+        "fat": 16,
+        "fibre": 6,
+        "priceZAR": 157
+      },
+      "entries": [
+        {
+          "food": "Small Kitkat (1 bar, ~20g)",
+          "calories": 100,
+          "protein": 1,
+          "carbs": 11,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T13:43:43.774Z"
+        },
+        {
+          "food": "3x provita",
+          "calories": 90,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 3,
+          "fibre": 3,
+          "priceZAR": 12,
+          "time": "2026-03-23T15:34:10.944Z"
+        },
+        {
+          "food": "woolworths crumbed chicken schnitzel",
+          "calories": 208,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 90,
+          "time": "2026-03-23T15:37:09.315Z"
+        },
+        {
+          "food": "Lettuce (1 cup, ~50g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T15:37:13.561Z"
+        },
+        {
+          "food": "Cucumber (1 medium, ~150g)",
+          "calories": 24,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T15:37:18.980Z"
+        },
+        {
+          "food": "Rosa tomatoes (~100g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T15:37:23.050Z"
+        },
+        {
+          "food": "Feta cheese (30g)",
+          "calories": 75,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T15:37:27.230Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "name": "Qiniso",
+  "goal": 2801,
+  "joinedAt": "2026-03-23T10:29:27.136Z",
+  "profile": {
+    "age": 25,
+    "weight": 67,
+    "height": 152,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "walking",
+        "calories": 320,
+        "time": "2026-03-23T18:10:18.627Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2380,
+        "protein": 120,
+        "carbs": 238,
+        "fat": 110,
+        "fibre": 18,
+        "priceZAR": 200
+      },
+      "entries": [
+        {
+          "food": "Brown bread (2 slices, ~160g) with peanut butter (2 tbsp, ~32g)",
+          "calories": 400,
+          "protein": 12,
+          "carbs": 48,
+          "fat": 20,
+          "fibre": 8,
+          "priceZAR": 20,
+          "time": "2026-03-23T10:33:14.660Z"
+        },
+        {
+          "food": "2x Russian sausage",
+          "calories": 400,
+          "protein": 16,
+          "carbs": 12,
+          "fat": 32,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T10:34:26.858Z"
+        },
+        {
+          "food": "3 slices of toast",
+          "calories": 240,
+          "protein": 9,
+          "carbs": 45,
+          "fat": 3,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-23T10:34:31.864Z"
+        },
+        {
+          "food": "Scrambled eggs (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T10:34:35.863Z"
+        },
+        {
+          "food": "Chicken feet (~150g) and Rice (1 cup, ~150g)",
+          "calories": 450,
+          "protein": 30,
+          "carbs": 45,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-23T17:04:02.466Z"
+        },
+        {
+          "food": "3x cup of tea with Cremona (1 cup, ~250ml)",
+          "calories": 60,
+          "protein": 0,
+          "carbs": 12,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:08:52.888Z"
+        },
+        {
+          "food": "teaspoon of sugar (~4g)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:09:03.015Z"
+        },
+        {
+          "food": "Beef (~150g) and rice (1 cup, ~150g) with potatoes (~150g)",
+          "calories": 600,
+          "protein": 40,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-23T18:09:08.553Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Kay",
+  "goal": 1128,
+  "joinedAt": "2026-03-23T05:11:11.742Z",
+  "profile": {
+    "age": 53,
+    "weight": 77,
+    "height": 162,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Lauren",
+  "goal": 1927,
+  "joinedAt": "2026-03-23T08:39:24.459Z",
+  "profile": {
+    "age": 37,
+    "weight": 108,
+    "height": 165,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 400,
+        "protein": 12,
+        "carbs": 64,
+        "fat": 16,
+        "fibre": 8,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "2x slices of wholegrain toast with butter and Bovril",
+          "calories": 400,
+          "protein": 12,
+          "carbs": 64,
+          "fat": 16,
+          "fibre": 8,
+          "priceZAR": 50,
+          "time": "2026-03-23T09:04:02.668Z"
+        }
+      ]
+    }
+  ]
+}

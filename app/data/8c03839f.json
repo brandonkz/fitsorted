@@ -1,0 +1,60 @@
+{
+  "name": "ST",
+  "goal": 2474,
+  "joinedAt": "2026-03-23T05:23:27.219Z",
+  "profile": {
+    "age": 55,
+    "weight": 90,
+    "height": 189,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 800,
+        "protein": 32,
+        "carbs": 106,
+        "fat": 32,
+        "fibre": 6,
+        "priceZAR": 87
+      },
+      "entries": [
+        {
+          "food": "2x sourdough bread toast with Gouda cheese",
+          "calories": 440,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 16,
+          "fibre": 4,
+          "priceZAR": 45,
+          "time": "2026-03-23T07:41:25.433Z"
+        },
+        {
+          "food": "Coffee (1 cup) with 2 sugar",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T07:41:30.756Z"
+        },
+        {
+          "food": "Polony sandwich (1 slice bread, ~80g polony)",
+          "calories": 320,
+          "protein": 12,
+          "carbs": 36,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 12,
+          "time": "2026-03-23T12:19:48.688Z"
+        }
+      ]
+    }
+  ]
+}

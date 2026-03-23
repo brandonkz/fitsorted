@@ -1,0 +1,118 @@
+{
+  "name": "Wayne",
+  "goal": 1934,
+  "joinedAt": "2026-03-23T05:37:20.775Z",
+  "profile": {
+    "age": 41,
+    "weight": 87,
+    "height": 176,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "walking",
+        "calories": 200,
+        "time": "2026-03-23T18:58:09.004Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2280,
+        "protein": 166,
+        "carbs": 195,
+        "fat": 81,
+        "fibre": 13,
+        "priceZAR": 460
+      },
+      "entries": [
+        {
+          "food": "Decaf espresso (1 shot, ~30ml)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T05:40:34.622Z"
+        },
+        {
+          "food": "5x sushi rainbow roll + 2x prawn maki + flat white",
+          "calories": 670,
+          "protein": 25,
+          "carbs": 90,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 150,
+          "time": "2026-03-23T11:10:20.129Z"
+        },
+        {
+          "food": "2x chicken breast (~130g each)",
+          "calories": 520,
+          "protein": 100,
+          "carbs": 0,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T18:57:00.085Z"
+        },
+        {
+          "food": "Half gem squash (~150g)",
+          "calories": 40,
+          "protein": 1,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:57:05.308Z"
+        },
+        {
+          "food": "Caesar Salad",
+          "calories": 400,
+          "protein": 15,
+          "carbs": 20,
+          "fat": 28,
+          "fibre": 3,
+          "priceZAR": 85,
+          "time": "2026-03-23T18:57:07.870Z"
+        },
+        {
+          "food": "Butter (1 tablespoon, ~14g)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 11,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-23T18:57:33.572Z"
+        },
+        {
+          "food": "2x glass of red wine (350ml)",
+          "calories": 250,
+          "protein": 19,
+          "carbs": 25,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-23T18:57:37.620Z"
+        },
+        {
+          "food": "hot cross bun (~100g)",
+          "calories": 250,
+          "protein": 6,
+          "carbs": 50,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:57:40.919Z"
+        }
+      ]
+    }
+  ]
+}

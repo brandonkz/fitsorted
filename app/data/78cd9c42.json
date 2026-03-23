@@ -1,0 +1,42 @@
+{
+  "name": "Erla",
+  "goal": 1471,
+  "joinedAt": "2026-03-23T08:37:57.572Z",
+  "profile": {
+    "age": 62,
+    "weight": 107,
+    "height": 167,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": []
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 100,
+        "protein": 3,
+        "carbs": 10,
+        "fat": 5,
+        "fibre": 4,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "Cabbage (1 cup, ~70g) with cottage cheese (1.5 tsp, ~7g), 1/5 avocado (~30g), balsamic vinegar, and cucumber (3 slices, ~60g)",
+          "calories": 100,
+          "protein": 3,
+          "carbs": 10,
+          "fat": 5,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-23T11:06:28.647Z"
+        }
+      ]
+    }
+  ]
+}

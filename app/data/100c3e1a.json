@@ -1,0 +1,90 @@
+{
+  "name": "Mariska",
+  "goal": 1183,
+  "joinedAt": "2026-03-23T13:54:39.984Z",
+  "profile": {
+    "age": 31,
+    "weight": 65,
+    "height": 171,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1592,
+        "protein": 103,
+        "carbs": 100,
+        "fat": 90.5,
+        "fibre": 3,
+        "priceZAR": 87
+      },
+      "entries": [
+        {
+          "food": "Butterscotch latte (medium, ~350ml)",
+          "calories": 250,
+          "protein": 6,
+          "carbs": 40,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T13:57:36.175Z"
+        },
+        {
+          "food": "Fudge swirl tinkie (1 piece)",
+          "calories": 150,
+          "protein": 1,
+          "carbs": 25,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:11:51.168Z"
+        },
+        {
+          "food": "Lancewood apple and strawberry smooth yogurt (~150g)",
+          "calories": 192,
+          "protein": 6,
+          "carbs": 25,
+          "fat": 7,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:12:27.988Z"
+        },
+        {
+          "food": "4x chicken strips (~200g) with broccoli (~20g)",
+          "calories": 460,
+          "protein": 40,
+          "carbs": 10,
+          "fat": 30,
+          "fibre": 2,
+          "priceZAR": 35,
+          "time": "2026-03-23T18:13:03.055Z"
+        },
+        {
+          "food": "Steak (~200g)",
+          "calories": 500,
+          "protein": 50,
+          "carbs": 0,
+          "fat": 35,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:26:44.107Z"
+        },
+        {
+          "food": "olive oil (1 tsp, ~5g)",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 4.5,
+          "fibre": 0,
+          "priceZAR": 2,
+          "time": "2026-03-23T18:27:37.558Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "name": "Crunchie",
+  "goal": 1880,
+  "joinedAt": "2026-03-23T06:40:25.623Z",
+  "profile": {
+    "age": 53,
+    "weight": 101,
+    "height": 186,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "strength training",
+        "calories": 210,
+        "time": "2026-03-23T18:05:18.734Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1400,
+        "protein": 70,
+        "carbs": 144,
+        "fat": 61,
+        "fibre": 5,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "fasting (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T06:43:56.240Z"
+        },
+        {
+          "food": "2 tablespoons (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T08:38:20.608Z"
+        },
+        {
+          "food": "Low carb wrap (~70g) with 2 tbsp Greek yoghurt (~30g) and spinach (~30g) and 1 tsp Dijon mustard (~5g)",
+          "calories": 240,
+          "protein": 10,
+          "carbs": 14,
+          "fat": 11,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:26:01.801Z"
+        },
+        {
+          "food": "Cookhouse mince (~150g) and Woolworths white pitta bread",
+          "calories": 410,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 60,
+          "time": "2026-03-23T16:31:44.628Z"
+        },
+        {
+          "food": "Cancel edit (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T17:14:48.369Z"
+        }
+      ]
+    }
+  ]
+}

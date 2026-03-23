@@ -1,0 +1,62 @@
+{
+  "name": "Christo",
+  "goal": 2064,
+  "joinedAt": "2026-03-23T06:06:40.436Z",
+  "profile": {
+    "age": 34,
+    "weight": 93,
+    "height": 176,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": []
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 697,
+        "protein": 49,
+        "carbs": 90,
+        "fat": 17,
+        "fibre": 13.5,
+        "priceZAR": 90
+      },
+      "entries": [
+        {
+          "food": "Almond milk (100ml)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0.5,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:24:00.660Z"
+        },
+        {
+          "food": "Carb clever Woolworths granola (1 serving)",
+          "calories": 167,
+          "protein": 5,
+          "carbs": 25,
+          "fat": 5,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-23T11:34:39.461Z"
+        },
+        {
+          "food": "Chicken breast (~130g) with quinoa (1 cup, ~200g) and roasted vegetables (~150g)",
+          "calories": 480,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 10,
+          "priceZAR": 65,
+          "time": "2026-03-23T13:52:35.419Z"
+        }
+      ]
+    }
+  ]
+}

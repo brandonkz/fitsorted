@@ -1,0 +1,16 @@
+{
+  "name": "Melisa",
+  "goal": 1646,
+  "joinedAt": "2026-03-23T05:32:11.834Z",
+  "profile": {
+    "age": 49,
+    "weight": 58,
+    "height": 165,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

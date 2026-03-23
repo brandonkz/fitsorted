@@ -1,0 +1,90 @@
+{
+  "name": "Mongezi",
+  "goal": 2135,
+  "joinedAt": "2026-03-23T10:21:03.829Z",
+  "profile": {
+    "age": 29,
+    "weight": 140,
+    "height": 183,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2570,
+        "protein": 92,
+        "carbs": 332,
+        "fat": 97,
+        "fibre": 21,
+        "priceZAR": 300
+      },
+      "entries": [
+        {
+          "food": "Grapes (500g)",
+          "calories": 350,
+          "protein": 3,
+          "carbs": 87,
+          "fat": 1,
+          "fibre": 5,
+          "priceZAR": 40,
+          "time": "2026-03-23T10:25:01.343Z"
+        },
+        {
+          "food": "Debonairs triple decker small (~250g)",
+          "calories": 800,
+          "protein": 30,
+          "carbs": 90,
+          "fat": 35,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-23T10:25:30.271Z"
+        },
+        {
+          "food": "Steers Wacky Wednesday Burger",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 45,
+          "fat": 30,
+          "fibre": 3,
+          "priceZAR": 65,
+          "time": "2026-03-23T10:25:58.738Z"
+        },
+        {
+          "food": "Tzatziki (100g)",
+          "calories": 70,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T10:26:20.755Z"
+        },
+        {
+          "food": "Mango (whole)",
+          "calories": 150,
+          "protein": 1,
+          "carbs": 35,
+          "fat": 1,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-23T10:27:13.806Z"
+        },
+        {
+          "food": "Princess wrap (~250g)",
+          "calories": 600,
+          "protein": 25,
+          "carbs": 70,
+          "fat": 25,
+          "fibre": 5,
+          "priceZAR": 80,
+          "time": "2026-03-23T10:27:23.672Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "Ken",
+  "goal": 2567,
+  "joinedAt": "2026-03-23T04:34:09.792Z",
+  "profile": {
+    "age": 57,
+    "weight": 139.2,
+    "height": 179,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1592,
+        "protein": 58,
+        "carbs": 180,
+        "fat": 64,
+        "fibre": 5,
+        "priceZAR": 195
+      },
+      "entries": [
+        {
+          "food": "Nespresso coffee with full cream milk (~150ml)",
+          "calories": 128,
+          "protein": 6,
+          "carbs": 8,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T04:38:48.932Z"
+        },
+        {
+          "food": "Jungle oats (small bowl, ~40g) with butter (1 tsp, ~5g) and honey (1 tsp, ~7g)",
+          "calories": 304,
+          "protein": 7,
+          "carbs": 52,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 20,
+          "time": "2026-03-23T12:20:50.438Z"
+        },
+        {
+          "food": "Buttered Portuguese roll (~100g) with crumbed chicken breast (~150g), slice of tinned pineapple (~50g), and 2 teaspoons of salad cream (~10g)",
+          "calories": 680,
+          "protein": 36,
+          "carbs": 70,
+          "fat": 30,
+          "fibre": 2,
+          "priceZAR": 55,
+          "time": "2026-03-23T12:20:55.761Z"
+        },
+        {
+          "food": "Cappuccino (~240ml)",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 10,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T12:21:24.742Z"
+        },
+        {
+          "food": "I had chicken ala king for dinner and a slice of melktert",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-23T18:39:35.867Z"
+        },
+        {
+          "food": "unknown",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T18:41:07.153Z"
+        }
+      ]
+    }
+  ]
+}

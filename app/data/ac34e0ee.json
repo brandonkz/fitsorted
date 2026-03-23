@@ -1,0 +1,16 @@
+{
+  "name": "Rocco",
+  "goal": null,
+  "joinedAt": "2026-03-23T06:57:49.181Z",
+  "profile": {
+    "age": null,
+    "weight": 89,
+    "height": 172,
+    "gender": "male",
+    "target": null,
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

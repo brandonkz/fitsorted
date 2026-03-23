@@ -1,0 +1,60 @@
+{
+  "name": "J",
+  "goal": 1100,
+  "joinedAt": "2026-03-23T15:40:32.236Z",
+  "profile": {
+    "age": 57,
+    "weight": 76,
+    "height": 165,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 750,
+        "protein": 30,
+        "carbs": 90,
+        "fat": 30,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Unsubscribe (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T15:44:03.538Z"
+        },
+        {
+          "food": "Unsubscribe (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T15:44:28.830Z"
+        },
+        {
+          "food": "Cancel (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T16:36:17.617Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Dhamian",
+  "goal": 2278,
+  "joinedAt": "2026-03-23T04:47:42.751Z",
+  "profile": {
+    "age": 46,
+    "weight": 112,
+    "height": 180,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

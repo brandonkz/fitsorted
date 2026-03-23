@@ -1,0 +1,16 @@
+{
+  "name": "Max",
+  "goal": 1568,
+  "joinedAt": "2026-03-23T19:01:08.309Z",
+  "profile": {
+    "age": 46,
+    "weight": 100,
+    "height": 185,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

@@ -1,0 +1,80 @@
+{
+  "name": "Kim",
+  "goal": 1810,
+  "joinedAt": "2026-03-23T08:25:57.591Z",
+  "profile": {
+    "age": 40,
+    "weight": 65,
+    "height": 168,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 768,
+        "protein": 43,
+        "carbs": 67,
+        "fat": 35,
+        "fibre": 8,
+        "priceZAR": 99
+      },
+      "entries": [
+        {
+          "food": "Peanut butter smoothie with 1 banana, oats (~30g), and milk (~200ml)",
+          "calories": 360,
+          "protein": 11,
+          "carbs": 42,
+          "fat": 16,
+          "fibre": 3,
+          "priceZAR": 22,
+          "time": "2026-03-23T08:29:52.808Z"
+        },
+        {
+          "food": "3x eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-23T11:56:50.268Z"
+        },
+        {
+          "food": "Cottage Cheese (100g)",
+          "calories": 98,
+          "protein": 11,
+          "carbs": 3,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T11:56:53.442Z"
+        },
+        {
+          "food": "pepperdews (~100g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:56:57.082Z"
+        },
+        {
+          "food": "Pumpkin (1 cup, ~200g)",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-23T11:57:01.427Z"
+        }
+      ]
+    }
+  ]
+}

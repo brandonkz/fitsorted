@@ -1,0 +1,100 @@
+{
+  "name": "Deon Krishen",
+  "goal": 1958,
+  "joinedAt": "2026-03-23T08:07:58.797Z",
+  "profile": {
+    "age": 48,
+    "weight": 91,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1690,
+        "protein": 90,
+        "carbs": 192,
+        "fat": 59,
+        "fibre": 18,
+        "priceZAR": 277
+      },
+      "entries": [
+        {
+          "food": "Cheese bun (~100g)",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-23T08:09:48.362Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup, ~240ml)",
+          "calories": 30,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T08:10:09.150Z"
+        },
+        {
+          "food": "sugar (1 teaspoon, ~4g)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 2,
+          "time": "2026-03-23T08:10:14.166Z"
+        },
+        {
+          "food": "Mutton curry (~150g) and rice (1 cup, ~150g)",
+          "calories": 570,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 45,
+          "time": "2026-03-23T11:13:58.671Z"
+        },
+        {
+          "food": "Mutton curry (~200g)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 20,
+          "fat": 25,
+          "fibre": 5,
+          "priceZAR": 150,
+          "time": "2026-03-23T18:33:01.146Z"
+        },
+        {
+          "food": "Cabbage (1 cup, ~70g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:33:05.957Z"
+        },
+        {
+          "food": "Green beans (1 cup, ~125g) and Rice (1 cup, ~150g)",
+          "calories": 290,
+          "protein": 7,
+          "carbs": 60,
+          "fat": 1,
+          "fibre": 6,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:33:10.380Z"
+        }
+      ]
+    }
+  ]
+}

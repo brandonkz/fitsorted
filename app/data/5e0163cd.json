@@ -1,0 +1,88 @@
+{
+  "name": "Andrew",
+  "goal": 2018,
+  "joinedAt": "2026-03-23T05:52:57.644Z",
+  "profile": {
+    "age": 35,
+    "weight": 97,
+    "height": 165,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "walking",
+        "calories": 250,
+        "time": "2026-03-23T18:38:16.339Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1113,
+        "protein": 105,
+        "carbs": 75,
+        "fat": 44,
+        "fibre": 11,
+        "priceZAR": 125
+      },
+      "entries": [
+        {
+          "food": "Diet protein shake (1 serving)",
+          "calories": 150,
+          "protein": 30,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-23T05:55:35.905Z"
+        },
+        {
+          "food": "Peanut butter smoothie (~300ml)",
+          "calories": 350,
+          "protein": 15,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 4,
+          "priceZAR": 65,
+          "time": "2026-03-23T08:59:31.714Z"
+        },
+        {
+          "food": "Beef biltong (25g)",
+          "calories": 63,
+          "protein": 10,
+          "carbs": 0,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T13:50:14.743Z"
+        },
+        {
+          "food": "Roasted chicken pieces (~200g) with mixed roasted vegetables (~150g)",
+          "calories": 550,
+          "protein": 50,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 6,
+          "priceZAR": 0,
+          "time": "2026-03-23T16:10:07.001Z"
+        },
+        {
+          "food": "Fanta Zero Orange 330ml",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T17:05:53.060Z"
+        }
+      ]
+    }
+  ]
+}

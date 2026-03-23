@@ -1,0 +1,70 @@
+{
+  "name": "Kyle",
+  "goal": 2733,
+  "joinedAt": "2026-03-23T08:48:01.226Z",
+  "profile": {
+    "age": 32,
+    "weight": 93,
+    "height": 194,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1370,
+        "protein": 109,
+        "carbs": 117,
+        "fat": 53,
+        "fibre": 0,
+        "priceZAR": 250
+      },
+      "entries": [
+        {
+          "food": "Nu protein bar\nDouble shot latte (est.)",
+          "calories": 200,
+          "protein": 5,
+          "carbs": 35,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T08:50:39.329Z"
+        },
+        {
+          "food": "Latte (1 cup (350ml))",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 10,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T08:51:22.748Z"
+        },
+        {
+          "food": "6x I&J fish cakes",
+          "calories": 720,
+          "protein": 36,
+          "carbs": 72,
+          "fat": 36,
+          "fibre": 0,
+          "priceZAR": 90,
+          "time": "2026-03-23T09:01:25.890Z"
+        },
+        {
+          "food": "Woolworths chicken mini fillets (250g)",
+          "calories": 330,
+          "protein": 62,
+          "carbs": 0,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 90,
+          "time": "2026-03-23T12:56:27.661Z"
+        }
+      ]
+    }
+  ]
+}

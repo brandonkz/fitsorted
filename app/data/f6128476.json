@@ -1,0 +1,40 @@
+{
+  "name": "Olivia",
+  "goal": 2400,
+  "joinedAt": "2026-03-23T09:29:20.493Z",
+  "profile": {
+    "age": 46,
+    "weight": 67,
+    "height": 178,
+    "gender": "female",
+    "target": null,
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 370,
+        "protein": 38,
+        "carbs": 2,
+        "fat": 24,
+        "fibre": 0,
+        "priceZAR": 34
+      },
+      "entries": [
+        {
+          "food": "2x scrambled eggs + Pork loin fillet (~100g)",
+          "calories": 370,
+          "protein": 38,
+          "carbs": 2,
+          "fat": 24,
+          "fibre": 0,
+          "priceZAR": 34,
+          "time": "2026-03-23T09:31:43.920Z"
+        }
+      ]
+    }
+  ]
+}

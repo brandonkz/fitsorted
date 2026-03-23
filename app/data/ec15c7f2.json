@@ -12,5 +12,59 @@
   },
   "weights": [],
   "exercise": {},
-  "logSummary": []
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1650,
+        "protein": 100,
+        "carbs": 140,
+        "fat": 70,
+        "fibre": 4,
+        "priceZAR": 95
+      },
+      "entries": [
+        {
+          "food": "toasted tuna sandwich",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 4,
+          "priceZAR": 50,
+          "time": "2026-03-23T11:09:33.145Z"
+        },
+        {
+          "food": "Coke can\nGarage pie \n1 chicken strip (est.)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 15,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T15:24:26.847Z"
+        },
+        {
+          "food": "Coca cola 500ml\nChicken curry pie piemans\nChicken strip 1pc (est.)",
+          "calories": 500,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T15:25:59.988Z"
+        },
+        {
+          "food": "Creamy soup | half bowl \nMutton stew | small serving (est.)",
+          "calories": 350,
+          "protein": 20,
+          "carbs": 25,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:16:06.364Z"
+        }
+      ]
+    }
+  ]
 }

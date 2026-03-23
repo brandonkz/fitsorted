@@ -1,0 +1,60 @@
+{
+  "name": "Gary",
+  "goal": 2926,
+  "joinedAt": "2026-03-23T05:04:00.894Z",
+  "profile": {
+    "age": 44,
+    "weight": 72,
+    "height": 172,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 570,
+        "protein": 25,
+        "carbs": 66,
+        "fat": 24,
+        "fibre": 11,
+        "priceZAR": 75
+      },
+      "entries": [
+        {
+          "food": "Oats (1 cup cooked) (1 cup)",
+          "calories": 150,
+          "protein": 6,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-23T05:07:07.364Z"
+        },
+        {
+          "food": "Wholewheat sandwich with ham (~150g)",
+          "calories": 300,
+          "protein": 18,
+          "carbs": 36,
+          "fat": 10,
+          "fibre": 6,
+          "priceZAR": 50,
+          "time": "2026-03-23T11:38:56.954Z"
+        },
+        {
+          "food": "Tomato (~100g) and mayonnaise (1 tablespoon, ~15g)",
+          "calories": 120,
+          "protein": 1,
+          "carbs": 3,
+          "fat": 11,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-23T11:39:01.715Z"
+        }
+      ]
+    }
+  ]
+}

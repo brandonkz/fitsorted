@@ -1,0 +1,108 @@
+{
+  "name": "Peter",
+  "goal": 2945,
+  "joinedAt": "2026-03-23T05:48:40.006Z",
+  "profile": {
+    "age": 63,
+    "weight": 88,
+    "height": 182,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "weight training",
+        "calories": 245,
+        "time": "2026-03-23T18:19:18.559Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2723,
+        "protein": 99,
+        "carbs": 198,
+        "fat": 86,
+        "fibre": 21,
+        "priceZAR": 259
+      },
+      "entries": [
+        {
+          "food": "Future Life porridge (1 serving, ~40g) with full cream milk (1 cup, ~240ml) and 2 boiled eggs",
+          "calories": 480,
+          "protein": 30,
+          "carbs": 50,
+          "fat": 20,
+          "fibre": 6,
+          "priceZAR": 34,
+          "time": "2026-03-23T05:53:29.044Z"
+        },
+        {
+          "food": "2x slice of 5 grain bread",
+          "calories": 160,
+          "protein": 8,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-23T12:38:32.337Z"
+        },
+        {
+          "food": "1x slice of bread with Kiri cheese (1 slice, ~20g) and German cold meat (50g)",
+          "calories": 336,
+          "protein": 14,
+          "carbs": 25,
+          "fat": 22,
+          "fibre": 1,
+          "priceZAR": 25,
+          "time": "2026-03-23T12:38:37.353Z"
+        },
+        {
+          "food": "Toast with peanut butter and jam (1 slice) and Joko tea with milk (1 cup)",
+          "calories": 290,
+          "protein": 6,
+          "carbs": 40,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-23T12:38:41.654Z"
+        },
+        {
+          "food": "Citrus beef and beetroot salad (~200g) with almonds (~30g) and beer (440ml)",
+          "calories": 600,
+          "protein": 40,
+          "carbs": 40,
+          "fat": 30,
+          "fibre": 8,
+          "priceZAR": 120,
+          "time": "2026-03-23T17:45:52.424Z"
+        },
+        {
+          "food": "Citrus beef and beetroot salad with almonds (manual)",
+          "calories": 702,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T17:50:31.691Z"
+        },
+        {
+          "food": "Windhoek draft (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T17:51:38.844Z"
+        }
+      ]
+    }
+  ]
+}

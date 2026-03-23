@@ -11,6 +11,98 @@
     "foodBudget": 150
   },
   "weights": [],
-  "exercise": {},
-  "logSummary": []
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "walking",
+        "calories": 160,
+        "time": "2026-03-23T18:07:57.424Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1858,
+        "protein": 79,
+        "carbs": 250,
+        "fat": 67,
+        "fibre": 16,
+        "priceZAR": 232
+      },
+      "entries": [
+        {
+          "food": "Coke Zero 330ml",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T11:05:57.538Z"
+        },
+        {
+          "food": "Cafe Mocha (350ml)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 35,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-23T11:06:19.212Z"
+        },
+        {
+          "food": "Apple (~150g)",
+          "calories": 78,
+          "protein": 0,
+          "carbs": 21,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:13:06.525Z"
+        },
+        {
+          "food": "Cheese and tomato pizza (small, ~150g)",
+          "calories": 300,
+          "protein": 12,
+          "carbs": 36,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 70,
+          "time": "2026-03-23T15:13:39.880Z"
+        },
+        {
+          "food": "Quarter chicken paella (~350g)",
+          "calories": 480,
+          "protein": 30,
+          "carbs": 50,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-23T15:14:24.218Z"
+        },
+        {
+          "food": "Tex chocolate (40g)",
+          "calories": 200,
+          "protein": 2,
+          "carbs": 28,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 12,
+          "time": "2026-03-23T15:15:57.914Z"
+        },
+        {
+          "food": "Rice (1 cup, ~150g) with meat curry (chicken, ~100g) and potato chips (20g)",
+          "calories": 550,
+          "protein": 25,
+          "carbs": 80,
+          "fat": 15,
+          "fibre": 4,
+          "priceZAR": 0,
+          "time": "2026-03-23T17:11:03.544Z"
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,88 @@
+{
+  "name": "Adi",
+  "goal": 2579,
+  "joinedAt": "2026-03-23T06:51:55.803Z",
+  "profile": {
+    "age": 41,
+    "weight": 86,
+    "height": 180,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "running",
+        "calories": 400,
+        "time": "2026-03-23T18:04:36.339Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1140,
+        "protein": 52,
+        "carbs": 127,
+        "fat": 50,
+        "fibre": 10,
+        "priceZAR": 145
+      },
+      "entries": [
+        {
+          "food": "Scrambled eggs (2 eggs)",
+          "calories": 180,
+          "protein": 13,
+          "carbs": 2,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T07:00:46.956Z"
+        },
+        {
+          "food": "2x slice of toast",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 15,
+          "time": "2026-03-23T07:00:52.179Z"
+        },
+        {
+          "food": "Reduced fat mayonnaise (1 tsp, ~5g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-23T07:00:57.368Z"
+        },
+        {
+          "food": "Lunch Bar (1 bar (52g))",
+          "calories": 250,
+          "protein": 4,
+          "carbs": 30,
+          "fat": 13,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T10:46:51.516Z"
+        },
+        {
+          "food": "Beef and vegetable shawarma (~250g)",
+          "calories": 500,
+          "protein": 25,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-23T10:46:56.329Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "James",
+  "goal": 1496,
+  "joinedAt": "2026-03-23T07:24:52.767Z",
+  "profile": {
+    "age": 73,
+    "weight": 105,
+    "height": 189,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1950,
+        "protein": 89,
+        "carbs": 231,
+        "fat": 75,
+        "fibre": 15,
+        "priceZAR": 200
+      },
+      "entries": [
+        {
+          "food": "1 slice toast with butter",
+          "calories": 110,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T07:45:09.583Z"
+        },
+        {
+          "food": "2x Weet-Bix with milk (~200ml)",
+          "calories": 290,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 5,
+          "fibre": 6,
+          "priceZAR": 30,
+          "time": "2026-03-23T07:45:13.592Z"
+        },
+        {
+          "food": "2x cup coffee with milk",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T08:49:05.528Z"
+        },
+        {
+          "food": "2x cup tea with milk",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 12,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T08:49:15.669Z"
+        },
+        {
+          "food": "2x sourdough rolls, 2x cheese slices, 3x slices of ham",
+          "calories": 590,
+          "protein": 38,
+          "carbs": 56,
+          "fat": 24,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:12:59.683Z"
+        },
+        {
+          "food": "Burger King original chicken meal (~300g) with Pepsi Zero (500ml)",
+          "calories": 800,
+          "protein": 30,
+          "carbs": 90,
+          "fat": 35,
+          "fibre": 4,
+          "priceZAR": 90,
+          "time": "2026-03-23T11:14:56.462Z"
+        }
+      ]
+    }
+  ]
+}

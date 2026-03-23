@@ -1,0 +1,50 @@
+{
+  "name": "Dane",
+  "goal": 3763,
+  "joinedAt": "2026-03-23T09:37:53.257Z",
+  "profile": {
+    "age": 38,
+    "weight": 103,
+    "height": 186,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 350,
+        "protein": 10,
+        "carbs": 40,
+        "fat": 18,
+        "fibre": 6,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "sausage roll (~100g)",
+          "calories": 300,
+          "protein": 8,
+          "carbs": 30,
+          "fat": 18,
+          "fibre": 2,
+          "priceZAR": 40,
+          "time": "2026-03-23T09:41:32.815Z"
+        },
+        {
+          "food": "fresh vegetables (1 cup, ~150g)",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-23T09:43:05.581Z"
+        }
+      ]
+    }
+  ]
+}

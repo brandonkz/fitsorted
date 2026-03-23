@@ -1,0 +1,50 @@
+{
+  "name": "Sean",
+  "goal": 1935,
+  "joinedAt": "2026-03-23T04:52:33.874Z",
+  "profile": {
+    "age": 49,
+    "weight": 88,
+    "height": 181,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 835,
+        "protein": 71,
+        "carbs": 0,
+        "fat": 64,
+        "fibre": 0,
+        "priceZAR": 150
+      },
+      "entries": [
+        {
+          "food": "Ribeye steak (~250g) + 3 eggs",
+          "calories": 685,
+          "protein": 61,
+          "carbs": 0,
+          "fat": 49,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-23T04:55:13.276Z"
+        },
+        {
+          "food": "Bone marrows (50g)",
+          "calories": 150,
+          "protein": 10,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T15:08:16.476Z"
+        }
+      ]
+    }
+  ]
+}

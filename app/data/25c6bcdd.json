@@ -1,0 +1,60 @@
+{
+  "name": "Zamile",
+  "goal": 2213,
+  "joinedAt": "2026-03-23T06:35:42.993Z",
+  "profile": {
+    "age": 41,
+    "weight": 90,
+    "height": 183,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 500,
+        "protein": 29,
+        "carbs": 43,
+        "fat": 24,
+        "fibre": 3,
+        "priceZAR": 80
+      },
+      "entries": [
+        {
+          "food": "4x boiled eggs with mayonnaise",
+          "calories": 340,
+          "protein": 28,
+          "carbs": 2,
+          "fat": 24,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T09:19:05.456Z"
+        },
+        {
+          "food": "crushed garlic (1 clove, ~3g) and diced onion (1/4 medium onion, ~40g)",
+          "calories": 20,
+          "protein": 0,
+          "carbs": 5,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T09:19:10.252Z"
+        },
+        {
+          "food": "Red seedless grapes (200g)",
+          "calories": 140,
+          "protein": 1,
+          "carbs": 36,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:04:52.087Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "name": "Vanessa",
+  "goal": 1791,
+  "joinedAt": "2026-03-23T08:22:47.329Z",
+  "profile": {
+    "age": 33,
+    "weight": 140,
+    "height": 167,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "fusion juice granadilla flavour",
+        "calories": 0,
+        "time": "2026-03-23T11:41:43.099Z"
+      },
+      {
+        "activity": "slow walk",
+        "calories": 20,
+        "time": "2026-03-23T18:15:15.225Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1375,
+        "protein": 61,
+        "carbs": 207,
+        "fat": 39,
+        "fibre": 20,
+        "priceZAR": 138
+      },
+      "entries": [
+        {
+          "food": "Lemon and ginger water with 1 tablespoon of honey",
+          "calories": 102,
+          "protein": 0,
+          "carbs": 24,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T09:45:29.581Z"
+        },
+        {
+          "food": "coffee",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T09:45:33.983Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 5,
+          "time": "2026-03-23T09:45:38.594Z"
+        },
+        {
+          "food": "chocolate protein powder (30g) + no salt or sugar peanut butter (15g) + macadamia milk (1 cup, ~240ml)",
+          "calories": 300,
+          "protein": 20,
+          "carbs": 15,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 38,
+          "time": "2026-03-23T09:45:42.686Z"
+        },
+        {
+          "food": "Grilled potato (~150g) with 1 tablespoon sunflower oil",
+          "calories": 210,
+          "protein": 4,
+          "carbs": 36,
+          "fat": 9,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:25:01.717Z"
+        },
+        {
+          "food": "fusion juice (250ml)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:52:14.072Z"
+        },
+        {
+          "food": "Hake (~150g) with baked potato (~200g) and steamed green beans (~100g)",
+          "calories": 430,
+          "protein": 35,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 0,
+          "time": "2026-03-23T17:18:11.439Z"
+        },
+        {
+          "food": "Honeydew melon (260g)",
+          "calories": 78,
+          "protein": 1,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T18:16:12.844Z"
+        }
+      ]
+    }
+  ]
+}

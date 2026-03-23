@@ -1,0 +1,70 @@
+{
+  "name": "Cornel",
+  "goal": 1439,
+  "joinedAt": "2026-03-23T11:54:10.320Z",
+  "profile": {
+    "age": 27,
+    "weight": 86,
+    "height": 175,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1075,
+        "protein": 136,
+        "carbs": 0,
+        "fat": 39,
+        "fibre": 0,
+        "priceZAR": 100
+      },
+      "entries": [
+        {
+          "food": "2x can of tuna chunks in vegetable oil (~300g)",
+          "calories": 480,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 24,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T11:57:25.905Z"
+        },
+        {
+          "food": "Tuna chunks in vegetable oil (manual)",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:59:16.524Z"
+        },
+        {
+          "food": "Tuna chunks in vegetable oil (~150g)",
+          "calories": 280,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:59:33.802Z"
+        },
+        {
+          "food": "Tuna (150g)",
+          "calories": 165,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T12:01:44.628Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Natie",
+  "goal": 810,
+  "joinedAt": "2026-03-23T14:14:30.474Z",
+  "profile": {
+    "age": 51,
+    "weight": 71,
+    "height": 161,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 210,
+        "protein": 2,
+        "carbs": 54,
+        "fat": 0,
+        "fibre": 6,
+        "priceZAR": 8
+      },
+      "entries": [
+        {
+          "food": "banana",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-23T14:17:06.207Z"
+        },
+        {
+          "food": "banana",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-23T14:17:13.478Z"
+        }
+      ]
+    }
+  ]
+}

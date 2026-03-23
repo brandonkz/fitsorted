@@ -1,0 +1,148 @@
+{
+  "name": "Leaan",
+  "goal": 768,
+  "joinedAt": "2026-03-23T13:26:48.552Z",
+  "profile": {
+    "age": 46,
+    "weight": 65,
+    "height": 161,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "fast walk",
+        "calories": 400,
+        "time": "2026-03-23T18:03:44.837Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 835,
+        "protein": 62,
+        "carbs": 96,
+        "fat": 24,
+        "fibre": 14,
+        "priceZAR": 107
+      },
+      "entries": [
+        {
+          "food": "egg omelette with mozzarella (2 egg, 1 tablespoon mozzarella, baby tomatoes)",
+          "calories": 120,
+          "protein": 8,
+          "carbs": 3,
+          "fat": 8,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-23T13:32:41.525Z"
+        },
+        {
+          "food": "\"Apple\"\n\"4 rice cakes\"\n\"Tin of tuna in salt water\"\n\"1 teaspoon simple truth mayonaise\"\n\"4 vital rice cakes\"\n\"Coffe with Mac Milk\"",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T13:35:37.163Z"
+        },
+        {
+          "food": "\"Apple\"\n\"4 rice cakes\"\n\"Tuna tin in brine\"\n\"1 teaspoon simple truth mayonaise\"\n\"4 rice cakes\"",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-23T13:37:49.547Z"
+        },
+        {
+          "food": "Tuna tin in brine (~150g)",
+          "calories": 180,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T13:38:29.174Z"
+        },
+        {
+          "food": "Teaspoon simple truth mayonnaise (~15g)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 11,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-23T13:39:03.274Z"
+        },
+        {
+          "food": "4x Rice Cakes",
+          "calories": 120,
+          "protein": 4,
+          "carbs": 28,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T13:39:42.309Z"
+        },
+        {
+          "food": "2 tablespoons cottage cheese (~30g)",
+          "calories": 30,
+          "protein": 5,
+          "carbs": 2,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T13:40:13.255Z"
+        },
+        {
+          "food": "Apple (1 medium)",
+          "calories": 95,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 4,
+          "time": "2026-03-23T13:40:27.858Z"
+        },
+        {
+          "food": "Water (750ml)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T14:44:00.458Z"
+        },
+        {
+          "food": "Popcorn (1 cup, ~8g)",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 6,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 4,
+          "time": "2026-03-23T17:28:22.617Z"
+        },
+        {
+          "food": "Popcorn (5 cups, ~40g)",
+          "calories": 160,
+          "protein": 4,
+          "carbs": 32,
+          "fat": 2,
+          "fibre": 8,
+          "priceZAR": 10,
+          "time": "2026-03-23T17:29:09.198Z"
+        }
+      ]
+    }
+  ]
+}

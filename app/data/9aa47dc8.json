@@ -16,12 +16,12 @@
     {
       "date": "2026-03-23",
       "totals": {
-        "calories": 305,
-        "protein": 15,
-        "carbs": 54,
-        "fat": 6,
-        "fibre": 5,
-        "priceZAR": 45
+        "calories": 1654,
+        "protein": 71,
+        "carbs": 215,
+        "fat": 66,
+        "fibre": 17,
+        "priceZAR": 170
       },
       "entries": [
         {
@@ -33,6 +33,46 @@
           "fibre": 5,
           "priceZAR": 45,
           "time": "2026-03-23T04:14:29.002Z"
+        },
+        {
+          "food": "Gourmet Caramel Biscuit Crunch Protein Bar (60g)",
+          "calories": 240,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 8,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:46:12.845Z"
+        },
+        {
+          "food": "2x McDonald's junior cheeseburger",
+          "calories": 520,
+          "protein": 24,
+          "carbs": 40,
+          "fat": 28,
+          "fibre": 2,
+          "priceZAR": 80,
+          "time": "2026-03-23T11:56:08.500Z"
+        },
+        {
+          "food": "Regular fries (~150g)",
+          "calories": 365,
+          "protein": 4,
+          "carbs": 63,
+          "fat": 15,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:56:11.811Z"
+        },
+        {
+          "food": "1x slice white toast with strawberry jam and cheddar cheese",
+          "calories": 224,
+          "protein": 8,
+          "carbs": 28,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-23T18:01:19.262Z"
         }
       ]
     }

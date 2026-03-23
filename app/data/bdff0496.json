@@ -1,0 +1,150 @@
+{
+  "name": "Joh",
+  "goal": 2248,
+  "joinedAt": "2026-03-23T06:17:52.086Z",
+  "profile": {
+    "age": 37,
+    "weight": 69,
+    "height": 180,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 2202,
+        "protein": 99,
+        "carbs": 275,
+        "fat": 74,
+        "fibre": 28,
+        "priceZAR": 230
+      },
+      "entries": [
+        {
+          "food": "potato (~150g)",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:23:02.049Z"
+        },
+        {
+          "food": "3x boiled eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T06:23:07.067Z"
+        },
+        {
+          "food": "Oats (1 cup, ~90g) with milk (1 cup, ~240ml)",
+          "calories": 350,
+          "protein": 12,
+          "carbs": 55,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 20,
+          "time": "2026-03-23T06:23:11.880Z"
+        },
+        {
+          "food": "honey (1 tablespoon, ~21g)",
+          "calories": 64,
+          "protein": 0,
+          "carbs": 17,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:23:18.422Z"
+        },
+        {
+          "food": "apple (~150g)",
+          "calories": 128,
+          "protein": 0,
+          "carbs": 31,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-23T06:24:10.659Z"
+        },
+        {
+          "food": "a banana and whole wheat peanut butter sandwhich (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T06:24:16.392Z"
+        },
+        {
+          "food": "3 slices of spart artisanal sourdough bread",
+          "calories": 240,
+          "protein": 9,
+          "carbs": 48,
+          "fat": 3,
+          "fibre": 6,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:03:49.142Z"
+        },
+        {
+          "food": "Minute steak (~120g)",
+          "calories": 250,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-23T18:03:54.943Z"
+        },
+        {
+          "food": "cream cheese on 1 slice of bread",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-23T18:03:59.096Z"
+        },
+        {
+          "food": "half a tomato (~50g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-03-23T18:04:03.217Z"
+        },
+        {
+          "food": "Lettuce (1 cup, ~50g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T18:04:08.401Z"
+        },
+        {
+          "food": "Stir-fry greens (~150g)",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 14,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T18:04:13.162Z"
+        }
+      ]
+    }
+  ]
+}

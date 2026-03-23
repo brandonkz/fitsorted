@@ -1,0 +1,60 @@
+{
+  "name": "Lu",
+  "goal": 1881,
+  "joinedAt": "2026-03-23T10:07:51.245Z",
+  "profile": {
+    "age": 58,
+    "weight": 75,
+    "height": 173,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 560,
+        "protein": 34,
+        "carbs": 9,
+        "fat": 43,
+        "fibre": 0,
+        "priceZAR": 58
+      },
+      "entries": [
+        {
+          "food": "3x extra large boiled eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 18,
+          "time": "2026-03-23T10:10:45.562Z"
+        },
+        {
+          "food": "pork sausage (~75g)",
+          "calories": 250,
+          "protein": 12,
+          "carbs": 1,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T10:10:49.783Z"
+        },
+        {
+          "food": "Coffee with full cream milk (~200ml)",
+          "calories": 100,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T12:31:15.020Z"
+        }
+      ]
+    }
+  ]
+}

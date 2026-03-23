@@ -1,0 +1,60 @@
+{
+  "name": "Mario",
+  "goal": 1601,
+  "joinedAt": "2026-03-23T08:41:28.814Z",
+  "profile": {
+    "age": 57,
+    "weight": 112.7,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1205,
+        "protein": 129,
+        "carbs": 90,
+        "fat": 34.6,
+        "fibre": 5,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "3x boiled eggs + 3 corn cakes",
+          "calories": 450,
+          "protein": 36,
+          "carbs": 45,
+          "fat": 21,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-23T08:45:13.492Z"
+        },
+        {
+          "food": "Chicken breast (~200g) with Rice (1 cup, ~150g)",
+          "calories": 590,
+          "protein": 62,
+          "carbs": 45,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:48:26.899Z"
+        },
+        {
+          "food": "Chicken breast (~100g)",
+          "calories": 165,
+          "protein": 31,
+          "carbs": 0,
+          "fat": 3.6,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:49:08.132Z"
+        }
+      ]
+    }
+  ]
+}

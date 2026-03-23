@@ -1,0 +1,68 @@
+{
+  "name": "Daniel",
+  "goal": 2043,
+  "joinedAt": "2026-03-23T06:59:59.854Z",
+  "profile": {
+    "age": 19,
+    "weight": 99,
+    "height": 181,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "chest day",
+        "calories": 200,
+        "time": "2026-03-23T18:06:15.087Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 405,
+        "protein": 14,
+        "carbs": 55,
+        "fat": 13,
+        "fibre": 4,
+        "priceZAR": 54
+      },
+      "entries": [
+        {
+          "food": "Overnight oats (1 cup, ~150g) with 1 banana",
+          "calories": 175,
+          "protein": 5,
+          "carbs": 33,
+          "fat": 4,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T07:03:47.283Z"
+        },
+        {
+          "food": "Biscoff spread (1 tablespoon, ~15g)",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 10,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-23T07:03:55.886Z"
+        },
+        {
+          "food": "1 tablespoon yoghurt (~15g) and 300ml low fat milk",
+          "calories": 150,
+          "protein": 9,
+          "carbs": 12,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-23T07:04:01.004Z"
+        }
+      ]
+    }
+  ]
+}

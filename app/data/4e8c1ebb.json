@@ -1,0 +1,88 @@
+{
+  "name": "Tim",
+  "goal": 2000,
+  "joinedAt": "2026-03-23T06:27:22.973Z",
+  "profile": {
+    "age": 36,
+    "weight": 178,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "weight training",
+        "calories": 275,
+        "time": "2026-03-23T18:06:33.332Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 848,
+        "protein": 88,
+        "carbs": 43,
+        "fat": 34,
+        "fibre": 3,
+        "priceZAR": 125
+      },
+      "entries": [
+        {
+          "food": "Air fried chicken fillet (~130g)",
+          "calories": 200,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-23T06:59:04.177Z"
+        },
+        {
+          "food": "Lean beef mince (~160g)",
+          "calories": 320,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-23T10:09:10.499Z"
+        },
+        {
+          "food": "Zucchini (~150g)",
+          "calories": 30,
+          "protein": 2,
+          "carbs": 6,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-23T10:09:15.757Z"
+        },
+        {
+          "food": "White button mushrooms (half punnet, ~125g)",
+          "calories": 48,
+          "protein": 6,
+          "carbs": 7,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 25,
+          "time": "2026-03-23T10:09:22.001Z"
+        },
+        {
+          "food": "I ate 4 Medjool dates and 40g of fat free yoghurt (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T15:21:14.651Z"
+        }
+      ]
+    }
+  ]
+}

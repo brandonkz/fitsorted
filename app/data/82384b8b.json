@@ -1,0 +1,60 @@
+{
+  "name": "Yello",
+  "goal": 1112,
+  "joinedAt": "2026-03-23T07:17:57.488Z",
+  "profile": {
+    "age": 40,
+    "weight": 90,
+    "height": 162,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 786,
+        "protein": 38,
+        "carbs": 73,
+        "fat": 41,
+        "fibre": 4,
+        "priceZAR": 62
+      },
+      "entries": [
+        {
+          "food": "Jacobs coffee (1 cup, ~240ml)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T08:03:36.812Z"
+        },
+        {
+          "food": "Boiled egg (1 egg) with full cream milk (1 cup, ~240ml) and cinnamon powder (1 tsp)",
+          "calories": 336,
+          "protein": 14,
+          "carbs": 17,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T08:03:42.749Z"
+        },
+        {
+          "food": "2x fried eggs and 2 slices white Sasko bread",
+          "calories": 400,
+          "protein": 24,
+          "carbs": 56,
+          "fat": 16,
+          "fibre": 4,
+          "priceZAR": 12,
+          "time": "2026-03-23T11:06:53.006Z"
+        }
+      ]
+    }
+  ]
+}

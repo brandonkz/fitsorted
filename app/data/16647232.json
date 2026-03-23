@@ -1,0 +1,40 @@
+{
+  "name": "Nas",
+  "goal": 1074,
+  "joinedAt": "2026-03-23T06:40:13.129Z",
+  "profile": {
+    "age": 49,
+    "weight": 72,
+    "height": 162,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 60,
+        "protein": 4,
+        "carbs": 6,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 15
+      },
+      "entries": [
+        {
+          "food": "Nutrifix milk (1/2 cup, ~120ml)",
+          "calories": 60,
+          "protein": 4,
+          "carbs": 6,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T06:45:26.664Z"
+        }
+      ]
+    }
+  ]
+}

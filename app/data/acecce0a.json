@@ -1,0 +1,50 @@
+{
+  "name": "Albi",
+  "goal": 2506,
+  "joinedAt": "2026-03-23T05:39:44.855Z",
+  "profile": {
+    "age": 36,
+    "weight": 95,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 300,
+        "protein": 14,
+        "carbs": 35,
+        "fat": 12,
+        "fibre": 0,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "Americano (240ml)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-23T05:44:19.908Z"
+        },
+        {
+          "food": "No milk (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T05:44:24.406Z"
+        }
+      ]
+    }
+  ]
+}

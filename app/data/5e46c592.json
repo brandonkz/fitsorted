@@ -1,0 +1,16 @@
+{
+  "name": "Tony",
+  "goal": 2129,
+  "joinedAt": "2026-03-23T04:51:30.420Z",
+  "profile": {
+    "age": 56,
+    "weight": 80,
+    "height": 183,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

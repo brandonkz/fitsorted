@@ -1,0 +1,90 @@
+{
+  "name": "Eduan",
+  "goal": 1719,
+  "joinedAt": "2026-03-23T09:25:24.619Z",
+  "profile": {
+    "age": 32,
+    "weight": 105,
+    "height": 186,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1670,
+        "protein": 62,
+        "carbs": 146,
+        "fat": 95,
+        "fibre": 16,
+        "priceZAR": 215
+      },
+      "entries": [
+        {
+          "food": "1 cuppachino\n3 frittata egg muffins (spinach and feta)\nSome chutney as a sauce with the frittatas\n2 glasses of water",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-23T09:30:22.921Z"
+        },
+        {
+          "food": "Boerewors (15cm, ~150g)",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 35,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T10:24:52.590Z"
+        },
+        {
+          "food": "No sauce (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T10:24:56.888Z"
+        },
+        {
+          "food": "No sauce (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-23T10:25:39.078Z"
+        },
+        {
+          "food": "sauce (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T10:25:45.733Z"
+        },
+        {
+          "food": "Full avocado (~200g) on 2 slices seeded toast",
+          "calories": 520,
+          "protein": 12,
+          "carbs": 56,
+          "fat": 30,
+          "fibre": 16,
+          "priceZAR": 65,
+          "time": "2026-03-23T10:27:18.501Z"
+        }
+      ]
+    }
+  ]
+}

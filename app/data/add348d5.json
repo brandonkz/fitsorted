@@ -1,0 +1,16 @@
+{
+  "name": "Siya",
+  "goal": 2288,
+  "joinedAt": "2026-03-23T14:40:11.850Z",
+  "profile": {
+    "age": 49,
+    "weight": 86,
+    "height": 167,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

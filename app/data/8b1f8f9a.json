@@ -1,0 +1,110 @@
+{
+  "name": "Heike",
+  "goal": 2012,
+  "joinedAt": "2026-03-23T07:13:06.653Z",
+  "profile": {
+    "age": 55,
+    "weight": 78,
+    "height": 178,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1125,
+        "protein": 69,
+        "carbs": 98,
+        "fat": 52,
+        "fibre": 15,
+        "priceZAR": 192
+      },
+      "entries": [
+        {
+          "food": "3x eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-23T07:15:45.934Z"
+        },
+        {
+          "food": "Pork fillet (100g)",
+          "calories": 143,
+          "protein": 21,
+          "carbs": 0,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-23T07:15:51.465Z"
+        },
+        {
+          "food": "Spinach (50g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T07:15:56.655Z"
+        },
+        {
+          "food": "Mayonnaise (1 tablespoon, ~15g)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 11,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-23T07:16:01.191Z"
+        },
+        {
+          "food": "2x tablespoons Greek style yoghurt (~30g)",
+          "calories": 40,
+          "protein": 3,
+          "carbs": 3,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T07:16:06.773Z"
+        },
+        {
+          "food": "2x Woolworths stir fry (2 cups, ~300g)",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 45,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 60,
+          "time": "2026-03-23T11:28:44.542Z"
+        },
+        {
+          "food": "Quinoa (1 cup, ~185g)",
+          "calories": 222,
+          "protein": 8,
+          "carbs": 39,
+          "fat": 4,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:28:49.350Z"
+        },
+        {
+          "food": "Woolworths edamame (quarter cup, ~40g)",
+          "calories": 60,
+          "protein": 5,
+          "carbs": 6,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-23T11:28:53.348Z"
+        }
+      ]
+    }
+  ]
+}

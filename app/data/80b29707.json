@@ -1,0 +1,113 @@
+{
+  "name": "Chanté",
+  "goal": 1755,
+  "joinedAt": "2026-03-23T08:55:27.890Z",
+  "profile": {
+    "age": 28,
+    "weight": 57,
+    "height": 151,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "Airwaves blackcurrant gum",
+        "calories": 0,
+        "time": "2026-03-23T11:06:56.571Z"
+      },
+      {
+        "activity": "eating",
+        "calories": 0,
+        "time": "2026-03-23T17:30:20.706Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 1600,
+        "protein": 61,
+        "carbs": 203,
+        "fat": 62,
+        "fibre": 20,
+        "priceZAR": 100
+      },
+      "entries": [
+        {
+          "food": "Cappuccino with milk (1 serving) + 2 slices brown toast + Avocado (~100g)",
+          "calories": 430,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 20,
+          "fibre": 7,
+          "priceZAR": 70,
+          "time": "2026-03-23T08:57:30.568Z"
+        },
+        {
+          "food": "Barbecued meat (beef or pork, ~200g) with mixed vegetables (~150g)",
+          "calories": 480,
+          "protein": 40,
+          "carbs": 30,
+          "fat": 25,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-23T09:25:15.112Z"
+        },
+        {
+          "food": "Mixed dried fruit (30g)",
+          "calories": 90,
+          "protein": 1,
+          "carbs": 22,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-23T11:22:20.438Z"
+        },
+        {
+          "food": "Tangerine (~150g)",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-23T13:52:25.120Z"
+        },
+        {
+          "food": "15 rice crackers (~75g)",
+          "calories": 350,
+          "protein": 6,
+          "carbs": 75,
+          "fat": 2,
+          "fibre": 3,
+          "priceZAR": 20,
+          "time": "2026-03-23T17:30:48.701Z"
+        },
+        {
+          "food": "Sweet chilli medium fat cream cheese (43.75g)",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 11,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T17:31:32.253Z"
+        },
+        {
+          "food": "Lindt chocolate truffle (~12g)",
+          "calories": 60,
+          "protein": 0,
+          "carbs": 6,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T17:35:57.882Z"
+        }
+      ]
+    }
+  ]
+}

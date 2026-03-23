@@ -1,0 +1,16 @@
+{
+  "name": "Morne",
+  "goal": 2719,
+  "joinedAt": "2026-03-23T04:50:11.135Z",
+  "profile": {
+    "age": 53,
+    "weight": 85,
+    "height": 181,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}
