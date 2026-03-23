@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-23T21:36:42.274Z",
+    "date": "2026-03-23",
+    "phone": "2618",
+    "userId": "27612702",
+    "food": "Burfee (~50g)",
+    "calories": 200,
+    "protein": 3,
+    "carbs": 30,
+    "fat": 8,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-23T21:36:23.332Z",
+    "date": "2026-03-23",
+    "phone": "2618",
+    "userId": "27612702",
+    "food": "Hot dog (~100g) with 1 egg and potato fries (~100g)",
+    "calories": 380,
+    "protein": 14,
+    "carbs": 40,
+    "fat": 20,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-23T21:12:10.568Z",
+    "date": "2026-03-23",
+    "phone": "3214",
+    "userId": "27610463",
+    "food": "Chomp chocolate (1 bar, ~30g)",
+    "calories": 130,
+    "protein": 1,
+    "carbs": 20,
+    "fat": 6,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-23T20:41:27.652Z",
     "date": "2026-03-23",
     "phone": "7970",
