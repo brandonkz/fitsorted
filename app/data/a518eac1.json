@@ -1,0 +1,40 @@
+{
+  "name": "Johan",
+  "goal": 1611,
+  "joinedAt": "2026-03-23T04:24:03.678Z",
+  "profile": {
+    "age": 62,
+    "weight": 116,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 80,
+        "protein": 3,
+        "carbs": 14,
+        "fat": 2,
+        "fibre": 0,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk and 1 sugar",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 14,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-23T04:28:24.594Z"
+        }
+      ]
+    }
+  ]
+}

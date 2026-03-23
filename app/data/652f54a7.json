@@ -1,0 +1,40 @@
+{
+  "name": "Taahir",
+  "goal": 1480,
+  "joinedAt": "2026-03-23T04:11:07.783Z",
+  "profile": {
+    "age": 31,
+    "weight": 75,
+    "height": 168,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 380,
+        "protein": 4,
+        "carbs": 60,
+        "fat": 16,
+        "fibre": 2,
+        "priceZAR": 35
+      },
+      "entries": [
+        {
+          "food": "Coffee (1 cup, ~240ml) and Tinkies (2 pieces)",
+          "calories": 380,
+          "protein": 4,
+          "carbs": 60,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 35,
+          "time": "2026-03-23T04:14:55.149Z"
+        }
+      ]
+    }
+  ]
+}

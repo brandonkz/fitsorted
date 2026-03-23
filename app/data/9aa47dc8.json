@@ -1,0 +1,40 @@
+{
+  "name": "Haydn",
+  "goal": 1662,
+  "joinedAt": "2026-03-23T04:08:17.757Z",
+  "profile": {
+    "age": 35,
+    "weight": 89,
+    "height": 173,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 305,
+        "protein": 15,
+        "carbs": 54,
+        "fat": 6,
+        "fibre": 5,
+        "priceZAR": 45
+      },
+      "entries": [
+        {
+          "food": "Greek yogurt (190g) with berry muesli (50g) and raw honey (15g)",
+          "calories": 305,
+          "protein": 15,
+          "carbs": 54,
+          "fat": 6,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-23T04:14:29.002Z"
+        }
+      ]
+    }
+  ]
+}

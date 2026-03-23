@@ -1,0 +1,40 @@
+{
+  "name": "Ryno",
+  "goal": 1855,
+  "joinedAt": "2026-03-23T04:04:30.599Z",
+  "profile": {
+    "age": 37,
+    "weight": 108,
+    "height": 170,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 440,
+        "protein": 8,
+        "carbs": 80,
+        "fat": 16,
+        "fibre": 8,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "4x buttermilk rusks",
+          "calories": 440,
+          "protein": 8,
+          "carbs": 80,
+          "fat": 16,
+          "fibre": 8,
+          "priceZAR": 20,
+          "time": "2026-03-23T04:09:56.822Z"
+        }
+      ]
+    }
+  ]
+}

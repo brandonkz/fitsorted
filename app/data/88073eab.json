@@ -1,0 +1,16 @@
+{
+  "name": "Logan",
+  "goal": 2156,
+  "joinedAt": "2026-03-23T04:15:30.044Z",
+  "profile": {
+    "age": 55,
+    "weight": 96,
+    "height": 177,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Dean",
+  "goal": 1647,
+  "joinedAt": "2026-03-23T04:13:37.765Z",
+  "profile": {
+    "age": 33,
+    "weight": 88,
+    "height": 171,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 50,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 10
+      },
+      "entries": [
+        {
+          "food": "Green tea (1 cup, ~240ml)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-23T04:17:37.717Z"
+        }
+      ]
+    }
+  ]
+}
