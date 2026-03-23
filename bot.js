@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const fs = require("fs");
+const path = require("path");
 const cron = require("node-cron");
 const { createClient } = require('@supabase/supabase-js');
 const crypto = require("crypto");
@@ -28,7 +29,7 @@ const PRO_LAUNCH = true; // PayFast live
 const BETA_FEATURES = {
   priceEstimates: new Set(["27837787970"]), // Brandon only
 };
-const PRO_PRICE = process.env.PRO_PRICE || "36";
+const PRO_PRICE = "36";
 const GRANDFATHER_DATE = new Date("2026-03-19T23:59:59Z"); // Users who joined before this get free access forever
 const TRIAL_DAYS = 7;
 const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID;
@@ -117,24 +118,16 @@ function isGrandfathered(userObj) {
 function isInTrial(userObj) {
   // Grandfathered users are never "in trial" — they have permanent access
   if (userObj.joinedAt && new Date(userObj.joinedAt) < GRANDFATHER_DATE) return false;
-  if (userObj.trialStartDate) {
-    return (Date.now() - new Date(userObj.trialStartDate).getTime()) < TRIAL_DAYS * 86400000;
-  }
-  return false;
-}
-
-// Get trial days remaining (0 if not in trial)
-function getTrialDaysLeft(userObj) {
-  if (!userObj.joinedAt) return 0;
-  const trialStart = userObj.trialStartDate ? new Date(userObj.trialStartDate) : new Date(userObj.joinedAt);
-  const daysSinceTrial = (Date.now() - trialStart.getTime()) / (1000 * 60 * 60 * 24);
-  return Math.max(0, Math.ceil(7 - daysSinceTrial));
+  const trialStart = userObj.trialStartDate || userObj.joinedAt;
+  if (!trialStart) return false;
+  return (Date.now() - new Date(trialStart).getTime()) < TRIAL_DAYS * 86400000;
 }
 
 // Check if user has access (grandfathered OR trial OR referral free months OR paid)
 async function hasAccess(phone, userObj) {
   // Grandfathered users always have access
   if (userObj.joinedAt && new Date(userObj.joinedAt) < GRANDFATHER_DATE) return true;
+  if (userObj.isPro) return true;
   // Paid subscription
   if (userObj.isPremium || userObj.subscription) return true;
   // 7-day trial for new users
@@ -156,48 +149,6 @@ function getLastActivityDate(user) {
     if (logs[d] && logs[d].length > 0) return new Date(d);
   }
   return user.lastActivity ? new Date(user.lastActivity) : null;
-}
-
-// Get days since last food log (null = never logged)
-function getDaysSinceLastActivity(userObj) {
-  const lastDate = getLastActivityDate(userObj);
-  if (!lastDate) return null;
-  return Math.floor((Date.now() - lastDate.getTime()) / 86400000);
-}
-
-// Smart send frequency: returns what kind of check-in to send (or null to skip)
-// active (0-3 days): both morning + evening
-// cooling off (4-7 days): evening only
-// inactive (8-14 days): weekly Monday nudge only
-// gone (15+ days): stop all messages
-function getCheckInType(userObj, cronType) {
-  // Grandfathered users always get check-ins
-  if (isGrandfathered(userObj)) return cronType;
-  // Trial users always get check-ins
-  if (isInTrial(userObj)) return cronType;
-  // Free tier users (no access) get no proactive messages
-  // NOTE: isPremium is async, so we check this separately in the cron
-  const daysSince = getDaysSinceLastActivity(userObj);
-  if (daysSince === null) return null; // never logged, skip
-  if (daysSince >= 15) return null; // gone — stop all messages
-  if (daysSince >= 8 && daysSince <= 14) {
-    // inactive — weekly Monday nudge only
-    const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
-    return today.getDay() === 1 ? 'monday_nudge' : null; // 1 = Monday
-  }
-  if (daysSince >= 4 && daysSince <= 7) {
-    // cooling off — evening only
-    return cronType === 'morning' ? null : cronType;
-  }
-  // active (0-3 days) — both check-ins
-  return cronType;
-}
-
-// Get billing date 30 days from now (YYYY-MM-DD)
-function getTrialEndDate() {
-  const d = new Date();
-  d.setDate(d.getDate() + 30);
-  return d.toISOString().split("T")[0];
 }
 
 // Apply discount to a price
@@ -2369,12 +2320,12 @@ async function maybePromptEmail(from, user, users) {
   saveUsers(users);
 }
 
-async function maybeFirstLogMenu(from, user) {
+async function maybeFirstLogMenu(from, user, users) {
   if (user.sentMenuCard) return;
   const totalEntries = Object.values(user.log || {}).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0);
   if (totalEntries === 1) {
     user.sentMenuCard = true;
-    saveUsers(loadUsers());
+    saveUsers(users);
     await send(from,
       `🎉 *First meal logged!*\n\nKeep going — just type your next meal whenever you eat.\n\n` +
       `📌 *Pin this for quick reference:*\n` +
@@ -2392,7 +2343,7 @@ async function maybeFirstLogMenu(from, user) {
   // PWA dashboard nudge — show once on 3rd entry
   if (!user.sentPwaNudge && totalEntries === 3) {
     user.sentPwaNudge = true;
-    saveUsers(loadUsers());
+    saveUsers(users);
     const crypto = require('crypto');
     const pwaToken = crypto.createHash('sha256').update(String(from)).digest('hex').slice(0, 8);
     await send(from,
@@ -2403,7 +2354,7 @@ async function maybeFirstLogMenu(from, user) {
   }
 }
 
-async function maybePromptPro(from, user) {
+async function maybePromptPro(from, user, users) {
   if (!PRO_LAUNCH) return;
   if (user.proPrompted) return;
   // Don't prompt if already premium or in trial
@@ -2412,7 +2363,7 @@ async function maybePromptPro(from, user) {
   const loggedDays = Object.values(user.log || {}).filter(arr => Array.isArray(arr) && arr.length > 0).length;
   if (loggedDays >= 3) {
     user.proPrompted = true;
-    saveUsers(loadUsers());
+    saveUsers(users);
     const monthlyLink = getPayFastMonthlyLink(from);
     const annualLink = getPayFastAnnualLink(from);
     await send(from,
@@ -2467,23 +2418,36 @@ async function sendList(to, body, buttonText, sections) {
       description: (r.description || "").slice(0, 72),
     })),
   }));
-  await axios.post(
-    `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
-    {
-      messaging_product: "whatsapp",
-      to,
-      type: "interactive",
-      interactive: {
-        type: "list",
-        body: { text: (body || "").slice(0, 1024) },
-        action: {
-          button: (buttonText || "Menu").slice(0, 20),
-          sections: safeSections,
+  try {
+    await axios.post(
+      `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
+      {
+        messaging_product: "whatsapp",
+        to,
+        type: "interactive",
+        interactive: {
+          type: "list",
+          body: { text: (body || "").slice(0, 1024) },
+          action: {
+            button: (buttonText || "Menu").slice(0, 20),
+            sections: safeSections,
+          },
         },
       },
-    },
-    { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
-  );
+      { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
+    );
+  } catch (error) {
+    console.error('[sendList] Error sending list, falling back to plain message:', error.response?.data || error.message);
+    const fallbackRows = safeSections.flatMap(s => [
+      s.title ? `*${s.title}*` : null,
+      ...s.rows.map(r => `• ${r.title}${r.description ? ` — ${r.description}` : ""}`)
+    ]).filter(Boolean);
+    const fallbackText = [
+      body || "",
+      ...fallbackRows
+    ].filter(Boolean).join("\n");
+    await send(to, fallbackText);
+  }
 }
 
 // ── Setup flow ──
@@ -2971,8 +2935,8 @@ async function handleMessage(from, text, imageId) {
             { id: 'undo_last', title: '❌ Remove' }
           ]);
         }
-        await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+        await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
       } catch (err) {
         delete user.pendingFood;
         saveUsers(users);
@@ -3356,7 +3320,7 @@ async function handleMessage(from, text, imageId) {
     return;
   }
   if (msgLower === "menu:suggest") {
-    const remaining = user.goal - (user.todayCals || 0);
+    const remaining = user.goal - getTodayTotal(user);
     await send(from, `🧠 You have *${Math.max(0, remaining)} cal* left today.\n\nWhat kind of meal are you looking for? Just ask!\n\n_e.g. "what can I eat under ${Math.max(200, remaining)} cal?" or "high protein lunch ideas"_`);
     return;
   }
@@ -3712,8 +3676,8 @@ async function handleMessage(from, text, imageId) {
     }
 
     await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*${macroStr}${premiumCTA}\n${deficitMessage(total, effectiveGoal)}`);
-        await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+        await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
     return;
   }
 
@@ -4339,7 +4303,9 @@ async function handleMessage(from, text, imageId) {
       const expiryStr = sub?.ends_at ? new Date(sub.ends_at).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" }) : "unknown";
       await send(from, `✅ *FitSorted Premium* — Active\n\nRenews: ${expiryStr}\n\nType *upgrade* to renew early.`);
     } else if (inTrial) {
-      const daysLeft = Math.ceil(30 - ((Date.now() - new Date(user.joinedAt).getTime()) / (1000 * 60 * 60 * 24)));
+      const trialStart = user.trialStartDate || user.joinedAt;
+      const daysSinceTrial = trialStart ? (Date.now() - new Date(trialStart).getTime()) / (1000 * 60 * 60 * 24) : 0;
+      const daysLeft = Math.max(0, Math.ceil(TRIAL_DAYS - daysSinceTrial));
       await send(from, `✅ *FitSorted Premium* — 7-Day Free Trial\n\n${daysLeft} days left of all features.\n\nAfter that, calorie tracking stays free forever.\n\nUpgrade for R36/mo to keep Premium features — type *upgrade*`);
     } else {
       await send(from, `✅ *FitSorted* — Free forever\n\nYou can track calories for life, no limits.\n\nUpgrade to Premium for R36/mo to unlock:\n🥩 Macro tracking\n🧠 Coaching mode\n📧 Email exports\n💰 Budget tracking\n\nType *upgrade* to subscribe.`);
@@ -4897,8 +4863,8 @@ async function handleMessage(from, text, imageId) {
       } else {
         await send(from, `${itemLines.join("\n")}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${priceTag}${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
       }
-      await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+      await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
       await maybePromptEmail(from, user, users);
       return;
     }
@@ -5034,8 +5000,8 @@ async function handleMessage(from, text, imageId) {
           { id: 'undo_last', title: '❌ Remove' }
         ]);
       }
-      await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+      await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
       await maybePromptEmail(from, user, users);
     }
   } catch (err) {
