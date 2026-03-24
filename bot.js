@@ -444,6 +444,7 @@ function saveFailedLookups(data) {
 function trackFailedLookup(foodText, phone) {
   const failed = loadFailedLookups();
   const key = foodText.toLowerCase().trim();
+  if (!key) return;
   
   if (!failed[key]) {
     failed[key] = {
@@ -3274,6 +3275,8 @@ async function handleMessage(from, text, imageId) {
     { patterns: [/how was my week/i, /this week/i, /weekly (stats|summary|report|progress)/i, /my week/i, /show.*week/i, /past.*week/i, /7 day/i], redirect: "week" },
     // Weight
     { patterns: [/how much do i weigh/i, /weight (trend|history|progress|graph)/i, /show.*weight/i, /weigh-?ins?/i, /track.*weight/i], redirect: "weight history" },
+    // Steps
+    { patterns: [/how many steps/i, /step count/i, /show.*steps/i, /step (progress|trend|streak)/i, /my steps/i, /did i hit.*steps/i], redirect: "steps" },
     // Profile / settings
     { patterns: [/my (settings|profile|details|info)/i, /show.*(profile|settings)/i, /what are my (stats|settings|details)/i, /view.*profile/i], redirect: "my profile" },
     // Profile fix requests (no specific value — guide them)
@@ -4002,6 +4005,119 @@ async function handleMessage(from, text, imageId) {
     const { bmr, tdee, goal } = calculateGoal(p);
     await send(from, `📋 *Your Profile*\n\n👤 ${user.name || 'Not set'}\n⚧ ${p.gender || '?'}\n⚖️ ${p.weight} kg\n📏 ${p.height} cm\n🎂 ${p.age} years\n🏃 Activity: ${p.activity}\n🎯 Goal: ${p.target} (${p.pace || 'standard'})\n\n📊 BMR: ${bmr} cal\n🔥 TDEE: ${tdee} cal\n🎯 Daily target: *${goal} cal*\n\n_To update, send:_\n• *update weight 85*\n• *update height 180*\n• *update age 30*\n• *update goal lose/maintain/gain*`);
     return;
+  }
+
+  // ── Step tracking ──
+  // "8000 steps", "walked 8000 steps", "steps 8000", "I did 12000 steps today", "10k steps"
+  const stepMatch = msg.match(/^([\d,.]+)\s*k?\s*steps$/i)
+    || msg.match(/^steps?\s+([\d,.]+)\s*k?$/i)
+    || msg.match(/^(?:walked|did|got|logged|hit)\s+([\d,.]+)\s*k?\s*steps/i)
+    || msg.match(/^(?:i\s+(?:did|walked|got|hit|logged))\s+([\d,.]+)\s*k?\s*steps/i)
+    || msg.match(/^([\d,.]+)\s*k\s*steps$/i);
+  
+  if (stepMatch) {
+    let rawSteps = (stepMatch[1] || stepMatch[0]).replace(/,/g, '');
+    let steps = parseFloat(rawSteps);
+    // Handle "10k steps" → 10000
+    if (msg.toLowerCase().includes('k') && steps < 1000) steps = steps * 1000;
+    steps = Math.round(steps);
+    
+    if (steps >= 1 && steps <= 200000) {
+      const today = getToday();
+      if (!user.steps) user.steps = {};
+      if (!user.steps[today]) user.steps[today] = { count: 0, logs: [] };
+      
+      user.steps[today].count += steps;
+      user.steps[today].logs.push({ steps, time: new Date().toISOString() });
+      
+      const totalToday = user.steps[today].count;
+      const stepGoal = user.stepGoal || 10000;
+      const remaining = Math.max(0, stepGoal - totalToday);
+      const pct = Math.min(100, Math.round((totalToday / stepGoal) * 100));
+      
+      // Calories burned estimate: ~0.04 cal per step (avg person)
+      const calBurned = Math.round(steps * 0.04);
+      
+      // Progress bar
+      const filled = Math.round(pct / 10);
+      const bar = '█'.repeat(filled) + '░'.repeat(10 - filled);
+      
+      // Streak calculation
+      let streak = 0;
+      const d = new Date();
+      for (let i = 0; i < 365; i++) {
+        const dateStr = d.toISOString().slice(0, 10);
+        if (user.steps[dateStr] && user.steps[dateStr].count >= stepGoal) {
+          streak++;
+        } else if (i > 0) break; // today doesn't break streak if not yet hit
+        d.setDate(d.getDate() - 1);
+      }
+      
+      let msg2 = `🚶 *${steps.toLocaleString()} steps logged* (~${calBurned} cal burned)\n\n`;
+      msg2 += `${bar} ${pct}%\n`;
+      msg2 += `📊 *${totalToday.toLocaleString()} / ${stepGoal.toLocaleString()}* steps today\n`;
+      
+      if (remaining > 0) {
+        msg2 += `👟 ${remaining.toLocaleString()} to go`;
+      } else {
+        msg2 += `🎉 *Goal smashed!*`;
+      }
+      
+      if (streak > 1) msg2 += `\n🔥 ${streak}-day streak!`;
+      
+      msg2 += `\n\n_Send *step history* to see your trends._`;
+      
+      saveUsers(users);
+      await send(from, msg2);
+      return;
+    }
+  }
+  
+  // Step history: "step history", "steps", "my steps", "step count", "step streak"
+  if (/^(step history|steps|my steps|step count|step streak|step goal|step trend|show steps|step log)$/i.test(msgLower)) {
+    const stepGoal = user.stepGoal || 10000;
+    const stepData = user.steps || {};
+    const dates = Object.keys(stepData).sort().reverse().slice(0, 7);
+    
+    if (dates.length === 0) {
+      await send(from, `🚶 No steps logged yet.\n\nJust tell me: *8000 steps* and I'll track it.\n\n🎯 Daily goal: ${stepGoal.toLocaleString()} steps\n\n_Change with: *step goal 8000*_`);
+      return;
+    }
+    
+    let msg2 = `🚶 *Step History* (last 7 days)\n\n`;
+    let totalWeek = 0;
+    let daysHit = 0;
+    
+    for (const date of dates) {
+      const count = stepData[date].count || 0;
+      totalWeek += count;
+      const hit = count >= stepGoal;
+      if (hit) daysHit++;
+      const pct = Math.min(100, Math.round((count / stepGoal) * 100));
+      const icon = hit ? '✅' : count > 0 ? '🟡' : '⬜';
+      const dayLabel = date === getToday() ? 'Today' : new Date(date + 'T12:00:00').toLocaleDateString('en-ZA', { weekday: 'short', day: 'numeric', month: 'short' });
+      msg2 += `${icon} ${dayLabel}: *${count.toLocaleString()}* (${pct}%)\n`;
+    }
+    
+    const avgSteps = Math.round(totalWeek / dates.length);
+    msg2 += `\n📊 Avg: ${avgSteps.toLocaleString()} steps/day`;
+    msg2 += `\n🎯 Goal hit: ${daysHit}/${dates.length} days`;
+    msg2 += `\n\n_Change goal: *step goal 8000*_`;
+    
+    await send(from, msg2);
+    return;
+  }
+  
+  // Set step goal: "step goal 8000", "set step goal to 12000"
+  const stepGoalMatch = msg.match(/^(?:step goal|set step goal|steps goal|daily steps|set steps)\s+(?:to\s+)?([\d,]+)$/i);
+  if (stepGoalMatch) {
+    const newGoal = parseInt(stepGoalMatch[1].replace(/,/g, ''));
+    if (newGoal >= 1000 && newGoal <= 100000) {
+      user.stepGoal = newGoal;
+      saveUsers(users);
+      await send(from, `🎯 Step goal updated to *${newGoal.toLocaleString()} steps/day*`);
+      return;
+    }
   }
 
   // ── Weight tracking ──
@@ -6213,6 +6329,85 @@ app.post('/admin/dismiss-lookup', requireAdmin, (req, res) => {
     console.error('Dismiss error:', err);
     res.json({ success: false, error: err.message });
   }
+});
+
+// ── Step sync webhook (for Apple Health Shortcuts / external integrations) ──
+// POST /api/steps { phone: "27...", steps: 8500, token: "hash" }
+// Token = first 8 chars of SHA256(phone) — same as PWA token for simplicity
+app.post('/api/steps', async (req, res) => {
+  try {
+    const body = req.body || {};
+    console.log('[steps API] Received:', JSON.stringify(body));
+    const phone = body.phone;
+    const token = body.token;
+    // Handle various formats from Apple Health Shortcuts:
+    // - plain number: { steps: 8000 }
+    // - string: { steps: "8000" }
+    // - array of samples: { steps: [{ value: 8000 }, ...] }
+    // - Health Sample object: { steps: { value: 8000 } }
+    let steps = body.steps;
+    if (Array.isArray(steps)) {
+      // Sum all sample values
+      steps = steps.reduce((sum, s) => sum + (parseFloat(s.value || s.qty || s) || 0), 0);
+    } else if (typeof steps === 'object' && steps !== null) {
+      steps = parseFloat(steps.value || steps.qty || steps.count || 0);
+    } else {
+      steps = parseFloat(steps);
+    }
+    if (!phone || !steps || !token) return res.status(400).json({ error: 'Missing phone, steps, or token', received: { phone: !!phone, steps: body.steps, token: !!token } });
+    
+    const crypto = require('crypto');
+    const expectedToken = crypto.createHash('sha256').update(String(phone)).digest('hex').slice(0, 8);
+    if (token !== expectedToken) return res.status(401).json({ error: 'Invalid token' });
+    
+    const users = loadUsers();
+    const user = users[phone];
+    if (!user || !user.setup) return res.status(404).json({ error: 'User not found' });
+    
+    const stepCount = parseInt(steps);
+    if (isNaN(stepCount) || stepCount < 1 || stepCount > 200000) return res.status(400).json({ error: 'Invalid step count' });
+    
+    const today = getToday();
+    if (!user.steps) user.steps = {};
+    // For auto-sync, REPLACE today's count (not add) since Health app sends total
+    user.steps[today] = { count: stepCount, logs: [{ steps: stepCount, time: new Date().toISOString(), source: 'auto' }] };
+    saveUsers(users);
+    
+    const stepGoal = user.stepGoal || 10000;
+    const hit = stepCount >= stepGoal;
+    
+    // Only send WhatsApp notification if they hit their goal (avoid spam)
+    if (hit && !user.steps[today].notified) {
+      user.steps[today].notified = true;
+      saveUsers(users);
+      await send(phone, `🎉 *Step goal smashed!*\n\n🚶 ${stepCount.toLocaleString()} / ${stepGoal.toLocaleString()} steps today\n\nKeep it up 💪`);
+    }
+    
+    res.json({ ok: true, steps: stepCount, goal: stepGoal, hit });
+  } catch (err) {
+    console.error('[steps API] Error:', err.message);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// GET /api/steps/setup?phone=27... — returns shortcut install instructions + token
+app.get('/api/steps/setup', (req, res) => {
+  const phone = req.query.phone;
+  if (!phone) return res.status(400).send('Missing phone parameter');
+  
+  const crypto = require('crypto');
+  const token = crypto.createHash('sha256').update(String(phone)).digest('hex').slice(0, 8);
+  
+  // The webhook URL that the iOS Shortcut will POST to
+  const webhookUrl = `https://fitsorted.co.za/api/steps`;
+  
+  res.json({
+    instructions: 'Create an iOS Shortcut with these steps: 1) Find Health Samples (Step Count, today) → 2) Get contents of URL (POST to webhook with JSON body)',
+    webhookUrl,
+    phone,
+    token,
+    body: { phone, steps: '{{steps}}', token }
+  });
 });
 
 app.listen(PORT, () => console.log(`✅ FitSorted calorie tracker on port ${PORT}`));

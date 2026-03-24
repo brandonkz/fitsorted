@@ -1,44 +1,4 @@
 {
-  "vetkoek": {
-    "text": "vetkoek",
-    "count": 7,
-    "users": [
-      "27123456789",
-      "27987654321",
-      "27555555555"
-    ],
-    "firstSeen": "2026-03-09T05:30:00.000Z",
-    "lastSeen": "2026-03-09T06:45:00.000Z"
-  },
-  "kota": {
-    "text": "kota",
-    "count": 5,
-    "users": [
-      "27123456789",
-      "27444444444"
-    ],
-    "firstSeen": "2026-03-09T04:15:00.000Z",
-    "lastSeen": "2026-03-09T06:30:00.000Z"
-  },
-  "boerewors roll": {
-    "text": "boerewors roll",
-    "count": 4,
-    "users": [
-      "27987654321",
-      "27666666666"
-    ],
-    "firstSeen": "2026-03-09T05:00:00.000Z",
-    "lastSeen": "2026-03-09T06:20:00.000Z"
-  },
-  "bunny chow": {
-    "text": "bunny chow",
-    "count": 3,
-    "users": [
-      "27555555555"
-    ],
-    "firstSeen": "2026-03-09T06:00:00.000Z",
-    "lastSeen": "2026-03-09T06:15:00.000Z"
-  },
   "large butter": {
     "text": "Large butter",
     "count": 1,
@@ -102,15 +62,6 @@
     "firstSeen": "2026-03-09T10:55:39.959Z",
     "lastSeen": "2026-03-09T10:55:39.959Z"
   },
-  "1 rye bagel\n1 serving cottage cheese": {
-    "text": "1 rye bagel\n1 serving cottage cheese",
-    "count": 1,
-    "users": [
-      "27721430516"
-    ],
-    "firstSeen": "2026-03-09T10:56:20.102Z",
-    "lastSeen": "2026-03-09T10:56:20.103Z"
-  },
   "i’ve": {
     "text": "I’ve",
     "count": 1,
@@ -129,33 +80,6 @@
     "firstSeen": "2026-03-09T12:41:53.511Z",
     "lastSeen": "2026-03-09T12:41:53.511Z"
   },
-  "golden bird": {
-    "text": "Golden bird",
-    "count": 1,
-    "users": [
-      "27837787970"
-    ],
-    "firstSeen": "2026-03-09T13:32:31.343Z",
-    "lastSeen": "2026-03-09T13:32:31.343Z"
-  },
-  "tv": {
-    "text": "TV",
-    "count": 1,
-    "users": [
-      "27837787970"
-    ],
-    "firstSeen": "2026-03-11T15:24:06.072Z",
-    "lastSeen": "2026-03-11T15:24:06.072Z"
-  },
-  "today: \nate 5 scrambled eggs with one roll on the side for breakfast \nair fryer chicken schnitzel one a roll and one air fryed chicken strip for lunch \nbutter chicken gatsby for supper": {
-    "text": "Today: \nAte 5 scrambled eggs with one roll on the side for breakfast \nAir fryer chicken schnitzel one a roll and one air fryed chicken strip for lunch \nbutter chicken Gatsby for supper",
-    "count": 1,
-    "users": [
-      "27662543348"
-    ],
-    "firstSeen": "2026-03-11T21:05:40.232Z",
-    "lastSeen": "2026-03-11T21:05:40.232Z"
-  },
   "crab stick pasta": {
     "text": "Crab stick pasta",
     "count": 1,
@@ -164,24 +88,6 @@
     ],
     "firstSeen": "2026-03-12T16:39:58.335Z",
     "lastSeen": "2026-03-12T16:39:58.335Z"
-  },
-  "u do": {
-    "text": "U do",
-    "count": 1,
-    "users": [
-      "27837787970"
-    ],
-    "firstSeen": "2026-03-13T08:28:41.630Z",
-    "lastSeen": "2026-03-13T08:28:41.630Z"
-  },
-  "cancel_log": {
-    "text": "cancel_log",
-    "count": 1,
-    "users": [
-      "27832899932"
-    ],
-    "firstSeen": "2026-03-13T16:12:53.068Z",
-    "lastSeen": "2026-03-13T16:12:53.068Z"
   },
   "dinner today: woolworths creamed spinach and 1x battered fish in air fryer and 1x piece of chocolate": {
     "text": "Dinner today: Woolworths creamed spinach and 1x battered fish in air fryer and 1x piece of chocolate",
@@ -192,31 +98,31 @@
     "firstSeen": "2026-03-13T18:09:20.614Z",
     "lastSeen": "2026-03-13T18:09:20.614Z"
   },
-  "do i pay anything on this whatsapp": {
-    "text": "Do i pay anything on this WhatsApp",
+  "coffee (nescafe crema) with full cream milk and 1 sugar": {
+    "text": "Coffee (nescafe crema) with full cream milk and 1 sugar",
     "count": 1,
     "users": [
-      "27625746124"
+      "27659060149"
     ],
-    "firstSeen": "2026-03-13T22:12:19.604Z",
-    "lastSeen": "2026-03-13T22:12:19.604Z"
+    "firstSeen": "2026-03-17T01:55:25.104Z",
+    "lastSeen": "2026-03-17T01:55:25.104Z"
   },
-  "no the next": {
-    "text": "No the next",
+  "📊": {
+    "text": "📊",
     "count": 1,
     "users": [
-      "27625746124"
+      "27741334755"
     ],
-    "firstSeen": "2026-03-14T09:11:17.873Z",
-    "lastSeen": "2026-03-14T09:11:17.873Z"
+    "firstSeen": "2026-03-23T04:42:00.842Z",
+    "lastSeen": "2026-03-23T04:42:00.842Z"
   },
-  "glass of water \n3 samoosas cheese\n3 chilli bites \nbowl of vegetable soup\n1 koeksister": {
-    "text": "Glass of water \n3 samoosas cheese\n3 chilli bites \nBowl of vegetable soup\n1 Koeksister",
+  "📋": {
+    "text": "📋",
     "count": 1,
     "users": [
-      "27847775007"
+      "27838252847"
     ],
-    "firstSeen": "2026-03-14T18:07:23.984Z",
-    "lastSeen": "2026-03-14T18:07:23.984Z"
+    "firstSeen": "2026-03-24T06:42:19.239Z",
+    "lastSeen": "2026-03-24T06:42:19.239Z"
   }
 }
