@@ -1,10 +1,10 @@
 {
   "name": "Crunchie",
-  "goal": 1880,
+  "goal": 1867,
   "joinedAt": "2026-03-23T06:40:25.623Z",
   "profile": {
     "age": 53,
-    "weight": 101,
+    "weight": 100.1,
     "height": 186,
     "gender": "male",
     "target": "lose",
@@ -17,6 +17,18 @@
         "activity": "strength training",
         "calories": 210,
         "time": "2026-03-23T18:05:18.734Z"
+      }
+    ],
+    "2026-03-24": [
+      {
+        "activity": "Homemade oat Crunchie",
+        "calories": 0,
+        "time": "2026-03-24T17:46:52.158Z"
+      },
+      {
+        "activity": "Add Homemade oat crunchie",
+        "calories": 0,
+        "time": "2026-03-24T17:47:30.968Z"
       }
     ]
   },
@@ -81,6 +93,59 @@
           "fibre": 0,
           "priceZAR": 0,
           "time": "2026-03-23T17:14:48.369Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1184,
+        "protein": 78,
+        "carbs": 122,
+        "fat": 49,
+        "fibre": 14,
+        "priceZAR": 55
+      },
+      "entries": [
+        {
+          "food": "Millstone croissant with ham and jalapeno (~100g)",
+          "calories": 350,
+          "protein": 12,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 45,
+          "time": "2026-03-24T07:23:25.115Z"
+        },
+        {
+          "food": "Futurelife Smart Food Zero (50g)",
+          "calories": 304,
+          "protein": 28,
+          "carbs": 42,
+          "fat": 7,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-24T09:18:20.789Z"
+        },
+        {
+          "food": "Breaded chicken breast (~150g) with mixed steamed vegetables (~100g) and small meatball (~30g)",
+          "calories": 410,
+          "protein": 36,
+          "carbs": 30,
+          "fat": 18,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-24T15:34:30.743Z"
+        },
+        {
+          "food": "Oat biscuits (~30g)",
+          "calories": 120,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-24T17:48:01.921Z"
         }
       ]
     }

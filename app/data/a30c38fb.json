@@ -11,7 +11,9 @@
     "foodBudget": 100
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-24": []
+  },
   "logSummary": [
     {
       "date": "2026-03-23",
@@ -43,6 +45,39 @@
           "fibre": 0,
           "priceZAR": 45,
           "time": "2026-03-23T12:53:09.914Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Log KFC Brekkie Crunch Wrap",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T08:00:15.453Z"
+        },
+        {
+          "food": "Log KFC Brekkie Crunch Wrapsta",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T08:00:15.453Z"
         }
       ]
     }

@@ -123,6 +123,69 @@
           "time": "2026-03-23T19:32:15.723Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1210,
+        "protein": 66,
+        "carbs": 93,
+        "fat": 45,
+        "fibre": 6,
+        "priceZAR": 193
+      },
+      "entries": [
+        {
+          "food": "Chicken breast (~130g) with mayonnaise (30g) on pancake (~100g)",
+          "calories": 450,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 58,
+          "time": "2026-03-24T16:53:17.815Z"
+        },
+        {
+          "food": "Greek yogurt (150g)",
+          "calories": 150,
+          "protein": 15,
+          "carbs": 6,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T16:53:22.386Z"
+        },
+        {
+          "food": "Woolworths ostrich stir fry with egg noodles (~400g)",
+          "calories": 300,
+          "protein": 20,
+          "carbs": 35,
+          "fat": 10,
+          "fibre": 3,
+          "priceZAR": 60,
+          "time": "2026-03-24T16:53:26.589Z"
+        },
+        {
+          "food": "2x squares dark Cadbury chocolate",
+          "calories": 100,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 6,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-24T16:53:31.273Z"
+        },
+        {
+          "food": "woolworths hot cross bun",
+          "calories": 210,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-24T16:54:47.690Z"
+        }
+      ]
     }
   ]
 }

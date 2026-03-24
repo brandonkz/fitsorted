@@ -1,0 +1,83 @@
+{
+  "name": "Shelley",
+  "goal": 930,
+  "joinedAt": "2026-03-24T07:10:10.785Z",
+  "profile": {
+    "age": 45,
+    "weight": 59,
+    "height": 158,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-24": [
+      {
+        "activity": "workout",
+        "calories": 300,
+        "time": "2026-03-24T11:55:50.263Z"
+      },
+      {
+        "activity": "workout",
+        "calories": 389,
+        "time": "2026-03-24T11:58:07.705Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 417,
+        "protein": 16,
+        "carbs": 61,
+        "fat": 11,
+        "fibre": 4,
+        "priceZAR": 130
+      },
+      "entries": [
+        {
+          "food": "Smoothie with 1 banana, 1 tsp honey, handful of spinach, 1 tsp chia seeds, and 1 scoop superfood greens",
+          "calories": 232,
+          "protein": 6,
+          "carbs": 43,
+          "fat": 4,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-24T07:16:24.084Z"
+        },
+        {
+          "food": "Water (1 litre) with Nutritech electrolytes",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-24T08:12:01.905Z"
+        },
+        {
+          "food": "Cortado with almond milk (~150ml)",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-24T13:04:58.863Z"
+        },
+        {
+          "food": "Rose wine (175ml)",
+          "calories": 125,
+          "protein": 9,
+          "carbs": 13,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-24T13:05:11.454Z"
+        }
+      ]
+    }
+  ]
+}

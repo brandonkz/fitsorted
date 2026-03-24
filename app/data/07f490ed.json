@@ -1,0 +1,40 @@
+{
+  "name": "Jeffbr99@gmail.com",
+  "goal": 2971,
+  "joinedAt": "2026-03-24T06:36:07.788Z",
+  "profile": {
+    "age": 27,
+    "weight": 86,
+    "height": 194,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 570,
+        "protein": 36,
+        "carbs": 40,
+        "fat": 30,
+        "fibre": 4,
+        "priceZAR": 85
+      },
+      "entries": [
+        {
+          "food": "2x fried eggs + 2 pieces bacon + 1 slice brown toast + fried mushrooms (~100g) + cup tea + cappuccino",
+          "calories": 570,
+          "protein": 36,
+          "carbs": 40,
+          "fat": 30,
+          "fibre": 4,
+          "priceZAR": 85,
+          "time": "2026-03-24T06:39:54.294Z"
+        }
+      ]
+    }
+  ]
+}

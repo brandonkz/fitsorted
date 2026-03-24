@@ -18,6 +18,13 @@
         "calories": 400,
         "time": "2026-03-23T18:03:44.837Z"
       }
+    ],
+    "2026-03-24": [
+      {
+        "activity": "fast walk",
+        "calories": 400,
+        "time": "2026-03-24T12:15:38.543Z"
+      }
     ]
   },
   "logSummary": [
@@ -151,6 +158,69 @@
           "fibre": 5,
           "priceZAR": 60,
           "time": "2026-03-23T19:19:45.715Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 680,
+        "protein": 60,
+        "carbs": 75,
+        "fat": 15,
+        "fibre": 0,
+        "priceZAR": 70
+      },
+      "entries": [
+        {
+          "food": "2x poached eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-24T12:15:26.312Z"
+        },
+        {
+          "food": "Rice (1 cup cooked) (1 cup)",
+          "calories": 205,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T12:16:07.543Z"
+        },
+        {
+          "food": "Teaspoon simple truth mayonnaise (~5g)",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 2,
+          "time": "2026-03-24T12:17:17.564Z"
+        },
+        {
+          "food": "Tin tuna (~150g)",
+          "calories": 180,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T14:29:18.644Z"
+        },
+        {
+          "food": "4x rice cakes",
+          "calories": 120,
+          "protein": 4,
+          "carbs": 28,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-24T14:29:39.498Z"
         }
       ]
     }

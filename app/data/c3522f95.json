@@ -18,6 +18,13 @@
         "calories": 200,
         "time": "2026-03-23T18:06:15.087Z"
       }
+    ],
+    "2026-03-24": [
+      {
+        "activity": "back and bicep training",
+        "calories": 140,
+        "time": "2026-03-24T06:22:49.057Z"
+      }
     ]
   },
   "logSummary": [
@@ -61,6 +68,99 @@
           "fibre": 0,
           "priceZAR": 12,
           "time": "2026-03-23T07:04:01.004Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1099,
+        "protein": 87,
+        "carbs": 101,
+        "fat": 45,
+        "fibre": 12,
+        "priceZAR": 175
+      },
+      "entries": [
+        {
+          "food": "Overnight oats (1 cup, ~150g)",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 30,
+          "time": "2026-03-24T06:23:34.257Z"
+        },
+        {
+          "food": "banana",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-24T06:23:38.408Z"
+        },
+        {
+          "food": "Peanut butter (1 tbsp, ~16g)",
+          "calories": 94,
+          "protein": 4,
+          "carbs": 3,
+          "fat": 8,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-24T06:23:43.016Z"
+        },
+        {
+          "food": "Whey protein (1 scoop, ~30g)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T06:23:47.626Z"
+        },
+        {
+          "food": "Milk (200ml)",
+          "calories": 100,
+          "protein": 6,
+          "carbs": 10,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T06:23:52.111Z"
+        },
+        {
+          "food": "3 tbsp fat free Greek yogurt (~45g)",
+          "calories": 30,
+          "protein": 5,
+          "carbs": 3,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T06:23:56.738Z"
+        },
+        {
+          "food": "Chicken sosatie (~100g)",
+          "calories": 200,
+          "protein": 25,
+          "carbs": 5,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-24T10:18:15.394Z"
+        },
+        {
+          "food": "Lamb rib (~50g)",
+          "calories": 150,
+          "protein": 12,
+          "carbs": 0,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T10:18:24.710Z"
         }
       ]
     }

@@ -113,6 +113,69 @@
           "time": "2026-03-23T18:57:40.919Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1340,
+        "protein": 63,
+        "carbs": 167,
+        "fat": 49,
+        "fibre": 9,
+        "priceZAR": 185
+      },
+      "entries": [
+        {
+          "food": "Pasta (1 cup cooked, ~200g) with pesto (~30g), cherry tomatoes (~100g), and feta crumbled (~30g)",
+          "calories": 590,
+          "protein": 20,
+          "carbs": 70,
+          "fat": 25,
+          "fibre": 4,
+          "priceZAR": 45,
+          "time": "2026-03-24T14:05:10.858Z"
+        },
+        {
+          "food": "average canteen meal (~300g)",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 50,
+          "time": "2026-03-24T14:05:16.911Z"
+        },
+        {
+          "food": "Biltong snapsticks (20g)",
+          "calories": 50,
+          "protein": 10,
+          "carbs": 0,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T14:05:22.124Z"
+        },
+        {
+          "food": "Happy Culture Kombucha (1 small bottle, ~330ml)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T14:05:28.676Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T14:05:33.087Z"
+        }
+      ]
     }
   ]
 }

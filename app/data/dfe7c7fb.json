@@ -45,6 +45,39 @@
           "time": "2026-03-23T11:07:53.814Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 350,
+        "protein": 15,
+        "carbs": 40,
+        "fat": 14,
+        "fibre": 0,
+        "priceZAR": 35
+      },
+      "entries": [
+        {
+          "food": "Cappuccino (200ml)",
+          "calories": 100,
+          "protein": 5,
+          "carbs": 10,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-24T04:58:14.774Z"
+        },
+        {
+          "food": "Not specified (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T05:00:17.140Z"
+        }
+      ]
     }
   ]
 }

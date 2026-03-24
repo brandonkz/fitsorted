@@ -1,0 +1,50 @@
+{
+  "name": "Blem",
+  "goal": 2743,
+  "joinedAt": "2026-03-24T07:22:54.497Z",
+  "profile": {
+    "age": 20,
+    "weight": 64.5,
+    "height": 173,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 510,
+        "protein": 28,
+        "carbs": 50,
+        "fat": 25,
+        "fibre": 8,
+        "priceZAR": 32
+      },
+      "entries": [
+        {
+          "food": "3x eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-24T07:26:36.579Z"
+        },
+        {
+          "food": "Oats (1 cup cooked, ~240g) with peanut butter (1 tbsp, ~16g)",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 20,
+          "time": "2026-03-24T07:26:41.414Z"
+        }
+      ]
+    }
+  ]
+}

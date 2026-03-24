@@ -105,6 +105,39 @@
           "time": "2026-03-23T12:12:08.363Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 185,
+        "protein": 5,
+        "carbs": 28,
+        "fat": 8,
+        "fibre": 4,
+        "priceZAR": 70
+      },
+      "entries": [
+        {
+          "food": "Oats (20g dry) with 1 tsp peanut butter and 1 apple",
+          "calories": 105,
+          "protein": 3,
+          "carbs": 18,
+          "fat": 4,
+          "fibre": 3,
+          "priceZAR": 20,
+          "time": "2026-03-24T11:34:22.282Z"
+        },
+        {
+          "food": "almond latte (1 serving)",
+          "calories": 80,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 4,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-24T11:34:27.789Z"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,70 @@
+{
+  "name": "Can we choose lose weight option rather",
+  "goal": 1844,
+  "joinedAt": "2026-03-24T16:05:23.280Z",
+  "profile": {
+    "age": 25,
+    "weight": 60,
+    "height": 169,
+    "gender": "female",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1718,
+        "protein": 83,
+        "carbs": 189,
+        "fat": 77,
+        "fibre": 14,
+        "priceZAR": 168
+      },
+      "entries": [
+        {
+          "food": "Beef biltong (40g) + Hass avocado (40g) + Mustard vinaigrette (10ml) + President medium fat feta (20g) + Lancewood cheddar cheese (4g)",
+          "calories": 290,
+          "protein": 20,
+          "carbs": 10,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 38,
+          "time": "2026-03-24T16:09:19.518Z"
+        },
+        {
+          "food": "Bokomo oats (25g) with whey protein (10g), collagen (5g), sunflower seeds (5g), low fat plain yogurt (40g), cocoa powder (3g)",
+          "calories": 248,
+          "protein": 17,
+          "carbs": 29,
+          "fat": 9,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-24T16:10:41.641Z"
+        },
+        {
+          "food": "Butter chicken (1.5 cups, ~360g) and rice (1.5 cups, ~300g)",
+          "calories": 780,
+          "protein": 40,
+          "carbs": 90,
+          "fat": 30,
+          "fibre": 4,
+          "priceZAR": 70,
+          "time": "2026-03-24T16:11:24.138Z"
+        },
+        {
+          "food": "2x marshmallow easter egg, Cadbury Bubbly chocolate (20g), Roti",
+          "calories": 400,
+          "protein": 6,
+          "carbs": 60,
+          "fat": 18,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-24T19:00:39.311Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "name": "Alf",
+  "goal": 2713,
+  "joinedAt": "2026-03-24T04:33:56.377Z",
+  "profile": {
+    "age": 56,
+    "weight": 100,
+    "height": 182,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 679,
+        "protein": 26,
+        "carbs": 102,
+        "fat": 21,
+        "fibre": 10,
+        "priceZAR": 69
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T04:38:02.135Z"
+        },
+        {
+          "food": "milk (1 cup, ~240ml)",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T04:38:07.562Z"
+        },
+        {
+          "food": "Oats (80g)",
+          "calories": 304,
+          "protein": 10,
+          "carbs": 54,
+          "fat": 6,
+          "fibre": 8,
+          "priceZAR": 10,
+          "time": "2026-03-24T04:38:28.863Z"
+        },
+        {
+          "food": "1 teaspoon sugar free peanut butter (~5g)",
+          "calories": 25,
+          "protein": 1,
+          "carbs": 1,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-24T04:38:54.314Z"
+        },
+        {
+          "food": "Spar Bakery small wrap (~60g)",
+          "calories": 150,
+          "protein": 4,
+          "carbs": 30,
+          "fat": 3,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-24T04:44:23.771Z"
+        }
+      ]
+    }
+  ]
+}

@@ -75,6 +75,49 @@
           "time": "2026-03-23T11:57:01.427Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 445,
+        "protein": 25,
+        "carbs": 28,
+        "fat": 26,
+        "fibre": 2,
+        "priceZAR": 70
+      },
+      "entries": [
+        {
+          "food": "Homemade decaf iced coffee",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-24T08:28:12.979Z"
+        },
+        {
+          "food": "cheese and tomato omelette (~2 eggs, ~60g cheese, ~50g tomato)",
+          "calories": 370,
+          "protein": 24,
+          "carbs": 10,
+          "fat": 26,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-24T08:28:20.004Z"
+        },
+        {
+          "food": "marshmallow Easter egg (1 egg)",
+          "calories": 75,
+          "protein": 1,
+          "carbs": 18,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-24T08:28:28.192Z"
+        }
+      ]
     }
   ]
 }

@@ -23,6 +23,13 @@
         "calories": 221,
         "time": "2026-03-23T15:50:28.567Z"
       }
+    ],
+    "2026-03-24": [
+      {
+        "activity": "moderate intensity workout",
+        "calories": 175,
+        "time": "2026-03-24T04:55:40.389Z"
+      }
     ]
   },
   "logSummary": [
@@ -156,6 +163,159 @@
           "fibre": 0,
           "priceZAR": 180,
           "time": "2026-03-23T15:46:17.993Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 2292,
+        "protein": 150,
+        "carbs": 287,
+        "fat": 73,
+        "fibre": 39,
+        "priceZAR": 245
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-24T04:56:35.649Z"
+        },
+        {
+          "food": "Venison droewors (50g)",
+          "calories": 150,
+          "protein": 25,
+          "carbs": 0,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T07:19:45.972Z"
+        },
+        {
+          "food": "Future Life (12 tablespoons, ~120g)",
+          "calories": 480,
+          "protein": 36,
+          "carbs": 72,
+          "fat": 12,
+          "fibre": 12,
+          "priceZAR": 30,
+          "time": "2026-03-24T07:28:53.510Z"
+        },
+        {
+          "food": "Rooibos tea no sugar (1 cup (250ml))",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T07:33:40.235Z"
+        },
+        {
+          "food": "1 slice cheese (SA processed)",
+          "calories": 60,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-24T08:56:00.352Z"
+        },
+        {
+          "food": "1 slice cheese (SA processed)",
+          "calories": 60,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-24T08:56:12.560Z"
+        },
+        {
+          "food": "1 slice cheese (SA processed)",
+          "calories": 60,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-24T08:56:37.000Z"
+        },
+        {
+          "food": "Dried pear (~30g)",
+          "calories": 90,
+          "protein": 0,
+          "carbs": 24,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-24T09:10:21.155Z"
+        },
+        {
+          "food": "Dried pear (100g)",
+          "calories": 250,
+          "protein": 2,
+          "carbs": 66,
+          "fat": 0,
+          "fibre": 7,
+          "priceZAR": 40,
+          "time": "2026-03-24T09:17:44.222Z"
+        },
+        {
+          "food": "Dried apple (~30g)",
+          "calories": 90,
+          "protein": 0,
+          "carbs": 24,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-24T09:23:48.981Z"
+        },
+        {
+          "food": "Venison mince (100g)",
+          "calories": 120,
+          "protein": 22,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T10:09:45.298Z"
+        },
+        {
+          "food": "Spinach quiche slice (~100g)",
+          "calories": 250,
+          "protein": 8,
+          "carbs": 20,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-24T12:10:39.024Z"
+        },
+        {
+          "food": "Beetroot (1 cup, ~150g)",
+          "calories": 60,
+          "protein": 2,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 15,
+          "time": "2026-03-24T16:50:45.790Z"
+        },
+        {
+          "food": "Grilled pork chop (~200g) with mashed sweet potatoes (150g) and sautéed zucchini (100g)",
+          "calories": 570,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 8,
+          "priceZAR": 0,
+          "time": "2026-03-24T17:04:07.110Z"
         }
       ]
     }

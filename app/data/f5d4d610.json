@@ -10,7 +10,13 @@
     "target": "lose",
     "foodBudget": 100
   },
-  "weights": [],
+  "weights": [
+    {
+      "kg": 105,
+      "date": "2026-03-24",
+      "time": "2026-03-24T06:55:43.381Z"
+    }
+  ],
   "exercise": {},
   "logSummary": [
     {
@@ -133,6 +139,89 @@
           "fibre": 0,
           "priceZAR": 8,
           "time": "2026-03-23T18:28:06.683Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1490,
+        "protein": 74,
+        "carbs": 137,
+        "fat": 72,
+        "fibre": 13,
+        "priceZAR": 82
+      },
+      "entries": [
+        {
+          "food": "Lancewood Double Cream Strawberry & Apple Smooth Yoghurt (~100g) + Orange (~150g)",
+          "calories": 100,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 3,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-24T06:35:32.556Z"
+        },
+        {
+          "food": "Mushrooms fried (1 cup (70g))",
+          "calories": 60,
+          "protein": 3,
+          "carbs": 3,
+          "fat": 4,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-24T08:33:35.537Z"
+        },
+        {
+          "food": "Steers onion rings (1 regular)",
+          "calories": 280,
+          "protein": 4,
+          "carbs": 30,
+          "fat": 16,
+          "fibre": 3,
+          "priceZAR": 35,
+          "time": "2026-03-24T08:33:39.430Z"
+        },
+        {
+          "food": "Doritos nacho cheese (small) (1 packet (35g))",
+          "calories": 180,
+          "protein": 2,
+          "carbs": 22,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-24T08:33:43.154Z"
+        },
+        {
+          "food": "3x eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-24T08:33:47.929Z"
+        },
+        {
+          "food": "Omelette (~150g)",
+          "calories": 210,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T08:34:19.265Z"
+        },
+        {
+          "food": "Chicken stir-fry with rice (~300g)",
+          "calories": 450,
+          "protein": 30,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-24T16:52:24.504Z"
         }
       ]
     }

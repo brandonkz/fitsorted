@@ -45,6 +45,49 @@
           "time": "2026-03-23T15:08:16.476Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 2885,
+        "protein": 225,
+        "carbs": 30,
+        "fat": 230,
+        "fibre": 4,
+        "priceZAR": 415
+      },
+      "entries": [
+        {
+          "food": "T-bone steak (~500g) + 5x eggs + 100% dark chocolate (25g) + macadamia nuts (15g)",
+          "calories": 1685,
+          "protein": 155,
+          "carbs": 30,
+          "fat": 125,
+          "fibre": 4,
+          "priceZAR": 215,
+          "time": "2026-03-24T15:51:42.840Z"
+        },
+        {
+          "food": "2x marrow bones (~200g)",
+          "calories": 600,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 60,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-24T15:51:49.288Z"
+        },
+        {
+          "food": "Ribeye steak (~250g)",
+          "calories": 600,
+          "protein": 50,
+          "carbs": 0,
+          "fat": 45,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-24T15:54:26.837Z"
+        }
+      ]
     }
   ]
 }

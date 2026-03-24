@@ -18,6 +18,13 @@
         "calories": 245,
         "time": "2026-03-23T18:19:18.559Z"
       }
+    ],
+    "2026-03-24": [
+      {
+        "activity": "running",
+        "calories": 350,
+        "time": "2026-03-24T18:34:14.918Z"
+      }
     ]
   },
   "logSummary": [
@@ -101,6 +108,99 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-23T17:51:38.844Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1496,
+        "protein": 74,
+        "carbs": 91,
+        "fat": 75,
+        "fibre": 7,
+        "priceZAR": 205
+      },
+      "entries": [
+        {
+          "food": "1 slice toast with German cold meat",
+          "calories": 400,
+          "protein": 8,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-24T07:01:52.924Z"
+        },
+        {
+          "food": "2x fried eggs",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-24T07:01:57.002Z"
+        },
+        {
+          "food": "Kiri cheese block (~100g)",
+          "calories": 360,
+          "protein": 20,
+          "carbs": 3,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-24T07:02:00.569Z"
+        },
+        {
+          "food": "Pork chop grilled (1 chop (100g))",
+          "calories": 230,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-24T18:32:07.873Z"
+        },
+        {
+          "food": "quarter potato (~50g)",
+          "calories": 40,
+          "protein": 1,
+          "carbs": 9,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-03-24T18:32:13.127Z"
+        },
+        {
+          "food": "Cooked cabbage (~100g)",
+          "calories": 25,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-24T18:32:17.361Z"
+        },
+        {
+          "food": "Half mielie (~100g)",
+          "calories": 86,
+          "protein": 3,
+          "carbs": 19,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-24T18:32:22.070Z"
+        },
+        {
+          "food": "Stella Artois beer (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T18:33:15.628Z"
         }
       ]
     }

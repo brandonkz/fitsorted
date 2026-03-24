@@ -11,7 +11,20 @@
     "foodBudget": null
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-24": [
+      {
+        "activity": "future life crunch chocolate",
+        "calories": 0,
+        "time": "2026-03-24T07:11:16.404Z"
+      },
+      {
+        "activity": "surfing",
+        "calories": 145,
+        "time": "2026-03-24T07:12:36.912Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-23",

@@ -12,5 +12,29 @@
   },
   "weights": [],
   "exercise": {},
-  "logSummary": []
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 320,
+        "protein": 3,
+        "carbs": 42,
+        "fat": 16,
+        "fibre": 1,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Chocolate cupcake with frosting and sprinkles (~50g)",
+          "calories": 320,
+          "protein": 3,
+          "carbs": 42,
+          "fat": 16,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-03-24T14:37:33.926Z"
+        }
+      ]
+    }
+  ]
 }

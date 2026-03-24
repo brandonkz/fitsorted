@@ -11,7 +11,25 @@
     "foodBudget": 150
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-24": [
+      {
+        "activity": "calories burned for food consumption",
+        "calories": 0,
+        "time": "2026-03-24T07:18:04.334Z"
+      },
+      {
+        "activity": "calories burned for food consumption",
+        "calories": 0,
+        "time": "2026-03-24T07:18:47.195Z"
+      },
+      {
+        "activity": "calories burned estimation not applicable",
+        "calories": 0,
+        "time": "2026-03-24T07:19:11.287Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-23",

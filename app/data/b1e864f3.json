@@ -85,6 +85,49 @@
           "time": "2026-03-23T18:41:07.153Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1246,
+        "protein": 94,
+        "carbs": 128,
+        "fat": 49,
+        "fibre": 8,
+        "priceZAR": 115
+      },
+      "entries": [
+        {
+          "food": "plain yogurt (~150g) with Carb Clever (~30g)",
+          "calories": 256,
+          "protein": 14,
+          "carbs": 28,
+          "fat": 9,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-24T07:34:09.111Z"
+        },
+        {
+          "food": "Chicken ala king (~200g)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-24T11:49:25.562Z"
+        },
+        {
+          "food": "Steak (~150g) and Pasta (1 cup cooked, ~200g)",
+          "calories": 590,
+          "protein": 50,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 85,
+          "time": "2026-03-24T18:54:41.642Z"
+        }
+      ]
     }
   ]
 }

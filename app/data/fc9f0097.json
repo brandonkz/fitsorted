@@ -55,6 +55,39 @@
           "time": "2026-03-23T18:12:11.329Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 505,
+        "protein": 34,
+        "carbs": 65,
+        "fat": 15,
+        "fibre": 5,
+        "priceZAR": 46
+      },
+      "entries": [
+        {
+          "food": "2x boiled eggs + 1 slice of brown toast",
+          "calories": 220,
+          "protein": 14,
+          "carbs": 15,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-24T06:31:56.026Z"
+        },
+        {
+          "food": "Basa fish (~150g) + 2x small white roll + 6x rice cake + 1 banana",
+          "calories": 285,
+          "protein": 20,
+          "carbs": 50,
+          "fat": 5,
+          "fibre": 3,
+          "priceZAR": 38,
+          "time": "2026-03-24T10:32:55.426Z"
+        }
+      ]
     }
   ]
 }

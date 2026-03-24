@@ -1,0 +1,40 @@
+{
+  "name": "Dee",
+  "goal": 1374,
+  "joinedAt": "2026-03-24T18:17:26.007Z",
+  "profile": {
+    "age": 46,
+    "weight": 66,
+    "height": 175,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 210,
+        "protein": 18,
+        "carbs": 4,
+        "fat": 14,
+        "fibre": 0,
+        "priceZAR": 12
+      },
+      "entries": [
+        {
+          "food": "2x eggs with cottage cheese (~100g)",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 4,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-24T18:20:13.281Z"
+        }
+      ]
+    }
+  ]
+}

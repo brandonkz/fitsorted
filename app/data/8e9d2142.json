@@ -1,0 +1,98 @@
+{
+  "name": "Kagiso",
+  "goal": 2201,
+  "joinedAt": "2026-03-24T04:40:39.447Z",
+  "profile": {
+    "age": 33,
+    "weight": 120,
+    "height": 177,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-24": [
+      {
+        "activity": "strength training",
+        "calories": 175,
+        "time": "2026-03-24T18:27:39.859Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1800,
+        "protein": 154,
+        "carbs": 108,
+        "fat": 80,
+        "fibre": 12,
+        "priceZAR": 210
+      },
+      "entries": [
+        {
+          "food": "3x scrambled eggs",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 3,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T07:46:19.060Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-24T07:46:23.817Z"
+        },
+        {
+          "food": "Chicken thigh (~100g)",
+          "calories": 200,
+          "protein": 25,
+          "carbs": 0,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T12:32:24.226Z"
+        },
+        {
+          "food": "Potatoes (150g) and Couscous (1 cup cooked, ~200g)",
+          "calories": 370,
+          "protein": 10,
+          "carbs": 75,
+          "fat": 2,
+          "fibre": 8,
+          "priceZAR": 30,
+          "time": "2026-03-24T12:32:29.345Z"
+        },
+        {
+          "food": "2x fried chicken pieces (~340g)",
+          "calories": 560,
+          "protein": 56,
+          "carbs": 0,
+          "fat": 36,
+          "fibre": 2,
+          "priceZAR": 80,
+          "time": "2026-03-24T18:28:34.127Z"
+        },
+        {
+          "food": "Stewed chicken (~150g)",
+          "calories": 300,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T18:29:35.939Z"
+        }
+      ]
+    }
+  ]
+}

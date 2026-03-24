@@ -65,6 +65,49 @@
           "time": "2026-03-23T12:56:27.661Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 725,
+        "protein": 26,
+        "carbs": 53,
+        "fat": 47,
+        "fibre": 5,
+        "priceZAR": 155
+      },
+      "entries": [
+        {
+          "food": "2 mc Donald’s hash browns\n1 mega mc muffin\n1 sausage egg mc muffin (est.)",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-24T10:15:38.310Z"
+        },
+        {
+          "food": "2x McDonald's hash brown",
+          "calories": 300,
+          "protein": 2,
+          "carbs": 36,
+          "fat": 18,
+          "fibre": 4,
+          "priceZAR": 40,
+          "time": "2026-03-24T10:16:14.464Z"
+        },
+        {
+          "food": "McDonald's sausage egg muffin",
+          "calories": 225,
+          "protein": 10,
+          "carbs": 15,
+          "fat": 14,
+          "fibre": 1,
+          "priceZAR": 45,
+          "time": "2026-03-24T10:16:39.545Z"
+        }
+      ]
     }
   ]
 }

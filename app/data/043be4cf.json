@@ -195,6 +195,79 @@
           "time": "2026-03-23T18:47:26.774Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 840,
+        "protein": 48,
+        "carbs": 100,
+        "fat": 30,
+        "fibre": 18,
+        "priceZAR": 148
+      },
+      "entries": [
+        {
+          "food": "Tea with milk (1 cup)",
+          "calories": 40,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T06:21:07.777Z"
+        },
+        {
+          "food": "Pret porridge (~250g)",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 8,
+          "fibre": 5,
+          "priceZAR": 65,
+          "time": "2026-03-24T06:38:47.324Z"
+        },
+        {
+          "food": "Chicken thigh (braai, 1 piece) (1 piece (~120g))",
+          "calories": 260,
+          "protein": 25,
+          "carbs": 0,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T12:38:57.959Z"
+        },
+        {
+          "food": "Marrow (1 medium, ~150g)",
+          "calories": 35,
+          "protein": 2,
+          "carbs": 7,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-24T12:39:03.386Z"
+        },
+        {
+          "food": "Chickpeas cooked (1/2 cup (80g))",
+          "calories": 135,
+          "protein": 7,
+          "carbs": 23,
+          "fat": 2,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-24T12:39:06.558Z"
+        },
+        {
+          "food": "Red pepper (~150g) and carrot (~100g)",
+          "calories": 70,
+          "protein": 2,
+          "carbs": 16,
+          "fat": 0,
+          "fibre": 5,
+          "priceZAR": 18,
+          "time": "2026-03-24T12:39:11.370Z"
+        }
+      ]
     }
   ]
 }

@@ -90,6 +90,129 @@
           "time": "2026-03-23T15:45:44.918Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 2856,
+        "protein": 217,
+        "carbs": 211,
+        "fat": 134,
+        "fibre": 9,
+        "priceZAR": 332
+      },
+      "entries": [
+        {
+          "food": "Sweets (50g)",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 50,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T05:31:24.735Z"
+        },
+        {
+          "food": "Watermelon (3 cups, ~450g)",
+          "calories": 135,
+          "protein": 3,
+          "carbs": 33,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-24T05:35:11.552Z"
+        },
+        {
+          "food": "2 cups watermelon (~300g)",
+          "calories": 90,
+          "protein": 2,
+          "carbs": 22,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 12,
+          "time": "2026-03-24T05:35:46.263Z"
+        },
+        {
+          "food": "Biltong (~150g)",
+          "calories": 375,
+          "protein": 75,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-24T10:03:30.956Z"
+        },
+        {
+          "food": "Brisket (~150g)",
+          "calories": 330,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-24T10:04:17.444Z"
+        },
+        {
+          "food": "Coleslaw (100g)",
+          "calories": 150,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 12,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-24T10:04:22.665Z"
+        },
+        {
+          "food": "Sweet potatoes (100g)",
+          "calories": 86,
+          "protein": 1,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-24T10:04:28.398Z"
+        },
+        {
+          "food": "Steers Cheese Burger (1 serving)",
+          "calories": 580,
+          "protein": 32,
+          "carbs": 46,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 65,
+          "time": "2026-03-24T17:45:27.265Z"
+        },
+        {
+          "food": "Chicken drumstick (~85g)",
+          "calories": 150,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T17:45:45.397Z"
+        },
+        {
+          "food": "Chicken drumstick (~300g)",
+          "calories": 510,
+          "protein": 42,
+          "carbs": 0,
+          "fat": 36,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-24T17:46:02.798Z"
+        },
+        {
+          "food": "Cancel the lat one (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T17:46:18.072Z"
+        }
+      ]
     }
   ]
 }

@@ -75,6 +75,59 @@
           "time": "2026-03-23T18:28:50.468Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1010,
+        "protein": 45,
+        "carbs": 138,
+        "fat": 22,
+        "fibre": 15,
+        "priceZAR": 55
+      },
+      "entries": [
+        {
+          "food": "Woolworths Sourdough Bread (2 slices) (2 slices (90g))",
+          "calories": 200,
+          "protein": 7,
+          "carbs": 38,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 15,
+          "time": "2026-03-24T07:07:06.365Z"
+        },
+        {
+          "food": "Cocoa with milk (1 cup, ~240ml) and honey (1 tsp)",
+          "calories": 240,
+          "protein": 8,
+          "carbs": 42,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-24T07:11:05.214Z"
+        },
+        {
+          "food": "Homemade burger with beef mince and lentils (~200g)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 10,
+          "priceZAR": 20,
+          "time": "2026-03-24T10:58:51.416Z"
+        },
+        {
+          "food": "Savanna Premium Cider (330ml)",
+          "calories": 170,
+          "protein": 0,
+          "carbs": 18,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T10:59:38.535Z"
+        }
+      ]
     }
   ]
 }

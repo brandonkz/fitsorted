@@ -83,6 +83,59 @@
           "time": "2026-03-23T17:05:53.060Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1072,
+        "protein": 64,
+        "carbs": 109,
+        "fat": 49,
+        "fibre": 13,
+        "priceZAR": 180
+      },
+      "entries": [
+        {
+          "food": "Diet protein shake",
+          "calories": 200,
+          "protein": 30,
+          "carbs": 5,
+          "fat": 3,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-24T08:05:39.844Z"
+        },
+        {
+          "food": "Fried calamari (~100g) and rice (1 cup, ~150g)",
+          "calories": 380,
+          "protein": 20,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 85,
+          "time": "2026-03-24T10:09:12.791Z"
+        },
+        {
+          "food": "Nachos (small portion, ~150g)",
+          "calories": 300,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 50,
+          "time": "2026-03-24T17:14:11.161Z"
+        },
+        {
+          "food": "Green salad (~150g) with balsamic ginger and olive oil dressing (~30g)",
+          "calories": 192,
+          "protein": 4,
+          "carbs": 14,
+          "fat": 16,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-24T17:14:57.595Z"
+        }
+      ]
     }
   ]
 }

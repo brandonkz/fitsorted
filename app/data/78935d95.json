@@ -18,6 +18,13 @@
         "calories": 160,
         "time": "2026-03-23T18:07:57.424Z"
       }
+    ],
+    "2026-03-24": [
+      {
+        "activity": "walking",
+        "calories": 300,
+        "time": "2026-03-24T18:55:03.290Z"
+      }
     ]
   },
   "logSummary": [
@@ -101,6 +108,79 @@
           "fibre": 4,
           "priceZAR": 0,
           "time": "2026-03-23T17:11:03.544Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1800,
+        "protein": 96,
+        "carbs": 161,
+        "fat": 95,
+        "fibre": 11,
+        "priceZAR": 165
+      },
+      "entries": [
+        {
+          "food": "2x fried eggs",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-24T07:19:35.107Z"
+        },
+        {
+          "food": "2x Vienna sausages",
+          "calories": 200,
+          "protein": 10,
+          "carbs": 4,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-24T07:19:40.302Z"
+        },
+        {
+          "food": "Peanut Butter Jungle Oats chocolate bar (1 bar, ~40g)",
+          "calories": 180,
+          "protein": 6,
+          "carbs": 24,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 20,
+          "time": "2026-03-24T07:19:50.022Z"
+        },
+        {
+          "food": "Mocha coffee (350ml)",
+          "calories": 250,
+          "protein": 8,
+          "carbs": 35,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-24T08:35:01.863Z"
+        },
+        {
+          "food": "Steak curry over yellow rice (large portion, ~350g)",
+          "calories": 780,
+          "protein": 50,
+          "carbs": 90,
+          "fat": 30,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-24T17:28:01.562Z"
+        },
+        {
+          "food": "Peanut butter (2 tbsp) (2 tbsp (32g))",
+          "calories": 190,
+          "protein": 8,
+          "carbs": 6,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-24T18:54:11.168Z"
         }
       ]
     }

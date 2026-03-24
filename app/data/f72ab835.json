@@ -1,0 +1,60 @@
+{
+  "name": "Ririr",
+  "goal": 1184,
+  "joinedAt": "2026-03-24T04:35:52.090Z",
+  "profile": {
+    "age": 40,
+    "weight": 91,
+    "height": 170,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 545,
+        "protein": 17,
+        "carbs": 79,
+        "fat": 20,
+        "fibre": 6,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "2x slice of white bread",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-24T04:40:24.781Z"
+        },
+        {
+          "food": "Toast (2 slices) with butter and strawberry jam",
+          "calories": 320,
+          "protein": 8,
+          "carbs": 48,
+          "fat": 12,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-24T04:40:29.697Z"
+        },
+        {
+          "food": "hard boiled egg + 2 teaspoons mayonnaise",
+          "calories": 65,
+          "protein": 3,
+          "carbs": 1,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T04:40:34.815Z"
+        }
+      ]
+    }
+  ]
+}

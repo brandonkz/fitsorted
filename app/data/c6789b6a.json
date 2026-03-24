@@ -18,6 +18,13 @@
         "calories": 450,
         "time": "2026-03-23T18:02:29.363Z"
       }
+    ],
+    "2026-03-24": [
+      {
+        "activity": "cycling",
+        "calories": 850,
+        "time": "2026-03-24T10:03:08.222Z"
+      }
     ]
   },
   "logSummary": [
@@ -81,6 +88,29 @@
           "fibre": 6,
           "priceZAR": 80,
           "time": "2026-03-23T18:02:43.427Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 45
+      },
+      "entries": [
+        {
+          "food": "3x black coffee",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-24T10:02:56.900Z"
         }
       ]
     }

@@ -63,6 +63,39 @@
           "time": "2026-03-23T11:54:33.461Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 750,
+        "protein": 35,
+        "carbs": 60,
+        "fat": 40,
+        "fibre": 0,
+        "priceZAR": 110
+      },
+      "entries": [
+        {
+          "food": "Breakfast: protein shake \nLunch: chicken pesto wrap with tomato and cheese (est.)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 15,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-24T14:58:17.586Z"
+        },
+        {
+          "food": "2x cortado\n1 small piece of carrot cake 100g (est.)",
+          "calories": 350,
+          "protein": 5,
+          "carbs": 45,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-24T14:59:21.795Z"
+        }
+      ]
     }
   ]
 }

@@ -63,6 +63,39 @@
           "time": "2026-03-23T19:40:17.184Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 480,
+        "protein": 12,
+        "carbs": 77,
+        "fat": 14,
+        "fibre": 16,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "scone (~70g)",
+          "calories": 250,
+          "protein": 3,
+          "carbs": 35,
+          "fat": 12,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-24T11:47:25.241Z"
+        },
+        {
+          "food": "Samp and beans (1 cup) (1 cup (250g))",
+          "calories": 230,
+          "protein": 9,
+          "carbs": 42,
+          "fat": 2,
+          "fibre": 15,
+          "priceZAR": 20,
+          "time": "2026-03-24T18:20:20.962Z"
+        }
+      ]
     }
   ]
 }

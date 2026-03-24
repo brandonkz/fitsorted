@@ -16,12 +16,12 @@
     {
       "date": "2026-03-23",
       "totals": {
-        "calories": 1900,
-        "protein": 93,
-        "carbs": 204,
-        "fat": 85,
-        "fibre": 15,
-        "priceZAR": 245
+        "calories": 2750,
+        "protein": 108,
+        "carbs": 330,
+        "fat": 110,
+        "fibre": 21,
+        "priceZAR": 285
       },
       "entries": [
         {
@@ -93,6 +93,99 @@
           "fibre": 0,
           "priceZAR": 5,
           "time": "2026-03-23T14:52:15.872Z"
+        },
+        {
+          "food": "Hot cross bun (~100g)",
+          "calories": 250,
+          "protein": 6,
+          "carbs": 50,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-24T07:01:34.391Z"
+        },
+        {
+          "food": "2x muesli rusk",
+          "calories": 200,
+          "protein": 4,
+          "carbs": 36,
+          "fat": 6,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-24T07:01:39.178Z"
+        },
+        {
+          "food": "slice of cheese",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-24T07:01:45.641Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 1269,
+        "protein": 47,
+        "carbs": 171,
+        "fat": 50,
+        "fibre": 11,
+        "priceZAR": 275
+      },
+      "entries": [
+        {
+          "food": "slice of banana bread",
+          "calories": 200,
+          "protein": 2,
+          "carbs": 40,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-24T13:11:51.230Z"
+        },
+        {
+          "food": "banana (~100g)",
+          "calories": 89,
+          "protein": 1,
+          "carbs": 23,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-24T13:11:57.067Z"
+        },
+        {
+          "food": "Greek giouvetsi meal (400g)",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-24T13:12:04.437Z"
+        },
+        {
+          "food": "Macadamia nuts (20g)",
+          "calories": 140,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 14,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-24T13:12:12.835Z"
+        },
+        {
+          "food": "2x large cappuccino",
+          "calories": 240,
+          "protein": 12,
+          "carbs": 24,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 130,
+          "time": "2026-03-24T13:12:25.945Z"
         }
       ]
     }
