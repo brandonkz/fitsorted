@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-24T03:52:23.761Z",
+    "date": "2026-03-24",
+    "phone": "3939",
+    "userId": "27712343",
+    "food": "Beacon Easter egg (~35g)",
+    "calories": 144,
+    "protein": 1,
+    "carbs": 15,
+    "fat": 9,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-23T21:36:42.274Z",
     "date": "2026-03-23",
     "phone": "2618",
