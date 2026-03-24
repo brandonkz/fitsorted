@@ -10,6 +10,74 @@ const IG_ID = "cmmkap1k000chqn0ygg2aihz1";
 const TT_ID = "cmmlw6wkv04yyqn0yt0mxv928";
 
 // ═══════════════════════════════════════════
+// TIKTOK ALCOHOL BRAND FILTER
+// Strips brand names to avoid TikTok alcohol strikes.
+// Instagram keeps full brand names (no issue there).
+// ═══════════════════════════════════════════
+const ALCOHOL_BRAND_MAP = {
+  "Windhoek Lager (440ml)": "SA Lager (440ml)",
+  "Hunter's Gold (330ml)": "Apple Cider (330ml)",
+  "Carling Black Label (440ml)": "SA Lager (440ml)",
+  "Gin & Tonic": "Gin & Tonic",  // generic enough
+  "Mojito": "Mojito",
+  "Pinotage (175ml)": "Red Wine (175ml)",
+  "Espresso Martini": "Espresso Martini",
+  "Jack & Coke": "Whiskey & Coke",
+  "Prosecco (125ml)": "Sparkling Wine (125ml)",
+  "Brandy & Coke": "Brandy & Coke",
+  "Savanna Light (330ml)": "Light Cider (330ml)",
+  "Cosmopolitan": "Cosmopolitan",
+  "Craft IPA (340ml)": "Craft IPA (340ml)",
+  "Strawberry Daiquiri": "Strawberry Daiquiri",
+  "Jägerbomb": "Energy Bomb Shot",
+  "White Wine Spritzer": "Wine Spritzer",
+  "KWV": "SA Brandy",
+  "Devil's Peak": "Craft Brewery",
+  "CBC": "Craft Brewery",
+  "Jack Black": "Craft Brewery",
+};
+
+function tiktokSafeName(foodName) {
+  if (ALCOHOL_BRAND_MAP[foodName]) return ALCOHOL_BRAND_MAP[foodName];
+  // Also catch partial brand mentions in captions
+  let safe = foodName;
+  for (const [brand, generic] of Object.entries(ALCOHOL_BRAND_MAP)) {
+    safe = safe.replace(brand, generic);
+  }
+  return safe;
+}
+
+function tiktokSafeText(text) {
+  let safe = text;
+  // Replace known brand names in free text (verdicts, captions)
+  const BRAND_WORDS = {
+    "Windhoek": "This lager",
+    "Hunter's Gold": "This cider",
+    "Hunter's": "This cider",
+    "Black Label": "This lager",
+    "Carling": "This beer",
+    "Savanna": "This cider",
+    "KWV": "This brandy",
+    "Jack Daniel": "This whiskey",
+    "Jack &": "Whiskey &",
+    "Jäger": "Herbal liqueur",
+    "Jägerbomb": "Energy bomb shot",
+    "Pinotage": "SA red wine",
+    "Prosecco": "Sparkling wine",
+    "Devil's Peak": "Craft brewery",
+    "Namibia's": "Africa's",
+  };
+  for (const [brand, replacement] of Object.entries(BRAND_WORDS)) {
+    safe = safe.replace(new RegExp(brand, 'gi'), replacement);
+  }
+  // Remove alcohol-specific hashtags that TikTok flags
+  safe = safe.replace(/#(drinking|beer|wine|alcohol|booze|drunk|shots|pub|bar)\b/gi, '');
+  // Replace drink-specific hashtags with safer ones
+  safe = safe.replace(/#drinkingcalories/gi, '#drinkscalories');
+  return safe;
+}
+
+// ═══════════════════════════════════════════
 // MASTER FOOD LIBRARY
 // ═══════════════════════════════════════════
 const allFoods = [
@@ -365,6 +433,20 @@ function drinkCaption(post) {
   return `${post.food} = ${post.calories} cal. ${runMin(post.calories)} min running. ${post.verdict} #fitsorted #drinkingcalories #southafrica #calorietracker`;
 }
 
+// TikTok-safe versions (no alcohol brand names)
+function tiktokFoodCaption(post) {
+  if (post.comparison) {
+    return tiktokSafeText(`${post.left.name}: ${post.left.cal} cal. ${post.right.name}: ${post.right.cal} cal. Save ${post.saved} cal with one swap 💡 #fitsorted #calorietracker #southafrica #healthyswaps #nutrition`);
+  }
+  return tiktokSafeText(`${post.food} = ${post.calories} cal. ${runMin(post.calories)} min running. ${post.verdict} #fitsorted #calorietracker #southafrica #nutrition #healthyeating`);
+}
+
+function tiktokDrinkCaption(post) {
+  const safeName = tiktokSafeName(post.food);
+  const safeVerdict = tiktokSafeText(post.verdict);
+  return `${safeName} = ${post.calories} cal. ${runMin(post.calories)} min running. ${safeVerdict} #fitsorted #drinkscalories #southafrica #calorietracker #healthylifestyle`;
+}
+
 function cheatSheetHTML(post) {
   const rows = post.items.map((item, i) => {
     const barWidth = Math.min(95, Math.round((item.cal / 600) * 95));
@@ -596,8 +678,10 @@ function cheatSheetCaption(post) {
       await new Promise(r => setTimeout(r, 8000));
       
       // TikTok food at 10:30AM SA = 08:30 UTC (video slideshow)
+      // Uses tiktokSafe caption to avoid alcohol brand strikes
       if (ttUploads[food.name]) try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[food.name]}" -s "${dateStr}T08:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+        const ttCap = tiktokFoodCaption(food);
+        execSync(`postiz posts:create -c "${ttCap.replace(/"/g,'\\"')}" -m "${ttUploads[food.name]}" -s "${dateStr}T08:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
         console.log(`✅ ${days[i]} 10:30AM TT: ${food.name}`);
       } catch(e) { console.error(`❌ ${days[i]} TT food: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
@@ -613,8 +697,10 @@ function cheatSheetCaption(post) {
       await new Promise(r => setTimeout(r, 8000));
       
       // TikTok drink at 6:30PM SA = 16:30 UTC (video slideshow)
+      // Uses tiktokSafe caption to avoid alcohol brand strikes
       if (ttUploads[drink.name]) try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[drink.name]}" -s "${dateStr}T16:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+        const ttDrinkCap = tiktokDrinkCaption(drink);
+        execSync(`postiz posts:create -c "${ttDrinkCap.replace(/"/g,'\\"')}" -m "${ttUploads[drink.name]}" -s "${dateStr}T16:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
         console.log(`✅ ${days[i]} 6:30PM TT: ${drink.name}`);
       } catch(e) { console.error(`❌ ${days[i]} TT drink: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));

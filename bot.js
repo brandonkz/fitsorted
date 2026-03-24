@@ -919,22 +919,47 @@ async function lookupSAFood(food) {
 
   try {
     // Query Supabase for matching foods
-    // Sanitize input: commas break .or() queries, remove special chars
-    const sanitized = lower.replace(/[,(){}%]/g, ' ').replace(/\s+/g, ' ').trim();
+    // Sanitize input: remove ALL chars that break PostgreSQL array literals or .or() queries
+    // This fixes "malformed array literal" errors from quotes, parens, braces, etc.
+    const sanitized = lower
+      .replace(/[,(){}%"'\\]/g, ' ')  // remove array-breaking chars + quotes
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (sanitized.length < 2) return null; // too short to search
+    
+    // Use only ilike for safety — .cs (array contains) breaks with complex inputs
+    // Search name with ilike, then filter name_alt in JS
     const { data, error } = await supabase
       .from('foods')
       .select('*')
-      .or(`name.ilike.%${sanitized}%,name_alt.cs.{${sanitized}}`);
+      .ilike('name', `%${sanitized}%`);
 
     if (error) {
       console.error('Supabase lookup error:', error.message);
       return null;
     }
 
-    if (!data || data.length === 0) return null;
+    // If name ilike found nothing, try a broader text search on name_alt
+    let results = data || [];
+    if (results.length === 0) {
+      try {
+        // Search name_alt using textSearch or a simpler ilike on cast
+        // Split sanitized into keywords and search each
+        const keywords = sanitized.split(' ').filter(w => w.length >= 3);
+        if (keywords.length > 0) {
+          const { data: altData, error: altError } = await supabase
+            .from('foods')
+            .select('*')
+            .ilike('name', `%${keywords[0]}%`);
+          if (!altError && altData) results = altData;
+        }
+      } catch (e) { /* fallback failed, continue with empty */ }
+    }
+
+    if (results.length === 0) return null;
 
     // Find best match by checking name_alt keywords
-    for (const item of data) {
+    for (const item of results) {
       const nameMatch = item.name.toLowerCase().includes(lower);
       const altMatch = item.name_alt?.some(alt =>
         lower.includes(alt.toLowerCase()) || alt.toLowerCase().includes(lower)
@@ -3248,7 +3273,11 @@ async function handleMessage(from, text, imageId) {
     // Weekly stats
     { patterns: [/how was my week/i, /this week/i, /weekly (stats|summary|report|progress)/i, /my week/i, /show.*week/i, /past.*week/i, /7 day/i], redirect: "week" },
     // Weight
-    { patterns: [/how much do i weigh/i, /my weight/i, /weight (trend|history|progress|graph)/i, /show.*weight/i, /weigh-?ins?/i, /track.*weight/i], redirect: "weight history" },
+    { patterns: [/how much do i weigh/i, /weight (trend|history|progress|graph)/i, /show.*weight/i, /weigh-?ins?/i, /track.*weight/i], redirect: "weight history" },
+    // Profile / settings
+    { patterns: [/my (settings|profile|details|info)/i, /show.*(profile|settings)/i, /what are my (stats|settings|details)/i, /view.*profile/i], redirect: "my profile" },
+    // Profile fix requests (no specific value — guide them)
+    { patterns: [/(?:fix|change|update|correct|wrong|incorrect|edit)\s+(?:my\s+)?(?:calorie|calories|allowance|daily|target|goal|budget)/i, /calorie.*(wrong|incorrect|too low|too high|fix|change)/i, /my (?:calorie|daily|target).*(wrong|off|incorrect)/i, /(?:recalculate|recalc|redo)\s+(?:my\s+)?(?:calories|goal|target|allowance)/i], redirect: "profile_fix_guide" },
     // Undo
     { patterns: [/that('?s| was| is) wrong/i, /take (that|it) back/i, /made a mistake/i, /remove (the )?last/i, /wrong (one|entry|food|item)/i, /didn'?t (eat|have|mean) that/i, /oops/i, /scratch that/i, /cancel (that|last)/i], redirect: "undo" },
     // Correct / manual entry
@@ -3883,6 +3912,95 @@ async function handleMessage(from, text, imageId) {
       console.error('Weekly email error:', err.response?.data || err.message);
       await send(from, `❌ Couldn't send the email. Please try again later.`);
     }
+    return;
+  }
+
+  // ── Update profile settings ──
+  // Semantic: "my weight is actually 95", "I weigh 95 not 30", "change my weight to 95",
+  // "my body weight should be 95", "fix my weight it's 95", "I'm actually 95kg"
+  const profileUpdateMatch = msg.match(/^(?:update|change|set|fix|correct|adjust)\s+(?:my\s+)?(?:body\s+|profile\s+)?weight\s+(?:to\s+|=\s*|it'?s\s+)?([\d.]+)\s*(?:kg|kgs)?$/i)
+    || msg.match(/^(?:my (?:body\s+|actual\s+|real\s+|profile\s+)?weight (?:is|should be|isn'?t|isnt|was wrong|is actually|is really|is supposed to be)\s+)(?:it'?s\s+|its\s+)?([\d.]+)\s*(?:kg|kgs)?$/i)
+    || msg.match(/^i(?:'?m| am| weigh) (?:actually |really |not \d+\s*(?:kg)?\s*(?:i'?m|i am|but|,)\s*)?([\d.]+)\s*(?:kg|kgs)\s*(?:not|actually|really)?/i)
+    || msg.match(/(?:wrong|incorrect|fix)\s+(?:weight|body\s*weight).*?([\d.]+)\s*(?:kg|kgs)?/i)
+    || msg.match(/(?:body\s*)?weight\s+(?:is\s+)?wrong.*?([\d.]+)\s*(?:kg|kgs)?/i)
+    || msg.match(/(?:should be|supposed to be|meant to be|actually)\s+([\d.]+)\s*(?:kg|kgs)?\s*(?:not|instead)/i);
+  if (profileUpdateMatch) {
+    const newWeight = parseFloat(profileUpdateMatch[1]);
+    if (newWeight >= 30 && newWeight <= 300) {
+      const oldWeight = user.profile.weight;
+      user.profile.weight = newWeight;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      saveUsers(users);
+      await send(from, `✅ *Profile weight updated: ${oldWeight} kg → ${newWeight} kg*\n\n🔄 Your daily calorie goal has been recalculated:\n🎯 *${goal} cal/day*\n\n_(BMR: ${bmr} cal | TDEE: ${tdee} cal)_`);
+      return;
+    }
+  }
+
+  // "my height is 186", "I'm 186cm", "change my height to 186", "height is wrong it's 186"
+  const heightUpdateMatch = msg.match(/^(?:update|change|set|fix|correct|adjust)\s+(?:my\s+)?height\s+(?:to\s+|=\s*|it'?s\s+)?([\d.]+)\s*(?:cm)?$/i)
+    || msg.match(/^my height (?:is|should be|is actually|is really)\s+([\d.]+)\s*(?:cm)?$/i)
+    || msg.match(/^i(?:'?m| am)\s+([\d.]+)\s*cm\s*(?:tall)?$/i)
+    || msg.match(/(?:height)\s+(?:is\s+)?(?:wrong|incorrect).*?([\d.]+)\s*(?:cm)?/i);
+  if (heightUpdateMatch) {
+    const newHeight = parseFloat(heightUpdateMatch[1]);
+    if (newHeight >= 100 && newHeight <= 250) {
+      user.profile.height = newHeight;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      saveUsers(users);
+      await send(from, `✅ *Height updated to ${newHeight} cm*\n\n🔄 Calorie goal recalculated: 🎯 *${goal} cal/day*`);
+      return;
+    }
+  }
+
+  // "my age is 34", "I'm 34 years old", "change my age to 34", "age is wrong it's 34"
+  const ageUpdateMatch = msg.match(/^(?:update|change|set|fix|correct|adjust)\s+(?:my\s+)?age\s+(?:to\s+|=\s*|it'?s\s+)?([\d]+)$/i)
+    || msg.match(/^my age (?:is|should be|is actually)\s+([\d]+)$/i)
+    || msg.match(/^i(?:'?m| am)\s+([\d]+)\s*(?:years?\s*old)?$/i)
+    || msg.match(/(?:age)\s+(?:is\s+)?(?:wrong|incorrect).*?([\d]+)/i);
+  if (ageUpdateMatch) {
+    const newAge = parseInt(ageUpdateMatch[1]);
+    if (newAge >= 13 && newAge <= 100) {
+      user.profile.age = newAge;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      saveUsers(users);
+      await send(from, `✅ *Age updated to ${newAge}*\n\n🔄 Calorie goal recalculated: 🎯 *${goal} cal/day*`);
+      return;
+    }
+  }
+
+  // "I want to lose weight", "switch to maintain", "I want to bulk", "change goal to gain", "I want to cut"
+  const goalUpdateMatch = msg.match(/^(?:update|change|set|switch)\s+(?:my\s+)?(?:goal|target)\s+(?:to\s+)?(lose|maintain|gain|cut|bulk)/i)
+    || msg.match(/^i\s+(?:want|need|'?d like|would like)\s+to\s+(lose|maintain|gain|cut|bulk)/i)
+    || msg.match(/^(?:switch|change)\s+(?:to|my goal to)\s+(lose|maintain|gain|cut|bulk)/i)
+    || msg.match(/^(lose|maintain|gain|cut|bulk)\s*(?:weight|muscle|fat)?$/i);
+  if (goalUpdateMatch) {
+    const goalMap = { lose: "lose", cut: "lose", maintain: "maintain", gain: "gain", bulk: "gain" };
+    // Find first captured group across the different regex patterns
+    const goalWord = (goalUpdateMatch[1] || goalUpdateMatch[0]).toLowerCase().trim();
+    user.profile.target = goalMap[goalWord] || "maintain";
+    const { bmr, tdee, goal } = calculateGoal(user.profile);
+    user.goal = goal;
+    saveUsers(users);
+    await send(from, `✅ *Goal updated to: ${user.profile.target}*\n\n🔄 Calorie goal recalculated: 🎯 *${goal} cal/day*`);
+    return;
+  }
+
+  // Guide for "fix my calories" / "my allowance is wrong" (no specific value given)
+  if (msgLower === "profile_fix_guide" || /^(?:fix|change|update|correct|redo|recalc)\s+(?:my\s+)?(?:calorie|calories|allowance|daily|target|goal)s?$/i.test(msgLower) || /^(?:my\s+)?(?:calorie|calories|allowance|daily target|goal)s?\s+(?:is|are)\s+(?:wrong|incorrect|too low|too high|off)$/i.test(msgLower) || /^(?:recalculate|recalc|redo)\s+(?:my\s+)?(?:calories|goal|target|allowance)$/i.test(msgLower)) {
+    const p = user.profile;
+    const { goal } = calculateGoal(p);
+    await send(from, `🔧 *Your current calorie target: ${goal} cal/day*\n\nBased on:\n⚖️ Weight: ${p.weight} kg\n📏 Height: ${p.height} cm\n🎂 Age: ${p.age}\n🏃 Activity: ${p.activity}\n🎯 Goal: ${p.target}\n\nTo fix it, just tell me what's wrong:\n• _"my weight is actually 85"_\n• _"I'm 180cm tall"_\n• _"my age is 30"_\n• _"I want to lose weight"_\n• _"update weight 95"_\n\nI'll recalculate everything automatically.`);
+    return;
+  }
+
+  // "my settings", "my profile", "show profile", "profile", "settings"
+  if (/^(my (settings|profile)|show (my )?profile|profile|settings)$/i.test(msgLower)) {
+    const p = user.profile;
+    const { bmr, tdee, goal } = calculateGoal(p);
+    await send(from, `📋 *Your Profile*\n\n👤 ${user.name || 'Not set'}\n⚧ ${p.gender || '?'}\n⚖️ ${p.weight} kg\n📏 ${p.height} cm\n🎂 ${p.age} years\n🏃 Activity: ${p.activity}\n🎯 Goal: ${p.target} (${p.pace || 'standard'})\n\n📊 BMR: ${bmr} cal\n🔥 TDEE: ${tdee} cal\n🎯 Daily target: *${goal} cal*\n\n_To update, send:_\n• *update weight 85*\n• *update height 180*\n• *update age 30*\n• *update goal lose/maintain/gain*`);
     return;
   }
 
@@ -5473,6 +5591,175 @@ if (false) { (async () => {
   
   saveUsers(users);
 })(); } // end disabled day 7 re-engagement
+
+// ── 10 AM Day 5 trial conversion nudge (2 days left — show what they'll lose) ──
+cron.schedule("0 10 * * *", async () => {
+  if (cronAlreadyRan('day5-conversion')) { return; }
+  markCronRan('day5-conversion');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay5Conversion) continue;
+    if (isGrandfathered(user)) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 5) continue;
+    
+    // Only nudge active users (they have something to lose)
+    const daysLogged = Object.values(user.log || {}).filter(a => Array.isArray(a) && a.length > 0).length;
+    if (daysLogged < 2) continue;
+    
+    // Already paid? Skip
+    const premium = await isPremium(phone);
+    if (premium) { users[phone].sentDay5Conversion = true; continue; }
+    
+    try {
+      const name = user.name || "Hey";
+      const totalEntries = Object.values(user.log || {}).reduce((s, a) => s + (Array.isArray(a) ? a.length : 0), 0);
+      
+      // Calculate their actual stats to make it personal
+      const todayMacros = getTodayMacros(user);
+      const hasUsedMacros = todayMacros.protein > 0;
+      const hasUsedPhotos = Object.values(user.log || {}).flat().some(e => e?.source === 'photo');
+      const hasWeights = (user.weights || []).length > 0;
+      
+      let features = [];
+      if (hasUsedMacros) features.push("🥩 Macro tracking (protein, carbs, fat)");
+      features.push("🧠 Coaching mode & meal suggestions");
+      features.push("📸 Photo food logging");
+      if (hasWeights) features.push("⚖️ Weight trend tracking");
+      features.push("📧 Weekly email reports");
+      features.push("💰 Food budget tracking");
+      
+      const monthlyLink = getPayFastMonthlyLink(phone);
+      const annualLink = getPayFastAnnualLink(phone);
+      
+      await send(phone,
+        `${name} — your free trial ends in *2 days* ⏰\n\n` +
+        `You've logged *${totalEntries} meals* across *${daysLogged} days*. That's real progress.\n\n` +
+        `After your trial, you keep *free calorie tracking forever*. But these Premium features go away:\n\n` +
+        `${features.join("\n")}\n\n` +
+        `Lock it in for *R36/mo* (R1.20/day):\n` +
+        `👉 ${monthlyLink}\n\n` +
+        `Or save with annual — *R399/year*:\n` +
+        `👉 ${annualLink}\n\n` +
+        `_Cancel anytime. Free tracking stays forever._`
+      );
+      users[phone].sentDay5Conversion = true;
+    } catch (err) {
+      console.error(`Day 5 conversion failed for ${phone}:`, err.message);
+    }
+  }
+  saveUsers(users);
+}, { timezone: "Africa/Johannesburg" });
+
+// ── 9 AM Day 7 trial expiry conversion (last chance — urgency) ──
+cron.schedule("0 9 * * *", async () => {
+  if (cronAlreadyRan('day7-conversion')) { return; }
+  markCronRan('day7-conversion');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay7Conversion) continue;
+    if (isGrandfathered(user)) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 7) continue;
+    
+    const daysLogged = Object.values(user.log || {}).filter(a => Array.isArray(a) && a.length > 0).length;
+    if (daysLogged < 1) continue;
+    
+    const premium = await isPremium(phone);
+    if (premium) { users[phone].sentDay7Conversion = true; continue; }
+    
+    try {
+      const name = user.name || "Hey";
+      const totalEntries = Object.values(user.log || {}).reduce((s, a) => s + (Array.isArray(a) ? a.length : 0), 0);
+      
+      // Calculate weight change if they've logged weights
+      let weightStr = "";
+      if (user.weights && user.weights.length >= 2) {
+        const first = user.weights[0].kg;
+        const last = user.weights[user.weights.length - 1].kg;
+        const diff = last - first;
+        if (diff < 0) weightStr = `\n\n📉 You've lost *${Math.abs(diff).toFixed(1)} kg* since you started. Don't stop now.`;
+      }
+      
+      const monthlyLink = getPayFastMonthlyLink(phone);
+      const annualLink = getPayFastAnnualLink(phone);
+      
+      await send(phone,
+        `${name} — your free trial ends *today* 🔔\n\n` +
+        `*${totalEntries} meals logged. ${daysLogged} days tracked.* That's commitment.${weightStr}\n\n` +
+        `Starting tomorrow, calorie tracking stays *100% free*.\n\n` +
+        `But Premium features (macros, coaching, photos, exports) are going away.\n\n` +
+        `Keep everything for just *R36/mo* — that's less than a coffee:\n` +
+        `📅 Monthly: ${monthlyLink}\n` +
+        `🏆 Annual (save R189): ${annualLink}\n\n` +
+        `Or just keep tracking for free — no hard feelings 🤝`
+      );
+      users[phone].sentDay7Conversion = true;
+    } catch (err) {
+      console.error(`Day 7 conversion failed for ${phone}:`, err.message);
+    }
+  }
+  saveUsers(users);
+}, { timezone: "Africa/Johannesburg" });
+
+// ── 10 AM Day 14 win-back (one week post-trial — last attempt) ──
+cron.schedule("0 10 * * *", async () => {
+  if (cronAlreadyRan('day14-winback')) { return; }
+  markCronRan('day14-winback');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay14Winback) continue;
+    if (isGrandfathered(user)) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 14) continue;
+    
+    const premium = await isPremium(phone);
+    if (premium) { users[phone].sentDay14Winback = true; continue; }
+    
+    // Only win back users who were actually active
+    const daysLogged = Object.values(user.log || {}).filter(a => Array.isArray(a) && a.length > 0).length;
+    if (daysLogged < 3) continue;
+    
+    // Check if they're still using the free tier
+    const lastActivity = getLastActivityDate(user);
+    const daysSinceActivity = lastActivity ? (Date.now() - lastActivity.getTime()) / 86400000 : 999;
+    
+    try {
+      const name = user.name || "Hey";
+      const monthlyLink = getPayFastMonthlyLink(phone);
+      
+      if (daysSinceActivity <= 3) {
+        // Still active on free tier — they're getting value, upsell premium
+        await send(phone,
+          `${name} 👋 You're still tracking — love to see it.\n\n` +
+          `Missing macros and coaching? Get Premium back for R36/mo:\n👉 ${monthlyLink}\n\n` +
+          `_This is my last upgrade message — I won't bug you again_ ✌️`
+        );
+      } else {
+        // Churned — try to re-engage
+        await send(phone,
+          `${name} 👋 It's been a while.\n\n` +
+          `You tracked *${daysLogged} days* — that's more than most people manage.\n\n` +
+          `Ready to go again? Just send me what you ate today.\n\n` +
+          `_Free calorie tracking, always. No catch._ 🍽️`
+        );
+      }
+      users[phone].sentDay14Winback = true;
+    } catch (err) {
+      console.error(`Day 14 winback failed for ${phone}:`, err.message);
+    }
+  }
+  saveUsers(users);
+}, { timezone: "Africa/Johannesburg" });
 
 // ── Sunday 8 AM weight reminder ──
 cron.schedule("0 8 * * 0", async () => {
