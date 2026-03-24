@@ -11,17 +11,25 @@
     "foodBudget": 150
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-23": [
+      {
+        "activity": "circuit workout",
+        "calories": 175,
+        "time": "2026-03-23T19:31:42.929Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-23",
       "totals": {
-        "calories": 597,
-        "protein": 14,
-        "carbs": 40,
-        "fat": 16,
-        "fibre": 6,
-        "priceZAR": 157
+        "calories": 932,
+        "protein": 18,
+        "carbs": 91,
+        "fat": 30.1,
+        "fibre": 14,
+        "priceZAR": 187
       },
       "entries": [
         {
@@ -93,6 +101,26 @@
           "fibre": 0,
           "priceZAR": 10,
           "time": "2026-03-23T15:37:27.230Z"
+        },
+        {
+          "food": "4x squares dark chocolate (~40g)",
+          "calories": 220,
+          "protein": 2,
+          "carbs": 24,
+          "fat": 14,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-23T19:32:10.933Z"
+        },
+        {
+          "food": "Sweet potato baked (1 medium (130g))",
+          "calories": 115,
+          "protein": 2,
+          "carbs": 27,
+          "fat": 0.1,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-23T19:32:15.723Z"
         }
       ]
     }

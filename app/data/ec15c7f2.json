@@ -16,12 +16,12 @@
     {
       "date": "2026-03-23",
       "totals": {
-        "calories": 1650,
-        "protein": 100,
-        "carbs": 140,
-        "fat": 70,
-        "fibre": 4,
-        "priceZAR": 95
+        "calories": 1780,
+        "protein": 101,
+        "carbs": 160,
+        "fat": 76,
+        "fibre": 5,
+        "priceZAR": 105
       },
       "entries": [
         {
@@ -63,6 +63,16 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-23T18:16:06.364Z"
+        },
+        {
+          "food": "Chomp chocolate (1 bar, ~30g)",
+          "calories": 130,
+          "protein": 1,
+          "carbs": 20,
+          "fat": 6,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-23T21:12:10.568Z"
         }
       ]
     }

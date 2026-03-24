@@ -24,12 +24,12 @@
     {
       "date": "2026-03-23",
       "totals": {
-        "calories": 480,
-        "protein": 12,
-        "carbs": 68,
-        "fat": 21,
-        "fibre": 2,
-        "priceZAR": 50
+        "calories": 860,
+        "protein": 52,
+        "carbs": 118,
+        "fat": 29,
+        "fibre": 3,
+        "priceZAR": 85
       },
       "entries": [
         {
@@ -51,6 +51,16 @@
           "fibre": 0,
           "priceZAR": 40,
           "time": "2026-03-23T14:30:27.774Z"
+        },
+        {
+          "food": "Chicken breast (~130g) with Rice (1 cup, ~150g)",
+          "calories": 380,
+          "protein": 40,
+          "carbs": 50,
+          "fat": 8,
+          "fibre": 1,
+          "priceZAR": 35,
+          "time": "2026-03-23T19:40:17.184Z"
         }
       ]
     }

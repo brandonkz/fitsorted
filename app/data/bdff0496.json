@@ -145,6 +145,29 @@
           "time": "2026-03-23T18:04:13.162Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 144,
+        "protein": 1,
+        "carbs": 15,
+        "fat": 9,
+        "fibre": 0,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "Beacon Easter egg (~35g)",
+          "calories": 144,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-24T03:52:23.761Z"
+        }
+      ]
     }
   ]
 }

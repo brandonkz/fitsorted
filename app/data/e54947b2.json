@@ -1,0 +1,40 @@
+{
+  "name": "Wesley",
+  "goal": 2747,
+  "joinedAt": "2026-03-23T19:10:47.182Z",
+  "profile": {
+    "age": 39,
+    "weight": 96,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 392,
+        "protein": 14,
+        "carbs": 35,
+        "fat": 23,
+        "fibre": 1,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Bagel (~100g) with medium fat cream cheese (~30g) and scrambled egg (2 eggs)",
+          "calories": 392,
+          "protein": 14,
+          "carbs": 35,
+          "fat": 23,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-23T19:14:03.588Z"
+        }
+      ]
+    }
+  ]
+}

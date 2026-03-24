@@ -24,12 +24,12 @@
     {
       "date": "2026-03-23",
       "totals": {
-        "calories": 835,
-        "protein": 62,
-        "carbs": 96,
-        "fat": 24,
-        "fibre": 14,
-        "priceZAR": 107
+        "calories": 1235,
+        "protein": 82,
+        "carbs": 136,
+        "fat": 44,
+        "fibre": 19,
+        "priceZAR": 167
       },
       "entries": [
         {
@@ -141,6 +141,16 @@
           "fibre": 8,
           "priceZAR": 10,
           "time": "2026-03-23T17:29:09.198Z"
+        },
+        {
+          "food": "Cottage pie portion (~250g)",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 60,
+          "time": "2026-03-23T19:19:45.715Z"
         }
       ]
     }

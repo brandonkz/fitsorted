@@ -85,6 +85,39 @@
           "time": "2026-03-23T16:42:25.044Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 160,
+        "protein": 9,
+        "carbs": 13,
+        "fat": 8,
+        "fibre": 0,
+        "priceZAR": 4
+      },
+      "entries": [
+        {
+          "food": "jumbo hard boiled egg",
+          "calories": 90,
+          "protein": 8,
+          "carbs": 1,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-24T04:27:04.518Z"
+        },
+        {
+          "food": "Nescafé Cappuccino White Chocolate (1 sachet, ~18g)",
+          "calories": 70,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T04:27:43.635Z"
+        }
+      ]
     }
   ]
 }

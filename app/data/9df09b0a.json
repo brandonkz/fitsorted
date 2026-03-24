@@ -1,0 +1,50 @@
+{
+  "name": "Natasha",
+  "goal": 824,
+  "joinedAt": "2026-03-23T19:18:25.545Z",
+  "profile": {
+    "age": 33,
+    "weight": 65,
+    "height": 158,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 350,
+        "protein": 4,
+        "carbs": 50,
+        "fat": 15,
+        "fibre": 1,
+        "priceZAR": 40
+      },
+      "entries": [
+        {
+          "food": "Coke Zero 330ml",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-23T20:10:09.011Z"
+        },
+        {
+          "food": "Vanilla muffin (~100g)",
+          "calories": 350,
+          "protein": 4,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 25,
+          "time": "2026-03-23T20:16:47.547Z"
+        }
+      ]
+    }
+  ]
+}

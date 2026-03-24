@@ -12,5 +12,29 @@
   },
   "weights": [],
   "exercise": {},
-  "logSummary": []
+  "logSummary": [
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "calories": 500,
+        "protein": 20,
+        "carbs": 60,
+        "fat": 18,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Future life one cup\nBanana\nYogurt small\n3 x espresso nescafe coffee\nSlow mag\nChicken livers \nWoolies pasta bacon and avo\nWoolies chicken strips (est.)",
+          "calories": 500,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-23T19:09:16.853Z"
+        }
+      ]
+    }
+  ]
 }
