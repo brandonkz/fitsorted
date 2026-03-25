@@ -128,6 +128,29 @@
           "time": "2026-03-24T10:59:38.535Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 320,
+        "protein": 8,
+        "carbs": 40,
+        "fat": 16,
+        "fibre": 8,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Avocado toast (100g)",
+          "calories": 320,
+          "protein": 8,
+          "carbs": 40,
+          "fat": 16,
+          "fibre": 8,
+          "priceZAR": 0,
+          "time": "2026-03-25T08:02:39.456Z"
+        }
+      ]
     }
   ]
 }

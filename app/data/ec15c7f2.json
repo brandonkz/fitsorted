@@ -128,6 +128,59 @@
           "time": "2026-03-24T18:06:04.786Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 1670,
+        "protein": 76,
+        "carbs": 246,
+        "fat": 53,
+        "fibre": 19,
+        "priceZAR": 102
+      },
+      "entries": [
+        {
+          "food": "2x scrambled eggs + 2 slices buttered toast",
+          "calories": 400,
+          "protein": 28,
+          "carbs": 56,
+          "fat": 16,
+          "fibre": 4,
+          "priceZAR": 8,
+          "time": "2026-03-25T08:39:32.645Z"
+        },
+        {
+          "food": "Chai (1 cup) with 4 biscuits",
+          "calories": 370,
+          "protein": 6,
+          "carbs": 60,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-25T08:40:22.209Z"
+        },
+        {
+          "food": "Baked beans (1 plate) + 2x slice white bread + Chicken breast (~130g)",
+          "calories": 500,
+          "protein": 30,
+          "carbs": 70,
+          "fat": 10,
+          "fibre": 10,
+          "priceZAR": 34,
+          "time": "2026-03-25T13:02:41.336Z"
+        },
+        {
+          "food": "Creamy pasta (1 plate, ~200g)",
+          "calories": 400,
+          "protein": 12,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-25T18:45:24.109Z"
+        }
+      ]
     }
   ]
 }

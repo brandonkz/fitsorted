@@ -1,0 +1,182 @@
+{
+  "name": "Wendy",
+  "goal": 1351,
+  "joinedAt": "2026-03-25T08:09:25.888Z",
+  "profile": {
+    "age": 45,
+    "weight": 67,
+    "height": 170,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-25": []
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 1717,
+        "protein": 67,
+        "carbs": 163,
+        "fat": 63,
+        "fibre": 21,
+        "priceZAR": 254
+      },
+      "entries": [
+        {
+          "food": "Seattle Americano Grande with full cream hot milk",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T12:00:29.115Z"
+        },
+        {
+          "food": "2x slice sourdough bread",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-25T12:19:07.532Z"
+        },
+        {
+          "food": "Lettuce (1 cup, ~50g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-25T12:19:12.718Z"
+        },
+        {
+          "food": "Cheese (20g)",
+          "calories": 40,
+          "protein": 2,
+          "carbs": 0,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-25T12:19:17.331Z"
+        },
+        {
+          "food": "Beef pastrami (30g)",
+          "calories": 70,
+          "protein": 10,
+          "carbs": 1,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T12:19:22.063Z"
+        },
+        {
+          "food": "half boiled egg",
+          "calories": 35,
+          "protein": 3,
+          "carbs": 0,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-25T12:19:27.142Z"
+        },
+        {
+          "food": "Pesto mayo (1 teaspoon, ~5g)",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-25T12:19:33.565Z"
+        },
+        {
+          "food": "5 ml butter + 2 slices tomato",
+          "calories": 80,
+          "protein": 2,
+          "carbs": 6,
+          "fat": 7,
+          "fibre": 2,
+          "priceZAR": 5,
+          "time": "2026-03-25T12:19:38.909Z"
+        },
+        {
+          "food": "6 slices cucumber",
+          "calories": 6,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-25T12:19:43.967Z"
+        },
+        {
+          "food": "Large Americano with hot milk (~350ml)",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 12,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-25T12:45:12.157Z"
+        },
+        {
+          "food": "Woolworths seed loaf (1 slice, ~40g)",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 3,
+          "priceZAR": 12,
+          "time": "2026-03-25T17:39:53.832Z"
+        },
+        {
+          "food": "Avocado (25g)",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 2,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-25T17:39:58.876Z"
+        },
+        {
+          "food": "Thick beef and vegetable soup with lentils (~300g)",
+          "calories": 350,
+          "protein": 25,
+          "carbs": 40,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 45,
+          "time": "2026-03-25T17:40:03.584Z"
+        },
+        {
+          "food": "Sourdough bread (1 slice, ~40g) with butter (10g)",
+          "calories": 150,
+          "protein": 4,
+          "carbs": 25,
+          "fat": 6,
+          "fibre": 1,
+          "priceZAR": 14,
+          "time": "2026-03-25T17:40:08.720Z"
+        },
+        {
+          "food": "2x Woolworths seed loaf slice",
+          "calories": 181,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 60,
+          "time": "2026-03-25T18:03:59.687Z"
+        }
+      ]
+    }
+  ]
+}

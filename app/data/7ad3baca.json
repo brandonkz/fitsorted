@@ -18,6 +18,13 @@
         "calories": 0,
         "time": "2026-03-24T14:08:42.232Z"
       }
+    ],
+    "2026-03-25": [
+      {
+        "activity": "unknown",
+        "calories": 0,
+        "time": "2026-03-25T05:40:32.209Z"
+      }
     ]
   },
   "logSummary": [
@@ -191,6 +198,189 @@
           "fibre": 0,
           "priceZAR": 5,
           "time": "2026-03-24T17:56:40.822Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 3102,
+        "protein": 171.2,
+        "carbs": 378.4,
+        "fat": 121.4,
+        "fibre": 28.4,
+        "priceZAR": 461
+      },
+      "entries": [
+        {
+          "food": "Fat free yoghurt (200g)",
+          "calories": 100,
+          "protein": 10,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T05:33:58.579Z"
+        },
+        {
+          "food": "Blueberries (100g)",
+          "calories": 57,
+          "protein": 0.7,
+          "carbs": 14.5,
+          "fat": 0.3,
+          "fibre": 2.4,
+          "priceZAR": 30,
+          "time": "2026-03-25T05:34:44.661Z"
+        },
+        {
+          "food": "Full cream milk (150ml)",
+          "calories": 90,
+          "protein": 4.5,
+          "carbs": 6.9,
+          "fat": 5.1,
+          "fibre": 0,
+          "priceZAR": 6,
+          "time": "2026-03-25T05:40:13.552Z"
+        },
+        {
+          "food": "Oats (50g)",
+          "calories": 190,
+          "protein": 7,
+          "carbs": 33,
+          "fat": 3,
+          "fibre": 5,
+          "priceZAR": 4,
+          "time": "2026-03-25T05:41:24.278Z"
+        },
+        {
+          "food": "Whey protein (1 scoop, ~30g)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T05:42:16.782Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T09:34:45.543Z"
+        },
+        {
+          "food": "Woolworths luxury tree nuts (30g)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 6,
+          "fat": 14,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-25T09:35:04.259Z"
+        },
+        {
+          "food": "Apple (medium)",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-25T10:55:13.931Z"
+        },
+        {
+          "food": "Nando's boujee bowl with extra chicken (~350g)",
+          "calories": 700,
+          "protein": 50,
+          "carbs": 70,
+          "fat": 30,
+          "fibre": 10,
+          "priceZAR": 120,
+          "time": "2026-03-25T10:55:28.074Z"
+        },
+        {
+          "food": "Flat white (1 cup, ~240ml)",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 10,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-25T13:06:26.554Z"
+        },
+        {
+          "food": "Fantastical Multi Coloured Eggs (15g)",
+          "calories": 80,
+          "protein": 1,
+          "carbs": 10,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T13:07:00.125Z"
+        },
+        {
+          "food": "Ouma Rusk (1)",
+          "calories": 140,
+          "protein": 3,
+          "carbs": 22,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-25T14:29:05.867Z"
+        },
+        {
+          "food": "3x cookie",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 36,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-25T14:36:38.029Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-25T15:04:37.716Z"
+        },
+        {
+          "food": "Burger (~200g)",
+          "calories": 650,
+          "protein": 50,
+          "carbs": 50,
+          "fat": 40,
+          "fibre": 0,
+          "priceZAR": 100,
+          "time": "2026-03-25T18:08:52.428Z"
+        },
+        {
+          "food": "2x beacon marshmallow egg",
+          "calories": 160,
+          "protein": 2,
+          "carbs": 36,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-25T18:15:16.329Z"
+        },
+        {
+          "food": "1 beacon marshmallow egg",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 14,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T18:44:34.390Z"
         }
       ]
     }

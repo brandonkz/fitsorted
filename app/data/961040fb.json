@@ -35,6 +35,29 @@
           "time": "2026-03-23T09:04:02.668Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 800,
+        "protein": 30,
+        "carbs": 80,
+        "fat": 40,
+        "fibre": 5,
+        "priceZAR": 85
+      },
+      "entries": [
+        {
+          "food": "KFC Boxmaster (~300g)",
+          "calories": 800,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 40,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-25T09:13:00.322Z"
+        }
+      ]
     }
   ]
 }

@@ -30,6 +30,13 @@
         "calories": 175,
         "time": "2026-03-24T04:55:40.389Z"
       }
+    ],
+    "2026-03-25": [
+      {
+        "activity": "weight training",
+        "calories": 175,
+        "time": "2026-03-25T05:43:07.398Z"
+      }
     ]
   },
   "logSummary": [
@@ -316,6 +323,139 @@
           "fibre": 8,
           "priceZAR": 0,
           "time": "2026-03-24T17:04:07.110Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 2207,
+        "protein": 135,
+        "carbs": 180,
+        "fat": 105.2,
+        "fibre": 18,
+        "priceZAR": 380
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T05:40:27.200Z"
+        },
+        {
+          "food": "Rooibos tea no sugar (1 cup (250ml))",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-25T05:40:43.470Z"
+        },
+        {
+          "food": "Oats (small bowl, ~40g)",
+          "calories": 240,
+          "protein": 7,
+          "carbs": 38,
+          "fat": 5,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-25T08:55:55.286Z"
+        },
+        {
+          "food": "Pork chop grilled (1 chop (100g))",
+          "calories": 230,
+          "protein": 26,
+          "carbs": 0,
+          "fat": 13,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-25T08:56:51.915Z"
+        },
+        {
+          "food": "Rump steak (~300g)",
+          "calories": 660,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 45,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-25T13:23:11.809Z"
+        },
+        {
+          "food": "Creamed spinach (1/2 cup (125ml))",
+          "calories": 100,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 8,
+          "fibre": 3,
+          "priceZAR": 20,
+          "time": "2026-03-25T13:23:28.411Z"
+        },
+        {
+          "food": "Tomato and lettuce salad (small, ~150g)",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 20,
+          "time": "2026-03-25T13:24:23.183Z"
+        },
+        {
+          "food": "Lemonade (200ml)",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T13:24:38.781Z"
+        },
+        {
+          "food": "cola tonic shot (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T13:24:53.188Z"
+        },
+        {
+          "food": "cookie (~30g)",
+          "calories": 150,
+          "protein": 2,
+          "carbs": 22,
+          "fat": 7,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-25T13:28:43.587Z"
+        },
+        {
+          "food": "Cottage pie (~250g)",
+          "calories": 350,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 4,
+          "priceZAR": 60,
+          "time": "2026-03-25T17:01:52.057Z"
+        },
+        {
+          "food": "Beetroot cooked (1/2 cup (85g))",
+          "calories": 45,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 0.2,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-25T18:30:24.937Z"
         }
       ]
     }

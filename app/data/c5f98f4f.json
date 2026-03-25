@@ -127,6 +127,29 @@
           "time": "2026-03-16T18:01:58.889Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 350,
+        "protein": 5,
+        "carbs": 45,
+        "fat": 18,
+        "fibre": 0,
+        "priceZAR": 45
+      },
+      "entries": [
+        {
+          "food": "Breakfast was a brownie and a chai tea with almond milk (est.)",
+          "calories": 350,
+          "protein": 5,
+          "carbs": 45,
+          "fat": 18,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-25T10:00:58.799Z"
+        }
+      ]
     }
   ]
 }

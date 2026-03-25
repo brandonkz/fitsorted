@@ -1,0 +1,100 @@
+{
+  "name": "Christine",
+  "goal": 1700,
+  "joinedAt": "2026-03-25T18:01:58.766Z",
+  "profile": {
+    "age": 38,
+    "weight": 92,
+    "height": 165,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 813,
+        "protein": 47,
+        "carbs": 114,
+        "fat": 19,
+        "fibre": 10,
+        "priceZAR": 98
+      },
+      "entries": [
+        {
+          "food": "Overnight oats (60g rolled oats)",
+          "calories": 228,
+          "protein": 8,
+          "carbs": 39,
+          "fat": 4,
+          "fibre": 6,
+          "priceZAR": 12,
+          "time": "2026-03-25T18:07:23.677Z"
+        },
+        {
+          "food": "Full cream milk (1/2 cup, ~120ml)",
+          "calories": 75,
+          "protein": 4,
+          "carbs": 6,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-25T18:07:28.363Z"
+        },
+        {
+          "food": "Raw honey (15ml)",
+          "calories": 45,
+          "protein": 0,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-25T18:07:38.322Z"
+        },
+        {
+          "food": "pinch of salt (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 1,
+          "time": "2026-03-25T18:07:42.596Z"
+        },
+        {
+          "food": "Whey protein powder (1 scoop, ~30g)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-25T18:07:48.842Z"
+        },
+        {
+          "food": "Mango (1/3 cup, ~50g)",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 9,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-25T18:07:54.260Z"
+        },
+        {
+          "food": "1 fig (~50g) and 1/3 cup blueberries (~50g)",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 25,
+          "time": "2026-03-25T18:07:59.687Z"
+        }
+      ]
+    }
+  ]
+}

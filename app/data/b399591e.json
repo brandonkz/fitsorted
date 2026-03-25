@@ -65,6 +65,39 @@
           "time": "2026-03-23T12:01:44.628Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 680,
+        "protein": 47,
+        "carbs": 80,
+        "fat": 21,
+        "fibre": 1,
+        "priceZAR": 95
+      },
+      "entries": [
+        {
+          "food": "Beef droëwors (220g)",
+          "calories": 330,
+          "protein": 44,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 70,
+          "time": "2026-03-25T14:14:07.690Z"
+        },
+        {
+          "food": "Smarties (70g)",
+          "calories": 350,
+          "protein": 3,
+          "carbs": 80,
+          "fat": 6,
+          "fibre": 1,
+          "priceZAR": 25,
+          "time": "2026-03-25T14:14:35.622Z"
+        }
+      ]
     }
   ]
 }

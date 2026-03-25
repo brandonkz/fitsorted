@@ -96,6 +96,89 @@
           "time": "2026-03-24T18:20:20.962Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 1694,
+        "protein": 81,
+        "carbs": 171,
+        "fat": 82,
+        "fibre": 20,
+        "priceZAR": 190
+      },
+      "entries": [
+        {
+          "food": "Avocado (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 10,
+          "time": "2026-03-25T16:08:36.427Z"
+        },
+        {
+          "food": "Mince (beef, ~120g) and penne macaroni (1 cup cooked, ~200g)",
+          "calories": 570,
+          "protein": 40,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-25T16:09:51.429Z"
+        },
+        {
+          "food": "Marshmallow snack (~30g)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-25T16:11:17.807Z"
+        },
+        {
+          "food": "Black coffee (1 cup, ~240ml)",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T16:12:23.651Z"
+        },
+        {
+          "food": "Pap (stiff, cooked) (1 cup (250g))",
+          "calories": 240,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-25T18:14:27.381Z"
+        },
+        {
+          "food": "Pork ribs (~150g)",
+          "calories": 350,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 85,
+          "time": "2026-03-25T18:14:32.909Z"
+        },
+        {
+          "food": "Cabbage (1 cup, ~150g) and gravy (~50g)",
+          "calories": 192,
+          "protein": 3,
+          "carbs": 14,
+          "fat": 14,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-25T18:14:37.739Z"
+        }
+      ]
     }
   ]
 }

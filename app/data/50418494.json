@@ -65,6 +65,39 @@
           "time": "2026-03-24T19:00:39.311Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 250,
+        "protein": 10,
+        "carbs": 30,
+        "fat": 10,
+        "fibre": 0,
+        "priceZAR": 45
+      },
+      "entries": [
+        {
+          "food": "Breakfast was 25g bokomo oats\n10g my wellness vanilla whey protein powder\n5g collagen\n5g sunflower seeds \n40g low fat plain yogurt \n3g cocoa powder\n\nSnack\n2 homemade weetbix protein bites of 35 cal each with 1.5g protein each\n\nLunch\n38g beef biltong\n3 bakali rice cakes\n12g smooth peanut butter\n16g lancewood mediu fat cream cheese\n8g cheddar cheese\n50g hass avocado",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-25T09:32:04.869Z"
+        },
+        {
+          "food": "Thanks (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T09:32:46.687Z"
+        }
+      ]
     }
   ]
 }

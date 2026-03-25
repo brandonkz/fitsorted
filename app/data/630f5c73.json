@@ -55,6 +55,39 @@
           "time": "2026-03-23T11:39:01.715Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 400,
+        "protein": 16,
+        "carbs": 57,
+        "fat": 13,
+        "fibre": 4,
+        "priceZAR": 145
+      },
+      "entries": [
+        {
+          "food": "Oats (1 cup cooked) (1 cup)",
+          "calories": 150,
+          "protein": 6,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-25T11:15:41.321Z"
+        },
+        {
+          "food": "2x cheese burgers and a glass of coke (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 135,
+          "time": "2026-03-25T11:16:31.334Z"
+        }
+      ]
     }
   ]
 }

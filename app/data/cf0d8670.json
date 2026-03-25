@@ -1,0 +1,122 @@
+{
+  "name": "Quintin",
+  "goal": 2320,
+  "joinedAt": "2026-03-23T05:53:12.912Z",
+  "profile": {
+    "age": 28,
+    "weight": 71,
+    "height": 178,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-25": []
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 1727,
+        "protein": 89,
+        "carbs": 197,
+        "fat": 67.2,
+        "fibre": 23,
+        "priceZAR": 170
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T14:54:51.160Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T14:56:15.944Z"
+        },
+        {
+          "food": "Vetkoek (mince filled) (1 medium)",
+          "calories": 420,
+          "protein": 16,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 3,
+          "priceZAR": 35,
+          "time": "2026-03-25T14:57:23.518Z"
+        },
+        {
+          "food": "Green beans steamed (1 cup (125g))",
+          "calories": 35,
+          "protein": 2,
+          "carbs": 7,
+          "fat": 0.2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-25T14:57:26.930Z"
+        },
+        {
+          "food": "Couscous (1 cup cooked, ~200g) with apricot jam (1 tablespoon, ~20g)",
+          "calories": 290,
+          "protein": 9,
+          "carbs": 63,
+          "fat": 1,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-25T14:57:32.611Z"
+        },
+        {
+          "food": "Handful of nuts (~28g) and yogurt (1 cup, ~245g) with honey (1 tsp)",
+          "calories": 320,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-25T14:58:40.542Z"
+        },
+        {
+          "food": "Smoothie preparation",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T17:00:17.781Z"
+        },
+        {
+          "food": "Grilled steak (~150g) with sliced tomatoes (~100g) and sautéed cucumbers (~100g)",
+          "calories": 490,
+          "protein": 45,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 8,
+          "priceZAR": 0,
+          "time": "2026-03-25T17:00:25.094Z"
+        },
+        {
+          "food": "Rooi bos tea with milk and 1.5 teaspoons of honey",
+          "calories": 72,
+          "protein": 1,
+          "carbs": 17,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T18:31:35.181Z"
+        }
+      ]
+    }
+  ]
+}

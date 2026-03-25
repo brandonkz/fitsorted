@@ -118,6 +118,39 @@
           "time": "2026-03-24T04:27:43.635Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 143,
+        "protein": 8,
+        "carbs": 10,
+        "fat": 7,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T04:36:43.327Z"
+        },
+        {
+          "food": "Coffee with milk and sugar (Nescafe) (1 cup)",
+          "calories": 65,
+          "protein": 2,
+          "carbs": 9,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T04:38:21.223Z"
+        }
+      ]
     }
   ]
 }

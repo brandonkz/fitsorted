@@ -25,6 +25,13 @@
         "calories": 520,
         "time": "2026-03-24T04:33:11.886Z"
       }
+    ],
+    "2026-03-25": [
+      {
+        "activity": "walking",
+        "calories": 300,
+        "time": "2026-03-25T17:35:06.694Z"
+      }
     ]
   },
   "logSummary": [
@@ -211,6 +218,99 @@
           "fibre": 0,
           "priceZAR": 0,
           "time": "2026-03-24T17:46:18.072Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 2287,
+        "protein": 152,
+        "carbs": 218,
+        "fat": 93,
+        "fibre": 14,
+        "priceZAR": 283
+      },
+      "entries": [
+        {
+          "food": "Black coffee (1 cup, ~240ml)",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T06:22:15.297Z"
+        },
+        {
+          "food": "Beef korma (250g) with rice (150g, ~150g)",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 70,
+          "fat": 25,
+          "fibre": 3,
+          "priceZAR": 85,
+          "time": "2026-03-25T10:09:18.224Z"
+        },
+        {
+          "food": "Bar One (52g)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 35,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-25T12:22:14.536Z"
+        },
+        {
+          "food": "Biltong (100g)",
+          "calories": 350,
+          "protein": 56,
+          "carbs": 8,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-25T15:09:07.738Z"
+        },
+        {
+          "food": "Watermelon (450g)",
+          "calories": 135,
+          "protein": 3,
+          "carbs": 34,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 18,
+          "time": "2026-03-25T15:09:30.175Z"
+        },
+        {
+          "food": "Lamb ribs (~250g)",
+          "calories": 600,
+          "protein": 50,
+          "carbs": 0,
+          "fat": 45,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-25T15:25:57.319Z"
+        },
+        {
+          "food": "Large potato (~300g)",
+          "calories": 250,
+          "protein": 7,
+          "carbs": 57,
+          "fat": 0,
+          "fibre": 5,
+          "priceZAR": 10,
+          "time": "2026-03-25T15:26:29.474Z"
+        },
+        {
+          "food": "Toast with butter (1 slice)",
+          "calories": 110,
+          "protein": 3,
+          "carbs": 14,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-25T15:26:33.773Z"
         }
       ]
     }

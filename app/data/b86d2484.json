@@ -124,6 +124,29 @@
           "time": "2026-03-23T20:41:27.652Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 320,
+        "protein": 12,
+        "carbs": 44,
+        "fat": 12,
+        "fibre": 6,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "2x seed bread with cheese (2 slices bread, 1 slice cheese)",
+          "calories": 320,
+          "protein": 12,
+          "carbs": 44,
+          "fat": 12,
+          "fibre": 6,
+          "priceZAR": 20,
+          "time": "2026-03-25T12:08:59.204Z"
+        }
+      ]
     }
   ]
 }

@@ -186,6 +186,79 @@
           "time": "2026-03-24T16:54:47.690Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 965,
+        "protein": 52,
+        "carbs": 106,
+        "fat": 39.2,
+        "fibre": 14,
+        "priceZAR": 285
+      },
+      "entries": [
+        {
+          "food": "Beef fillet (~150g)",
+          "calories": 300,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-25T15:29:39.726Z"
+        },
+        {
+          "food": "Mashed potatoes (1 cup (250ml))",
+          "calories": 180,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 6,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-25T15:29:43.317Z"
+        },
+        {
+          "food": "Carrots cooked (1 cup (150g))",
+          "calories": 55,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0.2,
+          "fibre": 5,
+          "priceZAR": 15,
+          "time": "2026-03-25T15:29:47.309Z"
+        },
+        {
+          "food": "2x slice fresh seed loaf",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-25T15:29:52.122Z"
+        },
+        {
+          "food": "Red wine (175ml)",
+          "calories": 125,
+          "protein": 9,
+          "carbs": 13,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-25T15:29:56.223Z"
+        },
+        {
+          "food": "Double cream yoghurt (~150g) and apple (~150g)",
+          "calories": 145,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-25T18:03:30.475Z"
+        }
+      ]
     }
   ]
 }

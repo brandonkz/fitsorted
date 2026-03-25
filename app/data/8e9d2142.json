@@ -18,6 +18,13 @@
         "calories": 175,
         "time": "2026-03-24T18:27:39.859Z"
       }
+    ],
+    "2026-03-25": [
+      {
+        "activity": "skipping",
+        "calories": 50,
+        "time": "2026-03-25T05:49:23.260Z"
+      }
     ]
   },
   "logSummary": [
@@ -91,6 +98,59 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-24T18:29:35.939Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 1032,
+        "protein": 85,
+        "carbs": 66,
+        "fat": 42,
+        "fibre": 12,
+        "priceZAR": 145
+      },
+      "entries": [
+        {
+          "food": "sourdough toast (2 slices, ~80g)",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-25T05:48:30.959Z"
+        },
+        {
+          "food": "2x scrambled eggs + chicken thigh (~100g)",
+          "calories": 440,
+          "protein": 38,
+          "carbs": 2,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-25T05:48:36.431Z"
+        },
+        {
+          "food": "Carrot (~60g) and Blueberries (~100g)",
+          "calories": 112,
+          "protein": 1,
+          "carbs": 24,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-25T06:02:30.745Z"
+        },
+        {
+          "food": "Grilled chicken breast (~150g) and Green Salad (~100g)",
+          "calories": 320,
+          "protein": 40,
+          "carbs": 10,
+          "fat": 10,
+          "fibre": 4,
+          "priceZAR": 40,
+          "time": "2026-03-25T17:17:47.149Z"
         }
       ]
     }

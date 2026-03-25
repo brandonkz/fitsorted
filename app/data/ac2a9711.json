@@ -25,7 +25,8 @@
         "calories": 350,
         "time": "2026-03-24T18:34:14.918Z"
       }
-    ]
+    ],
+    "2026-03-25": []
   },
   "logSummary": [
     {
@@ -201,6 +202,109 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-24T18:33:15.628Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 1782,
+        "protein": 58,
+        "carbs": 131,
+        "fat": 39,
+        "fibre": 19,
+        "priceZAR": 159
+      },
+      "entries": [
+        {
+          "food": "Yogurt (~150g)",
+          "calories": 90,
+          "protein": 5,
+          "carbs": 12,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T06:42:15.748Z"
+        },
+        {
+          "food": "Plain muesli (30g)",
+          "calories": 110,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 2,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-25T06:43:24.559Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T07:10:43.844Z"
+        },
+        {
+          "food": "Yogurt with baked plain granola",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T08:00:26.295Z"
+        },
+        {
+          "food": "Granola",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T08:00:26.295Z"
+        },
+        {
+          "food": "2x slices whole wheat white bread with pastrami (~160g)",
+          "calories": 440,
+          "protein": 20,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 8,
+          "priceZAR": 50,
+          "time": "2026-03-25T12:30:53.307Z"
+        },
+        {
+          "food": "Tea with milk (1 cup)",
+          "calories": 40,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-25T12:32:00.080Z"
+        },
+        {
+          "food": "Citrus beef and beetroot salad (~250g)",
+          "calories": 350,
+          "protein": 25,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 8,
+          "priceZAR": 80,
+          "time": "2026-03-25T16:47:25.127Z"
+        },
+        {
+          "food": "Citrus beef and beetroot salad (manual)",
+          "calories": 702,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-25T16:48:31.593Z"
         }
       ]
     }

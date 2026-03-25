@@ -65,6 +65,39 @@
           "time": "2026-03-24T18:26:18.034Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 820,
+        "protein": 43,
+        "carbs": 67,
+        "fat": 39,
+        "fibre": 0,
+        "priceZAR": 110
+      },
+      "entries": [
+        {
+          "food": "Cappuccino (250ml) with low-fat lactose free milk and 2 tusks",
+          "calories": 240,
+          "protein": 11,
+          "carbs": 21,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-25T10:05:56.800Z"
+        },
+        {
+          "food": "Steers Cheese Burger (1 serving)",
+          "calories": 580,
+          "protein": 32,
+          "carbs": 46,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 65,
+          "time": "2026-03-25T10:37:23.745Z"
+        }
+      ]
     }
   ]
 }

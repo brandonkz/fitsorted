@@ -186,6 +186,59 @@
           "time": "2026-03-24T15:38:01.882Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 1440,
+        "protein": 94,
+        "carbs": 107,
+        "fat": 70,
+        "fibre": 6,
+        "priceZAR": 91
+      },
+      "entries": [
+        {
+          "food": "4x eggs",
+          "calories": 280,
+          "protein": 28,
+          "carbs": 2,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 16,
+          "time": "2026-03-25T07:38:54.433Z"
+        },
+        {
+          "food": "RXBAR Minis Chocolate Sea Salt protein bar (26g)",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-03-25T07:57:25.291Z"
+        },
+        {
+          "food": "Chicken thigh (~100g) with mixed vegetables (~100g) and couscous (~100g)",
+          "calories": 380,
+          "protein": 25,
+          "carbs": 45,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-25T18:32:00.121Z"
+        },
+        {
+          "food": "2x eggs + protein shake + milk",
+          "calories": 380,
+          "protein": 36,
+          "carbs": 20,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-25T18:32:04.595Z"
+        }
+      ]
     }
   ]
 }
