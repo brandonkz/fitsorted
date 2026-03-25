@@ -156,6 +156,79 @@ const allDrinks = [
   { name:"white-wine-spritzer", food:"White Wine Spritzer", subtitle:"Wine + soda water", calories:73, protein:0, carbs:2, fat:0, fibre:0, accentColor:"#fef9c3", verdict:"Half the calories of a full glass. Best summer hack.", tag:"SMART SWAP" },
 ];
 
+
+
+// ═══════════════════════════════════════════
+// DID YOU KNOW FACTS
+// ═══════════════════════════════════════════
+const didYouKnow = [
+  { name:"thermic-effect", title:"Thermic Effect", fact:"Your body burns about 10% of daily calories just digesting food.", source:"Thermic Effect of Food", accentColor:"#f59e0b", icon:"🔥" },
+  { name:"muscle-vs-fat", title:"Muscle vs Fat", fact:"Muscle burns roughly 3x more calories at rest than fat tissue.", source:"Body composition research", accentColor:"#22c55e", icon:"💪" },
+  { name:"sleep-vs-tv", title:"Sleep Calories", fact:"You burn more calories sleeping than watching TV.", source:"Metabolic rate studies", accentColor:"#6366f1", icon:"😴" },
+  { name:"sa-average-intake", title:"SA Average Intake", fact:"The average South African eats ~2,800 calories per day — about 800 more than most women need.", source:"Local nutrition surveys", accentColor:"#ef4444", icon:"🇿🇦" },
+  { name:"3-weeks-tracking", title:"3 Weeks to Change", fact:"Tracking calories for just 3 weeks can permanently improve portion instincts.", source:"Behavioural nutrition studies", accentColor:"#14b8a6", icon:"🧠" },
+  { name:"olive-oil-tbsp", title:"Olive Oil Reality", fact:"One tablespoon of olive oil has ~119 calories.", source:"USDA food data", accentColor:"#f97316", icon:"🫒" },
+  { name:"gum-burn", title:"Gum Calories", fact:"Chewing gum burns about 11 calories per hour.", source:"Mayo Clinic", accentColor:"#a855f7", icon:"🍬" },
+  { name:"standing-burn", title:"Stand Up", fact:"Standing instead of sitting burns ~50 extra calories per hour.", source:"Activity expenditure research", accentColor:"#0ea5e9", icon:"🧍" },
+  { name:"bigmac-run", title:"Big Mac Run", fact:"It takes roughly a 5km run to burn off a Big Mac.", source:"Calorie burn estimates", accentColor:"#ef4444", icon:"🏃" },
+  { name:"cold-water", title:"Cold Water Boost", fact:"Drinking cold water burns slightly more calories as your body heats it up.", source:"Hydration metabolism studies", accentColor:"#3b82f6", icon:"💧" },
+  { name:"starvation-mode", title:"Starvation Mode Myth", fact:"Your metabolism only drops ~5–10% even with extreme dieting.", source:"Metabolic adaptation research", accentColor:"#f59e0b", icon:"⚖️" },
+  { name:"protein-tef", title:"Protein Bonus", fact:"Protein uses 20–30% of its calories just to digest — it keeps you fuller longer.", source:"Thermic Effect of Food", accentColor:"#22c55e", icon:"🥩" },
+  { name:"portion-growth", title:"Portion Creep", fact:"Restaurant portions in SA have grown by ~138% since 1980.", source:"Portion size trend studies", accentColor:"#eab308", icon:"📈" },
+  { name:"woolies-salad", title:"Healthy Salad Trap", fact:"A Woolworths 'healthy' salad can beat a Big Mac if you add the dressing.", source:"Menu nutrition labels", accentColor:"#84cc16", icon:"🥗" },
+  { name:"cooking-oil", title:"Oil Adds Up", fact:"One tablespoon of oil per meal = ~360 extra calories per day.", source:"USDA food data", accentColor:"#f97316", icon:"🫗" },
+  { name:"cake-burn", title:"Cake Reality", fact:"You'd need to run ~40 minutes to burn off one slice of cake.", source:"Calorie burn estimates", accentColor:"#ec4899", icon:"🍰" },
+  { name:"brown-vs-white", title:"Brown vs White", fact:"Brown bread has almost the same calories as white — the difference is fibre.", source:"Local bread labels", accentColor:"#a16207", icon:"🍞" },
+  { name:"biltong-win", title:"Biltong Wins", fact:"Biltong is one of SA’s best snacks — ~120 cal per 30g with 20g protein.", source:"Local nutrition labels", accentColor:"#ef4444", icon:"🥩" },
+  { name:"alcohol-7", title:"Alcohol Calories", fact:"Alcohol has 7 calories per gram — almost as much as fat (9 cal/g).", source:"Nutrition science", accentColor:"#f59e0b", icon:"🍷" },
+  { name:"tracking-2x", title:"Tracking Works", fact:"Tracking what you eat makes you 2x more likely to lose weight.", source:"Journal of the Academy of Nutrition (2019)", accentColor:"#22c55e", icon:"📒" },
+  { name:"liquid-calories", title:"Liquid Calories", fact:"Calories you drink are less filling than calories you chew — easy to overdo.", source:"Appetite research", accentColor:"#3b82f6", icon:"🥤" },
+  { name:"weekend-creep", title:"Weekend Creep", fact:"Most people eat 30–50% more calories on weekends.", source:"Dietary pattern studies", accentColor:"#fb7185", icon:"📅" },
+  { name:"nut-handful", title:"Nuts Are Dense", fact:"A small handful of nuts can be 180–220 calories.", source:"Nutrition labels", accentColor:"#a855f7", icon:"🥜" },
+];
+
+// ═══════════════════════════════════════════
+// MYTH BUSTERS
+// ═══════════════════════════════════════════
+const mythBusters = [
+  { name:"after-8pm", myth:"Eating after 8pm makes you fat", truth:"Calories don’t have a clock. Total daily intake matters most.", accentColor:"#ef4444", icon:"⏰" },
+  { name:"fruit-fat", myth:"Fruit makes you fat", truth:"An apple is ~95 cal. A muffin is 450. Fruit is never the problem.", accentColor:"#22c55e", icon:"🍎" },
+  { name:"six-meals", myth:"You need 6 small meals a day", truth:"Meal frequency doesn’t matter. Total calories do.", accentColor:"#3b82f6", icon:"🥣" },
+  { name:"carbs-bad", myth:"Carbs are bad", truth:"Rice, potatoes and bread are fine. It’s butter, oil and sauces that add calories.", accentColor:"#f59e0b", icon:"🍚" },
+  { name:"salads-healthy", myth:"Salads are always healthy", truth:"A Caesar with dressing can be 700+ calories. More than a burger.", accentColor:"#84cc16", icon:"🥗" },
+  { name:"spot-reduce", myth:"You can spot-reduce belly fat", truth:"Crunches build muscle. A calorie deficit loses fat — you can’t choose where.", accentColor:"#8b5cf6", icon:"🎯" },
+  { name:"organic-calories", myth:"Organic food has fewer calories", truth:"Organic is how it’s grown. Calories are identical.", accentColor:"#14b8a6", icon:"🌱" },
+  { name:"skip-breakfast", myth:"Skipping breakfast slows your metabolism", truth:"Intermittent fasting works fine. Eat when it suits you.", accentColor:"#0ea5e9", icon:"🌅" },
+  { name:"diet-drinks", myth:"Diet drinks make you gain weight", truth:"Zero calories = zero calories. Studies are about behaviour.", accentColor:"#60a5fa", icon:"🥤" },
+  { name:"gluten-free", myth:"Gluten-free means healthier", truth:"Unless you’re coeliac, gluten-free often has MORE calories.", accentColor:"#f97316", icon:"🚫" },
+  { name:"protein-shakes", myth:"You need protein shakes to build muscle", truth:"Two chicken breasts = 60g protein. Most people don’t need supplements.", accentColor:"#22c55e", icon:"🥩" },
+  { name:"fat-free", myth:"Fat-free food is better", truth:"Fat-free often replaces fat with sugar. Check the calories, not the label.", accentColor:"#eab308", icon:"🧾" },
+  { name:"detox-tea", myth:"Detox teas help you lose weight", truth:"They’re laxatives with marketing. Save your money.", accentColor:"#f472b6", icon:"🫖" },
+  { name:"starvation-stop", myth:"Starvation mode stops weight loss", truth:"Metabolic adaptation is real but small (5–10%). Deficit = loss.", accentColor:"#ef4444", icon:"⚖️" },
+  { name:"brown-bread", myth:"Brown bread is much healthier than white", truth:"More fibre (good) but almost the same calories. Both are fine.", accentColor:"#a16207", icon:"🍞" },
+  { name:"sweat-fat", myth:"Sweating means you’re burning more fat", truth:"Sweat is just water loss. Fat loss comes from a calorie deficit.", accentColor:"#38bdf8", icon:"💦" },
+  { name:"supplements", myth:"Supplements melt fat", truth:"There’s no magic pill. Food + movement wins.", accentColor:"#f59e0b", icon:"💊" },
+];
+
+// ═══════════════════════════════════════════
+// FITSORTED PRODUCT FEATURES
+// ═══════════════════════════════════════════
+const productFeatures = [
+  { name:"macro-tracking", headline:"Track protein, carbs and fat — not just calories", description:"Every food you log shows full macros automatically.", example:"You: ‘2 eggs and toast’ → FitSorted: 310 cal | 22g protein | 18g carbs | 19g fat", accentColor:"#22c55e", icon:"🥚" },
+  { name:"morning-checkin", headline:"Morning check-in at 6:30 AM", description:"Start every day knowing where you stand. Yesterday’s recap + today’s targets.", example:"☀️ Morning! Yesterday: 1,850 cal (under budget ✅). Protein: 112g. Today’s target: 1,900 cal", accentColor:"#f59e0b", icon:"🌅" },
+  { name:"evening-summary", headline:"Evening summary at 8 PM", description:"Know exactly how your day went without checking anything.", example:"📊 Today: 1,720 cal | Protein: 98g | Under budget by 180 cal 🎯", accentColor:"#3b82f6", icon:"🌙" },
+  { name:"sa-foods", headline:"400+ SA foods built in", description:"Nando’s, KFC, Woolworths, Steers, Spur — we know them all.", example:"You: ‘nandos quarter chicken and chips’ → 680 cal | 45g protein", accentColor:"#ef4444", icon:"🇿🇦" },
+  { name:"no-app", headline:"No app download needed", description:"Works inside WhatsApp. Zero storage. Zero data. Already on your phone.", example:"Just message +27 69 068 4940 on WhatsApp", accentColor:"#22c55e", icon:"📱" },
+  { name:"nutrition-coach", headline:"Ask anything about nutrition", description:"Coaching mode — ask questions, get personalised answers.", example:"You: ‘how much protein do I need?’ → Based on your weight (82kg), aim for 130–160g/day", accentColor:"#8b5cf6", icon:"🧠" },
+  { name:"weight-tracking", headline:"Track your weight over time", description:"Log your weight and see the trend — not just daily fluctuations.", example:"You: ‘weight 84.2’ → Logged! 7-day trend: ↓0.4kg. You’re on track 💪", accentColor:"#f97316", icon:"⚖️" },
+  { name:"exercise-logging", headline:"Exercise logging", description:"Log workouts and see calories burned.", example:"You: ‘30 min run’ → Logged! ~300 cal burned. Nice work 🏃", accentColor:"#14b8a6", icon:"🏃" },
+  { name:"offline-queue", headline:"Works offline (sort of)", description:"WhatsApp queues your messages. Send whenever, we process when you’re online.", example:"Send your meals on the train — we’ll catch them later.", accentColor:"#6366f1", icon:"📶" },
+  { name:"price-value", headline:"R49/month — that’s R1.63/day", description:"Less than a Coke. For a personal nutritionist in your pocket.", example:"Save more than you spend by avoiding one snack a day.", accentColor:"#eab308", icon:"💸" },
+  { name:"photo-recognition", headline:"Photo food recognition", description:"Send a photo of your meal and we’ll estimate the calories.", example:"📸 → Looks like grilled chicken with rice and salad. Estimated: 520 cal", accentColor:"#ec4899", icon:"📸" },
+  { name:"free-trial", headline:"7-day free trial", description:"Try everything free for a week. No card needed. Just WhatsApp.", example:"Start today, cancel any time — no stress.", accentColor:"#22c55e", icon:"🎁" },
+  { name:"smart-swaps", headline:"Smart swaps suggestions", description:"FitSorted suggests lower-cal swaps for your favourites.", example:"You: ‘Big Mac’ → Try: McChicken + side salad (save 350 cal)", accentColor:"#0ea5e9", icon:"🔁" },
+];
+
 // ═══════════════════════════════════════════
 // TRACKING - used items
 // ═══════════════════════════════════════════
@@ -163,7 +236,7 @@ const USED_FILE = path.join(DIR, 'weekly-used.json');
 
 function getUsed() {
   try { return JSON.parse(fs.readFileSync(USED_FILE, 'utf8')); }
-  catch { return { foods: [], drinks: [] }; }
+  catch { return { foods: [], drinks: [], cheatSheets: [], didYouKnow: [], mythBusters: [], productFeatures: [] }; }
 }
 
 function saveUsed(used) {
@@ -489,16 +562,31 @@ function cheatSheetCaption(post) {
   return `${post.title} 📋\n\nTop picks: ${top3}\n\nSave this for later 📌\n\n#fitsorted #calorietracker #southafrica #nutrition #cheatsheet #healthyeating`;
 }
 
+function didYouKnowCaption(post) {
+  return `💡 Did you know? ${post.fact} Source: ${post.source}.\n\nTrack smarter with FitSorted on WhatsApp.\n\n#fitsorted #nutrition #southafrica #caloriefacts #healthyeating`;
+}
+
+function mythBusterCaption(post) {
+  return `❌ Myth: ${post.myth}\n✅ Truth: ${post.truth}\n\nKeep it simple — track your calories with FitSorted.\n\n#fitsorted #nutrition #southafrica #mythbuster #healthyeating`;
+}
+
+function productFeatureCaption(post) {
+  return `${post.headline}\n\n${post.description}\n${post.example}\n\nTry FitSorted free on WhatsApp 🇿🇦\n\n#fitsorted #whatsapp #nutrition #southafrica`;
+}
+
 // ═══════════════════════════════════════════
 // MAIN
 // ═══════════════════════════════════════════
 (async () => {
   const used = getUsed();
   
-  // Pick 7 foods + 7 drinks + 2 cheat sheets
+  // Pick weekly content
   const foods = pickItems(allFoods, used.foods, 7);
   const drinks = pickItems(allDrinks, used.drinks, 7);
-  const cheatSheets = pickItems(allCheatSheets, used.cheatSheets || [], 2);
+  const cheatSheets = pickItems(allCheatSheets, used.cheatSheets || [], 1);
+  const didYouKnowItems = pickItems(didYouKnow, used.didYouKnow || [], 3);
+  const mythBusterItems = pickItems(mythBusters, used.mythBusters || [], 2);
+  const productFeatureItems = pickItems(productFeatures, used.productFeatures || [], 2);
   
   console.log('📋 This week\'s food posts:');
   foods.forEach(f => console.log(`  - ${f.food} (${f.calories || f.left?.cal + ' vs ' + f.right?.cal} cal)`));
@@ -506,36 +594,62 @@ function cheatSheetCaption(post) {
   drinks.forEach(d => console.log(`  - ${d.food} (${d.calories} cal)`));
   console.log('\n📊 This week\'s cheat sheets:');
   cheatSheets.forEach(c => console.log(`  - ${c.title}`));
+  console.log('\n💡 This week\'s Did You Know:');
+  didYouKnowItems.forEach(d => console.log(`  - ${d.title}`));
+  console.log('\n❌ This week\'s Myth Busters:');
+  mythBusterItems.forEach(m => console.log(`  - ${m.myth}`));
+  console.log('\n🧩 This week\'s Product Features:');
+  productFeatureItems.forEach(p => console.log(`  - ${p.headline}`));
   
   // Generate images
   const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch({ headless: true });
   
-  const allItems = [...foods.map(f => ({...f, type:'food'})), ...drinks.map(d => ({...d, type:'drink'})), ...cheatSheets.map(c => ({...c, type:'cheatsheet'}))];
+  const allItems = [
+    ...foods.map(f => ({...f, type:'food'})),
+    ...drinks.map(d => ({...d, type:'drink'})),
+    ...cheatSheets.map(c => ({...c, type:'cheatsheet'})),
+    ...didYouKnowItems.map(d => ({...d, type:'didyouknow'})),
+    ...mythBusterItems.map(m => ({...m, type:'mythbuster'})),
+    ...productFeatureItems.map(p => ({...p, type:'productfeature'})),
+  ];
   
   for (const item of allItems) {
-    const imgPath = path.join(DIR, `img-${item.name}.png`);
-    if (!fs.existsSync(imgPath)) {
-      console.log(`\n🎨 Generating image: ${item.name}...`);
-      await generateImage(generatePrompt(item), imgPath);
-      console.log(`✅ Image saved`);
+    if (item.type === 'food' || item.type === 'drink') {
+      const imgPath = path.join(DIR, `img-${item.name}.png`);
+      if (!fs.existsSync(imgPath)) {
+        console.log(`\n🎨 Generating image: ${item.name}...`);
+        await generateImage(generatePrompt(item), imgPath);
+        console.log(`✅ Image saved`);
+      }
+      
+      // Generate HTML
+      const imgBase64 = fs.readFileSync(imgPath).toString('base64');
+      const imgSrc = `data:image/png;base64,${imgBase64}`;
+      const html = item.type === 'food' ? foodHTML(item, imgSrc) : drinkHTML(item, imgSrc);
+      const htmlPath = path.join(DIR, `weekly-${item.name}.html`);
+      fs.writeFileSync(htmlPath, html);
+      
+      // Render PNG
+      const page = await browser.newPage();
+      await page.setViewport({ width: 1080, height: 1080 });
+      await page.goto('file://' + htmlPath);
+      const pngPath = path.join(DIR, `weekly-${item.name}.png`);
+      await page.screenshot({ path: pngPath, type: 'png' });
+      await page.close();
+      console.log(`📸 ${item.name}.png`);
+    } else if (item.type === 'cheatsheet') {
+      const html = cheatSheetHTML(item);
+      const htmlPath = path.join(DIR, `weekly-${item.name}.html`);
+      fs.writeFileSync(htmlPath, html);
+      const page = await browser.newPage();
+      await page.setViewport({ width: 1080, height: 1080 });
+      await page.goto('file://' + htmlPath);
+      const pngPath = path.join(DIR, `weekly-${item.name}.png`);
+      await page.screenshot({ path: pngPath, type: 'png' });
+      await page.close();
+      console.log(`📸 ${item.name}.png`);
     }
-    
-    // Generate HTML
-    const imgBase64 = fs.readFileSync(imgPath).toString('base64');
-    const imgSrc = `data:image/png;base64,${imgBase64}`;
-    const html = item.type === 'cheatsheet' ? cheatSheetHTML(item) : item.type === 'food' ? foodHTML(item, imgSrc) : drinkHTML(item, imgSrc);
-    const htmlPath = path.join(DIR, `weekly-${item.name}.html`);
-    fs.writeFileSync(htmlPath, html);
-    
-    // Render PNG
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1080, height: 1080 });
-    await page.goto('file://' + htmlPath);
-    const pngPath = path.join(DIR, `weekly-${item.name}.png`);
-    await page.screenshot({ path: pngPath, type: 'png' });
-    await page.close();
-    console.log(`📸 ${item.name}.png`);
   }
   await browser.close();
   
@@ -546,7 +660,11 @@ function cheatSheetCaption(post) {
 
   // Helper: build 4-slide carousel HTML files for an item, render PNGs, stitch into mp4
   const buildCarousel = (item) => {
-    const slides = buildSlides(item);
+    let slides;
+    if (item.type === 'didyouknow') slides = buildDidYouKnowSlides(item);
+    else if (item.type === 'mythbuster') slides = buildMythBusterSlides(item);
+    else if (item.type === 'productfeature') slides = buildProductFeatureSlides(item);
+    else slides = buildSlides(item);
     const pngPaths = [];
     for (let si = 0; si < slides.length; si++) {
       const htmlPath = path.join(DIR, `carousel-${item.name}-s${si+1}.html`);
@@ -606,6 +724,96 @@ function cheatSheetCaption(post) {
     // Slide 4: CTA
     const s4style = `.icon{font-size:80px;margin-bottom:20px;}.hl{font-size:60px;font-weight:900;color:#fff;text-align:center;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;}.sub{font-size:28px;color:rgba(255,255,255,0.5);text-align:center;max-width:700px;line-height:1.5;margin-bottom:30px;}.cta{background:linear-gradient(135deg,${accent},${accent}99);border-radius:24px;padding:28px 56px;margin-bottom:16px;}.ct{font-size:34px;font-weight:900;color:#fff;text-align:center;letter-spacing:1px;}.cs{font-size:22px;color:rgba(255,255,255,0.8);text-align:center;margin-top:6px;}.num{font-size:26px;color:${accent}cc;margin-top:6px;}.badge{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;font-size:22px;font-weight:800;letter-spacing:2px;padding:10px 28px;border-radius:40px;margin-top:16px;}`;
     const s4body = `<div class="icon">🏋️</div><div class="hl">Track everything you eat on WhatsApp</div><div class="sub">No app. Just message FitSorted — SA foods, local restaurants, macros.</div><div class="cta"><div class="ct">Try FitSorted FREE for 7 days</div><div class="cs">Then just R49/month 🇿🇦</div></div><div class="num">WhatsApp +27 69 068 4940</div><div class="badge">🏋️ FITSORTED</div>`;
+
+    return [
+      wrap(s1style, s1body, 0),
+      wrap(s2style, s2body, 1),
+      wrap(s3style, s3body, 2),
+      wrap(s4style, s4body, 3),
+    ];
+  };
+
+  const buildDidYouKnowSlides = (item) => {
+    const accent = item.accentColor || '#22c55e';
+    const icon = item.icon || '💡';
+    const bg = `radial-gradient(ellipse at 60% 30%, ${accent}22 0%, #0b0b0f 55%, #000 100%)`;
+    const base = `*{margin:0;padding:0;box-sizing:border-box;}body{width:1080px;height:1080px;font-family:-apple-system,system-ui,sans-serif;overflow:hidden;background:#0a0a0a;}.bg{position:absolute;inset:0;background:${bg};}.ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.75) 100%);}.c{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;height:100%;padding:70px 90px;text-align:center;}.dots{display:flex;gap:10px;margin-top:auto;padding-top:20px;}.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);}.dot.a{background:${accent};width:28px;border-radius:6px;}`;
+    const wrap = (style, body, dotActive) => {
+      const dotHtml = [0,1,2,3].map(i => `<div class=\"dot${i===dotActive?' a':''}\"></div>`).join('');
+      return `<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>${base}${style}</style></head><body><div class=\"bg\"></div><div class=\"ov\"></div><div class=\"c\">${body}<div class=\"dots\">${dotHtml}</div></div></body></html>`;
+    };
+
+    const s1style = `.tag{background:${accent}22;border:1.5px solid ${accent}88;color:${accent};font-size:26px;font-weight:800;letter-spacing:3px;padding:12px 30px;border-radius:40px;margin-bottom:28px;}.icon{font-size:100px;margin-bottom:10px;}.ttl{font-size:62px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;}.sub{font-size:30px;color:rgba(255,255,255,0.55);}`;
+    const s1body = `<div class=\"tag\">DID YOU KNOW?</div><div class=\"icon\">${icon}</div><div class=\"ttl\">${item.title}</div><div class=\"sub\">Swipe for the fact →</div>`;
+
+    const s2style = `.lbl{font-size:26px;letter-spacing:3px;color:${accent};font-weight:800;margin-bottom:14px;}.fact{font-size:42px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:26px;}.src{font-size:22px;color:rgba(255,255,255,0.45);}`;
+    const s2body = `<div class=\"lbl\">THE FACT</div><div class=\"fact\">${item.fact}</div><div class=\"src\">Source: ${item.source}</div>`;
+
+    const s3style = `.lbl{font-size:26px;letter-spacing:3px;color:${accent};font-weight:800;margin-bottom:18px;}.tip{font-size:44px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:20px;}.sub{font-size:26px;color:rgba(255,255,255,0.55);line-height:1.5;}`;
+    const s3body = `<div class=\"lbl\">WHAT THIS MEANS FOR YOU</div><div class=\"tip\">Awareness beats guesswork.</div><div class=\"sub\">Small habits add up fast. Track it for a week and your portions change for life.</div>`;
+
+    const s4style = `.icon{font-size:80px;margin-bottom:20px;}.hl{font-size:58px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;}.sub{font-size:28px;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:26px;}.cta{background:linear-gradient(135deg,${accent},${accent}99);border-radius:24px;padding:26px 52px;margin-bottom:14px;}.ct{font-size:32px;font-weight:900;color:#fff;}.cs{font-size:22px;color:rgba(255,255,255,0.85);margin-top:6px;}.num{font-size:26px;color:${accent}cc;margin-top:6px;}.badge{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;font-size:22px;font-weight:800;letter-spacing:2px;padding:10px 28px;border-radius:40px;margin-top:16px;}`;
+    const s4body = `<div class=\"icon\">🏋️</div><div class=\"hl\">Track smarter on WhatsApp</div><div class=\"sub\">No app. Local SA foods. Full macros.</div><div class=\"cta\"><div class=\"ct\">Try FitSorted FREE for 7 days</div><div class=\"cs\">Then just R49/month 🇿🇦</div></div><div class=\"num\">WhatsApp +27 69 068 4940</div><div class=\"badge\">🏋️ FITSORTED</div>`;
+
+    return [
+      wrap(s1style, s1body, 0),
+      wrap(s2style, s2body, 1),
+      wrap(s3style, s3body, 2),
+      wrap(s4style, s4body, 3),
+    ];
+  };
+
+  const buildMythBusterSlides = (item) => {
+    const accent = item.accentColor || '#ef4444';
+    const icon = item.icon || '❌';
+    const bg = `radial-gradient(ellipse at 60% 30%, ${accent}22 0%, #0b0b0f 55%, #000 100%)`;
+    const base = `*{margin:0;padding:0;box-sizing:border-box;}body{width:1080px;height:1080px;font-family:-apple-system,system-ui,sans-serif;overflow:hidden;background:#0a0a0a;}.bg{position:absolute;inset:0;background:${bg};}.ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.75) 100%);}.c{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;height:100%;padding:70px 90px;text-align:center;}.dots{display:flex;gap:10px;margin-top:auto;padding-top:20px;}.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);}.dot.a{background:${accent};width:28px;border-radius:6px;}`;
+    const wrap = (style, body, dotActive) => {
+      const dotHtml = [0,1,2,3].map(i => `<div class=\"dot${i===dotActive?' a':''}\"></div>`).join('');
+      return `<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>${base}${style}</style></head><body><div class=\"bg\"></div><div class=\"ov\"></div><div class=\"c\">${body}<div class=\"dots\">${dotHtml}</div></div></body></html>`;
+    };
+
+    const s1style = `.tag{background:${accent}22;border:1.5px solid ${accent}88;color:${accent};font-size:26px;font-weight:800;letter-spacing:3px;padding:12px 30px;border-radius:40px;margin-bottom:28px;}.icon{font-size:100px;margin-bottom:10px;}.ttl{font-size:58px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:10px;}.myth{font-size:36px;color:rgba(255,255,255,0.55);}`;
+    const s1body = `<div class=\"tag\">MYTH</div><div class=\"icon\">${icon}</div><div class=\"ttl\">${item.myth}</div><div class=\"myth\">Sounds right... but it isn’t.</div>`;
+
+    const s2style = `.tag{background:#22c55e22;border:1.5px solid #22c55e88;color:#22c55e;font-size:26px;font-weight:800;letter-spacing:3px;padding:12px 30px;border-radius:40px;margin-bottom:24px;}.truth{font-size:44px;font-weight:900;color:#fff;line-height:1.2;}`;
+    const s2body = `<div class=\"tag\">TRUTH</div><div class=\"truth\">${item.truth}</div>`;
+
+    const s3style = `.lbl{font-size:26px;letter-spacing:3px;color:${accent};font-weight:800;margin-bottom:18px;}.tip{font-size:44px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px;}.sub{font-size:26px;color:rgba(255,255,255,0.55);line-height:1.5;}`;
+    const s3body = `<div class=\"lbl\">PRACTICAL TIP</div><div class=\"tip\">Focus on total calories.</div><div class=\"sub\">One solid target beats random rules. Keep it simple and consistent.</div>`;
+
+    const s4style = `.icon{font-size:80px;margin-bottom:20px;}.hl{font-size:58px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;}.sub{font-size:28px;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:26px;}.cta{background:linear-gradient(135deg,${accent},${accent}99);border-radius:24px;padding:26px 52px;margin-bottom:14px;}.ct{font-size:32px;font-weight:900;color:#fff;}.cs{font-size:22px;color:rgba(255,255,255,0.85);margin-top:6px;}.num{font-size:26px;color:${accent}cc;margin-top:6px;}.badge{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;font-size:22px;font-weight:800;letter-spacing:2px;padding:10px 28px;border-radius:40px;margin-top:16px;}`;
+    const s4body = `<div class=\"icon\">🏋️</div><div class=\"hl\">Cut through the noise</div><div class=\"sub\">Track what matters with FitSorted on WhatsApp.</div><div class=\"cta\"><div class=\"ct\">Try FitSorted FREE for 7 days</div><div class=\"cs\">Then just R49/month 🇿🇦</div></div><div class=\"num\">WhatsApp +27 69 068 4940</div><div class=\"badge\">🏋️ FITSORTED</div>`;
+
+    return [
+      wrap(s1style, s1body, 0),
+      wrap(s2style, s2body, 1),
+      wrap(s3style, s3body, 2),
+      wrap(s4style, s4body, 3),
+    ];
+  };
+
+  const buildProductFeatureSlides = (item) => {
+    const accent = item.accentColor || '#22c55e';
+    const icon = item.icon || '🧩';
+    const bg = `radial-gradient(ellipse at 60% 30%, ${accent}22 0%, #0b0b0f 55%, #000 100%)`;
+    const base = `*{margin:0;padding:0;box-sizing:border-box;}body{width:1080px;height:1080px;font-family:-apple-system,system-ui,sans-serif;overflow:hidden;background:#0a0a0a;}.bg{position:absolute;inset:0;background:${bg};}.ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.75) 100%);}.c{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;height:100%;padding:70px 90px;text-align:center;}.dots{display:flex;gap:10px;margin-top:auto;padding-top:20px;}.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);}.dot.a{background:${accent};width:28px;border-radius:6px;}`;
+    const wrap = (style, body, dotActive) => {
+      const dotHtml = [0,1,2,3].map(i => `<div class=\"dot${i===dotActive?' a':''}\"></div>`).join('');
+      return `<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>${base}${style}</style></head><body><div class=\"bg\"></div><div class=\"ov\"></div><div class=\"c\">${body}<div class=\"dots\">${dotHtml}</div></div></body></html>`;
+    };
+
+    const s1style = `.tag{background:${accent}22;border:1.5px solid ${accent}88;color:${accent};font-size:26px;font-weight:800;letter-spacing:3px;padding:12px 30px;border-radius:40px;margin-bottom:28px;}.icon{font-size:100px;margin-bottom:10px;}.ttl{font-size:58px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;}.sub{font-size:28px;color:rgba(255,255,255,0.55);}`;
+    const s1body = `<div class=\"tag\">FEATURE</div><div class=\"icon\">${icon}</div><div class=\"ttl\">${item.headline}</div><div class=\"sub\">Built for SA lifestyles</div>`;
+
+    const s2style = `.lbl{font-size:26px;letter-spacing:3px;color:${accent};font-weight:800;margin-bottom:14px;}.desc{font-size:36px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:22px;}.chat{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:18px;padding:22px 26px;font-size:26px;color:rgba(255,255,255,0.85);line-height:1.35;text-align:left;width:100%;}`;
+    const s2body = `<div class=\"lbl\">HOW IT WORKS</div><div class=\"desc\">${item.description}</div><div class=\"chat\">${item.example}</div>`;
+
+    const s3style = `.lbl{font-size:26px;letter-spacing:3px;color:${accent};font-weight:800;margin-bottom:18px;}.why{font-size:44px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px;}.sub{font-size:26px;color:rgba(255,255,255,0.55);line-height:1.5;}`;
+    const s3body = `<div class=\"lbl\">WHY IT MATTERS</div><div class=\"why\">Less effort. More consistency.</div><div class=\"sub\">When tracking is easy, you actually stick to it — and results follow.</div>`;
+
+    const s4style = `.icon{font-size:80px;margin-bottom:20px;}.hl{font-size:58px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;}.sub{font-size:28px;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:26px;}.cta{background:linear-gradient(135deg,${accent},${accent}99);border-radius:24px;padding:26px 52px;margin-bottom:14px;}.ct{font-size:32px;font-weight:900;color:#fff;}.cs{font-size:22px;color:rgba(255,255,255,0.85);margin-top:6px;}.num{font-size:26px;color:${accent}cc;margin-top:6px;}.badge{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;font-size:22px;font-weight:800;letter-spacing:2px;padding:10px 28px;border-radius:40px;margin-top:16px;}`;
+    const s4body = `<div class=\"icon\">🏋️</div><div class=\"hl\">Try FitSorted free</div><div class=\"sub\">WhatsApp-based calorie tracking made for SA.</div><div class=\"cta\"><div class=\"ct\">7-day FREE trial</div><div class=\"cs\">Then just R49/month 🇿🇦</div></div><div class=\"num\">WhatsApp +27 69 068 4940</div><div class=\"badge\">🏋️ FITSORTED</div>`;
 
     return [
       wrap(s1style, s1body, 0),
@@ -689,13 +897,6 @@ function cheatSheetCaption(post) {
     
     // Drink at 6PM SA = 16:00 UTC
     if (uploads[drink.name]) {
-      const cap = drinkCaption(drink);
-      try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[drink.name]}" -s "${dateStr}T16:00:00Z" --settings '${S_POST}' -i "${IG_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
-        console.log(`✅ ${days[i]} 6PM IG: ${drink.name}`);
-      } catch(e) { console.error(`❌ ${days[i]} IG drink: ${e.message.slice(0,100)}`); }
-      await new Promise(r => setTimeout(r, 8000));
-      
       // TikTok drink at 6:30PM SA = 16:30 UTC (video slideshow)
       // Uses tiktokSafe caption to avoid alcohol brand strikes
       if (ttUploads[drink.name]) try {
@@ -705,29 +906,37 @@ function cheatSheetCaption(post) {
       } catch(e) { console.error(`❌ ${days[i]} TT drink: ${e.message.slice(0,100)}`); }
       await new Promise(r => setTimeout(r, 8000));
     }
-  }
-  
-  // Schedule cheat sheets (Wed at 1PM and Sat at 1PM SA = 11:00 UTC)
-  const cheatDays = [2, 5]; // Wed=2, Sat=5 (Mon=0 based)
-  for (let ci = 0; ci < cheatSheets.length && ci < cheatDays.length; ci++) {
-    const cs = cheatSheets[ci];
-    const date = new Date(monday);
-    date.setDate(monday.getDate() + cheatDays[ci]);
-    const dateStr = date.toISOString().slice(0,10);
-    
-    if (uploads[cs.name]) {
-      const cap = cheatSheetCaption(cs);
-      try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[cs.name]}" -s "${dateStr}T11:00:00Z" --settings '${S_POST}' -i "${IG_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
-        console.log(`✅ ${days[cheatDays[ci]]} 1PM IG cheat sheet: ${cs.title}`);
-      } catch(e) { console.error(`❌ Cheat sheet IG: ${e.message.slice(0,100)}`); }
-      await new Promise(r => setTimeout(r, 8000));
-      
-      if (ttUploads[cs.name]) try {
-        execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[cs.name]}" -s "${dateStr}T11:30:00Z" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
-        console.log(`✅ ${days[cheatDays[ci]]} 1:30PM TT cheat sheet: ${cs.title}`);
-      } catch(e) { console.error(`❌ Cheat sheet TT: ${e.message.slice(0,100)}`); }
-      await new Promise(r => setTimeout(r, 8000));
+
+    // Midday content at 1PM SA = 11:00 UTC (staggered if two posts)
+    const middayItems = [];
+    if (i === 0 && didYouKnowItems[0]) middayItems.push({ item: didYouKnowItems[0], type: 'didyouknow' });
+    if (i === 1 && mythBusterItems[0]) middayItems.push({ item: mythBusterItems[0], type: 'mythbuster' });
+    if (i === 2 && cheatSheets[0]) middayItems.push({ item: cheatSheets[0], type: 'cheatsheet' });
+    if (i === 2 && productFeatureItems[0]) middayItems.push({ item: productFeatureItems[0], type: 'productfeature' });
+    if (i === 3 && didYouKnowItems[1]) middayItems.push({ item: didYouKnowItems[1], type: 'didyouknow' });
+    if (i === 4 && mythBusterItems[1]) middayItems.push({ item: mythBusterItems[1], type: 'mythbuster' });
+    if (i === 5 && productFeatureItems[1]) middayItems.push({ item: productFeatureItems[1], type: 'productfeature' });
+    if (i === 6 && didYouKnowItems[2]) middayItems.push({ item: didYouKnowItems[2], type: 'didyouknow' });
+
+    const timeStr = (h, m) => `${dateStr}T${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:00Z`;
+
+    for (let mi = 0; mi < middayItems.length; mi++) {
+      const { item: midItem, type } = middayItems[mi];
+      const offset = mi * 20; // stagger by 20 minutes if two posts
+      const igTime = timeStr(11, 0 + offset);
+      const ttTime = timeStr(11, 30 + offset);
+      const cap = type === 'cheatsheet' ? cheatSheetCaption(midItem)
+        : type === 'didyouknow' ? didYouKnowCaption(midItem)
+        : type === 'mythbuster' ? mythBusterCaption(midItem)
+        : productFeatureCaption(midItem);
+
+      if (uploads[midItem.name]) {
+        if (ttUploads[midItem.name]) try {
+          execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[midItem.name]}" -s "${ttTime}" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+          console.log(`✅ ${days[i]} 1:30PM TT: ${midItem.name}`);
+        } catch(e) { console.error(`❌ ${days[i]} TT midday: ${e.message.slice(0,100)}`); }
+        await new Promise(r => setTimeout(r, 8000));
+      }
     }
   }
 
@@ -735,7 +944,13 @@ function cheatSheetCaption(post) {
   used.foods.push(...foods.map(f => f.name));
   used.drinks.push(...drinks.map(d => d.name));
   if (!used.cheatSheets) used.cheatSheets = [];
+  if (!used.didYouKnow) used.didYouKnow = [];
+  if (!used.mythBusters) used.mythBusters = [];
+  if (!used.productFeatures) used.productFeatures = [];
   used.cheatSheets.push(...cheatSheets.map(c => c.name));
+  used.didYouKnow.push(...didYouKnowItems.map(d => d.name));
+  used.mythBusters.push(...mythBusterItems.map(m => m.name));
+  used.productFeatures.push(...productFeatureItems.map(p => p.name));
   saveUsed(used);
   
   console.log('\n🎉 Weekly content generation complete!');
