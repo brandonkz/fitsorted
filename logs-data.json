@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-25T04:38:21.223Z",
+    "date": "2026-03-25",
+    "phone": "5958",
+    "userId": "27713555",
+    "food": "Coffee with milk and sugar (Nescafe) (1 cup)",
+    "calories": 65,
+    "protein": 2,
+    "carbs": 9,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-25T04:36:43.327Z",
+    "date": "2026-03-25",
+    "phone": "5958",
+    "userId": "27713555",
+    "food": "Boiled egg (1 large) (1 egg)",
+    "calories": 78,
+    "protein": 6,
+    "carbs": 1,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-24T21:05:43.627Z",
     "date": "2026-03-24",
     "phone": "2546",
