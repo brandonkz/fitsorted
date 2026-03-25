@@ -85,6 +85,69 @@
           "time": "2026-03-23T11:11:14.863Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "calories": 795,
+        "protein": 31,
+        "carbs": 94,
+        "fat": 32,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T21:05:28.189Z"
+        },
+        {
+          "food": "Red Bull Sugar Free 250ml",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T21:05:34.469Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T21:05:37.174Z"
+        },
+        {
+          "food": "Steers onion rings (1 regular)",
+          "calories": 280,
+          "protein": 4,
+          "carbs": 30,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T21:05:41.373Z"
+        },
+        {
+          "food": "Pilchards in tomato sauce (1 can (215g))",
+          "calories": 190,
+          "protein": 17,
+          "carbs": 4,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-24T21:05:43.627Z"
+        }
+      ]
     }
   ]
 }
