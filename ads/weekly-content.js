@@ -931,6 +931,16 @@ function productFeatureCaption(post) {
         : productFeatureCaption(midItem);
 
       if (uploads[midItem.name]) {
+        // Instagram: only ONE midday post per day (avoid 3-post bursts)
+        if (mi === 0) {
+          try {
+            execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${uploads[midItem.name]}" -s "${igTime}" --settings '${S_POST}' -i "${IG_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
+            console.log(`✅ ${days[i]} 1PM IG: ${midItem.name}`);
+          } catch(e) { console.error(`❌ ${days[i]} IG midday: ${e.message.slice(0,100)}`); }
+          await new Promise(r => setTimeout(r, 8000));
+        }
+
+        // TikTok gets all midday items
         if (ttUploads[midItem.name]) try {
           execSync(`postiz posts:create -c "${cap.replace(/"/g,'\\"')}" -m "${ttUploads[midItem.name]}" -s "${ttTime}" --settings '${S_TT}' -i "${TT_ID}" 2>&1`, { env: { ...process.env, POSTIZ_API_KEY: POSTIZ_KEY } });
           console.log(`✅ ${days[i]} 1:30PM TT: ${midItem.name}`);
