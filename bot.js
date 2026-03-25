@@ -1330,6 +1330,12 @@ async function estimateCalories(food, user) {
     "bean bunny chow": { food: "Bean Bunny Chow (quarter)", calories: 500, protein: 18, carbs: 75, fat: 12, fibre: 10 },
     // Round 15 - nightly edge case test 2026-03-24
     "rooibos latte": { food: "Rooibos Latte (steamed milk)", calories: 120, protein: 5, carbs: 10, fat: 5, fibre: 0 },
+    // Round 16 - nightly edge case test 2026-03-26
+    "magwinya with atchar": { food: "Magwinya with Atchar", calories: 400, protein: 5, carbs: 55, fat: 16, fibre: 3 },
+    "fat cake with atchar": { food: "Fat Cake with Atchar", calories: 400, protein: 5, carbs: 55, fat: 16, fibre: 3 },
+    "checkers banana bread slice": { food: "Checkers Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
+    "banana bread slice": { food: "Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
+    "banana bread": { food: "Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
