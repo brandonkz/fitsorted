@@ -1,6 +1,6 @@
 {
-  "_meta_last_category": "SA restaurant meals (round 3)",
-  "_meta_last_date": "2026-03-25",
+  "_meta_last_category": "Woolworths + Checkers snacks",
+  "_meta_last_date": "2026-03-26",
   "_meta_categories_done": [
     "SA restaurant meals",
     "SA grocery/prepared meals",
@@ -15,7 +15,8 @@
     "International cuisine",
     "SA restaurant meals (round 2)",
     "SA chocolates, sweets, energy drinks & bakery",
-    "SA restaurant meals (round 3)"
+    "SA restaurant meals (round 3)",
+    "Woolworths + Checkers snacks"
   ],
   "nandos quarter chicken": 310,
   "nandos half chicken": 620,
@@ -1123,5 +1124,25 @@
   "spur crumbed mushrooms": 420,
   "spur onion rings": 380,
   "spur ribs 400g": 980,
-  "spur ribs 200g": 560
+  "spur ribs 200g": 560,
+  "woolworths protein bar chocolate 50g": 200,
+  "woolworths protein bar peanut butter 50g": 210,
+  "woolworths sea salt rice crackers 100g": 440,
+  "woolworths sweet chilli rice crackers 100g": 450,
+  "woolworths dark chocolate almonds 100g": 530,
+  "woolworths yoghurt coated raisins 100g": 420,
+  "woolworths wasabi peas 100g": 430,
+  "woolworths biltong crisps 30g": 130,
+  "woolworths popcorn lightly salted 80g": 380,
+  "woolworths popcorn sweet and salty 80g": 400,
+  "woolworths roasted chickpeas 100g": 420,
+  "woolworths mini choc chip cookies 200g": 920,
+  "checkers housebrand potato chips salt 125g": 550,
+  "checkers housebrand potato chips cheese and onion 125g": 555,
+  "checkers housebrand popcorn butter 85g": 410,
+  "checkers housebrand pretzels salted 150g": 570,
+  "checkers housebrand rice cakes plain 130g": 500,
+  "checkers housebrand choc chip cookies 200g": 900,
+  "checkers housebrand peanuts roasted salted 150g": 870,
+  "checkers housebrand trail mix 100g": 480
 }
