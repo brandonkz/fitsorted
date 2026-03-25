@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-25T12:00:29.115Z",
+    "date": "2026-03-25",
+    "phone": "2573",
+    "userId": "27827882",
+    "food": "Seattle Americano Grande with full cream hot milk",
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-25T11:21:45.970Z",
+    "date": "2026-03-25",
+    "phone": "8334",
+    "userId": "44754155",
+    "food": "Woolworths biltong (~50g)",
+    "calories": 125,
+    "protein": 30,
+    "carbs": 0,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-25T11:16:31.334Z",
+    "date": "2026-03-25",
+    "phone": "1220",
+    "userId": "27837771",
+    "food": "2x cheese burgers and a glass of coke (est.)",
+    "calories": 250,
+    "protein": 10,
+    "carbs": 30,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-25T11:15:41.321Z",
+    "date": "2026-03-25",
+    "phone": "1220",
+    "userId": "27837771",
+    "food": "Oats (1 cup cooked) (1 cup)",
+    "calories": 150,
+    "protein": 6,
+    "carbs": 27,
+    "fat": 3,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-25T10:55:28.074Z",
     "date": "2026-03-25",
     "phone": "3244",
