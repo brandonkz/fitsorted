@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-26T22:01:06.531Z",
+    "date": "2026-03-27",
+    "phone": "8334",
+    "userId": "44754155",
+    "food": "Glass of red wine (1 glass (150ml))",
+    "calories": 125,
+    "protein": 0,
+    "carbs": 4,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-26T21:37:22.547Z",
+    "date": "2026-03-26",
+    "phone": "8460",
+    "userId": "27723458",
+    "food": "2x slice healthy bread with butter",
+    "calories": 320,
+    "protein": 8,
+    "carbs": 56,
+    "fat": 12,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-26T19:35:00.862Z",
     "date": "2026-03-26",
     "phone": "7571",
