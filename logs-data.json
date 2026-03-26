@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-26T03:01:28.026Z",
+    "date": "2026-03-26",
+    "phone": "7861",
+    "userId": "27834117",
+    "food": "2x beef salt meat on 2 slices of toast with mayo and grated cheese",
+    "calories": 800,
+    "protein": 40,
+    "carbs": 80,
+    "fat": 40,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-25T20:58:39.588Z",
     "date": "2026-03-25",
     "phone": "2618",
