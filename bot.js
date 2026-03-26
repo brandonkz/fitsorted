@@ -2610,32 +2610,41 @@ async function handleSetup(from, user, msg, users) {
       return;
     }
     
-    // Validate email
-    const emailMatch = emailText.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
-    if (!emailMatch) {
-      await send(from, `That doesn't look like a valid email.\n\nTry again, or type *skip* to continue without email.`);
+    // If it looks like food (no @ sign, common food words), skip email and log the food
+    const foodIndicators = /^(coffee|tea|water|toast|eggs?|chicken|rice|bread|milk|juice|banana|apple|sandwich|salad|burger|pizza|pasta|cereal|oats|yoghurt|biltong|droewors|nandos|kfc|steers|mcdonalds|spur|wimpy|woolworths|checkers|\d+\s*(x|×)?\s*\w)/i;
+    if (!emailText.includes('@') && foodIndicators.test(emailText)) {
+      // User wants to log food, not give email — skip email step
+      user.step = null;
+      saveUsers(users);
+      // Fall through to food logging below (don't return)
+    } else {
+      // Validate email
+      const emailMatch = emailText.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+      if (!emailMatch) {
+        await send(from, `That doesn't look like a valid email.\n\nTry again, or type *skip* to continue without email.`);
+        return;
+      }
+    
+      if (!user.profile) user.profile = {};
+      user.profile.exportEmail = emailText;
+      user.step = "budget";
+      saveUsers(users);
+
+      try {
+        await sendButtons(from,
+          `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
+          [
+            { id: "setup:budget_100", title: "R100/day" },
+            { id: "setup:budget_150", title: "R150/day" },
+            { id: "setup:budget_200", title: "R200/day" },
+            { id: "setup:budget_skip", title: "Skip for now" },
+          ]
+        );
+      } catch {
+        await send(from, `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
+      }
       return;
     }
-    
-    if (!user.profile) user.profile = {};
-    user.profile.exportEmail = emailText;
-    user.step = "budget";
-    saveUsers(users);
-
-    try {
-      await sendButtons(from,
-        `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
-        [
-          { id: "setup:budget_100", title: "R100/day" },
-          { id: "setup:budget_150", title: "R150/day" },
-          { id: "setup:budget_200", title: "R200/day" },
-          { id: "setup:budget_skip", title: "Skip for now" },
-        ]
-      );
-    } catch {
-      await send(from, `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
-    }
-    return;
   }
 
   if (step === "budget") {
