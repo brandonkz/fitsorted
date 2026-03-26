@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-26T11:53:53.490Z",
+    "date": "2026-03-26",
+    "phone": "7571",
+    "userId": "27832127",
+    "food": "Instant beef noodles (~100g dry)",
+    "calories": 380,
+    "protein": 10,
+    "carbs": 70,
+    "fat": 10,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-26T11:36:36.639Z",
+    "date": "2026-03-26",
+    "phone": "7730",
+    "userId": "23481370",
+    "food": "Black coffee (1 cup, ~240ml)",
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-26T11:01:20.894Z",
     "date": "2026-03-26",
     "phone": "0873",
