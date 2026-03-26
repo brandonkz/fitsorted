@@ -244,16 +244,26 @@ function saveUsed(used) {
 }
 
 function pickItems(pool, used, count) {
-  // Prefer unused items, then reset if needed
+  // Filter out recently used items
   let available = pool.filter(p => !used.includes(p.name));
   if (available.length < count) {
-    // Reset — all items available again
-    available = [...pool];
+    // Keep the last 2 weeks of items to avoid immediate repeats
+    const keep = used.slice(-14);
     used.length = 0;
+    keep.forEach(k => used.push(k));
+    available = pool.filter(p => !used.includes(p.name));
+    // If STILL not enough (tiny pool), allow all
+    if (available.length < count) {
+      available = [...pool];
+      used.length = 0;
+    }
   }
   // Shuffle and pick
   const shuffled = available.sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, count);
+  const picked = shuffled.slice(0, count);
+  // Immediately mark as used so duplicates can't happen within same run
+  picked.forEach(p => used.push(p.name));
+  return picked;
 }
 
 // ═══════════════════════════════════════════
