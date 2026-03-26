@@ -69,12 +69,12 @@
     {
       "date": "2026-03-25",
       "totals": {
-        "calories": 820,
-        "protein": 43,
-        "carbs": 67,
-        "fat": 39,
-        "fibre": 0,
-        "priceZAR": 110
+        "calories": 1400,
+        "protein": 81,
+        "carbs": 135,
+        "fat": 57,
+        "fibre": 4,
+        "priceZAR": 195
       },
       "entries": [
         {
@@ -96,6 +96,26 @@
           "fibre": 0,
           "priceZAR": 65,
           "time": "2026-03-25T10:37:23.745Z"
+        },
+        {
+          "food": "Noodles (1 cup cooked, ~200g) and beef (100g)",
+          "calories": 520,
+          "protein": 36,
+          "carbs": 60,
+          "fat": 16,
+          "fibre": 3,
+          "priceZAR": 45,
+          "time": "2026-03-25T20:15:29.354Z"
+        },
+        {
+          "food": "Almond milk cappuccino (1 cup, ~240ml)",
+          "calories": 60,
+          "protein": 2,
+          "carbs": 8,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 40,
+          "time": "2026-03-25T20:15:34.577Z"
         }
       ]
     }

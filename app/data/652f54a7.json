@@ -128,6 +128,119 @@
           "time": "2026-03-24T16:50:40.020Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "calories": 2495,
+        "protein": 139,
+        "carbs": 172,
+        "fat": 142,
+        "fibre": 7,
+        "priceZAR": 370
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-25T20:54:12.908Z"
+        },
+        {
+          "food": "Half burger pie (~150g)",
+          "calories": 300,
+          "protein": 12,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 45,
+          "time": "2026-03-25T20:54:35.852Z"
+        },
+        {
+          "food": "Coca-Cola (250ml)",
+          "calories": 105,
+          "protein": 0,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T20:54:39.970Z"
+        },
+        {
+          "food": "Coke Zero 330ml",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-25T20:55:41.103Z"
+        },
+        {
+          "food": "Lamb chop (braai, 1 chop) (1 chop (~120g))",
+          "calories": 290,
+          "protein": 24,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-25T20:56:05.167Z"
+        },
+        {
+          "food": "Lamb chop (braai, 1 chop) (1 chop (~120g))",
+          "calories": 290,
+          "protein": 24,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-25T20:56:42.350Z"
+        },
+        {
+          "food": "Lamb chop (braai, 1 chop) (1 chop (~120g))",
+          "calories": 290,
+          "protein": 24,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-25T20:57:11.726Z"
+        },
+        {
+          "food": "Lamb chop (braai, 1 chop) (1 chop (~120g))",
+          "calories": 290,
+          "protein": 24,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-25T20:57:25.858Z"
+        },
+        {
+          "food": "2x pizza slice pepperoni",
+          "calories": 600,
+          "protein": 24,
+          "carbs": 72,
+          "fat": 24,
+          "fibre": 4,
+          "priceZAR": 80,
+          "time": "2026-03-25T20:57:44.909Z"
+        },
+        {
+          "food": "Malva pudding (1 serving (120g))",
+          "calories": 280,
+          "protein": 4,
+          "carbs": 38,
+          "fat": 13,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-03-25T20:58:39.588Z"
+        }
+      ]
     }
   ]
 }
