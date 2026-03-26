@@ -118,6 +118,79 @@
           "time": "2026-03-25T20:15:34.577Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 905,
+        "protein": 29,
+        "carbs": 123,
+        "fat": 33,
+        "fibre": 11,
+        "priceZAR": 110
+      },
+      "entries": [
+        {
+          "food": "Kelloggs cornflakes (30g)",
+          "calories": 110,
+          "protein": 2,
+          "carbs": 24,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-26T07:09:44.788Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 5,
+          "time": "2026-03-26T07:09:49.055Z"
+        },
+        {
+          "food": "sugar (1 tsp, ~4g)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 2,
+          "time": "2026-03-26T07:09:53.298Z"
+        },
+        {
+          "food": "Lactose free milk (1 cup, ~240ml)",
+          "calories": 100,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T07:09:58.697Z"
+        },
+        {
+          "food": "Peanut butter (2 tbsp) (2 tbsp (32g))",
+          "calories": 190,
+          "protein": 8,
+          "carbs": 6,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-26T11:01:20.894Z"
+        },
+        {
+          "food": "Fig and feta ciabatta toast (~150g)",
+          "calories": 350,
+          "protein": 10,
+          "carbs": 50,
+          "fat": 12,
+          "fibre": 5,
+          "priceZAR": 65,
+          "time": "2026-03-26T18:16:23.267Z"
+        }
+      ]
     }
   ]
 }

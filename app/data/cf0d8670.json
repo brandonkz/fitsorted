@@ -117,6 +117,109 @@
           "time": "2026-03-25T18:31:35.181Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 2510,
+        "protein": 132,
+        "carbs": 280,
+        "fat": 111,
+        "fibre": 21,
+        "priceZAR": 430
+      },
+      "entries": [
+        {
+          "food": "Fruit salad with yogurt (150g)",
+          "calories": 120,
+          "protein": 4,
+          "carbs": 20,
+          "fat": 3,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-26T07:45:46.933Z"
+        },
+        {
+          "food": "Almonds (30g) with yogurt (150g) and honey (15g)",
+          "calories": 290,
+          "protein": 10,
+          "carbs": 35,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-03-26T07:46:46.775Z"
+        },
+        {
+          "food": "Coffee beverage (250ml)",
+          "calories": 100,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-26T07:48:37.415Z"
+        },
+        {
+          "food": "Grilled beef with zucchini and tomato (~200g)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 20,
+          "fat": 25,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-26T10:26:36.118Z"
+        },
+        {
+          "food": "Koffie with milk (~200ml)",
+          "calories": 60,
+          "protein": 3,
+          "carbs": 6,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T10:39:26.937Z"
+        },
+        {
+          "food": "Coffee with milk (250ml)",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-26T13:31:28.135Z"
+        },
+        {
+          "food": "Large pizza with chicken (~300g), mushrooms (~100g), and cheese (~150g)",
+          "calories": 1200,
+          "protein": 60,
+          "carbs": 150,
+          "fat": 50,
+          "fibre": 8,
+          "priceZAR": 250,
+          "time": "2026-03-26T16:29:47.355Z"
+        },
+        {
+          "food": "2x glass of red wine (350ml)",
+          "calories": 250,
+          "protein": 19,
+          "carbs": 25,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 120,
+          "time": "2026-03-26T18:00:38.537Z"
+        },
+        {
+          "food": "Tea with milk (1 cup)",
+          "calories": 40,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-26T18:08:09.392Z"
+        }
+      ]
     }
   ]
 }

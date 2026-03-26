@@ -1,10 +1,10 @@
 {
   "name": "Jan",
-  "goal": 3023,
+  "goal": 3006,
   "joinedAt": "2026-03-23T06:17:34.881Z",
   "profile": {
     "age": 43,
-    "weight": 109,
+    "weight": 108,
     "height": 186,
     "gender": "male",
     "target": "lose",
@@ -456,6 +456,119 @@
           "fibre": 3,
           "priceZAR": 10,
           "time": "2026-03-25T18:30:24.937Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 2135,
+        "protein": 120.6,
+        "carbs": 107,
+        "fat": 102.5,
+        "fibre": 12,
+        "priceZAR": 359
+      },
+      "entries": [
+        {
+          "food": "Braai steak (sirloin, 150g) (150g)",
+          "calories": 360,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-26T07:51:02.180Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T08:34:50.216Z"
+        },
+        {
+          "food": "Shortrib (~300g)",
+          "calories": 720,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 54,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-26T10:10:32.554Z"
+        },
+        {
+          "food": "Pear (1 medium (175g))",
+          "calories": 100,
+          "protein": 0.6,
+          "carbs": 27,
+          "fat": 0.2,
+          "fibre": 5,
+          "priceZAR": 4,
+          "time": "2026-03-26T10:10:44.246Z"
+        },
+        {
+          "food": "Guinness (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-26T14:43:15.624Z"
+        },
+        {
+          "food": "Guinness (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-26T14:43:30.280Z"
+        },
+        {
+          "food": "Guinness (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-26T14:45:12.023Z"
+        },
+        {
+          "food": "Beetroot cooked (1/2 cup (85g))",
+          "calories": 45,
+          "protein": 2,
+          "carbs": 10,
+          "fat": 0.2,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-26T16:44:18.734Z"
+        },
+        {
+          "food": "Boerewors (1 link, grilled) (1 link (~100g))",
+          "calories": 280,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 24,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-26T17:56:05.177Z"
+        },
+        {
+          "food": "Sweet potato baked (1 medium (130g))",
+          "calories": 115,
+          "protein": 2,
+          "carbs": 27,
+          "fat": 0.1,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-26T17:56:26.895Z"
         }
       ]
     }

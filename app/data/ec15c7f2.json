@@ -181,6 +181,39 @@
           "time": "2026-03-25T18:45:24.109Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 850,
+        "protein": 40,
+        "carbs": 120,
+        "fat": 25,
+        "fibre": 17,
+        "priceZAR": 110
+      },
+      "entries": [
+        {
+          "food": "Koo baked beans (1 plate, ~250g) with 3 slices white bread",
+          "calories": 550,
+          "protein": 20,
+          "carbs": 90,
+          "fat": 10,
+          "fibre": 15,
+          "priceZAR": 60,
+          "time": "2026-03-26T13:07:19.234Z"
+        },
+        {
+          "food": "Pattie burger (~150g)",
+          "calories": 300,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 50,
+          "time": "2026-03-26T18:15:57.366Z"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "name": "Debo",
+  "goal": 2336,
+  "joinedAt": "2026-03-26T11:33:45.305Z",
+  "profile": {
+    "age": 35,
+    "weight": 75,
+    "height": 179,
+    "gender": "male",
+    "target": "maintain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 2,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "Black coffee (1 cup, ~240ml)",
+          "calories": 2,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T11:36:36.639Z"
+        }
+      ]
+    }
+  ]
+}

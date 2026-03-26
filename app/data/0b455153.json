@@ -239,6 +239,59 @@
           "time": "2026-03-25T18:32:04.595Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 880,
+        "protein": 80,
+        "carbs": 22,
+        "fat": 58,
+        "fibre": 2,
+        "priceZAR": 105
+      },
+      "entries": [
+        {
+          "food": "4x eggs",
+          "calories": 280,
+          "protein": 28,
+          "carbs": 2,
+          "fat": 20,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T10:55:44.340Z"
+        },
+        {
+          "food": "Roasted and salted cashew nuts (43g)",
+          "calories": 240,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-26T10:55:49.152Z"
+        },
+        {
+          "food": "Canned tuna in olive oil (1 can, ~150g)",
+          "calories": 300,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-26T10:55:53.453Z"
+        },
+        {
+          "food": "Kefir (1/2 cup, ~120g)",
+          "calories": 60,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T10:55:58.404Z"
+        }
+      ]
     }
   ]
 }

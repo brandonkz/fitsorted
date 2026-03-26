@@ -241,6 +241,79 @@
           "time": "2026-03-25T20:58:39.588Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 1900,
+        "protein": 73,
+        "carbs": 231,
+        "fat": 67,
+        "fibre": 14,
+        "priceZAR": 325
+      },
+      "entries": [
+        {
+          "food": "Tinkies (1 piece)",
+          "calories": 120,
+          "protein": 1,
+          "carbs": 20,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-26T12:42:34.751Z"
+        },
+        {
+          "food": "coffee (black, ~240ml)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-26T12:42:38.946Z"
+        },
+        {
+          "food": "Woolworths sushi 9 piece (1 pack (9pc))",
+          "calories": 350,
+          "protein": 12,
+          "carbs": 55,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 85,
+          "time": "2026-03-26T14:31:33.673Z"
+        },
+        {
+          "food": "Debonairs pizza (2 slices)",
+          "calories": 460,
+          "protein": 20,
+          "carbs": 52,
+          "fat": 18,
+          "fibre": 4,
+          "priceZAR": 60,
+          "time": "2026-03-26T18:14:17.626Z"
+        },
+        {
+          "food": "Debonairs pizza (2 slices)",
+          "calories": 460,
+          "protein": 20,
+          "carbs": 52,
+          "fat": 18,
+          "fibre": 4,
+          "priceZAR": 70,
+          "time": "2026-03-26T18:14:41.281Z"
+        },
+        {
+          "food": "Debonairs pizza (2 slices)",
+          "calories": 460,
+          "protein": 20,
+          "carbs": 52,
+          "fat": 18,
+          "fibre": 4,
+          "priceZAR": 70,
+          "time": "2026-03-26T18:14:57.563Z"
+        }
+      ]
     }
   ]
 }

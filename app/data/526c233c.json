@@ -179,6 +179,139 @@
           "time": "2026-03-25T18:14:37.739Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 2070,
+        "protein": 116,
+        "carbs": 247,
+        "fat": 65,
+        "fibre": 17,
+        "priceZAR": 230
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-26T08:01:25.230Z"
+        },
+        {
+          "food": "Albany brown bread (2 slices)",
+          "calories": 180,
+          "protein": 7,
+          "carbs": 32,
+          "fat": 2,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-26T08:35:04.958Z"
+        },
+        {
+          "food": "Skip (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-26T08:35:50.627Z"
+        },
+        {
+          "food": "Biltong (100g)",
+          "calories": 350,
+          "protein": 56,
+          "carbs": 8,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 50,
+          "time": "2026-03-26T18:26:35.531Z"
+        },
+        {
+          "food": "Latte (1 cup (350ml))",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 10,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-26T18:27:07.069Z"
+        },
+        {
+          "food": "Pasta (1 cup cooked) (1 cup)",
+          "calories": 200,
+          "protein": 7,
+          "carbs": 40,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-26T18:27:59.090Z"
+        },
+        {
+          "food": "Sprite Zero 330ml",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-26T18:29:00.327Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T18:29:19.431Z"
+        },
+        {
+          "food": "Bread atchaar (~100g)",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 15,
+          "time": "2026-03-26T18:29:41.592Z"
+        },
+        {
+          "food": "Pap (stiff, cooked) (1 cup (250g))",
+          "calories": 240,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-26T18:30:19.062Z"
+        },
+        {
+          "food": "Boerewors (1 link, grilled) (1 link (~100g))",
+          "calories": 280,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 24,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-26T18:30:36.071Z"
+        },
+        {
+          "food": "Oros (250ml)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T18:31:14.983Z"
+        }
+      ]
     }
   ]
 }

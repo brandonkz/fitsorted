@@ -32,6 +32,13 @@
         "calories": 300,
         "time": "2026-03-25T17:35:06.694Z"
       }
+    ],
+    "2026-03-26": [
+      {
+        "activity": "strength training",
+        "calories": 300,
+        "time": "2026-03-26T16:12:34.696Z"
+      }
     ]
   },
   "logSummary": [
@@ -311,6 +318,69 @@
           "fibre": 1,
           "priceZAR": 10,
           "time": "2026-03-25T15:26:33.773Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 1370,
+        "protein": 88,
+        "carbs": 139,
+        "fat": 47,
+        "fibre": 11,
+        "priceZAR": 177
+      },
+      "entries": [
+        {
+          "food": "jam sandwich (1 slice bread, ~40g)",
+          "calories": 80,
+          "protein": 2,
+          "carbs": 16,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 8,
+          "time": "2026-03-26T14:54:14.686Z"
+        },
+        {
+          "food": "KFC Streetwise 2 + chips (1 meal)",
+          "calories": 760,
+          "protein": 30,
+          "carbs": 70,
+          "fat": 38,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-26T14:54:57.131Z"
+        },
+        {
+          "food": "Apple (medium)",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-26T15:18:20.525Z"
+        },
+        {
+          "food": "Biltong (100g)",
+          "calories": 350,
+          "protein": 56,
+          "carbs": 8,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 50,
+          "time": "2026-03-26T15:18:42.298Z"
+        },
+        {
+          "food": "Litchi juice (250ml)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-26T15:19:30.733Z"
         }
       ]
     }

@@ -199,6 +199,119 @@
           "time": "2026-03-25T09:58:54.828Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 1736,
+        "protein": 110,
+        "carbs": 147,
+        "fat": 72,
+        "fibre": 13,
+        "priceZAR": 338
+      },
+      "entries": [
+        {
+          "food": "Cappuccino (1 cup (250ml))",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 35,
+          "time": "2026-03-26T09:14:17.842Z"
+        },
+        {
+          "food": "Yoghurt Energy Bar (35g)",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-26T12:30:02.190Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-26T12:30:18.583Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-26T12:39:30.405Z"
+        },
+        {
+          "food": "full sandwich (~200g)",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 50,
+          "time": "2026-03-26T12:40:16.815Z"
+        },
+        {
+          "food": "egg",
+          "calories": 70,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-03-26T12:40:21.131Z"
+        },
+        {
+          "food": "Ostrich mince bolognaise (~150g)",
+          "calories": 210,
+          "protein": 30,
+          "carbs": 10,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 45,
+          "time": "2026-03-26T18:17:09.141Z"
+        },
+        {
+          "food": "Steamed vegetables (~150g)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-26T18:17:12.983Z"
+        },
+        {
+          "food": "Grated Parmesan (30g)",
+          "calories": 120,
+          "protein": 11,
+          "carbs": 1,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-26T18:17:17.099Z"
+        },
+        {
+          "food": "2x wine glass (350ml)",
+          "calories": 250,
+          "protein": 19,
+          "carbs": 25,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-26T18:17:20.945Z"
+        }
+      ]
     }
   ]
 }

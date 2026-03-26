@@ -189,6 +189,49 @@
           "time": "2026-03-25T18:46:02.518Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 553,
+        "protein": 34.5,
+        "carbs": 81.3,
+        "fat": 13.3,
+        "fibre": 3.3,
+        "priceZAR": 19
+      },
+      "entries": [
+        {
+          "food": "Diet protein shake (1 serving, ~30g)",
+          "calories": 120,
+          "protein": 24,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-26T07:33:31.173Z"
+        },
+        {
+          "food": "Instant beef noodles (~100g dry)",
+          "calories": 380,
+          "protein": 10,
+          "carbs": 70,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-26T11:53:53.490Z"
+        },
+        {
+          "food": "Oreo (1 cookie)",
+          "calories": 53,
+          "protein": 0.5,
+          "carbs": 8.3,
+          "fat": 2.3,
+          "fibre": 0.3,
+          "priceZAR": 4,
+          "time": "2026-03-26T17:11:49.287Z"
+        }
+      ]
     }
   ]
 }

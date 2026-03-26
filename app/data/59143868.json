@@ -11,7 +11,15 @@
     "foodBudget": 150
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-26": [
+      {
+        "activity": "unknown",
+        "calories": 0,
+        "time": "2026-03-26T08:36:10.123Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-25",
@@ -93,6 +101,39 @@
           "fibre": 3,
           "priceZAR": 25,
           "time": "2026-03-25T18:07:59.687Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 550,
+        "protein": 14,
+        "carbs": 70,
+        "fat": 24,
+        "fibre": 6,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "Avocado toast on whole grain bread with cream cheese (~100g)",
+          "calories": 250,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 12,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-26T08:27:33.494Z"
+        },
+        {
+          "food": "Melkkos (serving)",
+          "calories": 300,
+          "protein": 8,
+          "carbs": 40,
+          "fat": 12,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-26T15:35:36.990Z"
         }
       ]
     }

@@ -1,0 +1,62 @@
+{
+  "name": "Cait",
+  "goal": 2193,
+  "joinedAt": "2026-03-26T12:33:55.331Z",
+  "profile": {
+    "age": 38,
+    "weight": 56,
+    "height": 170,
+    "gender": "female",
+    "target": "maintain",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-26": []
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 370,
+        "protein": 10,
+        "carbs": 56,
+        "fat": 11,
+        "fibre": 5,
+        "priceZAR": 70
+      },
+      "entries": [
+        {
+          "food": "oat milk latte (1 cup, ~240ml)",
+          "calories": 120,
+          "protein": 2,
+          "carbs": 16,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-26T12:37:54.628Z"
+        },
+        {
+          "food": "Muesli with milk (1 cup (250ml))",
+          "calories": 250,
+          "protein": 8,
+          "carbs": 40,
+          "fat": 6,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-26T12:38:45.423Z"
+        },
+        {
+          "food": "granola",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-26T17:00:17.728Z"
+        }
+      ]
+    }
+  ]
+}

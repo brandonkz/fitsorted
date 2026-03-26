@@ -491,6 +491,109 @@
           "time": "2026-03-25T16:16:17.845Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "calories": 1257,
+        "protein": 91,
+        "carbs": 145,
+        "fat": 32,
+        "fibre": 16,
+        "priceZAR": 178
+      },
+      "entries": [
+        {
+          "food": "Hot cross bun",
+          "calories": 180,
+          "protein": 4,
+          "carbs": 36,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-26T06:22:07.261Z"
+        },
+        {
+          "food": "Pret Bircher Muesli (~250g)",
+          "calories": 338,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 8,
+          "fibre": 7,
+          "priceZAR": 65,
+          "time": "2026-03-26T08:53:28.161Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-26T17:44:27.760Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-26T17:44:32.825Z"
+        },
+        {
+          "food": "Yogurt (~200g)",
+          "calories": 180,
+          "protein": 10,
+          "carbs": 20,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-26T17:45:50.760Z"
+        },
+        {
+          "food": "Chicken breast (grilled, 150g) (150g)",
+          "calories": 248,
+          "protein": 46,
+          "carbs": 0,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-26T17:46:06.680Z"
+        },
+        {
+          "food": "Chickpeas (1/3 cup, ~80g)",
+          "calories": 130,
+          "protein": 7,
+          "carbs": 22,
+          "fat": 2,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-26T17:46:19.174Z"
+        },
+        {
+          "food": "Vegetables (1/2 cup, ~75g)",
+          "calories": 25,
+          "protein": 2,
+          "carbs": 5,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-26T17:46:25.147Z"
+        },
+        {
+          "food": "Coke Zero 330ml",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-26T18:28:17.311Z"
+        }
+      ]
     }
   ]
 }
