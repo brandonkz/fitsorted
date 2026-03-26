@@ -1336,6 +1336,14 @@ async function estimateCalories(food, user) {
     "checkers banana bread slice": { food: "Checkers Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
     "banana bread slice": { food: "Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
     "banana bread": { food: "Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
+    // Round 17 - nightly edge case test 2026-03-27
+    "peri peri livers": { food: "Peri-Peri Chicken Livers (serving)", calories: 320, protein: 35, carbs: 5, fat: 16, fibre: 1 },
+    "chicken livers": { food: "Chicken Livers (serving)", calories: 280, protein: 32, carbs: 3, fat: 14, fibre: 0 },
+    "chicken mayo toastie": { food: "Chicken Mayo Toastie", calories: 420, protein: 22, carbs: 40, fat: 20, fibre: 2 },
+    "chicken mayo toasted sandwich": { food: "Chicken Mayo Toastie", calories: 420, protein: 22, carbs: 40, fat: 20, fibre: 2 },
+    "steers wacky wednesday chips and drink": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
+    "wacky wednesday chips and drink": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
+    "wacky wednesday meal": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
