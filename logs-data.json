@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-26T17:00:17.728Z",
+    "date": "2026-03-26",
+    "phone": "8922",
+    "userId": "35196979",
+    "food": "granola",
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-26T16:44:18.734Z",
+    "date": "2026-03-26",
+    "phone": "0657",
+    "userId": "27825700",
+    "food": "Beetroot cooked (1/2 cup (85g))",
+    "calories": 45,
+    "protein": 2,
+    "carbs": 10,
+    "fat": 0.2,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-26T16:29:47.355Z",
+    "date": "2026-03-26",
+    "phone": "6749",
+    "userId": "27828296",
+    "food": "Large pizza with chicken (~300g), mushrooms (~100g), and cheese (~150g)",
+    "calories": 1200,
+    "protein": 60,
+    "carbs": 150,
+    "fat": 50,
+    "fibre": 8,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-26T15:35:36.990Z",
     "date": "2026-03-26",
     "phone": "8997",
