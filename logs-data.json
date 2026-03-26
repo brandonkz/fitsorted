@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-26T19:35:00.862Z",
+    "date": "2026-03-26",
+    "phone": "7571",
+    "userId": "27832127",
+    "food": "Nando's quarter chicken (~175g) and rice (1 cup, ~150g)",
+    "calories": 430,
+    "protein": 40,
+    "carbs": 50,
+    "fat": 15,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-26T18:31:14.983Z",
     "date": "2026-03-26",
     "phone": "1977",
