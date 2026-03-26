@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-26T15:35:36.990Z",
+    "date": "2026-03-26",
+    "phone": "8997",
+    "userId": "27639688",
+    "food": "Melkkos (serving)",
+    "calories": 300,
+    "protein": 8,
+    "carbs": 40,
+    "fat": 12,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-26T15:19:30.733Z",
+    "date": "2026-03-26",
+    "phone": "5878",
+    "userId": "27724215",
+    "food": "Litchi juice (250ml)",
+    "calories": 100,
+    "protein": 0,
+    "carbs": 25,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-26T15:18:42.298Z",
+    "date": "2026-03-26",
+    "phone": "5878",
+    "userId": "27724215",
+    "food": "Biltong (100g)",
+    "calories": 350,
+    "protein": 56,
+    "carbs": 8,
+    "fat": 8,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-26T15:18:20.525Z",
+    "date": "2026-03-26",
+    "phone": "5878",
+    "userId": "27724215",
+    "food": "Apple (medium)",
+    "calories": 80,
+    "protein": 0,
+    "carbs": 20,
+    "fat": 0,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-26T14:54:57.131Z",
     "date": "2026-03-26",
     "phone": "5878",
