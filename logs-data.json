@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-27T18:26:58.827Z",
+    "date": "2026-03-27",
+    "phone": "0663",
+    "userId": "27630740",
+    "food": "squash session (2 hours)",
+    "calories": 1200,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T18:21:19.703Z",
+    "date": "2026-03-27",
+    "phone": "7700",
+    "userId": "27735757",
+    "food": "Red wine (175ml)",
+    "calories": 125,
+    "protein": 9,
+    "carbs": 13,
+    "fat": 4,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T18:21:10.542Z",
+    "date": "2026-03-27",
+    "phone": "7700",
+    "userId": "27735757",
+    "food": "Draught beer (440ml)",
+    "calories": 155,
+    "protein": 1,
+    "carbs": 13,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T18:20:43.939Z",
+    "date": "2026-03-27",
+    "phone": "7700",
+    "userId": "27735757",
+    "food": "Bacon feta and avocado pizza (~200g)",
+    "calories": 600,
+    "protein": 25,
+    "carbs": 70,
+    "fat": 30,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-27T17:31:05.425Z",
     "date": "2026-03-27",
     "phone": "3214",
