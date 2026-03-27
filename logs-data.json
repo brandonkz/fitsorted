@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-27T12:42:35.049Z",
+    "date": "2026-03-27",
+    "phone": "0657",
+    "userId": "27825700",
+    "food": "Pear (1 medium (175g))",
+    "calories": 100,
+    "protein": 0.6,
+    "carbs": 27,
+    "fat": 0.2,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T12:28:05.442Z",
+    "date": "2026-03-27",
+    "phone": "0657",
+    "userId": "27825700",
+    "food": "Boerewors (1 link, grilled) (1 link (~100g))",
+    "calories": 280,
+    "protein": 14,
+    "carbs": 2,
+    "fat": 24,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T12:27:44.247Z",
+    "date": "2026-03-27",
+    "phone": "0657",
+    "userId": "27825700",
+    "food": "Boerewors (1 link, grilled) (1 link (~100g))",
+    "calories": 280,
+    "protein": 14,
+    "carbs": 2,
+    "fat": 24,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-27T11:24:43.010Z",
     "date": "2026-03-27",
     "phone": "5878",
