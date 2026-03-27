@@ -18,6 +18,18 @@
         "calories": 250,
         "time": "2026-03-23T18:38:16.339Z"
       }
+    ],
+    "2026-03-26": [
+      {
+        "activity": "walking short distances",
+        "calories": 60,
+        "time": "2026-03-26T20:01:33.963Z"
+      },
+      {
+        "activity": "walking",
+        "calories": 400,
+        "time": "2026-03-26T20:02:12.698Z"
+      }
     ]
   },
   "logSummary": [
@@ -193,12 +205,12 @@
     {
       "date": "2026-03-26",
       "totals": {
-        "calories": 553,
-        "protein": 34.5,
-        "carbs": 81.3,
-        "fat": 13.3,
-        "fibre": 3.3,
-        "priceZAR": 19
+        "calories": 983,
+        "protein": 74.5,
+        "carbs": 131.3,
+        "fat": 28.3,
+        "fibre": 5.3,
+        "priceZAR": 94
       },
       "entries": [
         {
@@ -230,6 +242,16 @@
           "fibre": 0.3,
           "priceZAR": 4,
           "time": "2026-03-26T17:11:49.287Z"
+        },
+        {
+          "food": "Nando's quarter chicken (~175g) and rice (1 cup, ~150g)",
+          "calories": 430,
+          "protein": 40,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 75,
+          "time": "2026-03-26T19:35:00.862Z"
         }
       ]
     }

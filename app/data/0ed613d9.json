@@ -203,12 +203,12 @@
     {
       "date": "2026-03-26",
       "totals": {
-        "calories": 1736,
-        "protein": 110,
-        "carbs": 147,
-        "fat": 72,
-        "fibre": 13,
-        "priceZAR": 338
+        "calories": 2056,
+        "protein": 118,
+        "carbs": 203,
+        "fat": 84,
+        "fibre": 17,
+        "priceZAR": 358
       },
       "entries": [
         {
@@ -310,6 +310,16 @@
           "fibre": 0,
           "priceZAR": 150,
           "time": "2026-03-26T18:17:20.945Z"
+        },
+        {
+          "food": "2x slice healthy bread with butter",
+          "calories": 320,
+          "protein": 8,
+          "carbs": 56,
+          "fat": 12,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-26T21:37:22.547Z"
         }
       ]
     }

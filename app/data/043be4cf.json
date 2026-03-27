@@ -594,6 +594,29 @@
           "time": "2026-03-26T18:28:17.311Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 125,
+        "protein": 0,
+        "carbs": 4,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 45
+      },
+      "entries": [
+        {
+          "food": "Glass of red wine (1 glass (150ml))",
+          "calories": 125,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-26T22:01:06.531Z"
+        }
+      ]
     }
   ]
 }
