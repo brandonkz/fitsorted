@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-27T06:56:49.913Z",
+    "date": "2026-03-27",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T06:31:39.085Z",
+    "date": "2026-03-27",
+    "phone": "0657",
+    "userId": "27825700",
+    "food": "Pear (1 medium (175g))",
+    "calories": 100,
+    "protein": 0.6,
+    "carbs": 27,
+    "fat": 0.2,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T06:30:36.786Z",
+    "date": "2026-03-27",
+    "phone": "0657",
+    "userId": "27825700",
+    "food": "Banana (1 medium)",
+    "calories": 105,
+    "protein": 1,
+    "carbs": 27,
+    "fat": 0,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T06:29:11.422Z",
+    "date": "2026-03-27",
+    "phone": "0657",
+    "userId": "27825700",
+    "food": "Rooibos tea no sugar (1 cup (250ml))",
+    "calories": 2,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-27T05:11:37.746Z",
     "date": "2026-03-27",
     "phone": "6749",
