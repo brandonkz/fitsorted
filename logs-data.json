@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-27T20:46:06.388Z",
+    "date": "2026-03-27",
+    "phone": "6749",
+    "userId": "27828296",
+    "food": "Pizza (~300g)",
+    "calories": 800,
+    "protein": 30,
+    "carbs": 90,
+    "fat": 35,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-27T18:26:58.827Z",
     "date": "2026-03-27",
     "phone": "0663",
