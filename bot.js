@@ -2868,6 +2868,34 @@ async function handleMessage(from, text, imageId) {
   const user = getUser(users, from);
   const msg = (text || "").trim();
   let msgLower = msg.toLowerCase();
+
+  // ── Feedback capture ──
+  if (user.awaitingFeedback && msg.length > 2 && !msg.startsWith('/')) {
+    // Don't capture if it looks like a food log or command
+    const looksLikeFood = /^\d|^(undo|log|help|buddy|weight|export|goal|profile|settings|menu|subscribe|status)/i.test(msgLower);
+    if (!looksLikeFood) {
+      const feedbackFile = './feedback.json';
+      let feedback = [];
+      try { feedback = JSON.parse(fs.readFileSync(feedbackFile, 'utf8')); } catch {}
+      feedback.push({
+        phone: phone.slice(-4), // anonymised
+        name: user.name || 'Unknown',
+        date: new Date().toISOString(),
+        streak: user.streak || 0,
+        daysActive: Object.keys(user.log || {}).filter(d => (user.log[d] || []).length > 0).length,
+        message: msg
+      });
+      fs.writeFileSync(feedbackFile, JSON.stringify(feedback, null, 2));
+      user.awaitingFeedback = false;
+      saveUsers(users);
+      await send(from, `🙏 Thanks for the feedback! We read every single response and it genuinely helps us improve. Keep tracking! 💪`);
+      return;
+    }
+    // If it looks like food, clear the flag and let normal flow handle it
+    user.awaitingFeedback = false;
+    saveUsers(users);
+  }
+
   const buddyAccept = (msgLower === "accept" || msgLower === "buddy accept");
   const buddyDecline = (msgLower === "decline" || msgLower === "buddy decline" || msgLower === "buddy reject");
 
@@ -5718,6 +5746,11 @@ cron.schedule("0 20 * * *", async () => {
         user.lastStreakMilestone = newMilestone;
         const m = milestoneMessages[newMilestone];
         milestoneStr = `\n${m.badge} ${m.text}`;
+        // Ask for feedback on milestone (only on 7+ day milestones)
+        if (newMilestone >= 7) {
+          milestoneStr += `\n\n💬 Quick question — what's one thing you'd change about FitSorted?`;
+          user.awaitingFeedback = true;
+        }
       }
 
       // Buddy stats (only if both logged today)
@@ -5757,6 +5790,35 @@ cron.schedule("0 20 * * *", async () => {
 
           if (reminders[daysSinceJoin]) {
             await send(phone, reminders[daysSinceJoin]);
+          }
+        }
+
+        // ── Day 7 feedback ask ──
+        if (daysSinceJoin === 7 && !user.sentDay7Feedback) {
+          await send(phone, `You've been using FitSorted for a week! 🎉 How's it going?\n\nReply with any feedback — good or bad, we read everything.`);
+          user.sentDay7Feedback = true;
+          user.awaitingFeedback = true;
+        }
+
+        // ── Friday feedback for power users (5+ days logged this week) ──
+        const isFriday = new Date().getDay() === 5;
+        if (isFriday && !user.awaitingFeedback && daysSinceJoin > 7) {
+          const last7dates = getLastNDates(7);
+          const daysLoggedThisWeek = last7dates.filter(d => (user.log[d] || []).length > 0).length;
+          // Only ask if logged 5+ days AND we haven't asked in the last 30 days
+          const lastFeedbackAsk = user.lastFeedbackAskDate ? new Date(user.lastFeedbackAskDate) : null;
+          const daysSinceLastAsk = lastFeedbackAsk ? (Date.now() - lastFeedbackAsk.getTime()) / 86400000 : 999;
+          if (daysLoggedThisWeek >= 5 && daysSinceLastAsk > 30) {
+            const fridayQuestions = [
+              `💬 You crushed it this week. Anything we should improve?`,
+              `💬 Quick one — what feature do you wish FitSorted had?`,
+              `💬 Would you recommend FitSorted to a friend? Why or why not?`,
+              `💬 On a scale of 1-10, how would you rate FitSorted?`
+            ];
+            const questionIndex = Math.floor(Date.now() / 604800000) % fridayQuestions.length; // rotate weekly
+            await send(phone, fridayQuestions[questionIndex]);
+            user.awaitingFeedback = true;
+            user.lastFeedbackAskDate = new Date().toISOString();
           }
         }
       }
