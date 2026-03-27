@@ -1599,6 +1599,11 @@ async function estimateCalories(food, user) {
     "steers wacky wednesday chips and drink": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
     "wacky wednesday chips and drink": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
     "wacky wednesday meal": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
+    // Round 18 - nightly edge case test 2026-03-28
+    "peppermint crisp": { food: "Peppermint Crisp Bar", calories: 230, protein: 2, carbs: 30, fat: 11, fibre: 0 },
+    "peppermint crisp bar": { food: "Peppermint Crisp Bar", calories: 230, protein: 2, carbs: 30, fat: 11, fibre: 0 },
+    "gatsby calamari": { food: "Calamari Gatsby", calories: 950, protein: 30, carbs: 95, fat: 45, fibre: 4 },
+    "calamari gatsby": { food: "Calamari Gatsby", calories: 950, protein: 30, carbs: 95, fat: 45, fibre: 4 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
@@ -4987,6 +4992,15 @@ async function handleMessage(from, text, imageId) {
   }
 
   // ── Feedback / bug reports - saved to workspace for Milan ──
+  // Also catch standalone "feedback" / "bug" with no content → prompt for it
+  const feedbackStandaloneMatch = msg.match(/^(feedback|bug|issue|suggestion|feature|request|improve|improvement)\s*[!?.]*$/i);
+  if (feedbackStandaloneMatch) {
+    user.awaitingFeedback = true;
+    user.feedbackAskedAt = new Date().toISOString();
+    saveUsers(users);
+    await send(from, `💬 We'd love to hear it! What's on your mind?\n\n_(Type anything — good or bad, we read every message)_`);
+    return;
+  }
   const feedbackMatch = msg.match(/^(feedback|bug|issue|suggestion|feature|request|improve|improvement)[\s:;,.\---]+(.+)/is);
   if (feedbackMatch) {
     const type = feedbackMatch[1].toLowerCase();
@@ -5530,7 +5544,7 @@ async function handleMessage(from, text, imageId) {
 
   // Food log (with optional date prefix: "yesterday: chicken stir fry")
   // Guard: skip non-food inputs (menu commands, bot artifacts, system strings)
-  const junkPatterns = /^(menu:|confirm_log|button_|clean name|unnamed food|test$|\.{1,3}$)/i;
+  const junkPatterns = /^(menu:|confirm_log|button_|clean name|unnamed food|test$|\.{1,3}$|feedback$|bug$|issue$|suggestion$|feature$|improve(ment)?$)/i;
   if (junkPatterns.test(msgLower)) {
     console.log(`[guard] Skipped junk input as food: "${msg}"`);
     return;
