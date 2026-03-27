@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-27T17:31:05.425Z",
+    "date": "2026-03-27",
+    "phone": "3214",
+    "userId": "27610463",
+    "food": "Banana (1 medium)",
+    "calories": 105,
+    "protein": 1,
+    "carbs": 27,
+    "fat": 0,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T17:29:44.280Z",
+    "date": "2026-03-27",
+    "phone": "7571",
+    "userId": "27832127",
+    "food": "Woolworths Swiss roll slice",
+    "calories": 200,
+    "protein": 2,
+    "carbs": 30,
+    "fat": 8,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-27T17:00:16.881Z",
     "date": "2026-03-27",
     "phone": "7571",
