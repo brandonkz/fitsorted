@@ -20,6 +20,7 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
 const PORT = process.env.PORT || 3001;
 const USERS_FILE = "./users.json";
+const CHALLENGES_FILE = "./challenges.json";
 const REFERRALS_FILE = "./referrals.json";
 const FAILED_LOOKUPS_FILE = "./failed-lookups.json";
 const ADMIN_NUMBER = "27837787970"; // Brandon's number
@@ -394,6 +395,13 @@ function loadUsers() {
 }
 function saveUsers(u) { fs.writeFileSync(USERS_FILE, JSON.stringify(u, null, 2)); }
 
+// ── Challenge state ──
+function loadChallenges() {
+  try { return JSON.parse(fs.readFileSync(CHALLENGES_FILE, "utf8") || "{}"); }
+  catch { return {}; }
+}
+function saveChallenges(c) { fs.writeFileSync(CHALLENGES_FILE, JSON.stringify(c, null, 2)); }
+
 // ── Google Sheets Food Log Append ──
 async function appendToFoodLogSheet(phone, userId, food, calories, protein, carbs, fat, fibre, source) {
   try {
@@ -659,6 +667,205 @@ function countUnderGoalDaysThisWeek(user) {
     if (total <= user.goal) count++;
   }
   return count;
+}
+
+// ── Challenge helpers ──
+function generateChallengeCode(challenges) {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  for (let i = 0; i < 1000; i++) {
+    let code = "FIT-";
+    for (let j = 0; j < 3; j++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    if (!challenges[code]) return code;
+  }
+  return `FIT-${Math.random().toString(36).toUpperCase().slice(2, 5)}`;
+}
+
+function getMemberFirstName(users, phone) {
+  const name = users[phone]?.name;
+  if (!name) return phone;
+  return name.split(" ")[0];
+}
+
+function parseDateStr(dateStr) {
+  return new Date(dateStr + "T00:00:00Z");
+}
+
+function addDaysToDateStr(dateStr, days) {
+  const d = parseDateStr(dateStr);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().split("T")[0];
+}
+
+function daysBetweenDates(startDateStr, endDateStr) {
+  return Math.floor((parseDateStr(endDateStr) - parseDateStr(startDateStr)) / 86400000);
+}
+
+function compareDateStr(a, b) {
+  if (a === b) return 0;
+  return a < b ? -1 : 1;
+}
+
+function getChallengeStartDateStr(challenge) {
+  if (!challenge.startedAt) return null;
+  return new Date(challenge.startedAt).toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+}
+
+function getChallengeEndDateStr(challenge) {
+  if (!challenge.startedAt) return null;
+  const startDate = getChallengeStartDateStr(challenge);
+  return addDaysToDateStr(startDate, (challenge.duration || 30) - 1);
+}
+
+function getDateRange(startDateStr, endDateStr) {
+  const dates = [];
+  if (!startDateStr || !endDateStr) return dates;
+  let d = parseDateStr(startDateStr);
+  const end = parseDateStr(endDateStr);
+  while (d <= end) {
+    dates.push(d.toISOString().split("T")[0]);
+    d.setUTCDate(d.getUTCDate() + 1);
+  }
+  return dates;
+}
+
+function formatChallengePoints(points) {
+  const fixed = points.toFixed(1);
+  return fixed.endsWith(".0") ? fixed.slice(0, -2) : fixed;
+}
+
+function calculateChallengeScoreForRange(user, startDateStr, endDateStr) {
+  const dates = getDateRange(startDateStr, endDateStr);
+  let points = 0;
+  let streak = 0;
+  let underGoalDays = 0;
+  for (const date of dates) {
+    const entries = user.log[date] || [];
+    if (entries.length > 0) {
+      const total = entries.reduce((s, e) => s + e.calories, 0);
+      if (total <= user.goal) {
+        points += 1;
+        underGoalDays++;
+      }
+      if (entries.length >= 3) points += 0.5;
+      streak++;
+      if (streak % 7 === 0) points += 1;
+    } else {
+      streak = 0;
+    }
+  }
+  return { points, underGoalDays };
+}
+
+function getChallengeScoresForRange(challenge, users, startDateStr, endDateStr) {
+  const scores = [];
+  for (const phone of (challenge.members || [])) {
+    const u = users[phone];
+    if (!u || !u.goal) continue;
+    const score = calculateChallengeScoreForRange(u, startDateStr, endDateStr);
+    scores.push({
+      phone,
+      name: getMemberFirstName(users, phone),
+      points: score.points,
+      underGoalDays: score.underGoalDays
+    });
+  }
+  scores.sort((a, b) => b.points - a.points || a.name.localeCompare(b.name));
+  return scores;
+}
+
+function buildChallengeLeaderboardMessage(challenge, users, viewerPhone) {
+  if (!challenge.startedAt) {
+    const members = (challenge.members || []).map(p => getMemberFirstName(users, p)).join(", ");
+    return `🏆 *${challenge.name}* hasn't started yet.\n\nMembers: ${members || "None yet"}\n\nStart with: *challenge start*`;
+  }
+  const today = getToday();
+  const startDateStr = getChallengeStartDateStr(challenge);
+  const endDateStr = getChallengeEndDateStr(challenge);
+  const effectiveEnd = compareDateStr(today, endDateStr) > 0 ? endDateStr : today;
+  const dayNumber = Math.min(challenge.duration || 30, daysBetweenDates(startDateStr, effectiveEnd) + 1);
+  const scores = getChallengeScoresForRange(challenge, users, startDateStr, effectiveEnd);
+  const lines = scores.map((s, i) => {
+    const rank = i + 1;
+    const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : "";
+    const name = s.phone === viewerPhone ? "You" : s.name;
+    return `${rank}. ${name} — ${formatChallengePoints(s.points)} pts${medal ? " " + medal : ""}`;
+  });
+  let displayLines = lines;
+  if (lines.length > 5) displayLines = lines.slice(0, 5);
+  if (scores.length > 5) {
+    const viewerIndex = scores.findIndex(s => s.phone === viewerPhone);
+    if (viewerIndex >= 5) {
+      const viewer = scores[viewerIndex];
+      displayLines.push(`${viewerIndex + 1}. You — ${formatChallengePoints(viewer.points)} pts`);
+    }
+  }
+  return `🏆 *${challenge.name} — Day ${dayNumber}/${challenge.duration || 30}*\n${displayLines.join("\n")}`;
+}
+
+function buildWeeklyChallengeRecap(challenge, users, viewerPhone) {
+  if (!challenge.startedAt) return "";
+  const today = getToday();
+  const startDateStr = getChallengeStartDateStr(challenge);
+  const endDateStr = getChallengeEndDateStr(challenge);
+  const effectiveEnd = compareDateStr(today, endDateStr) > 0 ? endDateStr : today;
+  const dayNumber = Math.min(challenge.duration || 30, daysBetweenDates(startDateStr, effectiveEnd) + 1);
+  const totalWeeks = Math.max(1, Math.round((challenge.duration || 30) / 7));
+  const weekNumber = Math.min(totalWeeks, Math.ceil(dayNumber / 7));
+  const last7 = getLastNDates(7).filter(d => compareDateStr(d, startDateStr) >= 0 && compareDateStr(d, effectiveEnd) <= 0);
+  const weekStart = last7[0] || startDateStr;
+  const weekEnd = last7[last7.length - 1] || effectiveEnd;
+  const scores = getChallengeScoresForRange(challenge, users, startDateStr, effectiveEnd);
+  const weeklyPoints = {};
+  for (const phone of (challenge.members || [])) {
+    const u = users[phone];
+    if (!u || !u.goal) continue;
+    weeklyPoints[phone] = calculateChallengeScoreForRange(u, weekStart, weekEnd).points;
+  }
+  const top = scores.slice(0, 5);
+  if (top.length === 0) return "";
+  let bestWeeklyPhone = null;
+  let bestWeekly = -Infinity;
+  for (const phone of Object.keys(weeklyPoints)) {
+    if (weeklyPoints[phone] > bestWeekly) {
+      bestWeekly = weeklyPoints[phone];
+      bestWeeklyPhone = phone;
+    }
+  }
+  const lines = top.map((s, i) => {
+    const rank = i + 1;
+    const name = s.phone === viewerPhone ? "You" : s.name;
+    const weekly = weeklyPoints[s.phone] || 0;
+    const suffix = rank === 1 ? " 🔥" : (bestWeeklyPhone === s.phone ? " 📈" : "");
+    return `${rank}. ${name} — ${formatChallengePoints(s.points)} pts (+${formatChallengePoints(weekly)} this week)${suffix}`;
+  });
+  const leaderPhone = scores[0]?.phone;
+  const leaderName = leaderPhone === viewerPhone ? "You" : (scores[0]?.name || "Someone");
+  const comment = leaderPhone === viewerPhone
+    ? `💬 You're leading! Keep the momentum.`
+    : `💬 ${leaderName} is pulling ahead! Time to step it up.`;
+  return `🏆 *Weekly Standings — ${challenge.name}*\nWeek ${weekNumber} of ${totalWeeks}\n\n${lines.join("\n")}\n\n${comment}`;
+}
+
+function buildFinalChallengeResultsMessage(challenge, users) {
+  const startDateStr = getChallengeStartDateStr(challenge);
+  const endDateStr = getChallengeEndDateStr(challenge);
+  if (!startDateStr || !endDateStr) return "";
+  const scores = getChallengeScoresForRange(challenge, users, startDateStr, endDateStr);
+  if (scores.length === 0) return "";
+  const top = scores.slice(0, 3);
+  const medals = ["🥇", "🥈", "🥉"];
+  const lines = top.map((s, i) => {
+    const medal = medals[i];
+    if (i === 0) {
+      const winnerUser = users[s.phone];
+      const underGoal = winnerUser ? calculateChallengeScoreForRange(winnerUser, startDateStr, endDateStr).underGoalDays : 0;
+      return `${medal} ${s.name} — ${formatChallengePoints(s.points)} pts (${underGoal}/${challenge.duration || 30} days under goal!)`;
+    }
+    return `${medal} ${s.name} — ${formatChallengePoints(s.points)} pts`;
+  });
+  return `🏆 *${challenge.name} — COMPLETE!*\n\n${lines.join("\n")}\n\nWhat a month! Create a new challenge: *challenge create [name]*`;
 }
 
 function buildWeeklyStats(user) {
@@ -2871,9 +3078,18 @@ async function handleMessage(from, text, imageId) {
 
   // ── Feedback capture ──
   if (user.awaitingFeedback && msg.length > 2 && !msg.startsWith('/')) {
+    // Time window: only capture feedback if asked within the last 30 minutes
+    const feedbackAskTime = user.feedbackAskedAt ? new Date(user.feedbackAskedAt).getTime() : 0;
+    const minutesSinceAsk = (Date.now() - feedbackAskTime) / 60000;
+    if (minutesSinceAsk > 30) {
+      // Too long ago — they're probably logging food now, clear the flag
+      user.awaitingFeedback = false;
+      delete user.feedbackAskedAt;
+      saveUsers(users);
+    }
     // Don't capture if it looks like a food log or command
     const looksLikeFood = /^\d|^(undo|log|help|buddy|weight|export|goal|profile|settings|menu|subscribe|status)/i.test(msgLower);
-    if (!looksLikeFood) {
+    if (user.awaitingFeedback && !looksLikeFood) {
       const feedbackFile = './feedback.json';
       let feedback = [];
       try { feedback = JSON.parse(fs.readFileSync(feedbackFile, 'utf8')); } catch {}
@@ -3766,6 +3982,190 @@ async function handleMessage(from, text, imageId) {
     }
     // Unrecognized - resend the question
     await send(from, "What's your goal?\n\nReply with one:\n• *lose* - lose weight\n• *maintain* - stay the same\n• *gain* - build muscle");
+    return;
+  }
+
+  // ── Challenges ──
+  const challenges = loadChallenges();
+  if (user.challenge && (!challenges[user.challenge] || !challenges[user.challenge].active)) {
+    delete user.challenge;
+    saveUsers(users);
+  }
+
+  if (msgLower === "challenge create") {
+    await send(from, "Usage: *challenge create [name]*");
+    return;
+  }
+
+  const challengeCreateMatch = msg.match(/^challenge\s+create\s+(.+)$/i);
+  if (challengeCreateMatch) {
+    if (!user.setup || !user.goal) {
+      await send(from, "⚠️ Finish setup first, then create a challenge.");
+      return;
+    }
+    if (user.challenge) {
+      await send(from, "⚠️ You're already in a challenge. Send *challenge leave* first.");
+      return;
+    }
+    const name = challengeCreateMatch[1].trim();
+    if (!name) {
+      await send(from, "Usage: *challenge create [name]*");
+      return;
+    }
+    const code = generateChallengeCode(challenges);
+    const nowIso = new Date().toISOString();
+    challenges[code] = {
+      name,
+      code,
+      creator: from,
+      createdAt: nowIso,
+      startedAt: null,
+      endsAt: null,
+      duration: 30,
+      members: [from],
+      active: true
+    };
+    user.challenge = code;
+    saveChallenges(challenges);
+    saveUsers(users);
+    await send(from,
+      `🏆 Challenge *${name}* created!\n\n` +
+      `Share this code with your mates:\n*${code}*\n\n` +
+      `They just send: *join ${code}*\n\n` +
+      `30 days starts when you say *challenge start* (or auto-starts when 3+ people join)`
+    );
+    return;
+  }
+
+  const challengeJoinMatch = msg.match(/^(?:join|challenge\s+join)\s+([a-z0-9-]+)$/i);
+  if (challengeJoinMatch) {
+    if (!user.setup || !user.goal) {
+      await send(from, "⚠️ Finish setup first, then join a challenge.");
+      return;
+    }
+    const code = challengeJoinMatch[1].toUpperCase();
+    if (!/^FIT-[A-Z0-9]{3}$/.test(code)) {
+      await send(from, "❌ Invalid code. Format: *FIT-A3K*");
+      return;
+    }
+    const challenge = challenges[code];
+    if (!challenge || !challenge.active) {
+      await send(from, "❌ Challenge not found or no longer active.");
+      return;
+    }
+    if (user.challenge && user.challenge !== code) {
+      await send(from, "⚠️ You're already in a challenge. Send *challenge leave* first.");
+      return;
+    }
+    const members = challenge.members || [];
+    if (!members.includes(from) && members.length >= 20) {
+      await send(from, "⚠️ This challenge is full (max 20 members).");
+      return;
+    }
+    if (!members.includes(from)) members.push(from);
+    challenge.members = members;
+    user.challenge = code;
+
+    let autoStarted = false;
+    if (!challenge.startedAt && challenge.members.length >= 3) {
+      const startDateStr = getToday();
+      const endDateStr = addDaysToDateStr(startDateStr, (challenge.duration || 30) - 1);
+      challenge.startedAt = new Date().toISOString();
+      challenge.endsAt = new Date(endDateStr + "T23:59:59Z").toISOString();
+      autoStarted = true;
+    }
+
+    saveChallenges(challenges);
+    saveUsers(users);
+
+    const memberNames = challenge.members.map(p => getMemberFirstName(users, p)).join(", ");
+    let joinMsg = `✅ You've joined *${challenge.name}*! ${challenge.members.length} people so far.\n\nMembers: ${memberNames}`;
+    if (autoStarted) {
+      joinMsg += `\n\n🏁 Challenge started! Day 1/${challenge.duration || 30}`;
+    }
+    await send(from, joinMsg);
+
+    for (const phone of challenge.members) {
+      if (phone === from) continue;
+      await send(phone, `${user.name || from} just joined the challenge! 💪`);
+    }
+    return;
+  }
+
+  if (msgLower === "challenge join") {
+    await send(from, "Usage: *join FIT-XXX*");
+    return;
+  }
+
+  if (msgLower === "challenge start") {
+    if (!user.challenge) {
+      await send(from, "⚠️ You're not in a challenge yet.\n\nCreate one with: *challenge create [name]*");
+      return;
+    }
+    const challenge = challenges[user.challenge];
+    if (!challenge || !challenge.active) {
+      delete user.challenge;
+      saveUsers(users);
+      await send(from, "⚠️ That challenge no longer exists.");
+      return;
+    }
+    if (challenge.creator !== from) {
+      await send(from, "⚠️ Only the creator can start this challenge.");
+      return;
+    }
+    if (challenge.startedAt) {
+      await send(from, `🏁 *${challenge.name}* already started.`);
+      return;
+    }
+    const startDateStr = getToday();
+    const endDateStr = addDaysToDateStr(startDateStr, (challenge.duration || 30) - 1);
+    challenge.startedAt = new Date().toISOString();
+    challenge.endsAt = new Date(endDateStr + "T23:59:59Z").toISOString();
+    saveChallenges(challenges);
+    let startMsg = `✅ Challenge started! Day 1/${challenge.duration || 30}`;
+    const memberCount = (challenge.members || []).length;
+    if (memberCount < 2) {
+      startMsg = `⚠️ Only ${memberCount} member${memberCount === 1 ? "" : "s"} so far — min 2 recommended, but starting anyway.\n\n${startMsg}`;
+    }
+    await send(from, startMsg);
+    return;
+  }
+
+  if (msgLower === "challenge leave") {
+    if (!user.challenge) {
+      await send(from, "⚠️ You're not in a challenge.");
+      return;
+    }
+    const challenge = challenges[user.challenge];
+    if (!challenge) {
+      delete user.challenge;
+      saveUsers(users);
+      await send(from, "⚠️ That challenge no longer exists.");
+      return;
+    }
+    challenge.members = (challenge.members || []).filter(p => p !== from);
+    delete user.challenge;
+    if (challenge.members.length === 0) challenge.active = false;
+    saveChallenges(challenges);
+    saveUsers(users);
+    await send(from, `✅ You left *${challenge.name}*.`);
+    return;
+  }
+
+  if (msgLower === "leaderboard" || msgLower === "challenge") {
+    if (!user.challenge) {
+      await send(from, "🏆 You're not in a challenge yet.\n\nCreate one with *challenge create [name]* or join with *join FIT-XXX*.");
+      return;
+    }
+    const challenge = challenges[user.challenge];
+    if (!challenge || !challenge.active) {
+      delete user.challenge;
+      saveUsers(users);
+      await send(from, "⚠️ That challenge is no longer active.");
+      return;
+    }
+    const leaderboardMsg = buildChallengeLeaderboardMessage(challenge, users, from);
+    await send(from, leaderboardMsg);
     return;
   }
 
@@ -5668,6 +6068,7 @@ cron.schedule("0 20 * * *", async () => {
   if (cronAlreadyRan('evening')) { console.log('[cron] Evening summary already sent today, skipping'); return; }
   markCronRan('evening');
   const users = loadUsers();
+  const challenges = loadChallenges();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
     if (user.optedOut) continue; // respect opt-out
@@ -5750,6 +6151,7 @@ cron.schedule("0 20 * * *", async () => {
         if (newMilestone >= 7) {
           milestoneStr += `\n\n💬 Quick question — what's one thing you'd change about FitSorted?`;
           user.awaitingFeedback = true;
+          user.feedbackAskedAt = new Date().toISOString();
         }
       }
 
@@ -5769,7 +6171,22 @@ cron.schedule("0 20 * * *", async () => {
         }
       }
 
-      const summaryMsg = `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}${streakStr}${milestoneStr}${trialReminderStr}${buddyStr}`;
+      let challengeStr = "";
+      let weeklyChallengeStr = "";
+      if (user.challenge) {
+        const challenge = challenges[user.challenge];
+        if (challenge && challenge.active && challenge.startedAt) {
+          const leaderboardMsg = buildChallengeLeaderboardMessage(challenge, users, phone);
+          if (leaderboardMsg) challengeStr = `\n\n${leaderboardMsg}`;
+          const isFriday = new Date().getDay() === 5;
+          if (isFriday) {
+            const weeklyMsg = buildWeeklyChallengeRecap(challenge, users, phone);
+            if (weeklyMsg) weeklyChallengeStr = `\n\n${weeklyMsg}`;
+          }
+        }
+      }
+
+      const summaryMsg = `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}${streakStr}${milestoneStr}${trialReminderStr}${buddyStr}${challengeStr}${weeklyChallengeStr}`;
       await send(phone, summaryMsg);
 
       // ── First 3 days: Send command reminder ──
@@ -5798,6 +6215,7 @@ cron.schedule("0 20 * * *", async () => {
           await send(phone, `You've been using FitSorted for a week! 🎉 How's it going?\n\nReply with any feedback — good or bad, we read everything.`);
           user.sentDay7Feedback = true;
           user.awaitingFeedback = true;
+          user.feedbackAskedAt = new Date().toISOString();
         }
 
         // ── Friday feedback for power users (5+ days logged this week) ──
@@ -5818,6 +6236,7 @@ cron.schedule("0 20 * * *", async () => {
             const questionIndex = Math.floor(Date.now() / 604800000) % fridayQuestions.length; // rotate weekly
             await send(phone, fridayQuestions[questionIndex]);
             user.awaitingFeedback = true;
+            user.feedbackAskedAt = new Date().toISOString();
             user.lastFeedbackAskDate = new Date().toISOString();
           }
         }
@@ -5826,6 +6245,24 @@ cron.schedule("0 20 * * *", async () => {
       console.error(`Summary failed for ${phone}:`, err.message);
     }
   }
+  const today = getToday();
+  for (const challenge of Object.values(challenges)) {
+    if (!challenge.active || !challenge.startedAt) continue;
+    const endDateStr = getChallengeEndDateStr(challenge);
+    if (!endDateStr || compareDateStr(today, endDateStr) < 0) continue;
+    const finalMsg = buildFinalChallengeResultsMessage(challenge, users);
+    if (finalMsg) {
+      for (const phone of (challenge.members || [])) {
+        if (users[phone]?.optedOut) continue;
+        await send(phone, finalMsg);
+      }
+    }
+    challenge.active = false;
+    for (const phone of (challenge.members || [])) {
+      if (users[phone]?.challenge === challenge.code) delete users[phone].challenge;
+    }
+  }
+  saveChallenges(challenges);
   saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
