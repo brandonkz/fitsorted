@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-27T13:40:50.190Z",
+    "date": "2026-03-27",
+    "phone": "8572",
+    "userId": "27725958",
+    "food": "Chicken mayo sandwich (~150g)",
+    "calories": 400,
+    "protein": 25,
+    "carbs": 40,
+    "fat": 18,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T13:39:49.875Z",
+    "date": "2026-03-27",
+    "phone": "8572",
+    "userId": "27725958",
+    "food": "2x scrambled eggs + Chicken breast (~150g) + Avocado (~100g)",
+    "calories": 480,
+    "protein": 38,
+    "carbs": 20,
+    "fat": 30,
+    "fibre": 7,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-27T13:36:57.740Z",
+    "date": "2026-03-27",
+    "phone": "8896",
+    "userId": "27718808",
+    "food": "Boiled egg (1 large) (1 egg)",
+    "calories": 78,
+    "protein": 6,
+    "carbs": 1,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-27T12:42:35.049Z",
     "date": "2026-03-27",
     "phone": "0657",
