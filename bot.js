@@ -484,7 +484,8 @@ function getUser(users, phone) {
       joinedAt: nowIso,  // Track when they joined
       trialStartDate: isGrandfatheredNew ? undefined : nowIso,  // 7-day trial for new users
       isPro: false,
-      proPrompted: false
+      proPrompted: false,
+      lastStreakMilestone: 0
     };
   }
   if (!users[phone].log) users[phone].log = {};
@@ -492,11 +493,18 @@ function getUser(users, phone) {
   if (!users[phone].joinedAt) users[phone].joinedAt = new Date().toISOString();
   if (typeof users[phone].isPro !== 'boolean') users[phone].isPro = false;
   if (typeof users[phone].proPrompted !== 'boolean') users[phone].proPrompted = false;
+  if (typeof users[phone].lastStreakMilestone !== 'number') users[phone].lastStreakMilestone = 0;
   return users[phone];
 }
 
 function getToday() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+}
+
+function normalizeBuddyPhone(input) {
+  const cleaned = (input || "").replace(/[^\d]/g, "");
+  if (cleaned.startsWith("27") && cleaned.length === 11) return cleaned;
+  return null;
 }
 
 function isAdminAuthorized(req) {
@@ -611,6 +619,46 @@ function getLastNDates(n) {
     dates.push(d.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" }));
   }
   return dates;
+}
+
+function getCurrentStreak(user) {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+  let streak = 0;
+  for (let i = 0; i < 3650; i++) {
+    const d = new Date(now);
+    d.setDate(now.getDate() - i);
+    const dateStr = d.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+    if ((user.log[dateStr] || []).length > 0) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function getWeekDatesMonSun() {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+  const day = now.getDay(); // 0=Sun, 1=Mon
+  const diffToMonday = (day + 6) % 7;
+  const monday = new Date(now);
+  monday.setDate(now.getDate() - diffToMonday);
+  const dates = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    dates.push(d.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" }));
+  }
+  return dates;
+}
+
+function countUnderGoalDaysThisWeek(user) {
+  const dates = getWeekDatesMonSun();
+  let count = 0;
+  for (const date of dates) {
+    const entries = user.log[date] || [];
+    if (!entries.length) continue;
+    const total = entries.reduce((s, e) => s + e.calories, 0);
+    if (total <= user.goal) count++;
+  }
+  return count;
 }
 
 function buildWeeklyStats(user) {
@@ -2820,6 +2868,64 @@ async function handleMessage(from, text, imageId) {
   const user = getUser(users, from);
   const msg = (text || "").trim();
   let msgLower = msg.toLowerCase();
+  const buddyAccept = (msgLower === "accept" || msgLower === "buddy accept");
+  const buddyDecline = (msgLower === "decline" || msgLower === "buddy decline" || msgLower === "buddy reject");
+
+  // ── Buddy request response ──
+  if (user.buddyRequest && (buddyAccept || buddyDecline)) {
+    const requesterPhone = user.buddyRequest.from;
+    const requester = users[requesterPhone];
+
+    if (!requester) {
+      delete user.buddyRequest;
+      delete user.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, "⚠️ That buddy request is no longer valid.");
+      return;
+    }
+
+    if (buddyAccept) {
+      if (user.buddy?.paired) {
+        await send(from, "⚠️ You're already paired. Send *buddy remove* first.");
+        return;
+      }
+      if (requester?.buddy?.paired) {
+        await send(from, "⚠️ They already have a buddy. Ask them to send *buddy remove* first.");
+        return;
+      }
+      const nowIso = new Date().toISOString();
+      user.buddy = { phone: requesterPhone, paired: true, pairedAt: nowIso };
+      if (requester) requester.buddy = { phone: from, paired: true, pairedAt: nowIso };
+      delete user.buddyRequest;
+      delete user.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, `✅ You're now buddies with *${requester?.name || requesterPhone}*`);
+      if (requester) {
+        await send(requesterPhone, `✅ *${user.name || from}* accepted your buddy request. You're now accountability buddies!`);
+      }
+      return;
+    }
+
+    if (buddyDecline) {
+      delete user.buddyRequest;
+      delete user.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, `No worries — request declined.`);
+      if (requester) {
+        await send(requesterPhone, `❌ *${user.name || from}* declined your buddy request.`);
+      }
+      return;
+    }
+  }
+
+  // ── Pending buddy request check ──
+  if (user.buddyRequest && !user.awaitingBuddyResponse) {
+    const requester = users[user.buddyRequest.from];
+    const requesterName = requester?.name || user.buddyRequest.from;
+    user.awaitingBuddyResponse = true;
+    saveUsers(users);
+    await send(from, `🤝 *${requesterName}* wants to be accountability buddies!\nReply *accept* or *decline*`);
+  }
 
   // ── Influencer tracking (check for INF_ code in first message) ──
   if (msg.toUpperCase().includes('INF_') && !user.setup && !user.referredBy) {
@@ -3641,6 +3747,81 @@ async function handleMessage(from, text, imageId) {
     const statsMsg = buildWeeklyStats(user);
     await send(from, statsMsg);
     return;
+  }
+
+  // ── Accountability buddies ──
+  if (msgLower === "buddy") {
+    if (user.buddy?.paired) {
+      const buddyUser = users[user.buddy.phone];
+      await send(from, `🤝 *Buddy:* ${buddyUser?.name || user.buddy.phone}\n\nSend *buddy remove* to unpair.`);
+      return;
+    }
+    if (user.buddyRequest) {
+      const requester = users[user.buddyRequest.from];
+      await send(from, `🤝 *Buddy request from ${requester?.name || user.buddyRequest.from}*\nReply *accept* or *decline*`);
+      return;
+    }
+    await send(from, `🤝 No buddy yet.\n\nSend *buddy 27XXXXXXXXX* to add one.`);
+    return;
+  }
+
+  if (msgLower === "buddy remove") {
+    if (!user.buddy?.paired) {
+      await send(from, "⚠️ You don't have a buddy yet.");
+      return;
+    }
+    const buddyPhone = user.buddy.phone;
+    const buddyUser = users[buddyPhone];
+    delete user.buddy;
+    delete user.awaitingBuddyResponse;
+    if (buddyUser?.buddy?.phone === from) delete buddyUser.buddy;
+    saveUsers(users);
+    await send(from, "✅ Buddy removed.");
+    return;
+  }
+
+  const buddyMatch = msg.match(/^buddy\s+(.+)$/i);
+  if (buddyMatch) {
+    const targetRaw = buddyMatch[1].trim();
+    if (["remove", "accept", "decline", "reject"].includes(targetRaw.toLowerCase())) {
+      // Handled elsewhere
+    } else {
+      if (!user.setup || !user.goal) {
+        await send(from, "⚠️ Finish setup first, then add a buddy.");
+        return;
+      }
+      if (user.buddy?.paired) {
+        await send(from, "⚠️ You're already paired. Send *buddy remove* first.");
+        return;
+      }
+      const buddyPhone = normalizeBuddyPhone(targetRaw);
+      if (!buddyPhone) {
+        await send(from, "❌ Invalid number. Use format: *buddy 27XXXXXXXXX*");
+        return;
+      }
+      if (buddyPhone === from) {
+        await send(from, "⚠️ You can't buddy with yourself.");
+        return;
+      }
+      const buddyUser = users[buddyPhone];
+      if (!buddyUser || !buddyUser.setup) {
+        await send(from, "❌ That number isn't registered on FitSorted yet.");
+        return;
+      }
+      if (buddyUser.buddy?.paired) {
+        await send(from, "⚠️ That user already has a buddy.");
+        return;
+      }
+      if (buddyUser.buddyRequest) {
+        await send(from, "⚠️ That user already has a pending buddy request.");
+        return;
+      }
+      buddyUser.buddyRequest = { from, at: new Date().toISOString() };
+      delete buddyUser.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, `✅ Buddy request sent to *${buddyUser.name || buddyPhone}*! They'll see it next time they message.`);
+      return;
+    }
   }
 
   // Summary / log for any day: "summary", "yesterday", "summarize yesterday", "log yesterday", "monday log"
@@ -5517,7 +5698,46 @@ cron.schedule("0 20 * * *", async () => {
         trialReminderStr = `\n\n Your free trial has ended. Upgrade to Premium for R36/mo or continue with free calorie tracking.`;
       }
 
-      await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}${trialReminderStr}`);
+      // Streak + milestones
+      const streak = getCurrentStreak(user);
+      user.streak = streak;
+      let streakStr = `\n🔥 ${streak}-day streak`;
+      let milestoneStr = "";
+      const milestoneMessages = {
+        3: { badge: "🌱", text: "3-day streak! Habit forming..." },
+        7: { badge: "🔥", text: "1 week streak! You're on fire" },
+        14: { badge: "⭐", text: "2 weeks! This is becoming second nature" },
+        21: { badge: "💪", text: "21 days — they say that's how habits are made" },
+        30: { badge: "🏅", text: "30-DAY STREAK! You're in the top 5% of users" },
+        50: { badge: "🏆", text: "50 days! Absolute machine" },
+        100: { badge: "👑", text: "100 DAYS. Legend status unlocked" }
+      };
+      const milestones = [3, 7, 14, 21, 30, 50, 100];
+      const newMilestone = milestones.filter(m => streak >= m).pop();
+      if (newMilestone && newMilestone > (user.lastStreakMilestone || 0)) {
+        user.lastStreakMilestone = newMilestone;
+        const m = milestoneMessages[newMilestone];
+        milestoneStr = `\n${m.badge} ${m.text}`;
+      }
+
+      // Buddy stats (only if both logged today)
+      let buddyStr = "";
+      if (user.buddy?.paired && users[user.buddy.phone]) {
+        const buddyUser = users[user.buddy.phone];
+        const buddyTodayEntries = buddyUser.log[getToday()] || [];
+        if (buddyTodayEntries.length > 0) {
+          const buddyTotal = buddyTodayEntries.reduce((s, e) => s + e.calories, 0);
+          const buddyIcon = buddyTotal <= buddyUser.goal ? "✅" : "⚠️";
+          const userUnder = countUnderGoalDaysThisWeek(user);
+          const buddyUnder = countUnderGoalDaysThisWeek(buddyUser);
+          buddyStr = `\n\n🤝 *Buddy: ${buddyUser.name || user.buddy.phone}*\n` +
+            `Their day: ${buddyTotal.toLocaleString()} / ${buddyUser.goal.toLocaleString()} cal ${buddyIcon}\n` +
+            `This week: You ${userUnder} ✅ — Them ${buddyUnder} ✅`;
+        }
+      }
+
+      const summaryMsg = `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}${streakStr}${milestoneStr}${trialReminderStr}${buddyStr}`;
+      await send(phone, summaryMsg);
 
       // ── First 3 days: Send command reminder ──
       if (user.joinedAt) {
@@ -5544,6 +5764,7 @@ cron.schedule("0 20 * * *", async () => {
       console.error(`Summary failed for ${phone}:`, err.message);
     }
   }
+  saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
 // ── Friday 9 AM weight projection ──
