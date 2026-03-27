@@ -180,6 +180,39 @@
           "time": "2026-03-26T17:25:27.833Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 250,
+        "protein": 7,
+        "carbs": 45,
+        "fat": 6,
+        "fibre": 2,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-27T06:56:49.913Z"
+        },
+        {
+          "food": "2x rusk",
+          "calories": 200,
+          "protein": 4,
+          "carbs": 40,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-27T10:36:06.604Z"
+        }
+      ]
     }
   ]
 }

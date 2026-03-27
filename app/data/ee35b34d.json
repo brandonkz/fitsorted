@@ -10,7 +10,13 @@
     "target": "lose",
     "foodBudget": null
   },
-  "weights": [],
+  "weights": [
+    {
+      "kg": 91.5,
+      "date": "2026-03-27",
+      "time": "2026-03-27T08:42:44.508Z"
+    }
+  ],
   "exercise": {
     "2026-03-23": [
       {
@@ -38,6 +44,13 @@
         "activity": "strength training",
         "calories": 300,
         "time": "2026-03-26T16:12:34.696Z"
+      }
+    ],
+    "2026-03-27": [
+      {
+        "activity": "running",
+        "calories": 740,
+        "time": "2026-03-27T08:00:58.862Z"
       }
     ]
   },
@@ -381,6 +394,79 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-26T15:19:30.733Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 1950,
+        "protein": 78,
+        "carbs": 196,
+        "fat": 101,
+        "fibre": 13,
+        "priceZAR": 120
+      },
+      "entries": [
+        {
+          "food": "Dried mango slices (~50g) + Mixed nuts (~30g) + Cheddar cheese (~20g)",
+          "calories": 370,
+          "protein": 9,
+          "carbs": 42,
+          "fat": 22,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-27T11:23:24.691Z"
+        },
+        {
+          "food": "Soft serve cone ice cream (~150g)",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-27T11:23:45.062Z"
+        },
+        {
+          "food": "Slider (~100g)",
+          "calories": 250,
+          "protein": 12,
+          "carbs": 20,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 50,
+          "time": "2026-03-27T11:24:43.010Z"
+        },
+        {
+          "food": "Jam sandwich (2 slices, ~160g)",
+          "calories": 320,
+          "protein": 6,
+          "carbs": 60,
+          "fat": 6,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-27T14:07:34.590Z"
+        },
+        {
+          "food": "BBQ Smoked Beef (~210g)",
+          "calories": 420,
+          "protein": 42,
+          "carbs": 0,
+          "fat": 30,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-27T15:39:20.819Z"
+        },
+        {
+          "food": "Chips (fries, medium) (1 medium)",
+          "calories": 340,
+          "protein": 4,
+          "carbs": 44,
+          "fat": 16,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-27T15:39:34.229Z"
         }
       ]
     }

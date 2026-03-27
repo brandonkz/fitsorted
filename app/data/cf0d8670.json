@@ -220,6 +220,79 @@
           "time": "2026-03-26T18:08:09.392Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 1425,
+        "protein": 73,
+        "carbs": 172,
+        "fat": 58,
+        "fibre": 11,
+        "priceZAR": 285
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-27T05:11:37.746Z"
+        },
+        {
+          "food": "Yogurt (1 cup, ~245g) with honey (1 tbsp, ~21g)",
+          "calories": 210,
+          "protein": 10,
+          "carbs": 40,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-27T07:34:09.734Z"
+        },
+        {
+          "food": "Breakfast burrito with bacon (~200g)",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-27T07:34:53.865Z"
+        },
+        {
+          "food": "scrambled egg with spinach and feta (~2 eggs, ~140g)",
+          "calories": 115,
+          "protein": 8,
+          "carbs": 2,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 45,
+          "time": "2026-03-27T07:34:57.756Z"
+        },
+        {
+          "food": "Filter coffee with milk (~200ml)",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-27T07:35:59.738Z"
+        },
+        {
+          "food": "Cape Malay chicken curry roti (~300g)",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 90,
+          "time": "2026-03-27T11:16:46.411Z"
+        }
+      ]
     }
   ]
 }

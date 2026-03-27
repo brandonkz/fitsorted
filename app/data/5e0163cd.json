@@ -254,6 +254,59 @@
           "time": "2026-03-26T19:35:00.862Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 880,
+        "protein": 48,
+        "carbs": 125,
+        "fat": 21,
+        "fibre": 9,
+        "priceZAR": 135
+      },
+      "entries": [
+        {
+          "food": "Diet protein shake (1 serving)",
+          "calories": 120,
+          "protein": 25,
+          "carbs": 3,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-27T08:58:29.977Z"
+        },
+        {
+          "food": "2x flatbread slice",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 32,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-27T16:58:49.321Z"
+        },
+        {
+          "food": "Saltimbocca pasta (half portion, ~150g)",
+          "calories": 400,
+          "protein": 15,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 3,
+          "priceZAR": 85,
+          "time": "2026-03-27T17:00:16.881Z"
+        },
+        {
+          "food": "Woolworths Swiss roll slice",
+          "calories": 200,
+          "protein": 2,
+          "carbs": 30,
+          "fat": 8,
+          "fibre": 1,
+          "priceZAR": 25,
+          "time": "2026-03-27T17:29:44.280Z"
+        }
+      ]
     }
   ]
 }

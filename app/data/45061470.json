@@ -1,0 +1,80 @@
+{
+  "name": "Ulrieg",
+  "goal": 2635,
+  "joinedAt": "2026-03-27T10:19:42.843Z",
+  "profile": {
+    "age": 23,
+    "weight": 80,
+    "height": 173,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 3800,
+        "protein": 120,
+        "carbs": 282,
+        "fat": 118,
+        "fibre": 20,
+        "priceZAR": 500
+      },
+      "entries": [
+        {
+          "food": "2x Romans pizza pi",
+          "calories": 800,
+          "protein": 40,
+          "carbs": 100,
+          "fat": 30,
+          "fibre": 8,
+          "priceZAR": 150,
+          "time": "2026-03-27T10:23:47.755Z"
+        },
+        {
+          "food": "2x eggs on 1 slice of toast with 3 pieces of bacon",
+          "calories": 490,
+          "protein": 34,
+          "carbs": 20,
+          "fat": 32,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-27T10:58:55.564Z"
+        },
+        {
+          "food": "Spur chicken Texan burger with chips (~150g) and onion rings (~100g) and pink sauce (~30g)",
+          "calories": 950,
+          "protein": 40,
+          "carbs": 90,
+          "fat": 50,
+          "fibre": 5,
+          "priceZAR": 120,
+          "time": "2026-03-27T15:38:34.936Z"
+        },
+        {
+          "food": "3x rusks",
+          "calories": 360,
+          "protein": 6,
+          "carbs": 72,
+          "fat": 6,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-27T15:41:03.348Z"
+        },
+        {
+          "food": "squash session (2 hours)",
+          "calories": 1200,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 200,
+          "time": "2026-03-27T18:26:58.827Z"
+        }
+      ]
+    }
+  ]
+}

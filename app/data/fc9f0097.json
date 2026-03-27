@@ -88,6 +88,149 @@
           "time": "2026-03-24T10:32:55.426Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 2444,
+        "protein": 154,
+        "carbs": 329,
+        "fat": 46,
+        "fibre": 24,
+        "priceZAR": 151
+      },
+      "entries": [
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-27T13:36:57.740Z"
+        },
+        {
+          "food": "Rice (1 cup cooked) (1 cup)",
+          "calories": 205,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-27T14:47:03.248Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-27T14:47:38.987Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-27T14:48:06.225Z"
+        },
+        {
+          "food": "2x English muffin",
+          "calories": 320,
+          "protein": 12,
+          "carbs": 60,
+          "fat": 4,
+          "fibre": 8,
+          "priceZAR": 10,
+          "time": "2026-03-27T14:48:37.868Z"
+        },
+        {
+          "food": "1.5x chicken breast (~195g)",
+          "calories": 300,
+          "protein": 60,
+          "carbs": 0,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-27T14:48:52.718Z"
+        },
+        {
+          "food": "2x steamed carrot",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 8,
+          "time": "2026-03-27T14:49:07.770Z"
+        },
+        {
+          "food": "Pita bread (~60g)",
+          "calories": 170,
+          "protein": 6,
+          "carbs": 35,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 5,
+          "time": "2026-03-27T14:49:21.493Z"
+        },
+        {
+          "food": "2x banana",
+          "calories": 210,
+          "protein": 2,
+          "carbs": 54,
+          "fat": 0,
+          "fibre": 6,
+          "priceZAR": 8,
+          "time": "2026-03-27T14:49:33.050Z"
+        },
+        {
+          "food": "Basa fish (~150g)",
+          "calories": 180,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-27T14:49:49.855Z"
+        },
+        {
+          "food": "Pita bread (~60g)",
+          "calories": 170,
+          "protein": 6,
+          "carbs": 35,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 5,
+          "time": "2026-03-27T14:50:14.841Z"
+        },
+        {
+          "food": "Rice (1 cup cooked) (1 cup)",
+          "calories": 205,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-27T14:50:33.897Z"
+        },
+        {
+          "food": "English muffin (~60g)",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-27T16:20:59.094Z"
+        }
+      ]
     }
   ]
 }

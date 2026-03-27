@@ -149,6 +149,59 @@
           "time": "2026-03-26T08:16:31.549Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 920,
+        "protein": 54,
+        "carbs": 106,
+        "fat": 36,
+        "fibre": 16,
+        "priceZAR": 100
+      },
+      "entries": [
+        {
+          "food": "Banana (~85g) + Vanilla whey protein powder (10g) + Rollee oats (15g) + Collagen powder (5g) + Peanut butter powder (7g) + Low fat plain yogurt (60g) + Dried date (5g) + Chia seeds (4g)",
+          "calories": 290,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 6,
+          "fibre": 8,
+          "priceZAR": 30,
+          "time": "2026-03-27T07:57:37.188Z"
+        },
+        {
+          "food": "Trigz (23g)",
+          "calories": 110,
+          "protein": 2,
+          "carbs": 16,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-27T07:58:13.584Z"
+        },
+        {
+          "food": "35g beef biltong + 2 rice cakes + 40g avocado",
+          "calories": 370,
+          "protein": 30,
+          "carbs": 30,
+          "fat": 18,
+          "fibre": 6,
+          "priceZAR": 35,
+          "time": "2026-03-27T09:39:43.373Z"
+        },
+        {
+          "food": "brownie",
+          "calories": 150,
+          "protein": 2,
+          "carbs": 20,
+          "fat": 7,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-27T09:40:33.783Z"
+        }
+      ]
     }
   ]
 }

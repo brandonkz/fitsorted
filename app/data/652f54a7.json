@@ -314,6 +314,69 @@
           "time": "2026-03-26T18:14:57.563Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 800,
+        "protein": 43,
+        "carbs": 82,
+        "fat": 32,
+        "fibre": 4,
+        "priceZAR": 135
+      },
+      "entries": [
+        {
+          "food": "Black Coffee and tinkies",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-27T16:37:26.546Z"
+        },
+        {
+          "food": "Braai steak (sirloin, 150g) (150g)",
+          "calories": 360,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-27T16:37:34.327Z"
+        },
+        {
+          "food": "Butternut soup (1 cup (250ml))",
+          "calories": 80,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-03-27T16:37:37.552Z"
+        },
+        {
+          "food": "Rice (1 cup cooked, ~150g)",
+          "calories": 180,
+          "protein": 4,
+          "carbs": 39,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-27T16:37:41.685Z"
+        },
+        {
+          "food": "Tinkies (1 pack, ~40g)",
+          "calories": 180,
+          "protein": 1,
+          "carbs": 28,
+          "fat": 8,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-27T16:37:47.623Z"
+        }
+      ]
     }
   ]
 }

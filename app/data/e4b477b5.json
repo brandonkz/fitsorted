@@ -1,0 +1,60 @@
+{
+  "name": "Dennis",
+  "goal": 2541,
+  "joinedAt": "2026-03-27T09:21:33.524Z",
+  "profile": {
+    "age": 49,
+    "weight": 72,
+    "height": 184,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 300,
+        "protein": 29,
+        "carbs": 27,
+        "fat": 12,
+        "fibre": 2,
+        "priceZAR": 135
+      },
+      "entries": [
+        {
+          "food": "Protein smoothie (220ml)",
+          "calories": 150,
+          "protein": 20,
+          "carbs": 15,
+          "fat": 3,
+          "fibre": 2,
+          "priceZAR": 65,
+          "time": "2026-03-27T09:25:35.015Z"
+        },
+        {
+          "food": "3x chicken nuggets",
+          "calories": 150,
+          "protein": 9,
+          "carbs": 12,
+          "fat": 9,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-27T09:25:39.896Z"
+        },
+        {
+          "food": "2x cup of black coffee",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-27T09:25:43.683Z"
+        }
+      ]
+    }
+  ]
+}

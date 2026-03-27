@@ -97,6 +97,29 @@
           "time": "2026-03-19T07:18:50.472Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 350,
+        "protein": 2,
+        "carbs": 50,
+        "fat": 15,
+        "fibre": 1,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "Woolworths caramel swirl cake (1/4 cake, ~100g)",
+          "calories": 350,
+          "protein": 2,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 60,
+          "time": "2026-03-27T10:38:40.205Z"
+        }
+      ]
     }
   ]
 }

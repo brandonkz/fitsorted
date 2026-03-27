@@ -292,6 +292,29 @@
           "time": "2026-03-26T10:55:58.404Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 380,
+        "protein": 24,
+        "carbs": 40,
+        "fat": 18,
+        "fibre": 5,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Scrambled eggs (2 eggs) on toast (2 slices) with greens and microgreens, served with salsa (~200g total)",
+          "calories": 380,
+          "protein": 24,
+          "carbs": 40,
+          "fat": 18,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-27T08:09:22.229Z"
+        }
+      ]
     }
   ]
 }

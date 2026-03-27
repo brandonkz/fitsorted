@@ -214,6 +214,79 @@
           "time": "2026-03-26T18:15:57.366Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 710,
+        "protein": 18,
+        "carbs": 142,
+        "fat": 7,
+        "fibre": 7,
+        "priceZAR": 66
+      },
+      "entries": [
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-27T15:32:08.170Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 8,
+          "time": "2026-03-27T15:32:21.587Z"
+        },
+        {
+          "food": "Rice (1 cup cooked) (1 cup)",
+          "calories": 205,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-27T15:32:41.144Z"
+        },
+        {
+          "food": "Pumpkin (1 cup cooked, ~200g)",
+          "calories": 50,
+          "protein": 2,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-27T15:33:18.817Z"
+        },
+        {
+          "food": "Red Bull (250ml)",
+          "calories": 112,
+          "protein": 0,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-27T15:33:25.594Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-27T17:31:05.425Z"
+        }
+      ]
     }
   ]
 }

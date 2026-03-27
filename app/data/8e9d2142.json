@@ -216,6 +216,39 @@
           "time": "2026-03-26T18:01:23.683Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 880,
+        "protein": 63,
+        "carbs": 60,
+        "fat": 48,
+        "fibre": 10,
+        "priceZAR": 95
+      },
+      "entries": [
+        {
+          "food": "2x scrambled eggs + Chicken breast (~150g) + Avocado (~100g)",
+          "calories": 480,
+          "protein": 38,
+          "carbs": 20,
+          "fat": 30,
+          "fibre": 7,
+          "priceZAR": 45,
+          "time": "2026-03-27T13:39:49.875Z"
+        },
+        {
+          "food": "Chicken mayo sandwich (~150g)",
+          "calories": 400,
+          "protein": 25,
+          "carbs": 40,
+          "fat": 18,
+          "fibre": 3,
+          "priceZAR": 50,
+          "time": "2026-03-27T13:40:50.190Z"
+        }
+      ]
     }
   ]
 }

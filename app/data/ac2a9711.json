@@ -26,7 +26,14 @@
         "time": "2026-03-24T18:34:14.918Z"
       }
     ],
-    "2026-03-25": []
+    "2026-03-25": [],
+    "2026-03-27": [
+      {
+        "activity": "running",
+        "calories": 400,
+        "time": "2026-03-27T18:22:04.456Z"
+      }
+    ]
   },
   "logSummary": [
     {
@@ -398,6 +405,119 @@
           "fibre": 0,
           "priceZAR": 45,
           "time": "2026-03-26T18:19:40.397Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "calories": 2003,
+        "protein": 128,
+        "carbs": 203,
+        "fat": 68.2,
+        "fibre": 24,
+        "priceZAR": 307
+      },
+      "entries": [
+        {
+          "food": "Future Life porridge (1 serving, ~40g) with milk (1 cup, ~250ml)",
+          "calories": 300,
+          "protein": 12,
+          "carbs": 45,
+          "fat": 8,
+          "fibre": 5,
+          "priceZAR": 20,
+          "time": "2026-03-27T10:43:52.966Z"
+        },
+        {
+          "food": "Chicken breast (~130g)",
+          "calories": 320,
+          "protein": 53,
+          "carbs": 0,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-27T10:45:33.971Z"
+        },
+        {
+          "food": "Green beans steamed (1 cup (125g))",
+          "calories": 35,
+          "protein": 2,
+          "carbs": 7,
+          "fat": 0.2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-27T10:45:36.771Z"
+        },
+        {
+          "food": "Chickpeas (1 cup, ~150g) and goat's milk cheese (30g)",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 45,
+          "fat": 10,
+          "fibre": 10,
+          "priceZAR": 38,
+          "time": "2026-03-27T10:45:41.751Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-27T10:46:28.997Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-27T10:46:49.782Z"
+        },
+        {
+          "food": "Tea with milk (1 cup)",
+          "calories": 40,
+          "protein": 2,
+          "carbs": 4,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-27T11:04:45.405Z"
+        },
+        {
+          "food": "Bacon feta and avocado pizza (~200g)",
+          "calories": 600,
+          "protein": 25,
+          "carbs": 70,
+          "fat": 30,
+          "fibre": 5,
+          "priceZAR": 90,
+          "time": "2026-03-27T18:20:43.939Z"
+        },
+        {
+          "food": "Draught beer (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-27T18:21:10.542Z"
+        },
+        {
+          "food": "Red wine (175ml)",
+          "calories": 125,
+          "protein": 9,
+          "carbs": 13,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-27T18:21:19.703Z"
         }
       ]
     }
