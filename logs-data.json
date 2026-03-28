@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-28T10:33:19.655Z",
+    "date": "2026-03-28",
+    "phone": "5878",
+    "userId": "27724215",
+    "food": "Biltong (100g)",
+    "calories": 350,
+    "protein": 56,
+    "carbs": 8,
+    "fat": 8,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-28T10:33:01.845Z",
+    "date": "2026-03-28",
+    "phone": "5878",
+    "userId": "27724215",
+    "food": "Caste lager (440ml)",
+    "calories": 155,
+    "protein": 1,
+    "carbs": 13,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-28T09:51:36.269Z",
     "date": "2026-03-28",
     "phone": "5878",
