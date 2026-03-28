@@ -75,6 +75,39 @@
           "time": "2026-03-27T18:26:58.827Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 950,
+        "protein": 46,
+        "carbs": 92,
+        "fat": 52,
+        "fibre": 10,
+        "priceZAR": 108
+      },
+      "entries": [
+        {
+          "food": "3 eggs + 2 slices brown toast + 4 cheese sausages",
+          "calories": 730,
+          "protein": 40,
+          "carbs": 56,
+          "fat": 44,
+          "fibre": 8,
+          "priceZAR": 100,
+          "time": "2026-03-28T17:29:56.279Z"
+        },
+        {
+          "food": "2x slice of toast with butter",
+          "calories": 220,
+          "protein": 6,
+          "carbs": 36,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-28T17:30:32.449Z"
+        }
+      ]
     }
   ]
 }

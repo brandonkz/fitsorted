@@ -469,6 +469,99 @@
           "time": "2026-03-27T15:39:34.229Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 2295,
+        "protein": 167,
+        "carbs": 172,
+        "fat": 69,
+        "fibre": 6,
+        "priceZAR": 365
+      },
+      "entries": [
+        {
+          "food": "Called lager double malt (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-28T09:04:46.380Z"
+        },
+        {
+          "food": "Koeksister",
+          "calories": 250,
+          "protein": 3,
+          "carbs": 38,
+          "fat": 10,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-28T09:09:57.070Z"
+        },
+        {
+          "food": "Castle Double Malt Lager (330ml can)",
+          "calories": 170,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-28T09:51:36.269Z"
+        },
+        {
+          "food": "Caste lager (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-28T10:33:01.845Z"
+        },
+        {
+          "food": "Biltong (100g)",
+          "calories": 350,
+          "protein": 56,
+          "carbs": 8,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-03-28T10:33:19.655Z"
+        },
+        {
+          "food": "Potjie kos (~300g)",
+          "calories": 450,
+          "protein": 30,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-03-28T17:24:20.025Z"
+        },
+        {
+          "food": "3x Caste lager double malt (440ml each)",
+          "calories": 465,
+          "protein": 35,
+          "carbs": 47,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 60,
+          "time": "2026-03-28T17:24:52.785Z"
+        },
+        {
+          "food": "Fillet steak (~150g)",
+          "calories": 300,
+          "protein": 40,
+          "carbs": 0,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-03-28T18:01:48.006Z"
+        }
+      ]
     }
   ]
 }

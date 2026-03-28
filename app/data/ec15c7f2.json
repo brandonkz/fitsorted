@@ -287,6 +287,59 @@
           "time": "2026-03-27T17:31:05.425Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 1030,
+        "protein": 60,
+        "carbs": 97,
+        "fat": 44,
+        "fibre": 6,
+        "priceZAR": 166
+      },
+      "entries": [
+        {
+          "food": "2x scrambled eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-28T09:38:12.589Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 8,
+          "time": "2026-03-28T09:38:18.497Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-28T09:38:35.871Z"
+        },
+        {
+          "food": "2x chicken burger",
+          "calories": 680,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 30,
+          "fibre": 4,
+          "priceZAR": 130,
+          "time": "2026-03-28T18:01:07.799Z"
+        }
+      ]
     }
   ]
 }

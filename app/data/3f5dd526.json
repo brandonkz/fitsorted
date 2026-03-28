@@ -674,6 +674,39 @@
           "time": "2026-03-27T12:42:35.049Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 450,
+        "protein": 23,
+        "carbs": 14,
+        "fat": 33,
+        "fibre": 0,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "Beef breakfast sausage (~100g)",
+          "calories": 300,
+          "protein": 15,
+          "carbs": 2,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-28T07:02:28.424Z"
+        },
+        {
+          "food": "Yogurt (1 cup, ~245g)",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-28T07:02:47.676Z"
+        }
+      ]
     }
   ]
 }

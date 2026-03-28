@@ -1,0 +1,50 @@
+{
+  "name": "kay",
+  "goal": 1247,
+  "joinedAt": "2026-03-28T14:27:32.443Z",
+  "profile": {
+    "age": 19,
+    "weight": 82,
+    "height": 176,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 850,
+        "protein": 43,
+        "carbs": 65,
+        "fat": 47,
+        "fibre": 5,
+        "priceZAR": 150
+      },
+      "entries": [
+        {
+          "food": "Wimpy Fullhouse Breakfast",
+          "calories": 800,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 45,
+          "fibre": 5,
+          "priceZAR": 120,
+          "time": "2026-03-28T14:31:35.272Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-28T14:31:38.301Z"
+        }
+      ]
+    }
+  ]
+}

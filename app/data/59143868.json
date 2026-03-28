@@ -136,6 +136,49 @@
           "time": "2026-03-26T15:35:36.990Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 900,
+        "protein": 73,
+        "carbs": 60,
+        "fat": 39,
+        "fibre": 4,
+        "priceZAR": 125
+      },
+      "entries": [
+        {
+          "food": "medium chicken breast (~130g)",
+          "calories": 200,
+          "protein": 38,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-28T06:26:41.075Z"
+        },
+        {
+          "food": "Medium ham sandwich (~150g)",
+          "calories": 350,
+          "protein": 20,
+          "carbs": 30,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 50,
+          "time": "2026-03-28T06:26:44.527Z"
+        },
+        {
+          "food": "Medium ham and cheese croissant",
+          "calories": 350,
+          "protein": 15,
+          "carbs": 30,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 45,
+          "time": "2026-03-28T06:27:00.186Z"
+        }
+      ]
     }
   ]
 }

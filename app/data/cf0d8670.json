@@ -12,7 +12,14 @@
   },
   "weights": [],
   "exercise": {
-    "2026-03-25": []
+    "2026-03-25": [],
+    "2026-03-28": [
+      {
+        "activity": "hiking",
+        "calories": 300,
+        "time": "2026-03-28T07:14:55.910Z"
+      }
+    ]
   },
   "logSummary": [
     {
@@ -301,6 +308,49 @@
           "fibre": 4,
           "priceZAR": 120,
           "time": "2026-03-27T20:46:06.388Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 700,
+        "protein": 27,
+        "carbs": 38,
+        "fat": 48,
+        "fibre": 1,
+        "priceZAR": 135
+      },
+      "entries": [
+        {
+          "food": "2x coffee with milk",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 8,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 60,
+          "time": "2026-03-28T06:51:29.763Z"
+        },
+        {
+          "food": "breakfast bun with egg (~150g)",
+          "calories": 240,
+          "protein": 8,
+          "carbs": 28,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 45,
+          "time": "2026-03-28T06:51:33.058Z"
+        },
+        {
+          "food": "Bacon (~50g) with mayonnaise (~30g) and cheese (~30g)",
+          "calories": 380,
+          "protein": 15,
+          "carbs": 2,
+          "fat": 35,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-28T06:51:37.123Z"
         }
       ]
     }

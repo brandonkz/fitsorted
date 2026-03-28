@@ -213,6 +213,59 @@
           "time": "2026-03-27T10:36:06.604Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 1235,
+        "protein": 53,
+        "carbs": 100,
+        "fat": 70,
+        "fibre": 7,
+        "priceZAR": 94
+      },
+      "entries": [
+        {
+          "food": "3x French toast (3 slices, ~240g)",
+          "calories": 600,
+          "protein": 12,
+          "carbs": 72,
+          "fat": 30,
+          "fibre": 6,
+          "priceZAR": 24,
+          "time": "2026-03-28T08:17:20.373Z"
+        },
+        {
+          "food": "Jalapeño Popper Flavoured Corn Snack (30g)",
+          "calories": 150,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 9,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-03-28T08:18:27.403Z"
+        },
+        {
+          "food": "Red wine (175ml)",
+          "calories": 125,
+          "protein": 9,
+          "carbs": 13,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-28T15:45:33.520Z"
+        },
+        {
+          "food": "3x chicken sausage",
+          "calories": 360,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 27,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-28T18:33:21.901Z"
+        }
+      ]
     }
   ]
 }

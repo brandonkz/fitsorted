@@ -60,6 +60,39 @@
           "time": "2026-03-15T17:21:32.765Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 698,
+        "protein": 86,
+        "carbs": 60,
+        "fat": 15,
+        "fibre": 8,
+        "priceZAR": 45
+      },
+      "entries": [
+        {
+          "food": "Chicken breast (grilled, 150g) (150g)",
+          "calories": 248,
+          "protein": 46,
+          "carbs": 0,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-28T12:09:26.562Z"
+        },
+        {
+          "food": "Chicken breast (~150g) with mixed vegetables (~100g) and sweet potatoes (~150g)",
+          "calories": 450,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 45,
+          "time": "2026-03-28T12:11:41.142Z"
+        }
+      ]
     }
   ]
 }

@@ -45,6 +45,29 @@
           "time": "2026-03-23T11:05:48.698Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "calories": 420,
+        "protein": 10,
+        "carbs": 60,
+        "fat": 15,
+        "fibre": 2,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "Bar One milkshake (350ml)",
+          "calories": 420,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 50,
+          "time": "2026-03-28T11:29:49.111Z"
+        }
+      ]
     }
   ]
 }
