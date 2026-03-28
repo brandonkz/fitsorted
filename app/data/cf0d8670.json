@@ -224,12 +224,12 @@
     {
       "date": "2026-03-27",
       "totals": {
-        "calories": 1425,
-        "protein": 73,
-        "carbs": 172,
-        "fat": 58,
-        "fibre": 11,
-        "priceZAR": 285
+        "calories": 2225,
+        "protein": 103,
+        "carbs": 262,
+        "fat": 93,
+        "fibre": 15,
+        "priceZAR": 405
       },
       "entries": [
         {
@@ -291,6 +291,16 @@
           "fibre": 5,
           "priceZAR": 90,
           "time": "2026-03-27T11:16:46.411Z"
+        },
+        {
+          "food": "Pizza (~300g)",
+          "calories": 800,
+          "protein": 30,
+          "carbs": 90,
+          "fat": 35,
+          "fibre": 4,
+          "priceZAR": 120,
+          "time": "2026-03-27T20:46:06.388Z"
         }
       ]
     }

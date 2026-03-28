@@ -1,0 +1,16 @@
+{
+  "name": "You think I should eat 2732 calories?",
+  "goal": 2732,
+  "joinedAt": "2026-03-27T19:02:41.161Z",
+  "profile": {
+    "age": 20,
+    "weight": 154,
+    "height": 174,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": []
+}
