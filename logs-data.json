@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-28T15:45:33.520Z",
+    "date": "2026-03-28",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Red wine (175ml)",
+    "calories": 125,
+    "protein": 9,
+    "carbs": 13,
+    "fat": 4,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-28T14:31:38.301Z",
     "date": "2026-03-28",
     "phone": "1972",
