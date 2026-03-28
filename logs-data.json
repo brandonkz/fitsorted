@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-28T08:18:27.403Z",
+    "date": "2026-03-28",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Jalapeño Popper Flavoured Corn Snack (30g)",
+    "calories": 150,
+    "protein": 2,
+    "carbs": 15,
+    "fat": 9,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-28T08:17:20.373Z",
+    "date": "2026-03-28",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "3x French toast (3 slices, ~240g)",
+    "calories": 600,
+    "protein": 12,
+    "carbs": 72,
+    "fat": 30,
+    "fibre": 6,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-28T07:02:47.676Z",
     "date": "2026-03-28",
     "phone": "0657",
