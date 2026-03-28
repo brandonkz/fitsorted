@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-28T18:33:21.901Z",
+    "date": "2026-03-28",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "3x chicken sausage",
+    "calories": 360,
+    "protein": 30,
+    "carbs": 0,
+    "fat": 27,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-28T18:01:48.006Z",
     "date": "2026-03-28",
     "phone": "5878",
