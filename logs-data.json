@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-28T20:21:49.297Z",
+    "date": "2026-03-28",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "5x marshmallow",
+    "calories": 150,
+    "protein": 0,
+    "carbs": 37,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-28T19:20:21.603Z",
     "date": "2026-03-28",
     "phone": "7571",
