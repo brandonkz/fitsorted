@@ -1,0 +1,172 @@
+[
+  {
+    "food": "woolworths chicken wrap",
+    "minCal": 300,
+    "maxCal": 450,
+    "aiCalories": 400,
+    "aiResult": {
+      "food": "Woolworths chicken wrap",
+      "calories": 400,
+      "protein": 30,
+      "carbs": 40,
+      "fat": 15,
+      "fibre": 5,
+      "estimatedPriceZAR": 60
+    },
+    "passed": true,
+    "diff": 0
+  },
+  {
+    "food": "pickled fish",
+    "minCal": 200,
+    "maxCal": 350,
+    "aiCalories": 250,
+    "aiResult": {
+      "food": "Pickled fish (~150g)",
+      "calories": 250,
+      "protein": 30,
+      "carbs": 10,
+      "fat": 10,
+      "fibre": 0,
+      "estimatedPriceZAR": null
+    },
+    "passed": true,
+    "diff": 0
+  },
+  {
+    "food": "malva pudding",
+    "minCal": 300,
+    "maxCal": 500,
+    "aiCalories": 350,
+    "aiResult": {
+      "food": "Malva pudding (~150g)",
+      "calories": 350,
+      "protein": 4,
+      "carbs": 60,
+      "fat": 12,
+      "fibre": 1,
+      "estimatedPriceZAR": 50
+    },
+    "passed": true,
+    "diff": 0
+  },
+  {
+    "food": "bobotie and yellow rice",
+    "minCal": 500,
+    "maxCal": 750,
+    "aiCalories": 570,
+    "aiResult": {
+      "food": "Bobotie (~200g) and yellow rice (1 cup, ~150g)",
+      "calories": 570,
+      "protein": 30,
+      "carbs": 70,
+      "fat": 20,
+      "fibre": 5,
+      "estimatedPriceZAR": null
+    },
+    "passed": true,
+    "diff": 0
+  },
+  {
+    "food": "rooibos latte",
+    "minCal": 80,
+    "maxCal": 170,
+    "aiCalories": 60,
+    "aiResult": {
+      "food": "rooibos latte (1 cup)",
+      "calories": 60,
+      "protein": 2,
+      "carbs": 10,
+      "fat": 2,
+      "fibre": 0,
+      "estimatedPriceZAR": 40
+    },
+    "passed": false,
+    "diff": -20
+  },
+  {
+    "food": "checkers footlong",
+    "minCal": 500,
+    "maxCal": 800,
+    "aiCalories": 600,
+    "aiResult": {
+      "food": "Checkers footlong (~300g)",
+      "calories": 600,
+      "protein": 30,
+      "carbs": 80,
+      "fat": 20,
+      "fibre": 5,
+      "estimatedPriceZAR": 70
+    },
+    "passed": true,
+    "diff": 0
+  },
+  {
+    "food": "spur ribs and chips",
+    "minCal": 700,
+    "maxCal": 1100,
+    "aiCalories": 900,
+    "aiResult": {
+      "food": "Pork ribs (~300g) with chips (~150g)",
+      "calories": 900,
+      "protein": 60,
+      "carbs": 80,
+      "fat": 50,
+      "fibre": 5,
+      "estimatedPriceZAR": 150
+    },
+    "passed": true,
+    "diff": 0
+  },
+  {
+    "food": "gatsby polony",
+    "minCal": 700,
+    "maxCal": 1100,
+    "aiCalories": 750,
+    "aiResult": {
+      "food": "Gatsby with polony (~300g)",
+      "calories": 750,
+      "protein": 20,
+      "carbs": 90,
+      "fat": 35,
+      "fibre": 5,
+      "estimatedPriceZAR": 85
+    },
+    "passed": true,
+    "diff": 0
+  },
+  {
+    "food": "nandos liveraide",
+    "minCal": 50,
+    "maxCal": 150,
+    "aiCalories": 250,
+    "aiResult": {
+      "food": "Nando's liveraide (~150g)",
+      "calories": 250,
+      "protein": 25,
+      "carbs": 10,
+      "fat": 15,
+      "fibre": 2,
+      "estimatedPriceZAR": 75
+    },
+    "passed": false,
+    "diff": 100
+  },
+  {
+    "food": "woolworths amanzi sparkling water",
+    "minCal": 0,
+    "maxCal": 5,
+    "aiCalories": 0,
+    "aiResult": {
+      "food": "Woolworths Amanzi sparkling water (500ml)",
+      "calories": 0,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 0,
+      "fibre": 0,
+      "estimatedPriceZAR": 15
+    },
+    "passed": true,
+    "diff": 0
+  }
+]

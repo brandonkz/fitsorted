@@ -1,858 +1,248 @@
 {
-  "date": "2026-03-13T23:03:50.339Z",
-  "total": 153,
-  "passed": 103,
-  "failed": 50,
-  "failures": [
+  "results": [
     {
-      "food": "white monster",
-      "expected": [
-        0,
-        15
-      ],
-      "got": 230,
+      "name": "magwinya with atchar",
+      "minCal": 350,
+      "maxCal": 580,
+      "aiCal": 300,
+      "pass": false,
       "aiResult": {
-        "food": "White Monster energy drink 500ml",
-        "calories": 230,
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "monster zero",
-      "expected": [
-        0,
-        15
-      ],
-      "got": 230,
-      "aiResult": {
-        "food": "Monster Energy Drink 500ml",
-        "calories": 230,
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "boerewors roll",
-      "expected": [
-        350,
-        500
-      ],
-      "got": 600,
-      "aiResult": {
-        "food": "boerewors roll",
-        "calories": 600,
-        "protein": 25,
+        "food": "Magwinya (~100g) with atchar (~30g)",
+        "calories": 300,
+        "protein": 5,
         "carbs": 50,
-        "fat": 35,
-        "fibre": 2,
-        "estimatedPriceZAR": 70
-      }
-    },
-    {
-      "food": "chicken and rice",
-      "expected": [
-        350,
-        600
-      ],
-      "got": null,
-      "aiResult": {
-        "food": "chicken and rice",
-        "calories": null,
-        "protein": null,
-        "carbs": null,
-        "fat": null,
-        "fibre": null,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "double vodka",
-      "expected": [
-        120,
-        170
-      ],
-      "got": 200,
-      "aiResult": {
-        "food": "double vodka",
-        "calories": 200,
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "craft beer",
-      "expected": [
-        170,
-        250
-      ],
-      "got": 155,
-      "aiResult": {
-        "food": "craft beer 440ml",
-        "calories": 155,
-        "protein": 1,
-        "carbs": 13,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "gatsby steak",
-      "expected": [
-        900,
-        1200
-      ],
-      "got": 800,
-      "aiResult": {
-        "food": "gatsby steak",
-        "calories": 800,
-        "protein": 50,
-        "carbs": 70,
-        "fat": 40,
-        "fibre": 5,
-        "estimatedPriceZAR": 90
-      }
-    },
-    {
-      "food": "rusks",
-      "expected": [
-        120,
-        160
-      ],
-      "got": 100,
-      "aiResult": {
-        "food": "rusks",
-        "calories": 100,
-        "protein": 2,
-        "carbs": 20,
-        "fat": 2,
-        "fibre": 2,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "savanna light",
-      "expected": [
-        80,
-        120
-      ],
-      "got": 155,
-      "aiResult": {
-        "food": "Savanna Light 440ml",
-        "calories": 155,
-        "protein": 0,
-        "carbs": 12,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": 30
-      }
-    },
-    {
-      "food": "koeksister",
-      "expected": [
-        200,
-        300
-      ],
-      "got": 150,
-      "aiResult": {
-        "food": "koeksister",
-        "calories": 150,
-        "protein": 1,
-        "carbs": 30,
-        "fat": 5,
-        "fibre": 0,
-        "estimatedPriceZAR": 20
-      }
-    },
-    {
-      "food": "cup of milo",
-      "expected": [
-        150,
-        250
-      ],
-      "got": 120,
-      "aiResult": {
-        "food": "cup of milo",
-        "calories": 120,
-        "protein": 3,
-        "carbs": 24,
-        "fat": 2,
-        "fibre": 1,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "samp and beans",
-      "expected": [
-        250,
-        400
-      ],
-      "got": 200,
-      "aiResult": {
-        "food": "samp and beans",
-        "calories": 200,
-        "protein": 10,
-        "carbs": 40,
-        "fat": 1,
-        "fibre": 8,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "nandos quarter chicken",
-      "expected": [
-        550,
-        750
-      ],
-      "got": 400,
-      "aiResult": {
-        "food": "quarter chicken",
-        "calories": 400,
-        "protein": 40,
-        "carbs": 0,
-        "fat": 25,
-        "fibre": 0,
-        "estimatedPriceZAR": 75
-      }
-    },
-    {
-      "food": "whisky neat",
-      "expected": [
-        55,
-        90
-      ],
-      "got": 110,
-      "aiResult": {
-        "food": "whisky neat 50ml",
-        "calories": 110,
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": 30
-      }
-    },
-    {
-      "food": "steers wacky wednesday",
-      "expected": [
-        550,
-        750
-      ],
-      "got": 500,
-      "aiResult": {
-        "food": "Steers Wacky Wednesday burger",
-        "calories": 500,
-        "protein": 25,
-        "carbs": 40,
-        "fat": 30,
-        "fibre": 2,
-        "estimatedPriceZAR": 50
-      }
-    },
-    {
-      "food": "tex bar",
-      "expected": [
-        220,
-        300
-      ],
-      "got": 120,
-      "aiResult": {
-        "food": "tex bar",
-        "calories": 120,
-        "protein": 1,
-        "carbs": 25,
-        "fat": 3,
-        "fibre": 1,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "vodka lime soda",
-      "expected": [
-        70,
-        120
-      ],
-      "got": 150,
-      "aiResult": {
-        "food": "vodka lime soda",
-        "calories": 150,
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": 60
-      }
-    },
-    {
-      "food": "future life cereal",
-      "expected": [
-        200,
-        300
-      ],
-      "got": 120,
-      "aiResult": {
-        "food": "Future Life cereal",
-        "calories": 120,
-        "protein": 12,
-        "carbs": 20,
-        "fat": 3,
-        "fibre": 5,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "jungle oats",
-      "expected": [
-        250,
-        380
-      ],
-      "got": 150,
-      "aiResult": {
-        "food": "Jungle Oats 1 serving",
-        "calories": 150,
-        "protein": 5,
-        "carbs": 27,
-        "fat": 3,
-        "fibre": 4,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "lunch bar",
-      "expected": [
-        220,
-        300
-      ],
-      "got": 120,
-      "aiResult": {
-        "food": "lunch bar",
-        "calories": 120,
-        "protein": 2,
-        "carbs": 20,
-        "fat": 5,
-        "fibre": 1,
-        "estimatedPriceZAR": 15
-      }
-    },
-    {
-      "food": "simba chipniks",
-      "expected": [
-        350,
-        550
-      ],
-      "got": 150,
-      "aiResult": {
-        "food": "Simba chipniks",
-        "calories": 150,
-        "protein": 2,
-        "carbs": 15,
-        "fat": 10,
-        "fibre": 1,
-        "estimatedPriceZAR": 20
-      }
-    },
-    {
-      "food": "uphuthu",
-      "expected": [
-        200,
-        350
-      ],
-      "got": 150,
-      "aiResult": {
-        "food": "uphuthu",
-        "calories": 150,
-        "protein": 5,
-        "carbs": 30,
-        "fat": 1,
-        "fibre": 2,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "umfino",
-      "expected": [
-        100,
-        200
-      ],
-      "got": null,
-      "aiResult": {
-        "food": "umfino",
-        "calories": null,
-        "protein": null,
-        "carbs": null,
-        "fat": null,
-        "fibre": null,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "kfc bucket 8 piece",
-      "expected": [
-        1600,
-        2400
-      ],
-      "got": 3200,
-      "aiResult": {
-        "food": "KFC bucket 8 piece",
-        "calories": 3200,
-        "protein": 240,
-        "carbs": 160,
-        "fat": 240,
-        "fibre": 0,
-        "estimatedPriceZAR": 600
-      }
-    },
-    {
-      "food": "amadumbe",
-      "expected": [
-        150,
-        250
-      ],
-      "got": 100,
-      "aiResult": {
-        "food": "amadumbe 100g",
-        "calories": 100,
-        "protein": 2,
-        "carbs": 23,
-        "fat": 0,
-        "fibre": 3,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "boerekos",
-      "expected": [
-        500,
-        800
-      ],
-      "got": null,
-      "aiResult": {
-        "food": "boerekos",
-        "calories": null,
-        "protein": null,
-        "carbs": null,
-        "fat": null,
-        "fibre": null,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "ghost pops",
-      "expected": [
-        300,
-        500
-      ],
-      "got": null,
-      "aiResult": {
-        "food": "ghost pops",
-        "calories": null,
-        "protein": null,
-        "carbs": null,
-        "fat": null,
-        "fibre": null,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "nik naks",
-      "expected": [
-        350,
-        550
-      ],
-      "got": 250,
-      "aiResult": {
-        "food": "nik naks 50g",
-        "calories": 250,
-        "protein": 2,
-        "carbs": 30,
-        "fat": 14,
-        "fibre": 1,
-        "estimatedPriceZAR": 15
-      }
-    },
-    {
-      "food": "checkers rotisserie chicken",
-      "expected": [
-        800,
-        1400
-      ],
-      "got": 400,
-      "aiResult": {
-        "food": "rotisserie chicken",
-        "calories": 400,
-        "protein": 60,
-        "carbs": 0,
-        "fat": 20,
-        "fibre": 0,
-        "estimatedPriceZAR": 90
-      }
-    },
-    {
-      "food": "mass gainer scoop",
-      "expected": [
-        300,
-        500
-      ],
-      "got": null,
-      "aiResult": {
-        "food": "mass gainer scoop",
-        "calories": null,
-        "protein": null,
-        "carbs": null,
-        "fat": null,
-        "fibre": null,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "vienna and bread",
-      "expected": [
-        250,
-        400
-      ],
-      "got": 210,
-      "aiResult": {
-        "food": "1x vienna and 1 slice of bread",
-        "calories": 210,
-        "protein": 8,
-        "carbs": 24,
-        "fat": 9,
-        "fibre": 1,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "eggs on toast",
-      "expected": [
-        250,
-        400
-      ],
-      "got": 220,
-      "aiResult": {
-        "food": "2x eggs on toast",
-        "calories": 220,
-        "protein": 14,
-        "carbs": 16,
         "fat": 10,
         "fibre": 2,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "chocolate milk",
-      "expected": [
-        180,
-        280
-      ],
-      "got": 150,
-      "aiResult": {
-        "food": "chocolate milk 250ml",
-        "calories": 150,
-        "protein": 6,
-        "carbs": 24,
-        "fat": 4,
-        "fibre": 1,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "milkshake",
-      "expected": [
-        350,
-        600
-      ],
-      "got": 300,
-      "aiResult": {
-        "food": "milkshake",
-        "calories": 300,
-        "protein": 8,
-        "carbs": 45,
-        "fat": 10,
-        "fibre": 0,
-        "estimatedPriceZAR": 65
-      }
-    },
-    {
-      "food": "gin and tonic",
-      "expected": [
-        100,
-        170
-      ],
-      "got": 200,
-      "aiResult": {
-        "food": "gin and tonic",
-        "calories": 200,
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": 80
-      }
-    },
-    {
-      "food": "debonairs medium pizza",
-      "expected": [
-        1200,
-        2000
-      ],
-      "got": 800,
-      "aiResult": {
-        "food": "medium pizza",
-        "calories": 800,
-        "protein": 40,
-        "carbs": 100,
-        "fat": 30,
-        "fibre": 5,
-        "estimatedPriceZAR": 150
-      }
-    },
-    {
-      "food": "chicken stirfry",
-      "expected": [
-        350,
-        550
-      ],
-      "got": 300,
-      "aiResult": {
-        "food": "chicken stirfry",
-        "calories": 300,
-        "protein": 30,
-        "carbs": 20,
-        "fat": 10,
-        "fibre": 5,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "bacon and eggs",
-      "expected": [
-        300,
-        450
-      ],
-      "got": 140,
-      "aiResult": {
-        "food": "2x eggs",
-        "calories": 140,
-        "protein": 12,
-        "carbs": 2,
-        "fat": 10,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "caesar salad",
-      "expected": [
-        350,
-        600
-      ],
-      "got": 300,
-      "aiResult": {
-        "food": "caesar salad",
-        "calories": 300,
-        "protein": 10,
-        "carbs": 15,
-        "fat": 20,
-        "fibre": 3,
-        "estimatedPriceZAR": 75
-      }
-    },
-    {
-      "food": "chai latte",
-      "expected": [
-        150,
-        250
-      ],
-      "got": 120,
-      "aiResult": {
-        "food": "chai latte",
-        "calories": 120,
-        "protein": 4,
-        "carbs": 20,
-        "fat": 3,
-        "fibre": 0,
         "estimatedPriceZAR": 40
       }
     },
     {
-      "food": "ocean basket calamari",
-      "expected": [
-        400,
-        650
-      ],
-      "got": 300,
+      "name": "chicken licken soul rider",
+      "minCal": 500,
+      "maxCal": 750,
+      "aiCal": 600,
+      "pass": true,
       "aiResult": {
-        "food": "calamari",
-        "calories": 300,
+        "food": "Chicken Licken Soul Rider (~300g)",
+        "calories": 600,
+        "protein": 30,
+        "carbs": 70,
+        "fat": 25,
+        "fibre": 5,
+        "estimatedPriceZAR": 85
+      }
+    },
+    {
+      "name": "woolworths chicken caesar wrap",
+      "minCal": 350,
+      "maxCal": 550,
+      "aiCal": 450,
+      "pass": true,
+      "aiResult": {
+        "food": "Woolworths chicken caesar wrap",
+        "calories": 450,
         "protein": 25,
-        "carbs": 20,
-        "fat": 15,
-        "fibre": 2,
-        "estimatedPriceZAR": 120
-      }
-    },
-    {
-      "food": "biltong and cheese platter",
-      "expected": [
-        400,
-        650
-      ],
-      "got": 185,
-      "aiResult": {
-        "food": "biltong (50g) and cheese (1 slice)",
-        "calories": 185,
-        "protein": 24,
-        "carbs": 1,
-        "fat": 10,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "vida e caffe latte",
-      "expected": [
-        150,
-        250
-      ],
-      "got": 120,
-      "aiResult": {
-        "food": "caffe latte",
-        "calories": 120,
-        "protein": 8,
-        "carbs": 12,
-        "fat": 5,
-        "fibre": 0,
-        "estimatedPriceZAR": 45
-      }
-    },
-    {
-      "food": "mcflurry",
-      "expected": [
-        350,
-        550
-      ],
-      "got": 250,
-      "aiResult": {
-        "food": "McFlurry",
-        "calories": 250,
-        "protein": 5,
         "carbs": 40,
-        "fat": 10,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "name": "checkers banana bread slice",
+      "minCal": 200,
+      "maxCal": 350,
+      "aiCal": 180,
+      "pass": false,
+      "aiResult": {
+        "food": "Banana bread slice (~50g)",
+        "calories": 180,
+        "protein": 2,
+        "carbs": 35,
+        "fat": 5,
+        "fibre": 2,
+        "estimatedPriceZAR": 25
+      }
+    },
+    {
+      "name": "spur nachos supreme",
+      "minCal": 700,
+      "maxCal": 1100,
+      "aiCal": 800,
+      "pass": true,
+      "aiResult": {
+        "food": "Spur nachos supreme (~300g)",
+        "calories": 800,
+        "protein": 25,
+        "carbs": 90,
+        "fat": 40,
+        "fibre": 10,
+        "estimatedPriceZAR": 85
+      }
+    },
+    {
+      "name": "kfc original 3 piece",
+      "minCal": 600,
+      "maxCal": 900,
+      "aiCal": 840,
+      "pass": true,
+      "aiResult": {
+        "food": "KFC original chicken (3 pieces, ~510g)",
+        "calories": 840,
+        "protein": 60,
+        "carbs": 0,
+        "fat": 60,
+        "fibre": 0,
+        "estimatedPriceZAR": 100
+      }
+    },
+    {
+      "name": "biltong wrap woolworths",
+      "minCal": 300,
+      "maxCal": 500,
+      "aiCal": 450,
+      "pass": true,
+      "aiResult": {
+        "food": "Biltong wrap (~200g)",
+        "calories": 450,
+        "protein": 30,
+        "carbs": 40,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 75
+      }
+    },
+    {
+      "name": "nestle bar one ice cream",
+      "minCal": 200,
+      "maxCal": 350,
+      "aiCal": 250,
+      "pass": true,
+      "aiResult": {
+        "food": "Nestlé Bar One ice cream (1 serving, ~100g)",
+        "calories": 250,
+        "protein": 4,
+        "carbs": 30,
+        "fat": 13,
         "fibre": 1,
         "estimatedPriceZAR": 30
       }
     },
     {
-      "food": "checkers chicken strips",
-      "expected": [
-        300,
-        500
-      ],
-      "got": null,
+      "name": "creme soda float",
+      "minCal": 250,
+      "maxCal": 450,
+      "aiCal": 300,
+      "pass": true,
       "aiResult": {
-        "food": "Checkers chicken strips",
-        "calories": null,
-        "protein": null,
-        "carbs": null,
-        "fat": null,
-        "fibre": null,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "spur cheese burger",
-      "expected": [
-        550,
-        800
-      ],
-      "got": 500,
-      "aiResult": {
-        "food": "cheese burger",
-        "calories": 500,
-        "protein": 25,
-        "carbs": 40,
-        "fat": 30,
-        "fibre": 2,
-        "estimatedPriceZAR": 85
-      }
-    },
-    {
-      "food": "sparletta pine nut",
-      "expected": [
-        150,
-        230
-      ],
-      "got": 0,
-      "aiResult": {
-        "food": "sparletta pine nut",
-        "calories": 0,
+        "food": "creme soda float (1 serving)",
+        "calories": 300,
         "protein": 0,
-        "carbs": 0,
+        "carbs": 75,
         "fat": 0,
         "fibre": 0,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "name": "pap and chicken stew",
+      "minCal": 450,
+      "maxCal": 700,
+      "aiCal": 450,
+      "pass": true,
+      "aiResult": {
+        "food": "Pap (1 cup, ~150g) and chicken stew (1 cup, ~250g)",
+        "calories": 450,
+        "protein": 30,
+        "carbs": 60,
+        "fat": 15,
+        "fibre": 4,
         "estimatedPriceZAR": null
       }
-    },
+    }
+  ],
+  "failures": [
     {
-      "food": "ocean basket prawns",
-      "expected": [
-        350,
-        550
-      ],
-      "got": 300,
+      "name": "magwinya with atchar",
+      "minCal": 350,
+      "maxCal": 580,
+      "aiCal": 300,
       "aiResult": {
-        "food": "ocean basket prawns",
+        "food": "Magwinya (~100g) with atchar (~30g)",
         "calories": 300,
-        "protein": 25,
-        "carbs": 10,
-        "fat": 15,
+        "protein": 5,
+        "carbs": 50,
+        "fat": 10,
         "fibre": 2,
-        "estimatedPriceZAR": 120
+        "estimatedPriceZAR": 40
       }
     },
     {
-      "food": "woolworths sushi 12 pack",
-      "expected": [
-        400,
-        650
-      ],
-      "got": 360,
+      "name": "checkers banana bread slice",
+      "minCal": 200,
+      "maxCal": 350,
+      "aiCal": 180,
       "aiResult": {
-        "food": "Woolworths sushi 12 pack",
-        "calories": 360,
-        "protein": 24,
-        "carbs": 48,
-        "fat": 8,
-        "fibre": 6,
-        "estimatedPriceZAR": 120
-      }
-    },
-    {
-      "food": "simba chips original",
-      "expected": [
-        400,
-        600
-      ],
-      "got": 270,
-      "aiResult": {
-        "food": "Simba chips original 50g",
-        "calories": 270,
-        "protein": 3,
-        "carbs": 30,
-        "fat": 15,
+        "food": "Banana bread slice (~50g)",
+        "calories": 180,
+        "protein": 2,
+        "carbs": 35,
+        "fat": 5,
         "fibre": 2,
-        "estimatedPriceZAR": 15
+        "estimatedPriceZAR": 25
       }
     }
+  ],
+  "newTests": [
+    [
+      "magwinya with atchar",
+      350,
+      580
+    ],
+    [
+      "chicken licken soul rider",
+      500,
+      750
+    ],
+    [
+      "woolworths chicken caesar wrap",
+      350,
+      550
+    ],
+    [
+      "checkers banana bread slice",
+      200,
+      350
+    ],
+    [
+      "spur nachos supreme",
+      700,
+      1100
+    ],
+    [
+      "kfc original 3 piece",
+      600,
+      900
+    ],
+    [
+      "biltong wrap woolworths",
+      300,
+      500
+    ],
+    [
+      "nestle bar one ice cream",
+      200,
+      350
+    ],
+    [
+      "creme soda float",
+      250,
+      450
+    ],
+    [
+      "pap and chicken stew",
+      450,
+      700
+    ]
   ]
 }

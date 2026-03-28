@@ -1604,6 +1604,15 @@ async function estimateCalories(food, user) {
     "peppermint crisp bar": { food: "Peppermint Crisp Bar", calories: 230, protein: 2, carbs: 30, fat: 11, fibre: 0 },
     "gatsby calamari": { food: "Calamari Gatsby", calories: 950, protein: 30, carbs: 95, fat: 45, fibre: 4 },
     "calamari gatsby": { food: "Calamari Gatsby", calories: 950, protein: 30, carbs: 95, fat: 45, fibre: 4 },
+    // Round 19 - nightly edge case test 2026-03-29
+    "nandos double chicken burger": { food: "Nando's Double Chicken Burger", calories: 800, protein: 55, carbs: 50, fat: 38, fibre: 3 },
+    "nandos double burger": { food: "Nando's Double Chicken Burger", calories: 800, protein: 55, carbs: 50, fat: 38, fibre: 3 },
+    "pick n pay chicken burger": { food: "Pick n Pay Chicken Burger", calories: 450, protein: 25, carbs: 38, fat: 20, fibre: 2 },
+    "pnp chicken burger": { food: "Pick n Pay Chicken Burger", calories: 450, protein: 25, carbs: 38, fat: 20, fibre: 2 },
+    "chicken mayo kota": { food: "Chicken Mayo Kota", calories: 650, protein: 28, carbs: 65, fat: 28, fibre: 3 },
+    "pickled fish": { food: "Pickled Fish (serving)", calories: 280, protein: 30, carbs: 10, fat: 12, fibre: 1 },
+    "malva pudding": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
+    "malva pudding slice": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

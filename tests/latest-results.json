@@ -1,0 +1,278 @@
+{
+  "results": [
+    {
+      "food": "woolworths chicken schnitzel wrap",
+      "expected": "350-600",
+      "got": 400,
+      "pass": true,
+      "aiResult": {
+        "food": "Woolworths chicken schnitzel wrap",
+        "calories": 400,
+        "protein": 25,
+        "carbs": 40,
+        "fat": 15,
+        "fibre": 3,
+        "estimatedPriceZAR": 85
+      }
+    },
+    {
+      "food": "checkers footlong",
+      "expected": "500-800",
+      "got": 600,
+      "pass": true,
+      "aiResult": {
+        "food": "Checkers footlong",
+        "calories": 600,
+        "protein": 30,
+        "carbs": 80,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "kfc streetwise 5",
+      "expected": "800-1200",
+      "got": 1050,
+      "pass": true,
+      "aiResult": {
+        "food": "KFC Streetwise 5 (1 serving)",
+        "calories": 1050,
+        "protein": 50,
+        "carbs": 70,
+        "fat": 60,
+        "fibre": 0,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "nandos double chicken burger",
+      "expected": "700-1000",
+      "got": 600,
+      "pass": false,
+      "aiResult": {
+        "food": "Nandos double chicken burger",
+        "calories": 600,
+        "protein": 40,
+        "carbs": 40,
+        "fat": 30,
+        "fibre": 2,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "pick n pay chicken burger",
+      "expected": "400-650",
+      "got": 350,
+      "pass": false,
+      "aiResult": {
+        "food": "Pick n Pay chicken burger",
+        "calories": 350,
+        "protein": 25,
+        "carbs": 30,
+        "fat": 15,
+        "fibre": 2,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "romany creams 3",
+      "expected": "150-280",
+      "got": 150,
+      "pass": true,
+      "aiResult": {
+        "food": "Romany Creams 3 biscuits",
+        "calories": 150,
+        "protein": 1,
+        "carbs": 22,
+        "fat": 7,
+        "fibre": 1,
+        "estimatedPriceZAR": 20
+      }
+    },
+    {
+      "food": "bakers blue label marie biscuits 4",
+      "expected": "100-200",
+      "got": 160,
+      "pass": true,
+      "aiResult": {
+        "food": "Bakers Blue Label Marie Biscuits 4 pieces",
+        "calories": 160,
+        "protein": 2,
+        "carbs": 24,
+        "fat": 6,
+        "fibre": 0,
+        "estimatedPriceZAR": 10
+      }
+    },
+    {
+      "food": "chicken mayo kota",
+      "expected": "550-850",
+      "got": 500,
+      "pass": false,
+      "aiResult": {
+        "food": "chicken mayo kota",
+        "calories": 500,
+        "protein": 30,
+        "carbs": 50,
+        "fat": 20,
+        "fibre": 2,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "pickled fish",
+      "expected": "200-350",
+      "got": 150,
+      "pass": false,
+      "aiResult": {
+        "food": "pickled fish 100g",
+        "calories": 150,
+        "protein": 20,
+        "carbs": 5,
+        "fat": 7,
+        "fibre": 0,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "malva pudding",
+      "expected": "300-500",
+      "got": 150,
+      "pass": false,
+      "aiResult": {
+        "food": "malva pudding, 100g",
+        "calories": 150,
+        "protein": 2,
+        "carbs": 30,
+        "fat": 5,
+        "fibre": 1,
+        "estimatedPriceZAR": 40
+      }
+    }
+  ],
+  "failures": [
+    {
+      "food": "nandos double chicken burger",
+      "expected": "700-1000",
+      "got": 600,
+      "aiResult": {
+        "food": "Nandos double chicken burger",
+        "calories": 600,
+        "protein": 40,
+        "carbs": 40,
+        "fat": 30,
+        "fibre": 2,
+        "estimatedPriceZAR": 120
+      }
+    },
+    {
+      "food": "pick n pay chicken burger",
+      "expected": "400-650",
+      "got": 350,
+      "aiResult": {
+        "food": "Pick n Pay chicken burger",
+        "calories": 350,
+        "protein": 25,
+        "carbs": 30,
+        "fat": 15,
+        "fibre": 2,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "chicken mayo kota",
+      "expected": "550-850",
+      "got": 500,
+      "aiResult": {
+        "food": "chicken mayo kota",
+        "calories": 500,
+        "protein": 30,
+        "carbs": 50,
+        "fat": 20,
+        "fibre": 2,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "pickled fish",
+      "expected": "200-350",
+      "got": 150,
+      "aiResult": {
+        "food": "pickled fish 100g",
+        "calories": 150,
+        "protein": 20,
+        "carbs": 5,
+        "fat": 7,
+        "fibre": 0,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "food": "malva pudding",
+      "expected": "300-500",
+      "got": 150,
+      "aiResult": {
+        "food": "malva pudding, 100g",
+        "calories": 150,
+        "protein": 2,
+        "carbs": 30,
+        "fat": 5,
+        "fibre": 1,
+        "estimatedPriceZAR": 40
+      }
+    }
+  ],
+  "newTests": [
+    [
+      "woolworths chicken schnitzel wrap",
+      350,
+      600
+    ],
+    [
+      "checkers footlong",
+      500,
+      800
+    ],
+    [
+      "kfc streetwise 5",
+      800,
+      1200
+    ],
+    [
+      "nandos double chicken burger",
+      700,
+      1000
+    ],
+    [
+      "pick n pay chicken burger",
+      400,
+      650
+    ],
+    [
+      "romany creams 3",
+      150,
+      280
+    ],
+    [
+      "bakers blue label marie biscuits 4",
+      100,
+      200
+    ],
+    [
+      "chicken mayo kota",
+      550,
+      850
+    ],
+    [
+      "pickled fish",
+      200,
+      350
+    ],
+    [
+      "malva pudding",
+      300,
+      500
+    ]
+  ]
+}
