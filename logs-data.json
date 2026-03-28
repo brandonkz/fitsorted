@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-28T11:29:49.111Z",
+    "date": "2026-03-28",
+    "phone": "9534",
+    "userId": "27836569",
+    "food": "Bar One milkshake (350ml)",
+    "calories": 420,
+    "protein": 10,
+    "carbs": 60,
+    "fat": 15,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-28T10:33:19.655Z",
     "date": "2026-03-28",
     "phone": "5878",
