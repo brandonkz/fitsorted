@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-29T16:45:40.274Z",
+    "date": "2026-03-29",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Grilled salmon (~100g) with mixed salad (~75g) and roasted sweet potatoes (~100g) and stir-fried noodles (~150g)",
+    "calories": 570,
+    "protein": 35,
+    "carbs": 70,
+    "fat": 20,
+    "fibre": 8,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-29T10:28:28.716Z",
     "date": "2026-03-29",
     "phone": "7571",
