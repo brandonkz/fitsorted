@@ -16,5 +16,14 @@
     "totalEarned": 0,
     "pendingPayout": 0,
     "totalPaid": 0
+  },
+  "DANIELG": {
+    "name": "Daniel G",
+    "phone": null,
+    "createdAt": "2026-03-21T10:13:01.368Z",
+    "signups": [],
+    "totalEarned": 0,
+    "pendingPayout": 0,
+    "totalPaid": 0
   }
 }

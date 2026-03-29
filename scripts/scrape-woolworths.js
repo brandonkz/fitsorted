@@ -15,32 +15,59 @@ const OUTPUT_FILE = path.join(__dirname, '../data/woolworths-products.json');
 const FOOD_DB_FILE = path.join(__dirname, '../data/woolworths-food-db.json');
 const EXTRA_FOODS_FILE = path.join(__dirname, '../extra-foods.json');
 
-// NOTE: Some category URLs may be outdated or return no results.
-// Verify URLs by browsing woolworths.co.za manually if categories return 0 products.
+// URLs verified from live woolworths.co.za on 2026-03-16
 const CATEGORIES = {
   'ready-meals': {
     name: 'Ready Meals',
-    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Heat-Eat-Single-Ready-Meals/_/N-149xjj0'
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Heat-Eat-Single-Ready-Meals/_/N-149xjj0?No=0&inv=0'
   },
   'salads': {
     name: 'Salads',
-    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Salads/_/N-1z13rvx'  // ⚠️ Returns no results
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Salads-To-Go/_/N-tzu1sm?No=0&inv=0'
   },
   'sandwiches': {
     name: 'Sandwiches & Wraps',
-    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Sandwiches-Wraps/_/N-1z13rvy'  // ⚠️ Returns no results
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Sandwiches-Wraps-To-Go/_/N-mc1lxa?No=0&inv=0'
   },
   'snacks': {
     name: 'Snacks',
-    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Snacks/_/N-1z13rvz'  // ⚠️ Navigation timeout
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Snacks-To-Go/_/N-1gib9pk?No=0&inv=0'
   },
-  'meat': {
-    name: 'Meat & Poultry',
-    url: 'https://www.woolworths.co.za/cat/Food/Meat-Poultry-Fish/_/N-1z13s1d'  // ⚠️ Returns no results
+  'pies': {
+    name: 'Pies & Samoosas',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Pies-Puffs-Samoosas/_/N-j184s9?No=0&inv=0'
   },
-  'dairy': {
-    name: 'Dairy',
-    url: 'https://www.woolworths.co.za/cat/Food/Dairy-Eggs-Milk/_/N-1z13ryp'  // ⚠️ May include beauty products
+  'sushi': {
+    name: 'Sushi',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Sushi-To-Go/_/N-tnqy7z?No=0&inv=0'
+  },
+  'kids-meals': {
+    name: 'Kids Ready Meals',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Kids-Ready-Meals/_/N-yqqskx?No=0&inv=0'
+  },
+  'rotisserie': {
+    name: 'Rotisserie',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Rotisserie-/_/N-1kp5owg?No=0&inv=0'
+  },
+  'takeaways': {
+    name: 'Takeaways',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Heat-Eat-Takeaways-To-Go/_/N-bjbdgg?No=0&inv=0'
+  },
+  'desserts': {
+    name: 'Sweet Treats & Desserts',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Sweet-Treats-Desserts-To-Go/_/N-1tjis33?No=0&inv=0'
+  },
+  'soups': {
+    name: 'Soups & Bowls',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Booster-Soup-Bowls/_/N-85o2n1?No=0&inv=0'
+  },
+  'bakery': {
+    name: 'Fresh Bakery',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Fresh-Bakery-Counter/_/N-1b0gsic?No=0&inv=0'
+  },
+  'fruit': {
+    name: 'Cut Fruit',
+    url: 'https://www.woolworths.co.za/cat/Food/Food-To-Go/Cut-Fruit-To-Go/_/N-1vvcwvh?No=0&inv=0'
   }
 };
 

@@ -1,0 +1,21 @@
+# FitSorted Image Prompt Template
+
+Create a clean, realistic food photo suitable for a health/fitness brand.
+
+Requirements:
+- natural lighting
+- appetizing, balanced meal
+- minimal props, clean background
+- no text, no watermark, no logos
+- no camera UI, no HUD, no overlays
+- no fake “4K” labels
+- avoid obvious AI artifacts
+
+Style:
+- modern, premium, Instagram-ready
+- shallow depth of field
+- warm tones
+
+Output:
+- 1024x1024 or 1080x1080
+- single subject meal (no collage)

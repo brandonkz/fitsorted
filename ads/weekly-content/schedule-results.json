@@ -1,0 +1,422 @@
+[
+  {
+    "type": "calorie",
+    "index": 1,
+    "title": "STAT POST",
+    "text": "People who track calories are 2x more likely to reach their weight goals (Journal of the Academy of Nutrition, 2019). Most people overestimate what they burn and underestimate what they eat.\n\nTrack yours free for 7 days on WhatsApp → +27690684940",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/calorie-1-stat-post.png",
+    "timestamp": "2026-03-17T10:00:00+02:00",
+    "date": "2026-03-17",
+    "time": "10:00 AM SAST",
+    "scheduled": true,
+    "mediaId": "a3e4f131-354a-403a-a196-9d30d0ec6b20",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "calorie",
+    "index": 2,
+    "title": "MYTH BUSTER",
+    "text": "That 'healthy' Woolworths salad? Could be 600+ calories with dressing. The chicken wrap? 480 cal. Tracking isn't about eating less — it's about knowing what you're actually eating.\n\nFitSorted knows every Woolworths meal → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/calorie-2-myth-buster.png",
+    "timestamp": "2026-03-18T10:00:00+02:00",
+    "date": "2026-03-18",
+    "time": "10:00 AM SAST",
+    "scheduled": true,
+    "mediaId": "fb189df9-c0da-48bd-ae53-a636c748ab0a",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "calorie",
+    "index": 3,
+    "title": "SA FOOD REALITY",
+    "text": "A Gatsby is 1,200+ calories. A bunny chow is 800+. A Steers Wacky Wednesday burger is 650. None of these are 'bad' — but you need to know the numbers to make them fit your goals.\n\nWe track 400+ SA foods → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/calorie-3-sa-food-reality.png",
+    "timestamp": "2026-03-19T10:00:00+02:00",
+    "date": "2026-03-19",
+    "time": "10:00 AM SAST",
+    "scheduled": true,
+    "mediaId": "abc7dabc-c72a-43a7-ab37-1706dbc3ef8a",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "calorie",
+    "index": 4,
+    "title": "3 WEEK HABIT",
+    "text": "It takes 21 days of tracking before it clicks. Week 1 is eye-opening. Week 2 you start making swaps. Week 3 you do it without thinking.\n\nStart your 21 days → +27690684940",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/calorie-4-3-week-habit.png",
+    "timestamp": "2026-03-20T10:00:00+02:00",
+    "date": "2026-03-20",
+    "time": "10:00 AM SAST",
+    "scheduled": true,
+    "mediaId": "c0c0357f-60d8-4506-9fca-68b548aa33c9",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "calorie",
+    "index": 5,
+    "title": "PORTION SHOCK",
+    "text": "What 2,000 calories actually looks like vs what most people think. Spoiler: it's way less food than you expect (and way more protein than you're eating).\n\nFitSorted shows you exactly where you stand → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/calorie-5-portion-shock.png",
+    "timestamp": "2026-03-21T10:00:00+02:00",
+    "date": "2026-03-21",
+    "time": "10:00 AM SAST",
+    "scheduled": true,
+    "mediaId": "3371af62-5149-4d40-b773-98735ed9cbb1",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "calorie",
+    "index": 6,
+    "title": "WEEKEND TRAP",
+    "text": "Monday to Friday: 1,800 cal/day. Saturday braai + beers: 4,000 calories. Sunday guilt eating: 2,500. Your 'good week' is actually maintenance. Track weekends too.\n\nFitSorted sends you a morning check-in every day → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/calorie-6-weekend-trap.png",
+    "timestamp": "2026-03-22T10:00:00+02:00",
+    "date": "2026-03-22",
+    "time": "10:00 AM SAST",
+    "scheduled": true,
+    "mediaId": "3a2558d6-deff-4941-984a-f0e15edee4a8",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "calorie",
+    "index": 7,
+    "title": "SUCCESS METRIC",
+    "text": "FitSorted users who track for 30+ days report feeling more in control of their eating — not restricted. Tracking = awareness, not punishment.\n\nR36/mo on WhatsApp → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/calorie-7-success-metric.png",
+    "timestamp": "2026-03-23T10:00:00+02:00",
+    "date": "2026-03-23",
+    "time": "10:00 AM SAST",
+    "scheduled": true,
+    "mediaId": "db628644-422d-4c57-8b8b-4df02c76da96",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "protein",
+    "index": 1,
+    "title": "THE NUMBER",
+    "text": "You need 1.6-2.2g protein per kg bodyweight to build/maintain muscle. If you weigh 80kg, that's 128-176g per day. Most South Africans get about 60g. You're probably undereating protein.\n\nFitSorted tracks your protein automatically → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/protein-1-the-number.png",
+    "timestamp": "2026-03-17T18:00:00+02:00",
+    "date": "2026-03-17",
+    "time": "6:00 PM SAST",
+    "scheduled": true,
+    "mediaId": "db0128a6-8b22-4e27-87f5-8133166b20c0",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "protein",
+    "index": 2,
+    "title": "CHEAPEST PROTEIN SA",
+    "text": "Best protein per Rand at Woolworths:\n1. Eggs (R3.50/20g protein)\n2. Chicken breast (R5/25g)\n3. Biltong (R8/25g)\n4. Double cream yoghurt (R2/5g)\n5. Cottage cheese (R4/15g)\n\nStop overpaying for protein. We show protein for every food you log → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/protein-2-cheapest-protein-sa.png",
+    "timestamp": "2026-03-18T18:00:00+02:00",
+    "date": "2026-03-18",
+    "time": "6:00 PM SAST",
+    "scheduled": true,
+    "mediaId": "dd1a7728-b46f-4cd9-87aa-938c75d34247",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "protein",
+    "index": 3,
+    "title": "3PM CRASH",
+    "text": "Tired every afternoon? Before you blame sleep, check your lunch protein. A sandwich with 12g protein won't hold you. Aim for 30-40g per meal. Your energy follows your protein.\n\nCheck if you're hitting your targets → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/protein-3-3pm-crash.png",
+    "timestamp": "2026-03-19T18:00:00+02:00",
+    "date": "2026-03-19",
+    "time": "6:00 PM SAST",
+    "scheduled": true,
+    "mediaId": "b71941fc-c31e-48f2-a18a-8c11936ebaec",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "protein",
+    "index": 4,
+    "title": "BRAAI PROTEIN",
+    "text": "Good news: a braai is actually a solid protein meal. 200g steak = 50g protein. 2 boerewors = 38g. Chicken drumstick = 28g. The problem isn't the meat — it's the 6 beers and 3 rolls alongside it.\n\nLog your braai on FitSorted → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/protein-4-braai-protein.png",
+    "timestamp": "2026-03-20T18:00:00+02:00",
+    "date": "2026-03-20",
+    "time": "6:00 PM SAST",
+    "scheduled": true,
+    "mediaId": "fc1562b5-b293-4fb5-ac0c-5f9bbea94caf",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "protein",
+    "index": 5,
+    "title": "MUSCLE LOSS",
+    "text": "After 30, you lose 3-8% muscle mass per decade if you don't actively fight it. The two weapons: resistance training + adequate protein. You can't out-train a low-protein diet.\n\nTrack your daily protein intake → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/protein-5-muscle-loss.png",
+    "timestamp": "2026-03-21T18:00:00+02:00",
+    "date": "2026-03-21",
+    "time": "6:00 PM SAST",
+    "scheduled": true,
+    "mediaId": "0aa28e77-a412-401d-b925-4111487178e7",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "protein",
+    "index": 6,
+    "title": "PROTEIN TIMING",
+    "text": "You don't need protein every 2 hours (bro science). But spreading it across 3-4 meals (30-40g each) beats having 10g at breakfast and 80g at dinner. Your body can only use so much at once.\n\nFitSorted breaks down your macros per meal → fitsorted.co.za",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/protein-6-protein-timing.png",
+    "timestamp": "2026-03-22T18:00:00+02:00",
+    "date": "2026-03-22",
+    "time": "6:00 PM SAST",
+    "scheduled": true,
+    "mediaId": "fc6781a2-005a-4b1d-ad6a-fdb47b201156",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "type": "protein",
+    "index": 7,
+    "title": "SA PROTEIN CHALLENGE",
+    "text": "7-day protein challenge: hit your target (bodyweight in kg × 2 = grams of protein) every day for a week. Track it on FitSorted. Notice how much better you feel, sleep, and recover.\n\nStart tracking on WhatsApp → +27690684940",
+    "imagePath": "/Users/brandonkatz/.openclaw/workspace/fitsorted/ads/weekly-content/protein-7-sa-protein-challenge.png",
+    "timestamp": "2026-03-23T18:00:00+02:00",
+    "date": "2026-03-23",
+    "time": "6:00 PM SAST",
+    "scheduled": true,
+    "mediaId": "9ea5fd3b-8acc-407a-89c2-269942826657",
+    "result": {
+      "message": [
+        "posts.0.settings.post_type should not be null or undefined",
+        "posts.0.settings.post_type must be one of the following values: post, story",
+        "posts.1.settings.privacy_level must be a string",
+        "posts.1.settings.privacy_level must be one of the following values: PUBLIC_TO_EVERYONE, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, SELF_ONLY",
+        "posts.1.settings.duet must be a boolean value",
+        "posts.1.settings.stitch must be a boolean value",
+        "posts.1.settings.comment must be a boolean value",
+        "posts.1.settings.autoAddMusic must be one of the following values: yes, no",
+        "posts.1.settings.brand_content_toggle must be a boolean value",
+        "posts.1.settings.brand_organic_toggle must be a boolean value",
+        "posts.1.settings.content_posting_method must be a string",
+        "posts.1.settings.content_posting_method must be one of the following values: DIRECT_POST, UPLOAD"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  }
+]

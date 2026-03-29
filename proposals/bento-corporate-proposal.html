@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitSorted for Business — Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: #1a1a2e; line-height: 1.6; background: #fff; }
+  
+  .page { max-width: 800px; margin: 0 auto; padding: 48px 56px; }
+  
+  /* Header */
+  .header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 3px solid #22c55e; }
+  .logo { font-size: 32px; font-weight: 700; color: #22c55e; letter-spacing: -1px; }
+  .logo span { color: #1a1a2e; }
+  .tagline { font-size: 18px; color: #64748b; margin-top: 8px; font-weight: 300; }
+  
+  /* Sections */
+  h2 { font-size: 22px; font-weight: 600; color: #1a1a2e; margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #f1f5f9; }
+  h3 { font-size: 16px; font-weight: 600; color: #334155; margin: 20px 0 10px; }
+  p { font-size: 14px; color: #475569; margin-bottom: 12px; }
+  
+  /* Highlight box */
+  .highlight { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+  .highlight p { color: #166534; margin: 0; font-size: 15px; }
+  
+  /* How it works */
+  .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .step { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; }
+  .step-num { display: inline-block; width: 32px; height: 32px; background: #22c55e; color: white; border-radius: 50%; line-height: 32px; font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+  .step-title { font-weight: 600; font-size: 13px; color: #1a1a2e; margin-bottom: 4px; }
+  .step-desc { font-size: 12px; color: #64748b; }
+  
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-weight: 500; }
+  td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tr:nth-child(even) { background: #f8fafc; }
+  .price-highlight { background: #f0fdf4; }
+  .price-highlight td { font-weight: 600; color: #166534; }
+  
+  /* Feature grid */
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+  .feature { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #334155; padding: 6px 0; }
+  .feature .check { color: #22c55e; font-weight: bold; font-size: 16px; }
+  
+  /* Stats bar */
+  .stats { display: flex; justify-content: space-around; background: #1a1a2e; color: white; border-radius: 12px; padding: 24px; margin: 24px 0; }
+  .stat { text-align: center; }
+  .stat-value { font-size: 28px; font-weight: 700; color: #22c55e; }
+  .stat-label { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  
+  /* WhatsApp section */
+  .whatsapp-box { background: #dcfce7; border-radius: 12px; padding: 24px; margin: 20px 0; display: flex; align-items: center; gap: 16px; }
+  .wa-icon { font-size: 40px; }
+  .wa-text h3 { color: #166534; margin: 0 0 4px; }
+  .wa-text p { color: #15803d; margin: 0; font-size: 13px; }
+  
+  /* Process */
+  .process { counter-reset: step; }
+  .process-step { display: flex; gap: 16px; align-items: flex-start; margin: 12px 0; padding: 12px 16px; background: #f8fafc; border-radius: 8px; }
+  .process-step::before { counter-increment: step; content: counter(step); background: #22c55e; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .process-step div { font-size: 13px; }
+  .process-step strong { color: #1a1a2e; }
+  
+  /* Footer */
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 2px solid #e2e8f0; text-align: center; }
+  .footer .contact { font-size: 14px; color: #334155; margin: 4px 0; }
+  .footer .contact a { color: #22c55e; text-decoration: none; }
+  .footer .slogan { font-size: 13px; color: #94a3b8; font-style: italic; margin-top: 16px; }
+  
+  @media print {
+    .page { padding: 24px 40px; }
+    .stats { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo">Fit<span>Sorted</span> <span style="font-size:16px; color:#64748b; font-weight:400;">for Business</span></div>
+    <div class="tagline">Nutrition Tracking for Corporate Meal Programs</div>
+  </div>
+
+  <h2>The Problem</h2>
+  <p>Your clients invest in quality meals for their teams. But employees have no easy way to track what they're eating, hit their nutrition goals, or see how your meal plans support their health.</p>
+  <p>That's a missed opportunity — for their wellness, and for your business.</p>
+
+  <div class="highlight">
+    <p><strong>FitSorted</strong> is a WhatsApp-based nutrition tracker built for South Africa. We partner with meal providers to give your corporate clients a branded, effortless calorie and macro tracking experience — powered by your actual menu.</p>
+  </div>
+
+  <h2>How It Works</h2>
+  
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Employee Texts Bot</div>
+      <div class="step-desc">Type what you ate or snap a photo. No app needed.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Instant Tracking</div>
+      <div class="step-desc">Calories, protein, carbs, fat — logged in seconds.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Daily Check-ins</div>
+      <div class="step-desc">Morning recap and evening summary via WhatsApp.</div>
+    </div>
+  </div>
+
+  <h3>For Employees</h3>
+  <p>Pick from today's menu with exact nutrition data — no guessing. Or type/photograph any meal. Get daily check-ins and track progress over time.</p>
+  
+  <h3>For Corporate Clients (HR / Wellness)</h3>
+  <p>Weekly nutrition reports per team. Wellness KPIs: average calories, macro balance, participation rates. Zero setup — employees click a link to join.</p>
+  
+  <h3>For You (The Meal Provider)</h3>
+  <p>Unique referral codes per corporate client. Monthly dashboard with signups, active users, and most popular meals. A premium value-add that differentiates you from competitors.</p>
+
+  <h2>Features</h2>
+  <div class="features">
+    <div class="feature"><span class="check">✓</span> WhatsApp calorie & macro tracking</div>
+    <div class="feature"><span class="check">✓</span> Photo food recognition (AI)</div>
+    <div class="feature"><span class="check">✓</span> Pre-loaded custom menu</div>
+    <div class="feature"><span class="check">✓</span> Morning & evening check-ins</div>
+    <div class="feature"><span class="check">✓</span> SA food database (500+ items)</div>
+    <div class="feature"><span class="check">✓</span> Coaching mode (nutrition Q&A)</div>
+    <div class="feature"><span class="check">✓</span> Weight tracking with trends</div>
+    <div class="feature"><span class="check">✓</span> Exercise logging</div>
+    <div class="feature"><span class="check">✓</span> Weekly team reports (PDF)</div>
+    <div class="feature"><span class="check">✓</span> Per-company referral codes</div>
+    <div class="feature"><span class="check">✓</span> Branded per corporate client</div>
+    <div class="feature"><span class="check">✓</span> No app download required</div>
+  </div>
+
+  <h2>Pricing</h2>
+  
+  <table>
+    <tr><th colspan="2" style="text-align:center;">Simple Per-User Pricing — No Setup Fees, No Contracts</th></tr>
+    <tr class="price-highlight"><td>Per active user</td><td style="text-align:right; font-size:18px;">R7.50 / month</td></tr>
+    <tr><td>Up to 1,000 users</td><td style="text-align:right;">✓ Included</td></tr>
+    <tr><td>Menu setup & onboarding</td><td style="text-align:right;">✓ Included</td></tr>
+    <tr><td>Ongoing menu updates</td><td style="text-align:right;">✓ Included</td></tr>
+    <tr><td>Monthly usage reports</td><td style="text-align:right;">✓ Included</td></tr>
+  </table>
+  
+  <p style="font-size:12px; color:#94a3b8;">*Active user = sent at least 1 message in the billing month.</p>
+
+  <h3>Example Scenarios</h3>
+  <table>
+    <tr><th>Corporate Client</th><th>Active Users</th><th>Monthly Cost</th></tr>
+    <tr><td>Small office (50 people)</td><td>~30</td><td>R225</td></tr>
+    <tr><td>Medium company (200 people)</td><td>~120</td><td>R900</td></tr>
+    <tr><td>Large corporate (500 people)</td><td>~300</td><td>R2,250</td></tr>
+    <tr><td>Full capacity (1,000 people)</td><td>~600</td><td>R4,500</td></tr>
+  </table>
+  
+  <p><strong>You set your own markup</strong> to corporate clients. Many wellness providers charge R15–25 per employee for similar tools.</p>
+
+  <div class="whatsapp-box">
+    <div class="wa-icon">💬</div>
+    <div class="wa-text">
+      <h3>Why WhatsApp?</h3>
+      <p>95% of South Africans use WhatsApp daily. Zero friction — no app store, no login, no password. Works on any phone including budget Android. Higher engagement than any standalone app.</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-value">230+</div><div class="stat-label">Users</div></div>
+    <div class="stat"><div class="stat-value">1,300+</div><div class="stat-label">Food Logs</div></div>
+    <div class="stat"><div class="stat-value">500+</div><div class="stat-label">SA Foods</div></div>
+    <div class="stat"><div class="stat-value">< 5s</div><div class="stat-label">Response Time</div></div>
+  </div>
+
+  <h2>Onboarding</h2>
+  <div class="process">
+    <div class="process-step"><div><strong>Send us your menu</strong> — Excel or PDF with items and portions</div></div>
+    <div class="process-step"><div><strong>We build the custom database</strong> — 2–3 business days</div></div>
+    <div class="process-step"><div><strong>We generate referral codes</strong> — one per corporate client</div></div>
+    <div class="process-step"><div><strong>You share the join link</strong> — employees click and start</div></div>
+    <div class="process-step"><div><strong>Employees start tracking</strong> — same day, zero setup</div></div>
+  </div>
+  <p>Menu updates? Send us the new menu anytime. We update within 24 hours.</p>
+
+  <div class="footer">
+    <div class="contact"><strong>Brandon Katz</strong></div>
+    <div class="contact"><a href="mailto:brandon@fitsorted.co.za">brandon@fitsorted.co.za</a></div>
+    <div class="contact">WhatsApp: <a href="https://wa.me/27690684940">+27 69 068 4940</a></div>
+    <div class="contact"><a href="https://fitsorted.co.za">fitsorted.co.za</a></div>
+    <div class="slogan">Nutrition tracking that meets people where they already are.</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; background: #1a1a1a; font-family: 'Inter', sans-serif; overflow: hidden; padding: 60px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
+  .brand-dot { width: 16px; height: 16px; background: #2ecc71; border-radius: 50%; }
+  .brand-text { color: #2ecc71; font-family: 'Anton', sans-serif; font-size: 32px; letter-spacing: 4px; }
+  .vs-container { flex: 1; display: flex; gap: 24px; margin-bottom: 30px; }
+  .col { flex: 1; border-radius: 20px; padding: 40px 30px; display: flex; flex-direction: column; gap: 28px; }
+  .col-title { color: #fff; font-family: 'Anton', sans-serif; font-size: 52px; text-align: center; padding-bottom: 20px; border-bottom: 3px solid rgba(255,255,255,0.1); }
+  .stat { display: flex; justify-content: space-between; align-items: center; }
+  .stat-label { color: #999; font-size: 34px; }
+  .stat-value { color: #fff; font-size: 38px; font-weight: 800; }
+  .vs-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #2ecc71; color: #1a1a1a; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Anton', sans-serif; font-size: 36px; z-index: 2; }
+  .vs-wrapper { position: relative; flex: 1; }
+  .verdict { background: #2ecc71; border-radius: 16px; padding: 30px; text-align: center; }
+  .verdict-text { color: #1a1a1a; font-family: 'Anton', sans-serif; font-size: 44px; }
+  .verdict-sub { color: rgba(0,0,0,0.6); font-size: 30px; margin-top: 8px; }
+</style></head><body>
+  <div class="brand"><div class="brand-dot"></div><span class="brand-text">FITSORTED</span></div>
+  <div class="vs-wrapper">
+    <div class="vs-badge">VS</div>
+    <div class="vs-container">
+      <div class="col" style="background:#242424">
+      <div class="col-title">NORMAL WRAP</div>
+      <div class="stat"><span class="stat-label">Calories</span><span class="stat-value">260</span></div><div class="stat"><span class="stat-label">Protein</span><span class="stat-value">8g</span></div><div class="stat"><span class="stat-label">Carbs</span><span class="stat-value">38g</span></div><div class="stat"><span class="stat-label">Price</span><span class="stat-value">~R22</span></div>
+    </div>
+      <div class="col" style="background:#2a2a2a">
+      <div class="col-title">PROTEIN WRAP</div>
+      <div class="stat"><span class="stat-label">Calories</span><span class="stat-value">240</span></div><div class="stat"><span class="stat-label">Protein</span><span class="stat-value">18g</span></div><div class="stat"><span class="stat-label">Carbs</span><span class="stat-value">28g</span></div><div class="stat"><span class="stat-label">Price</span><span class="stat-value">~R42</span></div>
+    </div>
+    </div>
+  </div>
+  <div class="verdict">
+    <div class="verdict-text">IS THE R20 EXTRA WORTH IT?</div>
+    <div class="verdict-sub">10g more protein. 10g fewer carbs.</div>
+  </div>
+</body></html>

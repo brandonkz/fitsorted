@@ -124,5 +124,104 @@
     ],
     "firstSeen": "2026-03-24T06:42:19.239Z",
     "lastSeen": "2026-03-24T06:42:19.239Z"
+  },
+  "two boiled eggs": {
+    "text": "Two boiled eggs",
+    "count": 1,
+    "users": [
+      "447541558334"
+    ],
+    "firstSeen": "2026-03-24T19:15:19.923Z",
+    "lastSeen": "2026-03-24T19:15:19.923Z"
+  },
+  "one tea": {
+    "text": "One tea",
+    "count": 1,
+    "users": [
+      "447541558334"
+    ],
+    "firstSeen": "2026-03-24T19:15:22.403Z",
+    "lastSeen": "2026-03-24T19:15:22.403Z"
+  },
+  "one coffee": {
+    "text": "One coffee",
+    "count": 1,
+    "users": [
+      "447541558334"
+    ],
+    "firstSeen": "2026-03-24T19:15:25.445Z",
+    "lastSeen": "2026-03-24T19:15:25.445Z"
+  },
+  "toasted chicken wrap": {
+    "text": "Toasted chicken wrap",
+    "count": 1,
+    "users": [
+      "27838252847"
+    ],
+    "firstSeen": "2026-03-24T19:23:29.599Z",
+    "lastSeen": "2026-03-24T19:23:29.599Z"
+  },
+  "1 wrap with chicken": {
+    "text": "1 wrap with chicken",
+    "count": 1,
+    "users": [
+      "27838252847"
+    ],
+    "firstSeen": "2026-03-24T19:24:51.212Z",
+    "lastSeen": "2026-03-24T19:24:51.212Z"
+  },
+  "1 white wrap\n1 chicken breast\n1 slice of tomato \n1 piece of lettuce\n1 tablespoon mayonnaise": {
+    "text": "1 white wrap\n1 chicken breast\n1 Slice of tomato \n1 piece of lettuce\n1 tablespoon mayonnaise",
+    "count": 1,
+    "users": [
+      "27838252847"
+    ],
+    "firstSeen": "2026-03-24T19:25:45.393Z",
+    "lastSeen": "2026-03-24T19:25:45.393Z"
+  },
+  "fuuuuuuucl wha the fuck yiu supposed to be ai": {
+    "text": "Fuuuuuuucl wha the fuck yiu supposed to be ai",
+    "count": 1,
+    "users": [
+      "27723458460"
+    ],
+    "firstSeen": "2026-03-24T20:37:09.642Z",
+    "lastSeen": "2026-03-24T20:37:09.642Z"
+  },
+  "exercise 250kcal": {
+    "text": "Exercise 250kcal",
+    "count": 1,
+    "users": [
+      "27723458460"
+    ],
+    "firstSeen": "2026-03-24T20:37:32.065Z",
+    "lastSeen": "2026-03-24T20:37:32.065Z"
+  },
+  "add the fixing exercise": {
+    "text": "Add the fixing exercise",
+    "count": 1,
+    "users": [
+      "27723458460"
+    ],
+    "firstSeen": "2026-03-24T20:37:49.096Z",
+    "lastSeen": "2026-03-24T20:37:49.096Z"
+  },
+  "1 hard boiled egg\n1 small banana": {
+    "text": "1 Hard Boiled Egg\n1 Small Banana",
+    "count": 1,
+    "users": [
+      "27713555958"
+    ],
+    "firstSeen": "2026-03-25T04:36:20.058Z",
+    "lastSeen": "2026-03-25T04:36:20.058Z"
+  },
+  "1 * nescafé cappuccino white chocolate*": {
+    "text": "1 * Nescafé Cappuccino White Chocolate*",
+    "count": 1,
+    "users": [
+      "27713555958"
+    ],
+    "firstSeen": "2026-03-25T04:37:11.490Z",
+    "lastSeen": "2026-03-25T04:37:11.490Z"
   }
 }

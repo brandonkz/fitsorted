@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; background: #0a0a0a; font-family: 'Inter', sans-serif; overflow: hidden; padding: 60px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+  .brand-dot { width: 14px; height: 14px; background: #25D366; border-radius: 50%; }
+  .brand-text { color: #25D366; font-family: 'Anton', sans-serif; font-size: 28px; letter-spacing: 4px; }
+  .slide-num { position: absolute; top: 50px; right: 60px; color: rgba(255,255,255,0.3); font-size: 22px; font-weight: 600; }
+  .section-title { color: #25D366; font-family: 'Anton', sans-serif; font-size: 52px; margin-bottom: 36px; }
+  .cmd { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 28px; }
+  .cmd-icon { font-size: 36px; flex-shrink: 0; margin-top: 4px; }
+  .cmd-text { flex: 1; }
+  .cmd-name { color: #fff; font-weight: 700; font-size: 30px; margin-bottom: 4px; }
+  .cmd-desc { color: rgba(255,255,255,0.45); font-size: 24px; line-height: 1.3; }
+  .cmd-example { color: #25D366; font-size: 22px; font-style: italic; margin-top: 4px; }
+  .swipe { color: rgba(255,255,255,0.3); font-size: 22px; font-weight: 600; position: absolute; bottom: 50px; right: 60px; }
+</style></head><body>
+  <div class="brand"><div class="brand-dot"></div><span class="brand-text">FITSORTED</span></div>
+  <div class="slide-num">2/7</div>
+  <div class="section-title">🍽️ LOG FOOD</div>
+  <div class="cmd">
+    <div class="cmd-icon">💬</div>
+    <div class="cmd-text">
+      <div class="cmd-name">Just type what you ate</div>
+      <div class="cmd-example">"2 eggs, toast, coffee"</div>
+    </div>
+  </div>
+  <div class="cmd">
+    <div class="cmd-icon">📸</div>
+    <div class="cmd-text">
+      <div class="cmd-name">Send a photo</div>
+      <div class="cmd-desc">Snap your plate — AI identifies it</div>
+    </div>
+  </div>
+  <div class="cmd">
+    <div class="cmd-icon">⏪</div>
+    <div class="cmd-text">
+      <div class="cmd-name">yesterday: [food]</div>
+      <div class="cmd-example">"yesterday: chicken curry"</div>
+    </div>
+  </div>
+  <div class="cmd">
+    <div class="cmd-icon">↩️</div>
+    <div class="cmd-text">
+      <div class="cmd-name">undo</div>
+      <div class="cmd-desc">Remove your last entry</div>
+    </div>
+  </div>
+  <div class="cmd">
+    <div class="cmd-icon">✏️</div>
+    <div class="cmd-text">
+      <div class="cmd-name">correct</div>
+      <div class="cmd-desc">Fix wrong calories manually</div>
+    </div>
+  </div>
+  <div class="swipe">SWIPE →</div>
+</body></html>

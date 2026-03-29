@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  width: 1080px;
+  height: 1920px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+.container {
+  width: 880px;
+  padding: 60px;
+}
+.title {
+  font-size: 95px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 80px;
+  line-height: 1.2;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+  border-radius: 30px;
+  border-left: 8px solid #dc2626;
+}
+.item-name {
+  font-size: 65px;
+  font-weight: 600;
+  color: white;
+}
+.item-cal {
+  font-size: 70px;
+  font-weight: 800;
+  color: #dc2626;
+}
+.total {
+  margin-top: 50px;
+  padding: 60px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.total-label {
+  font-size: 75px;
+  font-weight: 800;
+  color: white;
+}
+.total-cal {
+  font-size: 95px;
+  font-weight: 900;
+  color: white;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">The Breakdown 📊</div>
+  
+  <div class="item">
+    <div class="item-name">2 pieces chicken</div>
+    <div class="item-cal">380</div>
+  </div>
+  
+  <div class="item">
+    <div class="item-name">Chips (regular)</div>
+    <div class="item-cal">280</div>
+  </div>
+  
+  <div class="item">
+    <div class="item-name">Roll</div>
+    <div class="item-cal">80</div>
+  </div>
+  
+  <div class="total">
+    <div class="total-label">TOTAL</div>
+    <div class="total-cal">740 cal</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; background: #0a0a0a; font-family: 'Inter', sans-serif; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 12px; position: absolute; top: 50px; left: 60px; z-index: 3; }
+  .brand-dot { width: 14px; height: 14px; background: #25D366; border-radius: 50%; }
+  .brand-text { color: #25D366; font-family: 'Anton', sans-serif; font-size: 28px; letter-spacing: 4px; }
+  .slide-num { position: absolute; top: 50px; right: 60px; color: rgba(255,255,255,0.3); font-size: 22px; font-weight: 600; z-index: 3; }
+  .img-container { width: 100%; height: 360px; overflow: hidden; position: relative; }
+  .img-container img { width: 100%; height: 100%; object-fit: cover; }
+  .img-gradient { position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; background: linear-gradient(transparent, #0a0a0a); }
+  .info { flex: 1; padding: 24px 60px 40px; display: flex; flex-direction: column; }
+  .title { color: #25D366; font-family: 'Anton', sans-serif; font-size: 48px; margin-bottom: 18px; }
+  .swaps { display: flex; flex-direction: column; gap: 14px; flex: 1; }
+  .swap { display: flex; align-items: center; gap: 16px; }
+  .swap-old { color: rgba(255,255,255,0.35); font-size: 26px; text-decoration: line-through; min-width: 280px; }
+  .swap-arrow { color: #25D366; font-size: 28px; }
+  .swap-new { color: #fff; font-size: 26px; font-weight: 700; }
+  .swap-save { color: #25D366; font-size: 24px; font-weight: 600; }
+  .result { background: rgba(37,211,102,0.12); border: 1px solid rgba(37,211,102,0.25); border-radius: 16px; padding: 24px 32px; margin-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+  .result-label { color: rgba(255,255,255,0.6); font-size: 24px; }
+  .result-old { color: #ef4444; font-family: 'Anton', sans-serif; font-size: 42px; text-decoration: line-through; opacity: 0.6; }
+  .result-arrow { color: #25D366; font-size: 32px; margin: 0 16px; }
+  .result-new { color: #25D366; font-family: 'Anton', sans-serif; font-size: 52px; }
+  .result-save { color: rgba(255,255,255,0.5); font-size: 22px; }
+</style></head><body>
+  <div class="brand"><div class="brand-dot"></div><span class="brand-text">FITSORTED</span></div>
+  <div class="slide-num">5/6</div>
+  <div class="img-container">
+    <img src="images/wrap.png" />
+    <div class="img-gradient"></div>
+  </div>
+  <div class="info">
+    <div class="title">THE SMART SWAP</div>
+    <div class="swaps">
+      <div class="swap">
+        <span class="swap-old">Regular Chips (420)</span>
+        <span class="swap-arrow">→</span>
+        <span class="swap-new">Mediterranean Salad</span>
+        <span class="swap-save">−340 cal</span>
+      </div>
+      <div class="swap">
+        <span class="swap-old">Coleslaw (180)</span>
+        <span class="swap-arrow">→</span>
+        <span class="swap-new">Corn on the Cob</span>
+        <span class="swap-save">−90 cal</span>
+      </div>
+      <div class="swap">
+        <span class="swap-old">Regular Coke (140)</span>
+        <span class="swap-arrow">→</span>
+        <span class="swap-new">Coke Zero</span>
+        <span class="swap-save">−140 cal</span>
+      </div>
+    </div>
+    <div class="result">
+      <div>
+        <div class="result-label">New total</div>
+        <div style="display: flex; align-items: center;">
+          <span class="result-old">1,360</span>
+          <span class="result-arrow">→</span>
+          <span class="result-new">790</span>
+        </div>
+      </div>
+      <div class="result-save">Save 570 calories 🔥</div>
+    </div>
+  </div>
+</body></html>

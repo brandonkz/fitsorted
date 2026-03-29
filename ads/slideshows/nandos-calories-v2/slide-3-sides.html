@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; background: #0a0a0a; font-family: 'Inter', sans-serif; overflow: hidden; padding: 60px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+  .brand-dot { width: 14px; height: 14px; background: #25D366; border-radius: 50%; }
+  .brand-text { color: #25D366; font-family: 'Anton', sans-serif; font-size: 28px; letter-spacing: 4px; }
+  .slide-num { position: absolute; top: 50px; right: 60px; color: rgba(255,255,255,0.3); font-size: 22px; font-weight: 600; }
+  .title { color: #fff; font-family: 'Anton', sans-serif; font-size: 56px; margin-bottom: 8px; }
+  .title .red { color: #ef4444; }
+  .subtitle { color: rgba(255,255,255,0.4); font-size: 24px; margin-bottom: 35px; }
+  .items { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+  .item { display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 16px 24px; }
+  .item-img { width: 120px; height: 120px; border-radius: 12px; overflow: hidden; flex-shrink: 0; }
+  .item-img img { width: 100%; height: 100%; object-fit: cover; }
+  .item-info { flex: 1; }
+  .item-name { color: #fff; font-size: 34px; font-weight: 700; }
+  .item-detail { color: rgba(255,255,255,0.4); font-size: 22px; margin-top: 4px; }
+  .item-cal { color: #25D366; font-family: 'Anton', sans-serif; font-size: 48px; }
+  .item.danger .item-cal { color: #ef4444; }
+  .total-bar { margin-top: 20px; }
+  .total-label { color: rgba(255,255,255,0.5); font-size: 22px; margin-bottom: 8px; }
+  .bar { width: 100%; height: 12px; background: rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; }
+</style></head><body>
+  <div class="brand"><div class="brand-dot"></div><span class="brand-text">FITSORTED</span></div>
+  <div class="slide-num">3/6</div>
+  <div class="title">THE SIDES ARE <span class="red">KILLING YOU</span></div>
+  <div class="subtitle">This is where your calories really come from</div>
+  <div class="items">
+    <div class="item danger">
+      <div class="item-img"><img src="images/chips.png" /></div>
+      <div class="item-info">
+        <div class="item-name">Regular Chips</div>
+        <div class="item-detail">Deep fried</div>
+      </div>
+      <div class="item-cal">420</div>
+    </div>
+    <div class="item">
+      <div class="item-img"><img src="images/coleslaw.png" /></div>
+      <div class="item-info">
+        <div class="item-name">Coleslaw</div>
+        <div class="item-detail">Loaded with mayo</div>
+      </div>
+      <div class="item-cal">180</div>
+    </div>
+    <div class="item">
+      <div class="item-img"><img src="images/coke.png" /></div>
+      <div class="item-info">
+        <div class="item-name">Regular Coke</div>
+        <div class="item-detail">330ml — liquid sugar</div>
+      </div>
+      <div class="item-cal">140</div>
+    </div>
+  </div>
+  <div class="total-bar">
+    <div class="total-label" style="font-size: 28px; color: rgba(255,255,255,0.7); font-weight: 700;">Sides alone: <span style="color: #ef4444;">740 cal</span> (37% of daily budget)</div>
+    <div class="bar"><div class="bar-fill" style="width: 37%; background: linear-gradient(90deg, #25D366, #ef4444);"></div></div>
+  </div>
+</body></html>

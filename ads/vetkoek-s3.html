@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1080px;height:1080px;font-family:-apple-system,system-ui,'Helvetica Neue',sans-serif;overflow:hidden;position:relative;background:#0a0a0a;}
+.bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%, #001a00 0%, #000800 60%, #000 100%);}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.6) 100%);}
+.content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;height:100%;padding:60px 80px;}
+.label{font-size:26px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;}
+.title{font-size:54px;font-weight:900;color:#fff;margin-bottom:50px;text-align:center;}
+.macros{display:flex;gap:20px;margin-bottom:50px;width:100%;}
+.macro{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px 20px;text-align:center;}
+.macro-val{font-size:52px;font-weight:900;color:#fff;}
+.macro-label{font-size:20px;color:rgba(255,255,255,0.4);letter-spacing:2px;font-weight:600;margin-top:6px;}
+.hacks{display:flex;flex-direction:column;gap:22px;width:100%;}
+.hack{display:flex;align-items:flex-start;gap:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:22px 26px;}
+.hack-icon{font-size:36px;flex-shrink:0;}
+.hack-text{font-size:28px;color:rgba(255,255,255,0.8);line-height:1.4;font-weight:500;}
+.hack-text strong{color:#4cff6e;font-weight:800;}
+.dots{display:flex;gap:10px;margin-top:auto;padding-top:20px;}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);}
+.dot.active{background:#ff8c00;width:28px;border-radius:6px;}
+</style></head><body>
+<div class="bg"></div><div class="overlay"></div>
+<div class="content">
+  <div class="label">THE MACROS</div>
+  <div class="title">Full nutritional breakdown</div>
+  <div class="macros">
+    <div class="macro"><div class="macro-val">22g</div><div class="macro-label">PROTEIN</div></div>
+    <div class="macro"><div class="macro-val">42g</div><div class="macro-label">CARBS</div></div>
+    <div class="macro"><div class="macro-val">22g</div><div class="macro-label">FAT</div></div>
+  </div>
+  <div class="hacks">
+    <div class="hack"><div class="hack-icon">✂️</div><div class="hack-text">Make it <strong>smaller</strong> — half a vetkoek saves ~140 cal</div></div>
+    <div class="hack"><div class="hack-icon">🥩</div><div class="hack-text">Use <strong>lean mince</strong> (5% fat) to cut 60 cal</div></div>
+    <div class="hack"><div class="hack-icon">🥗</div><div class="hack-text">Add a side salad — keeps you full without the extra calories</div></div>
+  </div>
+  <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+</div>
+</body></html>

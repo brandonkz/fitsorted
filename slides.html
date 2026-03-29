@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #000; }
+  
+  .slide {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    margin: 20px auto; page-break-after: always;
+  }
+  
+  .slide::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(40,40,40,0.5) 0%, rgba(0,0,0,0.9) 70%);
+  }
+  
+  .content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 50px; }
+  
+  .pill { background: #4CAF50; color: #fff; font-weight: 700; font-size: 24px; letter-spacing: 3px; padding: 12px 32px; border-radius: 999px; text-transform: uppercase; }
+  
+  .headline { color: #fff; font-weight: 900; font-size: 52px; text-align: center; margin-top: 28px; line-height: 1.2; }
+  
+  .subtitle { color: #b0b0b0; font-size: 28px; text-align: center; margin-top: 12px; }
+  
+  .cards { display: flex; gap: 30px; align-items: center; margin-top: 50px; }
+  
+  .card { background: rgba(35,35,35,0.85); border-radius: 20px; padding: 36px 40px; text-align: center; width: 380px; border: 1px solid rgba(255,255,255,0.08); }
+  
+  .card-label { color: #fff; font-weight: 600; font-size: 26px; margin-bottom: 10px; }
+  
+  .cal-num { font-weight: 900; font-size: 96px; line-height: 1; }
+  .cal-num.high { color: #FF5722; }
+  .cal-num.low { color: #4CAF50; }
+  
+  .cal-label { color: #aaa; font-size: 22px; margin-top: 4px; }
+  
+  .run-stat { margin-top: 14px; font-size: 22px; color: #aaa; }
+  .run-stat strong { color: #4CAF50; font-weight: 700; }
+  
+  .vs { color: #ccc; font-weight: 700; font-size: 40px; }
+  
+  .savings { color: #4CAF50; font-weight: 700; font-size: 30px; text-align: center; margin-top: 50px; }
+  
+  .brand-bar { display: flex; align-items: center; gap: 20px; margin-top: 60px; }
+  .brand-pill { background: #4CAF50; color: #fff; font-weight: 700; font-size: 22px; padding: 10px 24px; border-radius: 999px; letter-spacing: 2px; }
+  .brand-cta { color: #aaa; font-size: 22px; }
+  
+  /* Slide 3 - CTA */
+  .cta-content { text-align: center; }
+  .cta-emoji { font-size: 120px; margin-bottom: 30px; }
+  .cta-headline { color: #fff; font-weight: 900; font-size: 64px; line-height: 1.2; margin-bottom: 20px; }
+  .cta-sub { color: #b0b0b0; font-size: 32px; line-height: 1.5; margin-bottom: 50px; }
+  .cta-button { background: #4CAF50; color: #fff; font-weight: 700; font-size: 36px; padding: 24px 60px; border-radius: 999px; display: inline-block; }
+  .cta-number { color: #4CAF50; font-weight: 700; font-size: 28px; margin-top: 30px; }
+  .cta-free { color: #aaa; font-size: 24px; margin-top: 10px; }
+</style>
+</head><body>
+
+<!-- SLIDE 2: Beer vs Light Beer -->
+<div class="slide" id="slide2" style="background: linear-gradient(180deg, #1a1510 0%, #0d0d0d 100%);">
+  <div class="content">
+    <div class="pill">🍺 DRINK SWAP</div>
+    <div class="headline">3 Beers vs 3 Light Beers</div>
+    <div class="subtitle">Same vibe. Half the damage.</div>
+    
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">3x Castle Lager</div>
+        <div class="cal-num high">465</div>
+        <div class="cal-label">calories</div>
+        <div class="run-stat">🏃 <strong>47 min</strong> running</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="card">
+        <div class="card-label">3x Castle Lite</div>
+        <div class="cal-num low">297</div>
+        <div class="cal-label">calories</div>
+        <div class="run-stat">🏃 <strong>30 min</strong> running</div>
+      </div>
+    </div>
+    
+    <div class="savings">Save 168 cal — that's 17 fewer minutes running 💡</div>
+    
+    <div class="brand-bar">
+      <div class="brand-pill">🍺 FITSORTED</div>
+      <div class="brand-cta">Track on WhatsApp 📱</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: CTA -->
+<div class="slide" id="slide3" style="background: linear-gradient(180deg, #0a2e1a 0%, #0d0d0d 100%);">
+  <div class="content cta-content">
+    <div class="cta-emoji">🥗</div>
+    <div class="cta-headline">Track Your Food<br>on WhatsApp</div>
+    <div class="cta-sub">Just text what you ate.<br>We count the calories.<br>No app download needed.</div>
+    <div class="cta-button">Start Free →</div>
+    <div class="cta-number">+27 69 068 4940</div>
+    <div class="cta-free">Free trial • R36/month after</div>
+    
+    <div class="brand-bar" style="margin-top:40px">
+      <div class="brand-pill">🥗 FITSORTED</div>
+      <div class="brand-cta">fitsorted.co.za</div>
+    </div>
+  </div>
+</div>
+
+</body></html>

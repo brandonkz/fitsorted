@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1080px;height:1080px;font-family:-apple-system,system-ui,'Helvetica Neue',sans-serif;overflow:hidden;position:relative;background:#0a0a0a;}
+
+.bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%, #2a1800 0%, #0d0700 50%, #000 100%);}
+.grain{position:absolute;inset:0;opacity:0.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:256px;}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.85) 100%);}
+
+.content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;height:100%;padding:70px 80px 60px;}
+
+.tag{background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,140,0,0.5);color:#ff8c00;font-size:26px;font-weight:700;letter-spacing:3px;padding:10px 28px;border-radius:40px;text-transform:uppercase;margin-bottom:auto;}
+
+.icon{font-size:110px;margin:30px 0 10px;}
+
+.food-name{font-size:88px;font-weight:900;color:#fff;text-align:center;line-height:1;letter-spacing:-2px;margin-bottom:8px;}
+.food-sub{font-size:30px;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:36px;font-weight:400;}
+
+.cal-row{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;}
+.cal-big{font-size:140px;font-weight:900;color:#ff8c00;line-height:1;letter-spacing:-4px;}
+.cal-label{font-size:36px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:4px;text-transform:uppercase;}
+
+.run-stat{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:16px 36px;margin-bottom:36px;display:flex;align-items:center;gap:12px;}
+.run-stat-text{font-size:26px;color:rgba(255,255,255,0.75);font-weight:500;}
+
+.macros{display:flex;gap:24px;margin-bottom:auto;}
+.macro{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px 36px;text-align:center;}
+.macro-val{font-size:38px;font-weight:800;color:#fff;}
+.macro-label{font-size:18px;color:rgba(255,255,255,0.45);letter-spacing:2px;font-weight:600;margin-top:4px;}
+
+.brand{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:30px;}
+.brand-badge{background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);color:#fff;font-size:22px;font-weight:800;letter-spacing:2px;padding:10px 28px;border-radius:40px;}
+.brand-sub{font-size:22px;color:rgba(255,255,255,0.4);}
+</style></head><body>
+<div class="bg"></div>
+<div class="grain"></div>
+<div class="overlay"></div>
+<div class="content">
+  <div class="tag">🇿🇦 SA FRIDAY CLASSIC</div>
+  <div class="icon">🥘</div>
+  <div class="food-name">Vetkoek & Mince</div>
+  <div class="food-sub">Friday done right</div>
+  <div class="cal-row"><div class="cal-big">480</div><div class="cal-label">CALORIES</div></div>
+  <div class="run-stat"><span class="run-stat-text">🏃 48 min running to burn it off (~4.8km)</span></div>
+  <div class="macros">
+    <div class="macro"><div class="macro-val">22g</div><div class="macro-label">PROTEIN</div></div>
+    <div class="macro"><div class="macro-val">42g</div><div class="macro-label">CARBS</div></div>
+    <div class="macro"><div class="macro-val">22g</div><div class="macro-label">FAT</div></div>
+  </div>
+  <div class="brand">
+    <div class="brand-badge">🏋️ FITSORTED</div>
+    <div class="brand-sub">Track it on WhatsApp 🇿🇦</div>
+  </div>
+</div>
+</body></html>

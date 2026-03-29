@@ -2126,6 +2126,11 @@ async function estimateCalories(food, user) {
     "corn on the cob": { food: "Corn on the Cob (1)", calories: 90, protein: 3, carbs: 19, fat: 1, fibre: 2 },
     // Burfee
     "burfee": { food: "Burfee (1 piece)", calories: 120, protein: 2, carbs: 18, fat: 5, fibre: 0 },
+    // Round 23 - nightly edge case test 2026-03-30
+    "two slices french toast": { food: "French Toast (2 slices)", calories: 420, protein: 12, carbs: 52, fat: 18, fibre: 2 },
+    "french toast": { food: "French Toast (2 slices)", calories: 420, protein: 12, carbs: 52, fat: 18, fibre: 2 },
+    "french toast 1 slice": { food: "French Toast (1 slice)", calories: 210, protein: 6, carbs: 26, fat: 9, fibre: 1 },
+    "bar one milkshake": { food: "Bar One Milkshake", calories: 550, protein: 12, carbs: 75, fat: 22, fibre: 1 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

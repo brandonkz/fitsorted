@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1080px;height:1080px;font-family:-apple-system,system-ui,'Helvetica Neue',sans-serif;overflow:hidden;position:relative;background:#0a0a0a;}
+.bg{position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%, #1a1000 0%, #060300 60%, #000 100%);}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.5) 100%);}
+.content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;height:100%;padding:60px 80px;}
+.label{font-size:26px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:4px;text-transform:uppercase;margin-bottom:40px;}
+.title{font-size:52px;font-weight:900;color:#fff;margin-bottom:50px;text-align:center;}
+.bars{display:flex;flex-direction:column;gap:28px;width:100%;}
+.bar-row{display:flex;flex-direction:column;gap:10px;}
+.bar-meta{display:flex;justify-content:space-between;align-items:baseline;}
+.bar-name{font-size:30px;font-weight:700;color:rgba(255,255,255,0.8);}
+.bar-val{font-size:38px;font-weight:900;color:#fff;}
+.bar-track{height:22px;background:rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:12px;}
+.vetkoek .bar-fill{background:linear-gradient(90deg,#ff8c00,#ff6000);width:58%;}
+.mince .bar-fill{background:linear-gradient(90deg,#ff5555,#cc2200);width:42%;}
+.total-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.15);padding-top:30px;margin-top:10px;}
+.total-label{font-size:32px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:2px;}
+.total-val{font-size:72px;font-weight:900;color:#ff8c00;}
+.run-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:18px 36px;margin-top:30px;}
+.run-text{font-size:26px;color:rgba(255,255,255,0.6);text-align:center;}
+.dots{display:flex;gap:10px;margin-top:auto;padding-top:20px;}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);}
+.dot.active{background:#ff8c00;width:28px;border-radius:6px;}
+</style></head><body>
+<div class="bg"></div><div class="overlay"></div>
+<div class="content">
+  <div class="label">THE BREAKDOWN</div>
+  <div class="title">Where do the calories come from?</div>
+  <div class="bars">
+    <div class="bar-row vetkoek">
+      <div class="bar-meta"><span class="bar-name">🥐 Vetkoek (dough)</span><span class="bar-val">280 cal</span></div>
+      <div class="bar-track"><div class="bar-fill"></div></div>
+    </div>
+    <div class="bar-row mince">
+      <div class="bar-meta"><span class="bar-name">🥩 Spiced mince</span><span class="bar-val">200 cal</span></div>
+      <div class="bar-track"><div class="bar-fill"></div></div>
+    </div>
+  </div>
+  <div class="total-row">
+    <span class="total-label">TOTAL</span>
+    <span class="total-val">480 cal</span>
+  </div>
+  <div class="run-stat"><div class="run-text">🏃 48 min running to burn this off (~4.8km)</div></div>
+  <div class="dots"><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+</div>
+</body></html>

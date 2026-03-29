@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitSorted x MyBento — Partnership Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: #1a1a2e; line-height: 1.65; background: #fff; }
+  
+  .page { max-width: 780px; margin: 0 auto; padding: 48px 52px; }
+  
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 28px; border-bottom: 3px solid #22c55e; }
+  .logo { font-size: 28px; font-weight: 700; color: #22c55e; letter-spacing: -0.5px; }
+  .logo span { color: #1a1a2e; }
+  .header-right { text-align: right; font-size: 12px; color: #94a3b8; }
+  .header-right strong { color: #64748b; font-size: 13px; }
+  
+  .hero { background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border-radius: 16px; padding: 32px; margin-bottom: 36px; text-align: center; }
+  .hero h1 { font-size: 24px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .hero p { font-size: 15px; color: #475569; max-width: 580px; margin: 0 auto; }
+  
+  h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin: 32px 0 14px; display: flex; align-items: center; gap: 8px; }
+  h2 .emoji { font-size: 20px; }
+  h3 { font-size: 14px; font-weight: 600; color: #334155; margin: 16px 0 8px; }
+  p { font-size: 13.5px; color: #475569; margin-bottom: 10px; }
+  
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+  .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; }
+  .card h3 { margin-top: 0; color: #1a1a2e; font-size: 14px; }
+  .card p { font-size: 12.5px; }
+  .card ul { font-size: 12.5px; color: #475569; padding-left: 16px; margin: 8px 0; }
+  .card ul li { margin: 4px 0; }
+  
+  .highlight { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+  .highlight p { color: #166534; margin: 0; font-size: 13.5px; }
+  
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tr:nth-child(even) { background: #f8fafc; }
+  .price-row { background: #f0fdf4 !important; }
+  .price-row td { font-weight: 600; color: #166534; font-size: 15px; }
+  
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 14px 0; }
+  .feature { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #334155; padding: 5px 0; }
+  .check { color: #22c55e; font-weight: bold; font-size: 15px; flex-shrink: 0; }
+  
+  .stats { display: flex; justify-content: space-around; background: #1a1a2e; color: white; border-radius: 12px; padding: 22px; margin: 20px 0; }
+  .stat { text-align: center; }
+  .stat-value { font-size: 26px; font-weight: 700; color: #22c55e; }
+  .stat-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; }
+  
+  .wa-box { background: #dcfce7; border-radius: 12px; padding: 20px 24px; margin: 16px 0; display: flex; gap: 14px; align-items: center; }
+  .wa-box .icon { font-size: 32px; flex-shrink: 0; }
+  .wa-box .text { font-size: 13px; color: #166534; }
+  .wa-box .text strong { color: #15803d; }
+  
+  .process { margin: 14px 0; }
+  .step { display: flex; gap: 14px; align-items: center; padding: 10px 16px; margin: 6px 0; background: #f8fafc; border-radius: 8px; font-size: 13px; }
+  .step-num { background: #22c55e; color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+  
+  .cta { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; border-radius: 12px; padding: 28px 32px; text-align: center; margin: 32px 0 24px; }
+  .cta h3 { color: white; font-size: 18px; margin: 0 0 8px; }
+  .cta p { color: rgba(255,255,255,0.9); margin: 0; font-size: 14px; }
+  
+  .footer { padding-top: 20px; border-top: 2px solid #e2e8f0; text-align: center; font-size: 13px; color: #64748b; }
+  .footer a { color: #22c55e; text-decoration: none; }
+  .footer .slogan { font-size: 12px; color: #94a3b8; font-style: italic; margin-top: 12px; }
+  
+  @media print { .page { padding: 20px 36px; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo">Fit<span>Sorted</span></div>
+    <div class="header-right">
+      <strong>Partnership Proposal</strong><br>
+      Prepared for MyBento<br>
+      March 2026
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Add Nutrition Tracking to MyBento's Wellness Module</h1>
+    <p>A WhatsApp-based calorie and macro tracker that integrates seamlessly into MyBento's employee benefits platform — zero app downloads, instant engagement.</p>
+  </div>
+
+  <h2><span class="emoji">💡</span> The Opportunity</h2>
+  <p>MyBento already consolidates employee benefits into one engaging hub. Adding nutrition tracking strengthens your <strong>Employee Wellness</strong> module with a tool employees will actually use — because it lives in WhatsApp, not another app they'll forget about.</p>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>🎯 For MyBento</h3>
+      <ul>
+        <li>New revenue stream (markup to clients)</li>
+        <li>Strengthens wellness module offering</li>
+        <li>Higher employee engagement metrics</li>
+        <li>Differentiator vs. competing platforms</li>
+        <li>Zero development cost — we handle everything</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>👥 For MyBento's Clients</h3>
+      <ul>
+        <li>Employees get a nutrition tracker at no extra effort</li>
+        <li>Weekly wellness reports for HR</li>
+        <li>Supports corporate health initiatives</li>
+        <li>95%+ of employees already use WhatsApp</li>
+        <li>Boosts benefits engagement (your 95% stat goes higher)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="emoji">📱</span> How It Works</h2>
+  
+  <div class="wa-box">
+    <div class="icon">💬</div>
+    <div class="text">
+      <strong>It's just WhatsApp.</strong> Employees text what they ate — or snap a photo — and get instant calorie and macro tracking. Morning check-ins, evening summaries, coaching mode, weight tracking. No app download. No login. No friction.
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Employee Experience</h3>
+      <p>Employee clicks a join link (unique per company). Texts the bot like a friend: "two eggs on toast" or sends a photo. Gets instant tracking with SA-specific food data.</p>
+    </div>
+    <div class="card">
+      <h3>Corporate Integration</h3>
+      <p>Each MyBento client gets a unique referral code. Monthly reports show active users, average calories, participation rates. Data feeds into MyBento's wellness dashboard.</p>
+    </div>
+  </div>
+
+  <h2><span class="emoji">✅</span> Features</h2>
+  <div class="features">
+    <div class="feature"><span class="check">✓</span> WhatsApp calorie & macro tracking</div>
+    <div class="feature"><span class="check">✓</span> AI photo food recognition</div>
+    <div class="feature"><span class="check">✓</span> Morning & evening check-ins</div>
+    <div class="feature"><span class="check">✓</span> SA food database (500+ items)</div>
+    <div class="feature"><span class="check">✓</span> Coaching mode (nutrition Q&A)</div>
+    <div class="feature"><span class="check">✓</span> Weight tracking & trends</div>
+    <div class="feature"><span class="check">✓</span> Exercise logging</div>
+    <div class="feature"><span class="check">✓</span> Weekly team reports</div>
+    <div class="feature"><span class="check">✓</span> Per-company referral codes</div>
+    <div class="feature"><span class="check">✓</span> White-label ready</div>
+    <div class="feature"><span class="check">✓</span> Custom meal plan support</div>
+    <div class="feature"><span class="check">✓</span> API integration available</div>
+  </div>
+
+  <h2><span class="emoji">💰</span> Pricing</h2>
+  
+  <table>
+    <tr><th>Item</th><th style="text-align:right;">Price</th></tr>
+    <tr class="price-row"><td>Per active employee, per month</td><td style="text-align:right;">R7.50</td></tr>
+    <tr><td>Setup & onboarding per client</td><td style="text-align:right;">Included</td></tr>
+    <tr><td>Monthly usage reports</td><td style="text-align:right;">Included</td></tr>
+    <tr><td>Custom food database setup</td><td style="text-align:right;">Included</td></tr>
+    <tr><td>Ongoing support & updates</td><td style="text-align:right;">Included</td></tr>
+    <tr><td>Capacity</td><td style="text-align:right;">Up to 1,000 users</td></tr>
+  </table>
+  
+  <p style="font-size: 12px; color: #94a3b8;">Active user = sent at least 1 message in the billing month. MyBento sets their own markup to clients.</p>
+
+  <div class="highlight">
+    <p><strong>Revenue example:</strong> If MyBento charges clients R15/employee and 300 employees are active, that's R4,500/mo revenue, R2,250/mo cost to FitSorted = <strong>R2,250/mo profit for MyBento</strong> with zero development or maintenance.</p>
+  </div>
+
+  <h2><span class="emoji">📊</span> FitSorted Today</h2>
+  <div class="stats">
+    <div class="stat"><div class="stat-value">230+</div><div class="stat-label">Active Users</div></div>
+    <div class="stat"><div class="stat-value">1,300+</div><div class="stat-label">Food Logs</div></div>
+    <div class="stat"><div class="stat-value">500+</div><div class="stat-label">SA Foods</div></div>
+    <div class="stat"><div class="stat-value">&lt; 5s</div><div class="stat-label">Response Time</div></div>
+  </div>
+  <p>Live since March 2026. Built in South Africa, for South Africans. Database includes Woolworths, Checkers, Nando's, Steers, KFC, Kauai, Spur, Ocean Basket, and hundreds more local items.</p>
+
+  <h2><span class="emoji">🚀</span> Integration Path</h2>
+  <div class="process">
+    <div class="step"><div class="step-num">1</div><div><strong>Pilot:</strong> Enable for 1-2 MyBento clients (2 weeks, free trial)</div></div>
+    <div class="step"><div class="step-num">2</div><div><strong>Measure:</strong> Track engagement, gather employee feedback</div></div>
+    <div class="step"><div class="step-num">3</div><div><strong>Scale:</strong> Roll out to all MyBento clients via wellness module</div></div>
+    <div class="step"><div class="step-num">4</div><div><strong>Deepen:</strong> API integration into MyBento dashboard (optional)</div></div>
+  </div>
+
+  <div class="cta">
+    <h3>Let's Run a Pilot</h3>
+    <p>Pick one or two of your clients. We'll set up FitSorted in 48 hours, free for 2 weeks. If employees love it, we scale. If not, no cost, no commitment.</p>
+  </div>
+
+  <div class="footer">
+    <strong>Brandon Katz</strong> · <a href="mailto:brandon@fitsorted.co.za">brandon@fitsorted.co.za</a> · <a href="https://wa.me/27690684940">+27 69 068 4940</a> · <a href="https://fitsorted.co.za">fitsorted.co.za</a>
+    <div class="slogan">Nutrition tracking that meets employees where they already are.</div>
+  </div>
+
+</div>
+</body>
+</html>

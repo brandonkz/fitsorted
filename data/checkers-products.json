@@ -1,0 +1,233 @@
+[
+  {
+    "name": "Checkers Ready Meal Chicken Curry with Rice 350g",
+    "price": 54.99,
+    "category": "Ready Meals",
+    "size": "350g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Ready Meal Beef Lasagne 400g",
+    "price": 59.99,
+    "category": "Ready Meals",
+    "size": "400g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Ready Meal Butter Chicken 350g",
+    "price": 54.99,
+    "category": "Ready Meals",
+    "size": "350g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Macaroni Cheese 400g",
+    "price": 44.99,
+    "category": "Ready Meals",
+    "size": "400g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Greek Salad Bowl 250g",
+    "price": 39.99,
+    "category": "Salads",
+    "size": "250g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Caesar Salad Bowl 300g",
+    "price": 42.99,
+    "category": "Salads",
+    "size": "300g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Chicken Mayo Salad Bowl 280g",
+    "price": 44.99,
+    "category": "Salads",
+    "size": "280g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Garden Salad Bowl 200g",
+    "price": 32.99,
+    "category": "Salads",
+    "size": "200g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Chicken Mayo Sandwich",
+    "price": 35.99,
+    "category": "Sandwiches",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Cheese & Tomato Sandwich",
+    "price": 29.99,
+    "category": "Sandwiches",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Ham & Cheese Sandwich",
+    "price": 32.99,
+    "category": "Sandwiches",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Chicken Wrap",
+    "price": 39.99,
+    "category": "Wraps",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Beef Wrap",
+    "price": 42.99,
+    "category": "Wraps",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Steak & Kidney Pie",
+    "price": 22.99,
+    "category": "Pies",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Chicken Pie",
+    "price": 22.99,
+    "category": "Pies",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Pepper Steak Pie",
+    "price": 22.99,
+    "category": "Pies",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Mince Pie",
+    "price": 19.99,
+    "category": "Pies",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers California Roll 8 Piece",
+    "price": 54.99,
+    "category": "Sushi",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Salmon Fashion Sandwich 6 Piece",
+    "price": 64.99,
+    "category": "Sushi",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Mixed Platter 16 Piece",
+    "price": 89.99,
+    "category": "Sushi",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Vegetable Roll 8 Piece",
+    "price": 44.99,
+    "category": "Sushi",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Rotisserie Chicken Whole",
+    "price": 74.99,
+    "category": "Deli",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Rotisserie Chicken Half",
+    "price": 42.99,
+    "category": "Deli",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Roast Beef Sliced 100g",
+    "price": 29.99,
+    "category": "Deli",
+    "size": "100g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Ham Sliced 100g",
+    "price": 24.99,
+    "category": "Deli",
+    "size": "100g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Chocolate Mousse Cup 100g",
+    "price": 19.99,
+    "category": "Desserts",
+    "size": "100g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Tiramisu Cup 100g",
+    "price": 22.99,
+    "category": "Desserts",
+    "size": "100g",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Cheesecake Slice",
+    "price": 32.99,
+    "category": "Desserts",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Brownie",
+    "price": 18.99,
+    "category": "Desserts",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Croissant Plain",
+    "price": 12.99,
+    "category": "Bakery",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Chocolate Croissant",
+    "price": 15.99,
+    "category": "Bakery",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Blueberry Muffin",
+    "price": 16.99,
+    "category": "Bakery",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  },
+  {
+    "name": "Checkers Cheese & Bacon Roll",
+    "price": 18.99,
+    "category": "Bakery",
+    "size": "per item",
+    "url": "https://www.checkers.co.za"
+  }
+]

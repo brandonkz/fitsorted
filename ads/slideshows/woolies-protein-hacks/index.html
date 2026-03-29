@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1350">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #0a0a0a;
+    color: #fff;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+  }
+
+  .slide.active { display: flex; }
+
+  /* ---- SLIDE 1: HOOK ---- */
+  .slide-1 {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
+    text-align: center;
+  }
+  .slide-1 .brand-tag {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7dd3fc;
+  }
+  .slide-1 .hook-text {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  .slide-1 .hook-text .highlight {
+    color: #4ade80;
+    display: block;
+  }
+  .slide-1 .sub-hook {
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    max-width: 800px;
+  }
+  .slide-1 .woolies-badge {
+    position: absolute;
+    bottom: 80px;
+    background: #2d6a4f;
+    padding: 14px 36px;
+    border-radius: 16px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* ---- SLIDE 2: DATA ---- */
+  .slide-2 {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    align-items: stretch;
+    padding: 50px 60px;
+  }
+  .slide-2 .slide-title {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: #4ade80;
+    text-align: center;
+  }
+  .food-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .food-card .food-name {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .food-card .food-sub {
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+  .food-card .macro-badge {
+    background: #4ade80;
+    color: #0a0a0a;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-size: 26px;
+    font-weight: 800;
+    text-align: center;
+    min-width: 120px;
+  }
+  .food-card .macro-badge .unit {
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+  }
+
+  /* ---- SLIDE 3: TRAP ---- */
+  .slide-3 {
+    background: linear-gradient(180deg, #1a0a0a 0%, #2d1515 100%);
+    align-items: stretch;
+    padding: 50px 60px;
+  }
+  .slide-3 .slide-title {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #f87171;
+    text-align: center;
+  }
+  .slide-3 .slide-subtitle {
+    font-size: 24px;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .trap-card {
+    background: rgba(248,113,113,0.08);
+    border: 1px solid rgba(248,113,113,0.2);
+    border-radius: 20px;
+    padding: 28px 36px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .trap-card .food-name {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .trap-card .food-sub {
+    font-size: 19px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+  .trap-card .trap-badge {
+    background: #f87171;
+    color: #0a0a0a;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    min-width: 130px;
+  }
+  .trap-card .trap-badge .unit {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+  }
+
+  /* ---- SLIDE 4: COMPARE ---- */
+  .slide-4 {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    padding: 50px 60px;
+    align-items: stretch;
+  }
+  .slide-4 .slide-title {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 36px;
+    color: #fbbf24;
+  }
+  .compare-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .compare-item {
+    flex: 1;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+  }
+  .compare-item.good {
+    background: rgba(74,222,128,0.1);
+    border: 2px solid rgba(74,222,128,0.3);
+  }
+  .compare-item.bad {
+    background: rgba(248,113,113,0.1);
+    border: 2px solid rgba(248,113,113,0.3);
+  }
+  .compare-item .label {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .compare-item.good .label { color: #4ade80; }
+  .compare-item.bad .label { color: #f87171; }
+  .compare-item .item-name {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .compare-item .item-macros {
+    font-size: 20px;
+    color: rgba(255,255,255,0.6);
+  }
+  .compare-item .item-macros strong {
+    color: #fff;
+    font-size: 36px;
+    display: block;
+    margin-top: 8px;
+  }
+  .vs-badge {
+    align-self: center;
+    background: #fbbf24;
+    color: #0a0a0a;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 22px;
+    margin: 0 -12px;
+    flex-shrink: 0;
+  }
+
+  /* ---- SLIDE 5: CTA ---- */
+  .slide-5 {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
+    text-align: center;
+  }
+  .slide-5 .cta-main {
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 30px;
+  }
+  .slide-5 .cta-main .green { color: #4ade80; }
+  .slide-5 .cta-sub {
+    font-size: 30px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 50px;
+    max-width: 800px;
+  }
+  .slide-5 .cta-button {
+    background: #4ade80;
+    color: #0a0a0a;
+    padding: 22px 60px;
+    border-radius: 60px;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .slide-5 .cta-handle {
+    font-size: 26px;
+    color: rgba(255,255,255,0.5);
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: HOOK -->
+<div class="slide slide-1 active" id="slide1">
+  <div class="brand-tag">🏋️ FitSorted</div>
+  <div class="hook-text">
+    5 Woolies meals<br>
+    <span class="highlight">under R80</span><br>
+    that hit 30g+ protein
+  </div>
+  <div class="sub-hook">No meal prep. No cooking. Just grab and go.</div>
+  <div class="woolies-badge">🛒 WOOLWORTHS SA</div>
+</div>
+
+<!-- SLIDE 2: TOP PICKS -->
+<div class="slide slide-2" id="slide2">
+  <div class="slide-title">✅ The Gains Aisle</div>
+  <div class="food-card">
+    <div>
+      <div class="food-name">Roast Chicken Breast</div>
+      <div class="food-sub">Ready to eat · R59.99</div>
+    </div>
+    <div class="macro-badge">38g<span class="unit">protein</span></div>
+  </div>
+  <div class="food-card">
+    <div>
+      <div class="food-name">Greek Yoghurt (500g)</div>
+      <div class="food-sub">Plain, full fat · R42.99</div>
+    </div>
+    <div class="macro-badge">35g<span class="unit">protein</span></div>
+  </div>
+  <div class="food-card">
+    <div>
+      <div class="food-name">Cottage Cheese Tub</div>
+      <div class="food-sub">Low fat · R36.99</div>
+    </div>
+    <div class="macro-badge">32g<span class="unit">protein</span></div>
+  </div>
+  <div class="food-card">
+    <div>
+      <div class="food-name">Biltong Sliced (80g)</div>
+      <div class="food-sub">Original · R54.99</div>
+    </div>
+    <div class="macro-badge">42g<span class="unit">protein</span></div>
+  </div>
+  <div class="food-card">
+    <div>
+      <div class="food-name">Smoked Salmon Trout</div>
+      <div class="food-sub">100g pack · R69.99</div>
+    </div>
+    <div class="macro-badge">30g<span class="unit">protein</span></div>
+  </div>
+</div>
+
+<!-- SLIDE 3: TRAPS -->
+<div class="slide slide-3" id="slide3">
+  <div class="slide-title">⚠️ The "Healthy" Traps</div>
+  <div class="slide-subtitle">Looks clean. Isn't.</div>
+  <div class="trap-card">
+    <div>
+      <div class="food-name">Woolies Granola Bar</div>
+      <div class="food-sub">Sounds healthy · R24.99</div>
+    </div>
+    <div class="trap-badge">22g sugar<span class="unit">per bar</span></div>
+  </div>
+  <div class="trap-card">
+    <div>
+      <div class="food-name">Fruit Smoothie (500ml)</div>
+      <div class="food-sub">"No added sugar" · R39.99</div>
+    </div>
+    <div class="trap-badge">48g sugar<span class="unit">per bottle</span></div>
+  </div>
+  <div class="trap-card">
+    <div>
+      <div class="food-name">Chicken Wrap</div>
+      <div class="food-sub">Deli section · R64.99</div>
+    </div>
+    <div class="trap-badge">580 cals<span class="unit">mostly carbs</span></div>
+  </div>
+  <div class="trap-card">
+    <div>
+      <div class="food-name">Açaí Bowl</div>
+      <div class="food-sub">"Superfood" · R59.99</div>
+    </div>
+    <div class="trap-badge">62g sugar<span class="unit">whole bowl</span></div>
+  </div>
+</div>
+
+<!-- SLIDE 4: SMART SWAPS -->
+<div class="slide slide-4" id="slide4">
+  <div class="slide-title">🔄 Smart Swaps</div>
+  <div class="compare-row">
+    <div class="compare-item bad">
+      <div class="label">❌ Skip</div>
+      <div class="item-name">Granola Bar</div>
+      <div class="item-macros">4g protein, 22g sugar<strong>R24.99</strong></div>
+    </div>
+    <div class="compare-item good">
+      <div class="label">✅ Grab</div>
+      <div class="item-name">Biltong 80g</div>
+      <div class="item-macros">42g protein, 1g sugar<strong>R54.99</strong></div>
+    </div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-item bad">
+      <div class="label">❌ Skip</div>
+      <div class="item-name">Fruit Smoothie</div>
+      <div class="item-macros">2g protein, 48g sugar<strong>R39.99</strong></div>
+    </div>
+    <div class="compare-item good">
+      <div class="label">✅ Grab</div>
+      <div class="item-name">Greek Yoghurt</div>
+      <div class="item-macros">35g protein, 6g sugar<strong>R42.99</strong></div>
+    </div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-item bad">
+      <div class="label">❌ Skip</div>
+      <div class="item-name">Açaí Bowl</div>
+      <div class="item-macros">5g protein, 62g sugar<strong>R59.99</strong></div>
+    </div>
+    <div class="compare-item good">
+      <div class="label">✅ Grab</div>
+      <div class="item-name">Cottage Cheese</div>
+      <div class="item-macros">32g protein, 3g sugar<strong>R36.99</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: CTA -->
+<div class="slide slide-5" id="slide5">
+  <div class="cta-main">
+    Stop guessing.<br>
+    <span class="green">Start sorting.</span>
+  </div>
+  <div class="cta-sub">Save this for your next Woolies run 🛒<br>Tag someone who needs this</div>
+  <div class="cta-button">FOLLOW FOR MORE</div>
+  <div class="cta-handle">@fitsorted</div>
+</div>
+
+<script>
+  // URL param ?slide=N shows that slide
+  const params = new URLSearchParams(window.location.search);
+  const slideNum = parseInt(params.get('slide') || '1');
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById('slide' + slideNum);
+  if (target) target.classList.add('active');
+</script>
+</body>
+</html>

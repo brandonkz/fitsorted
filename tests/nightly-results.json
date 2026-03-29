@@ -1,229 +1,238 @@
 {
   "results": [
     {
-      "food": "woolworths chicken wrap meal deal",
-      "cal": 600,
-      "minCal": 600,
-      "maxCal": 900,
+      "food": "woolworths chicken tikka pie",
+      "expected": "350-550",
+      "got": 400,
       "pass": true,
       "result": {
-        "food": "Woolworths chicken wrap meal deal",
-        "calories": 600,
-        "protein": 30,
-        "carbs": 50,
-        "fat": 25,
-        "fibre": 5,
-        "estimatedPriceZAR": 60
-      }
-    },
-    {
-      "food": "russian and chips",
-      "cal": 550,
-      "minCal": 400,
-      "maxCal": 650,
-      "pass": true,
-      "result": {
-        "food": "russian sausage (100g) and chips (150g)",
-        "calories": 550,
-        "protein": 12,
-        "carbs": 60,
-        "fat": 30,
-        "fibre": 5,
-        "estimatedPriceZAR": 70
-      }
-    },
-    {
-      "food": "three slices biltong",
-      "cal": 188,
-      "minCal": 30,
-      "maxCal": 80,
-      "pass": false,
-      "result": {
-        "food": "biltong 75g",
-        "calories": 188,
-        "protein": 30,
-        "carbs": 0,
-        "fat": 6,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "peri peri livers",
-      "cal": 210,
-      "minCal": 250,
-      "maxCal": 400,
-      "pass": false,
-      "result": {
-        "food": "peri peri chicken livers (150g)",
-        "calories": 210,
-        "protein": 30,
-        "carbs": 0,
-        "fat": 10,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "chicken mayo toastie",
-      "cal": 210,
-      "minCal": 350,
-      "maxCal": 550,
-      "pass": false,
-      "result": {
-        "food": "chicken mayo toastie (1 slice)",
-        "calories": 210,
-        "protein": 18,
-        "carbs": 20,
-        "fat": 8,
-        "fibre": 1,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "steers wacky wednesday chips and drink",
-      "cal": 355,
-      "minCal": 850,
-      "maxCal": 1250,
-      "pass": false,
-      "result": {
-        "food": "Steers Wacky Wednesday chips (150g) and drink (440ml)",
-        "calories": 355,
-        "protein": 4,
-        "carbs": 50,
-        "fat": 16,
-        "fibre": 5,
-        "estimatedPriceZAR": 50
-      }
-    },
-    {
-      "food": "woolworths fruit salad",
-      "cal": 90,
-      "minCal": 80,
-      "maxCal": 200,
-      "pass": true,
-      "result": {
-        "food": "Woolworths fruit salad 150g",
-        "calories": 90,
-        "protein": 1,
-        "carbs": 22,
-        "fat": 0,
+        "food": "Woolworths chicken tikka pie",
+        "calories": 400,
+        "protein": 20,
+        "carbs": 40,
+        "fat": 20,
         "fibre": 2,
         "estimatedPriceZAR": 60
       }
     },
     {
-      "food": "chesa nyama plate",
-      "cal": 800,
-      "minCal": 600,
-      "maxCal": 950,
-      "pass": true,
+      "food": "two slices french toast",
+      "expected": "350-550",
+      "got": 320,
+      "pass": false,
       "result": {
-        "food": "chesa nyama plate (300g)",
-        "calories": 800,
-        "protein": 50,
-        "carbs": 60,
-        "fat": 40,
-        "fibre": 5,
-        "estimatedPriceZAR": 120
-      }
-    },
-    {
-      "food": "rooibos with condensed milk",
-      "cal": 150,
-      "minCal": 80,
-      "maxCal": 160,
-      "pass": true,
-      "result": {
-        "food": "rooibos tea with condensed milk (250ml)",
-        "calories": 150,
-        "protein": 3,
-        "carbs": 25,
-        "fat": 5,
-        "fibre": 0,
+        "food": "2x slice of french toast",
+        "calories": 320,
+        "protein": 8,
+        "carbs": 48,
+        "fat": 12,
+        "fibre": 2,
         "estimatedPriceZAR": null
       }
     },
     {
-      "food": "kfc streetwise 2 with chips",
-      "cal": 880,
-      "minCal": 600,
-      "maxCal": 950,
+      "food": "rocomamas loaded fries",
+      "expected": "600-1000",
+      "got": 800,
       "pass": true,
       "result": {
-        "food": "KFC Streetwise 2 with chips",
-        "calories": 880,
-        "protein": 40,
-        "carbs": 80,
-        "fat": 50,
+        "food": "RocoMamas loaded fries (~300g)",
+        "calories": 800,
+        "protein": 10,
+        "carbs": 100,
+        "fat": 40,
+        "fibre": 8,
+        "estimatedPriceZAR": 85
+      }
+    },
+    {
+      "food": "king pie steak and cheese",
+      "expected": "400-600",
+      "got": 600,
+      "pass": true,
+      "result": {
+        "food": "King Pie steak and cheese (~200g)",
+        "calories": 600,
+        "protein": 25,
+        "carbs": 50,
+        "fat": 35,
+        "fibre": 2,
+        "estimatedPriceZAR": 45
+      }
+    },
+    {
+      "food": "mugg and bean cappuccino",
+      "expected": "100-200",
+      "got": 120,
+      "pass": true,
+      "result": {
+        "food": "Mugg & Bean cappuccino (1 cup, ~240ml)",
+        "calories": 120,
+        "protein": 4,
+        "carbs": 12,
+        "fat": 6,
+        "fibre": 0,
+        "estimatedPriceZAR": 45
+      }
+    },
+    {
+      "food": "steers onion rings",
+      "expected": "250-450",
+      "got": 400,
+      "pass": true,
+      "result": {
+        "food": "Steers onion rings (~150g)",
+        "calories": 400,
+        "protein": 4,
+        "carbs": 60,
+        "fat": 18,
+        "fibre": 4,
+        "estimatedPriceZAR": 45
+      }
+    },
+    {
+      "food": "nandos peri peri wrap",
+      "expected": "400-650",
+      "got": 600,
+      "pass": true,
+      "result": {
+        "food": "Nando's peri peri wrap (~300g)",
+        "calories": 600,
+        "protein": 30,
+        "carbs": 50,
+        "fat": 30,
         "fibre": 5,
         "estimatedPriceZAR": 85
+      }
+    },
+    {
+      "food": "checkers ready meal chicken curry",
+      "expected": "350-600",
+      "got": 550,
+      "pass": true,
+      "result": {
+        "food": "Checkers ready meal chicken curry (~400g)",
+        "calories": 550,
+        "protein": 30,
+        "carbs": 60,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "food": "bar one milkshake",
+      "expected": "450-700",
+      "got": 350,
+      "pass": false,
+      "result": {
+        "food": "Bar One milkshake (~300ml)",
+        "calories": 350,
+        "protein": 10,
+        "carbs": 50,
+        "fat": 15,
+        "fibre": 2,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "food": "woolworths chicken strips 200g",
+      "expected": "350-550",
+      "got": 440,
+      "pass": true,
+      "result": {
+        "food": "Woolworths chicken strips (200g)",
+        "calories": 440,
+        "protein": 40,
+        "carbs": 20,
+        "fat": 24,
+        "fibre": 2,
+        "estimatedPriceZAR": 60
       }
     }
   ],
   "failures": [
     {
-      "food": "three slices biltong",
-      "cal": 188,
-      "minCal": 30,
-      "maxCal": 80,
-      "result": {
-        "food": "biltong 75g",
-        "calories": 188,
-        "protein": 30,
-        "carbs": 0,
-        "fat": 6,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "peri peri livers",
-      "cal": 210,
-      "minCal": 250,
-      "maxCal": 400,
-      "result": {
-        "food": "peri peri chicken livers (150g)",
-        "calories": 210,
-        "protein": 30,
-        "carbs": 0,
-        "fat": 10,
-        "fibre": 0,
-        "estimatedPriceZAR": null
-      }
-    },
-    {
-      "food": "chicken mayo toastie",
-      "cal": 210,
+      "food": "two slices french toast",
       "minCal": 350,
       "maxCal": 550,
+      "got": 320,
       "result": {
-        "food": "chicken mayo toastie (1 slice)",
-        "calories": 210,
-        "protein": 18,
-        "carbs": 20,
-        "fat": 8,
-        "fibre": 1,
+        "food": "2x slice of french toast",
+        "calories": 320,
+        "protein": 8,
+        "carbs": 48,
+        "fat": 12,
+        "fibre": 2,
         "estimatedPriceZAR": null
       }
     },
     {
-      "food": "steers wacky wednesday chips and drink",
-      "cal": 355,
-      "minCal": 850,
-      "maxCal": 1250,
+      "food": "bar one milkshake",
+      "minCal": 450,
+      "maxCal": 700,
+      "got": 350,
       "result": {
-        "food": "Steers Wacky Wednesday chips (150g) and drink (440ml)",
-        "calories": 355,
-        "protein": 4,
+        "food": "Bar One milkshake (~300ml)",
+        "calories": 350,
+        "protein": 10,
         "carbs": 50,
-        "fat": 16,
-        "fibre": 5,
+        "fat": 15,
+        "fibre": 2,
         "estimatedPriceZAR": 50
       }
     }
   ],
-  "tested": 10,
-  "passed": 6,
-  "failed": 4
+  "newTestCases": [
+    [
+      "woolworths chicken tikka pie",
+      350,
+      550
+    ],
+    [
+      "two slices french toast",
+      350,
+      550
+    ],
+    [
+      "rocomamas loaded fries",
+      600,
+      1000
+    ],
+    [
+      "king pie steak and cheese",
+      400,
+      600
+    ],
+    [
+      "mugg and bean cappuccino",
+      100,
+      200
+    ],
+    [
+      "steers onion rings",
+      250,
+      450
+    ],
+    [
+      "nandos peri peri wrap",
+      400,
+      650
+    ],
+    [
+      "checkers ready meal chicken curry",
+      350,
+      600
+    ],
+    [
+      "bar one milkshake",
+      450,
+      700
+    ],
+    [
+      "woolworths chicken strips 200g",
+      350,
+      550
+    ]
+  ]
 }

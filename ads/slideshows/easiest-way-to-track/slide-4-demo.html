@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; background: #0a0a0a; font-family: 'Inter', sans-serif; overflow: hidden; padding: 60px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; }
+  .brand-dot { width: 14px; height: 14px; background: #25D366; border-radius: 50%; }
+  .brand-text { color: #25D366; font-family: 'Anton', sans-serif; font-size: 28px; letter-spacing: 4px; }
+  .slide-num { position: absolute; top: 50px; right: 60px; color: rgba(255,255,255,0.3); font-size: 22px; font-weight: 600; }
+  .title { color: #fff; font-family: 'Anton', sans-serif; font-size: 48px; margin-bottom: 30px; }
+  .chat { flex: 1; display: flex; flex-direction: column; gap: 16px; max-width: 860px; }
+  .msg { max-width: 700px; padding: 22px 28px; border-radius: 18px; font-size: 28px; line-height: 1.5; }
+  .msg-user { background: #005c4b; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .msg-bot { background: #1f2c34; color: #fff; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .msg-bot .green { color: #25D366; font-weight: 700; }
+  .msg-bot .label { color: rgba(255,255,255,0.45); font-size: 22px; }
+  .msg-time { color: rgba(255,255,255,0.3); font-size: 18px; margin-top: 4px; }
+  .msg-user .msg-time { text-align: right; }
+  .macro-row { display: flex; gap: 24px; margin-top: 8px; }
+  .macro { display: flex; flex-direction: column; align-items: center; }
+  .macro-val { color: #25D366; font-size: 24px; font-weight: 800; }
+  .macro-label { color: rgba(255,255,255,0.35); font-size: 18px; }
+  .bar-section { margin-top: 12px; }
+  .bar-label { color: rgba(255,255,255,0.4); font-size: 20px; margin-bottom: 6px; }
+  .bar { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: #25D366; border-radius: 4px; }
+</style></head><body>
+  <div class="brand"><div class="brand-dot"></div><span class="brand-text">FITSORTED</span></div>
+  <div class="slide-num">4/6</div>
+  <div class="title">HERE'S WHAT IT LOOKS LIKE</div>
+  <div class="chat">
+    <div class="msg msg-user">
+      2 eggs on toast with cheese
+      <div class="msg-time">9:12 AM ✓✓</div>
+    </div>
+    <div class="msg msg-bot">
+      ✅ <span class="green">Logged!</span><br><br>
+      🍳 2 eggs on toast with cheese<br>
+      <span class="green">420 cal</span><br><br>
+      <div class="macro-row">
+        <div class="macro"><span class="macro-val">24g</span><span class="macro-label">protein</span></div>
+        <div class="macro"><span class="macro-val">30g</span><span class="macro-label">carbs</span></div>
+        <div class="macro"><span class="macro-val">22g</span><span class="macro-label">fat</span></div>
+        <div class="macro"><span class="macro-val">3g</span><span class="macro-label">fibre</span></div>
+      </div>
+      <div class="bar-section">
+        <div class="bar-label">420 / 2,000 cal today (21%)</div>
+        <div class="bar"><div class="bar-fill" style="width: 21%;"></div></div>
+      </div>
+    </div>
+    <div class="msg msg-user">
+      Nando's quarter chicken and chips
+      <div class="msg-time">1:24 PM ✓✓</div>
+    </div>
+    <div class="msg msg-bot">
+      ✅ <span class="green">Logged!</span><br><br>
+      🍗 Nando's quarter chicken & chips<br>
+      <span class="green">630 cal</span><br><br>
+      <div class="bar-section">
+        <div class="bar-label">1,050 / 2,000 cal today (53%)</div>
+        <div class="bar"><div class="bar-fill" style="width: 53%;"></div></div>
+      </div>
+    </div>
+  </div>
+</body></html>

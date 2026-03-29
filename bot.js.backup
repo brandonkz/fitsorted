@@ -2,18 +2,25 @@ require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const fs = require("fs");
+const path = require("path");
 const cron = require("node-cron");
 const { createClient } = require('@supabase/supabase-js');
+const crypto = require("crypto");
 
 const app = express();
-app.use(express.json());
+app.use(express.json({
+  verify: (req, res, buf) => {
+    req.rawBody = buf;
+  }
+}));
 
 const TOKEN = process.env.WHATSAPP_TOKEN;
 const PHONE_ID = process.env.PHONE_NUMBER_ID;
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN || "fitsorted123";
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "";
 const PORT = process.env.PORT || 3001;
 const USERS_FILE = "./users.json";
+const CHALLENGES_FILE = "./challenges.json";
 const REFERRALS_FILE = "./referrals.json";
 const FAILED_LOOKUPS_FILE = "./failed-lookups.json";
 const ADMIN_NUMBER = "27837787970"; // Brandon's number
@@ -23,20 +30,38 @@ const PRO_LAUNCH = true; // PayFast live
 const BETA_FEATURES = {
   priceEstimates: new Set(["27837787970"]), // Brandon only
 };
-const PRO_PRICE = process.env.PRO_PRICE || "18";
-const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID || "10803069";
-const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY || "heptrxgjismzp";
+const PRO_PRICE = "36";
+const GRANDFATHER_DATE = new Date("2026-03-19T23:59:59Z"); // Users who joined before this get free access forever
+const TRIAL_DAYS = 7;
+const PAYFAST_MERCHANT_ID = process.env.PAYFAST_MERCHANT_ID;
+const PAYFAST_MERCHANT_KEY = process.env.PAYFAST_MERCHANT_KEY;
 const ITN_URL = "https://fuddzrlnbrseofguuikp.supabase.co/functions/v1/payfast-itn";
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_bDTutSXR_G4Q84ays1Noi7JqwuEGoS2tM";
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const FOOD_LOG_SHEET_ID = "1RIOOA4F425JPJXq5MiQ_qoqfh1NiEQAifT0zGYE0yfk";
+const ADMIN_SECRET = process.env.ADMIN_SECRET;
+const APP_SECRET = process.env.APP_SECRET;
+
+const requiredEnv = [
+  "VERIFY_TOKEN",
+  "PAYFAST_MERCHANT_ID",
+  "PAYFAST_MERCHANT_KEY",
+  "RESEND_API_KEY",
+  "ADMIN_SECRET",
+  // "APP_SECRET" — optional, enable when Meta app secret is configured
+];
+const missingEnv = requiredEnv.filter((key) => !process.env[key]);
+if (missingEnv.length) {
+  throw new Error(`Missing required env vars: ${missingEnv.join(", ")}`);
+}
 
 // Promo codes — { CODE: discountPercent } (use 100 for free/founder access)
 // Promo codes — { CODE: discountPercent }
-// At R18 base, EARLYBIRD no longer needed but kept for existing users
+// At R36 base, EARLYBIRD no longer needed but kept for existing users
 const PROMO_CODES = {
   SPRING: 10,
   LAUNCH: 20,
   FITFAM: 15,
-  EARLYBIRD: 0,   // R18 is already the launch price
+  EARLYBIRD: 0,   // R36 is already the launch price
   FOUNDER: 100,
 };
 
@@ -84,31 +109,47 @@ async function isPremium(phone) {
   }
 }
 
-// Check if user is within 30-day free trial
-function isInTrial(userObj) {
-  if (!userObj.joinedAt) return true; // Backfill: assume in trial if no join date
-  const joinedAt = new Date(userObj.joinedAt);
-  const daysSinceJoin = (Date.now() - joinedAt.getTime()) / (1000 * 60 * 60 * 24);
-  return daysSinceJoin < 30;
+// Check if user is a grandfathered user (joined before GRANDFATHER_DATE)
+function isGrandfathered(userObj) {
+  if (!userObj.joinedAt) return false;
+  return new Date(userObj.joinedAt) < GRANDFATHER_DATE;
 }
 
-// Check if user has access (trial OR referral free months OR paid)
+// Check if user is within 7-day free trial (new users after GRANDFATHER_DATE)
+function isInTrial(userObj) {
+  // Grandfathered users are never "in trial" — they have permanent access
+  if (userObj.joinedAt && new Date(userObj.joinedAt) < GRANDFATHER_DATE) return false;
+  const trialStart = userObj.trialStartDate || userObj.joinedAt;
+  if (!trialStart) return false;
+  return (Date.now() - new Date(trialStart).getTime()) < TRIAL_DAYS * 86400000;
+}
+
+// Check if user has access (grandfathered OR trial OR referral free months OR paid)
 async function hasAccess(phone, userObj) {
+  // Grandfathered users always have access
+  if (userObj.joinedAt && new Date(userObj.joinedAt) < GRANDFATHER_DATE) return true;
+  if (userObj.isPro) return true;
+  // Paid subscription
+  if (userObj.isPremium || userObj.subscription) return true;
+  // 7-day trial for new users
   if (isInTrial(userObj)) return true;
   // Check referral free months (each month = 30 days from end of trial)
   if (userObj.referralFreeMonths && userObj.referralFreeMonths > 0 && userObj.joinedAt) {
-    const trialEnd = new Date(userObj.joinedAt).getTime() + (30 * 24 * 60 * 60 * 1000);
+    const trialEnd = new Date(userObj.trialStartDate || userObj.joinedAt).getTime() + (TRIAL_DAYS * 24 * 60 * 60 * 1000);
     const freeUntil = trialEnd + (userObj.referralFreeMonths * 30 * 24 * 60 * 60 * 1000);
     if (Date.now() < freeUntil) return true;
   }
   return await isPremium(phone);
 }
 
-// Get billing date 30 days from now (YYYY-MM-DD)
-function getTrialEndDate() {
-  const d = new Date();
-  d.setDate(d.getDate() + 30);
-  return d.toISOString().split("T")[0];
+// Get last food log date for a user (for smart send frequency) — returns Date or null
+function getLastActivityDate(user) {
+  const logs = user.log || {};
+  const dates = Object.keys(logs).sort().reverse();
+  for (const d of dates) {
+    if (logs[d] && logs[d].length > 0) return new Date(d);
+  }
+  return user.lastActivity ? new Date(user.lastActivity) : null;
 }
 
 // Apply discount to a price
@@ -117,9 +158,9 @@ function applyDiscount(price, discountPct) {
   return (price * (1 - discountPct / 100)).toFixed(2);
 }
 
-// Generate PayFast monthly subscription link (30-day free trial)
+// Generate PayFast monthly subscription link (pay immediately)
 function getPayFastMonthlyLink(phone, discountPct = 0) {
-  const monthly = parseFloat(applyDiscount(18, discountPct));
+  const monthly = parseFloat(applyDiscount(36, discountPct));
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -129,11 +170,10 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
     name_first: "FitSorted",
     name_last: "User",
     m_payment_id: `fs_m_${phone}_${Date.now()}`,
-    amount: "0.00",
+    amount: monthly.toFixed(2),
     recurring_amount: monthly.toFixed(2),
     item_name: discountPct ? `FitSorted Premium Monthly (${discountPct}% off)` : "FitSorted Premium Monthly",
     subscription_type: "1",
-    billing_date: getTrialEndDate(),
     frequency: "3",
     cycles: "0",
     custom_str1: phone,
@@ -142,9 +182,9 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
   return `https://www.payfast.co.za/eng/process?${params.toString()}`;
 }
 
-// Generate PayFast annual subscription link (30-day free trial)
+// Generate PayFast annual subscription link (pay immediately)
 function getPayFastAnnualLink(phone, discountPct = 0) {
-  const annual = parseFloat(applyDiscount(100, discountPct)); // R18 x 12 = R216, discounted to R100/yr
+  const annual = parseFloat(applyDiscount(399, discountPct)); // R36 x 12 = R432, discounted to R399/yr
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
@@ -154,11 +194,10 @@ function getPayFastAnnualLink(phone, discountPct = 0) {
     name_first: "FitSorted",
     name_last: "User",
     m_payment_id: `fs_a_${phone}_${Date.now()}`,
-    amount: "0.00",
+    amount: annual.toFixed(2),
     recurring_amount: annual.toFixed(2),
     item_name: discountPct ? `FitSorted Premium Annual (50% off + ${discountPct}% promo)` : "FitSorted Premium Annual (50% off)",
     subscription_type: "1",
-    billing_date: getTrialEndDate(),
     frequency: "5",
     cycles: "0",
     custom_str1: phone,
@@ -356,6 +395,50 @@ function loadUsers() {
 }
 function saveUsers(u) { fs.writeFileSync(USERS_FILE, JSON.stringify(u, null, 2)); }
 
+// ── Challenge state ──
+function loadChallenges() {
+  try { return JSON.parse(fs.readFileSync(CHALLENGES_FILE, "utf8") || "{}"); }
+  catch { return {}; }
+}
+function saveChallenges(c) { fs.writeFileSync(CHALLENGES_FILE, JSON.stringify(c, null, 2)); }
+
+// ── Google Sheets Food Log Append ──
+async function appendToFoodLogSheet(phone, userId, food, calories, protein, carbs, fat, fibre, source) {
+  try {
+    const { execFileSync } = require('child_process');
+    const timestamp = new Date().toISOString();
+    const rowValue = [
+      timestamp,
+      phone,
+      userId,
+      food,
+      calories,
+      protein || 0,
+      carbs || 0,
+      fat || 0,
+      fibre || 0,
+      source || 'unknown'
+    ].join('|');
+    
+    // Use gog to append row (v0.12.0+ syntax - values as arguments)
+    execFileSync('gog', [
+      'sheets',
+      'append',
+      FOOD_LOG_SHEET_ID,
+      'Sheet1!A:J',
+      rowValue,
+      '--account',
+      'alphaxasset@gmail.com'
+    ], {
+      timeout: 5000,
+      stdio: 'ignore' // Don't block on output
+    });
+  } catch (e) {
+    console.error('[sheets append error]', e.message);
+    // Silent fail - don't block user experience if Sheets API fails
+  }
+}
+
 // ── Failed Lookups Tracking ──
 function loadFailedLookups() {
   try { return JSON.parse(fs.readFileSync(FAILED_LOOKUPS_FILE, "utf8") || "{}"); }
@@ -369,6 +452,7 @@ function saveFailedLookups(data) {
 function trackFailedLookup(foodText, phone) {
   const failed = loadFailedLookups();
   const key = foodText.toLowerCase().trim();
+  if (!key) return;
   
   if (!failed[key]) {
     failed[key] = {
@@ -397,15 +481,19 @@ function trackFailedLookup(foodText, phone) {
 
 function getUser(users, phone) {
   if (!users[phone]) {
+    const nowIso = new Date().toISOString();
+    const isGrandfatheredNew = new Date(nowIso) < GRANDFATHER_DATE;
     users[phone] = {
       setup: false,
       step: null,
       profile: {},
       goal: null,
       log: {},
-      joinedAt: new Date().toISOString(),  // Track when they joined
+      joinedAt: nowIso,  // Track when they joined
+      trialStartDate: isGrandfatheredNew ? undefined : nowIso,  // 7-day trial for new users
       isPro: false,
-      proPrompted: false
+      proPrompted: false,
+      lastStreakMilestone: 0
     };
   }
   if (!users[phone].log) users[phone].log = {};
@@ -413,11 +501,45 @@ function getUser(users, phone) {
   if (!users[phone].joinedAt) users[phone].joinedAt = new Date().toISOString();
   if (typeof users[phone].isPro !== 'boolean') users[phone].isPro = false;
   if (typeof users[phone].proPrompted !== 'boolean') users[phone].proPrompted = false;
+  if (typeof users[phone].lastStreakMilestone !== 'number') users[phone].lastStreakMilestone = 0;
   return users[phone];
 }
 
 function getToday() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+}
+
+function normalizeBuddyPhone(input) {
+  const cleaned = (input || "").replace(/[^\d]/g, "");
+  if (cleaned.startsWith("27") && cleaned.length === 11) return cleaned;
+  return null;
+}
+
+function isAdminAuthorized(req) {
+  const authHeader = req.headers.authorization || "";
+  const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const queryKey = req.query.key;
+  return queryKey === ADMIN_SECRET || bearerToken === ADMIN_SECRET;
+}
+
+function requireAdmin(req, res, next) {
+  if (isAdminAuthorized(req)) return next();
+  return res.sendStatus(401);
+}
+
+function isValidWebhookSignature(req) {
+  const signature = req.get("X-Hub-Signature-256");
+  if (!signature) return false;
+  const [algo, hash] = signature.split("=");
+  if (algo !== "sha256" || !hash) return false;
+  const expected = crypto
+    .createHmac("sha256", APP_SECRET)
+    .update(req.rawBody || Buffer.from(""))
+    .digest("hex");
+  const signatureBuf = Buffer.from(hash, "hex");
+  const expectedBuf = Buffer.from(expected, "hex");
+  if (signatureBuf.length !== expectedBuf.length) return false;
+  return crypto.timingSafeEqual(signatureBuf, expectedBuf);
 }
 function getYesterday() {
   const yesterday = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
@@ -505,6 +627,245 @@ function getLastNDates(n) {
     dates.push(d.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" }));
   }
   return dates;
+}
+
+function getCurrentStreak(user) {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+  let streak = 0;
+  for (let i = 0; i < 3650; i++) {
+    const d = new Date(now);
+    d.setDate(now.getDate() - i);
+    const dateStr = d.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+    if ((user.log[dateStr] || []).length > 0) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function getWeekDatesMonSun() {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Johannesburg" }));
+  const day = now.getDay(); // 0=Sun, 1=Mon
+  const diffToMonday = (day + 6) % 7;
+  const monday = new Date(now);
+  monday.setDate(now.getDate() - diffToMonday);
+  const dates = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    dates.push(d.toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" }));
+  }
+  return dates;
+}
+
+function countUnderGoalDaysThisWeek(user) {
+  const dates = getWeekDatesMonSun();
+  let count = 0;
+  for (const date of dates) {
+    const entries = user.log[date] || [];
+    if (!entries.length) continue;
+    const total = entries.reduce((s, e) => s + e.calories, 0);
+    if (total <= user.goal) count++;
+  }
+  return count;
+}
+
+// ── Challenge helpers ──
+function generateChallengeCode(challenges) {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  for (let i = 0; i < 1000; i++) {
+    let code = "FIT-";
+    for (let j = 0; j < 3; j++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    if (!challenges[code]) return code;
+  }
+  return `FIT-${Math.random().toString(36).toUpperCase().slice(2, 5)}`;
+}
+
+function getMemberFirstName(users, phone) {
+  const name = users[phone]?.name;
+  if (!name) return phone;
+  return name.split(" ")[0];
+}
+
+function parseDateStr(dateStr) {
+  return new Date(dateStr + "T00:00:00Z");
+}
+
+function addDaysToDateStr(dateStr, days) {
+  const d = parseDateStr(dateStr);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().split("T")[0];
+}
+
+function daysBetweenDates(startDateStr, endDateStr) {
+  return Math.floor((parseDateStr(endDateStr) - parseDateStr(startDateStr)) / 86400000);
+}
+
+function compareDateStr(a, b) {
+  if (a === b) return 0;
+  return a < b ? -1 : 1;
+}
+
+function getChallengeStartDateStr(challenge) {
+  if (!challenge.startedAt) return null;
+  return new Date(challenge.startedAt).toLocaleDateString("en-CA", { timeZone: "Africa/Johannesburg" });
+}
+
+function getChallengeEndDateStr(challenge) {
+  if (!challenge.startedAt) return null;
+  const startDate = getChallengeStartDateStr(challenge);
+  return addDaysToDateStr(startDate, (challenge.duration || 30) - 1);
+}
+
+function getDateRange(startDateStr, endDateStr) {
+  const dates = [];
+  if (!startDateStr || !endDateStr) return dates;
+  let d = parseDateStr(startDateStr);
+  const end = parseDateStr(endDateStr);
+  while (d <= end) {
+    dates.push(d.toISOString().split("T")[0]);
+    d.setUTCDate(d.getUTCDate() + 1);
+  }
+  return dates;
+}
+
+function formatChallengePoints(points) {
+  const fixed = points.toFixed(1);
+  return fixed.endsWith(".0") ? fixed.slice(0, -2) : fixed;
+}
+
+function calculateChallengeScoreForRange(user, startDateStr, endDateStr) {
+  const dates = getDateRange(startDateStr, endDateStr);
+  let points = 0;
+  let streak = 0;
+  let underGoalDays = 0;
+  for (const date of dates) {
+    const entries = user.log[date] || [];
+    if (entries.length > 0) {
+      const total = entries.reduce((s, e) => s + e.calories, 0);
+      if (total <= user.goal) {
+        points += 1;
+        underGoalDays++;
+      }
+      if (entries.length >= 3) points += 0.5;
+      streak++;
+      if (streak % 7 === 0) points += 1;
+    } else {
+      streak = 0;
+    }
+  }
+  return { points, underGoalDays };
+}
+
+function getChallengeScoresForRange(challenge, users, startDateStr, endDateStr) {
+  const scores = [];
+  for (const phone of (challenge.members || [])) {
+    const u = users[phone];
+    if (!u || !u.goal) continue;
+    const score = calculateChallengeScoreForRange(u, startDateStr, endDateStr);
+    scores.push({
+      phone,
+      name: getMemberFirstName(users, phone),
+      points: score.points,
+      underGoalDays: score.underGoalDays
+    });
+  }
+  scores.sort((a, b) => b.points - a.points || a.name.localeCompare(b.name));
+  return scores;
+}
+
+function buildChallengeLeaderboardMessage(challenge, users, viewerPhone) {
+  if (!challenge.startedAt) {
+    const members = (challenge.members || []).map(p => getMemberFirstName(users, p)).join(", ");
+    return `🏆 *${challenge.name}* hasn't started yet.\n\nMembers: ${members || "None yet"}\n\nStart with: *challenge start*`;
+  }
+  const today = getToday();
+  const startDateStr = getChallengeStartDateStr(challenge);
+  const endDateStr = getChallengeEndDateStr(challenge);
+  const effectiveEnd = compareDateStr(today, endDateStr) > 0 ? endDateStr : today;
+  const dayNumber = Math.min(challenge.duration || 30, daysBetweenDates(startDateStr, effectiveEnd) + 1);
+  const scores = getChallengeScoresForRange(challenge, users, startDateStr, effectiveEnd);
+  const lines = scores.map((s, i) => {
+    const rank = i + 1;
+    const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : "";
+    const name = s.phone === viewerPhone ? "You" : s.name;
+    return `${rank}. ${name} — ${formatChallengePoints(s.points)} pts${medal ? " " + medal : ""}`;
+  });
+  let displayLines = lines;
+  if (lines.length > 5) displayLines = lines.slice(0, 5);
+  if (scores.length > 5) {
+    const viewerIndex = scores.findIndex(s => s.phone === viewerPhone);
+    if (viewerIndex >= 5) {
+      const viewer = scores[viewerIndex];
+      displayLines.push(`${viewerIndex + 1}. You — ${formatChallengePoints(viewer.points)} pts`);
+    }
+  }
+  return `🏆 *${challenge.name} — Day ${dayNumber}/${challenge.duration || 30}*\n${displayLines.join("\n")}`;
+}
+
+function buildWeeklyChallengeRecap(challenge, users, viewerPhone) {
+  if (!challenge.startedAt) return "";
+  const today = getToday();
+  const startDateStr = getChallengeStartDateStr(challenge);
+  const endDateStr = getChallengeEndDateStr(challenge);
+  const effectiveEnd = compareDateStr(today, endDateStr) > 0 ? endDateStr : today;
+  const dayNumber = Math.min(challenge.duration || 30, daysBetweenDates(startDateStr, effectiveEnd) + 1);
+  const totalWeeks = Math.max(1, Math.round((challenge.duration || 30) / 7));
+  const weekNumber = Math.min(totalWeeks, Math.ceil(dayNumber / 7));
+  const last7 = getLastNDates(7).filter(d => compareDateStr(d, startDateStr) >= 0 && compareDateStr(d, effectiveEnd) <= 0);
+  const weekStart = last7[0] || startDateStr;
+  const weekEnd = last7[last7.length - 1] || effectiveEnd;
+  const scores = getChallengeScoresForRange(challenge, users, startDateStr, effectiveEnd);
+  const weeklyPoints = {};
+  for (const phone of (challenge.members || [])) {
+    const u = users[phone];
+    if (!u || !u.goal) continue;
+    weeklyPoints[phone] = calculateChallengeScoreForRange(u, weekStart, weekEnd).points;
+  }
+  const top = scores.slice(0, 5);
+  if (top.length === 0) return "";
+  let bestWeeklyPhone = null;
+  let bestWeekly = -Infinity;
+  for (const phone of Object.keys(weeklyPoints)) {
+    if (weeklyPoints[phone] > bestWeekly) {
+      bestWeekly = weeklyPoints[phone];
+      bestWeeklyPhone = phone;
+    }
+  }
+  const lines = top.map((s, i) => {
+    const rank = i + 1;
+    const name = s.phone === viewerPhone ? "You" : s.name;
+    const weekly = weeklyPoints[s.phone] || 0;
+    const suffix = rank === 1 ? " 🔥" : (bestWeeklyPhone === s.phone ? " 📈" : "");
+    return `${rank}. ${name} — ${formatChallengePoints(s.points)} pts (+${formatChallengePoints(weekly)} this week)${suffix}`;
+  });
+  const leaderPhone = scores[0]?.phone;
+  const leaderName = leaderPhone === viewerPhone ? "You" : (scores[0]?.name || "Someone");
+  const comment = leaderPhone === viewerPhone
+    ? `💬 You're leading! Keep the momentum.`
+    : `💬 ${leaderName} is pulling ahead! Time to step it up.`;
+  return `🏆 *Weekly Standings — ${challenge.name}*\nWeek ${weekNumber} of ${totalWeeks}\n\n${lines.join("\n")}\n\n${comment}`;
+}
+
+function buildFinalChallengeResultsMessage(challenge, users) {
+  const startDateStr = getChallengeStartDateStr(challenge);
+  const endDateStr = getChallengeEndDateStr(challenge);
+  if (!startDateStr || !endDateStr) return "";
+  const scores = getChallengeScoresForRange(challenge, users, startDateStr, endDateStr);
+  if (scores.length === 0) return "";
+  const top = scores.slice(0, 3);
+  const medals = ["🥇", "🥈", "🥉"];
+  const lines = top.map((s, i) => {
+    const medal = medals[i];
+    if (i === 0) {
+      const winnerUser = users[s.phone];
+      const underGoal = winnerUser ? calculateChallengeScoreForRange(winnerUser, startDateStr, endDateStr).underGoalDays : 0;
+      return `${medal} ${s.name} — ${formatChallengePoints(s.points)} pts (${underGoal}/${challenge.duration || 30} days under goal!)`;
+    }
+    return `${medal} ${s.name} — ${formatChallengePoints(s.points)} pts`;
+  });
+  return `🏆 *${challenge.name} — COMPLETE!*\n\n${lines.join("\n")}\n\nWhat a month! Create a new challenge: *challenge create [name]*`;
 }
 
 function buildWeeklyStats(user) {
@@ -809,24 +1170,52 @@ async function estimateCaloriesBurned(activity) {
 
 // ── Calorie lookup from Supabase SA Foods database (414 items) ──
 async function lookupSAFood(food) {
+  if (!food) return null;
   const lower = food.toLowerCase();
 
   try {
     // Query Supabase for matching foods
+    // Sanitize input: remove ALL chars that break PostgreSQL array literals or .or() queries
+    // This fixes "malformed array literal" errors from quotes, parens, braces, etc.
+    const sanitized = lower
+      .replace(/[,(){}%"'\\]/g, ' ')  // remove array-breaking chars + quotes
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (sanitized.length < 2) return null; // too short to search
+    
+    // Use only ilike for safety — .cs (array contains) breaks with complex inputs
+    // Search name with ilike, then filter name_alt in JS
     const { data, error } = await supabase
       .from('foods')
       .select('*')
-      .or(`name.ilike.%${lower}%,name_alt.cs.{${lower}}`);
+      .ilike('name', `%${sanitized}%`);
 
     if (error) {
       console.error('Supabase lookup error:', error.message);
       return null;
     }
 
-    if (!data || data.length === 0) return null;
+    // If name ilike found nothing, try a broader text search on name_alt
+    let results = data || [];
+    if (results.length === 0) {
+      try {
+        // Search name_alt using textSearch or a simpler ilike on cast
+        // Split sanitized into keywords and search each
+        const keywords = sanitized.split(' ').filter(w => w.length >= 3);
+        if (keywords.length > 0) {
+          const { data: altData, error: altError } = await supabase
+            .from('foods')
+            .select('*')
+            .ilike('name', `%${keywords[0]}%`);
+          if (!altError && altData) results = altData;
+        }
+      } catch (e) { /* fallback failed, continue with empty */ }
+    }
+
+    if (results.length === 0) return null;
 
     // Find best match by checking name_alt keywords
-    for (const item of data) {
+    for (const item of results) {
       const nameMatch = item.name.toLowerCase().includes(lower);
       const altMatch = item.name_alt?.some(alt =>
         lower.includes(alt.toLowerCase()) || alt.toLowerCase().includes(lower)
@@ -853,7 +1242,7 @@ async function lookupSAFood(food) {
 
 // ── Custom food database (per user) ──
 function lookupCustomFood(user, food) {
-  if (!user.customFoods) return null;
+  if (!user.customFoods || !food) return null;
   const lower = food.toLowerCase().trim();
   for (const [name, calories] of Object.entries(user.customFoods)) {
     if (lower.includes(name.toLowerCase()) || name.toLowerCase().includes(lower)) {
@@ -950,6 +1339,10 @@ ${customFoodList.length > 0 ? customFoodList.join(", ") : "None saved yet"}
 async function estimateCalories(food, user) {
   const aiDebugLog = `/Users/brandonkatz/.openclaw/workspace/fitsorted/debug-ai.log`;
   fs.appendFileSync(aiDebugLog, `\n[${new Date().toISOString()}] estimateCalories() CALLED with food="${food}"\n`);
+
+  if (!food || typeof food !== 'string') {
+    throw new Error("Invalid food input");
+  }
   
   // 0. Input validation: reject very short or nonsensical inputs
   const lower = food.toLowerCase().trim();
@@ -977,8 +1370,11 @@ async function estimateCalories(food, user) {
     "diet coke": { food: "Diet Coke 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
     "pepsi max": { food: "Pepsi Max 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
     "sprite zero": { food: "Sprite Zero 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "fanta zero": { food: "Fanta Zero Orange 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
+    "stoney zero": { food: "Stoney Zero 330ml", calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 },
   };
-  const zeroDrinkKey = Object.keys(zeroDrinks).find(k => lower === k || lower.includes(k));
+  // Match exact or partial (e.g. "coke zero" matches "coke zero 500ml" input)
+  const zeroDrinkKey = Object.keys(zeroDrinks).find(k => lower === k || lower.includes(k) || k.includes(lower.replace(/\s+/g, ' ')));
   if (zeroDrinkKey) return zeroDrinks[zeroDrinkKey];
 
   // 1c. Common items AI consistently gets wrong (SA portions)
@@ -1120,6 +1516,103 @@ async function estimateCalories(food, user) {
     "woolworths sushi": { food: "Woolworths Sushi 12 Pack", calories: 500, protein: 20, carbs: 70, fat: 12, fibre: 4 },
     "simba chips original": { food: "Simba Chips Original (125g)", calories: 500, protein: 5, carbs: 60, fat: 28, fibre: 4 },
     "simba chips": { food: "Simba Chips (125g)", calories: 500, protein: 5, carbs: 60, fat: 28, fibre: 4 },
+    // Round 9 - nightly edge case test 2026-03-15
+    "chicken licken big john": { food: "Chicken Licken Big John Burger", calories: 650, protein: 30, carbs: 50, fat: 35, fibre: 3 },
+    "big john": { food: "Chicken Licken Big John Burger", calories: 650, protein: 30, carbs: 50, fat: 35, fibre: 3 },
+    "spur wings 6": { food: "Spur Chicken Wings (6)", calories: 540, protein: 36, carbs: 15, fat: 38, fibre: 1 },
+    "spur wings": { food: "Spur Chicken Wings (6)", calories: 540, protein: 36, carbs: 15, fat: 38, fibre: 1 },
+    "lays salt and vinegar": { food: "Lay's Salt & Vinegar (120g)", calories: 480, protein: 5, carbs: 55, fat: 28, fibre: 3 },
+    "lays": { food: "Lay's Chips (120g)", calories: 480, protein: 5, carbs: 55, fat: 28, fibre: 3 },
+    "astros": { food: "Astros (40g box)", calories: 210, protein: 3, carbs: 25, fat: 11, fibre: 1 },
+    "liqui fruit orange": { food: "Liqui-Fruit Orange (330ml)", calories: 180, protein: 1, carbs: 42, fat: 0, fibre: 0 },
+    "liqui fruit": { food: "Liqui-Fruit (330ml)", calories: 180, protein: 1, carbs: 42, fat: 0, fibre: 0 },
+    "bunny chow half": { food: "Bunny Chow (half)", calories: 1100, protein: 40, carbs: 120, fat: 45, fibre: 8 },
+    "half bunny chow": { food: "Bunny Chow (half)", calories: 1100, protein: 40, carbs: 120, fat: 45, fibre: 8 },
+    "beacon flings": { food: "Beacon Flings (100g bag)", calories: 430, protein: 4, carbs: 52, fat: 23, fibre: 2 },
+    "flings": { food: "Beacon Flings (100g bag)", calories: 430, protein: 4, carbs: 52, fat: 23, fibre: 2 },
+    "potjiekos": { food: "Potjiekos (serving)", calories: 550, protein: 30, carbs: 35, fat: 30, fibre: 4 },
+    "potjie": { food: "Potjiekos (serving)", calories: 550, protein: 30, carbs: 35, fat: 30, fibre: 4 },
+    "kauai smoothie bowl": { food: "Kauai Smoothie Bowl", calories: 450, protein: 10, carbs: 65, fat: 15, fibre: 6 },
+    "bredie": { food: "Bredie (SA stew serving)", calories: 450, protein: 25, carbs: 30, fat: 25, fibre: 5 },
+    "tomato bredie": { food: "Tomato Bredie (serving)", calories: 450, protein: 25, carbs: 30, fat: 25, fibre: 5 },
+    "wimpy breakfast": { food: "Wimpy Full Breakfast", calories: 800, protein: 35, carbs: 60, fat: 45, fibre: 4 },
+    // Round 10 - nightly edge case test 2026-03-16
+    "white monster": { food: "Monster Ultra (Zero Sugar) 500ml", calories: 5, protein: 0, carbs: 1, fat: 0, fibre: 0 },
+    "monster zero": { food: "Monster Zero Sugar 500ml", calories: 5, protein: 0, carbs: 1, fat: 0, fibre: 0 },
+    "pap and vleis": { food: "Pap & Vleis (serving)", calories: 550, protein: 35, carbs: 55, fat: 20, fibre: 3 },
+    "avocado toast": { food: "Avocado Toast", calories: 350, protein: 8, carbs: 35, fat: 20, fibre: 7 },
+    "nandos peri peri chips": { food: "Nando's Peri-Peri Chips", calories: 320, protein: 4, carbs: 40, fat: 16, fibre: 4 },
+    "nandos chips": { food: "Nando's Peri-Peri Chips", calories: 320, protein: 4, carbs: 40, fat: 16, fibre: 4 },
+    "tropika dairy blend": { food: "Tropika Dairy Blend (330ml)", calories: 190, protein: 3, carbs: 30, fat: 6, fibre: 0 },
+    "tropika": { food: "Tropika Dairy Blend (330ml)", calories: 190, protein: 3, carbs: 30, fat: 6, fibre: 0 },
+    "chicken licken soul fire wings 6": { food: "Chicken Licken Soul Fire Wings (6)", calories: 550, protein: 35, carbs: 20, fat: 35, fibre: 1 },
+    "soul fire wings": { food: "Chicken Licken Soul Fire Wings (6)", calories: 550, protein: 35, carbs: 20, fat: 35, fibre: 1 },
+    "walkie talkies": { food: "Walkie Talkies (chicken feet)", calories: 200, protein: 18, carbs: 0, fat: 14, fibre: 0 },
+    "chicken feet": { food: "Chicken Feet (walkie talkies)", calories: 200, protein: 18, carbs: 0, fat: 14, fibre: 0 },
+    "macaroni and cheese": { food: "Macaroni & Cheese (serving)", calories: 400, protein: 15, carbs: 45, fat: 18, fibre: 2 },
+    "mac and cheese": { food: "Macaroni & Cheese (serving)", calories: 400, protein: 15, carbs: 45, fat: 18, fibre: 2 },
+    "ocean basket grilled linefish": { food: "Ocean Basket Grilled Linefish", calories: 380, protein: 40, carbs: 15, fat: 18, fibre: 2 },
+    "grilled linefish": { food: "Grilled Linefish (with sides)", calories: 380, protein: 40, carbs: 15, fat: 18, fibre: 2 },
+    "coo-ee orange": { food: "Coo-ee Orange 500ml", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
+    "coo-ee": { food: "Coo-ee 500ml", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
+    // Round 11 - nightly edge case test 2026-03-19
+    "chicken licken 4 piece": { food: "Chicken Licken 4 Piece", calories: 880, protein: 60, carbs: 40, fat: 52, fibre: 2 },
+    "4 piece chicken licken": { food: "Chicken Licken 4 Piece", calories: 880, protein: 60, carbs: 40, fat: 52, fibre: 2 },
+    "spur salad bar": { food: "Spur Salad Bar (plate)", calories: 300, protein: 8, carbs: 25, fat: 18, fibre: 5 },
+    "two provitas with peanut butter": { food: "2x Provita with Peanut Butter", calories: 250, protein: 9, carbs: 22, fat: 14, fibre: 3 },
+    "provita with peanut butter": { food: "Provita with Peanut Butter", calories: 125, protein: 5, carbs: 11, fat: 7, fibre: 2 },
+    // Round 12 - nightly edge case test 2026-03-21
+    "amarula on ice": { food: "Amarula on Ice (100ml double)", calories: 280, protein: 1, carbs: 32, fat: 6, fibre: 0 },
+    "amarula": { food: "Amarula (100ml double)", calories: 280, protein: 1, carbs: 32, fat: 6, fibre: 0 },
+    "spur pancake stack": { food: "Spur Pancake Stack", calories: 650, protein: 10, carbs: 85, fat: 30, fibre: 2 },
+    "spur pancakes": { food: "Spur Pancake Stack", calories: 650, protein: 10, carbs: 85, fat: 30, fibre: 2 },
+    "checkers cheese grillers 2": { food: "Checkers Cheese Grillers (2)", calories: 300, protein: 16, carbs: 6, fat: 24, fibre: 0 },
+    "cheese grillers 2": { food: "Cheese Grillers (2)", calories: 300, protein: 16, carbs: 6, fat: 24, fibre: 0 },
+    "cheese griller": { food: "Cheese Griller (1)", calories: 150, protein: 8, carbs: 3, fat: 12, fibre: 0 },
+    // Round 13 - nightly edge case test 2026-03-22
+    "gatsby masala steak": { food: "Masala Steak Gatsby", calories: 1050, protein: 42, carbs: 100, fat: 45, fibre: 5 },
+    "masala steak gatsby": { food: "Masala Steak Gatsby", calories: 1050, protein: 42, carbs: 100, fat: 45, fibre: 5 },
+    "cremora rooibos tea": { food: "Rooibos Tea with Cremora", calories: 50, protein: 0, carbs: 6, fat: 3, fibre: 0 },
+    "cremora rooibos": { food: "Rooibos Tea with Cremora", calories: 50, protein: 0, carbs: 6, fat: 3, fibre: 0 },
+    "cremora tea": { food: "Tea with Cremora", calories: 50, protein: 0, carbs: 6, fat: 3, fibre: 0 },
+    "rocomamas wing roulette 6": { food: "RocoMamas Wing Roulette (6)", calories: 580, protein: 40, carbs: 12, fat: 38, fibre: 1 },
+    "rocomamas wings 6": { food: "RocoMamas Wings (6)", calories: 580, protein: 40, carbs: 12, fat: 38, fibre: 1 },
+    "rocomamas wings": { food: "RocoMamas Wings (6)", calories: 580, protein: 40, carbs: 12, fat: 38, fibre: 1 },
+    "castle milk stout": { food: "Castle Milk Stout 440ml", calories: 220, protein: 2, carbs: 22, fat: 0, fibre: 0 },
+    "milk stout": { food: "Castle Milk Stout 440ml", calories: 220, protein: 2, carbs: 22, fat: 0, fibre: 0 },
+    // Round 14 - nightly edge case test 2026-03-23
+    "bunny chow beans": { food: "Bean Bunny Chow (quarter)", calories: 500, protein: 18, carbs: 75, fat: 12, fibre: 10 },
+    "bean bunny chow": { food: "Bean Bunny Chow (quarter)", calories: 500, protein: 18, carbs: 75, fat: 12, fibre: 10 },
+    // Round 15 - nightly edge case test 2026-03-24
+    "rooibos latte": { food: "Rooibos Latte (steamed milk)", calories: 120, protein: 5, carbs: 10, fat: 5, fibre: 0 },
+    // Round 16 - nightly edge case test 2026-03-26
+    "magwinya with atchar": { food: "Magwinya with Atchar", calories: 400, protein: 5, carbs: 55, fat: 16, fibre: 3 },
+    "fat cake with atchar": { food: "Fat Cake with Atchar", calories: 400, protein: 5, carbs: 55, fat: 16, fibre: 3 },
+    "checkers banana bread slice": { food: "Checkers Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
+    "banana bread slice": { food: "Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
+    "banana bread": { food: "Banana Bread (slice)", calories: 280, protein: 4, carbs: 42, fat: 11, fibre: 2 },
+    // Round 17 - nightly edge case test 2026-03-27
+    "peri peri livers": { food: "Peri-Peri Chicken Livers (serving)", calories: 320, protein: 35, carbs: 5, fat: 16, fibre: 1 },
+    "chicken livers": { food: "Chicken Livers (serving)", calories: 280, protein: 32, carbs: 3, fat: 14, fibre: 0 },
+    "chicken mayo toastie": { food: "Chicken Mayo Toastie", calories: 420, protein: 22, carbs: 40, fat: 20, fibre: 2 },
+    "chicken mayo toasted sandwich": { food: "Chicken Mayo Toastie", calories: 420, protein: 22, carbs: 40, fat: 20, fibre: 2 },
+    "steers wacky wednesday chips and drink": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
+    "wacky wednesday chips and drink": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
+    "wacky wednesday meal": { food: "Steers Wacky Wednesday + Chips + Drink", calories: 1000, protein: 35, carbs: 110, fat: 45, fibre: 5 },
+    // Round 18 - nightly edge case test 2026-03-28
+    "peppermint crisp": { food: "Peppermint Crisp Bar", calories: 230, protein: 2, carbs: 30, fat: 11, fibre: 0 },
+    "peppermint crisp bar": { food: "Peppermint Crisp Bar", calories: 230, protein: 2, carbs: 30, fat: 11, fibre: 0 },
+    "gatsby calamari": { food: "Calamari Gatsby", calories: 950, protein: 30, carbs: 95, fat: 45, fibre: 4 },
+    "calamari gatsby": { food: "Calamari Gatsby", calories: 950, protein: 30, carbs: 95, fat: 45, fibre: 4 },
+    // Round 19 - nightly edge case test 2026-03-29
+    "nandos double chicken burger": { food: "Nando's Double Chicken Burger", calories: 800, protein: 55, carbs: 50, fat: 38, fibre: 3 },
+    "nandos double burger": { food: "Nando's Double Chicken Burger", calories: 800, protein: 55, carbs: 50, fat: 38, fibre: 3 },
+    "pick n pay chicken burger": { food: "Pick n Pay Chicken Burger", calories: 450, protein: 25, carbs: 38, fat: 20, fibre: 2 },
+    "pnp chicken burger": { food: "Pick n Pay Chicken Burger", calories: 450, protein: 25, carbs: 38, fat: 20, fibre: 2 },
+    "chicken mayo kota": { food: "Chicken Mayo Kota", calories: 650, protein: 28, carbs: 65, fat: 28, fibre: 3 },
+    "pickled fish": { food: "Pickled Fish (serving)", calories: 280, protein: 30, carbs: 10, fat: 12, fibre: 1 },
+    "malva pudding": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
+    "malva pudding slice": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
@@ -1624,7 +2117,7 @@ async function estimateCalories(food, user) {
   } catch (e) { console.error('[foods] Error loading extra-foods.json:', e.message); }
   
   // Skip simple lookup if input mentions a restaurant/chain (those need specific data)
-  const restaurantNames = ['nando', 'steers', 'kfc', 'kauai', 'woolworths', 'woolies', 'spur', 'mcdonalds', 'mcdonald', 'burger king', 'wimpy', 'ocean basket', 'debonairs', 'roman', 'chicken licken', 'fishaways', 'pedros', 'col\'cacchio', 'mugg', 'vida', 'starbucks'];
+  const restaurantNames = ['nando', 'steers', 'kfc', 'kauai', 'woolworths', 'woolies', 'spur', 'mcdonalds', 'mcdonald', 'burger king', 'wimpy', 'ocean basket', 'debonairs', 'roman', 'chicken licken', 'fishaways', 'pedros', 'col\'cacchio', 'mugg', 'vida', 'starbucks', 'nu ', 'nu food', 'nu juice'];
   const isRestaurantItem = restaurantNames.some(r => lower.includes(r));
 
   if (!isRestaurantItem) {
@@ -1749,7 +2242,7 @@ async function estimateCalories(food, user) {
     {
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"fibre\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. CRITICAL RULES: 1) ONLY estimate what was explicitly mentioned - do NOT add extra foods. If user says 'scrambled', return 'scrambled eggs' ONLY - do not add toast, bacon, or other items unless specifically mentioned. If user says 'toast', return toast only - do not add eggs. 2) RESPECT SINGULAR vs PLURAL: 'egg' = 1 egg (~70 cal), 'eggs' = 2 eggs (~140 cal). 'slice of toast' = 1 slice, 'toast' = 2 slices. 'banana' = 1 banana. 'chicken breast' = 1 breast. Always default to the SINGULAR quantity unless the user uses plural or specifies a number. 3) If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"fibre\": 4, \"estimatedPriceZAR\": null}. 4) Use realistic everyday South African portion sizes - not restaurant or oversized portions. 5) Drinks must use FULL SERVING sizes: beer=440ml (~155 cal), Red Bull=250ml (~112 cal), Monster=500ml (~230 cal), wine glass=175ml (~125 cal), cider=330ml (~170 cal). NEVER use per-100ml values. 6) SA portions: 1 slice cheese=~60 cal (thin processed like Clover), 1 slice bread=~80 cal, 1 egg=~70 cal, biltong 50g=~125 cal, droewors 50g=~150 cal, handful of nuts=~160 cal (28g). 7) Bunny chow quarter=~650 cal (bread bowl + curry). No extra text." },
+        { role: "system", content: "You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {\"food\": \"clean name including quantity\", \"calories\": integer, \"protein\": integer, \"carbs\": integer, \"fat\": integer, \"fibre\": integer, \"estimatedPriceZAR\": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. Examples: Nando's quarter chicken ~R75, Steers Wacky Wednesday burger ~R50, Kauai smoothie ~R65, Woolworths ready meal ~R60. CRITICAL RULES: 1) ONLY estimate what was explicitly mentioned - do NOT add extra foods. If user says 'scrambled', return 'scrambled eggs' ONLY - do not add toast, bacon, or other items unless specifically mentioned. If user says 'toast', return toast only - do not add eggs. 2) RESPECT SINGULAR vs PLURAL: 'egg' = 1 egg (~70 cal), 'eggs' = 2 eggs (~140 cal). 'slice of toast' = 1 slice, 'toast' = 2 slices. 'banana' = 1 banana. 'chicken breast' = 1 breast. Always default to the SINGULAR quantity unless the user uses plural or specifies a number. 3) If the description mentions a quantity (e.g. 'two', 'three', '2x', '3 slices'), multiply the calories AND macros accordingly and include the quantity in the food name. Example: 'two toasted cheese sandwiches' → {\"food\": \"2x toasted cheese sandwich\", \"calories\": 800, \"protein\": 30, \"carbs\": 80, \"fat\": 35, \"fibre\": 4, \"estimatedPriceZAR\": null}. 4) Use realistic everyday South African portion sizes - not restaurant or oversized portions. 5) Drinks must use FULL SERVING sizes: beer=440ml (~155 cal), Red Bull=250ml (~112 cal), Monster=500ml (~230 cal), wine glass=175ml (~125 cal), cider=330ml (~170 cal). NEVER use per-100ml values. 6) SA portions: 1 slice cheese=~60 cal (thin processed like Clover), 1 slice bread=~80 cal, 1 egg=~70 cal, biltong 50g=~125 cal, droewors 50g=~150 cal, handful of nuts=~160 cal (28g). 7) Bunny chow quarter=~650 cal (bread bowl + curry). 8) COOKING FATS: For fried/scrambled eggs add +30 cal per egg (oil/butter), for fried chicken/meat add +20% calories (oil), for sautéed vegetables add +50 cal (oil), for cooked rice/pasta assume butter/oil already included in base values. 9) COMPOSITE MEALS: When multiple ingredients are listed (e.g. 'chicken with rice and veg'), sum ALL components realistically. Chicken breast 165 cal + 1 cup rice 200 cal + vegetables 50 cal = 415 cal minimum. DO NOT underestimate. 10) If you return less than 200 cal for a meal with 3+ ingredients, you're probably wrong - recalculate. 11) PORTION SIZE: Always include estimated portion weight in the food name when the input is vague. 'chicken' → 'Chicken breast (~150g)', 'rice' → 'Rice (1 cup, ~200g)', 'pasta' → 'Pasta (1 cup cooked, ~200g)', 'steak' → 'Steak (~200g)'. If user specifies a size (e.g. 'large chicken breast', 'small portion'), adjust calories accordingly. Large portions = +40%, small = -30%. 12) CHICKEN GUIDE: Plain 'chicken' = 1 medium chicken breast (~130g, 200 cal). 'Chicken thigh' = 1 thigh with skin (~100g, 200 cal). 'Chicken drumstick' = 1 drumstick (~85g, 150 cal). 'Fried chicken' = 1 piece KFC-style (~170g, 280 cal). 'Half chicken' = ~350g, 480 cal. 'Quarter chicken' = ~175g, 250 cal (Nando's style). Always specify the cut and weight in the food name. 13) CONSERVATIVE BIAS: When portion size is uncertain, estimate on the LOWER end. Assume home-cooked portions are modest, not restaurant-sized. A typical plate of rice is ~150g cooked (~180 cal), not 200g. A typical serving of meat is ~120-150g, not 200g. People tend to overestimate how much they eat. Better to be slightly under than over — users can always add more. No extra text." },
         { role: "user", content: `Nutrition for: ${food}` }
       ],
       temperature: 0.2
@@ -1761,7 +2254,61 @@ async function estimateCalories(food, user) {
   );
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
-  const result = JSON.parse(content);
+  let result;
+  try {
+    result = JSON.parse(content);
+  } catch (e) {
+    const match = content.match(/\{[\s\S]*\}/);
+    if (match) {
+      try {
+        result = JSON.parse(match[0]);
+      } catch (e2) {
+        result = { food, calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 };
+      }
+    } else {
+      result = { food, calories: 0, protein: 0, carbs: 0, fat: 0, fibre: 0 };
+    }
+  }
+
+  // Guard against null/NaN calories or missing food name
+  if (result.calories == null || Number.isNaN(Number(result.calories))) result.calories = 0;
+  if (!result.food || typeof result.food !== 'string') result.food = food;
+  result.calories = Number(result.calories);
+  
+  // Validation: Block invalid entries
+  const foodLower = result.food.toLowerCase();
+  const invalidKeywords = ['reset', 'nevermind', 'tdee', 'unknown', 'tricep', 'pull down', 'workout', 'exercise'];
+  if (invalidKeywords.some(kw => foodLower.includes(kw))) {
+    result.calories = 0;
+    result.protein = 0;
+    result.carbs = 0;
+    result.fat = 0;
+    result.fibre = 0;
+    fs.appendFileSync(aiDebugLog, `[VALIDATION FAIL] Invalid entry detected: "${result.food}"\n`);
+    return result; // Return early with 0 cal so user gets error message
+  }
+  
+  // Validation: Reject zero calories unless it's water or zero-cal drinks
+  const zeroCalAllowed = ['water', 'coke zero', 'diet coke', 'sprite zero', 'fanta zero', 'monster zero', 'red bull zero'];
+  if (result.calories === 0 && !zeroCalAllowed.some(kw => foodLower.includes(kw))) {
+    fs.appendFileSync(aiDebugLog, `[VALIDATION FAIL] Zero calories for non-zero-cal food: "${result.food}"\n`);
+    // Don't return - let macro check handle it
+  }
+  
+  // Validation: Macro sanity check
+  const macroCalories = (result.protein || 0) * 4 + (result.carbs || 0) * 4 + (result.fat || 0) * 9;
+  if (macroCalories > 50 && result.calories > 0) {
+    const diff = Math.abs(macroCalories - result.calories);
+    const tolerance = result.calories * 0.6; // 60% tolerance
+    if (diff > tolerance) {
+      fs.appendFileSync(aiDebugLog, `[VALIDATION WARN] Macro mismatch: ${result.calories} cal stated vs ${macroCalories} from macros (diff: ${diff})\n`);
+      // Use the higher value to be safe
+      if (macroCalories > result.calories * 1.3) {
+        result.calories = Math.round(macroCalories);
+        fs.appendFileSync(aiDebugLog, `[VALIDATION FIX] Adjusted calories to ${result.calories} based on macros\n`);
+      }
+    }
+  }
   
   fs.appendFileSync(aiDebugLog, `\n[${new Date().toISOString()}] AI RAW: "${food}" → ${result.food} (${result.calories} cal)\n`);
   
@@ -1837,6 +2384,100 @@ async function estimateCalories(food, user) {
     }
   }
   
+  // Post-processing: reject 0-calorie results for real food (not water/black coffee/etc)
+  // If AI returned 0 calories for something that's clearly food, estimate based on description
+  const zeroCalAllowed2 = ['water', 'black coffee', 'diet', 'zero', 'sugar free', 'sparkling', 'ice', 'tea unsweetened', 'magnesium', 'hydrate', 'pre workout', 'supplement', 'vitamin', 'electrolyte', 'bcaa'];
+  const isZeroCalOk = zeroCalAllowed2.some(z => inputLower.includes(z));
+  
+  if (result.calories === 0 && !isZeroCalOk) {
+    fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] AI returned 0 cal for "${food}" — estimating based on description\n`);
+    
+    // Estimate based on food type keywords
+    let estimatedCal = 250; // default fallback for unknown food
+    let estP = 10, estC = 30, estF = 10;
+    
+    if (inputLower.includes('pizza') || inputLower.includes('pasta') || inputLower.includes('biryani') || inputLower.includes('curry')) {
+      estimatedCal = 500; estP = 20; estC = 60; estF = 18;
+    } else if (inputLower.includes('salad')) {
+      estimatedCal = 200; estP = 8; estC = 15; estF = 12;
+    } else if (inputLower.includes('stew') || inputLower.includes('soup') || inputLower.includes('broth')) {
+      estimatedCal = 350; estP = 20; estC = 25; estF = 15;
+    } else if (inputLower.includes('cake') || inputLower.includes('cheesecake') || inputLower.includes('dessert') || inputLower.includes('brownie')) {
+      estimatedCal = 350; estP = 5; estC = 45; estF = 18;
+    } else if (inputLower.includes('chicken') || inputLower.includes('beef') || inputLower.includes('lamb') || inputLower.includes('fish') || inputLower.includes('meat') || inputLower.includes('pork')) {
+      estimatedCal = 400; estP = 30; estC = 15; estF = 22;
+    } else if (inputLower.includes('rice') || inputLower.includes('noodle') || inputLower.includes('bread') || inputLower.includes('wrap') || inputLower.includes('roti')) {
+      estimatedCal = 350; estP = 10; estC = 55; estF = 8;
+    } else if (inputLower.includes('smoothie') || inputLower.includes('shake') || inputLower.includes('juice') || inputLower.includes('latte') || inputLower.includes('cappuccino')) {
+      estimatedCal = 200; estP = 5; estC = 35; estF = 5;
+    } else if (inputLower.includes('egg') || inputLower.includes('omelette') || inputLower.includes('frittata')) {
+      estimatedCal = 200; estP = 14; estC = 2; estF = 15;
+    } else if (inputLower.includes('fruit') || inputLower.includes('berry') || inputLower.includes('melon')) {
+      estimatedCal = 80; estP = 1; estC = 20; estF = 0;
+    } else if (inputLower.includes('amala') || inputLower.includes('fufu') || inputLower.includes('ugali') || inputLower.includes('sadza') || inputLower.includes('keema') || inputLower.includes('tagine') || inputLower.includes('jollof')) {
+      estimatedCal = 500; estP = 20; estC = 55; estF = 20;
+    } else if (inputLower.includes('plate') || inputLower.includes('meal') || inputLower.includes('dinner') || inputLower.includes('lunch') || inputLower.includes('serving')) {
+      estimatedCal = 500; estP = 25; estC = 45; estF = 20;
+    }
+    
+    result.calories = estimatedCal;
+    result.protein = estP;
+    result.carbs = estC;
+    result.fat = estF;
+    result.food = result.food + ' (est.)';
+    
+    fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] Estimated: ${result.food} → ${estimatedCal} cal | P:${estP}g C:${estC}g F:${estF}g\n`);
+  }
+  
+  // Also catch suspiciously low calories for substantial foods
+  // Anything marketed as a "bar", "nutter", "biscuit", "cookie", "cake", "muffin", "scone" should be at least 150 cal
+  const isSubstantialSnack = /\b(bar|nutter|biscuit|cookie|cake|muffin|scone|brownie|slice|tart|pastry|croissant|donut|doughnut)\b/i.test(inputLower);
+  
+  if (result.calories > 0 && result.calories < 20 && !isZeroCalOk && !inputLower.includes('gum') && !inputLower.includes('mint') && !inputLower.includes('pickle')) {
+    fs.appendFileSync(aiDebugLog, `[LOW-CAL FIX] AI returned only ${result.calories} cal for "${food}" — bumping to minimum 50 cal\n`);
+    result.calories = Math.max(result.calories, 50);
+  }
+  
+  // Catch substantial snacks that AI grossly underestimated
+  if (isSubstantialSnack && result.calories < 150) {
+    fs.appendFileSync(aiDebugLog, `[SNACK-CAL FIX] "${food}" is a substantial snack but AI returned only ${result.calories} cal — bumping to minimum 400 cal\n`);
+    result.calories = Math.max(result.calories, 400);
+    result.protein = Math.max(result.protein, 5);
+    result.carbs = Math.max(result.carbs, 40);
+    result.fat = Math.max(result.fat, 15);
+  }
+  
+  // Catch multi-ingredient meals that AI underestimated
+  // If input has 3+ ingredients (contains "and" or "with" + commas) and < 250 cal, likely too low
+  const ingredientCount = (inputLower.match(/\b(and|with|,)\b/g) || []).length;
+  const hasMultipleIngredients = ingredientCount >= 2;
+  const isMeal = /\b(breakfast|lunch|dinner|meal|plate|bowl)\b/i.test(inputLower) || hasMultipleIngredients;
+  
+  if (isMeal && result.calories < 250 && result.calories > 0) {
+    const boosted = Math.round(result.calories * 1.6); // 60% boost for underestimated meals
+    fs.appendFileSync(aiDebugLog, `[MEAL-CAL FIX] "${food}" looks like a multi-ingredient meal but AI returned only ${result.calories} cal — boosting to ${boosted} cal\n`);
+    result.calories = boosted;
+    result.protein = Math.round(result.protein * 1.4);
+    result.carbs = Math.round(result.carbs * 1.4);
+    result.fat = Math.round(result.fat * 1.8); // Fat gets bigger boost (cooking oils)
+  }
+  
+  // Macro sanity check: macros should roughly add up to calories (P*4 + C*4 + F*9 ≈ calories)
+  // Allow 30% tolerance — if wildly off, recalculate macros from calories
+  const macroCal = (result.protein || 0) * 4 + (result.carbs || 0) * 4 + (result.fat || 0) * 9;
+  if (result.calories > 0 && macroCal > 0) {
+    const ratio = macroCal / result.calories;
+    if (ratio > 2.0 || ratio < 0.3) {
+      fs.appendFileSync(aiDebugLog, `[MACRO FIX] Macros don't add up for "${food}": macros=${macroCal} cal vs reported=${result.calories} cal (ratio: ${ratio.toFixed(2)}) — recalculating\n`);
+      // Recalculate macros to roughly match calories using typical ratios
+      // Assume 30% protein, 40% carbs, 30% fat
+      result.protein = Math.round((result.calories * 0.30) / 4);
+      result.carbs = Math.round((result.calories * 0.40) / 4);
+      result.fat = Math.round((result.calories * 0.30) / 9);
+      fs.appendFileSync(aiDebugLog, `[MACRO FIX] Recalculated: P:${result.protein}g C:${result.carbs}g F:${result.fat}g\n`);
+    }
+  }
+
   fs.appendFileSync(aiDebugLog, `[AI FINAL] "${food}" → ${result.food} (${result.calories} cal)\n`);
   return result;
 }
@@ -1943,9 +2584,9 @@ async function guessFoodFromImage(imageId) {
     const resp = await axios.post('https://api.openai.com/v1/chat/completions', {
       model: 'gpt-4o-mini',
       messages: [
-        { role: 'system', content: 'You are a nutrition assistant. Identify the food item in the image. Return a short, specific name (brand + item if visible). If unclear, return a generic guess like "protein bar".' },
+        { role: 'system', content: 'You are a nutrition assistant. Identify the food item in the image. Include an estimated portion size (e.g. "grilled chicken breast ~150g", "plate of pasta ~250g", "small bowl of rice ~150g"). If it\'s a branded item, include the brand. If unclear on size, estimate based on plate/bowl/hand size visible in the image. Always include a weight or size estimate. IMPORTANT: Be conservative with portion estimates — home-cooked portions are typically smaller than they look in photos. Estimate on the lower end.' },
         { role: 'user', content: [
-          { type: 'text', text: 'What food is this? Reply with just the food name.' },
+          { type: 'text', text: 'What food is this? Reply with the food name and estimated portion size.' },
           { type: 'image_url', image_url: { url: dataUrl } }
         ] }
       ],
@@ -1990,12 +2631,12 @@ async function maybePromptEmail(from, user, users) {
   saveUsers(users);
 }
 
-async function maybeFirstLogMenu(from, user) {
+async function maybeFirstLogMenu(from, user, users) {
   if (user.sentMenuCard) return;
   const totalEntries = Object.values(user.log || {}).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0);
   if (totalEntries === 1) {
     user.sentMenuCard = true;
-    saveUsers(loadUsers());
+    saveUsers(users);
     await send(from,
       `🎉 *First meal logged!*\n\nKeep going — just type your next meal whenever you eat.\n\n` +
       `📌 *Pin this for quick reference:*\n` +
@@ -2010,9 +2651,21 @@ async function maybeFirstLogMenu(from, user) {
       `━━━━━━━━━━━━━━━━━━━━━━━━`
     );
   }
+  // PWA dashboard nudge — show once on 3rd entry
+  if (!user.sentPwaNudge && totalEntries === 3) {
+    user.sentPwaNudge = true;
+    saveUsers(users);
+    const crypto = require('crypto');
+    const pwaToken = crypto.createHash('sha256').update(String(from)).digest('hex').slice(0, 8);
+    await send(from,
+      `💡 *Did you know?* We have a full dashboard with a meal database, your daily stats, and macro breakdowns.\n\n` +
+      `📱 Your personal dashboard: https://fitsorted.co.za/app/?t=${pwaToken}#t=${pwaToken}\n\n` +
+      `_Add it to your home screen for quick access — it works like an app!_`
+    );
+  }
 }
 
-async function maybePromptPro(from, user) {
+async function maybePromptPro(from, user, users) {
   if (!PRO_LAUNCH) return;
   if (user.proPrompted) return;
   // Don't prompt if already premium or in trial
@@ -2021,41 +2674,48 @@ async function maybePromptPro(from, user) {
   const loggedDays = Object.values(user.log || {}).filter(arr => Array.isArray(arr) && arr.length > 0).length;
   if (loggedDays >= 3) {
     user.proPrompted = true;
-    saveUsers(loadUsers());
+    saveUsers(users);
     const monthlyLink = getPayFastMonthlyLink(from);
     const annualLink = getPayFastAnnualLink(from);
     await send(from,
       `You've logged 3 days in a row ✅\n\n` +
       `Subscribe to keep going:\n\n` +
-      `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
+      `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
+      `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
     );
   }
 }
 
 async function sendButtons(to, body, buttons) {
-  // WhatsApp enforces: body max 1024 chars, button title max 20 chars, button id max 256 chars, max 3 buttons
-  const safeBtns = buttons.slice(0, 3).map(b => ({
-    type: "reply",
-    reply: {
-      id: (b.id || "").slice(0, 256),
-      title: (b.title || "").slice(0, 20)
-    }
-  }));
-  await axios.post(
-    `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
-    {
-      messaging_product: "whatsapp",
-      to,
-      type: "interactive",
-      interactive: {
-        type: "button",
-        body: { text: (body || "").slice(0, 1024) },
-        action: { buttons: safeBtns }
+  console.log('[sendButtons] Called with:', { to, bodyLength: body.length, buttonCount: buttons.length });
+  try {
+    // WhatsApp enforces: body max 1024 chars, button title max 20 chars, button id max 256 chars, max 3 buttons
+    const safeBtns = buttons.slice(0, 3).map(b => ({
+      type: "reply",
+      reply: {
+        id: (b.id || "").slice(0, 256),
+        title: (b.title || "").slice(0, 20)
       }
-    },
-    { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
-  );
+    }));
+    await axios.post(
+      `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
+      {
+        messaging_product: "whatsapp",
+        to,
+        type: "interactive",
+        interactive: {
+          type: "button",
+          body: { text: (body || "").slice(0, 1024) },
+          action: { buttons: safeBtns }
+        }
+      },
+      { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
+    );
+  } catch (error) {
+    console.error('[sendButtons] Error sending buttons, falling back to plain message:', error.response?.data || error.message);
+    // Fallback to regular text message
+    await send(to, body);
+  }
 }
 
 async function sendList(to, body, buttonText, sections) {
@@ -2069,23 +2729,36 @@ async function sendList(to, body, buttonText, sections) {
       description: (r.description || "").slice(0, 72),
     })),
   }));
-  await axios.post(
-    `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
-    {
-      messaging_product: "whatsapp",
-      to,
-      type: "interactive",
-      interactive: {
-        type: "list",
-        body: { text: (body || "").slice(0, 1024) },
-        action: {
-          button: (buttonText || "Menu").slice(0, 20),
-          sections: safeSections,
+  try {
+    await axios.post(
+      `https://graph.facebook.com/v18.0/${PHONE_ID}/messages`,
+      {
+        messaging_product: "whatsapp",
+        to,
+        type: "interactive",
+        interactive: {
+          type: "list",
+          body: { text: (body || "").slice(0, 1024) },
+          action: {
+            button: (buttonText || "Menu").slice(0, 20),
+            sections: safeSections,
+          },
         },
       },
-    },
-    { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
-  );
+      { headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" } }
+    );
+  } catch (error) {
+    console.error('[sendList] Error sending list, falling back to plain message:', error.response?.data || error.message);
+    const fallbackRows = safeSections.flatMap(s => [
+      s.title ? `*${s.title}*` : null,
+      ...s.rows.map(r => `• ${r.title}${r.description ? ` — ${r.description}` : ""}`)
+    ]).filter(Boolean);
+    const fallbackText = [
+      body || "",
+      ...fallbackRows
+    ].filter(Boolean).join("\n");
+    await send(to, fallbackText);
+  }
 }
 
 // ── Setup flow ──
@@ -2096,7 +2769,7 @@ async function handleSetup(from, user, msg, users) {
   if (!step || step === "gender") {
     user.step = "awaiting_gender";
     await sendButtons(from,
-      "Howzit! 👋 Welcome to *FitSorted* — your calorie tracker on WhatsApp.\n\n✅ *Free forever* — calorie tracking with no limits\n💎 *30-day Premium bonus* — unlock all features\n\nNo app. No login. Just chat like you're messaging a mate.\n\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n📸 Snap a photo of your plate — I'll ID it\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n🍺 Built-in drunk-o-meter\n🧠 Ask me anything — meal ideas, what to eat under 400 cal\n\nLet's get you set up — takes 30 seconds 👇\n\nWhat's your biological sex?",
+      "Howzit! 👋 Welcome to *FitSorted* — your calorie tracker on WhatsApp.\n\n✅ *Free forever* — calorie tracking with no limits\n💎 *7-day free trial* — unlock all features\n\n_WhatsApp is 100% free — you only pay if you upgrade to Premium (via secure link, not through WhatsApp)._\n\nNo app. No login. Just chat like you're messaging a mate.\n\n🍗 Log any food — I'll figure out the calories (yes, even pap and vleis)\n📸 Snap a photo of your plate — I'll ID it\n🥩 Track macros (protein, carbs, fat)\n🏃 Log your gym session or run\n🍺 Built-in drunk-o-meter\n🧠 Ask me anything — meal ideas, what to eat under 400 cal\n\nLet's get you set up — takes 30 seconds 👇\n\nWhat's your biological sex?",
       [{ id: "setup:male", title: "Male" }, { id: "setup:female", title: "Female" }]
     );
     return;
@@ -2202,21 +2875,41 @@ async function handleSetup(from, user, msg, users) {
     user.step = "email";
     saveUsers(users);
 
-    await send(from, `Nice one, ${name}! 👋\n\nWhat's your email?\n\nI'll send you daily food logs and weekly reports.\n\n_(Type *skip* if you'd rather not)_`);
+    await send(from, `Nice one, ${name}! 👋\n\nWhat's your email address?\n\nI'll send you daily food logs and weekly progress reports. 📧`);
     return;
   }
 
   if (step === "email") {
     const emailText = msg.trim().toLowerCase();
     
-    if (emailText === "skip" || emailText === "no") {
-      // Skip email, go to budget
+    if (emailText === "skip" || emailText === "no" || emailText === "n") {
+      await send(from, `I need your email to send you daily food logs and weekly reports — it's a big part of the experience! 💪\n\nJust type your email address:`);
+      return;
+    }
+    
+    // If it looks like food (no @ sign, common food words), skip email and log the food
+    const foodIndicators = /^(coffee|tea|water|toast|eggs?|chicken|rice|bread|milk|juice|banana|apple|sandwich|salad|burger|pizza|pasta|cereal|oats|yoghurt|biltong|droewors|nandos|kfc|steers|mcdonalds|spur|wimpy|woolworths|checkers|\d+\s*(x|×)?\s*\w)/i;
+    if (!emailText.includes('@') && foodIndicators.test(emailText)) {
+      // User wants to log food, not give email — skip email step
+      user.step = null;
+      saveUsers(users);
+      // Fall through to food logging below (don't return)
+    } else {
+      // Validate email
+      const emailMatch = emailText.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+      if (!emailMatch) {
+        await send(from, `That doesn't look like a valid email.\n\nTry again, or type *skip* to continue without email.`);
+        return;
+      }
+    
+      if (!user.profile) user.profile = {};
+      user.profile.exportEmail = emailText;
       user.step = "budget";
       saveUsers(users);
-      
+
       try {
         await sendButtons(from,
-          `No worries! Last thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
+          `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
           [
             { id: "setup:budget_100", title: "R100/day" },
             { id: "setup:budget_150", title: "R150/day" },
@@ -2225,37 +2918,10 @@ async function handleSetup(from, user, msg, users) {
           ]
         );
       } catch {
-        await send(from, `No worries! Last thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
+        await send(from, `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
       }
       return;
     }
-    
-    // Validate email
-    const emailMatch = emailText.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
-    if (!emailMatch) {
-      await send(from, `That doesn't look like a valid email.\n\nTry again, or type *skip* to continue without email.`);
-      return;
-    }
-    
-    if (!user.profile) user.profile = {};
-    user.profile.exportEmail = emailText;
-    user.step = "budget";
-    saveUsers(users);
-
-    try {
-      await sendButtons(from,
-        `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend on food alongside your calories. You'll see exactly where your money goes.`,
-        [
-          { id: "setup:budget_100", title: "R100/day" },
-          { id: "setup:budget_150", title: "R150/day" },
-          { id: "setup:budget_200", title: "R200/day" },
-          { id: "setup:budget_skip", title: "Skip for now" },
-        ]
-      );
-    } catch {
-      await send(from, `✅ Got it!\n\nLast thing — want to set a daily food budget?\n\nI'll track what you spend alongside your calories.\n\nReply with an amount (e.g. *R150*) or *skip*`);
-    }
-    return;
   }
 
   if (step === "budget") {
@@ -2282,7 +2948,7 @@ async function handleSetup(from, user, msg, users) {
       }
     }
     user.setup = true;
-    user.step = null;
+    user.step = "onboard_offer";
     saveUsers(users);
 
     const budgetMsg = user.profile?.foodBudget
@@ -2296,16 +2962,75 @@ async function handleSetup(from, user, msg, users) {
     await send(from,
       `✅ *All set, ${user.name}!*\n\n` +
       `Your goal: *${user.goal} cal/day*${budgetMsg}${emailMsg}\n\n` +
-      `Let's log your first meal right now 👇\n\n` +
-      `Just type what you've eaten today, like:\n` +
-      `_"2 eggs on toast"_\n` +
-      `_"coffee with milk"_\n` +
-      `_"woolworths chicken wrap"_\n\n` +
-      `Or snap a photo of your plate 📸\n\n` +
-      `Go — what did you have for breakfast?`
+      `You're on a *7-day free trial* with all features unlocked 🎉\n\n` +
+      `🔥 *Sign up now and get 10% off:*\n\n` +
+      `📅 *Annual — R33/mo* (R399/yr, save 32%)\n` +
+      `📅 *Monthly — R32.40/mo* (10% off R36)\n\n` +
+      `This offer is only available right now 👇`
     );
 
+    try {
+      await sendButtons(from,
+        `Lock in your 10% discount?`,
+        [
+          { id: "onboard_annual", title: "Annual R399/yr ⭐" },
+          { id: "onboard_subscribe", title: "Monthly R32.40/mo" },
+          { id: "onboard_skip", title: "Start Free Trial" },
+        ]
+      );
+    } catch {
+      await send(from, `💎 Subscribe now (10% off): ${discountLink}\n\nOr just start logging — type what you ate!`);
+      user.step = null;
+      saveUsers(users);
+    }
+
     // Menu card now sent after first food log (see maybeFirstLogMenu below)
+    return;
+  }
+
+  if (step === "onboard_offer") {
+    const response = msg.toLowerCase().trim();
+    if (response === "onboard_annual") {
+      const link = getPayFastAnnualLink(from, 0);
+      user.step = null;
+      saveUsers(users);
+      await send(from,
+        `🎉 Smart choice! Here's your secure payment link:\n\n` +
+        `${link}\n\n` +
+        `✅ *R399/year* (R33/mo — best value)\n` +
+        `✅ 7-day free trial — you won't be charged today\n` +
+        `✅ Cancel anytime\n\n` +
+        `While that's processing, let's log your first meal!\n\n` +
+        `Just type what you've eaten, like:\n_"2 eggs on toast"_`
+      );
+    } else if (response === "onboard_subscribe") {
+      const link = getPayFastMonthlyLink(from, 10);
+      user.step = null;
+      saveUsers(users);
+      await send(from,
+        `🎉 Great choice! Here's your secure payment link:\n\n` +
+        `${link}\n\n` +
+        `✅ 10% off locked in — *R32.40/month*\n` +
+        `✅ 7-day free trial — you won't be charged today\n` +
+        `✅ Cancel anytime\n\n` +
+        `While that's processing, let's log your first meal!\n\n` +
+        `Just type what you've eaten, like:\n_"2 eggs on toast"_`
+      );
+    } else {
+      // Skip or any other message — start free trial
+      user.step = null;
+      saveUsers(users);
+      await send(from,
+        `No problem! Your *7-day free trial* is active 🎉\n\n` +
+        `Let's log your first meal right now 👇\n\n` +
+        `Just type what you've eaten today, like:\n` +
+        `_"2 eggs on toast"_\n` +
+        `_"coffee with milk"_\n` +
+        `_"woolworths chicken wrap"_\n\n` +
+        `Or snap a photo of your plate 📸\n\n` +
+        `Go — what did you have for breakfast?`
+      );
+    }
     return;
   }
 
@@ -2364,6 +3089,101 @@ async function handleMessage(from, text, imageId) {
   const user = getUser(users, from);
   const msg = (text || "").trim();
   let msgLower = msg.toLowerCase();
+
+  // ── Feedback capture ──
+  if (user.awaitingFeedback && msg.length > 2 && !msg.startsWith('/')) {
+    // Time window: only capture feedback if asked within the last 30 minutes
+    const feedbackAskTime = user.feedbackAskedAt ? new Date(user.feedbackAskedAt).getTime() : 0;
+    const minutesSinceAsk = (Date.now() - feedbackAskTime) / 60000;
+    if (minutesSinceAsk > 30) {
+      // Too long ago — they're probably logging food now, clear the flag
+      user.awaitingFeedback = false;
+      delete user.feedbackAskedAt;
+      saveUsers(users);
+    }
+    // Don't capture if it looks like a food log or command
+    const looksLikeFood = /^\d|^(undo|log|help|buddy|weight|export|goal|profile|settings|menu|subscribe|status)/i.test(msgLower);
+    if (user.awaitingFeedback && !looksLikeFood) {
+      const feedbackFile = './feedback.json';
+      let feedback = [];
+      try { feedback = JSON.parse(fs.readFileSync(feedbackFile, 'utf8')); } catch {}
+      feedback.push({
+        phone: phone.slice(-4), // anonymised
+        name: user.name || 'Unknown',
+        date: new Date().toISOString(),
+        streak: user.streak || 0,
+        daysActive: Object.keys(user.log || {}).filter(d => (user.log[d] || []).length > 0).length,
+        message: msg
+      });
+      fs.writeFileSync(feedbackFile, JSON.stringify(feedback, null, 2));
+      user.awaitingFeedback = false;
+      saveUsers(users);
+      await send(from, `🙏 Thanks for the feedback! We read every single response and it genuinely helps us improve. Keep tracking! 💪`);
+      return;
+    }
+    // If it looks like food, clear the flag and let normal flow handle it
+    user.awaitingFeedback = false;
+    saveUsers(users);
+  }
+
+  const buddyAccept = (msgLower === "accept" || msgLower === "buddy accept");
+  const buddyDecline = (msgLower === "decline" || msgLower === "buddy decline" || msgLower === "buddy reject");
+
+  // ── Buddy request response ──
+  if (user.buddyRequest && (buddyAccept || buddyDecline)) {
+    const requesterPhone = user.buddyRequest.from;
+    const requester = users[requesterPhone];
+
+    if (!requester) {
+      delete user.buddyRequest;
+      delete user.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, "⚠️ That buddy request is no longer valid.");
+      return;
+    }
+
+    if (buddyAccept) {
+      if (user.buddy?.paired) {
+        await send(from, "⚠️ You're already paired. Send *buddy remove* first.");
+        return;
+      }
+      if (requester?.buddy?.paired) {
+        await send(from, "⚠️ They already have a buddy. Ask them to send *buddy remove* first.");
+        return;
+      }
+      const nowIso = new Date().toISOString();
+      user.buddy = { phone: requesterPhone, paired: true, pairedAt: nowIso };
+      if (requester) requester.buddy = { phone: from, paired: true, pairedAt: nowIso };
+      delete user.buddyRequest;
+      delete user.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, `✅ You're now buddies with *${requester?.name || requesterPhone}*`);
+      if (requester) {
+        await send(requesterPhone, `✅ *${user.name || from}* accepted your buddy request. You're now accountability buddies!`);
+      }
+      return;
+    }
+
+    if (buddyDecline) {
+      delete user.buddyRequest;
+      delete user.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, `No worries — request declined.`);
+      if (requester) {
+        await send(requesterPhone, `❌ *${user.name || from}* declined your buddy request.`);
+      }
+      return;
+    }
+  }
+
+  // ── Pending buddy request check ──
+  if (user.buddyRequest && !user.awaitingBuddyResponse) {
+    const requester = users[user.buddyRequest.from];
+    const requesterName = requester?.name || user.buddyRequest.from;
+    user.awaitingBuddyResponse = true;
+    saveUsers(users);
+    await send(from, `🤝 *${requesterName}* wants to be accountability buddies!\nReply *accept* or *decline*`);
+  }
 
   // ── Influencer tracking (check for INF_ code in first message) ──
   if (msg.toUpperCase().includes('INF_') && !user.setup && !user.referredBy) {
@@ -2424,10 +3244,10 @@ async function handleMessage(from, text, imageId) {
         const monthlyLink = getPayFastMonthlyLink(from);
         const annualLink = getPayFastAnnualLink(from);
         await send(from,
-          `📸 Your 30-day free trial has ended.\n\n` +
+          `📸 Your 7-day free trial has ended.\n\n` +
           `Subscribe to keep using FitSorted:\n\n` +
-          `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
-          `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
+          `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
+          `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
         );
         return;
       }
@@ -2436,12 +3256,13 @@ async function handleMessage(from, text, imageId) {
         user.pendingFood = { text: guess, source: "image_guess", time: new Date().toISOString() };
         saveUsers(users);
         try {
-          await sendButtons(from, `I think this is:\n*${guess}*\n\nLog it?`, [
-            { id: "confirm_log", title: "Log it" },
-            { id: "cancel_log", title: "Wrong" }
+          await sendButtons(from, `I think this is:\n*${guess}*\n\nLook right? If the portion size is off, tell me (e.g. _"large"_ or _"small"_ or _"about 300g"_).`, [
+            { id: "confirm_log", title: "✅ Log it" },
+            { id: "portion_small", title: "🤏 Smaller" },
+            { id: "portion_large", title: "🍖 Bigger" }
           ]);
         } catch {
-          await send(from, `I think this is:\n*${guess}*\n\nReply *log it* to confirm, or *wrong* to cancel.`);
+          await send(from, `I think this is:\n*${guess}*\n\nReply *log it* to confirm.\nSay *smaller* or *bigger* to adjust portion.\nOr *wrong* to cancel.`);
         }
         return;
       }
@@ -2522,10 +3343,15 @@ async function handleMessage(from, text, imageId) {
           alcoholMsg += `\n\n📊 Today total: *${total} / ${effectiveGoal} cal*`;
           await send(from, alcoholMsg);
         } else {
-          await send(from, `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
+          const message = `✅ *${result.food}* - ${result.calories} cal\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`;
+          console.log('[FOOD] Attempting to send buttons for:', result.food);
+          await sendButtons(from, message, [
+            { id: 'correct_last', title: '✏️ Edit' },
+            { id: 'undo_last', title: '❌ Remove' }
+          ]);
         }
-        await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+        await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
       } catch (err) {
         delete user.pendingFood;
         saveUsers(users);
@@ -2539,6 +3365,40 @@ async function handleMessage(from, text, imageId) {
       await send(from, "No worries. Please type the correct food details.");
       return;
     }
+    // Portion size adjustments
+    if (msgLower === "portion_small" || msgLower === "smaller" || msgLower === "small" || msgLower === "small portion" || msgLower === "🤏") {
+      pending.text = `small portion of ${pending.text}`;
+      user.pendingFood = pending;
+      saveUsers(users);
+      await send(from, `Got it — logging a *small portion* of ${pending.text.replace('small portion of ', '')}.\n\nReply *log it* to confirm.`);
+      return;
+    }
+    if (msgLower === "portion_large" || msgLower === "bigger" || msgLower === "large" || msgLower === "big" || msgLower === "big portion" || msgLower === "large portion" || msgLower === "🍖") {
+      pending.text = `large portion of ${pending.text}`;
+      user.pendingFood = pending;
+      saveUsers(users);
+      await send(from, `Got it — logging a *large portion* of ${pending.text.replace('large portion of ', '')}.\n\nReply *log it* to confirm.`);
+      return;
+    }
+    // User specifies exact size (e.g. "about 300g", "200 grams")
+    if (/\d+\s*g(rams?)?/i.test(msgLower)) {
+      pending.text = `${pending.text} (${msg.trim()})`;
+      user.pendingFood = pending;
+      saveUsers(users);
+      await send(from, `Got it — logging *${pending.text}*.\n\nReply *log it* to confirm.`);
+      return;
+    }
+  }
+
+  // ── Button callbacks: correct_last, undo_last ──
+  if (msgLower === 'correct_last') {
+    await send(from, `📝 *Enter correct calories*\n\nFormat: *food name | calories*\n(Use the pipe symbol | not slash /)\n\nExample:\n_the nutter large | 865_`);
+    return;
+  }
+
+  if (msgLower === 'undo_last') {
+    // Trigger undo flow
+    return handleMessage(from, 'undo', null);
   }
 
   // ── Admin: "users" shows user count + activity ──
@@ -2718,7 +3578,7 @@ async function handleMessage(from, text, imageId) {
       return;
     }
 
-    const recipients = Object.entries(users).filter(([phone, u]) => u.setup && u.goal && phone !== ADMIN_NUMBER);
+    const recipients = Object.entries(users).filter(([phone, u]) => u.setup && u.goal && phone !== ADMIN_NUMBER && !u.optedOut);
     let sent = 0, failed = 0;
 
     for (const [phone, u] of recipients) {
@@ -2770,7 +3630,6 @@ async function handleMessage(from, text, imageId) {
     ].join("\n");
 
     // Save to file
-    const fs = require('fs');
     const exportPath = '/Users/brandonkatz/.openclaw/workspace/fitsorted/email-export.csv';
     fs.writeFileSync(exportPath, csv);
 
@@ -2802,9 +3661,17 @@ async function handleMessage(from, text, imageId) {
     // Weekly stats
     { patterns: [/how was my week/i, /this week/i, /weekly (stats|summary|report|progress)/i, /my week/i, /show.*week/i, /past.*week/i, /7 day/i], redirect: "week" },
     // Weight
-    { patterns: [/how much do i weigh/i, /my weight/i, /weight (trend|history|progress|graph)/i, /show.*weight/i, /weigh-?ins?/i, /track.*weight/i], redirect: "weight history" },
+    { patterns: [/how much do i weigh/i, /weight (trend|history|progress|graph)/i, /show.*weight/i, /weigh-?ins?/i, /track.*weight/i], redirect: "weight history" },
+    // Steps
+    { patterns: [/how many steps/i, /step count/i, /show.*steps/i, /step (progress|trend|streak)/i, /my steps/i, /did i hit.*steps/i], redirect: "steps" },
+    // Profile / settings
+    { patterns: [/my (settings|profile|details|info)/i, /show.*(profile|settings)/i, /what are my (stats|settings|details)/i, /view.*profile/i], redirect: "my profile" },
+    // Profile fix requests (no specific value — guide them)
+    { patterns: [/(?:fix|change|update|correct|wrong|incorrect|edit)\s+(?:my\s+)?(?:calorie|calories|allowance|daily|target|goal|budget)/i, /calorie.*(wrong|incorrect|too low|too high|fix|change)/i, /my (?:calorie|daily|target).*(wrong|off|incorrect)/i, /(?:recalculate|recalc|redo)\s+(?:my\s+)?(?:calories|goal|target|allowance)/i], redirect: "profile_fix_guide" },
     // Undo
     { patterns: [/that('?s| was| is) wrong/i, /take (that|it) back/i, /made a mistake/i, /remove (the )?last/i, /wrong (one|entry|food|item)/i, /didn'?t (eat|have|mean) that/i, /oops/i, /scratch that/i, /cancel (that|last)/i], redirect: "undo" },
+    // Correct / manual entry
+    { patterns: [/(wrong|incorrect) (calorie|calories|cal|amount)/i, /(fix|correct|adjust|change) (the )?(calorie|calories|last entry)/i, /manual(ly)? (enter|add|log)/i, /let me (enter|type|add) (it|calories) manual/i], redirect: "correct" },
     // Meal suggestions
     { patterns: [/what (should|can|could) i eat/i, /suggest.*(meal|food|snack|lunch|dinner|breakfast)/i, /meal idea/i, /what('?s| is) (good|healthy) to eat/i, /i'?m hungry/i, /snack idea/i, /low cal.*(idea|option|suggestion|meal)/i, /under \d+ cal/i], redirect: "menu:suggest" },
     // Help / menu
@@ -2836,7 +3703,7 @@ async function handleMessage(from, text, imageId) {
       await send(from,
         `💰 *Food budget tracking is a Premium feature*\n\n` +
         `Track how much you spend on food alongside your calories. Set a daily budget and watch every rand.\n\n` +
-        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `💎 *R${PRO_PRICE}/mo* — 7-day free trial\n` +
         `🔗 ${monthlyLink}\n\n` +
         `_Launch price — won't last forever._`
       );
@@ -2874,7 +3741,7 @@ async function handleMessage(from, text, imageId) {
     return;
   }
   if (msgLower === "menu:suggest") {
-    const remaining = user.goal - (user.todayCals || 0);
+    const remaining = user.goal - getTodayTotal(user);
     await send(from, `🧠 You have *${Math.max(0, remaining)} cal* left today.\n\nWhat kind of meal are you looking for? Just ask!\n\n_e.g. "what can I eat under ${Math.max(200, remaining)} cal?" or "high protein lunch ideas"_`);
     return;
   }
@@ -2956,6 +3823,14 @@ async function handleMessage(from, text, imageId) {
 
   // Reset
   if (msgLower === "start" || msgLower === "/start" || msgLower === "reset" || msgLower === "hi" || msgLower === "hello") {
+    // Re-opt-in if previously opted out
+    if (user.optedOut) {
+      user.optedOut = false;
+      delete user.optedOutAt;
+      saveUsers(users);
+      await send(from, `Welcome back! 🎉 Great to have you here again.\n\nYour data is still saved. Just type what you're eating and I'll track it for you! 💪`);
+      return;
+    }
     user.setup = false;
     user.step = "gender";
     user.profile = {};
@@ -2987,14 +3862,14 @@ async function handleMessage(from, text, imageId) {
       } else {
         const isAnnual = val === "earlybird:annual";
         const link = isAnnual ? getPayFastAnnualLink(from, 39) : getPayFastMonthlyLink(from, 39);
-        const price = isAnnual ? "R100/year" : "R18/mo";
+        const price = isAnnual ? "R399/year" : "R36/mo";
         user.promoCode = "EARLYBIRD";
         user.promoDiscount = 39;
         saveUsers(users);
         await send(from,
           `🎉 Great choice! Here's your early bird link:\n\n` +
           `👉 ${link}\n\n` +
-          `30 days free, then ${price}. Your card is stored securely by PayFast — cancel anytime.\n\n` +
+          `7-day free trial, then ${price}. Your card is stored securely by PayFast — cancel anytime.\n\n` +
           `_Meanwhile, let's set up your goals..._\n\nWhat's your current weight in kg? (e.g. *86*)`
         );
       }
@@ -3077,7 +3952,7 @@ async function handleMessage(from, text, imageId) {
   }
 
   // In setup text steps (including late email capture)
-  if (user.step && ["weight", "height", "age", "name", "email", "email_late", "budget"].includes(user.step)) {
+  if (user.step && ["weight", "height", "age", "name", "email", "email_late", "budget", "onboard_offer"].includes(user.step)) {
     await handleSetup(from, user, msg, users);
     saveUsers(users);
     return;
@@ -3124,12 +3999,271 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
+  // ── Challenges ──
+  const challenges = loadChallenges();
+  if (user.challenge && (!challenges[user.challenge] || !challenges[user.challenge].active)) {
+    delete user.challenge;
+    saveUsers(users);
+  }
+
+  if (msgLower === "challenge create") {
+    await send(from, "Usage: *challenge create [name]*");
+    return;
+  }
+
+  const challengeCreateMatch = msg.match(/^challenge\s+create\s+(.+)$/i);
+  if (challengeCreateMatch) {
+    if (!user.setup || !user.goal) {
+      await send(from, "⚠️ Finish setup first, then create a challenge.");
+      return;
+    }
+    if (user.challenge) {
+      await send(from, "⚠️ You're already in a challenge. Send *challenge leave* first.");
+      return;
+    }
+    const name = challengeCreateMatch[1].trim();
+    if (!name) {
+      await send(from, "Usage: *challenge create [name]*");
+      return;
+    }
+    const code = generateChallengeCode(challenges);
+    const nowIso = new Date().toISOString();
+    challenges[code] = {
+      name,
+      code,
+      creator: from,
+      createdAt: nowIso,
+      startedAt: null,
+      endsAt: null,
+      duration: 30,
+      members: [from],
+      active: true
+    };
+    user.challenge = code;
+    saveChallenges(challenges);
+    saveUsers(users);
+    await send(from,
+      `🏆 Challenge *${name}* created!\n\n` +
+      `Share this code with your mates:\n*${code}*\n\n` +
+      `They just send: *join ${code}*\n\n` +
+      `30 days starts when you say *challenge start* (or auto-starts when 3+ people join)`
+    );
+    return;
+  }
+
+  const challengeJoinMatch = msg.match(/^(?:join|challenge\s+join)\s+([a-z0-9-]+)$/i);
+  if (challengeJoinMatch) {
+    if (!user.setup || !user.goal) {
+      await send(from, "⚠️ Finish setup first, then join a challenge.");
+      return;
+    }
+    const code = challengeJoinMatch[1].toUpperCase();
+    if (!/^FIT-[A-Z0-9]{3}$/.test(code)) {
+      await send(from, "❌ Invalid code. Format: *FIT-A3K*");
+      return;
+    }
+    const challenge = challenges[code];
+    if (!challenge || !challenge.active) {
+      await send(from, "❌ Challenge not found or no longer active.");
+      return;
+    }
+    if (user.challenge && user.challenge !== code) {
+      await send(from, "⚠️ You're already in a challenge. Send *challenge leave* first.");
+      return;
+    }
+    const members = challenge.members || [];
+    if (!members.includes(from) && members.length >= 20) {
+      await send(from, "⚠️ This challenge is full (max 20 members).");
+      return;
+    }
+    if (!members.includes(from)) members.push(from);
+    challenge.members = members;
+    user.challenge = code;
+
+    let autoStarted = false;
+    if (!challenge.startedAt && challenge.members.length >= 3) {
+      const startDateStr = getToday();
+      const endDateStr = addDaysToDateStr(startDateStr, (challenge.duration || 30) - 1);
+      challenge.startedAt = new Date().toISOString();
+      challenge.endsAt = new Date(endDateStr + "T23:59:59Z").toISOString();
+      autoStarted = true;
+    }
+
+    saveChallenges(challenges);
+    saveUsers(users);
+
+    const memberNames = challenge.members.map(p => getMemberFirstName(users, p)).join(", ");
+    let joinMsg = `✅ You've joined *${challenge.name}*! ${challenge.members.length} people so far.\n\nMembers: ${memberNames}`;
+    if (autoStarted) {
+      joinMsg += `\n\n🏁 Challenge started! Day 1/${challenge.duration || 30}`;
+    }
+    await send(from, joinMsg);
+
+    for (const phone of challenge.members) {
+      if (phone === from) continue;
+      await send(phone, `${user.name || from} just joined the challenge! 💪`);
+    }
+    return;
+  }
+
+  if (msgLower === "challenge join") {
+    await send(from, "Usage: *join FIT-XXX*");
+    return;
+  }
+
+  if (msgLower === "challenge start") {
+    if (!user.challenge) {
+      await send(from, "⚠️ You're not in a challenge yet.\n\nCreate one with: *challenge create [name]*");
+      return;
+    }
+    const challenge = challenges[user.challenge];
+    if (!challenge || !challenge.active) {
+      delete user.challenge;
+      saveUsers(users);
+      await send(from, "⚠️ That challenge no longer exists.");
+      return;
+    }
+    if (challenge.creator !== from) {
+      await send(from, "⚠️ Only the creator can start this challenge.");
+      return;
+    }
+    if (challenge.startedAt) {
+      await send(from, `🏁 *${challenge.name}* already started.`);
+      return;
+    }
+    const startDateStr = getToday();
+    const endDateStr = addDaysToDateStr(startDateStr, (challenge.duration || 30) - 1);
+    challenge.startedAt = new Date().toISOString();
+    challenge.endsAt = new Date(endDateStr + "T23:59:59Z").toISOString();
+    saveChallenges(challenges);
+    let startMsg = `✅ Challenge started! Day 1/${challenge.duration || 30}`;
+    const memberCount = (challenge.members || []).length;
+    if (memberCount < 2) {
+      startMsg = `⚠️ Only ${memberCount} member${memberCount === 1 ? "" : "s"} so far — min 2 recommended, but starting anyway.\n\n${startMsg}`;
+    }
+    await send(from, startMsg);
+    return;
+  }
+
+  if (msgLower === "challenge leave") {
+    if (!user.challenge) {
+      await send(from, "⚠️ You're not in a challenge.");
+      return;
+    }
+    const challenge = challenges[user.challenge];
+    if (!challenge) {
+      delete user.challenge;
+      saveUsers(users);
+      await send(from, "⚠️ That challenge no longer exists.");
+      return;
+    }
+    challenge.members = (challenge.members || []).filter(p => p !== from);
+    delete user.challenge;
+    if (challenge.members.length === 0) challenge.active = false;
+    saveChallenges(challenges);
+    saveUsers(users);
+    await send(from, `✅ You left *${challenge.name}*.`);
+    return;
+  }
+
+  if (msgLower === "leaderboard" || msgLower === "challenge") {
+    if (!user.challenge) {
+      await send(from, "🏆 You're not in a challenge yet.\n\nCreate one with *challenge create [name]* or join with *join FIT-XXX*.");
+      return;
+    }
+    const challenge = challenges[user.challenge];
+    if (!challenge || !challenge.active) {
+      delete user.challenge;
+      saveUsers(users);
+      await send(from, "⚠️ That challenge is no longer active.");
+      return;
+    }
+    const leaderboardMsg = buildChallengeLeaderboardMessage(challenge, users, from);
+    await send(from, leaderboardMsg);
+    return;
+  }
+
   // Log view
   // Weekly stats / progress dashboard
   if (["stats", "progress", "weekly", "week", "analytics", "dashboard"].includes(msgLower)) {
     const statsMsg = buildWeeklyStats(user);
     await send(from, statsMsg);
     return;
+  }
+
+  // ── Accountability buddies ──
+  if (msgLower === "buddy") {
+    if (user.buddy?.paired) {
+      const buddyUser = users[user.buddy.phone];
+      await send(from, `🤝 *Buddy:* ${buddyUser?.name || user.buddy.phone}\n\nSend *buddy remove* to unpair.`);
+      return;
+    }
+    if (user.buddyRequest) {
+      const requester = users[user.buddyRequest.from];
+      await send(from, `🤝 *Buddy request from ${requester?.name || user.buddyRequest.from}*\nReply *accept* or *decline*`);
+      return;
+    }
+    await send(from, `🤝 No buddy yet.\n\nSend *buddy 27XXXXXXXXX* to add one.`);
+    return;
+  }
+
+  if (msgLower === "buddy remove") {
+    if (!user.buddy?.paired) {
+      await send(from, "⚠️ You don't have a buddy yet.");
+      return;
+    }
+    const buddyPhone = user.buddy.phone;
+    const buddyUser = users[buddyPhone];
+    delete user.buddy;
+    delete user.awaitingBuddyResponse;
+    if (buddyUser?.buddy?.phone === from) delete buddyUser.buddy;
+    saveUsers(users);
+    await send(from, "✅ Buddy removed.");
+    return;
+  }
+
+  const buddyMatch = msg.match(/^buddy\s+(.+)$/i);
+  if (buddyMatch) {
+    const targetRaw = buddyMatch[1].trim();
+    if (["remove", "accept", "decline", "reject"].includes(targetRaw.toLowerCase())) {
+      // Handled elsewhere
+    } else {
+      if (!user.setup || !user.goal) {
+        await send(from, "⚠️ Finish setup first, then add a buddy.");
+        return;
+      }
+      if (user.buddy?.paired) {
+        await send(from, "⚠️ You're already paired. Send *buddy remove* first.");
+        return;
+      }
+      const buddyPhone = normalizeBuddyPhone(targetRaw);
+      if (!buddyPhone) {
+        await send(from, "❌ Invalid number. Use format: *buddy 27XXXXXXXXX*");
+        return;
+      }
+      if (buddyPhone === from) {
+        await send(from, "⚠️ You can't buddy with yourself.");
+        return;
+      }
+      const buddyUser = users[buddyPhone];
+      if (!buddyUser || !buddyUser.setup) {
+        await send(from, "❌ That number isn't registered on FitSorted yet.");
+        return;
+      }
+      if (buddyUser.buddy?.paired) {
+        await send(from, "⚠️ That user already has a buddy.");
+        return;
+      }
+      if (buddyUser.buddyRequest) {
+        await send(from, "⚠️ That user already has a pending buddy request.");
+        return;
+      }
+      buddyUser.buddyRequest = { from, at: new Date().toISOString() };
+      delete buddyUser.awaitingBuddyResponse;
+      saveUsers(users);
+      await send(from, `✅ Buddy request sent to *${buddyUser.name || buddyPhone}*! They'll see it next time they message.`);
+      return;
+    }
   }
 
   // Summary / log for any day: "summary", "yesterday", "summarize yesterday", "log yesterday", "monday log"
@@ -3216,14 +4350,14 @@ async function handleMessage(from, text, imageId) {
 
     let premiumCTA = "";
     if (!logHasAccess && !user.seenPremiumCTA) {
-      premiumCTA = `\n\n💎 Want macros + coaching? Upgrade for R18/mo — type *upgrade*`;
+      premiumCTA = `\n\n💎 Want macros + coaching? Upgrade for R36/mo — type *upgrade*`;
       users[from].seenPremiumCTA = true;
       saveUsers(users);
     }
 
     await send(from, `📋 *Today's log:*\n${list}${exerciseStr}\n\n🔢 *${total} / ${effectiveGoal} cal*${macroStr}${premiumCTA}\n${deficitMessage(total, effectiveGoal)}`);
-        await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+        await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
     return;
   }
 
@@ -3253,7 +4387,7 @@ async function handleMessage(from, text, imageId) {
       await send(from,
         `📧 *Email export is a Premium feature*\n\n` +
         `Get your daily food log delivered straight to your inbox.\n\n` +
-        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `💎 *R${PRO_PRICE}/mo* — 7-day free trial\n` +
         `🔗 ${monthlyLink}\n\n` +
         `_Launch price — won't last forever._`
       );
@@ -3294,7 +4428,7 @@ async function handleMessage(from, text, imageId) {
       await send(from,
         `📧 *Email export is a Premium feature*\n\n` +
         `Get your weekly food log delivered straight to your inbox.\n\n` +
-        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `💎 *R${PRO_PRICE}/mo* — 7-day free trial\n` +
         `🔗 ${monthlyLink}\n\n` +
         `_Launch price — won't last forever._`
       );
@@ -3428,6 +4562,208 @@ async function handleMessage(from, text, imageId) {
       await send(from, `❌ Couldn't send the email. Please try again later.`);
     }
     return;
+  }
+
+  // ── Update profile settings ──
+  // Semantic: "my weight is actually 95", "I weigh 95 not 30", "change my weight to 95",
+  // "my body weight should be 95", "fix my weight it's 95", "I'm actually 95kg"
+  const profileUpdateMatch = msg.match(/^(?:update|change|set|fix|correct|adjust)\s+(?:my\s+)?(?:body\s+|profile\s+)?weight\s+(?:to\s+|=\s*|it'?s\s+)?([\d.]+)\s*(?:kg|kgs)?$/i)
+    || msg.match(/^(?:my (?:body\s+|actual\s+|real\s+|profile\s+)?weight (?:is|should be|isn'?t|isnt|was wrong|is actually|is really|is supposed to be)\s+)(?:it'?s\s+|its\s+)?([\d.]+)\s*(?:kg|kgs)?$/i)
+    || msg.match(/^i(?:'?m| am| weigh) (?:actually |really |not \d+\s*(?:kg)?\s*(?:i'?m|i am|but|,)\s*)?([\d.]+)\s*(?:kg|kgs)\s*(?:not|actually|really)?/i)
+    || msg.match(/(?:wrong|incorrect|fix)\s+(?:weight|body\s*weight).*?([\d.]+)\s*(?:kg|kgs)?/i)
+    || msg.match(/(?:body\s*)?weight\s+(?:is\s+)?wrong.*?([\d.]+)\s*(?:kg|kgs)?/i)
+    || msg.match(/(?:should be|supposed to be|meant to be|actually)\s+([\d.]+)\s*(?:kg|kgs)?\s*(?:not|instead)/i);
+  if (profileUpdateMatch) {
+    const newWeight = parseFloat(profileUpdateMatch[1]);
+    if (newWeight >= 30 && newWeight <= 300) {
+      const oldWeight = user.profile.weight;
+      user.profile.weight = newWeight;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      saveUsers(users);
+      await send(from, `✅ *Profile weight updated: ${oldWeight} kg → ${newWeight} kg*\n\n🔄 Your daily calorie goal has been recalculated:\n🎯 *${goal} cal/day*\n\n_(BMR: ${bmr} cal | TDEE: ${tdee} cal)_`);
+      return;
+    }
+  }
+
+  // "my height is 186", "I'm 186cm", "change my height to 186", "height is wrong it's 186"
+  const heightUpdateMatch = msg.match(/^(?:update|change|set|fix|correct|adjust)\s+(?:my\s+)?height\s+(?:to\s+|=\s*|it'?s\s+)?([\d.]+)\s*(?:cm)?$/i)
+    || msg.match(/^my height (?:is|should be|is actually|is really)\s+([\d.]+)\s*(?:cm)?$/i)
+    || msg.match(/^i(?:'?m| am)\s+([\d.]+)\s*cm\s*(?:tall)?$/i)
+    || msg.match(/(?:height)\s+(?:is\s+)?(?:wrong|incorrect).*?([\d.]+)\s*(?:cm)?/i);
+  if (heightUpdateMatch) {
+    const newHeight = parseFloat(heightUpdateMatch[1]);
+    if (newHeight >= 100 && newHeight <= 250) {
+      user.profile.height = newHeight;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      saveUsers(users);
+      await send(from, `✅ *Height updated to ${newHeight} cm*\n\n🔄 Calorie goal recalculated: 🎯 *${goal} cal/day*`);
+      return;
+    }
+  }
+
+  // "my age is 34", "I'm 34 years old", "change my age to 34", "age is wrong it's 34"
+  const ageUpdateMatch = msg.match(/^(?:update|change|set|fix|correct|adjust)\s+(?:my\s+)?age\s+(?:to\s+|=\s*|it'?s\s+)?([\d]+)$/i)
+    || msg.match(/^my age (?:is|should be|is actually)\s+([\d]+)$/i)
+    || msg.match(/^i(?:'?m| am)\s+([\d]+)\s*(?:years?\s*old)?$/i)
+    || msg.match(/(?:age)\s+(?:is\s+)?(?:wrong|incorrect).*?([\d]+)/i);
+  if (ageUpdateMatch) {
+    const newAge = parseInt(ageUpdateMatch[1]);
+    if (newAge >= 13 && newAge <= 100) {
+      user.profile.age = newAge;
+      const { bmr, tdee, goal } = calculateGoal(user.profile);
+      user.goal = goal;
+      saveUsers(users);
+      await send(from, `✅ *Age updated to ${newAge}*\n\n🔄 Calorie goal recalculated: 🎯 *${goal} cal/day*`);
+      return;
+    }
+  }
+
+  // "I want to lose weight", "switch to maintain", "I want to bulk", "change goal to gain", "I want to cut"
+  const goalUpdateMatch = msg.match(/^(?:update|change|set|switch)\s+(?:my\s+)?(?:goal|target)\s+(?:to\s+)?(lose|maintain|gain|cut|bulk)/i)
+    || msg.match(/^i\s+(?:want|need|'?d like|would like)\s+to\s+(lose|maintain|gain|cut|bulk)/i)
+    || msg.match(/^(?:switch|change)\s+(?:to|my goal to)\s+(lose|maintain|gain|cut|bulk)/i)
+    || msg.match(/^(lose|maintain|gain|cut|bulk)\s*(?:weight|muscle|fat)?$/i);
+  if (goalUpdateMatch) {
+    const goalMap = { lose: "lose", cut: "lose", maintain: "maintain", gain: "gain", bulk: "gain" };
+    // Find first captured group across the different regex patterns
+    const goalWord = (goalUpdateMatch[1] || goalUpdateMatch[0]).toLowerCase().trim();
+    user.profile.target = goalMap[goalWord] || "maintain";
+    const { bmr, tdee, goal } = calculateGoal(user.profile);
+    user.goal = goal;
+    saveUsers(users);
+    await send(from, `✅ *Goal updated to: ${user.profile.target}*\n\n🔄 Calorie goal recalculated: 🎯 *${goal} cal/day*`);
+    return;
+  }
+
+  // Guide for "fix my calories" / "my allowance is wrong" (no specific value given)
+  if (msgLower === "profile_fix_guide" || /^(?:fix|change|update|correct|redo|recalc)\s+(?:my\s+)?(?:calorie|calories|allowance|daily|target|goal)s?$/i.test(msgLower) || /^(?:my\s+)?(?:calorie|calories|allowance|daily target|goal)s?\s+(?:is|are)\s+(?:wrong|incorrect|too low|too high|off)$/i.test(msgLower) || /^(?:recalculate|recalc|redo)\s+(?:my\s+)?(?:calories|goal|target|allowance)$/i.test(msgLower)) {
+    const p = user.profile;
+    const { goal } = calculateGoal(p);
+    await send(from, `🔧 *Your current calorie target: ${goal} cal/day*\n\nBased on:\n⚖️ Weight: ${p.weight} kg\n📏 Height: ${p.height} cm\n🎂 Age: ${p.age}\n🏃 Activity: ${p.activity}\n🎯 Goal: ${p.target}\n\nTo fix it, just tell me what's wrong:\n• _"my weight is actually 85"_\n• _"I'm 180cm tall"_\n• _"my age is 30"_\n• _"I want to lose weight"_\n• _"update weight 95"_\n\nI'll recalculate everything automatically.`);
+    return;
+  }
+
+  // "my settings", "my profile", "show profile", "profile", "settings"
+  if (/^(my (settings|profile)|show (my )?profile|profile|settings)$/i.test(msgLower)) {
+    const p = user.profile;
+    const { bmr, tdee, goal } = calculateGoal(p);
+    await send(from, `📋 *Your Profile*\n\n👤 ${user.name || 'Not set'}\n⚧ ${p.gender || '?'}\n⚖️ ${p.weight} kg\n📏 ${p.height} cm\n🎂 ${p.age} years\n🏃 Activity: ${p.activity}\n🎯 Goal: ${p.target} (${p.pace || 'standard'})\n\n📊 BMR: ${bmr} cal\n🔥 TDEE: ${tdee} cal\n🎯 Daily target: *${goal} cal*\n\n_To update, send:_\n• *update weight 85*\n• *update height 180*\n• *update age 30*\n• *update goal lose/maintain/gain*`);
+    return;
+  }
+
+  // ── Step tracking ──
+  // "8000 steps", "walked 8000 steps", "steps 8000", "I did 12000 steps today", "10k steps"
+  const stepMatch = msg.match(/^([\d,.]+)\s*k?\s*steps$/i)
+    || msg.match(/^steps?\s+([\d,.]+)\s*k?$/i)
+    || msg.match(/^(?:walked|did|got|logged|hit)\s+([\d,.]+)\s*k?\s*steps/i)
+    || msg.match(/^(?:i\s+(?:did|walked|got|hit|logged))\s+([\d,.]+)\s*k?\s*steps/i)
+    || msg.match(/^([\d,.]+)\s*k\s*steps$/i);
+  
+  if (stepMatch) {
+    let rawSteps = (stepMatch[1] || stepMatch[0]).replace(/,/g, '');
+    let steps = parseFloat(rawSteps);
+    // Handle "10k steps" → 10000
+    if (msg.toLowerCase().includes('k') && steps < 1000) steps = steps * 1000;
+    steps = Math.round(steps);
+    
+    if (steps >= 1 && steps <= 200000) {
+      const today = getToday();
+      if (!user.steps) user.steps = {};
+      if (!user.steps[today]) user.steps[today] = { count: 0, logs: [] };
+      
+      user.steps[today].count += steps;
+      user.steps[today].logs.push({ steps, time: new Date().toISOString() });
+      
+      const totalToday = user.steps[today].count;
+      const stepGoal = user.stepGoal || 10000;
+      const remaining = Math.max(0, stepGoal - totalToday);
+      const pct = Math.min(100, Math.round((totalToday / stepGoal) * 100));
+      
+      // Calories burned estimate: ~0.04 cal per step (avg person)
+      const calBurned = Math.round(steps * 0.04);
+      
+      // Progress bar
+      const filled = Math.round(pct / 10);
+      const bar = '█'.repeat(filled) + '░'.repeat(10 - filled);
+      
+      // Streak calculation
+      let streak = 0;
+      const d = new Date();
+      for (let i = 0; i < 365; i++) {
+        const dateStr = d.toISOString().slice(0, 10);
+        if (user.steps[dateStr] && user.steps[dateStr].count >= stepGoal) {
+          streak++;
+        } else if (i > 0) break; // today doesn't break streak if not yet hit
+        d.setDate(d.getDate() - 1);
+      }
+      
+      let msg2 = `🚶 *${steps.toLocaleString()} steps logged* (~${calBurned} cal burned)\n\n`;
+      msg2 += `${bar} ${pct}%\n`;
+      msg2 += `📊 *${totalToday.toLocaleString()} / ${stepGoal.toLocaleString()}* steps today\n`;
+      
+      if (remaining > 0) {
+        msg2 += `👟 ${remaining.toLocaleString()} to go`;
+      } else {
+        msg2 += `🎉 *Goal smashed!*`;
+      }
+      
+      if (streak > 1) msg2 += `\n🔥 ${streak}-day streak!`;
+      
+      msg2 += `\n\n_Send *step history* to see your trends._`;
+      
+      saveUsers(users);
+      await send(from, msg2);
+      return;
+    }
+  }
+  
+  // Step history: "step history", "steps", "my steps", "step count", "step streak"
+  if (/^(step history|steps|my steps|step count|step streak|step goal|step trend|show steps|step log)$/i.test(msgLower)) {
+    const stepGoal = user.stepGoal || 10000;
+    const stepData = user.steps || {};
+    const dates = Object.keys(stepData).sort().reverse().slice(0, 7);
+    
+    if (dates.length === 0) {
+      await send(from, `🚶 No steps logged yet.\n\nJust tell me: *8000 steps* and I'll track it.\n\n🎯 Daily goal: ${stepGoal.toLocaleString()} steps\n\n_Change with: *step goal 8000*_`);
+      return;
+    }
+    
+    let msg2 = `🚶 *Step History* (last 7 days)\n\n`;
+    let totalWeek = 0;
+    let daysHit = 0;
+    
+    for (const date of dates) {
+      const count = stepData[date].count || 0;
+      totalWeek += count;
+      const hit = count >= stepGoal;
+      if (hit) daysHit++;
+      const pct = Math.min(100, Math.round((count / stepGoal) * 100));
+      const icon = hit ? '✅' : count > 0 ? '🟡' : '⬜';
+      const dayLabel = date === getToday() ? 'Today' : new Date(date + 'T12:00:00').toLocaleDateString('en-ZA', { weekday: 'short', day: 'numeric', month: 'short' });
+      msg2 += `${icon} ${dayLabel}: *${count.toLocaleString()}* (${pct}%)\n`;
+    }
+    
+    const avgSteps = Math.round(totalWeek / dates.length);
+    msg2 += `\n📊 Avg: ${avgSteps.toLocaleString()} steps/day`;
+    msg2 += `\n🎯 Goal hit: ${daysHit}/${dates.length} days`;
+    msg2 += `\n\n_Change goal: *step goal 8000*_`;
+    
+    await send(from, msg2);
+    return;
+  }
+  
+  // Set step goal: "step goal 8000", "set step goal to 12000"
+  const stepGoalMatch = msg.match(/^(?:step goal|set step goal|steps goal|daily steps|set steps)\s+(?:to\s+)?([\d,]+)$/i);
+  if (stepGoalMatch) {
+    const newGoal = parseInt(stepGoalMatch[1].replace(/,/g, ''));
+    if (newGoal >= 1000 && newGoal <= 100000) {
+      user.stepGoal = newGoal;
+      saveUsers(users);
+      await send(from, `🎯 Step goal updated to *${newGoal.toLocaleString()} steps/day*`);
+      return;
+    }
   }
 
   // ── Weight tracking ──
@@ -3580,19 +4916,100 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
-  if (/^(undo|undo that|oops|take that back|remove last|undo last|cancel last|delete last|wrong|that was wrong|made a mistake|undo last entry)$/i.test(msgLower)) {
+  // ── Unsubscribe / Stop / Cancel handler ──
+  if (/^(unsubscribe|stop|stop messages|cancel|opt out|opt-out|leave|remove me|don'?t message me|stop messaging)$/i.test(msgLower)) {
+    user.optedOut = true;
+    user.optedOutAt = new Date().toISOString();
+    saveUsers();
+    await send(from, `No problem at all! 👋 I've stopped all messages.\n\nYour data is still saved — if you ever want to come back, just send *Hi* and we'll pick up where you left off.\n\nThanks for trying FitSorted! 🙏`);
+    return;
+  }
+
+  if (/^(undo|u do|undo that|oops|take that back|remove last|undo last|cancel last|delete last|wrong|that was wrong|made a mistake|undo last entry)$/i.test(msgLower)) {
     const today = getToday();
-    const entries = user.log[today] || [];
-    if (!entries.length) { await send(from, "Nothing to undo."); return; }
-    const removed = entries.pop();
-    user.log[today] = entries;
+    const foodEntries = user.log[today] || [];
+    const exerciseEntries = (user.exercise && user.exercise[today]) || [];
+
+    // Find the most recent entry across both food and exercise
+    const lastFood = foodEntries.length ? foodEntries[foodEntries.length - 1] : null;
+    const lastExercise = exerciseEntries.length ? exerciseEntries[exerciseEntries.length - 1] : null;
+
+    if (!lastFood && !lastExercise) { await send(from, "Nothing to undo."); return; }
+
+    // Compare timestamps to find which was logged last
+    const foodTime = lastFood && lastFood.time ? new Date(lastFood.time).getTime() : 0;
+    const exTime = lastExercise && lastExercise.time ? new Date(lastExercise.time).getTime() : 0;
+
+    if (exTime > foodTime && lastExercise) {
+      // Undo exercise
+      exerciseEntries.pop();
+      user.exercise[today] = exerciseEntries;
+      saveUsers(users);
+      const effectiveGoal = getEffectiveGoal(user);
+      const total = getTodayTotal(user);
+      await send(from, `↩️ Removed: *${lastExercise.activity}* (${lastExercise.calories} cal burned)\n\n${deficitMessage(total, effectiveGoal)}`);
+    } else if (lastFood) {
+      // Undo food
+      foodEntries.pop();
+      user.log[today] = foodEntries;
+      saveUsers(users);
+      const total = getTodayTotal(user);
+      await send(from, `↩️ Removed: *${lastFood.food}* (${lastFood.calories} cal)\n\n${deficitMessage(total, user.goal)}`);
+    } else {
+      await send(from, "Nothing to undo.");
+    }
+    return;
+  }
+
+  // ── Correct/Manual Entry ──
+  if (msgLower === 'correct' || /^(wrong|incorrect) (calorie|calories)/i.test(msgLower) || /manual(ly)? (enter|log)/i.test(msgLower)) {
+    await send(from, `📝 *Manual Entry Mode*\n\nType your entry in this format:\n\n*food name | calories*\n\nExample:\n_the nutter | 865_\n\nI'll log it exactly as you say.`);
+    return;
+  }
+
+  // Check if message is manual entry format: "food name | calories"
+  const manualMatch = msg.match(/^(.+?)\s*\|\s*(\d+)$/);
+  if (manualMatch) {
+    const foodName = manualMatch[1].trim();
+    const calories = parseInt(manualMatch[2]);
+    
+    if (calories < 1 || calories > 5000) {
+      await send(from, `⚠️ Calories must be between 1-5000. Try again with a realistic value.`);
+      return;
+    }
+
+    const today = getToday();
+    if (!user.log[today]) user.log[today] = [];
+    
+    const entry = {
+      food: foodName + ' (manual)',
+      calories: calories,
+      protein: 0,
+      carbs: 0,
+      fat: 0,
+      fibre: 0,
+      priceZAR: 0,
+      time: new Date().toISOString()
+    };
+    
+    user.log[today].push(entry);
     saveUsers(users);
+
     const total = getTodayTotal(user);
-    await send(from, `↩️ Removed: *${removed.food}* (${removed.calories} cal)\n\n${deficitMessage(total, user.goal)}`);
+    await send(from, `✅ Logged: *${foodName}* (${calories} cal)\n\n` + deficitMessage(total, user.goal));
     return;
   }
 
   // ── Feedback / bug reports - saved to workspace for Milan ──
+  // Also catch standalone "feedback" / "bug" with no content → prompt for it
+  const feedbackStandaloneMatch = msg.match(/^(feedback|bug|issue|suggestion|feature|request|improve|improvement)\s*[!?.]*$/i);
+  if (feedbackStandaloneMatch) {
+    user.awaitingFeedback = true;
+    user.feedbackAskedAt = new Date().toISOString();
+    saveUsers(users);
+    await send(from, `💬 We'd love to hear it! What's on your mind?\n\n_(Type anything — good or bad, we read every message)_`);
+    return;
+  }
   const feedbackMatch = msg.match(/^(feedback|bug|issue|suggestion|feature|request|improve|improvement)[\s:;,.\---]+(.+)/is);
   if (feedbackMatch) {
     const type = feedbackMatch[1].toLowerCase();
@@ -3777,10 +5194,12 @@ async function handleMessage(from, text, imageId) {
       const expiryStr = sub?.ends_at ? new Date(sub.ends_at).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" }) : "unknown";
       await send(from, `✅ *FitSorted Premium* — Active\n\nRenews: ${expiryStr}\n\nType *upgrade* to renew early.`);
     } else if (inTrial) {
-      const daysLeft = Math.ceil(30 - ((Date.now() - new Date(user.joinedAt).getTime()) / (1000 * 60 * 60 * 24)));
-      await send(from, `✅ *FitSorted Premium* — Free 30-day bonus\n\n${daysLeft} days left of all features.\n\nAfter that, calorie tracking stays free forever.\n\nUpgrade for R18/mo to keep Premium features — type *upgrade*`);
+      const trialStart = user.trialStartDate || user.joinedAt;
+      const daysSinceTrial = trialStart ? (Date.now() - new Date(trialStart).getTime()) / (1000 * 60 * 60 * 24) : 0;
+      const daysLeft = Math.max(0, Math.ceil(TRIAL_DAYS - daysSinceTrial));
+      await send(from, `✅ *FitSorted Premium* — 7-Day Free Trial\n\n${daysLeft} days left of all features.\n\nAfter that, calorie tracking stays free forever.\n\nUpgrade for R36/mo to keep Premium features — type *upgrade*`);
     } else {
-      await send(from, `✅ *FitSorted* — Free forever\n\nYou can track calories for life, no limits.\n\nUpgrade to Premium for R18/mo to unlock:\n🥩 Macro tracking\n🧠 Coaching mode\n📧 Email exports\n💰 Budget tracking\n\nType *upgrade* to subscribe.`);
+      await send(from, `✅ *FitSorted* — Free forever\n\nYou can track calories for life, no limits.\n\nUpgrade to Premium for R36/mo to unlock:\n🥩 Macro tracking\n🧠 Coaching mode\n📧 Email exports\n💰 Budget tracking\n\nType *upgrade* to subscribe.`);
     }
     return;
   }
@@ -3799,7 +5218,7 @@ async function handleMessage(from, text, imageId) {
       const joinedAt = user.joinedAt ? new Date(user.joinedAt) : new Date();
       const daysSinceJoin = (Date.now() - joinedAt.getTime()) / (1000 * 60 * 60 * 24);
       if (daysSinceJoin > PROMO_EXPIRY_DAYS[code]) {
-        await send(from, `⏰ Sorry, the *${code}* early bird offer expired ${PROMO_EXPIRY_DAYS[code]} days after signup. The standard price is R18/mo.\n\nType *upgrade* to subscribe.`);
+        await send(from, `⏰ Sorry, the *${code}* early bird offer expired ${PROMO_EXPIRY_DAYS[code]} days after signup. The standard price is R36/mo.\n\nType *upgrade* to subscribe.`);
         return;
       }
     }
@@ -3836,13 +5255,13 @@ async function handleMessage(from, text, imageId) {
     user.promoCode = code;
     user.promoDiscount = discount;
     saveUsers(users);
-    const monthlyPrice = applyDiscount(18, discount);
+    const monthlyPrice = applyDiscount(49, discount);
     const annualPrice = applyDiscount(280, discount);
     const monthlyLink = getPayFastMonthlyLink(from, discount);
     const annualLink = getPayFastAnnualLink(from, discount);
     await send(from,
       `🎉 Code *${code}* applied — *${discount}% off*!\n\n` +
-      `Free forever + 30-day Premium bonus, then:\n\n` +
+      `Free forever + 7-day free trial, then:\n\n` +
       `📅 *Monthly — R${monthlyPrice}/mo*\n👉 ${monthlyLink}\n\n` +
       `🏆 *Annual — R${annualPrice}/year* _(save R${280-annualPrice})_\n👉 ${annualLink}`
     );
@@ -3858,7 +5277,7 @@ async function handleMessage(from, text, imageId) {
     }
     const discount = user.promoDiscount || 0;
     const promoCode = user.promoCode || null;
-    const monthlyPrice = applyDiscount(18, discount);
+    const monthlyPrice = applyDiscount(49, discount);
     const annualPrice = applyDiscount(280, discount);
     const monthlyLink = getPayFastMonthlyLink(from, discount);
     const annualLink = getPayFastAnnualLink(from, discount);
@@ -3867,7 +5286,7 @@ async function handleMessage(from, text, imageId) {
       `*FitSorted Premium* 🚀\n\n` +
       promoLine +
       `✅ Calorie tracking is free forever\n\n` +
-      `Get 30 days of Premium features free, then just R18/mo:\n\n` +
+      `Get a 7-day free trial of Premium, then just R36/mo:\n\n` +
       `📅 *Monthly — R${monthlyPrice}/mo*\n` +
       `👉 ${monthlyLink}\n\n` +
       `🏆 *Annual — R${annualPrice}/year* _(save R${280-annualPrice})_\n` +
@@ -3998,7 +5417,7 @@ async function handleMessage(from, text, imageId) {
       await send(from,
         `🧠 *Coaching mode is a Premium feature*\n\n` +
         `Upgrade to get personalised meal suggestions, nutrition advice, and answers to any food question.\n\n` +
-        `💎 *R${PRO_PRICE}/mo* — 30 days free\n` +
+        `💎 *R${PRO_PRICE}/mo* — 7-day free trial\n` +
         `🔗 ${monthlyLink}\n\n` +
         `_Launch price — won't last forever._`
       );
@@ -4119,13 +5538,13 @@ async function handleMessage(from, text, imageId) {
     await send(from,
       `✅ *FitSorted is free forever*\n\n` +
       `You can track calories for as long as you want.\n\n` +
-      `Your first 30 days of Premium features have ended. Upgrade for just *R18/mo* to unlock:\n\n` +
+      `Your 7-day free trial has ended. Upgrade for just *R36/mo* to unlock:\n\n` +
       `• 🥩 Macro tracking (protein, carbs, fat)\n` +
       `• 🧠 Coaching mode (meal suggestions, Q&A)\n` +
       `• 📧 Email exports\n` +
       `• 💰 Food budget tracking\n\n` +
-      `📅 *Monthly — R18/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R100/year* _(save R116)_\n👉 ${annualLink}`
+      `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
+      `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
     );
     users[from].shownFreeForeverMessage = true;
     saveUsers(users);
@@ -4134,7 +5553,7 @@ async function handleMessage(from, text, imageId) {
 
   // Food log (with optional date prefix: "yesterday: chicken stir fry")
   // Guard: skip non-food inputs (menu commands, bot artifacts, system strings)
-  const junkPatterns = /^(menu:|confirm_log|button_|clean name|unnamed food|test$|\.{1,3}$)/i;
+  const junkPatterns = /^(menu:|confirm_log|button_|clean name|unnamed food|test$|\.{1,3}$|feedback$|bug$|issue$|suggestion$|feature$|improve(ment)?$)/i;
   if (junkPatterns.test(msgLower)) {
     console.log(`[guard] Skipped junk input as food: "${msg}"`);
     return;
@@ -4276,6 +5695,9 @@ async function handleMessage(from, text, imageId) {
             units: alcoholUnits,
           });
           
+          // Append to Google Sheets (async, non-blocking)
+          appendToFoodLogSheet(from, user.id || from, result.food, result.calories, result.protein || 0, result.carbs || 0, result.fat || 0, result.fibre || 0, result.source || 'AI').catch(e => console.error('[sheets]', e.message));
+          
           results.push(result);
         } catch (e) {
           console.error(`[multi-item] Failed to process "${item}":`, e.message);
@@ -4332,8 +5754,8 @@ async function handleMessage(from, text, imageId) {
       } else {
         await send(from, `${itemLines.join("\n")}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${priceTag}${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
       }
-      await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+      await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
       await maybePromptEmail(from, user, users);
       return;
     }
@@ -4367,7 +5789,7 @@ async function handleMessage(from, text, imageId) {
 
     // Guard: reject AI responses that look like placeholder/junk
     // Allow legitimate zero-calorie items (water, tea, coffee, etc.)
-    const legitimateZeroCalFoods = ['water', 'h2o', 'sparkling', 'soda water', 'mineral water', 'ice', 'tea', 'coffee'];
+    const legitimateZeroCalFoods = ['water', 'h2o', 'sparkling', 'soda water', 'mineral water', 'ice', 'tea', 'coffee', 'coke zero', 'diet coke', 'sprite zero', 'fanta zero'];
     const inputLower = foodText.toLowerCase();
     const resultLower = result.food.toLowerCase();
     const isLegitimateZeroCal = legitimateZeroCalFoods.some(f => 
@@ -4377,6 +5799,15 @@ async function handleMessage(from, text, imageId) {
     if ((result.calories === 0 && !isLegitimateZeroCal) || /^clean name/i.test(result.food) || /^unnamed/i.test(result.food)) {
       console.log(`[guard] Rejected junk AI result: "${result.food}" (${result.calories} cal) for input: "${foodText}"`);
       await send(from, `🤔 I couldn't figure out what that is. Try describing the food, e.g. _2 eggs on toast_`);
+      return;
+    }
+    
+    // Guard: Extreme values require confirmation (unless it's bulk meal prep like "10x")
+    if (result.calories > 2500 && !/\d+x/i.test(result.food)) {
+      console.log(`[guard] Extreme calories detected: "${result.food}" (${result.calories} cal)`);
+      await send(from, `⚠️ That's ${result.calories} calories - is that correct? Reply with:\n\n*yes* to log it\n*no* to cancel`);
+      user.pendingConfirmation = { action: 'logFood', data: result };
+      saveUsers(users);
       return;
     }
 
@@ -4404,6 +5835,9 @@ async function handleMessage(from, text, imageId) {
     const todayMacros = getTodayMacros(user);
     const macroTargets = getMacroTargets(user);
     saveUsers(users);
+    
+    // Append to Google Sheets (async, non-blocking)
+    appendToFoodLogSheet(from, user.id || from, result.food, result.calories, result.protein, result.carbs, result.fat, result.fibre, result.source || 'AI').catch(e => console.error('[sheets]', e.message));
 
     const sourceTag = result.source === "custom" ? " _(your saved entry)_" : "";
     const userHasPremium = await hasAccess(from, user);
@@ -4450,10 +5884,15 @@ async function handleMessage(from, text, imageId) {
         alcoholMsg += `\n\n📊 Today total: *${total} / ${effectiveGoal} cal*`;
         await send(from, alcoholMsg);
       } else {
-        await send(from, `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`);
+        const message = `✅ *${result.food}* - ${result.calories} cal${sourceTag}${itemMacros}${priceTag}\n\n📊 Today: *${total} / ${effectiveGoal} cal*${macroProgress}\n${deficitMessage(total, effectiveGoal)}`;
+        console.log('[FOOD] Sending food log with buttons');
+        await sendButtons(from, message, [
+          { id: 'correct_last', title: '✏️ Edit' },
+          { id: 'undo_last', title: '❌ Remove' }
+        ]);
       }
-      await maybeFirstLogMenu(from, user);
-        await maybePromptPro(from, user);
+      await maybeFirstLogMenu(from, user, users);
+        await maybePromptPro(from, user, users);
       await maybePromptEmail(from, user, users);
     }
   } catch (err) {
@@ -4509,6 +5948,9 @@ app.get("/webhook", (req, res) => {
 });
 
 app.post("/webhook", async (req, res) => {
+  if (APP_SECRET && !isValidWebhookSignature(req)) {
+    return res.sendStatus(403);
+  }
   res.sendStatus(200);
   try {
     const entry = req.body?.entry?.[0];
@@ -4571,13 +6013,20 @@ function markCronRan(jobName) {
   fs.writeFileSync(CRON_STATE_FILE, JSON.stringify(state, null, 2));
 }
 
-// ── 6:30 AM morning check-in ──
-cron.schedule("30 6 * * *", async () => {
+// ── 6:30 AM morning check-in ── DISABLED: 19% conversion, not worth the cost
+// cron.schedule("30 6 * * *", async () => {
+if (false) { (async () => {
   if (cronAlreadyRan('morning')) { console.log('[cron] Morning already sent today, skipping'); return; }
   markCronRan('morning');
   const users = loadUsers();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
+    if (user.optedOut) continue; // respect opt-out
+    const lastActivity = getLastActivityDate(user);
+    const daysSinceActivity = lastActivity ? (Date.now() - lastActivity.getTime()) / 86400000 : 999;
+    if (!await hasAccess(phone, user)) continue; // skip free users
+    if (daysSinceActivity > 14) continue; // gone - stop all
+    if (daysSinceActivity > 7) continue; // inactive - no morning checkin
     // Only send morning check-in every 3 days per user
     if (user.lastMorning) {
       const daysSince = Math.floor((Date.now() - new Date(user.lastMorning)) / 86400000);
@@ -4635,21 +6084,34 @@ cron.schedule("30 6 * * *", async () => {
     }
   }
   saveUsers(users);
-}, { timezone: "Africa/Johannesburg" });
+})(); } // end disabled morning check-in
 
 // ── 8 PM daily summary ──
 cron.schedule("0 20 * * *", async () => {
   if (cronAlreadyRan('evening')) { console.log('[cron] Evening summary already sent today, skipping'); return; }
   markCronRan('evening');
   const users = loadUsers();
+  const challenges = loadChallenges();
   for (const [phone, user] of Object.entries(users)) {
     if (!user.setup || !user.goal) continue;
+    if (user.optedOut) continue; // respect opt-out
     try {
+      const lastActivity = getLastActivityDate(user);
+      const daysSinceActivity = lastActivity ? (Date.now() - lastActivity.getTime()) / 86400000 : 999;
+      const eveningHasAccess = await hasAccess(phone, user);
+      if (!eveningHasAccess) continue; // skip free users
+      if (daysSinceActivity > 14) continue; // gone - stop all
+      if (daysSinceActivity > 7) {
+        // inactive — weekly Monday nudge only
+        if (new Date().getDay() !== 1) continue;
+        // Send nudge instead of summary
+        await send(phone, `👋 Hey! It's been a while since you logged food. Jump back in — even one meal counts. 🥗`);
+        continue;
+      }
       const total = getTodayTotal(user);
       if (total === 0) continue;
       const todayMacros = getTodayMacros(user);
       const macroTargets = getMacroTargets(user);
-      const eveningHasAccess = await hasAccess(phone, user);
 
       let macroStr = "";
       if (eveningHasAccess && (todayMacros.protein > 0 || todayMacros.carbs > 0 || todayMacros.fat > 0)) {
@@ -4679,7 +6141,76 @@ cron.schedule("0 20 * * *", async () => {
         }
       }
 
-      await send(phone, `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}`);
+      // Trial reminder append
+      let trialReminderStr = "";
+      const trialDaysLeft = user.trialStartDate ? Math.ceil((TRIAL_DAYS * 86400000 - (Date.now() - new Date(user.trialStartDate).getTime())) / 86400000) : null;
+      if (trialDaysLeft === 2) {
+        trialReminderStr = `\n\n⏰ Your free trial ends in 2 days — upgrade to keep Premium features! R36/mo`;
+      } else if (trialDaysLeft !== null && trialDaysLeft <= 0) {
+        trialReminderStr = `\n\n Your free trial has ended. Upgrade to Premium for R36/mo or continue with free calorie tracking.`;
+      }
+
+      // Streak + milestones
+      const streak = getCurrentStreak(user);
+      user.streak = streak;
+      let streakStr = `\n🔥 ${streak}-day streak`;
+      let milestoneStr = "";
+      const milestoneMessages = {
+        3: { badge: "🌱", text: "3-day streak! Habit forming..." },
+        7: { badge: "🔥", text: "1 week streak! You're on fire" },
+        14: { badge: "⭐", text: "2 weeks! This is becoming second nature" },
+        21: { badge: "💪", text: "21 days — they say that's how habits are made" },
+        30: { badge: "🏅", text: "30-DAY STREAK! You're in the top 5% of users" },
+        50: { badge: "🏆", text: "50 days! Absolute machine" },
+        100: { badge: "👑", text: "100 DAYS. Legend status unlocked" }
+      };
+      const milestones = [3, 7, 14, 21, 30, 50, 100];
+      const newMilestone = milestones.filter(m => streak >= m).pop();
+      if (newMilestone && newMilestone > (user.lastStreakMilestone || 0)) {
+        user.lastStreakMilestone = newMilestone;
+        const m = milestoneMessages[newMilestone];
+        milestoneStr = `\n${m.badge} ${m.text}`;
+        // Ask for feedback on milestone (only on 7+ day milestones)
+        if (newMilestone >= 7) {
+          milestoneStr += `\n\n💬 Quick question — what's one thing you'd change about FitSorted?`;
+          user.awaitingFeedback = true;
+          user.feedbackAskedAt = new Date().toISOString();
+        }
+      }
+
+      // Buddy stats (only if both logged today)
+      let buddyStr = "";
+      if (user.buddy?.paired && users[user.buddy.phone]) {
+        const buddyUser = users[user.buddy.phone];
+        const buddyTodayEntries = buddyUser.log[getToday()] || [];
+        if (buddyTodayEntries.length > 0) {
+          const buddyTotal = buddyTodayEntries.reduce((s, e) => s + e.calories, 0);
+          const buddyIcon = buddyTotal <= buddyUser.goal ? "✅" : "⚠️";
+          const userUnder = countUnderGoalDaysThisWeek(user);
+          const buddyUnder = countUnderGoalDaysThisWeek(buddyUser);
+          buddyStr = `\n\n🤝 *Buddy: ${buddyUser.name || user.buddy.phone}*\n` +
+            `Their day: ${buddyTotal.toLocaleString()} / ${buddyUser.goal.toLocaleString()} cal ${buddyIcon}\n` +
+            `This week: You ${userUnder} ✅ — Them ${buddyUnder} ✅`;
+        }
+      }
+
+      let challengeStr = "";
+      let weeklyChallengeStr = "";
+      if (user.challenge) {
+        const challenge = challenges[user.challenge];
+        if (challenge && challenge.active && challenge.startedAt) {
+          const leaderboardMsg = buildChallengeLeaderboardMessage(challenge, users, phone);
+          if (leaderboardMsg) challengeStr = `\n\n${leaderboardMsg}`;
+          const isFriday = new Date().getDay() === 5;
+          if (isFriday) {
+            const weeklyMsg = buildWeeklyChallengeRecap(challenge, users, phone);
+            if (weeklyMsg) weeklyChallengeStr = `\n\n${weeklyMsg}`;
+          }
+        }
+      }
+
+      const summaryMsg = `📊 *Daily Summary*\n${total} / ${user.goal} cal${macroStr}${spendStr}\n${deficitMessage(total, user.goal)}${streakStr}${milestoneStr}${trialReminderStr}${buddyStr}${challengeStr}${weeklyChallengeStr}`;
+      await send(phone, summaryMsg);
 
       // ── First 3 days: Send command reminder ──
       if (user.joinedAt) {
@@ -4701,11 +6232,61 @@ cron.schedule("0 20 * * *", async () => {
             await send(phone, reminders[daysSinceJoin]);
           }
         }
+
+        // ── Day 7 feedback ask ──
+        if (daysSinceJoin === 7 && !user.sentDay7Feedback) {
+          await send(phone, `You've been using FitSorted for a week! 🎉 How's it going?\n\nReply with any feedback — good or bad, we read everything.`);
+          user.sentDay7Feedback = true;
+          user.awaitingFeedback = true;
+          user.feedbackAskedAt = new Date().toISOString();
+        }
+
+        // ── Friday feedback for power users (5+ days logged this week) ──
+        const isFriday = new Date().getDay() === 5;
+        if (isFriday && !user.awaitingFeedback && daysSinceJoin > 7) {
+          const last7dates = getLastNDates(7);
+          const daysLoggedThisWeek = last7dates.filter(d => (user.log[d] || []).length > 0).length;
+          // Only ask if logged 5+ days AND we haven't asked in the last 30 days
+          const lastFeedbackAsk = user.lastFeedbackAskDate ? new Date(user.lastFeedbackAskDate) : null;
+          const daysSinceLastAsk = lastFeedbackAsk ? (Date.now() - lastFeedbackAsk.getTime()) / 86400000 : 999;
+          if (daysLoggedThisWeek >= 5 && daysSinceLastAsk > 30) {
+            const fridayQuestions = [
+              `💬 You crushed it this week. Anything we should improve?`,
+              `💬 Quick one — what feature do you wish FitSorted had?`,
+              `💬 Would you recommend FitSorted to a friend? Why or why not?`,
+              `💬 On a scale of 1-10, how would you rate FitSorted?`
+            ];
+            const questionIndex = Math.floor(Date.now() / 604800000) % fridayQuestions.length; // rotate weekly
+            await send(phone, fridayQuestions[questionIndex]);
+            user.awaitingFeedback = true;
+            user.feedbackAskedAt = new Date().toISOString();
+            user.lastFeedbackAskDate = new Date().toISOString();
+          }
+        }
       }
     } catch (err) {
       console.error(`Summary failed for ${phone}:`, err.message);
     }
   }
+  const today = getToday();
+  for (const challenge of Object.values(challenges)) {
+    if (!challenge.active || !challenge.startedAt) continue;
+    const endDateStr = getChallengeEndDateStr(challenge);
+    if (!endDateStr || compareDateStr(today, endDateStr) < 0) continue;
+    const finalMsg = buildFinalChallengeResultsMessage(challenge, users);
+    if (finalMsg) {
+      for (const phone of (challenge.members || [])) {
+        if (users[phone]?.optedOut) continue;
+        await send(phone, finalMsg);
+      }
+    }
+    challenge.active = false;
+    for (const phone of (challenge.members || [])) {
+      if (users[phone]?.challenge === challenge.code) delete users[phone].challenge;
+    }
+  }
+  saveChallenges(challenges);
+  saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
 // ── Friday 9 AM weight projection ──
@@ -4841,8 +6422,9 @@ cron.schedule("0 10 * * *", async () => {
   saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
-// ── 11 AM Day 7 re-engagement ──
-cron.schedule("0 11 * * *", async () => {
+// ── 11 AM Day 7 re-engagement ── DISABLED: 33% but tiny sample, both converts already active
+// cron.schedule("0 11 * * *", async () => {
+if (false) { (async () => {
   if (cronAlreadyRan('day7-reengagement')) { console.log('[cron] Day 7 re-engagement already sent, skipping'); return; }
   markCronRan('day7-reengagement');
   const users = loadUsers();
@@ -4889,6 +6471,175 @@ cron.schedule("0 11 * * *", async () => {
     }
   }
   
+  saveUsers(users);
+})(); } // end disabled day 7 re-engagement
+
+// ── 10 AM Day 5 trial conversion nudge (2 days left — show what they'll lose) ──
+cron.schedule("0 10 * * *", async () => {
+  if (cronAlreadyRan('day5-conversion')) { return; }
+  markCronRan('day5-conversion');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay5Conversion) continue;
+    if (isGrandfathered(user)) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 5) continue;
+    
+    // Only nudge active users (they have something to lose)
+    const daysLogged = Object.values(user.log || {}).filter(a => Array.isArray(a) && a.length > 0).length;
+    if (daysLogged < 2) continue;
+    
+    // Already paid? Skip
+    const premium = await isPremium(phone);
+    if (premium) { users[phone].sentDay5Conversion = true; continue; }
+    
+    try {
+      const name = user.name || "Hey";
+      const totalEntries = Object.values(user.log || {}).reduce((s, a) => s + (Array.isArray(a) ? a.length : 0), 0);
+      
+      // Calculate their actual stats to make it personal
+      const todayMacros = getTodayMacros(user);
+      const hasUsedMacros = todayMacros.protein > 0;
+      const hasUsedPhotos = Object.values(user.log || {}).flat().some(e => e?.source === 'photo');
+      const hasWeights = (user.weights || []).length > 0;
+      
+      let features = [];
+      if (hasUsedMacros) features.push("🥩 Macro tracking (protein, carbs, fat)");
+      features.push("🧠 Coaching mode & meal suggestions");
+      features.push("📸 Photo food logging");
+      if (hasWeights) features.push("⚖️ Weight trend tracking");
+      features.push("📧 Weekly email reports");
+      features.push("💰 Food budget tracking");
+      
+      const monthlyLink = getPayFastMonthlyLink(phone);
+      const annualLink = getPayFastAnnualLink(phone);
+      
+      await send(phone,
+        `${name} — your free trial ends in *2 days* ⏰\n\n` +
+        `You've logged *${totalEntries} meals* across *${daysLogged} days*. That's real progress.\n\n` +
+        `After your trial, you keep *free calorie tracking forever*. But these Premium features go away:\n\n` +
+        `${features.join("\n")}\n\n` +
+        `Lock it in for *R36/mo* (R1.20/day):\n` +
+        `👉 ${monthlyLink}\n\n` +
+        `Or save with annual — *R399/year*:\n` +
+        `👉 ${annualLink}\n\n` +
+        `_Cancel anytime. Free tracking stays forever._`
+      );
+      users[phone].sentDay5Conversion = true;
+    } catch (err) {
+      console.error(`Day 5 conversion failed for ${phone}:`, err.message);
+    }
+  }
+  saveUsers(users);
+}, { timezone: "Africa/Johannesburg" });
+
+// ── 9 AM Day 7 trial expiry conversion (last chance — urgency) ──
+cron.schedule("0 9 * * *", async () => {
+  if (cronAlreadyRan('day7-conversion')) { return; }
+  markCronRan('day7-conversion');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay7Conversion) continue;
+    if (isGrandfathered(user)) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 7) continue;
+    
+    const daysLogged = Object.values(user.log || {}).filter(a => Array.isArray(a) && a.length > 0).length;
+    if (daysLogged < 1) continue;
+    
+    const premium = await isPremium(phone);
+    if (premium) { users[phone].sentDay7Conversion = true; continue; }
+    
+    try {
+      const name = user.name || "Hey";
+      const totalEntries = Object.values(user.log || {}).reduce((s, a) => s + (Array.isArray(a) ? a.length : 0), 0);
+      
+      // Calculate weight change if they've logged weights
+      let weightStr = "";
+      if (user.weights && user.weights.length >= 2) {
+        const first = user.weights[0].kg;
+        const last = user.weights[user.weights.length - 1].kg;
+        const diff = last - first;
+        if (diff < 0) weightStr = `\n\n📉 You've lost *${Math.abs(diff).toFixed(1)} kg* since you started. Don't stop now.`;
+      }
+      
+      const monthlyLink = getPayFastMonthlyLink(phone);
+      const annualLink = getPayFastAnnualLink(phone);
+      
+      await send(phone,
+        `${name} — your free trial ends *today* 🔔\n\n` +
+        `*${totalEntries} meals logged. ${daysLogged} days tracked.* That's commitment.${weightStr}\n\n` +
+        `Starting tomorrow, calorie tracking stays *100% free*.\n\n` +
+        `But Premium features (macros, coaching, photos, exports) are going away.\n\n` +
+        `Keep everything for just *R36/mo* — that's less than a coffee:\n` +
+        `📅 Monthly: ${monthlyLink}\n` +
+        `🏆 Annual (save R189): ${annualLink}\n\n` +
+        `Or just keep tracking for free — no hard feelings 🤝`
+      );
+      users[phone].sentDay7Conversion = true;
+    } catch (err) {
+      console.error(`Day 7 conversion failed for ${phone}:`, err.message);
+    }
+  }
+  saveUsers(users);
+}, { timezone: "Africa/Johannesburg" });
+
+// ── 10 AM Day 14 win-back (one week post-trial — last attempt) ──
+cron.schedule("0 10 * * *", async () => {
+  if (cronAlreadyRan('day14-winback')) { return; }
+  markCronRan('day14-winback');
+  const users = loadUsers();
+  
+  for (const [phone, user] of Object.entries(users)) {
+    if (!user.setup || !user.joinedAt) continue;
+    if (user.sentDay14Winback) continue;
+    if (isGrandfathered(user)) continue;
+    
+    const daysSinceJoin = Math.floor((Date.now() - new Date(user.joinedAt).getTime()) / 86400000);
+    if (daysSinceJoin !== 14) continue;
+    
+    const premium = await isPremium(phone);
+    if (premium) { users[phone].sentDay14Winback = true; continue; }
+    
+    // Only win back users who were actually active
+    const daysLogged = Object.values(user.log || {}).filter(a => Array.isArray(a) && a.length > 0).length;
+    if (daysLogged < 3) continue;
+    
+    // Check if they're still using the free tier
+    const lastActivity = getLastActivityDate(user);
+    const daysSinceActivity = lastActivity ? (Date.now() - lastActivity.getTime()) / 86400000 : 999;
+    
+    try {
+      const name = user.name || "Hey";
+      const monthlyLink = getPayFastMonthlyLink(phone);
+      
+      if (daysSinceActivity <= 3) {
+        // Still active on free tier — they're getting value, upsell premium
+        await send(phone,
+          `${name} 👋 You're still tracking — love to see it.\n\n` +
+          `Missing macros and coaching? Get Premium back for R36/mo:\n👉 ${monthlyLink}\n\n` +
+          `_This is my last upgrade message — I won't bug you again_ ✌️`
+        );
+      } else {
+        // Churned — try to re-engage
+        await send(phone,
+          `${name} 👋 It's been a while.\n\n` +
+          `You tracked *${daysLogged} days* — that's more than most people manage.\n\n` +
+          `Ready to go again? Just send me what you ate today.\n\n` +
+          `_Free calorie tracking, always. No catch._ 🍽️`
+        );
+      }
+      users[phone].sentDay14Winback = true;
+    } catch (err) {
+      console.error(`Day 14 winback failed for ${phone}:`, err.message);
+    }
+  }
   saveUsers(users);
 }, { timezone: "Africa/Johannesburg" });
 
@@ -5101,15 +6852,15 @@ cron.schedule("*/5 * * * *", () => {
 });
 
 // ── Admin Dashboard Endpoints ──
-app.get('/admin', (req, res) => {
+app.get('/admin', requireAdmin, (req, res) => {
   res.sendFile(__dirname + '/admin.html');
 });
 
-app.get('/dashboard', (req, res) => {
+app.get('/dashboard', requireAdmin, (req, res) => {
   res.sendFile(__dirname + '/dashboard.html');
 });
 
-app.get('/api/dashboard', (req, res) => {
+app.get('/api/dashboard', requireAdmin, (req, res) => {
   const users = loadUsers();
   const userData = [];
   for (const [phone, u] of Object.entries(users)) {
@@ -5148,7 +6899,7 @@ app.get('/api/dashboard', (req, res) => {
   res.json(userData);
 });
 
-app.get('/api/stats', (req, res) => {
+app.get('/api/stats', requireAdmin, (req, res) => {
   const users = loadUsers();
   const today = getToday();
   const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
@@ -5208,6 +6959,25 @@ app.get('/api/stats', (req, res) => {
     .sort((a, b) => b.created.localeCompare(a.created))
     .slice(0, 10);
   
+  // Monday Launch Monitor: signups in last hour
+  const oneHourAgo = new Date(Date.now() - 3600000).toISOString();
+  const signupsLastHour = phones.filter(p => {
+    const created = users[p].created || users[p].joinedAt || '';
+    return created >= oneHourAgo;
+  }).length;
+  
+  // Peak hour (hour with most signups today)
+  const signupsByHour = {};
+  for (const phone of phones) {
+    const created = users[phone].created || users[phone].joinedAt || '';
+    if (created.startsWith(today)) {
+      const hour = new Date(created).getHours();
+      signupsByHour[hour] = (signupsByHour[hour] || 0) + 1;
+    }
+  }
+  const peakHourNum = Object.entries(signupsByHour).sort((a, b) => b[1] - a[1])[0]?.[0];
+  const peakHour = peakHourNum !== undefined ? `${peakHourNum}:00` : '—';
+  
   res.json({
     totalUsers, setupComplete, proUsers,
     activeToday, activeYesterday, activeWeek,
@@ -5215,6 +6985,8 @@ app.get('/api/stats', (req, res) => {
     signupsToday, signupsYesterday, signupsThisWeek,
     signupsByDay,
     recentSignups,
+    signupsLastHour,
+    peakHour,
     timestamp: new Date().toISOString()
   });
 });
@@ -5260,12 +7032,12 @@ function pushStats() {
 pushStats();
 setInterval(pushStats, 300000); // every 5 min
 
-app.get('/admin/failed-lookups', (req, res) => {
+app.get('/admin/failed-lookups', requireAdmin, (req, res) => {
   const failed = loadFailedLookups();
   res.json(failed);
 });
 
-app.post('/admin/add-food', async (req, res) => {
+app.post('/admin/add-food', requireAdmin, async (req, res) => {
   const { name, calories, protein, carbs, fat } = req.body;
 
   if (!name || !calories) {
@@ -5305,7 +7077,7 @@ app.post('/admin/add-food', async (req, res) => {
   }
 });
 
-app.post('/admin/dismiss-lookup', (req, res) => {
+app.post('/admin/dismiss-lookup', requireAdmin, (req, res) => {
   const { name } = req.body;
 
   if (!name) {
@@ -5323,6 +7095,85 @@ app.post('/admin/dismiss-lookup', (req, res) => {
     console.error('Dismiss error:', err);
     res.json({ success: false, error: err.message });
   }
+});
+
+// ── Step sync webhook (for Apple Health Shortcuts / external integrations) ──
+// POST /api/steps { phone: "27...", steps: 8500, token: "hash" }
+// Token = first 8 chars of SHA256(phone) — same as PWA token for simplicity
+app.post('/api/steps', async (req, res) => {
+  try {
+    const body = req.body || {};
+    console.log('[steps API] Received:', JSON.stringify(body));
+    const phone = body.phone;
+    const token = body.token;
+    // Handle various formats from Apple Health Shortcuts:
+    // - plain number: { steps: 8000 }
+    // - string: { steps: "8000" }
+    // - array of samples: { steps: [{ value: 8000 }, ...] }
+    // - Health Sample object: { steps: { value: 8000 } }
+    let steps = body.steps;
+    if (Array.isArray(steps)) {
+      // Sum all sample values
+      steps = steps.reduce((sum, s) => sum + (parseFloat(s.value || s.qty || s) || 0), 0);
+    } else if (typeof steps === 'object' && steps !== null) {
+      steps = parseFloat(steps.value || steps.qty || steps.count || 0);
+    } else {
+      steps = parseFloat(steps);
+    }
+    if (!phone || !steps || !token) return res.status(400).json({ error: 'Missing phone, steps, or token', received: { phone: !!phone, steps: body.steps, token: !!token } });
+    
+    const crypto = require('crypto');
+    const expectedToken = crypto.createHash('sha256').update(String(phone)).digest('hex').slice(0, 8);
+    if (token !== expectedToken) return res.status(401).json({ error: 'Invalid token' });
+    
+    const users = loadUsers();
+    const user = users[phone];
+    if (!user || !user.setup) return res.status(404).json({ error: 'User not found' });
+    
+    const stepCount = parseInt(steps);
+    if (isNaN(stepCount) || stepCount < 1 || stepCount > 200000) return res.status(400).json({ error: 'Invalid step count' });
+    
+    const today = getToday();
+    if (!user.steps) user.steps = {};
+    // For auto-sync, REPLACE today's count (not add) since Health app sends total
+    user.steps[today] = { count: stepCount, logs: [{ steps: stepCount, time: new Date().toISOString(), source: 'auto' }] };
+    saveUsers(users);
+    
+    const stepGoal = user.stepGoal || 10000;
+    const hit = stepCount >= stepGoal;
+    
+    // Only send WhatsApp notification if they hit their goal (avoid spam)
+    if (hit && !user.steps[today].notified) {
+      user.steps[today].notified = true;
+      saveUsers(users);
+      await send(phone, `🎉 *Step goal smashed!*\n\n🚶 ${stepCount.toLocaleString()} / ${stepGoal.toLocaleString()} steps today\n\nKeep it up 💪`);
+    }
+    
+    res.json({ ok: true, steps: stepCount, goal: stepGoal, hit });
+  } catch (err) {
+    console.error('[steps API] Error:', err.message);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// GET /api/steps/setup?phone=27... — returns shortcut install instructions + token
+app.get('/api/steps/setup', (req, res) => {
+  const phone = req.query.phone;
+  if (!phone) return res.status(400).send('Missing phone parameter');
+  
+  const crypto = require('crypto');
+  const token = crypto.createHash('sha256').update(String(phone)).digest('hex').slice(0, 8);
+  
+  // The webhook URL that the iOS Shortcut will POST to
+  const webhookUrl = `https://fitsorted.co.za/api/steps`;
+  
+  res.json({
+    instructions: 'Create an iOS Shortcut with these steps: 1) Find Health Samples (Step Count, today) → 2) Get contents of URL (POST to webhook with JSON body)',
+    webhookUrl,
+    phone,
+    token,
+    body: { phone, steps: '{{steps}}', token }
+  });
 });
 
 app.listen(PORT, () => console.log(`✅ FitSorted calorie tracker on port ${PORT}`));

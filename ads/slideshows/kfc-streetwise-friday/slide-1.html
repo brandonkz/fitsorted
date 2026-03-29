@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  width: 1080px;
+  height: 1920px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.container {
+  text-align: center;
+  z-index: 2;
+  padding: 0 80px;
+}
+.emoji {
+  font-size: 200px;
+  margin-bottom: 40px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+}
+.number {
+  font-size: 280px;
+  font-weight: 900;
+  color: white;
+  line-height: 0.9;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+.label {
+  font-size: 110px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  margin-bottom: 60px;
+}
+.food {
+  font-size: 90px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.2;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(255,255,255,0.1) 50px, rgba(255,255,255,0.1) 100px);
+}
+</style>
+</head>
+<body>
+<div class="pattern"></div>
+<div class="container">
+  <div class="emoji">🍗</div>
+  <div class="number">740</div>
+  <div class="label">CALORIES</div>
+  <div class="food">KFC Streetwise 2<br>(what you actually order)</div>
+</div>
+</body>
+</html>

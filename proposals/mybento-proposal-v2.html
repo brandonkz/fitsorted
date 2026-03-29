@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitSorted x MyBento — Partnership Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: #1a1a2e; line-height: 1.65; background: #fff; }
+  .page { max-width: 760px; margin: 0 auto; padding: 48px 52px; }
+
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 3px solid #22c55e; }
+  .logo { font-size: 26px; font-weight: 700; color: #22c55e; }
+  .logo span { color: #1a1a2e; }
+  .header-right { text-align: right; font-size: 12px; color: #94a3b8; }
+  .header-right strong { color: #64748b; font-size: 13px; }
+
+  .hero { background: #f0fdf4; border-radius: 14px; padding: 28px 32px; margin-bottom: 32px; }
+  .hero h1 { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .hero p { font-size: 14px; color: #475569; }
+
+  h2 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; }
+  p { font-size: 13.5px; color: #475569; margin-bottom: 10px; }
+  strong { color: #1a1a2e; }
+
+  .how-it-works { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin: 16px 0; }
+  .flow { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
+  .flow-step { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; text-align: center; min-width: 140px; }
+  .flow-step .num { background: #22c55e; color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; margin-bottom: 6px; }
+  .flow-step .title { font-size: 12px; font-weight: 600; color: #1a1a2e; }
+  .flow-step .desc { font-size: 11px; color: #64748b; margin-top: 2px; }
+  .flow-arrow { color: #22c55e; font-size: 20px; font-weight: bold; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  .box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; }
+  .box h3 { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-bottom: 8px; }
+  .box ul { font-size: 12.5px; color: #475569; padding-left: 16px; }
+  .box ul li { margin: 4px 0; }
+
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tr:nth-child(even) { background: #f8fafc; }
+  .price-row { background: #f0fdf4 !important; }
+  .price-row td { font-weight: 600; color: #166534; font-size: 15px; }
+
+  .report-sample { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 20px 24px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; line-height: 1.6; margin: 14px 0; }
+  .report-sample .green { color: #22c55e; }
+  .report-sample .dim { color: #64748b; }
+
+  .stats { display: flex; justify-content: space-around; background: #1a1a2e; color: white; border-radius: 12px; padding: 20px; margin: 18px 0; }
+  .stat { text-align: center; }
+  .stat-value { font-size: 24px; font-weight: 700; color: #22c55e; }
+  .stat-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  .cta { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; border-radius: 12px; padding: 24px 28px; text-align: center; margin: 28px 0 20px; }
+  .cta h3 { color: white; font-size: 17px; margin: 0 0 6px; font-weight: 700; }
+  .cta p { color: rgba(255,255,255,0.9); margin: 0; font-size: 13px; }
+
+  .footer { padding-top: 18px; border-top: 2px solid #e2e8f0; text-align: center; font-size: 12px; color: #64748b; }
+  .footer a { color: #22c55e; text-decoration: none; }
+  .footer .slogan { font-size: 11px; color: #94a3b8; font-style: italic; margin-top: 10px; }
+
+  @media print { .page { padding: 20px 36px; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo">Fit<span>Sorted</span></div>
+    <div class="header-right">
+      <strong>Partnership Proposal</strong><br>
+      Prepared for MyBento<br>
+      March 2026
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>WhatsApp Nutrition Tracking for MyBento's Wellness Module</h1>
+    <p>Add a calorie and macro tracker to your employee wellness offering. No app downloads, no development work, no admin. Employees text what they ate on WhatsApp — that's it.</p>
+  </div>
+
+  <h2>How It Works</h2>
+  <div class="how-it-works">
+    <div class="flow">
+      <div class="flow-step">
+        <div class="num">1</div>
+        <div class="title">MyBento gets a link</div>
+        <div class="desc">Unique per client company</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="num">2</div>
+        <div class="title">Employee clicks link</div>
+        <div class="desc">Opens WhatsApp, auto-joins</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="num">3</div>
+        <div class="title">They text what they ate</div>
+        <div class="desc">AI tracks calories + macros</div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:12px; color:#64748b; margin:10px 0 0;">No setup, no onboarding, no training. Works on any phone. Employees use it like texting a friend.</p>
+  </div>
+
+  <h2>What MyBento's Clients Get</h2>
+  <div class="two-col">
+    <div class="box">
+      <h3>📱 Employees</h3>
+      <ul>
+        <li>Text or photo → instant calorie tracking</li>
+        <li>Morning recap + evening summary</li>
+        <li>Weight tracking & streaks</li>
+        <li>500+ SA foods built in (Nando's, Woolies, KFC, Steers, etc.)</li>
+        <li>Ask nutrition questions anytime</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>📊 HR / Wellness Manager</h3>
+      <ul>
+        <li>Monthly report: active users, participation rate</li>
+        <li>Simple invoice based on usage</li>
+        <li>Zero admin or IT involvement</li>
+        <li>Supports wellness programme KPIs</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>What MyBento Gets</h2>
+  <p>A plug-and-play wellness feature you can offer to every client tomorrow. No development, no integration, no maintenance.</p>
+
+  <h2>Pricing</h2>
+  <table>
+    <tr><th>Item</th><th style="text-align:right;">Price</th></tr>
+    <tr class="price-row"><td>Per active employee, per month</td><td style="text-align:right;">R7.50</td></tr>
+    <tr><td>Setup per client</td><td style="text-align:right;">Free</td></tr>
+    <tr><td>Monthly usage report</td><td style="text-align:right;">Included</td></tr>
+    <tr><td>Support & updates</td><td style="text-align:right;">Included</td></tr>
+  </table>
+  <p style="font-size:11.5px; color:#94a3b8;">Active user = sent at least 1 message that month.</p>
+
+  <h2>Monthly Report</h2>
+  <p>On the 1st of each month, MyBento receives a report per client:</p>
+  <div class="report-sample">
+    <span class="green">📊 FitSorted Monthly Report — March 2026</span><br><br>
+    <span class="dim">Company:</span> Acme Corp<br>
+    <span class="dim">Employees joined:</span> 47<br>
+    <span class="dim">Active this month:</span> 32<br>
+    <span class="dim">Total food logs:</span> 812<br>
+    <span class="dim">Avg logs per user:</span> 25.4<br><br>
+    <span class="green">Invoice: 32 × R7.50 = R240.00</span>
+  </div>
+
+  <div class="cta">
+    <h3>Free Pilot — No Risk</h3>
+    <p>Pick one client. We set it up in 48 hours. Two weeks free. If it works, we scale. If not, nothing lost.</p>
+  </div>
+
+  <div class="footer">
+    <strong>Brandon Katz</strong> · <a href="mailto:brandon@fitsorted.co.za">brandon@fitsorted.co.za</a> · <a href="https://wa.me/27690684940">+27 69 068 4940</a> · <a href="https://fitsorted.co.za">fitsorted.co.za</a>
+    <div class="slogan">Nutrition tracking that meets employees where they already are.</div>
+  </div>
+
+</div>
+</body>
+</html>

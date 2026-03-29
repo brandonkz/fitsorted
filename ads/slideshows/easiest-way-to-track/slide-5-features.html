@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; background: #0a0a0a; font-family: 'Inter', sans-serif; overflow: hidden; padding: 60px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+  .brand-dot { width: 14px; height: 14px; background: #25D366; border-radius: 50%; }
+  .brand-text { color: #25D366; font-family: 'Anton', sans-serif; font-size: 28px; letter-spacing: 4px; }
+  .slide-num { position: absolute; top: 50px; right: 60px; color: rgba(255,255,255,0.3); font-size: 22px; font-weight: 600; }
+  .title { color: #fff; font-family: 'Anton', sans-serif; font-size: 52px; margin-bottom: 10px; }
+  .subtitle { color: rgba(255,255,255,0.4); font-size: 24px; margin-bottom: 40px; }
+  .features { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .feat { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; }
+  .feat-icon { font-size: 48px; margin-bottom: 14px; }
+  .feat-title { color: #fff; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  .feat-desc { color: rgba(255,255,255,0.4); font-size: 22px; line-height: 1.4; }
+  .feat-desc .green { color: #25D366; font-weight: 600; }
+</style></head><body>
+  <div class="brand"><div class="brand-dot"></div><span class="brand-text">FITSORTED</span></div>
+  <div class="slide-num">5/6</div>
+  <div class="title">WHAT YOU GET</div>
+  <div class="subtitle">No app download. No signup form. Just WhatsApp.</div>
+  <div class="features">
+    <div class="feat">
+      <div class="feat-icon">🤖</div>
+      <div class="feat-title">AI Agent</div>
+      <div class="feat-desc">Understands <span class="green">natural language</span><br>"2 eggs on toast" just works</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🇿🇦</div>
+      <div class="feat-title">SA Food Database</div>
+      <div class="feat-desc">Nando's, Steers, Woolworths,<br>biltong, vetkoek, bunny chow</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🌅</div>
+      <div class="feat-title">Morning Check-in</div>
+      <div class="feat-desc">Daily recap at <span class="green">6:30 AM</span><br>with yesterday's summary</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🌙</div>
+      <div class="feat-title">Evening Summary</div>
+      <div class="feat-desc">Full day breakdown<br>at <span class="green">8:00 PM</span></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">💪</div>
+      <div class="feat-title">Macro Tracking</div>
+      <div class="feat-desc">Protein, carbs, fat<br>and fibre — <span class="green">all automatic</span></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">⚖️</div>
+      <div class="feat-title">Weight Tracking</div>
+      <div class="feat-desc">Text your weight anytime<br>see your <span class="green">trend over time</span></div>
+    </div>
+  </div>
+</body></html>

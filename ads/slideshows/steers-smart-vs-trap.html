@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #000; }
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  /* Slide 1 - Hook */
+  .slide-1 {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1a0a 100%);
+  }
+  .slide-1 .emoji-top { font-size: 80px; margin-bottom: 30px; }
+  .slide-1 h1 {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 30px;
+  }
+  .slide-1 h1 span { color: #f59e0b; }
+  .slide-1 .subtitle {
+    font-size: 36px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .brand-badge {
+    position: absolute;
+    bottom: 60px;
+    background: rgba(255,255,255,0.1);
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: #888;
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  /* Slide 2 - Good choice */
+  .slide-2 {
+    background: linear-gradient(135deg, #0d1f0d 0%, #1a2e1a 100%);
+    text-align: center;
+  }
+  .slide-2 .label {
+    font-size: 28px;
+    color: #4ade80;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  .food-card {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(74,222,128,0.3);
+    border-radius: 30px;
+    padding: 60px 80px;
+    margin: 20px 0;
+    width: 100%;
+  }
+  .food-name {
+    font-size: 52px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+  }
+  .food-detail {
+    font-size: 32px;
+    color: #aaa;
+    margin-bottom: 30px;
+  }
+  .macros {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+  }
+  .macro { text-align: center; }
+  .macro-val {
+    font-size: 48px;
+    font-weight: 800;
+    color: #4ade80;
+  }
+  .macro-label {
+    font-size: 22px;
+    color: #888;
+    margin-top: 5px;
+  }
+  .cal-badge {
+    font-size: 64px;
+    font-weight: 900;
+    color: #4ade80;
+    margin: 20px 0;
+  }
+
+  /* Slide 3 - Trap */
+  .slide-3 {
+    background: linear-gradient(135deg, #1f0d0d 0%, #2e1a1a 100%);
+    text-align: center;
+  }
+  .slide-3 .label {
+    font-size: 28px;
+    color: #e63946;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  .food-card-bad {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(230,57,70,0.3);
+    border-radius: 30px;
+    padding: 60px 80px;
+    margin: 20px 0;
+    width: 100%;
+  }
+  .cal-badge-bad {
+    font-size: 64px;
+    font-weight: 900;
+    color: #e63946;
+    margin: 20px 0;
+  }
+  .macro-val-bad {
+    font-size: 48px;
+    font-weight: 800;
+    color: #e63946;
+  }
+
+  /* Slide 4 - Comparison */
+  .slide-4 {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    text-align: center;
+  }
+  .slide-4 h2 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 50px;
+  }
+  .compare-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
+    width: 100%;
+  }
+  .compare-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 40px;
+    flex: 1;
+    text-align: center;
+  }
+  .compare-item.good { border: 2px solid rgba(74,222,128,0.3); }
+  .compare-item.bad { border: 2px solid rgba(230,57,70,0.3); }
+  .compare-item .name { font-size: 30px; color: #fff; font-weight: 700; margin-bottom: 10px; }
+  .compare-item .cals { font-size: 42px; font-weight: 900; }
+  .compare-item.good .cals { color: #4ade80; }
+  .compare-item.bad .cals { color: #e63946; }
+  .vs { font-size: 36px; color: #555; font-weight: 900; }
+
+  /* Slide 5 - CTA */
+  .slide-5 {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    text-align: center;
+  }
+  .slide-5 h2 {
+    font-size: 56px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 40px;
+  }
+  .slide-5 h2 span { color: #f59e0b; }
+  .tip-box {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 40px 60px;
+    margin: 20px 0;
+  }
+  .tip-text {
+    font-size: 32px;
+    color: #ccc;
+    line-height: 1.5;
+  }
+  .cta-btn {
+    margin-top: 50px;
+    background: #f59e0b;
+    color: #000;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 25px 60px;
+    border-radius: 50px;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<!-- Slide 1: Hook -->
+<div class="slide slide-1">
+  <div class="emoji-top">🍔</div>
+  <h1>Steers has a<br><span>600 calorie</span><br>burger that slaps</h1>
+  <div class="subtitle">And a 1,400 cal trap right next to it 💀</div>
+  <div class="brand-badge">FITSORTED</div>
+</div>
+
+<!-- Slide 2: Good Choice -->
+<div class="slide slide-2">
+  <div class="label">✅ The Smart Order</div>
+  <div class="food-card">
+    <div class="food-name">Classic Steers Burger</div>
+    <div class="food-detail">Single patty, no cheese, side salad</div>
+    <div class="cal-badge">~590 cal</div>
+    <div class="macros">
+      <div class="macro">
+        <div class="macro-val">38g</div>
+        <div class="macro-label">Protein</div>
+      </div>
+      <div class="macro">
+        <div class="macro-val">24g</div>
+        <div class="macro-label">Fat</div>
+      </div>
+      <div class="macro">
+        <div class="macro-val">48g</div>
+        <div class="macro-label">Carbs</div>
+      </div>
+    </div>
+  </div>
+  <div style="color:#4ade80; font-size:28px; margin-top:30px;">Solid protein. Still a proper burger. 💪</div>
+</div>
+
+<!-- Slide 3: Trap -->
+<div class="slide slide-3">
+  <div class="label">🚩 The Trap Order</div>
+  <div class="food-card-bad">
+    <div class="food-name">King Steer + chips + shake</div>
+    <div class="food-detail">Double patty, cheese, large chips, milkshake</div>
+    <div class="cal-badge-bad">~1,420 cal</div>
+    <div class="macros">
+      <div class="macro">
+        <div class="macro-val-bad">52g</div>
+        <div class="macro-label">Protein</div>
+      </div>
+      <div class="macro">
+        <div class="macro-val-bad">78g</div>
+        <div class="macro-label">Fat</div>
+      </div>
+      <div class="macro">
+        <div class="macro-val-bad">128g</div>
+        <div class="macro-label">Carbs</div>
+      </div>
+    </div>
+  </div>
+  <div style="color:#e63946; font-size:28px; margin-top:30px;">The shake alone is 400 cal. That's a whole meal. 😭</div>
+</div>
+
+<!-- Slide 4: Side-by-side -->
+<div class="slide slide-4">
+  <h2>Same Steers.<br>Very different damage.</h2>
+  <div class="compare-row">
+    <div class="compare-item good">
+      <div class="name">Classic + salad</div>
+      <div class="cals">590 cal</div>
+      <div style="color:#4ade80; font-size:24px; margin-top:10px;">38g protein</div>
+    </div>
+    <div class="vs">VS</div>
+    <div class="compare-item bad">
+      <div class="name">King Steer combo</div>
+      <div class="cals">1,420 cal</div>
+      <div style="color:#e63946; font-size:24px; margin-top:10px;">52g protein</div>
+    </div>
+  </div>
+  <div style="color:#888; font-size:28px; margin-top:40px;">2.4x the calories for only 14g more protein 🤯</div>
+</div>
+
+<!-- Slide 5: CTA -->
+<div class="slide slide-5">
+  <h2>You can still enjoy<br><span>Steers on a cut</span></h2>
+  <div class="tip-box">
+    <div class="tip-text">
+      🍔 Single patty > double patty<br>
+      🥗 Swap chips for side salad<br>
+      💧 Water or Coke Zero > milkshake<br>
+      📱 Know the numbers before you order
+    </div>
+  </div>
+  <div class="cta-btn">Follow @FitSorted for more 🇿🇦</div>
+</div>
+
+</body>
+</html>
