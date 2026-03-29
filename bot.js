@@ -1676,6 +1676,72 @@ async function estimateCalories(food, user) {
     "plant protein shake": { food: "Plant Protein Shake (1 scoop)", calories: 130, protein: 20, carbs: 6, fat: 3, fibre: 3 },
     "vegan protein shake": { food: "Vegan Protein Shake (1 scoop)", calories: 130, protein: 20, carbs: 6, fat: 3, fibre: 3 },
     "pea protein shake": { food: "Pea Protein Shake (1 scoop)", calories: 120, protein: 22, carbs: 3, fat: 2, fibre: 2 },
+    // Round 20b - More SA brands + protein bars + mass gainers (fatsecret.co.za scrape)
+    // USN extras
+    "usn hyperbolic mass": { food: "USN Hyperbolic Mass (3 scoops)", calories: 1164, protein: 60, carbs: 210, fat: 1, fibre: 2 },
+    "hyperbolic mass": { food: "USN Hyperbolic Mass (3 scoops)", calories: 1164, protein: 60, carbs: 210, fat: 1, fibre: 2 },
+    "usn diet protein": { food: "USN Diet Protein (1 scoop)", calories: 184, protein: 20, carbs: 20, fat: 2, fibre: 3 },
+    "usn hydrotech whey": { food: "USN Hydrotech Whey (1 scoop)", calories: 112, protein: 20, carbs: 3, fat: 2, fibre: 2 },
+    "usn hydrotech": { food: "USN Hydrotech Whey (1 scoop)", calories: 112, protein: 20, carbs: 3, fat: 2, fibre: 2 },
+    // USN bars
+    "usn trust bar": { food: "USN Trust Crunch Bar", calories: 220, protein: 20, carbs: 22, fat: 8, fibre: 2 },
+    "usn trust crunch": { food: "USN Trust Crunch Bar", calories: 220, protein: 20, carbs: 22, fat: 8, fibre: 2 },
+    "usn pro protein bar": { food: "USN Pro Protein Bar (68g)", calories: 232, protein: 21, carbs: 27, fat: 7, fibre: 3 },
+    "usn protein bar": { food: "USN Pro Protein Bar (68g)", calories: 232, protein: 21, carbs: 27, fat: 7, fibre: 3 },
+    // Metalab
+    "metalab whey": { food: "Metalab Whey Protein (1 serving)", calories: 149, protein: 25, carbs: 7, fat: 2, fibre: 1 },
+    "metalab whey protein": { food: "Metalab Whey Protein (1 serving)", calories: 149, protein: 25, carbs: 7, fat: 2, fibre: 1 },
+    "metalab protein shake": { food: "Metalab Whey Protein (1 serving)", calories: 149, protein: 25, carbs: 7, fat: 2, fibre: 1 },
+    // Biogen extras
+    "biogen complete whey": { food: "Biogen Complete Whey (1 scoop)", calories: 150, protein: 25, carbs: 4, fat: 3, fibre: 1 },
+    "biogen rage whey": { food: "Biogen Rage Whey (1 scoop)", calories: 125, protein: 24, carbs: 4, fat: 2, fibre: 1 },
+    // NPL extras
+    "npl low carb whey": { food: "NPL Low Carb Whey Slim (1 scoop)", calories: 117, protein: 23, carbs: 3, fat: 2, fibre: 4 },
+    "npl low carb whey slim": { food: "NPL Low Carb Whey Slim (1 scoop)", calories: 117, protein: 23, carbs: 3, fat: 2, fibre: 4 },
+    "npl whey slim": { food: "NPL Low Carb Whey Slim (1 scoop)", calories: 117, protein: 23, carbs: 3, fat: 2, fibre: 4 },
+    // SSA extras
+    "ssa whey extreme": { food: "SSA Whey Extreme (1 serving)", calories: 123, protein: 22, carbs: 10, fat: 1, fibre: 1 },
+    // EVOX extras
+    "evox whey advanced": { food: "EVOX Whey Protein Advanced (1 serving)", calories: 120, protein: 23, carbs: 3, fat: 2, fibre: 0 },
+    "evox casein": { food: "EVOX Casein Protein (1 serving)", calories: 109, protein: 24, carbs: 3, fat: 1, fibre: 0 },
+    "evox casein protein": { food: "EVOX Casein Protein (1 serving)", calories: 109, protein: 24, carbs: 3, fat: 1, fibre: 0 },
+    // Nutritech extras
+    "nutritech pure whey": { food: "Nutritech 100% Pure Whey (1 serving)", calories: 106, protein: 24, carbs: 2, fat: 1, fibre: 0 },
+    "nutritech premium pure whey": { food: "Nutritech Premium Pure Whey (1 serving)", calories: 122, protein: 23, carbs: 3, fat: 2, fibre: 2 },
+    // MyProtein (popular import in SA)
+    "myprotein whey": { food: "MyProtein Impact Whey (1 scoop)", calories: 95, protein: 19, carbs: 1, fat: 2, fibre: 0 },
+    "myprotein impact whey": { food: "MyProtein Impact Whey (1 scoop)", calories: 95, protein: 19, carbs: 1, fat: 2, fibre: 0 },
+    "myprotein protein shake": { food: "MyProtein Impact Whey (1 scoop)", calories: 95, protein: 19, carbs: 1, fat: 2, fibre: 0 },
+    // Protein bars (SA favourites)
+    "quest bar": { food: "Quest Protein Bar", calories: 190, protein: 21, carbs: 21, fat: 7, fibre: 14 },
+    "quest protein bar": { food: "Quest Protein Bar", calories: 190, protein: 21, carbs: 21, fat: 7, fibre: 14 },
+    "barebells bar": { food: "Barebells Protein Bar", calories: 200, protein: 20, carbs: 18, fat: 8, fibre: 3 },
+    "barebells protein bar": { food: "Barebells Protein Bar", calories: 200, protein: 20, carbs: 18, fat: 8, fibre: 3 },
+    "barebells": { food: "Barebells Protein Bar", calories: 200, protein: 20, carbs: 18, fat: 8, fibre: 3 },
+    "rxbar": { food: "RXBAR Protein Bar", calories: 210, protein: 12, carbs: 24, fat: 9, fibre: 5 },
+    "rx bar": { food: "RXBAR Protein Bar", calories: 210, protein: 12, carbs: 24, fat: 9, fibre: 5 },
+    "npl protein bar": { food: "NPL Protein Bar", calories: 238, protein: 20, carbs: 25, fat: 8, fibre: 3 },
+    "biogen protein bar": { food: "Biogen Lean Whey Protein Bar", calories: 160, protein: 15, carbs: 17, fat: 5, fibre: 2 },
+    "fulfil bar": { food: "Fulfil Protein Bar", calories: 200, protein: 20, carbs: 18, fat: 7, fibre: 2 },
+    "fulfil protein bar": { food: "Fulfil Protein Bar", calories: 200, protein: 20, carbs: 18, fat: 7, fibre: 2 },
+    // FuturLife (SA brand, not pure protein but popular)
+    "futurelife shake": { food: "FutureLife High Protein Shake (sachet)", calories: 215, protein: 15, carbs: 28, fat: 5, fibre: 4 },
+    "futurelife high protein": { food: "FutureLife High Protein (sachet)", calories: 215, protein: 15, carbs: 28, fat: 5, fibre: 4 },
+    "futurelife protein": { food: "FutureLife High Protein (sachet)", calories: 215, protein: 15, carbs: 28, fat: 5, fibre: 4 },
+    "futurelife smart protein": { food: "FutureLife Smart Protein (sachet)", calories: 200, protein: 12, carbs: 30, fat: 4, fibre: 3 },
+    // Woolworths protein products
+    "woolworths protein shake": { food: "Woolworths Protein Shake (bottle)", calories: 160, protein: 25, carbs: 8, fat: 3, fibre: 0 },
+    "woolies protein shake": { food: "Woolworths Protein Shake (bottle)", calories: 160, protein: 25, carbs: 8, fat: 3, fibre: 0 },
+    "woolworths protein yoghurt": { food: "Woolworths Protein Yoghurt (175g)", calories: 130, protein: 15, carbs: 10, fat: 3, fibre: 0 },
+    "woolies protein yoghurt": { food: "Woolworths Protein Yoghurt (175g)", calories: 130, protein: 15, carbs: 10, fat: 3, fibre: 0 },
+    // Dis-Chem house brand RTD
+    "biogen protein drink": { food: "Biogen Protein Drink (bottle)", calories: 150, protein: 25, carbs: 6, fat: 2, fibre: 0 },
+    "protein water": { food: "Protein Water (500ml)", calories: 80, protein: 20, carbs: 1, fat: 0, fibre: 0 },
+    // Mass gainers (common SA request)
+    "mass gainer shake": { food: "Mass Gainer (2 scoops)", calories: 400, protein: 30, carbs: 55, fat: 8, fibre: 2 },
+    "serious mass": { food: "ON Serious Mass (2 scoops)", calories: 625, protein: 25, carbs: 125, fat: 3, fibre: 2 },
+    "usn muscle fuel anabolic": { food: "USN Muscle Fuel Anabolic (3 scoops)", calories: 550, protein: 50, carbs: 65, fat: 8, fibre: 3 },
+    "muscle fuel anabolic": { food: "USN Muscle Fuel Anabolic (3 scoops)", calories: 550, protein: 50, carbs: 65, fat: 8, fibre: 3 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
