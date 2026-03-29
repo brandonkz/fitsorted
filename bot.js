@@ -1613,6 +1613,69 @@ async function estimateCalories(food, user) {
     "pickled fish": { food: "Pickled Fish (serving)", calories: 280, protein: 30, carbs: 10, fat: 12, fibre: 1 },
     "malva pudding": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
     "malva pudding slice": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
+    // Round 20 - Protein shakes (SA brands, accurate per-scoop macros from fatsecret.co.za)
+    // Generic - assumes whey with water (most common)
+    "protein shake": { food: "Protein Shake (1 scoop with water)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "protein shake with water": { food: "Protein Shake (1 scoop with water)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "protein shake with milk": { food: "Protein Shake (1 scoop with 250ml milk)", calories: 270, protein: 32, carbs: 15, fat: 10, fibre: 1 },
+    "whey shake": { food: "Whey Protein Shake (1 scoop with water)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "whey protein": { food: "Whey Protein (1 scoop with water)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "whey protein shake": { food: "Whey Protein Shake (1 scoop with water)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "protein powder": { food: "Protein Powder (1 scoop with water)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "scoop of protein": { food: "Protein Shake (1 scoop with water)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "2 scoops protein": { food: "Protein Shake (2 scoops with water)", calories: 240, protein: 48, carbs: 6, fat: 4, fibre: 2 },
+    "double scoop protein": { food: "Protein Shake (2 scoops with water)", calories: 240, protein: 48, carbs: 6, fat: 4, fibre: 2 },
+    "double protein shake": { food: "Protein Shake (2 scoops with water)", calories: 240, protein: 48, carbs: 6, fat: 4, fibre: 2 },
+    // USN (SA's biggest brand) — 30g scoop
+    "usn whey": { food: "USN Whey Protein (1 scoop)", calories: 117, protein: 24, carbs: 2, fat: 2, fibre: 1 },
+    "usn whey protein": { food: "USN Whey Protein (1 scoop)", calories: 117, protein: 24, carbs: 2, fat: 2, fibre: 1 },
+    "usn whey shake": { food: "USN Whey Protein (1 scoop)", calories: 117, protein: 24, carbs: 2, fat: 2, fibre: 1 },
+    "usn protein shake": { food: "USN Whey Protein (1 scoop)", calories: 117, protein: 24, carbs: 2, fat: 2, fibre: 1 },
+    "usn premium whey": { food: "USN Premium Whey (1 scoop)", calories: 126, protein: 25, carbs: 3, fat: 2, fibre: 1 },
+    "usn bluelab": { food: "USN BlueLab Whey (1 scoop)", calories: 124, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "usn bluelab whey": { food: "USN BlueLab Whey (1 scoop)", calories: 124, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "usn hardcore whey": { food: "USN Hardcore Whey (1 scoop)", calories: 132, protein: 25, carbs: 5, fat: 2, fibre: 1 },
+    "usn diet fuel": { food: "USN Diet Fuel (2 scoops)", calories: 200, protein: 32, carbs: 12, fat: 3, fibre: 4 },
+    "usn isopro whey": { food: "USN IsoPro Whey Isolate (1 scoop)", calories: 110, protein: 27, carbs: 0, fat: 0, fibre: 0 },
+    "usn whey isolate": { food: "USN Whey Isolate (1 scoop)", calories: 110, protein: 27, carbs: 0, fat: 0, fibre: 0 },
+    // NPL — 30g scoop
+    "npl whey": { food: "NPL Whey Protein (1 scoop)", calories: 108, protein: 25, carbs: 4, fat: 1, fibre: 2 },
+    "npl whey protein": { food: "NPL Whey Protein (1 scoop)", calories: 108, protein: 25, carbs: 4, fat: 1, fibre: 2 },
+    "npl protein shake": { food: "NPL Whey Protein (1 scoop)", calories: 108, protein: 25, carbs: 4, fat: 1, fibre: 2 },
+    "npl platinum whey": { food: "NPL Platinum Whey (1 scoop)", calories: 123, protein: 25, carbs: 4, fat: 1, fibre: 1 },
+    "npl whey isolate": { food: "NPL 100% Whey Isolate (1 scoop)", calories: 93, protein: 22, carbs: 1, fat: 0, fibre: 0 },
+    "npl anabolic whey": { food: "NPL Anabolic Whey (1 scoop)", calories: 166, protein: 30, carbs: 8, fat: 2, fibre: 1 },
+    // Biogen (Dis-Chem house brand)
+    "biogen whey": { food: "Biogen ISO-Whey Premium (1 scoop)", calories: 117, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "biogen whey protein": { food: "Biogen ISO-Whey Premium (1 scoop)", calories: 117, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "biogen protein shake": { food: "Biogen ISO-Whey Premium (1 scoop)", calories: 117, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "biogen iso whey": { food: "Biogen ISO-Whey (1 scoop)", calories: 158, protein: 30, carbs: 5, fat: 2, fibre: 1 },
+    "biogen lean whey": { food: "Biogen Lean Whey (1 serving)", calories: 128, protein: 24, carbs: 6, fat: 2, fibre: 2 },
+    "biogen diet protein": { food: "Biogen Diet Protein (1 serving)", calories: 153, protein: 26, carbs: 8, fat: 3, fibre: 3 },
+    "biogen plant protein": { food: "Biogen Plant Protein (1 serving)", calories: 151, protein: 20, carbs: 10, fat: 4, fibre: 5 },
+    // EVOX
+    "evox whey": { food: "EVOX 100% Whey Protein (1 scoop)", calories: 124, protein: 24, carbs: 4, fat: 2, fibre: 1 },
+    "evox whey protein": { food: "EVOX 100% Whey Protein (1 scoop)", calories: 124, protein: 24, carbs: 4, fat: 2, fibre: 1 },
+    "evox protein shake": { food: "EVOX 100% Whey Protein (1 scoop)", calories: 124, protein: 24, carbs: 4, fat: 2, fibre: 1 },
+    // SSA Supplements
+    "ssa whey": { food: "SSA Pure Whey (1 serving)", calories: 116, protein: 24, carbs: 3, fat: 1, fibre: 1 },
+    "ssa whey protein": { food: "SSA Pure Whey (1 serving)", calories: 116, protein: 24, carbs: 3, fat: 1, fibre: 1 },
+    "ssa protein shake": { food: "SSA Pure Whey (1 serving)", calories: 116, protein: 24, carbs: 3, fat: 1, fibre: 1 },
+    // Nutritech
+    "nutritech whey": { food: "Nutritech Premium Whey (1 serving)", calories: 120, protein: 24, carbs: 4, fat: 2, fibre: 1 },
+    "nutritech whey protein": { food: "Nutritech Premium Whey (1 serving)", calories: 120, protein: 24, carbs: 4, fat: 2, fibre: 1 },
+    "nutritech protein shake": { food: "Nutritech Premium Whey (1 serving)", calories: 120, protein: 24, carbs: 4, fat: 2, fibre: 1 },
+    // Optimum Nutrition (imported, popular in SA)
+    "gold standard whey": { food: "ON Gold Standard Whey (1 scoop)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "optimum nutrition whey": { food: "ON Gold Standard Whey (1 scoop)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    "on whey": { food: "ON Gold Standard Whey (1 scoop)", calories: 120, protein: 24, carbs: 3, fat: 2, fibre: 1 },
+    // Casein
+    "casein shake": { food: "Casein Protein Shake (1 scoop)", calories: 120, protein: 24, carbs: 3, fat: 1, fibre: 0 },
+    "casein protein": { food: "Casein Protein (1 scoop)", calories: 120, protein: 24, carbs: 3, fat: 1, fibre: 0 },
+    // Plant-based
+    "plant protein shake": { food: "Plant Protein Shake (1 scoop)", calories: 130, protein: 20, carbs: 6, fat: 3, fibre: 3 },
+    "vegan protein shake": { food: "Vegan Protein Shake (1 scoop)", calories: 130, protein: 20, carbs: 6, fat: 3, fibre: 3 },
+    "pea protein shake": { food: "Pea Protein Shake (1 scoop)", calories: 120, protein: 22, carbs: 3, fat: 2, fibre: 2 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
@@ -1928,7 +1991,7 @@ async function estimateCalories(food, user) {
     "pretzels": 110,
     "pronutro": 180,
     "protein bar": 200,
-    "protein shake": 150,
+    "protein shake": 120,
     "protein smoothie": 220,
     "provita": 20,
     "pumpkin": 40,
@@ -2037,7 +2100,7 @@ async function estimateCalories(food, user) {
     "walnuts": 185,
     "watermelon": 80,
     "weetbix": 60,
-    "whey shake": 150,
+    "whey shake": 120,
     "whiskey": 100,
     "white bread": 80,
     "white fish": 120,
