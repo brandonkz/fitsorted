@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-29T05:56:21.410Z",
+    "date": "2026-03-29",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-28T20:21:49.297Z",
     "date": "2026-03-28",
     "phone": "7970",
