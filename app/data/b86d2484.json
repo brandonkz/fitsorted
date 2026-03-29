@@ -217,12 +217,12 @@
     {
       "date": "2026-03-28",
       "totals": {
-        "calories": 1235,
+        "calories": 1385,
         "protein": 53,
-        "carbs": 100,
+        "carbs": 137,
         "fat": 70,
         "fibre": 7,
-        "priceZAR": 94
+        "priceZAR": 104
       },
       "entries": [
         {
@@ -264,6 +264,16 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-28T18:33:21.901Z"
+        },
+        {
+          "food": "5x marshmallow",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 37,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-28T20:21:49.297Z"
         }
       ]
     }
