@@ -1123,6 +1123,33 @@ function isWorkout(text) {
   return WORKOUT_KEYWORDS.some(k => text.toLowerCase().includes(k));
 }
 
+// Retry wrapper for OpenAI API calls with exponential backoff
+async function retryOpenAI(fn, maxRetries = 3) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const status = err.response?.status;
+      if (status === 429 && attempt < maxRetries) {
+        const retryAfter = parseInt(err.response?.headers?.['retry-after'] || '0');
+        const delayMs = retryAfter ? retryAfter * 1000 : Math.min(1000 * Math.pow(2, attempt), 8000);
+        console.log(`[retry] OpenAI 429 - attempt ${attempt + 1}/${maxRetries}, waiting ${delayMs}ms`);
+        await new Promise(r => setTimeout(r, delayMs));
+        continue;
+      }
+      if (status === 500 || status === 502 || status === 503) {
+        if (attempt < maxRetries) {
+          const delayMs = Math.min(1000 * Math.pow(2, attempt), 8000);
+          console.log(`[retry] OpenAI ${status} - attempt ${attempt + 1}/${maxRetries}, waiting ${delayMs}ms`);
+          await new Promise(r => setTimeout(r, delayMs));
+          continue;
+        }
+      }
+      throw err;
+    }
+  }
+}
+
 async function estimateCaloriesBurned(activity) {
   const lower = activity.toLowerCase().trim();
 
@@ -1152,7 +1179,7 @@ async function estimateCaloriesBurned(activity) {
     return { activity, calories: 200 };
   }
 
-  const res = await axios.post(
+  const res = await retryOpenAI(() => axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
       model: "gpt-4o-mini",
@@ -1163,7 +1190,7 @@ async function estimateCaloriesBurned(activity) {
       temperature: 0.2
     },
     { headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" } }
-  );
+  ));
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
   return JSON.parse(content);
 }
@@ -2723,7 +2750,7 @@ async function estimateCalories(food, user) {
 
   fs.appendFileSync(aiDebugLog, `[OPENAI] Calling API for "${food}"\n`);
   
-  const res = await axios.post(
+  const res = await retryOpenAI(() => axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
       model: "gpt-4o-mini",
@@ -2737,7 +2764,7 @@ async function estimateCalories(food, user) {
       headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" },
       timeout: 10000 // 10 second timeout to prevent hanging
     }
-  );
+  ));
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
   let result;
@@ -6045,6 +6072,61 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
+  // Guard: detect non-food intents (complaints, support requests, goal changes, conversation)
+  const nonFoodPatterns = [
+    // Complaints & frustration
+    /^(you are |you're |this is |it's |its )(glitch|broken|wrong|bad|terrible|awful|useless|stupid|rubbish|trash|crap|shit|buggy|slow|not work)/i,
+    /^(does not|doesn't|dont|don't|not) work/i,
+    /^(fix |broken|glitch|bug|error|crash|problem|issue)/i,
+    // Goal/setting changes
+    /^(set|change|adjust|update|fix) my (calorie|macro|protein|carb|fat|daily|goal|target)/i,
+    /my (calorie|macro|daily|goal|target)s? (is|are|seem|look) (wrong|incorrect|too|very|completely)/i,
+    /^(i want|please) (my |to )?(change|set|adjust|update) (my )?(calorie|macro|goal|target|daily)/i,
+    /^(change|set) (my )?(daily )?(calorie|cal|macro) (goal|target|limit|budget|allowance) to \d+/i,
+    // Conversational / not food
+    /^(i haven'?t eaten|i didn'?t eat|i haven'?t had|haven'?t logged|didn'?t log)/i,
+    /^(how many|how much|what'?s my|show me|what did i|what have i)/i,
+    /^(thank you|thanks|cheers|ta|appreciate|great job|good job|well done)/i,
+    /^(hello|hey|hi there|good morning|good evening|good afternoon|howzit)$/i,
+    /^(sorry|oops|my bad|nevermind|never mind|ignore that)/i,
+    /we'?re unavailable/i,
+    /^(can i|how do i|how can i|is there|what if|why does|why is|why do)/i,
+  ];
+
+  const isNonFood = nonFoodPatterns.some(p => p.test(msgLower));
+  if (isNonFood) {
+    console.log(`[guard] Detected non-food intent: "${msg}"`);
+    
+    // Check if it's a goal change request
+    const goalChangeMatch = msgLower.match(/(calorie|cal|macro).*?(\d{3,4})/);
+    if (goalChangeMatch) {
+      const newGoal = parseInt(goalChangeMatch[2]);
+      if (newGoal >= 800 && newGoal <= 5000) {
+        user.goal = newGoal;
+        saveUsers(users);
+        await send(from, `✅ Daily calorie goal updated to *${newGoal} cal*!\n\nYour daily tracking will now use this target.`);
+        return;
+      }
+    }
+    
+    // Check if it's a complaint/frustration
+    const isComplaint = /glitch|broken|wrong|bad|terrible|not work|doesn't work|does not work|buggy|useless|stupid|rubbish|trash|crap/i.test(msgLower);
+    if (isComplaint) {
+      await send(from, `😔 Sorry you're having trouble! We're actively improving FitSorted.\n\n*Quick fixes:*\n• Type *profile* to check/update your settings\n• Type *goal 2000* to set your daily calories\n• Type *help* for all commands\n\nIf something specific is wrong, describe the issue and we'll look into it. 🙏`);
+      return;
+    }
+    
+    // Check if it's a question
+    const isQuestion = /^(can i|how do i|how can i|is there|what if|why does|why is|why do|how many|how much)/i.test(msgLower);
+    if (isQuestion) {
+      await send(from, `💡 Great question! Here are some things I can help with:\n\n• Type *help* for all commands\n• Type *profile* to update your details\n• Type *goal [number]* to set calorie target\n• Type *coach* to ask nutrition questions\n• Just type what you ate to log food!\n\nExample: _2 eggs and toast_`);
+      return;
+    }
+    
+    // Generic non-food response
+    return;
+  }
+
   try {
     const debugLog = `/Users/brandonkatz/.openclaw/workspace/fitsorted/debug-food-entry.log`;
     fs.appendFileSync(debugLog, `\n[${new Date().toISOString()}] FOOD ENTRY: "${msg}" from ${from}\n`);
@@ -6129,7 +6211,10 @@ async function handleMessage(from, text, imageId) {
       const userCanSeePrice = await hasAccess(from, user) || BETA_FEATURES.priceEstimates.has(from);
       if (!user.log[logDate]) user.log[logDate] = [];
       
-      for (const item of foodItems) {
+      for (let itemIdx = 0; itemIdx < foodItems.length; itemIdx++) {
+        const item = foodItems[itemIdx];
+        // Stagger API calls to avoid rate limits (200ms between items)
+        if (itemIdx > 0) await new Promise(r => setTimeout(r, 200));
         try {
           const result = await estimateCalories(item, user);
           
