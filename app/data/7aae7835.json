@@ -10,7 +10,13 @@
     "target": "gain",
     "foodBudget": 100
   },
-  "weights": [],
+  "weights": [
+    {
+      "kg": 59.3,
+      "date": "2026-03-29",
+      "time": "2026-03-29T06:01:09.358Z"
+    }
+  ],
   "exercise": {
     "2026-03-14": [
       {

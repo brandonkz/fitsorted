@@ -15,6 +15,16 @@
       "kg": 84.8,
       "date": "2026-03-22",
       "time": "2026-03-22T06:10:06.395Z"
+    },
+    {
+      "kg": 75,
+      "date": "2026-03-29",
+      "time": "2026-03-29T16:15:52.001Z"
+    },
+    {
+      "kg": 85,
+      "date": "2026-03-29",
+      "time": "2026-03-29T16:16:46.980Z"
     }
   ],
   "exercise": {},
@@ -274,6 +284,39 @@
           "fibre": 0,
           "priceZAR": 10,
           "time": "2026-03-28T20:21:49.297Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-29",
+      "totals": {
+        "calories": 620,
+        "protein": 38,
+        "carbs": 75,
+        "fat": 22,
+        "fibre": 8,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-29T05:56:21.410Z"
+        },
+        {
+          "food": "Grilled salmon (~100g) with mixed salad (~75g) and roasted sweet potatoes (~100g) and stir-fried noodles (~150g)",
+          "calories": 570,
+          "protein": 35,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 8,
+          "priceZAR": 0,
+          "time": "2026-03-29T16:45:40.274Z"
         }
       ]
     }
