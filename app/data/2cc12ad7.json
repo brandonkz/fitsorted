@@ -151,6 +151,69 @@
           "time": "2026-03-25T08:02:39.456Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 511,
+        "protein": 9,
+        "carbs": 80.8,
+        "fat": 12,
+        "fibre": 4,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Cremora (8 heaped teaspoons, ~40g)",
+          "calories": 220,
+          "protein": 0,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T15:40:31.072Z"
+        },
+        {
+          "food": "Cocoa powder (1 heaped teaspoon, ~5g)",
+          "calories": 20,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-30T15:42:07.979Z"
+        },
+        {
+          "food": "honey (1 teaspoon, ~7g)",
+          "calories": 21,
+          "protein": 0,
+          "carbs": 5.8,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T15:42:13.069Z"
+        },
+        {
+          "food": "splash of milk (~30ml)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 1,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T15:42:17.581Z"
+        },
+        {
+          "food": "Pasta (1 cup cooked) (1 cup)",
+          "calories": 200,
+          "protein": 7,
+          "carbs": 40,
+          "fat": 1,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-30T15:44:04.370Z"
+        }
+      ]
     }
   ]
 }

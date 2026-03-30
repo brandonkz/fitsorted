@@ -1,0 +1,90 @@
+{
+  "name": "Melian",
+  "goal": 1091,
+  "joinedAt": "2026-03-30T14:50:50.076Z",
+  "profile": {
+    "age": 35,
+    "weight": 65,
+    "height": 164,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 150
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 2810,
+        "protein": 86,
+        "carbs": 334,
+        "fat": 141,
+        "fibre": 30,
+        "priceZAR": 254
+      },
+      "entries": [
+        {
+          "food": "2 Eggs (boiled)",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 1,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-30T16:29:12.251Z"
+        },
+        {
+          "food": "Anchovies (50g)",
+          "calories": 100,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-30T16:29:48.137Z"
+        },
+        {
+          "food": "3 tablespoons cream cheese (~45g)",
+          "calories": 150,
+          "protein": 3,
+          "carbs": 3,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-30T16:30:13.914Z"
+        },
+        {
+          "food": "Watermelon (~300g), 1 avocado, Marmite (1 tsp), Cucumber (1/4), Celery (100g), Blueberries (1 cup)",
+          "calories": 370,
+          "protein": 6,
+          "carbs": 80,
+          "fat": 18,
+          "fibre": 20,
+          "priceZAR": 45,
+          "time": "2026-03-30T16:31:58.986Z"
+        },
+        {
+          "food": "Easter chocolates (~380g)",
+          "calories": 1900,
+          "protein": 15,
+          "carbs": 250,
+          "fat": 90,
+          "fibre": 10,
+          "priceZAR": 120,
+          "time": "2026-03-30T16:38:31.816Z"
+        },
+        {
+          "food": "Ostrich burger patty (~120g)",
+          "calories": 150,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-30T18:24:10.370Z"
+        }
+      ]
+    }
+  ]
+}

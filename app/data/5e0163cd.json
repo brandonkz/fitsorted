@@ -30,6 +30,13 @@
         "calories": 400,
         "time": "2026-03-26T20:02:12.698Z"
       }
+    ],
+    "2026-03-30": [
+      {
+        "activity": "Glass cranberry juice",
+        "calories": 0,
+        "time": "2026-03-30T10:00:02.068Z"
+      }
     ]
   },
   "logSummary": [
@@ -421,6 +428,79 @@
           "fibre": 1,
           "priceZAR": 40,
           "time": "2026-03-29T17:04:50.264Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 1467,
+        "protein": 120,
+        "carbs": 106,
+        "fat": 72,
+        "fibre": 8,
+        "priceZAR": 160
+      },
+      "entries": [
+        {
+          "food": "Diet Protein Shake (1 scoop)",
+          "calories": 150,
+          "protein": 25,
+          "carbs": 8,
+          "fat": 2,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-30T08:59:46.316Z"
+        },
+        {
+          "food": "2x Carpaccio beef slices (~60g)",
+          "calories": 192,
+          "protein": 17,
+          "carbs": 3,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-30T12:57:54.066Z"
+        },
+        {
+          "food": "3x snails in creamy garlic sauce",
+          "calories": 210,
+          "protein": 15,
+          "carbs": 6,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-03-30T12:58:18.199Z"
+        },
+        {
+          "food": "Half a roll (~40g)",
+          "calories": 100,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-03-30T12:58:33.101Z"
+        },
+        {
+          "food": "Picana (~300g) and roast potatoes (~150g)",
+          "calories": 660,
+          "protein": 60,
+          "carbs": 30,
+          "fat": 40,
+          "fibre": 4,
+          "priceZAR": 0,
+          "time": "2026-03-30T12:58:47.715Z"
+        },
+        {
+          "food": "Cola (440ml)",
+          "calories": 155,
+          "protein": 0,
+          "carbs": 39,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T13:38:11.105Z"
         }
       ]
     }

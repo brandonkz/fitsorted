@@ -1,0 +1,120 @@
+{
+  "name": "Jacey",
+  "goal": 1896,
+  "joinedAt": "2026-03-30T10:16:56.712Z",
+  "profile": {
+    "age": 30,
+    "weight": 70,
+    "height": 160,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 1191,
+        "protein": 32,
+        "carbs": 152,
+        "fat": 38,
+        "fibre": 13,
+        "priceZAR": 170
+      },
+      "entries": [
+        {
+          "food": "green tea (1 cup, ~240ml)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-30T10:20:56.320Z"
+        },
+        {
+          "food": "2x Weet-Bix bricks",
+          "calories": 136,
+          "protein": 6,
+          "carbs": 28,
+          "fat": 1,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-03-30T10:21:00.767Z"
+        },
+        {
+          "food": "full cream milk (1 cup, ~240ml) + 1 banana",
+          "calories": 145,
+          "protein": 4,
+          "carbs": 19,
+          "fat": 6,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-30T10:21:05.659Z"
+        },
+        {
+          "food": "Krispy Kreme doughnut bite",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-30T10:37:36.874Z"
+        },
+        {
+          "food": "Steri Stumpi iced coffee (150ml)",
+          "calories": 90,
+          "protein": 2,
+          "carbs": 15,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-30T10:53:41.223Z"
+        },
+        {
+          "food": "2x tablespoon cottage cheese (~30g)",
+          "calories": 40,
+          "protein": 6,
+          "carbs": 2,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-30T11:12:05.686Z"
+        },
+        {
+          "food": "quarter avocado (~50g)",
+          "calories": 80,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-30T11:12:10.560Z"
+        },
+        {
+          "food": "2x slice honey & oats bread",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-03-30T11:12:17.043Z"
+        },
+        {
+          "food": "Steri Stumpi iced coffee (150ml)",
+          "calories": 90,
+          "protein": 2,
+          "carbs": 14,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-30T12:51:14.930Z"
+        }
+      ]
+    }
+  ]
+}

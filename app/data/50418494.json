@@ -38,6 +38,18 @@
         "calories": 0,
         "time": "2026-03-26T08:16:10.355Z"
       }
+    ],
+    "2026-03-30": [
+      {
+        "activity": "Breakfast",
+        "calories": 0,
+        "time": "2026-03-30T10:04:14.579Z"
+      },
+      {
+        "activity": "caloric intake",
+        "calories": 0,
+        "time": "2026-03-30T10:04:30.244Z"
+      }
     ]
   },
   "logSummary": [

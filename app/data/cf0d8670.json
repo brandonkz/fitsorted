@@ -19,6 +19,13 @@
         "calories": 300,
         "time": "2026-03-28T07:14:55.910Z"
       }
+    ],
+    "2026-03-30": [
+      {
+        "activity": "walking",
+        "calories": 490,
+        "time": "2026-03-30T18:53:50.613Z"
+      }
     ]
   },
   "logSummary": [
@@ -351,6 +358,119 @@
           "fibre": 0,
           "priceZAR": 30,
           "time": "2026-03-28T06:51:37.123Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 2750,
+        "protein": 132,
+        "carbs": 190,
+        "fat": 140,
+        "fibre": 18,
+        "priceZAR": 165
+      },
+      "entries": [
+        {
+          "food": "Wimpy breakfast (eggs, bacon, toast) (1 plate)",
+          "calories": 560,
+          "protein": 26,
+          "carbs": 40,
+          "fat": 30,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-30T08:03:17.252Z"
+        },
+        {
+          "food": "Wimpy breakfast (eggs, bacon, toast) (1 plate)",
+          "calories": 560,
+          "protein": 26,
+          "carbs": 40,
+          "fat": 30,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-30T08:03:19.974Z"
+        },
+        {
+          "food": "Boerewors (1 link, grilled) (1 link (~100g))",
+          "calories": 280,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 24,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T08:03:22.532Z"
+        },
+        {
+          "food": "tomato (~100g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-03-30T08:03:26.068Z"
+        },
+        {
+          "food": "Onions (1 medium, ~100g) and Mushrooms (1 cup, ~70g)",
+          "calories": 60,
+          "protein": 4,
+          "carbs": 12,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-30T08:03:29.321Z"
+        },
+        {
+          "food": "Flat white (250ml)",
+          "calories": 120,
+          "protein": 6,
+          "carbs": 12,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-30T09:37:59.034Z"
+        },
+        {
+          "food": "Flat white (manual)",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T09:38:51.783Z"
+        },
+        {
+          "food": "Koffie with milk and orange juice",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T12:00:46.624Z"
+        },
+        {
+          "food": "720ml beer and a glass of wine (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T18:52:22.549Z"
+        },
+        {
+          "food": "Chicken schnitzel (~150g) with bacon (~30g), avocado (~50g), pepper sauce (~30g), butternut (~100g), and creamed spinach (~100g)",
+          "calories": 750,
+          "protein": 45,
+          "carbs": 50,
+          "fat": 40,
+          "fibre": 10,
+          "priceZAR": 120,
+          "time": "2026-03-30T18:53:15.653Z"
         }
       ]
     }

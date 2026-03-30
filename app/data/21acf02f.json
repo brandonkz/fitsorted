@@ -35,6 +35,29 @@
           "time": "2026-03-17T13:02:05.804Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 520,
+        "protein": 40,
+        "carbs": 60,
+        "fat": 20,
+        "fibre": 5,
+        "priceZAR": 85
+      },
+      "entries": [
+        {
+          "food": "Steak (~150g) with baked potato (~150g) and squash (~100g)",
+          "calories": 520,
+          "protein": 40,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 85,
+          "time": "2026-03-30T16:20:13.133Z"
+        }
+      ]
     }
   ]
 }

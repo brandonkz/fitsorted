@@ -737,6 +737,18 @@
           "time": "2026-03-27T16:34:32.836Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": []
     }
   ]
 }

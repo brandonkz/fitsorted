@@ -319,6 +319,29 @@
           "time": "2026-03-29T16:45:40.274Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 720,
+        "protein": 35,
+        "carbs": 70,
+        "fat": 32,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Ocean Basket fish & chips (1 serving)",
+          "calories": 720,
+          "protein": 35,
+          "carbs": 70,
+          "fat": 32,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T14:46:01.401Z"
+        }
+      ]
     }
   ]
 }
