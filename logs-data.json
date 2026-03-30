@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-30T13:38:11.105Z",
+    "date": "2026-03-30",
+    "phone": "7571",
+    "userId": "27832127",
+    "food": "Cola (440ml)",
+    "calories": 155,
+    "protein": 0,
+    "carbs": 39,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-30T12:58:47.715Z",
     "date": "2026-03-30",
     "phone": "7571",
