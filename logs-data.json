@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-30T09:38:51.783Z",
+    "date": "2026-03-30",
+    "phone": "6749",
+    "userId": "27828296",
+    "food": "Flat white (manual)",
+    "calories": 120,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "Manual"
+  },
+  {
+    "timestamp": "2026-03-30T09:37:59.034Z",
+    "date": "2026-03-30",
+    "phone": "6749",
+    "userId": "27828296",
+    "food": "Flat white (250ml)",
+    "calories": 120,
+    "protein": 6,
+    "carbs": 12,
+    "fat": 6,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-30T09:19:47.374Z",
+    "date": "2026-03-30",
+    "phone": "7649",
+    "userId": "27744447",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-30T08:59:46.316Z",
     "date": "2026-03-30",
     "phone": "7571",
