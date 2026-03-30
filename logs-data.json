@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-30T18:53:15.653Z",
+    "date": "2026-03-30",
+    "phone": "6749",
+    "userId": "27828296",
+    "food": "Chicken schnitzel (~150g) with bacon (~30g), avocado (~50g), pepper sauce (~30g), butternut (~100g), and creamed spinach (~100g)",
+    "calories": 750,
+    "protein": 45,
+    "carbs": 50,
+    "fat": 40,
+    "fibre": 10,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-30T18:52:22.549Z",
+    "date": "2026-03-30",
+    "phone": "6749",
+    "userId": "27828296",
+    "food": "720ml beer and a glass of wine (est.)",
+    "calories": 250,
+    "protein": 10,
+    "carbs": 30,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-30T18:24:10.370Z",
+    "date": "2026-03-30",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "Ostrich burger patty (~120g)",
+    "calories": 150,
+    "protein": 30,
+    "carbs": 0,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-30T16:38:31.816Z",
     "date": "2026-03-30",
     "phone": "3810",
