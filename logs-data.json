@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-30T08:59:46.316Z",
+    "date": "2026-03-30",
+    "phone": "7571",
+    "userId": "27832127",
+    "food": "Diet Protein Shake (1 scoop)",
+    "calories": 150,
+    "protein": 25,
+    "carbs": 8,
+    "fat": 2,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-30T08:03:29.321Z",
     "date": "2026-03-30",
     "phone": "6749",
