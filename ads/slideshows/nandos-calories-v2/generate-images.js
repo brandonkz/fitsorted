@@ -1,6 +1,7 @@
 const fs = require('fs');
 
-const API_KEY = 'AIzaSyAVrcvQwkwrPMDQ0hGu-JzUFI9mLihc0IU';
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../../.env') });
+const API_KEY = process.env.GEMINI_API_KEY;
 
 async function generateImage(prompt, filename) {
   console.log(`Generating: ${filename}...`);

@@ -9,7 +9,8 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const GEMINI_API_KEY = 'AIzaSyAVrcvQwkwrPMDQ0hGu-JzUFI9mLihc0IU';
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const POSTIZ_API_KEY = 'f106e11ea7991bcee68bb6e60e54e6bcf041b8a3a332ab8b88b70c43bc4c7edf';
 
 // We'll need to find the FitSorted integration ID - for now using a placeholder
