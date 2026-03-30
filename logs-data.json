@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-30T12:00:46.624Z",
+    "date": "2026-03-30",
+    "phone": "6749",
+    "userId": "27828296",
+    "food": "Koffie with milk and orange juice",
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0,
+    "fat": 0,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-30T11:12:17.043Z",
+    "date": "2026-03-30",
+    "phone": "4781",
+    "userId": "27722544",
+    "food": "2x slice honey & oats bread",
+    "calories": 160,
+    "protein": 6,
+    "carbs": 30,
+    "fat": 2,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-30T11:12:10.560Z",
+    "date": "2026-03-30",
+    "phone": "4781",
+    "userId": "27722544",
+    "food": "quarter avocado (~50g)",
+    "calories": 80,
+    "protein": 1,
+    "carbs": 4,
+    "fat": 7,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-30T11:12:05.686Z",
+    "date": "2026-03-30",
+    "phone": "4781",
+    "userId": "27722544",
+    "food": "2x tablespoon cottage cheese (~30g)",
+    "calories": 40,
+    "protein": 6,
+    "carbs": 2,
+    "fat": 1,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-30T10:53:41.223Z",
     "date": "2026-03-30",
     "phone": "4781",
