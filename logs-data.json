@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-30T14:46:01.401Z",
+    "date": "2026-03-30",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Ocean Basket fish & chips (1 serving)",
+    "calories": 720,
+    "protein": 35,
+    "carbs": 70,
+    "fat": 32,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-30T13:38:11.105Z",
     "date": "2026-03-30",
     "phone": "7571",
