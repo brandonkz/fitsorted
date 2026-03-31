@@ -11,17 +11,35 @@
     "foodBudget": 200
   },
   "weights": [],
-  "exercise": {},
+  "exercise": {
+    "2026-03-30": [
+      {
+        "activity": "pilates",
+        "calories": 240,
+        "time": "2026-03-30T19:06:20.221Z"
+      },
+      {
+        "activity": "Barre class",
+        "calories": 175,
+        "time": "2026-03-30T19:07:11.851Z"
+      },
+      {
+        "activity": "barre class",
+        "calories": 100,
+        "time": "2026-03-30T19:11:27.267Z"
+      }
+    ]
+  },
   "logSummary": [
     {
       "date": "2026-03-30",
       "totals": {
-        "calories": 1191,
-        "protein": 32,
-        "carbs": 152,
-        "fat": 38,
-        "fibre": 13,
-        "priceZAR": 170
+        "calories": 2255,
+        "protein": 83,
+        "carbs": 296,
+        "fat": 67.2,
+        "fibre": 38,
+        "priceZAR": 375
       },
       "entries": [
         {
@@ -113,6 +131,76 @@
           "fibre": 0,
           "priceZAR": 20,
           "time": "2026-03-30T12:51:14.930Z"
+        },
+        {
+          "food": "Add these calories back (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-03-30T19:08:27.205Z"
+        },
+        {
+          "food": "Black rice bowl with prawns (~250g)",
+          "calories": 450,
+          "protein": 30,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 8,
+          "priceZAR": 150,
+          "time": "2026-03-30T19:12:13.644Z"
+        },
+        {
+          "food": "Cucumber (~100g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-30T19:12:18.132Z"
+        },
+        {
+          "food": "Chickpeas cooked (1/2 cup (80g))",
+          "calories": 135,
+          "protein": 7,
+          "carbs": 23,
+          "fat": 2,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-30T19:12:21.442Z"
+        },
+        {
+          "food": "Onion (1 medium)",
+          "calories": 44,
+          "protein": 1,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-30T19:12:24.879Z"
+        },
+        {
+          "food": "quarter avocado (~50g)",
+          "calories": 80,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-30T19:12:29.075Z"
+        },
+        {
+          "food": "Carrots cooked (1 cup (150g))",
+          "calories": 55,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0.2,
+          "fibre": 5,
+          "priceZAR": 15,
+          "time": "2026-03-30T19:12:33.297Z"
         }
       ]
     }

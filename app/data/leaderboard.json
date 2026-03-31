@@ -651,11 +651,11 @@
   {
     "token": "ec15c7f2",
     "name": "***3214",
-    "streak": 6,
-    "totalDaysLogged": 6,
-    "avgCalories": 1273,
+    "streak": 1,
+    "totalDaysLogged": 7,
+    "avgCalories": 1266,
     "goalAccuracy": 0,
-    "totalLogs": 25,
+    "totalLogs": 31,
     "joinedDate": "2026-03-23T04:06:02.069Z",
     "target": "gain"
   },
@@ -1874,9 +1874,9 @@
     "name": "***4781",
     "streak": 1,
     "totalDaysLogged": 1,
-    "avgCalories": 1191,
+    "avgCalories": 2255,
     "goalAccuracy": 0,
-    "totalLogs": 9,
+    "totalLogs": 16,
     "joinedDate": "2026-03-30T10:16:56.712Z",
     "target": "lose"
   },
