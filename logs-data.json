@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-03-31T15:09:30.446Z",
+    "date": "2026-03-31",
+    "phone": "4580",
+    "userId": "27790944",
+    "food": "Trigz chips (27g)",
+    "calories": 140,
+    "protein": 2,
+    "carbs": 16,
+    "fat": 7,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-31T15:07:25.805Z",
+    "date": "2026-03-31",
+    "phone": "4580",
+    "userId": "27790944",
+    "food": "Caring candies mint chocolate (28g)",
+    "calories": 140,
+    "protein": 1,
+    "carbs": 30,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-31T13:35:01.034Z",
     "date": "2026-03-31",
     "phone": "4781",
