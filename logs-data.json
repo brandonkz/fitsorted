@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-31T21:18:05.198Z",
+    "date": "2026-03-31",
+    "phone": "7571",
+    "userId": "27832127",
+    "food": "slice of cream cake",
+    "calories": 350,
+    "protein": 3,
+    "carbs": 40,
+    "fat": 20,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-31T18:44:29.314Z",
     "date": "2026-03-31",
     "phone": "4781",
