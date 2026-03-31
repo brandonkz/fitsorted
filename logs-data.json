@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-03-31T11:51:58.351Z",
+    "date": "2026-03-31",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "Frozen blueberries (150g)",
+    "calories": 85,
+    "protein": 1,
+    "carbs": 21,
+    "fat": 0,
+    "fibre": 3,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-31T11:40:40.722Z",
+    "date": "2026-03-31",
+    "phone": "7571",
+    "userId": "27832127",
+    "food": "Steak (~100g) and mashed potatoes (1 spoon, ~50g)",
+    "calories": 290,
+    "protein": 30,
+    "carbs": 15,
+    "fat": 15,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-31T11:36:38.364Z",
+    "date": "2026-03-31",
+    "phone": "1972",
+    "userId": "27795791",
+    "food": "Cadbury Dairy Milk Fruit & Nut chocolate (80g)",
+    "calories": 440,
+    "protein": 6,
+    "carbs": 56,
+    "fat": 24,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-31T11:17:26.615Z",
+    "date": "2026-03-31",
+    "phone": "8997",
+    "userId": "27639688",
+    "food": "Woolworths tuna baguette",
+    "calories": 450,
+    "protein": 30,
+    "carbs": 50,
+    "fat": 15,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-31T10:52:58.279Z",
     "date": "2026-03-31",
     "phone": "4781",
