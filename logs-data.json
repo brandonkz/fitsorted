@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-31T09:54:10.249Z",
+    "date": "2026-03-31",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "2x easter egg",
+    "calories": 300,
+    "protein": 4,
+    "carbs": 40,
+    "fat": 15,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-31T09:53:49.261Z",
+    "date": "2026-03-31",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "small chocolate and coconut smoothie (~250ml)",
+    "calories": 200,
+    "protein": 3,
+    "carbs": 30,
+    "fat": 8,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-03-31T09:53:25.280Z",
+    "date": "2026-03-31",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "2 eggs\n1 ostrich burger pattie (est.)",
+    "calories": 200,
+    "protein": 14,
+    "carbs": 2,
+    "fat": 15,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-03-31T08:49:03.630Z",
     "date": "2026-03-31",
     "phone": "4781",
@@ -62,19 +101,6 @@
     "carbs": 40,
     "fat": 30,
     "fibre": 4,
-    "source": "AI"
-  },
-  {
-    "timestamp": "2026-03-31T07:46:05.548Z",
-    "date": "2026-03-31",
-    "phone": "6721",
-    "userId": "27731096",
-    "food": "clear all food logs since yesterday (est.)",
-    "calories": 250,
-    "protein": 10,
-    "carbs": 30,
-    "fat": 10,
-    "fibre": 0,
     "source": "AI"
   },
   {
