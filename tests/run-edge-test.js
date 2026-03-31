@@ -1,84 +1,95 @@
+#!/usr/bin/env node
+// Nightly Edge Case Test - Round 24 (2026-03-31)
+require("dotenv").config({ path: require("path").join(__dirname, "..", ".env") });
 const axios = require("axios");
 const fs = require("fs");
+const path = require("path");
 
-require("dotenv").config({ path: "/Users/brandonkatz/.openclaw/workspace/fitsorted/.env" });
-const API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const SYSTEM_PROMPT = `You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {"food": "clean name including quantity", "calories": integer, "protein": integer, "carbs": integer, "fat": integer, "fibre": integer, "estimatedPriceZAR": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. CRITICAL RULES: 1) ONLY estimate what was explicitly mentioned - do NOT add extra foods. 2) RESPECT SINGULAR vs PLURAL. 3) If the description mentions a quantity, multiply accordingly. 4) Use realistic everyday South African portion sizes. 5) Drinks must use FULL SERVING sizes: beer=440ml (~155 cal), Red Bull=250ml (~112 cal), Monster=500ml (~230 cal), wine glass=175ml (~125 cal), cider=330ml (~170 cal). 6) SA portions: 1 slice cheese=~60 cal, 1 slice bread=~80 cal, 1 egg=~70 cal, biltong 50g=~125 cal, droewors 50g=~150 cal, handful of nuts=~160 cal (28g). 7) CONSERVATIVE BIAS: When portion size is uncertain, estimate on the LOWER end. No extra text.`;
 
-const SYSTEM_PROMPT = `You are a nutrition assistant for South African users. Given a food description, return ONLY a JSON object: {"food": "clean name including quantity", "calories": integer, "protein": integer, "carbs": integer, "fat": integer, "fibre": integer, "estimatedPriceZAR": integer_or_null}. All macros in grams. fibre = dietary fibre in grams. estimatedPriceZAR is the approximate cost in South African Rands at a restaurant/store (null if homemade or unknown). Use 2025/2026 SA prices. CRITICAL RULES: 1) ONLY estimate what was explicitly mentioned. 2) RESPECT SINGULAR vs PLURAL. 3) Use realistic everyday South African portion sizes. 4) Drinks must use FULL SERVING sizes: beer=440ml (~155 cal), Red Bull=250ml (~112 cal), Monster=500ml (~230 cal). 5) SA portions: 1 slice cheese=~60 cal, 1 slice bread=~80 cal, 1 egg=~70 cal, biltong 50g=~125 cal. 6) CONSERVATIVE BIAS: estimate on the LOWER end. No extra text.`;
-
-// New test cases for 2026-03-29
-const newTests = [
-  ["woolworths chicken schnitzel wrap", 350, 600],
-  ["checkers footlong", 500, 800],
-  ["kfc streetwise 5", 800, 1200],
-  ["nandos double chicken burger", 700, 1000],
-  ["pick n pay chicken burger", 400, 650],
-  ["romany creams 3", 150, 280],
-  ["bakers blue label marie biscuits 4", 100, 200],
-  ["chicken mayo kota", 550, 850],
-  ["pickled fish", 200, 350],
-  ["malva pudding", 300, 500]
+const NEW_TEST_CASES = [
+  // Random SA foods, drinks, snacks, combos, restaurant items
+  ["wimpy cheese burger", 500, 750],
+  ["spur chicken wings 12", 900, 1300],
+  ["woolworths chicken tikka salad", 250, 450],
+  ["mageu 250ml", 90, 180],
+  ["chutney sandwich", 200, 350],
+  ["samoosa 1", 80, 200],
+  ["grilled chicken salad", 250, 450],
+  ["steers flame grilled rib burger", 550, 850],
+  ["kfc colonel burger", 450, 700],
+  ["nandos butterfly chicken", 1200, 1800],
 ];
 
-async function testItem(food) {
-  const resp = await axios.post("https://api.openai.com/v1/chat/completions", {
-    model: "gpt-4o-mini",
-    messages: [
-      { role: "system", content: SYSTEM_PROMPT },
-      { role: "user", content: food }
-    ],
-    temperature: 0.3
-  }, { headers: { Authorization: `Bearer ${API_KEY}` } });
-
-  const text = resp.data.choices[0].message.content.trim();
-  try {
-    return JSON.parse(text);
-  } catch {
-    // Try to extract JSON from text
-    const m = text.match(/\{[\s\S]*\}/);
-    if (m) return JSON.parse(m[0]);
-    throw new Error(`Bad JSON: ${text}`);
-  }
+async function callOpenAI(food) {
+  const res = await axios.post(
+    "https://api.openai.com/v1/chat/completions",
+    {
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user", content: `Nutrition for: ${food}` },
+      ],
+      temperature: 0.2,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      timeout: 15000,
+    }
+  );
+  const content = res.data.choices[0].message.content
+    .trim()
+    .replace(/```json|```/g, "")
+    .trim();
+  return JSON.parse(content);
 }
 
 async function main() {
   const results = [];
   const failures = [];
 
-  for (const [food, minCal, maxCal] of newTests) {
+  for (const [food, minCal, maxCal] of NEW_TEST_CASES) {
     try {
-      const res = await testItem(food);
-      const cal = res.calories;
+      // Add 1.5s delay between calls to avoid rate limits
+      await new Promise((r) => setTimeout(r, 1500));
+      const ai = await callOpenAI(food);
+      const cal = ai.calories;
       const pass = cal >= minCal && cal <= maxCal;
-      results.push({ food, expected: `${minCal}-${maxCal}`, got: cal, pass, aiResult: res });
+      results.push({ food, minCal, maxCal, aiCal: cal, pass, ai });
       if (!pass) {
-        failures.push({ food, expected: `${minCal}-${maxCal}`, got: cal, aiResult: res });
+        failures.push({ food, minCal, maxCal, aiCal: cal, ai });
       }
-      console.log(`${pass ? "✅" : "❌"} ${food}: ${cal} cal (expected ${minCal}-${maxCal})`);
-      // Small delay to avoid rate limits
-      await new Promise(r => setTimeout(r, 500));
-    } catch (err) {
-      console.log(`❌ ${food}: ERROR - ${err.message}`);
-      results.push({ food, expected: `${minCal}-${maxCal}`, got: "ERROR", pass: false });
-      failures.push({ food, expected: `${minCal}-${maxCal}`, got: "ERROR" });
+      console.log(
+        `${pass ? "✅" : "❌"} "${food}" → ${cal} cal (expected ${minCal}-${maxCal})${
+          !pass ? ` | protein:${ai.protein} carbs:${ai.carbs} fat:${ai.fat} fibre:${ai.fibre}` : ""
+        }`
+      );
+    } catch (e) {
+      console.error(`⚠️ Error testing "${food}":`, e.message);
+      results.push({ food, minCal, maxCal, aiCal: -1, pass: false, error: e.message });
+      failures.push({ food, minCal, maxCal, aiCal: -1, error: e.message });
     }
   }
 
-  // Output
-  console.log("\n=== SUMMARY ===");
-  console.log(`Tested: ${results.length}`);
-  console.log(`Passed: ${results.filter(r => r.pass).length}`);
-  console.log(`Failed: ${failures.length}`);
-  
+  // Output results as JSON for the parent process
+  const output = { results, failures, tested: results.length, failed: failures.length };
+  fs.writeFileSync(path.join(__dirname, "last-run-results.json"), JSON.stringify(output, null, 2));
+  console.log(`\n--- SUMMARY ---`);
+  console.log(`Tested: ${results.length}, Failed: ${failures.length}`);
   if (failures.length > 0) {
-    console.log("\n=== FAILURES (need overrides) ===");
+    console.log(`\nFailures:`);
     for (const f of failures) {
-      console.log(JSON.stringify(f));
+      console.log(`  "${f.food}": AI=${f.aiCal} expected=${f.minCal}-${f.maxCal}`);
+      if (f.ai) console.log(`    Full: protein=${f.ai.protein} carbs=${f.ai.carbs} fat=${f.ai.fat} fibre=${f.ai.fibre}`);
     }
   }
-
-  // Write results to file for processing
-  fs.writeFileSync("/Users/brandonkatz/.openclaw/workspace/fitsorted/tests/latest-results.json", JSON.stringify({ results, failures, newTests }, null, 2));
 }
 
-main().catch(console.error);
+main().catch((e) => {
+  console.error("Fatal:", e);
+  process.exit(1);
+});
