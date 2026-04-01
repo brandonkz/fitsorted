@@ -2131,6 +2131,14 @@ async function estimateCalories(food, user) {
     "french toast": { food: "French Toast (2 slices)", calories: 420, protein: 12, carbs: 52, fat: 18, fibre: 2 },
     "french toast 1 slice": { food: "French Toast (1 slice)", calories: 210, protein: 6, carbs: 26, fat: 9, fibre: 1 },
     "bar one milkshake": { food: "Bar One Milkshake", calories: 550, protein: 12, carbs: 75, fat: 22, fibre: 1 },
+    // Round 24 - nightly edge case test 2026-03-31
+    "chutney sandwich": { food: "Chutney Sandwich (2 slices bread)", calories: 250, protein: 5, carbs: 42, fat: 7, fibre: 2 },
+    "grilled chicken salad": { food: "Grilled Chicken Salad", calories: 350, protein: 30, carbs: 12, fat: 18, fibre: 4 },
+    "steers flame grilled rib burger": { food: "Steers Flame Grilled Rib Burger", calories: 650, protein: 35, carbs: 45, fat: 35, fibre: 3 },
+    "steers rib burger": { food: "Steers Rib Burger", calories: 650, protein: 35, carbs: 45, fat: 35, fibre: 3 },
+    "nandos butterfly chicken": { food: "Nando's Butterfly Chicken (whole)", calories: 1400, protein: 120, carbs: 5, fat: 95, fibre: 0 },
+    "nandos butterfly": { food: "Nando's Butterfly Chicken (whole)", calories: 1400, protein: 120, carbs: 5, fat: 95, fibre: 0 },
+    "butterfly chicken": { food: "Nando's Butterfly Chicken (whole)", calories: 1400, protein: 120, carbs: 5, fat: 95, fibre: 0 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

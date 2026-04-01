@@ -13810,3 +13810,373 @@ Two brown toast for dinner" → 3 eggs + 2 slices brown toast + 4 cheese sausage
 
 [2026-03-30T19:41:21.099Z] AI RAW: "1 plan mutton curry" → Mutton curry (~200g) (400 cal)
 [AI FINAL] "1 plan mutton curry" → Mutton curry (~200g) (400 cal)
+
+[2026-03-31T07:08:01.238Z] estimateCalories() CALLED with food="2 boiled eggs"
+
+[2026-03-31T07:14:17.763Z] estimateCalories() CALLED with food="couscous"
+
+[2026-03-31T07:14:20.931Z] estimateCalories() CALLED with food="cucumber"
+[SA DB] Checked "cucumber" → not found
+[OPENAI] Calling API for "cucumber"
+
+[2026-03-31T07:14:23.692Z] AI RAW: "cucumber" → Cucumber (1 medium, ~150g) (24 cal)
+[AI FINAL] "cucumber" → Cucumber (1 medium, ~150g) (24 cal)
+
+[2026-03-31T07:14:26.013Z] estimateCalories() CALLED with food="tomato"
+[SA DB] Checked "tomato" → FOUND: Pilchards in tomato sauce (1 can (215g)) (190 cal)
+
+[2026-03-31T07:14:29.957Z] estimateCalories() CALLED with food="onion"
+
+[2026-03-31T07:14:32.578Z] estimateCalories() CALLED with food="avocado"
+[SA DB] Checked "avocado" → FOUND: Avocado (1 medium) (1 medium) (240 cal)
+[SA DB CLEANUP] Removed duplicate: "Avocado (1 medium) (1 medium)" → "Avocado (1 medium)"
+
+[2026-03-31T07:14:35.888Z] estimateCalories() CALLED with food="feta"
+[SA DB] Checked "feta" → FOUND: Feta cheese (30g) (75 cal)
+
+[2026-03-31T07:15:38.414Z] estimateCalories() CALLED with food="No"
+
+[2026-03-31T07:15:38.618Z] estimateCalories() CALLED with food="just 1 whole tomato"
+[SA DB] Checked "just 1 whole tomato" → not found
+[OPENAI] Calling API for "just 1 whole tomato"
+
+[2026-03-31T07:15:42.333Z] AI RAW: "just 1 whole tomato" → whole tomato (~120g) (22 cal)
+[AI FINAL] "just 1 whole tomato" → whole tomato (~120g) (22 cal)
+
+[2026-03-31T07:44:36.508Z] estimateCalories() CALLED with food="Please update yesterdays meal: 
+couscous"
+[SA DB] Checked "Please update yesterdays meal: 
+couscous" → not found
+[OPENAI] Calling API for "Please update yesterdays meal: 
+couscous"
+
+[2026-03-31T07:44:40.390Z] AI RAW: "Please update yesterdays meal: 
+couscous" → Couscous (1 cup, ~150g) (176 cal)
+[MEAL-CAL FIX] "Please update yesterdays meal: 
+couscous" looks like a multi-ingredient meal but AI returned only 176 cal — boosting to 282 cal
+[AI FINAL] "Please update yesterdays meal: 
+couscous" → Couscous (1 cup, ~150g) (282 cal)
+
+[2026-03-31T07:44:43.262Z] estimateCalories() CALLED with food="cucumber"
+[SA DB] Checked "cucumber" → not found
+[OPENAI] Calling API for "cucumber"
+
+[2026-03-31T07:44:45.945Z] AI RAW: "cucumber" → Cucumber (~100g) (16 cal)
+[LOW-CAL FIX] AI returned only 16 cal for "cucumber" — bumping to minimum 50 cal
+[AI FINAL] "cucumber" → Cucumber (~100g) (50 cal)
+
+[2026-03-31T07:44:48.073Z] estimateCalories() CALLED with food="1 whole tomato"
+[SA DB] Checked "1 whole tomato" → not found
+[OPENAI] Calling API for "1 whole tomato"
+
+[2026-03-31T07:44:50.426Z] AI RAW: "1 whole tomato" → whole tomato (~120g) (22 cal)
+[AI FINAL] "1 whole tomato" → whole tomato (~120g) (22 cal)
+
+[2026-03-31T07:44:52.961Z] estimateCalories() CALLED with food="onion"
+
+[2026-03-31T07:44:55.205Z] estimateCalories() CALLED with food="avocado"
+[SA DB] Checked "avocado" → FOUND: Avocado (1 medium) (1 medium) (240 cal)
+[SA DB CLEANUP] Removed duplicate: "Avocado (1 medium) (1 medium)" → "Avocado (1 medium)"
+
+[2026-03-31T07:44:58.851Z] estimateCalories() CALLED with food="feta"
+[SA DB] Checked "feta" → FOUND: Feta cheese (30g) (75 cal)
+
+[2026-03-31T07:46:02.486Z] estimateCalories() CALLED with food="clear all food logs since yesterday"
+[SA DB] Checked "clear all food logs since yesterday" → not found
+[OPENAI] Calling API for "clear all food logs since yesterday"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "clear all food logs since yesterday"
+
+[2026-03-31T07:46:04.705Z] AI RAW: "clear all food logs since yesterday" → clear all food logs since yesterday (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "clear all food logs since yesterday" — estimating based on description
+[ZERO-CAL FIX] Estimated: clear all food logs since yesterday (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "clear all food logs since yesterday" → clear all food logs since yesterday (est.) (250 cal)
+
+[2026-03-31T07:51:09.491Z] estimateCalories() CALLED with food="3 eggs 2 toast and bacon"
+[SA DB] Checked "3 eggs 2 toast and bacon" → not found
+[OPENAI] Calling API for "3 eggs 2 toast and bacon"
+
+[2026-03-31T07:51:12.380Z] AI RAW: "3 eggs 2 toast and bacon" → 3x eggs + 2 slices toast + bacon (~100g) (550 cal)
+[AI FINAL] "3 eggs 2 toast and bacon" → 3x eggs + 2 slices toast + bacon (~100g) (550 cal)
+
+[2026-03-31T07:51:15.495Z] estimateCalories() CALLED with food="with 5 slices of rusk"
+[SA DB] Checked "with 5 slices of rusk" → not found
+[OPENAI] Calling API for "with 5 slices of rusk"
+
+[2026-03-31T07:51:17.802Z] AI RAW: "with 5 slices of rusk" → 5x slice of rusk (400 cal)
+[AI FINAL] "with 5 slices of rusk" → 5x slice of rusk (400 cal)
+
+[2026-03-31T08:01:39.399Z] estimateCalories() CALLED with food="This moring capacino with 3 rusk slices"
+[SA DB] Checked "This moring capacino with 3 rusk slices" → not found
+[OPENAI] Calling API for "This moring capacino with 3 rusk slices"
+
+[2026-03-31T08:01:42.557Z] AI RAW: "This moring capacino with 3 rusk slices" → Cappuccino (1 serving) with 3x rusk slices (370 cal)
+[AI FINAL] "This moring capacino with 3 rusk slices" → Cappuccino (1 serving) with 3x rusk slices (370 cal)
+
+[2026-03-31T08:38:34.227Z] estimateCalories() CALLED with food="1 banana"
+
+[2026-03-31T08:48:59.741Z] estimateCalories() CALLED with food="1 vida matcha latte with oat milk"
+[SA DB] Checked "1 vida matcha latte with oat milk" → not found
+[OPENAI] Calling API for "1 vida matcha latte with oat milk"
+
+[2026-03-31T08:49:03.629Z] AI RAW: "1 vida matcha latte with oat milk" → vida matcha latte with oat milk (~350ml) (150 cal)
+[AI FINAL] "1 vida matcha latte with oat milk" → vida matcha latte with oat milk (~350ml) (150 cal)
+
+[2026-03-31T09:53:18.064Z] estimateCalories() CALLED with food="2 eggs
+1 ostrich burger pattie"
+[SA DB] Checked "2 eggs
+1 ostrich burger pattie" → not found
+[OPENAI] Calling API for "2 eggs
+1 ostrich burger pattie"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "2 eggs
+1 ostrich burger pattie"
+
+[2026-03-31T09:53:23.992Z] AI RAW: "2 eggs
+1 ostrich burger pattie" → 2 eggs
+1 ostrich burger pattie (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "2 eggs
+1 ostrich burger pattie" — estimating based on description
+[ZERO-CAL FIX] Estimated: 2 eggs
+1 ostrich burger pattie (est.) → 200 cal | P:14g C:2g F:15g
+[AI FINAL] "2 eggs
+1 ostrich burger pattie" → 2 eggs
+1 ostrich burger pattie (est.) (200 cal)
+
+[2026-03-31T09:53:46.228Z] estimateCalories() CALLED with food="small chocolate and coconut soothie"
+[SA DB] Checked "small chocolate and coconut soothie" → not found
+[OPENAI] Calling API for "small chocolate and coconut soothie"
+
+[2026-03-31T09:53:49.260Z] AI RAW: "small chocolate and coconut soothie" → small chocolate and coconut smoothie (~250ml) (200 cal)
+[AI FINAL] "small chocolate and coconut soothie" → small chocolate and coconut smoothie (~250ml) (200 cal)
+
+[2026-03-31T09:54:05.795Z] estimateCalories() CALLED with food="2 easter eggs"
+[SA DB] Checked "2 easter eggs" → not found
+[OPENAI] Calling API for "2 easter eggs"
+
+[2026-03-31T09:54:08.638Z] AI RAW: "2 easter eggs" → 2x easter egg (300 cal)
+[AI FINAL] "2 easter eggs" → 2x easter egg (300 cal)
+
+[2026-03-31T10:17:00.711Z] estimateCalories() CALLED with food="Diet protein shake"
+
+[2026-03-31T10:49:33.874Z] estimateCalories() CALLED with food="1 cup black rice
+1 carrot
+Half mini cucumber 
+6 mini prawns
+Quarter cooked onion 
+20g chickpeas"
+[SA DB] Checked "1 cup black rice
+1 carrot
+Half mini cucumber 
+6 mini prawns
+Quarter cooked onion 
+20g chickpeas" → FOUND: Rice (1 cup cooked) (1 cup) (205 cal)
+
+[2026-03-31T10:50:28.743Z] estimateCalories() CALLED with food="1 carrot"
+[SA DB] Checked "1 carrot" → not found
+[OPENAI] Calling API for "1 carrot"
+
+[2026-03-31T10:50:31.096Z] AI RAW: "1 carrot" → carrot (~70g) (30 cal)
+[AI FINAL] "1 carrot" → carrot (~70g) (30 cal)
+
+[2026-03-31T10:50:48.134Z] estimateCalories() CALLED with food="Chickpeas"
+[SA DB] Checked "Chickpeas" → FOUND: Chickpeas cooked (1/2 cup (80g)) (135 cal)
+
+[2026-03-31T10:51:41.558Z] estimateCalories() CALLED with food="Half mini cucumber"
+[SA DB] Checked "Half mini cucumber" → not found
+[OPENAI] Calling API for "Half mini cucumber"
+
+[2026-03-31T10:51:44.552Z] AI RAW: "Half mini cucumber" → Half mini cucumber (~50g) (8 cal)
+[LOW-CAL FIX] AI returned only 8 cal for "Half mini cucumber" — bumping to minimum 50 cal
+[MACRO FIX] Macros don't add up for "Half mini cucumber": macros=8 cal vs reported=50 cal (ratio: 0.16) — recalculating
+[MACRO FIX] Recalculated: P:4g C:5g F:2g
+[AI FINAL] "Half mini cucumber" → Half mini cucumber (~50g) (50 cal)
+
+[2026-03-31T10:52:04.379Z] estimateCalories() CALLED with food="4 prawns"
+[SA DB] Checked "4 prawns" → not found
+[OPENAI] Calling API for "4 prawns"
+
+[2026-03-31T10:52:06.433Z] AI RAW: "4 prawns" → 4x prawns (~80g) (80 cal)
+[AI FINAL] "4 prawns" → 4x prawns (~80g) (80 cal)
+
+[2026-03-31T10:52:53.867Z] estimateCalories() CALLED with food="Quarter cooked onion & teaspoon salad dressing"
+[SA DB] Checked "Quarter cooked onion & teaspoon salad dressing" → not found
+[OPENAI] Calling API for "Quarter cooked onion & teaspoon salad dressing"
+
+[2026-03-31T10:52:57.565Z] AI RAW: "Quarter cooked onion & teaspoon salad dressing" → Quarter cooked onion (~50g) & 1 teaspoon salad dressing (~5g) (30 cal)
+[AI FINAL] "Quarter cooked onion & teaspoon salad dressing" → Quarter cooked onion (~50g) & 1 teaspoon salad dressing (~5g) (30 cal)
+
+[2026-03-31T11:17:22.829Z] estimateCalories() CALLED with food="Woolworths tuna baguette"
+[SA DB] Checked "Woolworths tuna baguette" → not found
+[OPENAI] Calling API for "Woolworths tuna baguette"
+
+[2026-03-31T11:17:26.614Z] AI RAW: "Woolworths tuna baguette" → Woolworths tuna baguette (450 cal)
+[AI FINAL] "Woolworths tuna baguette" → Woolworths tuna baguette (450 cal)
+
+[2026-03-31T11:36:34.943Z] estimateCalories() CALLED with food="small portion of The food item is Cadbury Dairy Milk Fruit & Nut chocolate. The estimated portion size is approximately 200g, which is typical for a standard chocolate bar. (80g)"
+[SA DB] Checked "small portion of The food item is Cadbury Dairy Milk Fruit & Nut chocolate. The estimated portion size is approximately 200g, which is typical for a standard chocolate bar. (80g)" → not found
+[OPENAI] Calling API for "small portion of The food item is Cadbury Dairy Milk Fruit & Nut chocolate. The estimated portion size is approximately 200g, which is typical for a standard chocolate bar. (80g)"
+
+[2026-03-31T11:36:38.363Z] AI RAW: "small portion of The food item is Cadbury Dairy Milk Fruit & Nut chocolate. The estimated portion size is approximately 200g, which is typical for a standard chocolate bar. (80g)" → Cadbury Dairy Milk Fruit & Nut chocolate (80g) (440 cal)
+[AI FINAL] "small portion of The food item is Cadbury Dairy Milk Fruit & Nut chocolate. The estimated portion size is approximately 200g, which is typical for a standard chocolate bar. (80g)" → Cadbury Dairy Milk Fruit & Nut chocolate (80g) (440 cal)
+
+[2026-03-31T11:40:36.921Z] estimateCalories() CALLED with food="100g piece of steak and spoon of mash"
+[SA DB] Checked "100g piece of steak and spoon of mash" → not found
+[OPENAI] Calling API for "100g piece of steak and spoon of mash"
+
+[2026-03-31T11:40:40.396Z] AI RAW: "100g piece of steak and spoon of mash" → Steak (~100g) and mashed potatoes (1 spoon, ~50g) (290 cal)
+[AI FINAL] "100g piece of steak and spoon of mash" → Steak (~100g) and mashed potatoes (1 spoon, ~50g) (290 cal)
+
+[2026-03-31T11:51:53.384Z] estimateCalories() CALLED with food="150g frozen blueberries"
+[SA DB] Checked "150g frozen blueberries" → not found
+[OPENAI] Calling API for "150g frozen blueberries"
+
+[2026-03-31T11:51:57.478Z] AI RAW: "150g frozen blueberries" → Frozen blueberries (150g) (85 cal)
+[AI FINAL] "150g frozen blueberries" → Frozen blueberries (150g) (85 cal)
+
+[2026-03-31T12:06:08.544Z] estimateCalories() CALLED with food="Pronutro protein bar"
+[SA DB] Checked "Pronutro protein bar" → not found
+[OPENAI] Calling API for "Pronutro protein bar"
+
+[2026-03-31T12:06:12.012Z] AI RAW: "Pronutro protein bar" → Pronutro protein bar (200 cal)
+[AI FINAL] "Pronutro protein bar" → Pronutro protein bar (200 cal)
+
+[2026-03-31T12:07:45.970Z] estimateCalories() CALLED with food="Pronutro protein bar 50g | 189 calories"
+[SA DB] Checked "Pronutro protein bar 50g | 189 calories" → not found
+[OPENAI] Calling API for "Pronutro protein bar 50g | 189 calories"
+
+[2026-03-31T12:07:48.581Z] AI RAW: "Pronutro protein bar 50g | 189 calories" → Pronutro protein bar (50g) (189 cal)
+[AI FINAL] "Pronutro protein bar 50g | 189 calories" → Pronutro protein bar (50g) (189 cal)
+
+[2026-03-31T12:25:19.985Z] estimateCalories() CALLED with food="5 eggs"
+[SA DB] Checked "5 eggs" → not found
+[OPENAI] Calling API for "5 eggs"
+
+[2026-03-31T12:25:22.867Z] AI RAW: "5 eggs" → 5x eggs (350 cal)
+[AI FINAL] "5 eggs" → 5x eggs (350 cal)
+
+[2026-03-31T12:25:25.728Z] estimateCalories() CALLED with food="2 pieces of toast"
+[SA DB] Checked "2 pieces of toast" → not found
+[OPENAI] Calling API for "2 pieces of toast"
+
+[2026-03-31T12:25:29.559Z] AI RAW: "2 pieces of toast" → 2x slice of toast (160 cal)
+[AI FINAL] "2 pieces of toast" → 2x slice of toast (160 cal)
+
+[2026-03-31T12:25:55.056Z] estimateCalories() CALLED with food="250ml apple juice"
+[SA DB] Checked "250ml apple juice" → not found
+[OPENAI] Calling API for "250ml apple juice"
+
+[2026-03-31T12:25:57.927Z] AI RAW: "250ml apple juice" → Apple juice (250ml) (110 cal)
+[AI FINAL] "250ml apple juice" → Apple juice (250ml) (110 cal)
+
+[2026-03-31T13:18:02.495Z] estimateCalories() CALLED with food="Plain yoghurt (5 tablespoons) + 3 large grapes"
+[SA DB] Checked "Plain yoghurt (5 tablespoons) + 3 large grapes" → not found
+[OPENAI] Calling API for "Plain yoghurt (5 tablespoons) + 3 large grapes"
+
+[2026-03-31T13:18:06.900Z] AI RAW: "Plain yoghurt (5 tablespoons) + 3 large grapes" → Plain yoghurt (5 tablespoons, ~125g) + 3 large grapes (~60g) (120 cal)
+[AI FINAL] "Plain yoghurt (5 tablespoons) + 3 large grapes" → Plain yoghurt (5 tablespoons, ~125g) + 3 large grapes (~60g) (120 cal)
+
+[2026-03-31T13:19:19.422Z] estimateCalories() CALLED with food="4 thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avo + 1 medium cling peach"
+[SA DB] Checked "4 thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avo + 1 medium cling peach" → not found
+[OPENAI] Calling API for "4 thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avo + 1 medium cling peach"
+
+[2026-03-31T13:19:22.163Z] AI RAW: "4 thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avo + 1 medium cling peach" → 4x thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avocado + 1 medium cling peach (740 cal)
+[AI FINAL] "4 thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avo + 1 medium cling peach" → 4x thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avocado + 1 medium cling peach (740 cal)
+
+[2026-03-31T13:19:59.242Z] estimateCalories() CALLED with food="10 almonds"
+[SA DB] Checked "10 almonds" → not found
+[OPENAI] Calling API for "10 almonds"
+
+[2026-03-31T13:20:01.489Z] AI RAW: "10 almonds" → 10 almonds (~28g) (160 cal)
+[AI FINAL] "10 almonds" → 10 almonds (~28g) (160 cal)
+
+[2026-03-31T13:22:28.959Z] estimateCalories() CALLED with food="130g mince 1 cup sweet potato half avo 3tbls sour cream"
+[SA DB] Checked "130g mince 1 cup sweet potato half avo 3tbls sour cream" → not found
+[OPENAI] Calling API for "130g mince 1 cup sweet potato half avo 3tbls sour cream"
+
+[2026-03-31T13:22:32.648Z] AI RAW: "130g mince 1 cup sweet potato half avo 3tbls sour cream" → Minced beef (~130g) with sweet potato (1 cup, ~200g), half avocado, and sour cream (3 tablespoons) (570 cal)
+[AI FINAL] "130g mince 1 cup sweet potato half avo 3tbls sour cream" → Minced beef (~130g) with sweet potato (1 cup, ~200g), half avocado, and sour cream (3 tablespoons) (570 cal)
+
+[2026-03-31T13:23:24.434Z] estimateCalories() CALLED with food="2 tsps cremora"
+[SA DB] Checked "2 tsps cremora" → not found
+[OPENAI] Calling API for "2 tsps cremora"
+
+[2026-03-31T13:23:27.588Z] AI RAW: "2 tsps cremora" → 2 tsp Cremora (~10g) (50 cal)
+[AI FINAL] "2 tsps cremora" → 2 tsp Cremora (~10g) (50 cal)
+
+[2026-03-31T13:27:33.802Z] estimateCalories() CALLED with food="1 cup blueberries half cup oats 1 tablespoon pecan macadamia nut butter"
+[SA DB] Checked "1 cup blueberries half cup oats 1 tablespoon pecan macadamia nut butter" → FOUND: Oats (1 cup cooked) (1 cup) (150 cal)
+
+[2026-03-31T13:34:55.169Z] estimateCalories() CALLED with food="Red apple"
+[SA DB] Checked "Red apple" → not found
+[OPENAI] Calling API for "Red apple"
+
+[2026-03-31T13:35:00.351Z] AI RAW: "Red apple" → Red apple (~150g) (80 cal)
+[AI FINAL] "Red apple" → Red apple (~150g) (80 cal)
+
+[2026-03-31T15:07:16.487Z] estimateCalories() CALLED with food="1 block caring candies mint chocolate 28g triggz"
+[SA DB] Checked "1 block caring candies mint chocolate 28g triggz" → not found
+[OPENAI] Calling API for "1 block caring candies mint chocolate 28g triggz"
+
+[2026-03-31T15:07:25.197Z] AI RAW: "1 block caring candies mint chocolate 28g triggz" → Caring candies mint chocolate (28g) (140 cal)
+[AI FINAL] "1 block caring candies mint chocolate 28g triggz" → Caring candies mint chocolate (28g) (140 cal)
+
+[2026-03-31T15:09:27.571Z] estimateCalories() CALLED with food="27g trigz chips sea salt"
+[SA DB] Checked "27g trigz chips sea salt" → not found
+[OPENAI] Calling API for "27g trigz chips sea salt"
+
+[2026-03-31T15:09:30.444Z] AI RAW: "27g trigz chips sea salt" → Trigz chips (27g) (140 cal)
+[AI FINAL] "27g trigz chips sea salt" → Trigz chips (27g) (140 cal)
+
+[2026-03-31T16:56:35.869Z] estimateCalories() CALLED with food="Half portion Saltimbocca pasta from panarottis."
+[SA DB] Checked "Half portion Saltimbocca pasta from panarottis." → not found
+[OPENAI] Calling API for "Half portion Saltimbocca pasta from panarottis."
+
+[2026-03-31T16:56:39.770Z] AI RAW: "Half portion Saltimbocca pasta from panarottis." → Saltimbocca pasta (half portion, ~200g) (400 cal)
+[AI FINAL] "Half portion Saltimbocca pasta from panarottis." → Saltimbocca pasta (half portion, ~200g) (400 cal)
+
+[2026-03-31T17:01:36.062Z] estimateCalories() CALLED with food="The food appears to be a wrap containing grilled chicken, sautéed zucchini, and fresh greens. The estimated portion size is approximately 200g."
+[SA DB] Checked "The food appears to be a wrap containing grilled chicken, sautéed zucchini, and fresh greens. The estimated portion size is approximately 200g." → not found
+[OPENAI] Calling API for "The food appears to be a wrap containing grilled chicken, sautéed zucchini, and fresh greens. The estimated portion size is approximately 200g."
+
+[2026-03-31T17:01:39.909Z] AI RAW: "The food appears to be a wrap containing grilled chicken, sautéed zucchini, and fresh greens. The estimated portion size is approximately 200g." → Grilled chicken wrap with sautéed zucchini and fresh greens (~200g) (450 cal)
+[AI FINAL] "The food appears to be a wrap containing grilled chicken, sautéed zucchini, and fresh greens. The estimated portion size is approximately 200g." → Grilled chicken wrap with sautéed zucchini and fresh greens (~200g) (450 cal)
+
+[2026-03-31T18:09:18.482Z] estimateCalories() CALLED with food="Calamari & chips"
+[SA DB] Checked "Calamari & chips" → not found
+[OPENAI] Calling API for "Calamari & chips"
+
+[2026-03-31T18:09:22.824Z] AI RAW: "Calamari & chips" → Calamari (~150g) & chips (~150g) (600 cal)
+[AI FINAL] "Calamari & chips" → Calamari (~150g) & chips (~150g) (600 cal)
+
+[2026-03-31T18:14:06.763Z] estimateCalories() CALLED with food="3 eggs"
+
+[2026-03-31T18:14:10.174Z] estimateCalories() CALLED with food="2 toast"
+[SA DB] Checked "2 toast" → FOUND: Toast (white bread, 2 slices) (2 slices) (160 cal)
+
+[2026-03-31T18:14:15.234Z] estimateCalories() CALLED with food="3 cheese grillers"
+[SA DB] Checked "3 cheese grillers" → not found
+[OPENAI] Calling API for "3 cheese grillers"
+
+[2026-03-31T18:14:17.502Z] AI RAW: "3 cheese grillers" → 3x cheese griller (540 cal)
+[AI FINAL] "3 cheese grillers" → 3x cheese griller (540 cal)
+
+[2026-03-31T18:14:20.250Z] estimateCalories() CALLED with food="5 rusk slises"
+[SA DB] Checked "5 rusk slises" → not found
+[OPENAI] Calling API for "5 rusk slises"
+
+[2026-03-31T18:14:23.321Z] AI RAW: "5 rusk slises" → 5x rusk slice (400 cal)
+[AI FINAL] "5 rusk slises" → 5x rusk slice (400 cal)
+
+[2026-03-31T18:44:24.227Z] estimateCalories() CALLED with food="1 corona beer"
+[SA DB] Checked "1 corona beer" → not found
+[OPENAI] Calling API for "1 corona beer"
+[VALIDATION WARN] Macro mismatch: 155 cal stated vs 56 from macros (diff: 99)
+
+[2026-03-31T18:44:28.547Z] AI RAW: "1 corona beer" → Corona beer (440ml) (155 cal)
+[AI FINAL] "1 corona beer" → Corona beer (440ml) (155 cal)
+
+[2026-03-31T21:18:01.884Z] estimateCalories() CALLED with food="Slice of cream cake"
+[SA DB] Checked "Slice of cream cake" → not found
+[OPENAI] Calling API for "Slice of cream cake"
+
+[2026-03-31T21:18:04.955Z] AI RAW: "Slice of cream cake" → slice of cream cake (350 cal)
+[AI FINAL] "Slice of cream cake" → slice of cream cake (350 cal)

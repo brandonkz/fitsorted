@@ -1,278 +1,272 @@
 {
   "results": [
     {
-      "food": "woolworths chicken schnitzel wrap",
-      "expected": "350-600",
-      "got": 400,
-      "pass": true,
-      "aiResult": {
-        "food": "Woolworths chicken schnitzel wrap",
-        "calories": 400,
-        "protein": 25,
+      "name": "spur ribs half rack with chips",
+      "status": "pass",
+      "calories": 950,
+      "expected": [
+        800,
+        1200
+      ],
+      "result": {
+        "food": "Half rack of ribs (~300g) with chips (~150g)",
+        "calories": 950,
+        "protein": 60,
+        "carbs": 80,
+        "fat": 50,
+        "fibre": 6,
+        "estimatedPriceZAR": 180
+      }
+    },
+    {
+      "name": "woolworths chicken schnitzel burger",
+      "status": "pass",
+      "calories": 450,
+      "expected": [
+        450,
+        700
+      ],
+      "result": {
+        "food": "Woolworths chicken schnitzel burger",
+        "calories": 450,
+        "protein": 30,
         "carbs": 40,
-        "fat": 15,
+        "fat": 20,
         "fibre": 3,
+        "estimatedPriceZAR": 60
+      }
+    },
+    {
+      "name": "checkers braai pack boerewors 200g",
+      "status": "pass",
+      "calories": 480,
+      "expected": [
+        450,
+        650
+      ],
+      "result": {
+        "food": "Boerewors (200g)",
+        "calories": 480,
+        "protein": 36,
+        "carbs": 0,
+        "fat": 36,
+        "fibre": 0,
+        "estimatedPriceZAR": 80
+      }
+    },
+    {
+      "name": "two magwinya with polony",
+      "status": "pass",
+      "calories": 600,
+      "expected": [
+        600,
+        950
+      ],
+      "result": {
+        "food": "2x magwinya with polony",
+        "calories": 600,
+        "protein": 20,
+        "carbs": 80,
+        "fat": 25,
+        "fibre": 4,
+        "estimatedPriceZAR": 50
+      }
+    },
+    {
+      "name": "king pie chicken and mushroom",
+      "status": "pass",
+      "calories": 400,
+      "expected": [
+        350,
+        550
+      ],
+      "result": {
+        "food": "King Pie chicken and mushroom (~200g)",
+        "calories": 400,
+        "protein": 20,
+        "carbs": 40,
+        "fat": 20,
+        "fibre": 2,
+        "estimatedPriceZAR": 40
+      }
+    },
+    {
+      "name": "mugg and bean breakfast wrap",
+      "status": "fail",
+      "calories": 400,
+      "expected": [
+        450,
+        700
+      ],
+      "result": {
+        "food": "Breakfast wrap (~200g)",
+        "calories": 400,
+        "protein": 20,
+        "carbs": 40,
+        "fat": 20,
+        "fibre": 5,
         "estimatedPriceZAR": 85
       }
     },
     {
-      "food": "checkers footlong",
-      "expected": "500-800",
-      "got": 600,
-      "pass": true,
-      "aiResult": {
-        "food": "Checkers footlong",
-        "calories": 600,
-        "protein": 30,
-        "carbs": 80,
-        "fat": 20,
-        "fibre": 5,
-        "estimatedPriceZAR": 80
-      }
-    },
-    {
-      "food": "kfc streetwise 5",
-      "expected": "800-1200",
-      "got": 1050,
-      "pass": true,
-      "aiResult": {
-        "food": "KFC Streetwise 5 (1 serving)",
-        "calories": 1050,
-        "protein": 50,
-        "carbs": 70,
-        "fat": 60,
+      "name": "stoney zero",
+      "status": "pass",
+      "calories": 0,
+      "expected": [
+        0,
+        10
+      ],
+      "result": {
+        "food": "Stoney Zero (500ml)",
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
         "fibre": 0,
-        "estimatedPriceZAR": 80
-      }
-    },
-    {
-      "food": "nandos double chicken burger",
-      "expected": "700-1000",
-      "got": 600,
-      "pass": false,
-      "aiResult": {
-        "food": "Nandos double chicken burger",
-        "calories": 600,
-        "protein": 40,
-        "carbs": 40,
-        "fat": 30,
-        "fibre": 2,
-        "estimatedPriceZAR": 120
-      }
-    },
-    {
-      "food": "pick n pay chicken burger",
-      "expected": "400-650",
-      "got": 350,
-      "pass": false,
-      "aiResult": {
-        "food": "Pick n Pay chicken burger",
-        "calories": 350,
-        "protein": 25,
-        "carbs": 30,
-        "fat": 15,
-        "fibre": 2,
-        "estimatedPriceZAR": 60
-      }
-    },
-    {
-      "food": "romany creams 3",
-      "expected": "150-280",
-      "got": 150,
-      "pass": true,
-      "aiResult": {
-        "food": "Romany Creams 3 biscuits",
-        "calories": 150,
-        "protein": 1,
-        "carbs": 22,
-        "fat": 7,
-        "fibre": 1,
         "estimatedPriceZAR": 20
       }
     },
     {
-      "food": "bakers blue label marie biscuits 4",
-      "expected": "100-200",
-      "got": 160,
-      "pass": true,
-      "aiResult": {
-        "food": "Bakers Blue Label Marie Biscuits 4 pieces",
-        "calories": 160,
-        "protein": 2,
-        "carbs": 24,
-        "fat": 6,
+      "name": "fanta orange 500ml",
+      "status": "pass",
+      "calories": 210,
+      "expected": [
+        200,
+        300
+      ],
+      "result": {
+        "food": "Fanta Orange (500ml)",
+        "calories": 210,
+        "protein": 0,
+        "carbs": 52,
+        "fat": 0,
         "fibre": 0,
-        "estimatedPriceZAR": 10
+        "estimatedPriceZAR": 25
       }
     },
     {
-      "food": "chicken mayo kota",
-      "expected": "550-850",
-      "got": 500,
-      "pass": false,
-      "aiResult": {
-        "food": "chicken mayo kota",
-        "calories": 500,
+      "name": "galitos flame grilled chicken wrap",
+      "status": "pass",
+      "calories": 450,
+      "expected": [
+        350,
+        550
+      ],
+      "result": {
+        "food": "Galitos flame grilled chicken wrap",
+        "calories": 450,
         "protein": 30,
-        "carbs": 50,
+        "carbs": 40,
         "fat": 20,
-        "fibre": 2,
-        "estimatedPriceZAR": 60
+        "fibre": 5,
+        "estimatedPriceZAR": 85
       }
     },
     {
-      "food": "pickled fish",
-      "expected": "200-350",
-      "got": 150,
-      "pass": false,
-      "aiResult": {
-        "food": "pickled fish 100g",
-        "calories": 150,
-        "protein": 20,
-        "carbs": 5,
-        "fat": 7,
-        "fibre": 0,
-        "estimatedPriceZAR": 80
-      }
-    },
-    {
-      "food": "malva pudding",
-      "expected": "300-500",
-      "got": 150,
-      "pass": false,
-      "aiResult": {
-        "food": "malva pudding, 100g",
-        "calories": 150,
-        "protein": 2,
-        "carbs": 30,
-        "fat": 5,
-        "fibre": 1,
-        "estimatedPriceZAR": 40
+      "name": "rocomamas smash burger with chips",
+      "status": "fail",
+      "calories": 800,
+      "expected": [
+        900,
+        1400
+      ],
+      "result": {
+        "food": "RocoMamas smash burger (~200g) with chips (~150g)",
+        "calories": 800,
+        "protein": 40,
+        "carbs": 80,
+        "fat": 40,
+        "fibre": 6,
+        "estimatedPriceZAR": 120
       }
     }
   ],
   "failures": [
     {
-      "food": "nandos double chicken burger",
-      "expected": "700-1000",
-      "got": 600,
-      "aiResult": {
-        "food": "Nandos double chicken burger",
-        "calories": 600,
-        "protein": 40,
-        "carbs": 40,
-        "fat": 30,
-        "fibre": 2,
-        "estimatedPriceZAR": 120
-      }
-    },
-    {
-      "food": "pick n pay chicken burger",
-      "expected": "400-650",
-      "got": 350,
-      "aiResult": {
-        "food": "Pick n Pay chicken burger",
-        "calories": 350,
-        "protein": 25,
-        "carbs": 30,
-        "fat": 15,
-        "fibre": 2,
-        "estimatedPriceZAR": 60
-      }
-    },
-    {
-      "food": "chicken mayo kota",
-      "expected": "550-850",
-      "got": 500,
-      "aiResult": {
-        "food": "chicken mayo kota",
-        "calories": 500,
-        "protein": 30,
-        "carbs": 50,
-        "fat": 20,
-        "fibre": 2,
-        "estimatedPriceZAR": 60
-      }
-    },
-    {
-      "food": "pickled fish",
-      "expected": "200-350",
-      "got": 150,
-      "aiResult": {
-        "food": "pickled fish 100g",
-        "calories": 150,
+      "name": "mugg and bean breakfast wrap",
+      "reason": "got 400, expected 450-700",
+      "result": {
+        "food": "Breakfast wrap (~200g)",
+        "calories": 400,
         "protein": 20,
-        "carbs": 5,
-        "fat": 7,
-        "fibre": 0,
-        "estimatedPriceZAR": 80
-      }
+        "carbs": 40,
+        "fat": 20,
+        "fibre": 5,
+        "estimatedPriceZAR": 85
+      },
+      "expected": [
+        450,
+        700
+      ]
     },
     {
-      "food": "malva pudding",
-      "expected": "300-500",
-      "got": 150,
-      "aiResult": {
-        "food": "malva pudding, 100g",
-        "calories": 150,
-        "protein": 2,
-        "carbs": 30,
-        "fat": 5,
-        "fibre": 1,
-        "estimatedPriceZAR": 40
-      }
+      "name": "rocomamas smash burger with chips",
+      "reason": "got 800, expected 900-1400",
+      "result": {
+        "food": "RocoMamas smash burger (~200g) with chips (~150g)",
+        "calories": 800,
+        "protein": 40,
+        "carbs": 80,
+        "fat": 40,
+        "fibre": 6,
+        "estimatedPriceZAR": 120
+      },
+      "expected": [
+        900,
+        1400
+      ]
     }
   ],
-  "newTests": [
+  "newTestCases": [
     [
-      "woolworths chicken schnitzel wrap",
-      350,
-      600
-    ],
-    [
-      "checkers footlong",
-      500,
-      800
-    ],
-    [
-      "kfc streetwise 5",
+      "spur ribs half rack with chips",
       800,
       1200
     ],
     [
-      "nandos double chicken burger",
-      700,
-      1000
+      "woolworths chicken schnitzel burger",
+      450,
+      700
     ],
     [
-      "pick n pay chicken burger",
-      400,
+      "checkers braai pack boerewors 200g",
+      450,
       650
     ],
     [
-      "romany creams 3",
-      150,
-      280
+      "two magwinya with polony",
+      600,
+      950
     ],
     [
-      "bakers blue label marie biscuits 4",
-      100,
-      200
+      "king pie chicken and mushroom",
+      350,
+      550
     ],
     [
-      "chicken mayo kota",
-      550,
-      850
+      "mugg and bean breakfast wrap",
+      450,
+      700
     ],
     [
-      "pickled fish",
+      "stoney zero",
+      0,
+      10
+    ],
+    [
+      "fanta orange 500ml",
       200,
-      350
+      300
     ],
     [
-      "malva pudding",
-      300,
-      500
+      "galitos flame grilled chicken wrap",
+      350,
+      550
+    ],
+    [
+      "rocomamas smash burger with chips",
+      900,
+      1400
     ]
   ]
 }
