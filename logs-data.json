@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-04-01T11:00:46.367Z",
+    "date": "2026-04-01",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "Cappuccino (1 cup, ~240ml)",
+    "calories": 80,
+    "protein": 4,
+    "carbs": 10,
+    "fat": 3,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-01T11:00:33.565Z",
+    "date": "2026-04-01",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "Boiled egg (1 large) (1 egg)",
+    "calories": 78,
+    "protein": 6,
+    "carbs": 1,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-01T10:55:40.094Z",
+    "date": "2026-04-01",
+    "phone": "4580",
+    "userId": "27790944",
+    "food": "Beef mince (100g) + Sweet potato (1 medium, ~150g) + Sour cream (1 tablespoon, ~15g)",
+    "calories": 370,
+    "protein": 25,
+    "carbs": 40,
+    "fat": 15,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-01T10:54:10.891Z",
+    "date": "2026-04-01",
+    "phone": "4580",
+    "userId": "27790944",
+    "food": "Oats (1.5 cups, ~150g) with berries (1 cup, ~150g) and nut butter (1 tablespoon, ~16g)",
+    "calories": 450,
+    "protein": 15,
+    "carbs": 60,
+    "fat": 18,
+    "fibre": 10,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-01T08:49:00.440Z",
     "date": "2026-04-01",
     "phone": "1220",
