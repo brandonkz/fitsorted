@@ -203,6 +203,149 @@
           "time": "2026-03-30T19:12:33.297Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 1994,
+        "protein": 74,
+        "carbs": 260,
+        "fat": 44,
+        "fibre": 25,
+        "priceZAR": 334
+      },
+      "entries": [
+        {
+          "food": "Banana (1 medium)",
+          "calories": 90,
+          "protein": 1,
+          "carbs": 23,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-03-31T08:38:35.343Z"
+        },
+        {
+          "food": "vida matcha latte with oat milk (~350ml)",
+          "calories": 150,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 5,
+          "fibre": 1,
+          "priceZAR": 65,
+          "time": "2026-03-31T08:49:03.630Z"
+        },
+        {
+          "food": "Rice (1 cup cooked) (1 cup)",
+          "calories": 205,
+          "protein": 4,
+          "carbs": 45,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-31T10:49:37.893Z"
+        },
+        {
+          "food": "carrot (~70g)",
+          "calories": 30,
+          "protein": 1,
+          "carbs": 7,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 4,
+          "time": "2026-03-31T10:50:31.927Z"
+        },
+        {
+          "food": "Chickpeas cooked (1/2 cup (80g))",
+          "calories": 135,
+          "protein": 7,
+          "carbs": 23,
+          "fat": 2,
+          "fibre": 6,
+          "priceZAR": 10,
+          "time": "2026-03-31T10:50:50.690Z"
+        },
+        {
+          "food": "Half mini cucumber (~50g)",
+          "calories": 50,
+          "protein": 4,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-31T10:51:45.177Z"
+        },
+        {
+          "food": "4x prawns (~80g)",
+          "calories": 80,
+          "protein": 18,
+          "carbs": 0,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-03-31T10:52:07.047Z"
+        },
+        {
+          "food": "Quarter cooked onion (~50g) & 1 teaspoon salad dressing (~5g)",
+          "calories": 30,
+          "protein": 0,
+          "carbs": 7,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-31T10:52:58.279Z"
+        },
+        {
+          "food": "Pronutro protein bar",
+          "calories": 200,
+          "protein": 10,
+          "carbs": 25,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 15,
+          "time": "2026-03-31T12:06:13.604Z"
+        },
+        {
+          "food": "Pronutro protein bar (50g)",
+          "calories": 189,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-03-31T12:07:49.911Z"
+        },
+        {
+          "food": "Red apple (~150g)",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 22,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 4,
+          "time": "2026-03-31T13:35:01.034Z"
+        },
+        {
+          "food": "Calamari (~150g) & chips (~150g)",
+          "calories": 600,
+          "protein": 25,
+          "carbs": 70,
+          "fat": 25,
+          "fibre": 5,
+          "priceZAR": 120,
+          "time": "2026-03-31T18:09:22.824Z"
+        },
+        {
+          "food": "Corona beer (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-03-31T18:44:29.314Z"
+        }
+      ]
     }
   ]
 }

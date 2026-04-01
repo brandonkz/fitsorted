@@ -108,6 +108,102 @@
           "time": "2026-03-28T17:30:32.449Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 950,
+        "protein": 46,
+        "carbs": 120,
+        "fat": 40,
+        "fibre": 9,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "3x eggs + 2 slices toast + bacon (~100g)",
+          "calories": 550,
+          "protein": 36,
+          "carbs": 40,
+          "fat": 30,
+          "fibre": 4,
+          "priceZAR": 45,
+          "time": "2026-03-31T07:51:13.611Z"
+        },
+        {
+          "food": "5x slice of rusk",
+          "calories": 400,
+          "protein": 10,
+          "carbs": 80,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 15,
+          "time": "2026-03-31T07:51:18.936Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 1680,
+        "protein": 73,
+        "carbs": 178,
+        "fat": 82,
+        "fibre": 10,
+        "priceZAR": 140
+      },
+      "entries": [
+        {
+          "food": "Cappuccino (1 serving) with 3x rusk slices",
+          "calories": 370,
+          "protein": 10,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 3,
+          "priceZAR": 50,
+          "time": "2026-03-31T08:01:42.558Z"
+        },
+        {
+          "food": "3 Eggs (boiled)",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-31T18:14:08.677Z"
+        },
+        {
+          "food": "Toast (white bread, 2 slices) (2 slices)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-31T18:14:13.592Z"
+        },
+        {
+          "food": "3x cheese griller",
+          "calories": 540,
+          "protein": 30,
+          "carbs": 6,
+          "fat": 45,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-03-31T18:14:18.754Z"
+        },
+        {
+          "food": "5x rusk slice",
+          "calories": 400,
+          "protein": 10,
+          "carbs": 80,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 15,
+          "time": "2026-03-31T18:14:24.045Z"
+        }
+      ]
     }
   ]
 }

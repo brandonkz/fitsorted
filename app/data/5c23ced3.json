@@ -1,0 +1,73 @@
+{
+  "name": "Bridget",
+  "goal": 1369,
+  "joinedAt": "2026-03-31T13:15:43.645Z",
+  "profile": {
+    "age": 43,
+    "weight": 66,
+    "height": 172,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-31": [
+      {
+        "activity": "iyengar yoga",
+        "calories": 425,
+        "time": "2026-03-31T18:27:06.007Z"
+      },
+      {
+        "activity": "slow walk",
+        "calories": 60,
+        "time": "2026-03-31T18:27:13.412Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 1310,
+        "protein": 72,
+        "carbs": 114,
+        "fat": 72,
+        "fibre": 21,
+        "priceZAR": 65
+      },
+      "entries": [
+        {
+          "food": "Plain yoghurt (5 tablespoons, ~125g) + 3 large grapes (~60g)",
+          "calories": 120,
+          "protein": 5,
+          "carbs": 20,
+          "fat": 3,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-03-31T13:18:08.332Z"
+        },
+        {
+          "food": "4x thick slices gouda cheese + half a cucumber + 5 baby tomatoes + 1 small avocado + 1 medium cling peach",
+          "calories": 740,
+          "protein": 32,
+          "carbs": 54,
+          "fat": 54,
+          "fibre": 15,
+          "priceZAR": 45,
+          "time": "2026-03-31T13:19:23.510Z"
+        },
+        {
+          "food": "Grilled chicken wrap with sautéed zucchini and fresh greens (~200g)",
+          "calories": 450,
+          "protein": 35,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-03-31T17:01:39.910Z"
+        }
+      ]
+    }
+  ]
+}

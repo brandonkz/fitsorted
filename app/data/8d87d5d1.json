@@ -1,0 +1,181 @@
+{
+  "name": "Jaime",
+  "goal": 1062,
+  "joinedAt": "2026-03-31T07:02:43.952Z",
+  "profile": {
+    "age": 25,
+    "weight": 60,
+    "height": 158,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {
+    "2026-03-31": [
+      {
+        "activity": "cooking",
+        "calories": 150,
+        "time": "2026-03-31T09:25:35.055Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "calories": 748,
+        "protein": 32,
+        "carbs": 67,
+        "fat": 40,
+        "fibre": 15,
+        "priceZAR": 86
+      },
+      "entries": [
+        {
+          "food": "Couscous (1 cup cooked)",
+          "calories": 175,
+          "protein": 6,
+          "carbs": 36,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-03-31T07:14:19.385Z"
+        },
+        {
+          "food": "Cucumber (1 medium, ~150g)",
+          "calories": 24,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-31T07:14:24.614Z"
+        },
+        {
+          "food": "Pilchards in tomato sauce (1 can (215g))",
+          "calories": 190,
+          "protein": 17,
+          "carbs": 4,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-03-31T07:14:28.505Z"
+        },
+        {
+          "food": "Onion (1 medium)",
+          "calories": 44,
+          "protein": 1,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 6,
+          "time": "2026-03-31T07:14:31.164Z"
+        },
+        {
+          "food": "Avocado (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 20,
+          "time": "2026-03-31T07:14:34.400Z"
+        },
+        {
+          "food": "Feta cheese (30g)",
+          "calories": 75,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-31T07:14:37.947Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 853,
+        "protein": 30,
+        "carbs": 83,
+        "fat": 40,
+        "fibre": 16,
+        "priceZAR": 86
+      },
+      "entries": [
+        {
+          "food": "2 Boiled Eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 1,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-03-31T07:08:02.861Z"
+        },
+        {
+          "food": "Couscous (1 cup, ~150g)",
+          "calories": 282,
+          "protein": 8,
+          "carbs": 50,
+          "fat": 2,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-03-31T07:44:41.264Z"
+        },
+        {
+          "food": "Cucumber (~100g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-03-31T07:44:46.613Z"
+        },
+        {
+          "food": "whole tomato (~120g)",
+          "calories": 22,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 8,
+          "time": "2026-03-31T07:44:51.448Z"
+        },
+        {
+          "food": "Onion (1 medium)",
+          "calories": 44,
+          "protein": 1,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-03-31T07:44:53.822Z"
+        },
+        {
+          "food": "Avocado (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 20,
+          "time": "2026-03-31T07:44:57.387Z"
+        },
+        {
+          "food": "Feta cheese (30g)",
+          "calories": 75,
+          "protein": 4,
+          "carbs": 1,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-03-31T07:45:00.819Z"
+        }
+      ]
+    }
+  ]
+}

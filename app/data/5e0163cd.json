@@ -503,6 +503,59 @@
           "time": "2026-03-30T13:38:11.105Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 1190,
+        "protein": 73,
+        "carbs": 123,
+        "fat": 47,
+        "fibre": 11,
+        "priceZAR": 125
+      },
+      "entries": [
+        {
+          "food": "Diet Protein Shake (1 scoop)",
+          "calories": 150,
+          "protein": 25,
+          "carbs": 8,
+          "fat": 2,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-03-31T10:17:00.980Z"
+        },
+        {
+          "food": "Steak (~100g) and mashed potatoes (1 spoon, ~50g)",
+          "calories": 290,
+          "protein": 30,
+          "carbs": 15,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-03-31T11:40:40.722Z"
+        },
+        {
+          "food": "Saltimbocca pasta (half portion, ~200g)",
+          "calories": 400,
+          "protein": 15,
+          "carbs": 60,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 80,
+          "time": "2026-03-31T16:56:40.076Z"
+        },
+        {
+          "food": "slice of cream cake",
+          "calories": 350,
+          "protein": 3,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 1,
+          "priceZAR": 45,
+          "time": "2026-03-31T21:18:05.198Z"
+        }
+      ]
     }
   ]
 }

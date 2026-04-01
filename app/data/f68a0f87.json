@@ -85,6 +85,59 @@
           "time": "2026-03-30T18:24:10.370Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 785,
+        "protein": 22,
+        "carbs": 93,
+        "fat": 38,
+        "fibre": 7,
+        "priceZAR": 187
+      },
+      "entries": [
+        {
+          "food": "2 eggs\n1 ostrich burger pattie (est.)",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-31T09:53:25.280Z"
+        },
+        {
+          "food": "small chocolate and coconut smoothie (~250ml)",
+          "calories": 200,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 65,
+          "time": "2026-03-31T09:53:49.261Z"
+        },
+        {
+          "food": "2x easter egg",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 80,
+          "time": "2026-03-31T09:54:10.249Z"
+        },
+        {
+          "food": "Frozen blueberries (150g)",
+          "calories": 85,
+          "protein": 1,
+          "carbs": 21,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 30,
+          "time": "2026-03-31T11:51:58.351Z"
+        }
+      ]
     }
   ]
 }

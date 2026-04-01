@@ -342,6 +342,49 @@
           "time": "2026-03-30T14:46:01.401Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 620,
+        "protein": 41,
+        "carbs": 56,
+        "fat": 27,
+        "fibre": 4,
+        "priceZAR": 42
+      },
+      "entries": [
+        {
+          "food": "5x eggs",
+          "calories": 350,
+          "protein": 35,
+          "carbs": 0,
+          "fat": 25,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-31T12:25:23.811Z"
+        },
+        {
+          "food": "2x slice of toast",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 15,
+          "time": "2026-03-31T12:25:30.203Z"
+        },
+        {
+          "food": "Apple juice (250ml)",
+          "calories": 110,
+          "protein": 0,
+          "carbs": 26,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-03-31T12:25:59.028Z"
+        }
+      ]
     }
   ]
 }

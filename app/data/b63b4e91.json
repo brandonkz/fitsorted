@@ -278,6 +278,79 @@
           "time": "2026-03-12T13:52:54.867Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 1210,
+        "protein": 51,
+        "carbs": 130,
+        "fat": 62,
+        "fibre": 18,
+        "priceZAR": 99
+      },
+      "entries": [
+        {
+          "food": "10 almonds (~28g)",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 6,
+          "fat": 14,
+          "fibre": 3,
+          "priceZAR": 10,
+          "time": "2026-03-31T13:20:02.419Z"
+        },
+        {
+          "food": "Minced beef (~130g) with sweet potato (1 cup, ~200g), half avocado, and sour cream (3 tablespoons)",
+          "calories": 570,
+          "protein": 36,
+          "carbs": 45,
+          "fat": 30,
+          "fibre": 10,
+          "priceZAR": 45,
+          "time": "2026-03-31T13:22:33.447Z"
+        },
+        {
+          "food": "2 tsp Cremora (~10g)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 6,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-03-31T13:23:28.518Z"
+        },
+        {
+          "food": "Oats (1 cup cooked) (1 cup)",
+          "calories": 150,
+          "protein": 6,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-03-31T13:27:37.623Z"
+        },
+        {
+          "food": "Caring candies mint chocolate (28g)",
+          "calories": 140,
+          "protein": 1,
+          "carbs": 30,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-03-31T15:07:25.805Z"
+        },
+        {
+          "food": "Trigz chips (27g)",
+          "calories": 140,
+          "protein": 2,
+          "carbs": 16,
+          "fat": 7,
+          "fibre": 1,
+          "priceZAR": 15,
+          "time": "2026-03-31T15:09:30.446Z"
+        }
+      ]
     }
   ]
 }

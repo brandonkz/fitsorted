@@ -45,6 +45,29 @@
           "time": "2026-03-28T14:31:38.301Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 440,
+        "protein": 6,
+        "carbs": 56,
+        "fat": 24,
+        "fibre": 4,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Cadbury Dairy Milk Fruit & Nut chocolate (80g)",
+          "calories": 440,
+          "protein": 6,
+          "carbs": 56,
+          "fat": 24,
+          "fibre": 4,
+          "priceZAR": 0,
+          "time": "2026-03-31T11:36:38.364Z"
+        }
+      ]
     }
   ]
 }

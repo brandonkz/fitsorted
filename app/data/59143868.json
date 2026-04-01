@@ -179,6 +179,29 @@
           "time": "2026-03-28T06:27:00.186Z"
         }
       ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "calories": 450,
+        "protein": 30,
+        "carbs": 50,
+        "fat": 15,
+        "fibre": 5,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "Woolworths tuna baguette",
+          "calories": 450,
+          "protein": 30,
+          "carbs": 50,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 60,
+          "time": "2026-03-31T11:17:26.615Z"
+        }
+      ]
     }
   ]
 }
