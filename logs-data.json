@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-04-01T08:49:00.440Z",
+    "date": "2026-04-01",
+    "phone": "1220",
+    "userId": "27837771",
+    "food": "Oats (1 cup cooked) (1 cup)",
+    "calories": 150,
+    "protein": 6,
+    "carbs": 27,
+    "fat": 3,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-01T07:49:38.774Z",
     "date": "2026-04-01",
     "phone": "4781",
