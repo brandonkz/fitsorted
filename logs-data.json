@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-04-03T19:18:58.265Z",
+    "date": "2026-04-03",
+    "phone": "6997",
+    "userId": "27838606",
+    "food": "Malva pudding (25g)",
+    "calories": 90,
+    "protein": 1,
+    "carbs": 15,
+    "fat": 3,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-03T18:30:32.963Z",
     "date": "2026-04-03",
     "phone": "6997",
