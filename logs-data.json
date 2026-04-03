@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-04-03T18:30:32.963Z",
+    "date": "2026-04-03",
+    "phone": "6997",
+    "userId": "27838606",
+    "food": "Shredded chicken (~100g) with whole grain bread (2 slices, ~50g) and cucumber slices (~30g)",
+    "calories": 430,
+    "protein": 40,
+    "carbs": 40,
+    "fat": 15,
+    "fibre": 5,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-03T18:06:07.279Z",
+    "date": "2026-04-03",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "Cream cheese (1 tablespoon, ~15g)",
+    "calories": 50,
+    "protein": 1,
+    "carbs": 1,
+    "fat": 5,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-03T18:05:49.420Z",
+    "date": "2026-04-03",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "Half roast chicken (~350g) with 20g pumpkin seeds",
+    "calories": 580,
+    "protein": 70,
+    "carbs": 10,
+    "fat": 30,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-03T13:47:09.445Z",
     "date": "2026-04-03",
     "phone": "6997",
