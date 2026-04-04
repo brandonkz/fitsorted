@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-04-04T09:55:18.908Z",
+    "date": "2026-04-04",
+    "phone": "6997",
+    "userId": "27838606",
+    "food": "Avocado (1 medium)",
+    "calories": 240,
+    "protein": 3,
+    "carbs": 12,
+    "fat": 22,
+    "fibre": 10,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-03T20:57:57.476Z",
     "date": "2026-04-03",
     "phone": "4781",
