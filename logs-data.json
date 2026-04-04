@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-04-04T19:51:29.851Z",
+    "date": "2026-04-04",
+    "phone": "0221",
+    "userId": "26876340",
+    "food": "Breakfast\nEspresso with almond Milk\nChocolate cake slice\nKFC classic wrap",
+    "calories": 400,
+    "protein": 5,
+    "carbs": 40,
+    "fat": 15,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-04T18:36:09.151Z",
     "date": "2026-04-04",
     "phone": "8896",
