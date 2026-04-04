@@ -214,6 +214,39 @@
           "time": "2026-03-30T15:44:04.370Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-02",
+      "totals": {
+        "calories": 650,
+        "protein": 25,
+        "carbs": 70,
+        "fat": 30,
+        "fibre": 2,
+        "priceZAR": 60
+      },
+      "entries": [
+        {
+          "food": "Pepper steak pie and 330ml savanna cider (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-02T11:17:37.255Z"
+        },
+        {
+          "food": "Pepper steak pie (~150g)",
+          "calories": 400,
+          "protein": 15,
+          "carbs": 40,
+          "fat": 20,
+          "fibre": 2,
+          "priceZAR": 60,
+          "time": "2026-04-02T11:19:56.184Z"
+        }
+      ]
     }
   ]
 }

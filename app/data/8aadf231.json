@@ -1,0 +1,248 @@
+{
+  "name": "Tom",
+  "goal": 3012,
+  "joinedAt": "2026-04-01T17:11:00.851Z",
+  "profile": {
+    "age": 42,
+    "weight": 71,
+    "height": 180,
+    "gender": "male",
+    "target": "gain",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {
+    "2026-04-02": [
+      {
+        "activity": "leg workout",
+        "calories": 250,
+        "time": "2026-04-02T10:53:30.741Z"
+      }
+    ],
+    "2026-04-03": [
+      {
+        "activity": "strength training upper body",
+        "calories": 262,
+        "time": "2026-04-03T08:53:47.508Z"
+      }
+    ]
+  },
+  "logSummary": [
+    {
+      "date": "2026-04-02",
+      "totals": {
+        "calories": 2301,
+        "protein": 134,
+        "carbs": 290,
+        "fat": 77,
+        "fibre": 27,
+        "priceZAR": 152
+      },
+      "entries": [
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-04-02T10:51:45.591Z"
+        },
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-04-02T10:51:52.447Z"
+        },
+        {
+          "food": "Lean mince (200g) + baked potato (1 medium) + cheese (1 slice)",
+          "calories": 570,
+          "protein": 50,
+          "carbs": 60,
+          "fat": 20,
+          "fibre": 8,
+          "priceZAR": 36,
+          "time": "2026-04-02T10:52:40.765Z"
+        },
+        {
+          "food": "Biltong (40g)",
+          "calories": 100,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-04-02T13:36:18.351Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 90,
+          "protein": 1,
+          "carbs": 23,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-04-02T13:41:13.289Z"
+        },
+        {
+          "food": "Apple (1 medium)",
+          "calories": 95,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 4,
+          "time": "2026-04-02T15:33:08.857Z"
+        },
+        {
+          "food": "6x fish sticks (~180g) and 1 potato (~150g)",
+          "calories": 450,
+          "protein": 18,
+          "carbs": 60,
+          "fat": 18,
+          "fibre": 5,
+          "priceZAR": 30,
+          "time": "2026-04-02T16:35:07.878Z"
+        },
+        {
+          "food": "2x fish sticks",
+          "calories": 160,
+          "protein": 10,
+          "carbs": 20,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-04-02T16:46:13.318Z"
+        },
+        {
+          "food": "Potato (1 medium)",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 30,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-04-02T16:46:16.062Z"
+        },
+        {
+          "food": "Fish sticks (4 pieces, ~100g) + Roasted potatoes (4 pieces, ~150g) + Mixed salad (1 granadilla + 1/2 cup Greek yoghurt)",
+          "calories": 550,
+          "protein": 20,
+          "carbs": 70,
+          "fat": 20,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-04-02T16:59:41.824Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "totals": {
+        "calories": 1755,
+        "protein": 95,
+        "carbs": 204,
+        "fat": 54,
+        "fibre": 15,
+        "priceZAR": 185
+      },
+      "entries": [
+        {
+          "food": "smoothie",
+          "calories": 250,
+          "protein": 5,
+          "carbs": 45,
+          "fat": 5,
+          "fibre": 5,
+          "priceZAR": 65,
+          "time": "2026-04-03T08:54:07.262Z"
+        },
+        {
+          "food": "The ingredients I posted above (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-03T08:54:30.729Z"
+        },
+        {
+          "food": "Biltong (20g)",
+          "calories": 50,
+          "protein": 10,
+          "carbs": 0,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-04-03T10:14:01.192Z"
+        },
+        {
+          "food": "Sourdough Bread (1 slice)",
+          "calories": 100,
+          "protein": 4,
+          "carbs": 18,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-04-03T12:50:04.434Z"
+        },
+        {
+          "food": "2x small chicken frikadels (~100g) + 1/4 avocado (~50g)",
+          "calories": 290,
+          "protein": 24,
+          "carbs": 8,
+          "fat": 18,
+          "fibre": 4,
+          "priceZAR": 30,
+          "time": "2026-04-03T12:51:53.388Z"
+        },
+        {
+          "food": "Castle Lite beer (440ml)",
+          "calories": 155,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-04-03T13:46:34.836Z"
+        },
+        {
+          "food": "330ml soft drink",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 35,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-04-03T13:47:09.445Z"
+        },
+        {
+          "food": "Shredded chicken (~100g) with whole grain bread (2 slices, ~50g) and cucumber slices (~30g)",
+          "calories": 430,
+          "protein": 40,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-04-03T18:30:32.963Z"
+        },
+        {
+          "food": "Malva pudding (25g)",
+          "calories": 90,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-04-03T19:18:58.265Z"
+        }
+      ]
+    }
+  ]
+}

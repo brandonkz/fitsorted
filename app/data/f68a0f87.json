@@ -138,6 +138,215 @@
           "time": "2026-03-31T11:51:58.351Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-01",
+      "totals": {
+        "calories": 1386,
+        "protein": 84,
+        "carbs": 109,
+        "fat": 37,
+        "fibre": 3,
+        "priceZAR": 316
+      },
+      "entries": [
+        {
+          "food": "Boiled egg (1 large) (1 egg)",
+          "calories": 78,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 4,
+          "time": "2026-04-01T11:00:33.565Z"
+        },
+        {
+          "food": "Cappuccino (1 cup, ~240ml)",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 10,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-04-01T11:00:46.367Z"
+        },
+        {
+          "food": "1 ostrich pattie\n1 fried egg\n1 table spoon full (est.)",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-04-01T11:06:43.951Z"
+        },
+        {
+          "food": "Frozen blueberries (40g)",
+          "calories": 23,
+          "protein": 0,
+          "carbs": 6,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 12,
+          "time": "2026-04-01T11:06:51.166Z"
+        },
+        {
+          "food": "2x small toffies",
+          "calories": 80,
+          "protein": 0,
+          "carbs": 20,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-04-01T11:07:56.599Z"
+        },
+        {
+          "food": "10 anchovies",
+          "calories": 80,
+          "protein": 10,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-04-01T21:32:00.524Z"
+        },
+        {
+          "food": "Orzo (1 cup, ~250g) + White fish (~200g)",
+          "calories": 470,
+          "protein": 50,
+          "carbs": 70,
+          "fat": 10,
+          "fibre": 2,
+          "priceZAR": 60,
+          "time": "2026-04-01T21:34:35.025Z"
+        },
+        {
+          "food": "3x glass of white wine (525ml)",
+          "calories": 375,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 150,
+          "time": "2026-04-01T21:35:05.878Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "totals": {
+        "calories": 1035,
+        "protein": 29,
+        "carbs": 17,
+        "fat": 28,
+        "fibre": 0,
+        "priceZAR": 387
+      },
+      "entries": [
+        {
+          "food": "3 Eggs (boiled)",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-04-02T10:15:24.535Z"
+        },
+        {
+          "food": "Anchovies (10g)",
+          "calories": 25,
+          "protein": 3,
+          "carbs": 0,
+          "fat": 1,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-04-02T10:15:40.174Z"
+        },
+        {
+          "food": "1 full cauliflower\n10 potatoes \ngreek salad\nprego roll (est.)",
+          "calories": 200,
+          "protein": 8,
+          "carbs": 15,
+          "fat": 12,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-04-02T18:05:51.510Z"
+        },
+        {
+          "food": "4x paloma",
+          "calories": 480,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 240,
+          "time": "2026-04-02T18:06:43.228Z"
+        },
+        {
+          "food": "Gin and tonic (1 serving, ~250ml)",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-04-02T18:07:05.456Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "totals": {
+        "calories": 1020,
+        "protein": 92,
+        "carbs": 28,
+        "fat": 62,
+        "fibre": 4,
+        "priceZAR": 158
+      },
+      "entries": [
+        {
+          "food": "3 Eggs (boiled)",
+          "calories": 210,
+          "protein": 18,
+          "carbs": 2,
+          "fat": 15,
+          "fibre": 0,
+          "priceZAR": 12,
+          "time": "2026-04-03T08:00:37.451Z"
+        },
+        {
+          "food": "Chocolate hazelnuts (30g)",
+          "calories": 180,
+          "protein": 3,
+          "carbs": 15,
+          "fat": 12,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-04-03T08:00:58.352Z"
+        },
+        {
+          "food": "Half roast chicken (~350g) with 20g pumpkin seeds",
+          "calories": 580,
+          "protein": 70,
+          "carbs": 10,
+          "fat": 30,
+          "fibre": 2,
+          "priceZAR": 120,
+          "time": "2026-04-03T18:05:49.420Z"
+        },
+        {
+          "food": "Cream cheese (1 tablespoon, ~15g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 1,
+          "fat": 5,
+          "fibre": 0,
+          "priceZAR": 6,
+          "time": "2026-04-03T18:06:07.279Z"
+        }
+      ]
     }
   ]
 }

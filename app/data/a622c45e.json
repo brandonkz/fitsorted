@@ -346,6 +346,192 @@
           "time": "2026-03-31T18:44:29.314Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-01",
+      "totals": {
+        "calories": 1426,
+        "protein": 50,
+        "carbs": 99,
+        "fat": 74,
+        "fibre": 14,
+        "priceZAR": 89
+      },
+      "entries": [
+        {
+          "food": "2x Weet-Bix bricks",
+          "calories": 136,
+          "protein": 6,
+          "carbs": 28,
+          "fat": 1,
+          "fibre": 4,
+          "priceZAR": 10,
+          "time": "2026-04-01T07:49:32.170Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 90,
+          "protein": 1,
+          "carbs": 23,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 5,
+          "time": "2026-04-01T07:49:35.389Z"
+        },
+        {
+          "food": "Clover full cream milk (1 cup) (250ml)",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 12,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-04-01T07:49:38.774Z"
+        },
+        {
+          "food": "2x slice honey oats bread",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-04-01T12:02:26.493Z"
+        },
+        {
+          "food": "Quarter avocado (~50g)",
+          "calories": 80,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 7,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-04-01T12:06:16.070Z"
+        },
+        {
+          "food": "2x tablespoons cottage cheese",
+          "calories": 50,
+          "protein": 8,
+          "carbs": 2,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-04-01T12:06:37.919Z"
+        },
+        {
+          "food": "Trig (40g)",
+          "calories": 200,
+          "protein": 20,
+          "carbs": 0,
+          "fat": 14,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-04-01T13:04:14.336Z"
+        },
+        {
+          "food": "Triglycerides (40g)",
+          "calories": 360,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 40,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-04-01T13:06:33.584Z"
+        },
+        {
+          "food": "Trigs (manual)",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-01T13:07:12.455Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "totals": {
+        "calories": 1460,
+        "protein": 71,
+        "carbs": 163,
+        "fat": 47.2,
+        "fibre": 12,
+        "priceZAR": 395
+      },
+      "entries": [
+        {
+          "food": "Kauai Peanut Butter Power Regular (regular (350ml))",
+          "calories": 450,
+          "protein": 15,
+          "carbs": 55,
+          "fat": 18,
+          "fibre": 5,
+          "priceZAR": 65,
+          "time": "2026-04-03T12:53:32.511Z"
+        },
+        {
+          "food": "Red Wine (1 glass, 175ml)",
+          "calories": 125,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-04-03T20:55:36.006Z"
+        },
+        {
+          "food": "white wine (175ml)",
+          "calories": 125,
+          "protein": 9,
+          "carbs": 13,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 40,
+          "time": "2026-04-03T20:56:01.106Z"
+        },
+        {
+          "food": "Ocean Basket grilled fish (1 portion)",
+          "calories": 250,
+          "protein": 35,
+          "carbs": 5,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 180,
+          "time": "2026-04-03T20:57:09.910Z"
+        },
+        {
+          "food": "Baked potato (1 medium (150g))",
+          "calories": 160,
+          "protein": 4,
+          "carbs": 36,
+          "fat": 0.2,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-04-03T20:57:14.248Z"
+        },
+        {
+          "food": "Mixed vegetables (1 cup, ~150g)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 10,
+          "fat": 0,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-04-03T20:57:20.101Z"
+        },
+        {
+          "food": "Steers ice cream cone with flake",
+          "calories": 300,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-04-03T20:57:57.476Z"
+        }
+      ]
     }
   ]
 }

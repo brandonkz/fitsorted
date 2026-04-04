@@ -105,6 +105,69 @@
           "time": "2026-03-23T11:28:53.348Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-03",
+      "totals": {
+        "calories": 490,
+        "protein": 35,
+        "carbs": 59,
+        "fat": 15,
+        "fibre": 11,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "2x hardboiled eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-03T08:44:53.772Z"
+        },
+        {
+          "food": "Whole strawberries (1.5 cups, ~225g)",
+          "calories": 75,
+          "protein": 1,
+          "carbs": 18,
+          "fat": 0,
+          "fibre": 5,
+          "priceZAR": 0,
+          "time": "2026-04-03T08:44:58.870Z"
+        },
+        {
+          "food": "Cottage cheese (75g)",
+          "calories": 75,
+          "protein": 10,
+          "carbs": 3,
+          "fat": 3,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-03T08:45:02.572Z"
+        },
+        {
+          "food": "Fat free yoghurt (1/4 cup, ~60g)",
+          "calories": 40,
+          "protein": 4,
+          "carbs": 6,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-03T08:45:06.604Z"
+        },
+        {
+          "food": "2x slice Sasco Sam wholewheat bread",
+          "calories": 160,
+          "protein": 8,
+          "carbs": 30,
+          "fat": 2,
+          "fibre": 6,
+          "priceZAR": 0,
+          "time": "2026-04-03T08:47:58.018Z"
+        }
+      ]
     }
   ]
 }

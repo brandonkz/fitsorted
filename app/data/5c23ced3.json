@@ -68,6 +68,109 @@
           "time": "2026-03-31T17:01:39.910Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-01",
+      "totals": {
+        "calories": 1154,
+        "protein": 58,
+        "carbs": 125,
+        "fat": 47,
+        "fibre": 16,
+        "priceZAR": 114
+      },
+      "entries": [
+        {
+          "food": "Yogurt (150g) with green grapes (100g)",
+          "calories": 180,
+          "protein": 8,
+          "carbs": 30,
+          "fat": 5,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-04-01T07:13:31.151Z"
+        },
+        {
+          "food": "I want to build muscle (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-04-01T07:30:53.072Z"
+        },
+        {
+          "food": "Half a cucumber (~150g)",
+          "calories": 24,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 10,
+          "time": "2026-04-01T14:31:59.265Z"
+        },
+        {
+          "food": "5x bay tomatoes (~500g)",
+          "calories": 100,
+          "protein": 5,
+          "carbs": 20,
+          "fat": 1,
+          "fibre": 10,
+          "priceZAR": 30,
+          "time": "2026-04-01T14:32:05.149Z"
+        },
+        {
+          "food": "5x slices Gouda cheese",
+          "calories": 300,
+          "protein": 30,
+          "carbs": 0,
+          "fat": 24,
+          "fibre": 0,
+          "priceZAR": 25,
+          "time": "2026-04-01T14:32:10.950Z"
+        },
+        {
+          "food": "cling peach",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 15,
+          "fat": 0,
+          "fibre": 2,
+          "priceZAR": 15,
+          "time": "2026-04-01T14:32:18.053Z"
+        },
+        {
+          "food": "4 grapes (~40g)",
+          "calories": 50,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 5,
+          "time": "2026-04-01T14:32:23.135Z"
+        },
+        {
+          "food": "2x tiny chocolate egg",
+          "calories": 140,
+          "protein": 2,
+          "carbs": 18,
+          "fat": 7,
+          "fibre": 0,
+          "priceZAR": 10,
+          "time": "2026-04-01T14:32:27.880Z"
+        },
+        {
+          "food": "5x baby tomatoes (~100g)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 4,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 4,
+          "time": "2026-04-01T14:34:47.951Z"
+        }
+      ]
     }
   ]
 }

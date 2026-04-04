@@ -351,6 +351,59 @@
           "time": "2026-03-31T15:09:30.446Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-01",
+      "totals": {
+        "calories": 1131,
+        "protein": 44,
+        "carbs": 124,
+        "fat": 37,
+        "fibre": 17,
+        "priceZAR": 94
+      },
+      "entries": [
+        {
+          "food": "Oats (1.5 cups, ~150g) with berries (1 cup, ~150g) and nut butter (1 tablespoon, ~16g)",
+          "calories": 450,
+          "protein": 15,
+          "carbs": 60,
+          "fat": 18,
+          "fibre": 10,
+          "priceZAR": 40,
+          "time": "2026-04-01T10:54:10.891Z"
+        },
+        {
+          "food": "Beef mince (100g) + Sweet potato (1 medium, ~150g) + Sour cream (1 tablespoon, ~15g)",
+          "calories": 370,
+          "protein": 25,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 5,
+          "priceZAR": 34,
+          "time": "2026-04-01T10:55:40.094Z"
+        },
+        {
+          "food": "Yogurt (100g) with honey (1 tsp) and medium apple",
+          "calories": 120,
+          "protein": 4,
+          "carbs": 24,
+          "fat": 4,
+          "fibre": 2,
+          "priceZAR": 20,
+          "time": "2026-04-01T12:39:24.861Z"
+        },
+        {
+          "food": "Yogurt apple honey bowl (manual)",
+          "calories": 191,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-01T12:42:37.356Z"
+        }
+      ]
     }
   ]
 }

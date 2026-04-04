@@ -121,6 +121,29 @@
           "time": "2026-03-26T08:48:37.735Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-01",
+      "totals": {
+        "calories": 150,
+        "protein": 6,
+        "carbs": 27,
+        "fat": 3,
+        "fibre": 4,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Oats (1 cup cooked) (1 cup)",
+          "calories": 150,
+          "protein": 6,
+          "carbs": 27,
+          "fat": 3,
+          "fibre": 4,
+          "priceZAR": 0,
+          "time": "2026-04-01T08:49:00.440Z"
+        }
+      ]
     }
   ]
 }

@@ -556,6 +556,29 @@
           "time": "2026-03-31T21:18:05.198Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-01",
+      "totals": {
+        "calories": 150,
+        "protein": 25,
+        "carbs": 8,
+        "fat": 2,
+        "fibre": 3,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Diet Protein Shake (1 scoop)",
+          "calories": 150,
+          "protein": 25,
+          "carbs": 8,
+          "fat": 2,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-04-01T07:12:39.926Z"
+        }
+      ]
     }
   ]
 }

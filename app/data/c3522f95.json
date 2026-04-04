@@ -163,6 +163,39 @@
           "time": "2026-03-24T10:18:24.710Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-02",
+      "totals": {
+        "calories": 650,
+        "protein": 40,
+        "carbs": 45,
+        "fat": 32,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "1 boerie hash stack McDonald’s - just the burger\n\n1 mcchicken (just the burger) (est.)",
+          "calories": 400,
+          "protein": 30,
+          "carbs": 15,
+          "fat": 22,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-02T06:46:58.180Z"
+        },
+        {
+          "food": "Skip (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-02T06:47:55.174Z"
+        }
+      ]
     }
   ]
 }
