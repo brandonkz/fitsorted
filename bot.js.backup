@@ -2144,6 +2144,9 @@ async function estimateCalories(food, user) {
     "mugg and bean wrap": { food: "Mugg & Bean Breakfast Wrap", calories: 550, protein: 25, carbs: 45, fat: 30, fibre: 3 },
     "rocomamas smash burger with chips": { food: "RocoMamas Smash Burger with Chips", calories: 1050, protein: 45, carbs: 85, fat: 55, fibre: 5 },
     "rocomamas burger and chips": { food: "RocoMamas Smash Burger with Chips", calories: 1050, protein: 45, carbs: 85, fat: 55, fibre: 5 },
+    // Round 26 - nightly edge case test 2026-04-04
+    "spur baby back ribs": { food: "Spur Baby Back Ribs (full)", calories: 950, protein: 55, carbs: 10, fat: 65, fibre: 1 },
+    "baby back ribs": { food: "Baby Back Ribs (full serving)", calories: 950, protein: 55, carbs: 10, fat: 65, fibre: 1 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
