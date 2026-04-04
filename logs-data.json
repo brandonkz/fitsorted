@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-04-04T11:45:06.967Z",
+    "date": "2026-04-04",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Matzah (1 piece, ~30g)",
+    "calories": 100,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 0,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-04T11:29:27.714Z",
+    "date": "2026-04-04",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "8x Easter egg",
+    "calories": 640,
+    "protein": 8,
+    "carbs": 80,
+    "fat": 32,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-04T11:29:03.198Z",
+    "date": "2026-04-04",
+    "phone": "3810",
+    "userId": "27824413",
+    "food": "2x eggs with 1 tablespoon cream cheese",
+    "calories": 200,
+    "protein": 14,
+    "carbs": 2,
+    "fat": 16,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-04T10:11:54.361Z",
     "date": "2026-04-04",
     "phone": "6749",
