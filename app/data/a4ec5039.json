@@ -1,0 +1,40 @@
+{
+  "name": "Sonia",
+  "goal": 1339,
+  "joinedAt": "2026-04-04T15:19:01.951Z",
+  "profile": {
+    "age": 32,
+    "weight": 64,
+    "height": 163,
+    "gender": "female",
+    "target": "lose",
+    "foodBudget": null
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-04-04",
+      "totals": {
+        "calories": 350,
+        "protein": 56,
+        "carbs": 8,
+        "fat": 8,
+        "fibre": 0,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "Biltong (100g)",
+          "calories": 350,
+          "protein": 56,
+          "carbs": 8,
+          "fat": 8,
+          "fibre": 0,
+          "priceZAR": 50,
+          "time": "2026-04-04T15:23:31.306Z"
+        }
+      ]
+    }
+  ]
+}

@@ -243,6 +243,79 @@
           "time": "2026-04-03T19:18:58.265Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-04",
+      "totals": {
+        "calories": 2140,
+        "protein": 56,
+        "carbs": 210,
+        "fat": 62,
+        "fibre": 18,
+        "priceZAR": 298
+      },
+      "entries": [
+        {
+          "food": "Avocado (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 10,
+          "time": "2026-04-04T09:55:18.908Z"
+        },
+        {
+          "food": "1 hot cross bun\n1 banana (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 8,
+          "time": "2026-04-04T10:10:54.017Z"
+        },
+        {
+          "food": "Chicken mayo wrap (1 wrap)",
+          "calories": 380,
+          "protein": 18,
+          "carbs": 35,
+          "fat": 18,
+          "fibre": 2,
+          "priceZAR": 50,
+          "time": "2026-04-04T15:26:47.850Z"
+        },
+        {
+          "food": "Castle Lite (330ml)",
+          "calories": 170,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-04-04T15:27:10.295Z"
+        },
+        {
+          "food": "12x sushi pieces",
+          "calories": 480,
+          "protein": 24,
+          "carbs": 72,
+          "fat": 12,
+          "fibre": 6,
+          "priceZAR": 120,
+          "time": "2026-04-04T18:00:55.770Z"
+        },
+        {
+          "food": "4x beer (440ml each)",
+          "calories": 620,
+          "protein": 0,
+          "carbs": 48,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-04-04T18:01:01.295Z"
+        }
+      ]
     }
   ]
 }

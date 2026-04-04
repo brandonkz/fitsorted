@@ -408,6 +408,39 @@
           "time": "2026-04-02T06:39:51.714Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-04",
+      "totals": {
+        "calories": 150,
+        "protein": 6,
+        "carbs": 27,
+        "fat": 2,
+        "fibre": 1,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "Matzah (1 piece, ~30g)",
+          "calories": 100,
+          "protein": 3,
+          "carbs": 22,
+          "fat": 0,
+          "fibre": 1,
+          "priceZAR": 5,
+          "time": "2026-04-04T11:45:06.967Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-04-04T15:26:52.392Z"
+        }
+      ]
     }
   ]
 }

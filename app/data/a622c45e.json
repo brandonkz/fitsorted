@@ -532,6 +532,79 @@
           "time": "2026-04-03T20:57:57.476Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-04",
+      "totals": {
+        "calories": 1190,
+        "protein": 49,
+        "carbs": 141,
+        "fat": 52,
+        "fibre": 19,
+        "priceZAR": 205
+      },
+      "entries": [
+        {
+          "food": "2 Poached Eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 1,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 30,
+          "time": "2026-04-04T17:06:13.407Z"
+        },
+        {
+          "food": "Avocado (1 medium)",
+          "calories": 240,
+          "protein": 3,
+          "carbs": 12,
+          "fat": 22,
+          "fibre": 10,
+          "priceZAR": 20,
+          "time": "2026-04-04T17:06:19.133Z"
+        },
+        {
+          "food": "2x slice sourdough bread",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 32,
+          "fat": 2,
+          "fibre": 4,
+          "priceZAR": 20,
+          "time": "2026-04-04T17:06:23.538Z"
+        },
+        {
+          "food": "Mushroom tagliatelle (~250g)",
+          "calories": 400,
+          "protein": 10,
+          "carbs": 70,
+          "fat": 10,
+          "fibre": 5,
+          "priceZAR": 45,
+          "time": "2026-04-04T17:08:42.813Z"
+        },
+        {
+          "food": "MCC sparkling wine (175ml)",
+          "calories": 125,
+          "protein": 9,
+          "carbs": 13,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-04-04T17:09:41.174Z"
+        },
+        {
+          "food": "Cabernet Sauvignon (175ml)",
+          "calories": 125,
+          "protein": 9,
+          "carbs": 13,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 45,
+          "time": "2026-04-04T17:10:26.946Z"
+        }
+      ]
     }
   ]
 }

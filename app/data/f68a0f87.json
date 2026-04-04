@@ -347,6 +347,39 @@
           "time": "2026-04-03T18:06:07.279Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-04",
+      "totals": {
+        "calories": 840,
+        "protein": 22,
+        "carbs": 82,
+        "fat": 48,
+        "fibre": 0,
+        "priceZAR": 89
+      },
+      "entries": [
+        {
+          "food": "2x eggs with 1 tablespoon cream cheese",
+          "calories": 200,
+          "protein": 14,
+          "carbs": 2,
+          "fat": 16,
+          "fibre": 0,
+          "priceZAR": 9,
+          "time": "2026-04-04T11:29:03.198Z"
+        },
+        {
+          "food": "8x Easter egg",
+          "calories": 640,
+          "protein": 8,
+          "carbs": 80,
+          "fat": 32,
+          "fibre": 0,
+          "priceZAR": 80,
+          "time": "2026-04-04T11:29:27.714Z"
+        }
+      ]
     }
   ]
 }

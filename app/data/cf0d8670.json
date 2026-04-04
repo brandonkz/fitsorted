@@ -1,10 +1,10 @@
 {
   "name": "Quintin",
-  "goal": 2320,
+  "goal": 2313,
   "joinedAt": "2026-03-23T05:53:12.912Z",
   "profile": {
     "age": 28,
-    "weight": 71,
+    "weight": 70.5,
     "height": 178,
     "gender": "male",
     "target": "maintain",
@@ -471,6 +471,59 @@
           "fibre": 10,
           "priceZAR": 120,
           "time": "2026-03-30T18:53:15.653Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "totals": {
+        "calories": 655,
+        "protein": 17,
+        "carbs": 117,
+        "fat": 18,
+        "fibre": 5,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "2x coffee (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-04T10:11:17.827Z"
+        },
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 0,
+          "time": "2026-04-04T10:11:20.949Z"
+        },
+        {
+          "food": "Lotus Biscoff hot cross bun (~100g)",
+          "calories": 300,
+          "protein": 6,
+          "carbs": 60,
+          "fat": 8,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-04-04T10:11:25.015Z"
+        },
+        {
+          "food": "Bottle of water (500ml) with lemon extract",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-04T10:11:54.361Z"
         }
       ]
     }

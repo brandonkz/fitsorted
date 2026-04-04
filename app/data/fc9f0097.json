@@ -324,6 +324,69 @@
           "time": "2026-03-29T17:31:02.807Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-04",
+      "totals": {
+        "calories": 1283,
+        "protein": 112,
+        "carbs": 119,
+        "fat": 26,
+        "fibre": 3,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Rice (1.5 cups, ~300g)",
+          "calories": 360,
+          "protein": 6,
+          "carbs": 78,
+          "fat": 1,
+          "fibre": 1,
+          "priceZAR": 0,
+          "time": "2026-04-04T18:34:58.736Z"
+        },
+        {
+          "food": "Basa fish (~150g)",
+          "calories": 180,
+          "protein": 36,
+          "carbs": 0,
+          "fat": 4,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-04T18:35:21.965Z"
+        },
+        {
+          "food": "1.5 chicken breast (~195g)",
+          "calories": 292,
+          "protein": 54,
+          "carbs": 0,
+          "fat": 6,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-04T18:35:43.389Z"
+        },
+        {
+          "food": "3 Egg Whites",
+          "calories": 51,
+          "protein": 11,
+          "carbs": 1,
+          "fat": 0,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-04T18:35:52.581Z"
+        },
+        {
+          "food": "English muffin (~60g)",
+          "calories": 400,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "fibre": 2,
+          "priceZAR": 0,
+          "time": "2026-04-04T18:36:09.151Z"
+        }
+      ]
     }
   ]
 }
