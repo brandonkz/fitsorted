@@ -1,15 +1,27 @@
 {
-  "totalUsers": 247,
-  "activeUsers": 46,
-  "totalLogs": 1647,
+  "totalUsers": 249,
+  "activeUsers": 26,
+  "totalLogs": 1728,
   "premiumUsers": 1,
   "totalReferrals": 0,
   "topReferrers": [],
   "recentSignups": [
     {
+      "id": "***6997",
+      "joinedAt": "2026-04-01T17:11:00.851Z",
+      "logs": 19,
+      "isPro": false
+    },
+    {
+      "id": "***0200",
+      "joinedAt": "2026-04-01T12:59:01.169Z",
+      "logs": 4,
+      "isPro": false
+    },
+    {
       "id": "***0861",
       "joinedAt": "2026-03-31T13:15:43.645Z",
-      "logs": 3,
+      "logs": 12,
       "isPro": false
     },
     {
@@ -27,13 +39,13 @@
     {
       "id": "***3810",
       "joinedAt": "2026-03-30T14:50:50.076Z",
-      "logs": 10,
+      "logs": 27,
       "isPro": false
     },
     {
       "id": "***4781",
       "joinedAt": "2026-03-30T10:16:56.712Z",
-      "logs": 29,
+      "logs": 45,
       "isPro": false
     },
     {
@@ -47,61 +59,7 @@
       "joinedAt": "2026-03-28T14:27:32.443Z",
       "logs": 3,
       "isPro": false
-    },
-    {
-      "id": "***9312",
-      "joinedAt": "2026-03-27T19:02:41.161Z",
-      "logs": 0,
-      "isPro": false
-    },
-    {
-      "id": "***0663",
-      "joinedAt": "2026-03-27T10:19:42.843Z",
-      "logs": 14,
-      "isPro": false
-    },
-    {
-      "id": "***7348",
-      "joinedAt": "2026-03-27T09:40:45.945Z",
-      "logs": 0,
-      "isPro": false
-    },
-    {
-      "id": "***8359",
-      "joinedAt": "2026-03-27T09:21:33.524Z",
-      "logs": 3,
-      "isPro": false
-    },
-    {
-      "id": "***8922",
-      "joinedAt": "2026-03-26T12:33:55.331Z",
-      "logs": 3,
-      "isPro": false
-    },
-    {
-      "id": "***7730",
-      "joinedAt": "2026-03-26T11:33:45.305Z",
-      "logs": 1,
-      "isPro": false
-    },
-    {
-      "id": "***8997",
-      "joinedAt": "2026-03-25T18:01:58.766Z",
-      "logs": 13,
-      "isPro": false
-    },
-    {
-      "id": "***1529",
-      "joinedAt": "2026-03-25T10:44:32.601Z",
-      "logs": 0,
-      "isPro": false
-    },
-    {
-      "id": "***2573",
-      "joinedAt": "2026-03-25T08:09:25.888Z",
-      "logs": 15,
-      "isPro": false
     }
   ],
-  "lastUpdated": "2026-04-01T00:20:00.194Z"
+  "lastUpdated": "2026-04-04T00:20:00.708Z"
 }

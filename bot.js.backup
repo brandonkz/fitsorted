@@ -2139,6 +2139,11 @@ async function estimateCalories(food, user) {
     "nandos butterfly chicken": { food: "Nando's Butterfly Chicken (whole)", calories: 1400, protein: 120, carbs: 5, fat: 95, fibre: 0 },
     "nandos butterfly": { food: "Nando's Butterfly Chicken (whole)", calories: 1400, protein: 120, carbs: 5, fat: 95, fibre: 0 },
     "butterfly chicken": { food: "Nando's Butterfly Chicken (whole)", calories: 1400, protein: 120, carbs: 5, fat: 95, fibre: 0 },
+    // Round 25 - nightly edge case test 2026-04-01
+    "mugg and bean breakfast wrap": { food: "Mugg & Bean Breakfast Wrap", calories: 550, protein: 25, carbs: 45, fat: 30, fibre: 3 },
+    "mugg and bean wrap": { food: "Mugg & Bean Breakfast Wrap", calories: 550, protein: 25, carbs: 45, fat: 30, fibre: 3 },
+    "rocomamas smash burger with chips": { food: "RocoMamas Smash Burger with Chips", calories: 1050, protein: 45, carbs: 85, fat: 55, fibre: 5 },
+    "rocomamas burger and chips": { food: "RocoMamas Smash Burger with Chips", calories: 1050, protein: 45, carbs: 85, fat: 55, fibre: 5 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

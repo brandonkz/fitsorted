@@ -232,5 +232,32 @@
     ],
     "firstSeen": "2026-03-30T16:28:51.127Z",
     "lastSeen": "2026-03-30T16:28:51.127Z"
+  },
+  "125g salmon with butter": {
+    "text": "125g salmon with butter",
+    "count": 1,
+    "users": [
+      "27722544781"
+    ],
+    "firstSeen": "2026-04-01T19:35:09.202Z",
+    "lastSeen": "2026-04-01T19:35:09.202Z"
+  },
+  "125g salmon": {
+    "text": "125g salmon",
+    "count": 1,
+    "users": [
+      "27722544781"
+    ],
+    "firstSeen": "2026-04-01T19:35:39.854Z",
+    "lastSeen": "2026-04-01T19:35:39.854Z"
+  },
+  "trout fillet": {
+    "text": "Trout fillet",
+    "count": 1,
+    "users": [
+      "27722544781"
+    ],
+    "firstSeen": "2026-04-01T19:36:35.795Z",
+    "lastSeen": "2026-04-01T19:36:35.795Z"
   }
 }
