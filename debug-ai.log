@@ -14905,3 +14905,17 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 
 [2026-04-03T20:57:57.475Z] AI RAW: "1 steers ice cream cone with flake" → Steers ice cream cone with flake (300 cal)
 [AI FINAL] "1 steers ice cream cone with flake" → Steers ice cream cone with flake (300 cal)
+
+[2026-04-05T05:27:57.149Z] estimateCalories() CALLED with food="Espresso with almond milk"
+[SA DB] Checked "Espresso with almond milk" → not found
+[OPENAI] Calling API for "Espresso with almond milk"
+
+[2026-04-05T05:28:00.700Z] AI RAW: "Espresso with almond milk" → Espresso with almond milk (1 cup, ~240ml) (50 cal)
+[AI FINAL] "Espresso with almond milk" → Espresso with almond milk (1 cup, ~240ml) (50 cal)
+
+[2026-04-05T05:28:45.928Z] estimateCalories() CALLED with food="Small espresso with almond milk"
+[SA DB] Checked "Small espresso with almond milk" → not found
+[OPENAI] Calling API for "Small espresso with almond milk"
+
+[2026-04-05T05:28:48.375Z] AI RAW: "Small espresso with almond milk" → Small espresso with almond milk (30 cal)
+[AI FINAL] "Small espresso with almond milk" → Small espresso with almond milk (30 cal)
