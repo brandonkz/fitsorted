@@ -1,10 +1,10 @@
 {
   "name": "Sonia",
-  "goal": 1339,
+  "goal": 1576,
   "joinedAt": "2026-04-04T15:19:01.951Z",
   "profile": {
     "age": 32,
-    "weight": 64,
+    "weight": 63,
     "height": 163,
     "gender": "female",
     "target": "lose",
@@ -45,6 +45,29 @@
           "fibre": 0,
           "priceZAR": 65,
           "time": "2026-04-04T19:51:29.851Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "totals": {
+        "calories": 50,
+        "protein": 1,
+        "carbs": 5,
+        "fat": 2,
+        "fibre": 1,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Espresso with almond milk (1 cup, ~240ml)",
+          "calories": 50,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 1,
+          "priceZAR": 30,
+          "time": "2026-04-05T05:28:00.702Z"
         }
       ]
     }

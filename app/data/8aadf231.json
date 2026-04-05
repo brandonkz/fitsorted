@@ -316,6 +316,29 @@
           "time": "2026-04-04T18:01:01.295Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-05",
+      "totals": {
+        "calories": 185,
+        "protein": 9,
+        "carbs": 15,
+        "fat": 11,
+        "fibre": 2,
+        "priceZAR": 30
+      },
+      "entries": [
+        {
+          "food": "Scrambled egg on toast (sourdough, 1 slice) with 1/4 avocado and 1 slice cheese",
+          "calories": 185,
+          "protein": 9,
+          "carbs": 15,
+          "fat": 11,
+          "fibre": 2,
+          "priceZAR": 30,
+          "time": "2026-04-05T08:08:54.349Z"
+        }
+      ]
     }
   ]
 }

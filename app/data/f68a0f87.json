@@ -380,6 +380,29 @@
           "time": "2026-04-04T11:29:27.714Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-05",
+      "totals": {
+        "calories": 105,
+        "protein": 1,
+        "carbs": 27,
+        "fat": 0,
+        "fibre": 3,
+        "priceZAR": 4
+      },
+      "entries": [
+        {
+          "food": "Banana (1 medium)",
+          "calories": 105,
+          "protein": 1,
+          "carbs": 27,
+          "fat": 0,
+          "fibre": 3,
+          "priceZAR": 4,
+          "time": "2026-04-05T08:55:04.191Z"
+        }
+      ]
     }
   ]
 }
