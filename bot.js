@@ -1439,6 +1439,9 @@ async function estimateCalories(food, user) {
     "acai bowl": { food: "Açaí Bowl", calories: 450, protein: 6, carbs: 65, fat: 18, fibre: 7 },
     "mcdonalds large fries": { food: "McDonald's Large Fries", calories: 490, protein: 7, carbs: 66, fat: 23, fibre: 6 },
     "large fries": { food: "Large Fries", calories: 490, protein: 7, carbs: 66, fat: 23, fibre: 6 },
+    "roman's pizza large pepperoni": { food: "Roman's Pizza Large Pepperoni (whole)", calories: 2200, protein: 100, carbs: 240, fat: 90, fibre: 12 },
+    "russian roll": { food: "Russian Roll", calories: 420, protein: 14, carbs: 35, fat: 24, fibre: 2 },
+    "checkers hot dog": { food: "Checkers Hot Dog", calories: 350, protein: 12, carbs: 30, fat: 18, fibre: 2 },
     // Round 3 fixes
     "gatsby steak": { food: "Steak Gatsby", calories: 1050, protein: 40, carbs: 95, fat: 50, fibre: 5 },
     "steak gatsby": { food: "Steak Gatsby", calories: 1050, protein: 40, carbs: 95, fat: 50, fibre: 5 },

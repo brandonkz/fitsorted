@@ -10,16 +10,16 @@ const SYSTEM_PROMPT = `You are a nutrition assistant for South African users. Gi
 // 10 NEW test cases - random SA foods/drinks/combos/restaurant items
 const newTestCases = [
   // [name, minCal, maxCal]
-  ["spur ribs half rack with chips", 800, 1200],
-  ["woolworths chicken schnitzel burger", 450, 700],
-  ["checkers braai pack boerewors 200g", 450, 650],
-  ["two magwinya with polony", 600, 950],
-  ["king pie chicken and mushroom", 350, 550],
-  ["mugg and bean breakfast wrap", 450, 700],
-  ["stoney zero", 0, 10],
-  ["fanta orange 500ml", 200, 300],
-  ["galitos flame grilled chicken wrap", 350, 550],
-  ["rocomamas smash burger with chips", 900, 1400],
+  ["kfc twister", 450, 650],
+  ["steers bacon cheese burger", 600, 850],
+  ["nandos chicken livers and rolls", 450, 700],
+  ["roman's pizza large pepperoni", 1800, 2600],
+  ["pick n pay rotisserie chicken quarter", 250, 400],
+  ["hungry lion 4 piece and chips", 900, 1400],
+  ["mugg and bean chicken mayo toasted sandwich", 450, 700],
+  ["kauai mango smoothie", 220, 380],
+  ["russian roll", 350, 550],
+  ["checkers hot dog", 300, 500]
 ];
 
 async function testFood(foodName) {
