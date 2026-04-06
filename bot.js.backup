@@ -1640,6 +1640,7 @@ async function estimateCalories(food, user) {
     "pick n pay chicken burger": { food: "Pick n Pay Chicken Burger", calories: 450, protein: 25, carbs: 38, fat: 20, fibre: 2 },
     "pnp chicken burger": { food: "Pick n Pay Chicken Burger", calories: 450, protein: 25, carbs: 38, fat: 20, fibre: 2 },
     "chicken mayo kota": { food: "Chicken Mayo Kota", calories: 650, protein: 28, carbs: 65, fat: 28, fibre: 3 },
+    "kota with atchar and cheese": { food: "Kota with atchar & cheese", calories: 800, protein: 24, carbs: 95, fat: 30, fibre: 4 },
     "pickled fish": { food: "Pickled Fish (serving)", calories: 280, protein: 30, carbs: 10, fat: 12, fibre: 1 },
     "malva pudding": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
     "malva pudding slice": { food: "Malva Pudding (slice)", calories: 380, protein: 4, carbs: 55, fat: 16, fibre: 1 },
