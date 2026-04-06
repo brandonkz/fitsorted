@@ -14919,3 +14919,10 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 
 [2026-04-05T05:28:48.375Z] AI RAW: "Small espresso with almond milk" → Small espresso with almond milk (30 cal)
 [AI FINAL] "Small espresso with almond milk" → Small espresso with almond milk (30 cal)
+
+[2026-04-06T15:51:44.266Z] estimateCalories() CALLED with food="Toasted cheese and lean bacon on white"
+[SA DB] Checked "Toasted cheese and lean bacon on white" → not found
+[OPENAI] Calling API for "Toasted cheese and lean bacon on white"
+
+[2026-04-06T15:51:48.340Z] AI RAW: "Toasted cheese and lean bacon on white" → toasted cheese sandwich with lean bacon (~150g) (450 cal)
+[AI FINAL] "Toasted cheese and lean bacon on white" → toasted cheese sandwich with lean bacon (~150g) (450 cal)
