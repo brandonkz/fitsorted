@@ -1,0 +1,40 @@
+{
+  "name": "Tristan",
+  "goal": 1675,
+  "joinedAt": "2026-04-06T15:48:13.004Z",
+  "profile": {
+    "age": 33,
+    "weight": 86,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 100
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-04-06",
+      "totals": {
+        "calories": 450,
+        "protein": 20,
+        "carbs": 40,
+        "fat": 25,
+        "fibre": 2,
+        "priceZAR": 35
+      },
+      "entries": [
+        {
+          "food": "toasted cheese sandwich with lean bacon (~150g)",
+          "calories": 450,
+          "protein": 20,
+          "carbs": 40,
+          "fat": 25,
+          "fibre": 2,
+          "priceZAR": 35,
+          "time": "2026-04-06T15:51:49.878Z"
+        }
+      ]
+    }
+  ]
+}

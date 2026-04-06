@@ -1945,5 +1945,16 @@
     "totalLogs": 3,
     "joinedDate": "2026-04-04T15:19:01.951Z",
     "target": "lose"
+  },
+  {
+    "token": "16832664",
+    "name": "***4621",
+    "streak": 1,
+    "totalDaysLogged": 1,
+    "avgCalories": 450,
+    "goalAccuracy": 0,
+    "totalLogs": 1,
+    "joinedDate": "2026-04-06T15:48:13.004Z",
+    "target": "lose"
   }
 ]
