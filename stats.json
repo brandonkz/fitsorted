@@ -1,6 +1,6 @@
 {
   "totalUsers": 251,
-  "activeUsers": 20,
+  "activeUsers": 19,
   "totalLogs": 1759,
   "premiumUsers": 1,
   "totalReferrals": 0,
@@ -41,13 +41,7 @@
       "joinedAt": "2026-03-31T11:17:58.592Z",
       "logs": 0,
       "isPro": false
-    },
-    {
-      "id": "***6721",
-      "joinedAt": "2026-03-31T07:02:43.952Z",
-      "logs": 13,
-      "isPro": false
     }
   ],
-  "lastUpdated": "2026-04-07T06:00:00.523Z"
+  "lastUpdated": "2026-04-07T08:00:00.180Z"
 }
