@@ -14926,3 +14926,30 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 
 [2026-04-06T15:51:48.340Z] AI RAW: "Toasted cheese and lean bacon on white" → toasted cheese sandwich with lean bacon (~150g) (450 cal)
 [AI FINAL] "Toasted cheese and lean bacon on white" → toasted cheese sandwich with lean bacon (~150g) (450 cal)
+
+[2026-04-07T08:10:01.517Z] estimateCalories() CALLED with food="Two eggs"
+[SA DB] Checked "Two eggs" → not found
+[OPENAI] Calling API for "Two eggs"
+
+[2026-04-07T08:10:05.215Z] AI RAW: "Two eggs" → 2x eggs (140 cal)
+[AI FINAL] "Two eggs" → 2x eggs (140 cal)
+
+[2026-04-07T09:01:42.225Z] estimateCalories() CALLED with food="Hi There"
+[SA DB] Checked "Hi There" → not found
+[OPENAI] Calling API for "Hi There"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Hi There"
+
+[2026-04-07T09:01:45.687Z] AI RAW: "Hi There" → Hi There (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Hi There" — estimating based on description
+[ZERO-CAL FIX] Estimated: Hi There (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Hi There" → Hi There (est.) (250 cal)
+
+[2026-04-07T09:01:46.780Z] estimateCalories() CALLED with food="I fell off the wagon and want to start logging again"
+[SA DB] Checked "I fell off the wagon and want to start logging again" → not found
+[OPENAI] Calling API for "I fell off the wagon and want to start logging again"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "I fell off the wagon and want to start logging again"
+
+[2026-04-07T09:01:50.316Z] AI RAW: "I fell off the wagon and want to start logging again" → I fell off the wagon and want to start logging again (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "I fell off the wagon and want to start logging again" — estimating based on description
+[ZERO-CAL FIX] Estimated: I fell off the wagon and want to start logging again (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "I fell off the wagon and want to start logging again" → I fell off the wagon and want to start logging again (est.) (250 cal)

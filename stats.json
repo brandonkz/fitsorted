@@ -1,7 +1,7 @@
 {
   "totalUsers": 251,
-  "activeUsers": 19,
-  "totalLogs": 1759,
+  "activeUsers": 21,
+  "totalLogs": 1762,
   "premiumUsers": 1,
   "totalReferrals": 0,
   "topReferrers": [],
@@ -43,5 +43,5 @@
       "isPro": false
     }
   ],
-  "lastUpdated": "2026-04-07T08:00:00.180Z"
+  "lastUpdated": "2026-04-07T11:00:00.781Z"
 }
