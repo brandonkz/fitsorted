@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-04-07T09:01:50.318Z",
+    "date": "2026-04-07",
+    "phone": "7861",
+    "userId": "27834117",
+    "food": "I fell off the wagon and want to start logging again (est.)",
+    "calories": 250,
+    "protein": 10,
+    "carbs": 30,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-07T09:01:45.689Z",
+    "date": "2026-04-07",
+    "phone": "7861",
+    "userId": "27834117",
+    "food": "Hi There (est.)",
+    "calories": 250,
+    "protein": 10,
+    "carbs": 30,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-07T08:10:05.520Z",
+    "date": "2026-04-07",
+    "phone": "8334",
+    "userId": "44754155",
+    "food": "2x eggs",
+    "calories": 140,
+    "protein": 12,
+    "carbs": 2,
+    "fat": 10,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-06T15:51:49.878Z",
     "date": "2026-04-06",
     "phone": "4621",
