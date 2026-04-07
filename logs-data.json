@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-04-07T16:46:41.998Z",
+    "date": "2026-04-07",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Matzah (~30g) with cheese (1 slice)",
+    "calories": 140,
+    "protein": 6,
+    "carbs": 20,
+    "fat": 6,
+    "fibre": 1,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-07T16:27:46.587Z",
+    "date": "2026-04-07",
+    "phone": "5299",
+    "userId": "27827395",
+    "food": "Clear nutrition protein smoothie with 1 banana (~120g) and oats (~40g)",
+    "calories": 256,
+    "protein": 11,
+    "carbs": 42,
+    "fat": 5,
+    "fibre": 4,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-07T09:01:50.318Z",
     "date": "2026-04-07",
     "phone": "7861",
