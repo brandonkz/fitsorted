@@ -249,6 +249,39 @@
           "time": "2026-03-26T03:01:28.026Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-07",
+      "totals": {
+        "calories": 500,
+        "protein": 20,
+        "carbs": 60,
+        "fat": 20,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "Hi There (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-07T09:01:45.689Z"
+        },
+        {
+          "food": "I fell off the wagon and want to start logging again (est.)",
+          "calories": 250,
+          "protein": 10,
+          "carbs": 30,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-07T09:01:50.318Z"
+        }
+      ]
     }
   ]
 }

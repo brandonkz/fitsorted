@@ -749,6 +749,29 @@
         "priceZAR": 0
       },
       "entries": []
+    },
+    {
+      "date": "2026-04-07",
+      "totals": {
+        "calories": 140,
+        "protein": 12,
+        "carbs": 2,
+        "fat": 10,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": [
+        {
+          "food": "2x eggs",
+          "calories": 140,
+          "protein": 12,
+          "carbs": 2,
+          "fat": 10,
+          "fibre": 0,
+          "priceZAR": 0,
+          "time": "2026-04-07T08:10:05.520Z"
+        }
+      ]
     }
   ]
 }

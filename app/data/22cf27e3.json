@@ -1,0 +1,29 @@
+{
+  "name": "Rafique",
+  "goal": 1548,
+  "joinedAt": "2026-04-07T13:28:15.052Z",
+  "profile": {
+    "age": 44,
+    "weight": 84,
+    "height": 173,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-04-07",
+      "totals": {
+        "calories": 0,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fibre": 0,
+        "priceZAR": 0
+      },
+      "entries": []
+    }
+  ]
+}

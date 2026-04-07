@@ -441,6 +441,29 @@
           "time": "2026-04-04T15:26:52.392Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-07",
+      "totals": {
+        "calories": 140,
+        "protein": 6,
+        "carbs": 20,
+        "fat": 6,
+        "fibre": 1,
+        "priceZAR": 20
+      },
+      "entries": [
+        {
+          "food": "Matzah (~30g) with cheese (1 slice)",
+          "calories": 140,
+          "protein": 6,
+          "carbs": 20,
+          "fat": 6,
+          "fibre": 1,
+          "priceZAR": 20,
+          "time": "2026-04-07T16:46:41.998Z"
+        }
+      ]
     }
   ]
 }

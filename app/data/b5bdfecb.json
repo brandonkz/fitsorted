@@ -1,0 +1,40 @@
+{
+  "name": "Cameron",
+  "goal": 1545,
+  "joinedAt": "2026-04-07T16:17:57.804Z",
+  "profile": {
+    "age": 37,
+    "weight": 98,
+    "height": 178,
+    "gender": "male",
+    "target": "lose",
+    "foodBudget": 200
+  },
+  "weights": [],
+  "exercise": {},
+  "logSummary": [
+    {
+      "date": "2026-04-07",
+      "totals": {
+        "calories": 256,
+        "protein": 11,
+        "carbs": 42,
+        "fat": 5,
+        "fibre": 4,
+        "priceZAR": 19
+      },
+      "entries": [
+        {
+          "food": "Clear nutrition protein smoothie with 1 banana (~120g) and oats (~40g)",
+          "calories": 256,
+          "protein": 11,
+          "carbs": 42,
+          "fat": 5,
+          "fibre": 4,
+          "priceZAR": 19,
+          "time": "2026-04-07T16:27:46.587Z"
+        }
+      ]
+    }
+  ]
+}
