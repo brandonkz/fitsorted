@@ -14953,3 +14953,45 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 [ZERO-CAL FIX] AI returned 0 cal for "I fell off the wagon and want to start logging again" — estimating based on description
 [ZERO-CAL FIX] Estimated: I fell off the wagon and want to start logging again (est.) → 250 cal | P:10g C:30g F:10g
 [AI FINAL] "I fell off the wagon and want to start logging again" → I fell off the wagon and want to start logging again (est.) (250 cal)
+
+[2026-04-07T13:31:06.769Z] estimateCalories() CALLED with food="The food items are:
+
+1. **Plain Yogurt** - estimated portion size ~150g.
+2. **Oak Smoked Trout Ribbons** - estimated portion size ~50g."
+[SA DB] Checked "The food items are:
+
+1. **Plain Yogurt** - estimated portion size ~150g.
+2. **Oak Smoked Trout Ribbons** - estimated portion size ~50g." → not found
+[OPENAI] Calling API for "The food items are:
+
+1. **Plain Yogurt** - estimated portion size ~150g.
+2. **Oak Smoked Trout Ribbons** - estimated portion size ~50g."
+
+[2026-04-07T13:31:11.634Z] AI RAW: "The food items are:
+
+1. **Plain Yogurt** - estimated portion size ~150g.
+2. **Oak Smoked Trout Ribbons** - estimated portion size ~50g." → Plain Yogurt (~150g) + Oak Smoked Trout Ribbons (~50g) (250 cal)
+[AI FINAL] "The food items are:
+
+1. **Plain Yogurt** - estimated portion size ~150g.
+2. **Oak Smoked Trout Ribbons** - estimated portion size ~50g." → Plain Yogurt (~150g) + Oak Smoked Trout Ribbons (~50g) (250 cal)
+
+[2026-04-07T13:31:55.176Z] estimateCalories() CALLED with food="I want grams of carbs not calories"
+[SA DB] Checked "I want grams of carbs not calories" → not found
+[OPENAI] Calling API for "I want grams of carbs not calories"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "I want grams of carbs not calories"
+
+[2026-04-07T13:31:57.653Z] AI RAW: "I want grams of carbs not calories" → I want grams of carbs not calories (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "I want grams of carbs not calories" — estimating based on description
+[ZERO-CAL FIX] Estimated: I want grams of carbs not calories (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "I want grams of carbs not calories" → I want grams of carbs not calories (est.) (250 cal)
+
+[2026-04-07T13:33:01.959Z] estimateCalories() CALLED with food="These grams of carbs are wrong"
+[SA DB] Checked "These grams of carbs are wrong" → not found
+[OPENAI] Calling API for "These grams of carbs are wrong"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "These grams of carbs are wrong"
+
+[2026-04-07T13:33:05.120Z] AI RAW: "These grams of carbs are wrong" → These grams of carbs are wrong (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "These grams of carbs are wrong" — estimating based on description
+[ZERO-CAL FIX] Estimated: These grams of carbs are wrong (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "These grams of carbs are wrong" → These grams of carbs are wrong (est.) (250 cal)
