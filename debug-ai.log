@@ -14995,3 +14995,71 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 [ZERO-CAL FIX] AI returned 0 cal for "These grams of carbs are wrong" — estimating based on description
 [ZERO-CAL FIX] Estimated: These grams of carbs are wrong (est.) → 250 cal | P:10g C:30g F:10g
 [AI FINAL] "These grams of carbs are wrong" → These grams of carbs are wrong (est.) (250 cal)
+
+[2026-04-07T16:27:40.050Z] estimateCalories() CALLED with food="Clear nutrition protein smoothie with banana and oats"
+[SA DB] Checked "Clear nutrition protein smoothie with banana and oats" → not found
+[OPENAI] Calling API for "Clear nutrition protein smoothie with banana and oats"
+
+[2026-04-07T16:27:44.628Z] AI RAW: "Clear nutrition protein smoothie with banana and oats" → Clear nutrition protein smoothie with 1 banana (~120g) and oats (~40g) (320 cal)
+[SINGULAR FIX] Input "Clear nutrition protein smoothie with banana and oats" has singular "banana" but AI returned 320 cal (>157.5) → halving
+[MEAL-CAL FIX] "Clear nutrition protein smoothie with banana and oats" looks like a multi-ingredient meal but AI returned only 160 cal — boosting to 256 cal
+[AI FINAL] "Clear nutrition protein smoothie with banana and oats" → Clear nutrition protein smoothie with 1 banana (~120g) and oats (~40g) (256 cal)
+
+[2026-04-07T16:46:37.619Z] estimateCalories() CALLED with food="Matzah with cheese"
+[SA DB] Checked "Matzah with cheese" → not found
+[OPENAI] Calling API for "Matzah with cheese"
+
+[2026-04-07T16:46:40.475Z] AI RAW: "Matzah with cheese" → Matzah (~30g) with cheese (1 slice) (140 cal)
+[AI FINAL] "Matzah with cheese" → Matzah (~30g) with cheese (1 slice) (140 cal)
+
+[2026-04-07T18:30:12.131Z] estimateCalories() CALLED with food="Chicken mayo pancake"
+[SA DB] Checked "Chicken mayo pancake" → not found
+[OPENAI] Calling API for "Chicken mayo pancake"
+
+[2026-04-07T18:30:18.678Z] AI RAW: "Chicken mayo pancake" → Chicken mayo pancake (~150g) (350 cal)
+[AI FINAL] "Chicken mayo pancake" → Chicken mayo pancake (~150g) (350 cal)
+
+[2026-04-07T18:30:20.558Z] estimateCalories() CALLED with food="200g white cheddar"
+[SA DB] Checked "200g white cheddar" → not found
+[OPENAI] Calling API for "200g white cheddar"
+
+[2026-04-07T18:30:23.079Z] AI RAW: "200g white cheddar" → White cheddar cheese (200g) (800 cal)
+[AI FINAL] "200g white cheddar" → White cheddar cheese (200g) (800 cal)
+
+[2026-04-07T18:30:24.654Z] estimateCalories() CALLED with food="six provita biscuits"
+[SA DB] Checked "six provita biscuits" → not found
+[OPENAI] Calling API for "six provita biscuits"
+
+[2026-04-07T18:30:27.073Z] AI RAW: "six provita biscuits" → 6x provita biscuits (360 cal)
+[AI FINAL] "six provita biscuits" → 6x provita biscuits (360 cal)
+
+[2026-04-07T18:30:28.838Z] estimateCalories() CALLED with food="chick pea vegetable curry with butternut"
+[SA DB] Checked "chick pea vegetable curry with butternut" → not found
+[OPENAI] Calling API for "chick pea vegetable curry with butternut"
+
+[2026-04-07T18:30:31.475Z] AI RAW: "chick pea vegetable curry with butternut" → Chickpea vegetable curry with butternut (~300g) (450 cal)
+[AI FINAL] "chick pea vegetable curry with butternut" → Chickpea vegetable curry with butternut (~300g) (450 cal)
+
+[2026-04-07T18:30:33.259Z] estimateCalories() CALLED with food="coconut milk"
+[SA DB] Checked "coconut milk" → not found
+[OPENAI] Calling API for "coconut milk"
+
+[2026-04-07T18:30:37.124Z] AI RAW: "coconut milk" → Coconut milk (1 cup, ~240ml) (445 cal)
+[AI FINAL] "coconut milk" → Coconut milk (1 cup, ~240ml) (445 cal)
+
+[2026-04-07T18:30:38.807Z] estimateCalories() CALLED with food="cauliflower"
+
+[2026-04-07T18:30:41.074Z] estimateCalories() CALLED with food="green beans and two squares dark chocolate"
+[SA DB] Checked "green beans and two squares dark chocolate" → not found
+[OPENAI] Calling API for "green beans and two squares dark chocolate"
+
+[2026-04-07T18:30:44.075Z] AI RAW: "green beans and two squares dark chocolate" → Green beans (1 cup, ~125g) + 2 squares dark chocolate (~30g) (200 cal)
+[AI FINAL] "green beans and two squares dark chocolate" → Green beans (1 cup, ~125g) + 2 squares dark chocolate (~30g) (200 cal)
+
+[2026-04-07T18:30:45.744Z] estimateCalories() CALLED with food="One beer"
+[SA DB] Checked "One beer" → not found
+[OPENAI] Calling API for "One beer"
+[VALIDATION WARN] Macro mismatch: 155 cal stated vs 56 from macros (diff: 99)
+
+[2026-04-07T18:30:48.268Z] AI RAW: "One beer" → beer (440ml) (155 cal)
+[AI FINAL] "One beer" → beer (440ml) (155 cal)
