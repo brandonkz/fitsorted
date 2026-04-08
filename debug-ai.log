@@ -15063,3 +15063,30 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 
 [2026-04-07T18:30:48.268Z] AI RAW: "One beer" → beer (440ml) (155 cal)
 [AI FINAL] "One beer" → beer (440ml) (155 cal)
+
+[2026-04-08T05:22:06.280Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-08T06:42:41.911Z] estimateCalories() CALLED with food="Peanut butter and syrup toast on 4 slices of brown bread"
+[SA DB] Checked "Peanut butter and syrup toast on 4 slices of brown bread" → FOUND: Peanut butter (2 tbsp) (2 tbsp (32g)) (190 cal)
+
+[2026-04-08T10:06:13.888Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-08T11:22:07.465Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-08T18:21:38.770Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-08T18:30:28.623Z] estimateCalories() CALLED with food="Fish"
+[SA DB] Checked "Fish" → FOUND: Ocean Basket fish & chips (1 serving) (720 cal)
+
+[2026-04-08T18:30:56.818Z] estimateCalories() CALLED with food="Fish"
+[SA DB] Checked "Fish" → FOUND: Ocean Basket fish & chips (1 serving) (720 cal)
+
+[2026-04-08T18:52:55.796Z] estimateCalories() CALLED with food="Steak"
