@@ -15090,3 +15090,7 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 [SA DB] Checked "Fish" → FOUND: Ocean Basket fish & chips (1 serving) (720 cal)
 
 [2026-04-08T18:52:55.796Z] estimateCalories() CALLED with food="Steak"
+
+[2026-04-08T21:50:09.840Z] estimateCalories() CALLED with food="Steak"
+
+[2026-04-08T21:50:09.864Z] estimateCalories() CALLED with food="Co"
