@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-04-08T11:22:09.894Z",
+    "date": "2026-04-08",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-08T10:06:16.457Z",
+    "date": "2026-04-08",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-08T06:42:45.627Z",
+    "date": "2026-04-08",
+    "phone": "5299",
+    "userId": "27827395",
+    "food": "Peanut butter (2 tbsp) (2 tbsp (32g))",
+    "calories": 190,
+    "protein": 8,
+    "carbs": 6,
+    "fat": 16,
+    "fibre": 2,
+    "source": "AI"
+  },
+  {
+    "timestamp": "2026-04-08T05:22:08.765Z",
+    "date": "2026-04-08",
+    "phone": "7970",
+    "userId": "27837787",
+    "food": "Coffee with milk (1 cup)",
+    "calories": 50,
+    "protein": 3,
+    "carbs": 5,
+    "fat": 2,
+    "fibre": 0,
+    "source": "AI"
+  },
+  {
     "timestamp": "2026-04-07T18:30:48.987Z",
     "date": "2026-04-07",
     "phone": "2283",
