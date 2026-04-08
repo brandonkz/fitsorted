@@ -35,6 +35,29 @@
           "time": "2026-04-07T16:27:46.587Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-08",
+      "totals": {
+        "calories": 190,
+        "protein": 8,
+        "carbs": 6,
+        "fat": 16,
+        "fibre": 2,
+        "priceZAR": 10
+      },
+      "entries": [
+        {
+          "food": "Peanut butter (2 tbsp) (2 tbsp (32g))",
+          "calories": 190,
+          "protein": 8,
+          "carbs": 6,
+          "fat": 16,
+          "fibre": 2,
+          "priceZAR": 10,
+          "time": "2026-04-08T06:42:45.627Z"
+        }
+      ]
     }
   ]
 }

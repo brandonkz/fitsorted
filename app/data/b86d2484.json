@@ -464,6 +464,49 @@
           "time": "2026-04-07T16:46:41.998Z"
         }
       ]
+    },
+    {
+      "date": "2026-04-08",
+      "totals": {
+        "calories": 150,
+        "protein": 9,
+        "carbs": 15,
+        "fat": 6,
+        "fibre": 0,
+        "priceZAR": 50
+      },
+      "entries": [
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-04-08T05:22:08.765Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 15,
+          "time": "2026-04-08T10:06:16.457Z"
+        },
+        {
+          "food": "Coffee with milk (1 cup)",
+          "calories": 50,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "fibre": 0,
+          "priceZAR": 20,
+          "time": "2026-04-08T11:22:09.894Z"
+        }
+      ]
     }
   ]
 }
