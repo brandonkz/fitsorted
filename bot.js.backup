@@ -159,7 +159,7 @@ function applyDiscount(price, discountPct) {
 }
 
 // Generate PayFast monthly subscription link (pay immediately)
-function getPayFastMonthlyLink(phone, discountPct = 0) {
+function getPayFastMonthlyLink(phone, discountPct = 0, firstName = "FitSorted", lastName = "User") {
   const monthly = parseFloat(applyDiscount(36, discountPct));
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
@@ -167,8 +167,8 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
     return_url: RETURN_URL,
     cancel_url: CANCEL_URL,
     notify_url: ITN_URL,
-    name_first: "FitSorted",
-    name_last: "User",
+    name_first: firstName || "FitSorted",
+    name_last: lastName || "User",
     m_payment_id: `fs_m_${phone}_${Date.now()}`,
     amount: monthly.toFixed(2),
     recurring_amount: monthly.toFixed(2),
@@ -182,17 +182,16 @@ function getPayFastMonthlyLink(phone, discountPct = 0) {
   return `https://www.payfast.co.za/eng/process?${params.toString()}`;
 }
 
-// Generate PayFast annual subscription link (pay immediately)
-function getPayFastAnnualLink(phone, discountPct = 0) {
-  const annual = parseFloat(applyDiscount(399, discountPct)); // R36 x 12 = R432, discounted to R399/yr
+function getPayFastAnnualLink(phone, discountPct = 0, firstName = "FitSorted", lastName = "User") {
+  const annual = parseFloat(applyDiscount(399, discountPct));
   const params = new URLSearchParams({
     merchant_id: PAYFAST_MERCHANT_ID,
     merchant_key: PAYFAST_MERCHANT_KEY,
     return_url: RETURN_URL,
     cancel_url: CANCEL_URL,
     notify_url: ITN_URL,
-    name_first: "FitSorted",
-    name_last: "User",
+    name_first: firstName || "FitSorted",
+    name_last: lastName || "User",
     m_payment_id: `fs_a_${phone}_${Date.now()}`,
     amount: annual.toFixed(2),
     recurring_amount: annual.toFixed(2),
@@ -206,7 +205,17 @@ function getPayFastAnnualLink(phone, discountPct = 0) {
   return `https://www.payfast.co.za/eng/process?${params.toString()}`;
 }
 
-// Legacy single-payment link (kept for manual use)
+function getCleanPayLink(plan, phone, discountPct = 0, firstName = "FitSorted", lastName = "User") {
+  const params = new URLSearchParams({
+    plan,
+    phone,
+    discount: String(discountPct || 0),
+    firstName,
+    lastName,
+  });
+  return `https://fitsorted.co.za/pay?${params.toString()}`;
+}
+
 function getPayFastLink(phone) {
   return getPayFastMonthlyLink(phone);
 }
@@ -3779,8 +3788,8 @@ async function handleMessage(from, text, imageId) {
       }
       const access = await hasAccess(from, user);
       if (!access) {
-        const monthlyLink = getPayFastMonthlyLink(from);
-        const annualLink = getPayFastAnnualLink(from);
+        const monthlyLink = getCleanPayLink("monthly", from);
+        const annualLink = getCleanPayLink("annual", from);
         await send(from,
           `📸 Your 7-day free trial has ended.\n\n` +
           `Subscribe to keep using FitSorted:\n\n` +
@@ -6535,6 +6544,23 @@ async function handleMessage(from, text, imageId) {
 }
 
 // ── Webhook ──
+app.get("/pay", (req, res) => {
+  try {
+    const plan = req.query.plan === "annual" ? "annual" : "monthly";
+    const phone = String(req.query.phone || "unknown");
+    const discountPct = Number(req.query.discount || 0) || 0;
+    const firstName = String(req.query.firstName || "FitSorted");
+    const lastName = String(req.query.lastName || "User");
+    const payfastUrl = plan === "annual"
+      ? getPayFastAnnualLink(phone, discountPct, firstName, lastName)
+      : getPayFastMonthlyLink(phone, discountPct, firstName, lastName);
+    return res.redirect(302, payfastUrl);
+  } catch (error) {
+    console.error("[pay] redirect error", error.message);
+    return res.status(500).send("Payment link unavailable");
+  }
+});
+
 app.get("/webhook", (req, res) => {
   if (req.query["hub.verify_token"] === VERIFY_TOKEN) {
     res.send(req.query["hub.challenge"]);
