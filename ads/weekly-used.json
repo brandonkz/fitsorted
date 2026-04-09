@@ -13,28 +13,57 @@
     "steers-wacky-wednesday",
     "vetkoek-mince",
     "kfc-streetwise-2",
-    "fried-chicken-vs-grilled"
+    "fried-chicken-vs-grilled",
+    "spur-burger-ribs",
+    "fishaways-2piece",
+    "debonairs-triple-decker",
+    "jalapeno-popper-corn",
+    "trigz-sweet-chilli",
+    "mini-oat-crunchies",
+    "bobotie",
+    "spur-burger-ribs",
+    "fishaways-2piece",
+    "debonairs-triple-decker",
+    "jalapeno-popper-corn",
+    "trigz-sweet-chilli",
+    "mini-oat-crunchies",
+    "bobotie"
   ],
   "drinks": [
-    "pinotage",
-    "cosmopolitan",
-    "gin-and-tonic",
-    "hunters-gold",
-    "black-label",
     "windhoek-lager",
-    "craft-ipa",
-    "mojito",
-    "jagerbomb",
-    "espresso-martini",
+    "hunters-gold",
     "jack-and-coke",
+    "craft-ipa",
+    "savanna-light",
     "white-wine-spritzer",
     "daiquiri",
-    "savanna-light"
+    "windhoek-lager",
+    "hunters-gold",
+    "jack-and-coke",
+    "craft-ipa",
+    "savanna-light",
+    "white-wine-spritzer",
+    "daiquiri"
   ],
   "cheatSheets": [
     "nandos-calorie-hack",
     "midnight-snack-guide",
     "woolworths-ready-meals",
-    "kauai-menu-guide"
+    "kauai-menu-guide",
+    "high-protein-snacks",
+    "high-protein-snacks"
+  ],
+  "didYouKnow": [
+    "sleep-vs-tv",
+    "bigmac-run",
+    "nut-handful"
+  ],
+  "mythBusters": [
+    "six-meals",
+    "skip-breakfast"
+  ],
+  "productFeatures": [
+    "evening-summary",
+    "sa-foods"
   ]
 }

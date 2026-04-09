@@ -629,8 +629,13 @@ function productFeatureCaption(post) {
       const imgPath = path.join(DIR, `img-${item.name}.png`);
       if (!fs.existsSync(imgPath)) {
         console.log(`\n🎨 Generating image: ${item.name}...`);
-        await generateImage(generatePrompt(item), imgPath);
-        console.log(`✅ Image saved`);
+        try {
+          await generateImage(generatePrompt(item), imgPath);
+          console.log(`✅ Image saved`);
+        } catch (err) {
+          console.error(`❌ Image generation failed for ${item.name}: ${err.message}`);
+          continue;
+        }
       }
       
       // Generate HTML
@@ -662,6 +667,100 @@ function productFeatureCaption(post) {
     }
   }
   await browser.close();
+
+  const GENERATE_ONLY = process.env.GENERATE_ONLY === '1';
+  if (GENERATE_ONLY) {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0=Sun
+    const daysToMon = dayOfWeek === 0 ? 1 : dayOfWeek === 1 ? 7 : (8 - dayOfWeek);
+    const monday = new Date(now);
+    monday.setDate(now.getDate() + daysToMon);
+    const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    const draftManifest = [];
+
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + i);
+      const dateStr = date.toISOString().slice(0,10);
+
+      const food = foods[i];
+      const drink = drinks[i];
+
+      draftManifest.push({
+        day: days[i],
+        date: dateStr,
+        slot: '10:00 SAST',
+        platform: 'instagram+tiktok',
+        type: 'food',
+        name: food.name,
+        title: food.food,
+        previewPath: path.join(DIR, `weekly-${food.name}.png`),
+        caption: foodCaption(food)
+      });
+
+      draftManifest.push({
+        day: days[i],
+        date: dateStr,
+        slot: '18:30 SAST',
+        platform: 'tiktok',
+        type: 'drink',
+        name: drink.name,
+        title: drink.food,
+        previewPath: path.join(DIR, `weekly-${drink.name}.png`),
+        caption: tiktokDrinkCaption(drink)
+      });
+
+      const middayItems = [];
+      if (i === 0 && didYouKnowItems[0]) middayItems.push({ item: didYouKnowItems[0], type: 'didyouknow' });
+      if (i === 1 && mythBusterItems[0]) middayItems.push({ item: mythBusterItems[0], type: 'mythbuster' });
+      if (i === 2 && cheatSheets[0]) middayItems.push({ item: cheatSheets[0], type: 'cheatsheet' });
+      if (i === 2 && productFeatureItems[0]) middayItems.push({ item: productFeatureItems[0], type: 'productfeature' });
+      if (i === 3 && didYouKnowItems[1]) middayItems.push({ item: didYouKnowItems[1], type: 'didyouknow' });
+      if (i === 4 && mythBusterItems[1]) middayItems.push({ item: mythBusterItems[1], type: 'mythbuster' });
+      if (i === 5 && productFeatureItems[1]) middayItems.push({ item: productFeatureItems[1], type: 'productfeature' });
+      if (i === 6 && didYouKnowItems[2]) middayItems.push({ item: didYouKnowItems[2], type: 'didyouknow' });
+
+      for (let mi = 0; mi < middayItems.length; mi++) {
+        const { item: midItem, type } = middayItems[mi];
+        const caption = type === 'cheatsheet' ? cheatSheetCaption(midItem)
+          : type === 'didyouknow' ? didYouKnowCaption(midItem)
+          : type === 'mythbuster' ? mythBusterCaption(midItem)
+          : productFeatureCaption(midItem);
+
+        draftManifest.push({
+          day: days[i],
+          date: dateStr,
+          slot: mi === 0 ? '13:00 SAST' : '13:20 SAST',
+          platform: mi === 0 ? 'instagram+tiktok' : 'tiktok',
+          type,
+          name: midItem.name,
+          title: midItem.title || midItem.headline || midItem.myth || midItem.food,
+          previewPath: path.join(DIR, `weekly-${midItem.name}.png`),
+          caption
+        });
+      }
+    }
+
+    const manifestPath = path.join(DIR, 'weekly-draft-manifest.json');
+    fs.writeFileSync(manifestPath, JSON.stringify(draftManifest, null, 2));
+
+    used.foods.push(...foods.map(f => f.name));
+    used.drinks.push(...drinks.map(d => d.name));
+    if (!used.cheatSheets) used.cheatSheets = [];
+    if (!used.didYouKnow) used.didYouKnow = [];
+    if (!used.mythBusters) used.mythBusters = [];
+    if (!used.productFeatures) used.productFeatures = [];
+    used.cheatSheets.push(...cheatSheets.map(c => c.name));
+    used.didYouKnow.push(...didYouKnowItems.map(d => d.name));
+    used.mythBusters.push(...mythBusterItems.map(m => m.name));
+    used.productFeatures.push(...productFeatureItems.map(p => p.name));
+    saveUsed(used);
+
+    console.log('\n📝 Generate-only mode complete.');
+    console.log(`Draft manifest saved: ${manifestPath}`);
+    console.log(`Generated weekly previews: ${draftManifest.length}`);
+    return;
+  }
   
   // Upload to Postiz
   console.log('\n📤 Uploading to Postiz...');
