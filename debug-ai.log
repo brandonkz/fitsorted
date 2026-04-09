@@ -15106,3 +15106,61 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 [2026-04-09T09:36:12.818Z] estimateCalories() CALLED with food="Coffee"
 [SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
 [SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-09T10:23:40.329Z] estimateCalories() CALLED with food="Spar easy veg diced soup packet 800g."
+[SA DB] Checked "Spar easy veg diced soup packet 800g." → not found
+[OPENAI] Calling API for "Spar easy veg diced soup packet 800g."
+
+[2026-04-09T10:23:44.653Z] AI RAW: "Spar easy veg diced soup packet 800g." → Spar easy veg diced soup (800g) (320 cal)
+[AI FINAL] "Spar easy veg diced soup packet 800g." → Spar easy veg diced soup (800g) (320 cal)
+
+[2026-04-09T10:36:07.383Z] estimateCalories() CALLED with food="1 can whole tomato"
+[SA DB] Checked "1 can whole tomato" → not found
+[OPENAI] Calling API for "1 can whole tomato"
+
+[2026-04-09T10:36:10.520Z] AI RAW: "1 can whole tomato" → Whole tomato (1 can, ~400g) (80 cal)
+[AI FINAL] "1 can whole tomato" → Whole tomato (1 can, ~400g) (80 cal)
+
+[2026-04-09T10:38:45.121Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-09T10:52:35.846Z] estimateCalories() CALLED with food="Canned whole tomato"
+[SA DB] Checked "Canned whole tomato" → not found
+[OPENAI] Calling API for "Canned whole tomato"
+
+[2026-04-09T10:52:38.933Z] AI RAW: "Canned whole tomato" → Canned whole tomato (1 cup, ~240g) (50 cal)
+[AI FINAL] "Canned whole tomato" → Canned whole tomato (1 cup, ~240g) (50 cal)
+
+[2026-04-09T10:52:52.384Z] estimateCalories() CALLED with food="Easy veg soup packet 800g"
+[SA DB] Checked "Easy veg soup packet 800g" → not found
+[OPENAI] Calling API for "Easy veg soup packet 800g"
+
+[2026-04-09T10:52:54.324Z] AI RAW: "Easy veg soup packet 800g" → Easy veg soup packet (800g) (320 cal)
+[AI FINAL] "Easy veg soup packet 800g" → Easy veg soup packet (800g) (320 cal)
+
+[2026-04-09T11:30:34.080Z] estimateCalories() CALLED with food="2 matzah with eggs"
+[SA DB] Checked "2 matzah with eggs" → not found
+[OPENAI] Calling API for "2 matzah with eggs"
+
+[2026-04-09T11:30:37.115Z] AI RAW: "2 matzah with eggs" → 2x matzah with 2 eggs (380 cal)
+[AI FINAL] "2 matzah with eggs" → 2x matzah with 2 eggs (380 cal)
+
+[2026-04-09T11:31:02.360Z] estimateCalories() CALLED with food="2 eggs"
+
+[2026-04-09T11:47:55.549Z] estimateCalories() CALLED with food="https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm"
+[SA DB] Checked "https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm" → not found
+[OPENAI] Calling API for "https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm"
+
+[2026-04-09T11:47:58.619Z] AI RAW: "https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm" → https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm" — estimating based on description
+[ZERO-CAL FIX] Estimated: https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm" → https://1drv.ms/f/c/9581af3facd2868e/IgBQBM2hWNNkR66Pj80IVWVzAbf6lS9cRVIjHWVYfoHNGHM?e=B5UJtm (est.) (250 cal)
+
+[2026-04-09T12:38:31.536Z] estimateCalories() CALLED with food="300gm fillet"
+[SA DB] Checked "300gm fillet" → not found
+[OPENAI] Calling API for "300gm fillet"
+
+[2026-04-09T12:38:33.951Z] AI RAW: "300gm fillet" → Steak (~300g) (660 cal)
+[AI FINAL] "300gm fillet" → Steak (~300g) (660 cal)
