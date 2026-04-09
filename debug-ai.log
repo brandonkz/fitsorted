@@ -15094,3 +15094,15 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 [2026-04-08T21:50:09.840Z] estimateCalories() CALLED with food="Steak"
 
 [2026-04-08T21:50:09.864Z] estimateCalories() CALLED with food="Co"
+
+[2026-04-09T09:34:25.262Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-09T09:35:47.722Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-09T09:36:12.818Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
