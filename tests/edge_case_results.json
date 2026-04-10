@@ -1,0 +1,182 @@
+[
+  {
+    "food": "sparletta 500ml",
+    "expected": [
+      180,
+      280
+    ],
+    "got": 210,
+    "result": {
+      "food": "Sparletta (500ml)",
+      "calories": 210,
+      "protein": 0,
+      "carbs": 53,
+      "fat": 0,
+      "fibre": 0,
+      "estimatedPriceZAR": 15
+    },
+    "status": "PASS"
+  },
+  {
+    "food": "rooibos tea with honey",
+    "expected": [
+      40,
+      100
+    ],
+    "got": 30,
+    "result": {
+      "food": "rooibos tea (1 cup) with honey (1 tsp)",
+      "calories": 30,
+      "protein": 0,
+      "carbs": 8,
+      "fat": 0,
+      "fibre": 0,
+      "estimatedPriceZAR": null
+    },
+    "status": "FAIL"
+  },
+  {
+    "food": "chicken licken lots of legs 8 piece",
+    "expected": [
+      1200,
+      1800
+    ],
+    "got": 1200,
+    "result": {
+      "food": "8x Chicken drumstick (~680g)",
+      "calories": 1200,
+      "protein": 120,
+      "carbs": 0,
+      "fat": 80,
+      "fibre": 0,
+      "estimatedPriceZAR": 300
+    },
+    "status": "PASS"
+  },
+  {
+    "food": "steak sandwich",
+    "expected": [
+      350,
+      550
+    ],
+    "got": 480,
+    "result": {
+      "food": "Steak sandwich (~150g steak, ~80g bread)",
+      "calories": 480,
+      "protein": 40,
+      "carbs": 40,
+      "fat": 20,
+      "fibre": 2,
+      "estimatedPriceZAR": 85
+    },
+    "status": "PASS"
+  },
+  {
+    "food": "curry and rice",
+    "expected": [
+      450,
+      700
+    ],
+    "got": 430,
+    "result": {
+      "food": "Curry (~200g) and Rice (1 cup, ~150g)",
+      "calories": 430,
+      "protein": 15,
+      "carbs": 70,
+      "fat": 10,
+      "fibre": 5,
+      "estimatedPriceZAR": null
+    },
+    "status": "FAIL"
+  },
+  {
+    "food": "dumpling 1",
+    "expected": [
+      80,
+      180
+    ],
+    "got": 40,
+    "result": {
+      "food": "dumpling (~20g)",
+      "calories": 40,
+      "protein": 1,
+      "carbs": 8,
+      "fat": 1,
+      "fibre": 0,
+      "estimatedPriceZAR": null
+    },
+    "status": "FAIL"
+  },
+  {
+    "food": "kfc wednesday special",
+    "expected": [
+      550,
+      850
+    ],
+    "got": 280,
+    "result": {
+      "food": "KFC Wednesday special (1 piece fried chicken, ~170g)",
+      "calories": 280,
+      "protein": 20,
+      "carbs": 0,
+      "fat": 20,
+      "fibre": 0,
+      "estimatedPriceZAR": 50
+    },
+    "status": "FAIL"
+  },
+  {
+    "food": "coffee with 2 sugars",
+    "expected": [
+      30,
+      80
+    ],
+    "got": 40,
+    "result": {
+      "food": "coffee with 2 sugars",
+      "calories": 40,
+      "protein": 0,
+      "carbs": 10,
+      "fat": 0,
+      "fibre": 0,
+      "estimatedPriceZAR": null
+    },
+    "status": "PASS"
+  },
+  {
+    "food": "sweet potato 150g",
+    "expected": [
+      130,
+      200
+    ],
+    "got": 135,
+    "result": {
+      "food": "Sweet potato (150g)",
+      "calories": 135,
+      "protein": 3,
+      "carbs": 31,
+      "fat": 0,
+      "fibre": 4,
+      "estimatedPriceZAR": null
+    },
+    "status": "PASS"
+  },
+  {
+    "food": "frozen yogurt",
+    "expected": [
+      150,
+      280
+    ],
+    "got": 150,
+    "result": {
+      "food": "frozen yogurt (1 cup, ~240g)",
+      "calories": 150,
+      "protein": 4,
+      "carbs": 30,
+      "fat": 3,
+      "fibre": 0,
+      "estimatedPriceZAR": 50
+    },
+    "status": "PASS"
+  }
+]

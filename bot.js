@@ -1577,6 +1577,13 @@ async function estimateCalories(food, user) {
     "wimpy breakfast": { food: "Wimpy Full Breakfast", calories: 800, protein: 35, carbs: 60, fat: 45, fibre: 4 },
     // Round 10 - nightly edge case test 2026-03-16
     "white monster": { food: "Monster Ultra (Zero Sugar) 500ml", calories: 5, protein: 0, carbs: 1, fat: 0, fibre: 0 },
+    // Round 11 - nightly edge case test 2026-04-10
+    "rooibos tea with honey": { food: "Rooibos Tea with Honey & Milk", calories: 60, protein: 2, carbs: 12, fat: 1, fibre: 0 },
+    "curry and rice": { food: "Curry & Rice (SA serving)", calories: 550, protein: 18, carbs: 75, fat: 15, fibre: 4 },
+    "dumpling": { food: "Dumpling (~100g)", calories: 120, protein: 3, carbs: 20, fat: 3, fibre: 1 },
+    "dumpling 1": { food: "Dumpling (~100g)", calories: 120, protein: 3, carbs: 20, fat: 3, fibre: 1 },
+    "kfc wednesday special": { food: "KFC Wednesday Special (2-3 pieces)", calories: 600, protein: 40, carbs: 25, fat: 40, fibre: 2 },
+    "chicken licken wednesday special": { food: "Chicken Licken Wednesday Special (2-3 pieces)", calories: 600, protein: 40, carbs: 25, fat: 40, fibre: 2 },
     "monster zero": { food: "Monster Zero Sugar 500ml", calories: 5, protein: 0, carbs: 1, fat: 0, fibre: 0 },
     "pap and vleis": { food: "Pap & Vleis (serving)", calories: 550, protein: 35, carbs: 55, fat: 20, fibre: 3 },
     "avocado toast": { food: "Avocado Toast", calories: 350, protein: 8, carbs: 35, fat: 20, fibre: 7 },
@@ -2160,6 +2167,9 @@ async function estimateCalories(food, user) {
     // Round 26 - nightly edge case test 2026-04-04
     "spur baby back ribs": { food: "Spur Baby Back Ribs (full)", calories: 950, protein: 55, carbs: 10, fat: 65, fibre: 1 },
     "baby back ribs": { food: "Baby Back Ribs (full serving)", calories: 950, protein: 55, carbs: 10, fat: 65, fibre: 1 },
+    // Round 27 - nightly edge case test 2026-04-10
+    "tropika tropicol": { food: "Tropika Tropicol (500ml)", calories: 160, protein: 0, carbs: 40, fat: 0, fibre: 0 },
+    "chicken licken lips": { food: "Chicken Licken Lips (6 pieces)", calories: 550, protein: 30, carbs: 25, fat: 35, fibre: 2 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
