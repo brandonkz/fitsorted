@@ -15217,3 +15217,46 @@ Mini red velvet cupcake"
 Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium fries (~100g) (610 cal)
 [AI FINAL] "1 McDonald's junior chicken burger & medium fries 
 Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium fries (~100g) (610 cal)
+
+[2026-04-10T16:58:24.199Z] estimateCalories() CALLED with food="onboard_subscribe"
+[SA DB] Checked "onboard_subscribe" → not found
+[OPENAI] Calling API for "onboard_subscribe"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "onboard_subscribe"
+
+[2026-04-10T16:58:33.134Z] AI RAW: "onboard_subscribe" → onboard_subscribe (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "onboard_subscribe" — estimating based on description
+[ZERO-CAL FIX] Estimated: onboard_subscribe (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "onboard_subscribe" → onboard_subscribe (est.) (250 cal)
+
+[2026-04-10T17:14:17.723Z] estimateCalories() CALLED with food="1/2 bar one chocolate"
+[SA DB] Checked "1/2 bar one chocolate" → not found
+[OPENAI] Calling API for "1/2 bar one chocolate"
+
+[2026-04-10T17:14:22.291Z] AI RAW: "1/2 bar one chocolate" → 1/2 bar One chocolate (~25g) (120 cal)
+[SNACK-CAL FIX] "1/2 bar one chocolate" is a substantial snack but AI returned only 120 cal — bumping to minimum 400 cal
+[AI FINAL] "1/2 bar one chocolate" → 1/2 bar One chocolate (~25g) (400 cal)
+
+[2026-04-10T18:32:28.210Z] estimateCalories() CALLED with food="4 slices of brown bread"
+[SA DB] Checked "4 slices of brown bread" → FOUND: Albany brown bread (2 slices) (2 slices) (180 cal)
+[SA DB CLEANUP] Removed duplicate: "Albany brown bread (2 slices) (2 slices)" → "Albany brown bread (2 slices)"
+
+[2026-04-10T18:32:34.256Z] estimateCalories() CALLED with food="2 polony"
+[SA DB] Checked "2 polony" → not found
+[OPENAI] Calling API for "2 polony"
+
+[2026-04-10T18:32:36.413Z] AI RAW: "2 polony" → 2x polony (320 cal)
+[AI FINAL] "2 polony" → 2x polony (320 cal)
+
+[2026-04-10T18:37:44.814Z] estimateCalories() CALLED with food="A small lunch box with rice and soup made from onions and tomatoes"
+[SA DB] Checked "A small lunch box with rice and soup made from onions and tomatoes" → not found
+[OPENAI] Calling API for "A small lunch box with rice and soup made from onions and tomatoes"
+
+[2026-04-10T18:37:47.606Z] AI RAW: "A small lunch box with rice and soup made from onions and tomatoes" → Rice (1 cup, ~150g) and tomato onion soup (~250ml) (330 cal)
+[AI FINAL] "A small lunch box with rice and soup made from onions and tomatoes" → Rice (1 cup, ~150g) and tomato onion soup (~250ml) (330 cal)
+
+[2026-04-10T18:40:41.379Z] estimateCalories() CALLED with food="Then at knight l ate rice the size of 1small bowl with soup made from onions and tomatoes plus a chicken wing"
+[SA DB] Checked "Then at knight l ate rice the size of 1small bowl with soup made from onions and tomatoes plus a chicken wing" → not found
+[OPENAI] Calling API for "Then at knight l ate rice the size of 1small bowl with soup made from onions and tomatoes plus a chicken wing"
+
+[2026-04-10T18:40:44.464Z] AI RAW: "Then at knight l ate rice the size of 1small bowl with soup made from onions and tomatoes plus a chicken wing" → Rice (1 small bowl, ~150g) with onion and tomato soup + Chicken wing (~100g) (380 cal)
+[AI FINAL] "Then at knight l ate rice the size of 1small bowl with soup made from onions and tomatoes plus a chicken wing" → Rice (1 small bowl, ~150g) with onion and tomato soup + Chicken wing (~100g) (380 cal)
