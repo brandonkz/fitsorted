@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; font-family: 'Inter', sans-serif; overflow: hidden; }
+  .story {
+    width: 1080px; height: 1920px; background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 60px; text-align: center; position: relative;
+  }
+  .emoji { font-size: 120px; margin-bottom: 30px; }
+  .question-tag {
+    background: #e94560; color: #fff; font-size: 24px; font-weight: 800;
+    padding: 12px 32px; border-radius: 30px; text-transform: uppercase;
+    letter-spacing: 3px; margin-bottom: 40px;
+  }
+  .food-name {
+    color: #fff; font-size: 56px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 50px; max-width: 900px;
+  }
+  .options { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 800px; }
+  .option {
+    background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 16px; padding: 24px 36px; color: #fff;
+    font-size: 32px; font-weight: 700; text-align: center;
+    transition: all 0.3s;
+  }
+  .option.correct {
+    background: rgba(0, 200, 83, 0.3); border-color: #00c853;
+  }
+  .brand {
+    position: absolute; bottom: 60px; color: rgba(255,255,255,0.4);
+    font-size: 22px; font-weight: 600;
+  }
+  .cta {
+    position: absolute; bottom: 120px; color: #e94560;
+    font-size: 26px; font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="question-tag">🤔 Guess the Calories</div>
+  <div class="emoji">☕</div>
+  <div class="food-name">Vida e Caffè Large Latte</div>
+  <div class="options">
+    <div class="option">A. 80 cal</div>
+    <div class="option">B. 150 cal</div>
+    <div class="option correct">C. 220 cal</div>
+    <div class="option">D. 310 cal</div>
+  </div>
+  <div class="cta">WhatsApp us to track your calories →</div>
+  <div class="brand">@fitsorted.co.za</div>
+</div>
+</body>
+</html>
