@@ -15205,3 +15205,15 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 
 [2026-04-10T08:55:18.038Z] AI RAW: "5 Woolworths wheaten rosemary crackers" → 5x Woolworths wheaten rosemary crackers (150 cal)
 [AI FINAL] "5 Woolworths wheaten rosemary crackers" → 5x Woolworths wheaten rosemary crackers (150 cal)
+
+[2026-04-10T14:11:15.714Z] estimateCalories() CALLED with food="1 McDonald's junior chicken burger & medium fries 
+Mini red velvet cupcake"
+[SA DB] Checked "1 McDonald's junior chicken burger & medium fries 
+Mini red velvet cupcake" → not found
+[OPENAI] Calling API for "1 McDonald's junior chicken burger & medium fries 
+Mini red velvet cupcake"
+
+[2026-04-10T14:11:22.867Z] AI RAW: "1 McDonald's junior chicken burger & medium fries 
+Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium fries (~100g) (610 cal)
+[AI FINAL] "1 McDonald's junior chicken burger & medium fries 
+Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium fries (~100g) (610 cal)
