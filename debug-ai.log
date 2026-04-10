@@ -15181,3 +15181,27 @@ I had 20g crisps)" → Shredded chicken (~100g) with whole grain bread (2 slices
 [2026-04-09T19:58:21.327Z] estimateCalories() CALLED with food="Coffee"
 [SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
 [SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-10T08:23:11.827Z] estimateCalories() CALLED with food="2 americano coffees with low fat milk"
+[SA DB] Checked "2 americano coffees with low fat milk" → not found
+[OPENAI] Calling API for "2 americano coffees with low fat milk"
+
+[2026-04-10T08:23:18.808Z] AI RAW: "2 americano coffees with low fat milk" → 2x americano coffee with low fat milk (80 cal)
+[AI FINAL] "2 americano coffees with low fat milk" → 2x americano coffee with low fat milk (80 cal)
+
+[2026-04-10T08:23:19.938Z] estimateCalories() CALLED with food="2 sweetner each cup"
+[SA DB] Checked "2 sweetner each cup" → not found
+[OPENAI] Calling API for "2 sweetner each cup"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "2x sweetener (2 servings)"
+
+[2026-04-10T08:23:25.335Z] AI RAW: "2 sweetner each cup" → 2x sweetener (2 servings) (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "2 sweetner each cup" — estimating based on description
+[ZERO-CAL FIX] Estimated: 2x sweetener (2 servings) (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "2 sweetner each cup" → 2x sweetener (2 servings) (est.) (250 cal)
+
+[2026-04-10T08:55:12.249Z] estimateCalories() CALLED with food="5 Woolworths wheaten rosemary crackers"
+[SA DB] Checked "5 Woolworths wheaten rosemary crackers" → not found
+[OPENAI] Calling API for "5 Woolworths wheaten rosemary crackers"
+
+[2026-04-10T08:55:18.038Z] AI RAW: "5 Woolworths wheaten rosemary crackers" → 5x Woolworths wheaten rosemary crackers (150 cal)
+[AI FINAL] "5 Woolworths wheaten rosemary crackers" → 5x Woolworths wheaten rosemary crackers (150 cal)
