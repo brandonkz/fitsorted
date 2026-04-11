@@ -15297,3 +15297,17 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 
 [2026-04-11T13:54:42.764Z] AI RAW: "1 plate biryani" → Biryani (1 plate, ~300g) (600 cal)
 [AI FINAL] "1 plate biryani" → Biryani (1 plate, ~300g) (600 cal)
+
+[2026-04-11T14:56:55.911Z] estimateCalories() CALLED with food="Coffee milk 2 sweetner"
+[SA DB] Checked "Coffee milk 2 sweetner" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-11T14:57:15.188Z] estimateCalories() CALLED with food="2 mini pitas with chicken & salad"
+[SA DB] Checked "2 mini pitas with chicken & salad" → not found
+[OPENAI] Calling API for "2 mini pitas with chicken & salad"
+
+[2026-04-11T14:57:19.384Z] AI RAW: "2 mini pitas with chicken & salad" → 2x mini pita with chicken (~100g) & salad (~50g) (360 cal)
+[AI FINAL] "2 mini pitas with chicken & salad" → 2x mini pita with chicken (~100g) & salad (~50g) (360 cal)
+
+[2026-04-11T15:10:23.031Z] estimateCalories() CALLED with food="Medium McDonald's fries"
+[SA DB] Checked "Medium McDonald's fries" → FOUND: Chips (fries, medium) (1 medium) (340 cal)
