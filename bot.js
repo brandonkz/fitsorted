@@ -2170,6 +2170,10 @@ async function estimateCalories(food, user) {
     // Round 27 - nightly edge case test 2026-04-10
     "tropika tropicol": { food: "Tropika Tropicol (500ml)", calories: 160, protein: 0, carbs: 40, fat: 0, fibre: 0 },
     "chicken licken lips": { food: "Chicken Licken Lips (6 pieces)", calories: 550, protein: 30, carbs: 25, fat: 35, fibre: 2 },
+    // Round 28 - nightly edge case test 2026-04-11
+    "red square energy drink": { food: "Red Square Energy Drink 500ml", calories: 160, protein: 0, carbs: 40, fat: 0, fibre: 0 },
+    "kombucha 500ml": { food: "Kombucha 500ml", calories: 120, protein: 0, carbs: 28, fat: 0, fibre: 0 },
+    "ocean basket garlic prawns": { food: "Ocean Basket Garlic Prawns (200g)", calories: 450, protein: 30, carbs: 15, fat: 28, fibre: 1 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
