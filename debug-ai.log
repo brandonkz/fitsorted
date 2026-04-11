@@ -15264,3 +15264,15 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 [2026-04-11T06:02:18.451Z] estimateCalories() CALLED with food="Coffee milk 2 sweetner"
 [SA DB] Checked "Coffee milk 2 sweetner" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
 [SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-11T07:59:02.770Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-11T09:14:14.543Z] estimateCalories() CALLED with food="The food item appears to be coffee. The estimated portion size is approximately 100ml."
+[SA DB] Checked "The food item appears to be coffee. The estimated portion size is approximately 100ml." → not found
+[OPENAI] Calling API for "The food item appears to be coffee. The estimated portion size is approximately 100ml."
+
+[2026-04-11T09:14:19.971Z] AI RAW: "The food item appears to be coffee. The estimated portion size is approximately 100ml." → Coffee (100ml) (2 cal)
+[LOW-CAL FIX] AI returned only 2 cal for "The food item appears to be coffee. The estimated portion size is approximately 100ml." — bumping to minimum 50 cal
+[AI FINAL] "The food item appears to be coffee. The estimated portion size is approximately 100ml." → Coffee (100ml) (50 cal)
