@@ -15276,3 +15276,24 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 [2026-04-11T09:14:19.971Z] AI RAW: "The food item appears to be coffee. The estimated portion size is approximately 100ml." → Coffee (100ml) (2 cal)
 [LOW-CAL FIX] AI returned only 2 cal for "The food item appears to be coffee. The estimated portion size is approximately 100ml." — bumping to minimum 50 cal
 [AI FINAL] "The food item appears to be coffee. The estimated portion size is approximately 100ml." → Coffee (100ml) (50 cal)
+
+[2026-04-11T13:54:16.185Z] estimateCalories() CALLED with food="2 eggs scrambled"
+
+[2026-04-11T13:54:16.797Z] estimateCalories() CALLED with food="2 slices toast buttered"
+[SA DB] Checked "2 eggs scrambled" → not found
+[OPENAI] Calling API for "2 eggs scrambled"
+[SA DB] Checked "2 slices toast buttered" → FOUND: Toast (white bread, 2 slices) (2 slices) (160 cal)
+
+[2026-04-11T13:54:19.438Z] AI RAW: "2 eggs scrambled" → 2x scrambled eggs (140 cal)
+[AI FINAL] "2 eggs scrambled" → 2x scrambled eggs (140 cal)
+
+[2026-04-11T13:54:24.902Z] estimateCalories() CALLED with food="1 cup coffee"
+[SA DB] Checked "1 cup coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-11T13:54:40.364Z] estimateCalories() CALLED with food="1 plate biryani"
+[SA DB] Checked "1 plate biryani" → not found
+[OPENAI] Calling API for "1 plate biryani"
+
+[2026-04-11T13:54:42.764Z] AI RAW: "1 plate biryani" → Biryani (1 plate, ~300g) (600 cal)
+[AI FINAL] "1 plate biryani" → Biryani (1 plate, ~300g) (600 cal)
