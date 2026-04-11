@@ -15260,3 +15260,7 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 
 [2026-04-10T18:40:44.464Z] AI RAW: "Then at knight l ate rice the size of 1small bowl with soup made from onions and tomatoes plus a chicken wing" → Rice (1 small bowl, ~150g) with onion and tomato soup + Chicken wing (~100g) (380 cal)
 [AI FINAL] "Then at knight l ate rice the size of 1small bowl with soup made from onions and tomatoes plus a chicken wing" → Rice (1 small bowl, ~150g) with onion and tomato soup + Chicken wing (~100g) (380 cal)
+
+[2026-04-11T06:02:18.451Z] estimateCalories() CALLED with food="Coffee milk 2 sweetner"
+[SA DB] Checked "Coffee milk 2 sweetner" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
