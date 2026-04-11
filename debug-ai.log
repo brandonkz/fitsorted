@@ -15311,3 +15311,41 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 
 [2026-04-11T15:10:23.031Z] estimateCalories() CALLED with food="Medium McDonald's fries"
 [SA DB] Checked "Medium McDonald's fries" → FOUND: Chips (fries, medium) (1 medium) (340 cal)
+
+[2026-04-11T17:50:40.388Z] estimateCalories() CALLED with food="1 smash burger"
+[SA DB] Checked "1 smash burger" → not found
+[OPENAI] Calling API for "1 smash burger"
+
+[2026-04-11T17:50:44.374Z] AI RAW: "1 smash burger" → Smash burger (~150g) (400 cal)
+[AI FINAL] "1 smash burger" → Smash burger (~150g) (400 cal)
+
+[2026-04-11T17:50:45.887Z] estimateCalories() CALLED with food="1 chicken burger"
+[SA DB] Checked "1 chicken burger" → not found
+[OPENAI] Calling API for "1 chicken burger"
+
+[2026-04-11T17:50:47.944Z] AI RAW: "1 chicken burger" → Chicken burger (~150g) (350 cal)
+[AI FINAL] "1 chicken burger" → Chicken burger (~150g) (350 cal)
+
+[2026-04-11T17:50:54.822Z] estimateCalories() CALLED with food="1 fillet burger"
+[SA DB] Checked "1 fillet burger" → not found
+[OPENAI] Calling API for "1 fillet burger"
+
+[2026-04-11T17:50:56.998Z] AI RAW: "1 fillet burger" → Fillet burger (~150g) (350 cal)
+[AI FINAL] "1 fillet burger" → Fillet burger (~150g) (350 cal)
+
+[2026-04-11T18:05:07.528Z] estimateCalories() CALLED with food="Boerwors roll and grill cheese sandwich white bread"
+[SA DB] Checked "Boerwors roll and grill cheese sandwich white bread" → not found
+[OPENAI] Calling API for "Boerwors roll and grill cheese sandwich white bread"
+
+[2026-04-11T18:05:10.550Z] AI RAW: "Boerwors roll and grill cheese sandwich white bread" → Boerwors roll (~150g) and grilled cheese sandwich (1 slice white bread) (670 cal)
+[AI FINAL] "Boerwors roll and grill cheese sandwich white bread" → Boerwors roll (~150g) and grilled cheese sandwich (1 slice white bread) (670 cal)
+
+[2026-04-11T18:09:19.411Z] estimateCalories() CALLED with food="Hudsons burger and disco fries"
+[SA DB] Checked "Hudsons burger and disco fries" → not found
+[OPENAI] Calling API for "Hudsons burger and disco fries"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Hudsons burger and disco fries"
+
+[2026-04-11T18:09:22.698Z] AI RAW: "Hudsons burger and disco fries" → Hudsons burger and disco fries (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Hudsons burger and disco fries" — estimating based on description
+[ZERO-CAL FIX] Estimated: Hudsons burger and disco fries (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Hudsons burger and disco fries" → Hudsons burger and disco fries (est.) (250 cal)
