@@ -15460,3 +15460,10 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 
 [2026-04-12T12:11:50.307Z] AI RAW: "2 Americanos with milk & 2 sweetner each" → 2x Americano with milk and sweeteners (80 cal)
 [AI FINAL] "2 Americanos with milk & 2 sweetner each" → 2x Americano with milk and sweeteners (80 cal)
+
+[2026-04-12T16:04:32.572Z] estimateCalories() CALLED with food="1/2 kit kat mcflurry"
+[SA DB] Checked "1/2 kit kat mcflurry" → not found
+[OPENAI] Calling API for "1/2 kit kat mcflurry"
+
+[2026-04-12T16:04:37.307Z] AI RAW: "1/2 kit kat mcflurry" → 1/2 Kit Kat McFlurry (~150g) (250 cal)
+[AI FINAL] "1/2 kit kat mcflurry" → 1/2 Kit Kat McFlurry (~150g) (250 cal)
