@@ -2172,6 +2172,12 @@ async function estimateCalories(food, user) {
     "chicken licken lips": { food: "Chicken Licken Lips (6 pieces)", calories: 550, protein: 30, carbs: 25, fat: 35, fibre: 2 },
     // Round 28 - nightly edge case test 2026-04-11
     "red square energy drink": { food: "Red Square Energy Drink 500ml", calories: 160, protein: 0, carbs: 40, fat: 0, fibre: 0 },
+    // Round 29 - nightly edge case test 2026-04-12
+    "chicken licken lots of legs": { food: "Chicken Licken Lots of Legs (8 piece)", calories: 1500, protein: 90, carbs: 40, fat: 85, fibre: 2 },
+    "chicken licken lips 6": { food: "Chicken Licken Lips (6 pieces)", calories: 650, protein: 35, carbs: 30, fat: 40, fibre: 2 },
+    "kombucha": { food: "Kombucha (500ml bottle)", calories: 140, protein: 0, carbs: 35, fat: 0, fibre: 0 },
+    "fibratech": { food: "Fibratech Bar", calories: 170, protein: 15, carbs: 22, fat: 5, fibre: 8 },
+    "ocean basket garlic prawns": { food: "Ocean Basket Garlic Prawns (portion)", calories: 450, protein: 35, carbs: 15, fat: 25, fibre: 1 },
     "kombucha 500ml": { food: "Kombucha 500ml", calories: 120, protein: 0, carbs: 28, fat: 0, fibre: 0 },
     "ocean basket garlic prawns": { food: "Ocean Basket Garlic Prawns (200g)", calories: 450, protein: 30, carbs: 15, fat: 28, fibre: 1 },
   };
