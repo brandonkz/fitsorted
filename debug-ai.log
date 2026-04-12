@@ -15428,3 +15428,18 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 [ZERO-CAL FIX] AI returned 0 cal for "Dashboard link" — estimating based on description
 [ZERO-CAL FIX] Estimated: Dashboard link (est.) → 250 cal | P:10g C:30g F:10g
 [AI FINAL] "Dashboard link" → Dashboard link (est.) (250 cal)
+
+[2026-04-12T09:57:26.714Z] estimateCalories() CALLED with food="l ate 4 biscuits of weet-bix and milk"
+[SA DB] Checked "l ate 4 biscuits of weet-bix and milk" → not found
+[OPENAI] Calling API for "l ate 4 biscuits of weet-bix and milk"
+
+[2026-04-12T09:57:31.197Z] AI RAW: "l ate 4 biscuits of weet-bix and milk" → 4x Weet-Bix biscuits with milk (~200ml) (320 cal)
+[AI FINAL] "l ate 4 biscuits of weet-bix and milk" → 4x Weet-Bix biscuits with milk (~200ml) (320 cal)
+
+[2026-04-12T10:02:03.886Z] estimateCalories() CALLED with food="Since 1 biscuit of weet bix has 35 calories"
+[SA DB] Checked "Since 1 biscuit of weet bix has 35 calories" → not found
+[OPENAI] Calling API for "Since 1 biscuit of weet bix has 35 calories"
+
+[2026-04-12T10:02:06.764Z] AI RAW: "Since 1 biscuit of weet bix has 35 calories" → Weet-Bix biscuit (35 cal)
+[SNACK-CAL FIX] "Since 1 biscuit of weet bix has 35 calories" is a substantial snack but AI returned only 35 cal — bumping to minimum 400 cal
+[AI FINAL] "Since 1 biscuit of weet bix has 35 calories" → Weet-Bix biscuit (400 cal)
