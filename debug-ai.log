@@ -15396,3 +15396,35 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 [ZERO-CAL FIX] AI returned 0 cal for "L want to enter a calorie deficit" — estimating based on description
 [ZERO-CAL FIX] Estimated: L want to enter a calorie deficit (est.) → 250 cal | P:10g C:30g F:10g
 [AI FINAL] "L want to enter a calorie deficit" → L want to enter a calorie deficit (est.) (250 cal)
+
+[2026-04-12T05:49:38.502Z] estimateCalories() CALLED with food="Black coffee 1 sweetener"
+[SA DB] Checked "Black coffee 1 sweetener" → not found
+[OPENAI] Calling API for "Black coffee 1 sweetener"
+
+[2026-04-12T05:49:42.668Z] AI RAW: "Black coffee 1 sweetener" → Black coffee (1 cup, ~240ml) with 1 sweetener (2 cal)
+[AI FINAL] "Black coffee 1 sweetener" → Black coffee (1 cup, ~240ml) with 1 sweetener (2 cal)
+
+[2026-04-12T05:49:54.589Z] estimateCalories() CALLED with food="1 flapjack"
+[SA DB] Checked "1 flapjack" → not found
+[OPENAI] Calling API for "1 flapjack"
+
+[2026-04-12T05:49:57.495Z] AI RAW: "1 flapjack" → flapjack (~50g) (200 cal)
+[AI FINAL] "1 flapjack" → flapjack (~50g) (200 cal)
+
+[2026-04-12T06:16:53.668Z] estimateCalories() CALLED with food="No it's a cup of coffee not soya sauce"
+[SA DB] Checked "No it's a cup of coffee not soya sauce" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-12T06:17:38.551Z] estimateCalories() CALLED with food="Coffee no milked three sugar"
+[SA DB] Checked "Coffee no milked three sugar" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-12T06:53:42.002Z] estimateCalories() CALLED with food="Dashboard link"
+[SA DB] Checked "Dashboard link" → not found
+[OPENAI] Calling API for "Dashboard link"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Dashboard link"
+
+[2026-04-12T06:53:46.626Z] AI RAW: "Dashboard link" → Dashboard link (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Dashboard link" — estimating based on description
+[ZERO-CAL FIX] Estimated: Dashboard link (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Dashboard link" → Dashboard link (est.) (250 cal)
