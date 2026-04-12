@@ -15349,3 +15349,50 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 [ZERO-CAL FIX] AI returned 0 cal for "Hudsons burger and disco fries" — estimating based on description
 [ZERO-CAL FIX] Estimated: Hudsons burger and disco fries (est.) → 250 cal | P:10g C:30g F:10g
 [AI FINAL] "Hudsons burger and disco fries" → Hudsons burger and disco fries (est.) (250 cal)
+
+[2026-04-11T23:19:55.557Z] estimateCalories() CALLED with food="L just asked chatgpt about how much calories l should burn to lose belly fat it said 1900 calories"
+[SA DB] Checked "L just asked chatgpt about how much calories l should burn to lose belly fat it said 1900 calories" → not found
+[OPENAI] Calling API for "L just asked chatgpt about how much calories l should burn to lose belly fat it said 1900 calories"
+
+[2026-04-11T23:19:59.935Z] AI RAW: "L just asked chatgpt about how much calories l should burn to lose belly fat it said 1900 calories" → L just asked chatgpt about how much calories l should burn to lose belly fat it said 1900 calories (1900 cal)
+[AI FINAL] "L just asked chatgpt about how much calories l should burn to lose belly fat it said 1900 calories" → L just asked chatgpt about how much calories l should burn to lose belly fat it said 1900 calories (1900 cal)
+
+[2026-04-11T23:21:09.284Z] estimateCalories() CALLED with food="Know he plan should just focus on kissing belly fat"
+[SA DB] Checked "Know he plan should just focus on kissing belly fat" → not found
+[OPENAI] Calling API for "Know he plan should just focus on kissing belly fat"
+[VALIDATION FAIL] Invalid entry detected: "unknown"
+
+[2026-04-11T23:21:52.159Z] estimateCalories() CALLED with food="L meant now the plan should be focused on only loading belly fat"
+[SA DB] Checked "L meant now the plan should be focused on only loading belly fat" → not found
+[OPENAI] Calling API for "L meant now the plan should be focused on only loading belly fat"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "L meant now the plan should be focused on only loading belly fat"
+
+[2026-04-11T23:21:54.327Z] AI RAW: "L meant now the plan should be focused on only loading belly fat" → L meant now the plan should be focused on only loading belly fat (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "L meant now the plan should be focused on only loading belly fat" — estimating based on description
+[ZERO-CAL FIX] Estimated: L meant now the plan should be focused on only loading belly fat (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "L meant now the plan should be focused on only loading belly fat" → L meant now the plan should be focused on only loading belly fat (est.) (250 cal)
+
+[2026-04-11T23:23:08.880Z] estimateCalories() CALLED with food="Not to build muscle"
+[SA DB] Checked "Not to build muscle" → not found
+[OPENAI] Calling API for "Not to build muscle"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Not to build muscle"
+
+[2026-04-11T23:23:11.495Z] AI RAW: "Not to build muscle" → Not to build muscle (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Not to build muscle" — estimating based on description
+[ZERO-CAL FIX] Estimated: Not to build muscle (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Not to build muscle" → Not to build muscle (est.) (250 cal)
+
+[2026-04-11T23:24:05.653Z] estimateCalories() CALLED with food="So which one is correct you or chatgpt that said l must eat 1900 calories"
+[SA DB] Checked "So which one is correct you or chatgpt that said l must eat 1900 calories" → not found
+[OPENAI] Calling API for "So which one is correct you or chatgpt that said l must eat 1900 calories"
+[VALIDATION FAIL] Invalid entry detected: "unknown"
+
+[2026-04-11T23:29:41.998Z] estimateCalories() CALLED with food="L want to enter a calorie deficit"
+[SA DB] Checked "L want to enter a calorie deficit" → not found
+[OPENAI] Calling API for "L want to enter a calorie deficit"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "L want to enter a calorie deficit"
+
+[2026-04-11T23:29:44.814Z] AI RAW: "L want to enter a calorie deficit" → L want to enter a calorie deficit (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "L want to enter a calorie deficit" — estimating based on description
+[ZERO-CAL FIX] Estimated: L want to enter a calorie deficit (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "L want to enter a calorie deficit" → L want to enter a calorie deficit (est.) (250 cal)
