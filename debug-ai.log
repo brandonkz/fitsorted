@@ -15443,3 +15443,20 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 [2026-04-12T10:02:06.764Z] AI RAW: "Since 1 biscuit of weet bix has 35 calories" → Weet-Bix biscuit (35 cal)
 [SNACK-CAL FIX] "Since 1 biscuit of weet bix has 35 calories" is a substantial snack but AI returned only 35 cal — bumping to minimum 400 cal
 [AI FINAL] "Since 1 biscuit of weet bix has 35 calories" → Weet-Bix biscuit (400 cal)
+
+[2026-04-12T12:09:43.267Z] estimateCalories() CALLED with food="1 slice white bread with margarine"
+[SA DB] Checked "1 slice white bread with margarine" → FOUND: Toast (white bread, 2 slices) (2 slices) (160 cal)
+
+[2026-04-12T12:09:53.500Z] estimateCalories() CALLED with food="1 piece of chicken breast on the bone"
+[SA DB] Checked "1 piece of chicken breast on the bone" → not found
+[OPENAI] Calling API for "1 piece of chicken breast on the bone"
+
+[2026-04-12T12:09:55.425Z] AI RAW: "1 piece of chicken breast on the bone" → Chicken breast on the bone (~130g) (200 cal)
+[AI FINAL] "1 piece of chicken breast on the bone" → Chicken breast on the bone (~130g) (200 cal)
+
+[2026-04-12T12:11:47.827Z] estimateCalories() CALLED with food="2 Americanos with milk & 2 sweetner each"
+[SA DB] Checked "2 Americanos with milk & 2 sweetner each" → not found
+[OPENAI] Calling API for "2 Americanos with milk & 2 sweetner each"
+
+[2026-04-12T12:11:50.307Z] AI RAW: "2 Americanos with milk & 2 sweetner each" → 2x Americano with milk and sweeteners (80 cal)
+[AI FINAL] "2 Americanos with milk & 2 sweetner each" → 2x Americano with milk and sweeteners (80 cal)
