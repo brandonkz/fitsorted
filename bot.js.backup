@@ -2180,6 +2180,10 @@ async function estimateCalories(food, user) {
     "ocean basket garlic prawns": { food: "Ocean Basket Garlic Prawns (portion)", calories: 450, protein: 35, carbs: 15, fat: 25, fibre: 1 },
     "kombucha 500ml": { food: "Kombucha 500ml", calories: 120, protein: 0, carbs: 28, fat: 0, fibre: 0 },
     "ocean basket garlic prawns": { food: "Ocean Basket Garlic Prawns (200g)", calories: 450, protein: 30, carbs: 15, fat: 28, fibre: 1 },
+    // Round 30 - nightly edge case test 2026-04-13
+    "nandos chicken wraps 2": { food: "2x Nando's Chicken Wrap", calories: 550, protein: 35, carbs: 50, fat: 28, fibre: 5 },
+    "pick n pay samoosa 3": { food: "3x Pick n Pay samoosa", calories: 400, protein: 10, carbs: 45, fat: 22, fibre: 4 },
+    "ocean basket hake": { food: "Ocean Basket Hake & Chips", calories: 400, protein: 30, carbs: 35, fat: 22, fibre: 3 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

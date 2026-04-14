@@ -27,7 +27,21 @@
     "jalapeno-popper-corn",
     "trigz-sweet-chilli",
     "mini-oat-crunchies",
-    "bobotie"
+    "bobotie",
+    "egg-toast-avocado",
+    "nandos-full-chicken",
+    "kitkat-mini",
+    "mcflurry-vs-frozen-yoghurt",
+    "mcdonalds-big-mac-meal",
+    "white-bread-vs-whole-wheat",
+    "oats-banana-peanut-butter",
+    "egg-toast-avocado",
+    "nandos-full-chicken",
+    "kitkat-mini",
+    "mcflurry-vs-frozen-yoghurt",
+    "mcdonalds-big-mac-meal",
+    "white-bread-vs-whole-wheat",
+    "oats-banana-peanut-butter"
   ],
   "drinks": [
     "windhoek-lager",
@@ -43,7 +57,21 @@
     "craft-ipa",
     "savanna-light",
     "white-wine-spritzer",
-    "daiquiri"
+    "daiquiri",
+    "black-label",
+    "gin-and-tonic",
+    "mojito",
+    "cosmopolitan",
+    "pinotage",
+    "jagerbomb",
+    "brandy-and-coke",
+    "black-label",
+    "gin-and-tonic",
+    "mojito",
+    "cosmopolitan",
+    "pinotage",
+    "jagerbomb",
+    "brandy-and-coke"
   ],
   "cheatSheets": [
     "nandos-calorie-hack",
@@ -51,19 +79,35 @@
     "woolworths-ready-meals",
     "kauai-menu-guide",
     "high-protein-snacks",
-    "high-protein-snacks"
+    "high-protein-snacks",
+    "sa-braai-cheat-sheet",
+    "sa-braai-cheat-sheet"
   ],
   "didYouKnow": [
     "sleep-vs-tv",
     "bigmac-run",
-    "nut-handful"
+    "nut-handful",
+    "gum-burn",
+    "cold-water",
+    "cake-burn",
+    "gum-burn",
+    "cold-water",
+    "cake-burn"
   ],
   "mythBusters": [
     "six-meals",
-    "skip-breakfast"
+    "skip-breakfast",
+    "starvation-stop",
+    "protein-shakes",
+    "starvation-stop",
+    "protein-shakes"
   ],
   "productFeatures": [
     "evening-summary",
-    "sa-foods"
+    "sa-foods",
+    "macro-tracking",
+    "morning-checkin",
+    "macro-tracking",
+    "morning-checkin"
   ]
 }

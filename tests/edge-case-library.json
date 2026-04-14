@@ -2054,5 +2054,16 @@
     "spar biltong 50g",
     100,
     180
-  ]
+  ],
+  // New test cases 2026-04-14
+  ["sparlenthus", 150, 250],
+  ["crumpet with butter", 100, 200],
+  ["tomtom sweets", 100, 200],
+  ["sugar bird friday", 140, 220],
+  ["tastic rice cup", 150, 250],
+  ["honey glow yogurt", 80, 160],
+  ["steers coleslaw", 100, 200],
+  ["nandos spicy rice", 200, 400],
+  ["roasted chicken leg 150g", 250, 400],
+  ["disco Milo jar", 350, 550]
 ]

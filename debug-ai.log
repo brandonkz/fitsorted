@@ -15467,3 +15467,74 @@ Mini red velvet cupcake" → McDonald's junior chicken burger (~120g) & medium f
 
 [2026-04-12T16:04:37.307Z] AI RAW: "1/2 kit kat mcflurry" → 1/2 Kit Kat McFlurry (~150g) (250 cal)
 [AI FINAL] "1/2 kit kat mcflurry" → 1/2 Kit Kat McFlurry (~150g) (250 cal)
+
+[2026-04-13T04:08:52.724Z] estimateCalories() CALLED with food="Hello 
+I want to start recording again from today"
+[SA DB] Checked "Hello 
+I want to start recording again from today" → not found
+[OPENAI] Calling API for "Hello 
+I want to start recording again from today"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Hello 
+I want to start recording again from today"
+
+[2026-04-13T04:08:58.770Z] AI RAW: "Hello 
+I want to start recording again from today" → Hello 
+I want to start recording again from today (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Hello 
+I want to start recording again from today" — estimating based on description
+[ZERO-CAL FIX] Estimated: Hello 
+I want to start recording again from today (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Hello 
+I want to start recording again from today" → Hello 
+I want to start recording again from today (est.) (250 cal)
+
+[2026-04-13T07:47:50.480Z] estimateCalories() CALLED with food="Americano with hot milk"
+[SA DB] Checked "Americano with hot milk" → not found
+[OPENAI] Calling API for "Americano with hot milk"
+
+[2026-04-13T07:47:55.756Z] AI RAW: "Americano with hot milk" → Americano with hot milk (80 cal)
+[AI FINAL] "Americano with hot milk" → Americano with hot milk (80 cal)
+
+[2026-04-13T07:47:56.780Z] estimateCalories() CALLED with food="2 sweetners"
+[SA DB] Checked "2 sweetners" → not found
+[OPENAI] Calling API for "2 sweetners"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "2x sweetener"
+
+[2026-04-13T07:48:00.174Z] AI RAW: "2 sweetners" → 2x sweetener (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "2 sweetners" — estimating based on description
+[ZERO-CAL FIX] Estimated: 2x sweetener (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "2 sweetners" → 2x sweetener (est.) (250 cal)
+
+[2026-04-13T07:48:32.179Z] estimateCalories() CALLED with food="Can you send me the dashboard link"
+[SA DB] Checked "Can you send me the dashboard link" → not found
+[OPENAI] Calling API for "Can you send me the dashboard link"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Can you send me the dashboard link"
+
+[2026-04-13T07:48:35.979Z] AI RAW: "Can you send me the dashboard link" → Can you send me the dashboard link (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Can you send me the dashboard link" — estimating based on description
+[ZERO-CAL FIX] Estimated: Can you send me the dashboard link (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Can you send me the dashboard link" → Can you send me the dashboard link (est.) (250 cal)
+
+[2026-04-13T09:36:51.588Z] estimateCalories() CALLED with food="Mochachos Chicken Mayo Wrap"
+[SA DB] Checked "Mochachos Chicken Mayo Wrap" → not found
+[OPENAI] Calling API for "Mochachos Chicken Mayo Wrap"
+
+[2026-04-13T09:36:54.413Z] AI RAW: "Mochachos Chicken Mayo Wrap" → Mochachos Chicken Mayo Wrap (~250g) (600 cal)
+[AI FINAL] "Mochachos Chicken Mayo Wrap" → Mochachos Chicken Mayo Wrap (~250g) (600 cal)
+
+[2026-04-13T09:40:01.060Z] estimateCalories() CALLED with food="Grapes"
+
+[2026-04-13T13:45:30.455Z] estimateCalories() CALLED with food="2 scrambled eggs"
+
+[2026-04-13T13:45:33.465Z] estimateCalories() CALLED with food="toast & roasted tomatoes"
+[SA DB] Checked "toast & roasted tomatoes" → FOUND: Toast (white bread, 2 slices) (2 slices) (160 cal)
+
+[2026-04-13T17:19:55.862Z] estimateCalories() CALLED with food="200g pasta white sauce chicken & mushrooms"
+[SA DB] Checked "200g pasta white sauce chicken & mushrooms" → not found
+[OPENAI] Calling API for "200g pasta white sauce chicken & mushrooms"
+
+[2026-04-13T17:20:00.536Z] AI RAW: "200g pasta white sauce chicken & mushrooms" → Pasta (1 cup cooked, ~200g) with chicken breast (~150g) and mushrooms (~100g) (550 cal)
+[AI FINAL] "200g pasta white sauce chicken & mushrooms" → Pasta (1 cup cooked, ~200g) with chicken breast (~150g) and mushrooms (~100g) (550 cal)
+
+[2026-04-13T17:33:58.281Z] estimateCalories() CALLED with food="Pasta 100gr"
+[SA DB] Checked "Pasta 100gr" → FOUND: Pasta (1 cup cooked) (1 cup) (200 cal)

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; font-family: 'Inter', sans-serif; overflow: hidden; }
+  .story {
+    width: 1080px; height: 1920px;
+    background: linear-gradient(180deg, #075E54 0%, #128C7E 30%, #25D366 100%);
+    display: flex; flex-direction: column; align-items: center;
+    padding: 60px; position: relative;
+  }
+  .header-tag {
+    background: rgba(0,0,0,0.3); color: #fff; font-size: 22px; font-weight: 800;
+    padding: 12px 28px; border-radius: 30px; text-transform: uppercase;
+    letter-spacing: 2px; margin-top: 40px; margin-bottom: 50px;
+  }
+  .phone-frame {
+    background: #ECE5DD; border-radius: 30px; width: 860px;
+    padding: 30px; flex: 1; max-height: 1200px;
+    display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  }
+  .msg-out {
+    background: #DCF8C6; border-radius: 16px; padding: 20px 28px;
+    max-width: 70%; align-self: flex-end;
+    font-size: 30px; color: #000; font-weight: 500;
+  }
+  .msg-in {
+    background: #fff; border-radius: 16px; padding: 24px 28px;
+    max-width: 85%; align-self: flex-start;
+    font-size: 26px; color: #000; line-height: 1.5;
+  }
+  .msg-in .food-title { font-weight: 800; font-size: 30px; margin-bottom: 8px; }
+  .msg-in .macro-row { display: flex; justify-content: space-between; margin-top: 6px; }
+  .msg-in .macro { font-weight: 600; }
+  .msg-in .cal-big { font-size: 48px; font-weight: 900; color: #075E54; margin: 12px 0; }
+  .msg-in .remaining { color: #666; font-size: 22px; margin-top: 8px; }
+  .bottom-cta {
+    color: #fff; font-size: 28px; font-weight: 800; margin-top: 40px;
+    text-align: center;
+  }
+  .bottom-cta .number { font-size: 34px; color: #DCF8C6; margin-top: 8px; }
+  .brand {
+    position: absolute; bottom: 50px; color: rgba(255,255,255,0.5);
+    font-size: 20px; font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="header-tag">📱 WhatsApp Calorie Tracker</div>
+  <div class="phone-frame">
+    <div class="msg-out">large cappuccino woolworths</div>
+    <div class="msg-in">
+      <div class="food-title">Woolworths Large Cappuccino</div>
+      <div class="cal-big">180 cal</div>
+      <div class="macro-row">
+        <span class="macro">🥩 8g protein</span>
+        <span class="macro">🍞 14g carbs</span>
+        <span class="macro">🧈 9g fat</span>
+      </div>
+      <div class="remaining">📊 1820 cal remaining today</div>
+    </div>
+  </div>
+  <div class="bottom-cta">
+    Try it free →
+    <div class="number">fitsorted.co.za</div>
+  </div>
+  <div class="brand">@fitsorted.co.za</div>
+</div>
+</body>
+</html>

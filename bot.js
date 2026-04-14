@@ -2184,6 +2184,10 @@ async function estimateCalories(food, user) {
     "nandos chicken wraps 2": { food: "2x Nando's Chicken Wrap", calories: 550, protein: 35, carbs: 50, fat: 28, fibre: 5 },
     "pick n pay samoosa 3": { food: "3x Pick n Pay samoosa", calories: 400, protein: 10, carbs: 45, fat: 22, fibre: 4 },
     "ocean basket hake": { food: "Ocean Basket Hake & Chips", calories: 400, protein: 30, carbs: 35, fat: 22, fibre: 3 },
+    // Round 31 - nightly edge case test 2026-04-14
+    "sparlenthus": { food: "Sparlenthus (500ml)", calories: 200, protein: 0, carbs: 50, fat: 0, fibre: 0 },
+    "sugar bird friday": { food: "Sugar Bird Friday (250ml)", calories: 180, protein: 0, carbs: 22, fat: 0, fibre: 0 },
+    "disco Milo jar": { food: "Disco Milo Jar (400g)", calories: 450, protein: 12, carbs: 70, fat: 12, fibre: 2 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
