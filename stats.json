@@ -5,13 +5,6 @@
   "premiumUsers": 1,
   "totalReferrals": 0,
   "topReferrers": [],
-  "recentSignups": [
-    {
-      "id": "***5299",
-      "joinedAt": "2026-04-07T16:17:57.804Z",
-      "logs": 2,
-      "isPro": false
-    }
-  ],
-  "lastUpdated": "2026-04-14T16:03:52.218Z"
+  "recentSignups": [],
+  "lastUpdated": "2026-04-14T17:03:55.167Z"
 }
