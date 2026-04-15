@@ -1,0 +1,107 @@
+[
+  {
+    "food": "chicken licken lots of legs",
+    "minCal": 1200,
+    "maxCal": 1800,
+    "actual": 600,
+    "parsed": {
+      "food": "Chicken drumsticks (~4 pieces, ~340g)",
+      "calories": 600,
+      "protein": 60,
+      "carbs": 0,
+      "fat": 40,
+      "fibre": 0,
+      "estimatedPriceZAR": 100
+    }
+  },
+  {
+    "food": "red square energy drink",
+    "minCal": 100,
+    "maxCal": 200,
+    "actual": 230,
+    "parsed": {
+      "food": "Red Square energy drink (500ml)",
+      "calories": 230,
+      "protein": 0,
+      "carbs": 58,
+      "fat": 0,
+      "fibre": 0,
+      "estimatedPriceZAR": null
+    }
+  },
+  {
+    "food": "kombucha",
+    "minCal": 80,
+    "maxCal": 180,
+    "actual": 30,
+    "parsed": {
+      "food": "Kombucha (250ml)",
+      "calories": 30,
+      "protein": 0,
+      "carbs": 7,
+      "fat": 0,
+      "fibre": 0,
+      "estimatedPriceZAR": 30
+    }
+  },
+  {
+    "food": "fibratech bar",
+    "minCal": 120,
+    "maxCal": 220,
+    "actual": 0,
+    "parsed": {
+      "food": "fibratech bar",
+      "calories": null,
+      "protein": null,
+      "carbs": null,
+      "fat": null,
+      "fibre": null,
+      "estimatedPriceZAR": null
+    }
+  },
+  {
+    "food": "galitos wings 6",
+    "minCal": 400,
+    "maxCal": 650,
+    "actual": 720,
+    "parsed": {
+      "food": "6x Galito's chicken wings (~300g)",
+      "calories": 720,
+      "protein": 60,
+      "carbs": 0,
+      "fat": 48,
+      "fibre": 0,
+      "estimatedPriceZAR": 95
+    }
+  },
+  {
+    "food": "chicken licken lips 6",
+    "minCal": 450,
+    "maxCal": 700,
+    "actual": 720,
+    "parsed": {
+      "food": "Chicken Licken lips (6 pieces)",
+      "calories": 720,
+      "protein": 36,
+      "carbs": 0,
+      "fat": 60,
+      "fibre": 0,
+      "estimatedPriceZAR": 80
+    }
+  },
+  {
+    "food": "ocean basket garlic prawns",
+    "minCal": 350,
+    "maxCal": 550,
+    "actual": 210,
+    "parsed": {
+      "food": "Garlic prawns (~150g)",
+      "calories": 210,
+      "protein": 30,
+      "carbs": 5,
+      "fat": 9,
+      "fibre": 0,
+      "estimatedPriceZAR": 120
+    }
+  }
+]

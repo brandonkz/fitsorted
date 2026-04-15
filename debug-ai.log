@@ -15538,3 +15538,198 @@ I want to start recording again from today (est.) (250 cal)
 
 [2026-04-13T17:33:58.281Z] estimateCalories() CALLED with food="Pasta 100gr"
 [SA DB] Checked "Pasta 100gr" → FOUND: Pasta (1 cup cooked) (1 cup) (200 cal)
+
+[2026-04-14T06:09:54.571Z] estimateCalories() CALLED with food="Americano with milk 2 sweetner"
+[SA DB] Checked "Americano with milk 2 sweetner" → not found
+[OPENAI] Calling API for "Americano with milk 2 sweetner"
+
+[2026-04-14T06:09:59.107Z] AI RAW: "Americano with milk 2 sweetner" → Americano with milk (250ml) and 2 sweeteners (50 cal)
+[AI FINAL] "Americano with milk 2 sweetner" → Americano with milk (250ml) and 2 sweeteners (50 cal)
+
+[2026-04-14T08:51:02.950Z] estimateCalories() CALLED with food="Large 4 seasons Pizza"
+[SA DB] Checked "Large 4 seasons Pizza" → not found
+[OPENAI] Calling API for "Large 4 seasons Pizza"
+
+[2026-04-14T08:51:08.115Z] AI RAW: "Large 4 seasons Pizza" → Large 4 seasons pizza (~400g) (1000 cal)
+[AI FINAL] "Large 4 seasons Pizza" → Large 4 seasons pizza (~400g) (1000 cal)
+
+[2026-04-14T12:22:53.468Z] estimateCalories() CALLED with food="American with milk"
+[SA DB] Checked "American with milk" → not found
+[OPENAI] Calling API for "American with milk"
+
+[2026-04-14T12:22:58.939Z] AI RAW: "American with milk" → American (1 serving, ~150g) with milk (1 cup, ~240ml) (400 cal)
+[AI FINAL] "American with milk" → American (1 serving, ~150g) with milk (1 cup, ~240ml) (400 cal)
+
+[2026-04-14T12:23:08.389Z] estimateCalories() CALLED with food="Bagel with egg and beacon"
+[SA DB] Checked "Bagel with egg and beacon" → not found
+[OPENAI] Calling API for "Bagel with egg and beacon"
+
+[2026-04-14T12:23:11.203Z] AI RAW: "Bagel with egg and beacon" → Bagel (~100g) with egg (1 egg) and bacon (2 slices) (450 cal)
+[SINGULAR FIX] Input "Bagel with egg and beacon" has singular "egg" but AI returned 450 cal (>105) → halving
+[MEAL-CAL FIX] "Bagel with egg and beacon" looks like a multi-ingredient meal but AI returned only 225 cal — boosting to 360 cal
+[AI FINAL] "Bagel with egg and beacon" → Bagel (~100g) with egg (1 egg) and bacon (2 slices) (360 cal)
+
+[2026-04-14T12:23:25.993Z] estimateCalories() CALLED with food="Nandos starter chicken livers & half roll"
+[SA DB] Checked "Nandos starter chicken livers & half roll" → not found
+[OPENAI] Calling API for "Nandos starter chicken livers & half roll"
+
+[2026-04-14T12:23:28.927Z] AI RAW: "Nandos starter chicken livers & half roll" → Nando's starter chicken livers (~150g) & half roll (350 cal)
+[AI FINAL] "Nandos starter chicken livers & half roll" → Nando's starter chicken livers (~150g) & half roll (350 cal)
+
+[2026-04-14T12:23:33.923Z] estimateCalories() CALLED with food="Burger"
+[SA DB] Checked "Burger" → FOUND: Steers beef burger (1 burger) (520 cal)
+
+[2026-04-14T12:24:34.713Z] estimateCalories() CALLED with food="Bagel with egg and bacon and tea"
+[SA DB] Checked "Bagel with egg and bacon and tea" → not found
+[OPENAI] Calling API for "Bagel with egg and bacon and tea"
+
+[2026-04-14T12:24:37.653Z] AI RAW: "Bagel with egg and bacon and tea" → Bagel (~100g) with egg (~70g) and bacon (~30g) (430 cal)
+[SINGULAR FIX] Input "Bagel with egg and bacon and tea" has singular "egg" but AI returned 430 cal (>105) → halving
+[MEAL-CAL FIX] "Bagel with egg and bacon and tea" looks like a multi-ingredient meal but AI returned only 215 cal — boosting to 344 cal
+[AI FINAL] "Bagel with egg and bacon and tea" → Bagel (~100g) with egg (~70g) and bacon (~30g) (344 cal)
+
+[2026-04-14T12:49:49.404Z] estimateCalories() CALLED with food="2 scooped of nutritech diet meal replacement"
+[SA DB] Checked "2 scooped of nutritech diet meal replacement" → not found
+[OPENAI] Calling API for "2 scooped of nutritech diet meal replacement"
+
+[2026-04-14T12:49:54.518Z] AI RAW: "2 scooped of nutritech diet meal replacement" → 2x Nutritech diet meal replacement (2 scoops, ~80g) (320 cal)
+[AI FINAL] "2 scooped of nutritech diet meal replacement" → 2x Nutritech diet meal replacement (2 scoops, ~80g) (320 cal)
+
+[2026-04-14T12:53:37.546Z] estimateCalories() CALLED with food="1 queens cake"
+[SA DB] Checked "1 queens cake" → not found
+[OPENAI] Calling API for "1 queens cake"
+
+[2026-04-14T12:53:41.952Z] AI RAW: "1 queens cake" → Queens cake (~100g) (350 cal)
+[AI FINAL] "1 queens cake" → Queens cake (~100g) (350 cal)
+
+[2026-04-14T17:39:49.390Z] estimateCalories() CALLED with food="The food items in the image are:
+
+1. Fried rice ~200g
+2. Grilled beef pieces ~100g
+3. Shredded carrot and vegetable salad ~100g"
+[SA DB] Checked "The food items in the image are:
+
+1. Fried rice ~200g
+2. Grilled beef pieces ~100g
+3. Shredded carrot and vegetable salad ~100g" → not found
+[OPENAI] Calling API for "The food items in the image are:
+
+1. Fried rice ~200g
+2. Grilled beef pieces ~100g
+3. Shredded carrot and vegetable salad ~100g"
+
+[2026-04-14T17:39:53.745Z] AI RAW: "The food items in the image are:
+
+1. Fried rice ~200g
+2. Grilled beef pieces ~100g
+3. Shredded carrot and vegetable salad ~100g" → Fried rice (1 cup, ~200g) + Grilled beef pieces (~100g) + Shredded carrot and vegetable salad (~100g) (590 cal)
+[AI FINAL] "The food items in the image are:
+
+1. Fried rice ~200g
+2. Grilled beef pieces ~100g
+3. Shredded carrot and vegetable salad ~100g" → Fried rice (1 cup, ~200g) + Grilled beef pieces (~100g) + Shredded carrot and vegetable salad (~100g) (590 cal)
+
+[2026-04-14T18:00:46.616Z] estimateCalories() CALLED with food="Greetings"
+[SA DB] Checked "Greetings" → not found
+[OPENAI] Calling API for "Greetings"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Greetings"
+
+[2026-04-14T18:00:49.823Z] AI RAW: "Greetings" → Greetings (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Greetings" — estimating based on description
+[ZERO-CAL FIX] Estimated: Greetings (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Greetings" → Greetings (est.) (250 cal)
+
+[2026-04-14T18:00:51.660Z] estimateCalories() CALLED with food="This an automatic reply"
+[SA DB] Checked "This an automatic reply" → not found
+[OPENAI] Calling API for "This an automatic reply"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "This an automatic reply"
+
+[2026-04-14T18:00:54.126Z] AI RAW: "This an automatic reply" → This an automatic reply (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "This an automatic reply" — estimating based on description
+[ZERO-CAL FIX] Estimated: This an automatic reply (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "This an automatic reply" → This an automatic reply (est.) (250 cal)
+
+[2026-04-14T18:00:55.866Z] estimateCalories() CALLED with food="Remember that"
+[SA DB] Checked "Remember that" → not found
+[OPENAI] Calling API for "Remember that"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "clean name including quantity"
+
+[2026-04-14T18:00:58.463Z] AI RAW: "Remember that" → clean name including quantity (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Remember that" — estimating based on description
+[ZERO-CAL FIX] Estimated: clean name including quantity (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Remember that" → clean name including quantity (est.) (250 cal)
+
+[2026-04-14T18:00:59.560Z] estimateCalories() CALLED with food="while I reply to every message eventually"
+[SA DB] Checked "while I reply to every message eventually" → not found
+[OPENAI] Calling API for "while I reply to every message eventually"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "while I reply to every message eventually"
+
+[2026-04-14T18:01:01.911Z] AI RAW: "while I reply to every message eventually" → while I reply to every message eventually (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "while I reply to every message eventually" — estimating based on description
+[ZERO-CAL FIX] Estimated: while I reply to every message eventually (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "while I reply to every message eventually" → while I reply to every message eventually (est.) (250 cal)
+
+[2026-04-14T18:01:03.681Z] estimateCalories() CALLED with food="this number should not be trusted with urgent matters"
+[SA DB] Checked "this number should not be trusted with urgent matters" → not found
+[OPENAI] Calling API for "this number should not be trusted with urgent matters"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "this number should not be trusted with urgent matters"
+
+[2026-04-14T18:01:05.769Z] AI RAW: "this number should not be trusted with urgent matters" → this number should not be trusted with urgent matters (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "this number should not be trusted with urgent matters" — estimating based on description
+[ZERO-CAL FIX] Estimated: this number should not be trusted with urgent matters (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "this number should not be trusted with urgent matters" → this number should not be trusted with urgent matters (est.) (250 cal)
+
+[2026-04-14T18:01:07.511Z] estimateCalories() CALLED with food="If you need me urgently during the day please contact Stephanie"
+[SA DB] Checked "If you need me urgently during the day please contact Stephanie" → not found
+[OPENAI] Calling API for "If you need me urgently during the day please contact Stephanie"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "If you need me urgently during the day please contact Stephanie"
+
+[2026-04-14T18:01:09.698Z] AI RAW: "If you need me urgently during the day please contact Stephanie" → If you need me urgently during the day please contact Stephanie (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "If you need me urgently during the day please contact Stephanie" — estimating based on description
+[ZERO-CAL FIX] Estimated: If you need me urgently during the day please contact Stephanie (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "If you need me urgently during the day please contact Stephanie" → If you need me urgently during the day please contact Stephanie (est.) (250 cal)
+
+[2026-04-14T18:01:11.469Z] estimateCalories() CALLED with food="For after hour emergencies"
+[SA DB] Checked "For after hour emergencies" → not found
+[OPENAI] Calling API for "For after hour emergencies"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "For after hour emergencies"
+
+[2026-04-14T18:01:13.476Z] AI RAW: "For after hour emergencies" → For after hour emergencies (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "For after hour emergencies" — estimating based on description
+[ZERO-CAL FIX] Estimated: For after hour emergencies (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "For after hour emergencies" → For after hour emergencies (est.) (250 cal)
+
+[2026-04-14T18:01:15.665Z] estimateCalories() CALLED with food="it is still best to contact Gardmed 041 373 6777"
+[SA DB] Checked "it is still best to contact Gardmed 041 373 6777" → not found
+[OPENAI] Calling API for "it is still best to contact Gardmed 041 373 6777"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "it is still best to contact Gardmed 041 373 6777"
+
+[2026-04-14T18:01:18.660Z] AI RAW: "it is still best to contact Gardmed 041 373 6777" → it is still best to contact Gardmed 041 373 6777 (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "it is still best to contact Gardmed 041 373 6777" — estimating based on description
+[ZERO-CAL FIX] Estimated: it is still best to contact Gardmed 041 373 6777 (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "it is still best to contact Gardmed 041 373 6777" → it is still best to contact Gardmed 041 373 6777 (est.) (250 cal)
+
+[2026-04-14T18:01:20.190Z] estimateCalories() CALLED with food="Otherwise  I hope to speak to you soon"
+[SA DB] Checked "Otherwise  I hope to speak to you soon" → not found
+[OPENAI] Calling API for "Otherwise  I hope to speak to you soon"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Otherwise  I hope to speak to you soon"
+
+[2026-04-14T18:01:22.529Z] AI RAW: "Otherwise  I hope to speak to you soon" → Otherwise  I hope to speak to you soon (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Otherwise  I hope to speak to you soon" — estimating based on description
+[ZERO-CAL FIX] Estimated: Otherwise  I hope to speak to you soon (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Otherwise  I hope to speak to you soon" → Otherwise  I hope to speak to you soon (est.) (250 cal)
+
+[2026-04-14T18:15:19.990Z] estimateCalories() CALLED with food="30mins work"
+[SA DB] Checked "30mins work" → not found
+[OPENAI] Calling API for "30mins work"
+[VALIDATION FAIL] Invalid entry detected: "workout"
+
+[2026-04-14T18:15:27.667Z] estimateCalories() CALLED with food="Wall"
+[SA DB] Checked "Wall" → not found
+[OPENAI] Calling API for "Wall"
+[VALIDATION FAIL] Zero calories for non-zero-cal food: "Wall"
+
+[2026-04-14T18:15:30.048Z] AI RAW: "Wall" → Wall (0 cal)
+[ZERO-CAL FIX] AI returned 0 cal for "Wall" — estimating based on description
+[ZERO-CAL FIX] Estimated: Wall (est.) → 250 cal | P:10g C:30g F:10g
+[AI FINAL] "Wall" → Wall (est.) (250 cal)
