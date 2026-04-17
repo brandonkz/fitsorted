@@ -1,0 +1,182 @@
+[
+  {
+    "food": "magwinya 2",
+    "expected": [
+      550,
+      750
+    ],
+    "actual": 440,
+    "result": {
+      "food": "magwinya 2 pieces (~200g)",
+      "calories": 440,
+      "protein": 8,
+      "carbs": 60,
+      "fat": 20,
+      "fibre": 4,
+      "estimatedPriceZAR": 30
+    },
+    "pass": false
+  },
+  {
+    "food": "morvite with milk",
+    "expected": [
+      280,
+      400
+    ],
+    "actual": 270,
+    "result": {
+      "food": "Morvite (50g) with milk (200ml)",
+      "calories": 270,
+      "protein": 10,
+      "carbs": 45,
+      "fat": 5,
+      "fibre": 2,
+      "estimatedPriceZAR": 20
+    },
+    "pass": false
+  },
+  {
+    "food": "inkomazi",
+    "expected": [
+      350,
+      550
+    ],
+    "actual": 100,
+    "result": {
+      "food": "incomazi (100g)",
+      "calories": 100,
+      "protein": 3,
+      "carbs": 12,
+      "fat": 5,
+      "fibre": 0,
+      "estimatedPriceZAR": null
+    },
+    "pass": false
+  },
+  {
+    "food": "pick n pay samoosa 2",
+    "expected": [
+      260,
+      380
+    ],
+    "actual": 300,
+    "result": {
+      "food": "2 pick n pay samoosas",
+      "calories": 300,
+      "protein": 6,
+      "carbs": 36,
+      "fat": 15,
+      "fibre": 2,
+      "estimatedPriceZAR": 30
+    },
+    "pass": true
+  },
+  {
+    "food": "steers onion rings",
+    "expected": [
+      200,
+      350
+    ],
+    "actual": 300,
+    "result": {
+      "food": "steers onion rings (100g)",
+      "calories": 300,
+      "protein": 3,
+      "carbs": 35,
+      "fat": 15,
+      "fibre": 2,
+      "estimatedPriceZAR": 40
+    },
+    "pass": true
+  },
+  {
+    "food": "red square energy",
+    "expected": [
+      100,
+      180
+    ],
+    "actual": 220,
+    "result": {
+      "food": "Red Square Energy drink 500ml",
+      "calories": 220,
+      "protein": 0,
+      "carbs": 55,
+      "fat": 0,
+      "fibre": 0,
+      "estimatedPriceZAR": 20
+    },
+    "pass": false
+  },
+  {
+    "food": "kransky",
+    "expected": [
+      180,
+      280
+    ],
+    "actual": 300,
+    "result": {
+      "food": "kransky sausage (100g)",
+      "calories": 300,
+      "protein": 12,
+      "carbs": 2,
+      "fat": 28,
+      "fibre": 0,
+      "estimatedPriceZAR": 50
+    },
+    "pass": false
+  },
+  {
+    "food": "spur breakfast",
+    "expected": [
+      650,
+      950
+    ],
+    "actual": 0,
+    "result": {
+      "food": "spur breakfast",
+      "calories": null,
+      "protein": null,
+      "carbs": null,
+      "fat": null,
+      "fibre": null,
+      "estimatedPriceZAR": null
+    },
+    "pass": false
+  },
+  {
+    "food": "kfc coleslaw",
+    "expected": [
+      120,
+      220
+    ],
+    "actual": 150,
+    "result": {
+      "food": "KFC coleslaw, 100g",
+      "calories": 150,
+      "protein": 1,
+      "carbs": 10,
+      "fat": 12,
+      "fibre": 2,
+      "estimatedPriceZAR": 30
+    },
+    "pass": true
+  },
+  {
+    "food": "house of pizza slice",
+    "expected": [
+      200,
+      350
+    ],
+    "actual": 285,
+    "result": {
+      "food": "slice of pizza",
+      "calories": 285,
+      "protein": 12,
+      "carbs": 36,
+      "fat": 12,
+      "fibre": 2,
+      "estimatedPriceZAR": 50
+    },
+    "pass": true
+  }
+]

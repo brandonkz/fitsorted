@@ -2208,6 +2208,14 @@ async function estimateCalories(food, user) {
     "chicken licken 6 piece": { food: "Chicken Licken 6-Piece Box", calories: 1050, protein: 70, carbs: 35, fat: 65, fibre: 2 },
     "ocean basket kingklip": { food: "Ocean Basket Kingklip (serving)", calories: 450, protein: 40, carbs: 15, fat: 22, fibre: 1 },
     "vida e caffe avo toast": { food: "Vida e Caffè Avo Toast (2 slices)", calories: 450, protein: 10, carbs: 35, fat: 28, fibre: 8 },
+    // Round 34 - nightly edge case test 2026-04-17
+    "magwinya 2": { food: "2x Magwinya (fat cakes)", calories: 600, protein: 8, carbs: 70, fat: 32, fibre: 4 },
+    "morvite with milk": { food: "Morvite with milk (serving)", calories: 350, protein: 12, carbs: 50, fat: 10, fibre: 3 },
+    "inkomazi": { food: "Inkomazi (Zulu beef stew)", calories: 450, protein: 25, carbs: 35, fat: 22, fibre: 4 },
+    "red square energy": { food: "Red Square Energy Drink (250ml)", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
+    "red square": { food: "Red Square Energy Drink (250ml)", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
+    "kransky": { food: "Kransky Sausage (1)", calories: 220, protein: 10, carbs: 3, fat: 20, fibre: 0 },
+    "spur breakfast": { food: "Spur Full Breakfast", calories: 800, protein: 45, carbs: 60, fat: 45, fibre: 5 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

@@ -15733,3 +15733,174 @@ I want to start recording again from today (est.) (250 cal)
 [ZERO-CAL FIX] AI returned 0 cal for "Wall" — estimating based on description
 [ZERO-CAL FIX] Estimated: Wall (est.) → 250 cal | P:10g C:30g F:10g
 [AI FINAL] "Wall" → Wall (est.) (250 cal)
+
+[2026-04-15T04:06:19.515Z] estimateCalories() CALLED with food="This is a bowl of yogurt with granola and mixed fruits. The estimated portion size is approximately 300g."
+[SA DB] Checked "This is a bowl of yogurt with granola and mixed fruits. The estimated portion size is approximately 300g." → not found
+[OPENAI] Calling API for "This is a bowl of yogurt with granola and mixed fruits. The estimated portion size is approximately 300g."
+
+[2026-04-15T04:06:23.552Z] AI RAW: "This is a bowl of yogurt with granola and mixed fruits. The estimated portion size is approximately 300g." → Yogurt with granola and mixed fruits (~300g) (300 cal)
+[AI FINAL] "This is a bowl of yogurt with granola and mixed fruits. The estimated portion size is approximately 300g." → Yogurt with granola and mixed fruits (~300g) (300 cal)
+
+[2026-04-15T12:55:55.184Z] estimateCalories() CALLED with food="The food appears to be a combination of sweet potatoes, sautéed vegetables (including carrots and leafy greens), and a beef stir-fry. 
+
+Estimated portion size: ~300g."
+[SA DB] Checked "The food appears to be a combination of sweet potatoes, sautéed vegetables (including carrots and leafy greens), and a beef stir-fry. 
+
+Estimated portion size: ~300g." → not found
+[OPENAI] Calling API for "The food appears to be a combination of sweet potatoes, sautéed vegetables (including carrots and leafy greens), and a beef stir-fry. 
+
+Estimated portion size: ~300g."
+
+[2026-04-15T12:56:00.952Z] AI RAW: "The food appears to be a combination of sweet potatoes, sautéed vegetables (including carrots and leafy greens), and a beef stir-fry. 
+
+Estimated portion size: ~300g." → Beef stir-fry with sweet potatoes and sautéed vegetables (~300g) (450 cal)
+[AI FINAL] "The food appears to be a combination of sweet potatoes, sautéed vegetables (including carrots and leafy greens), and a beef stir-fry. 
+
+Estimated portion size: ~300g." → Beef stir-fry with sweet potatoes and sautéed vegetables (~300g) (450 cal)
+
+[2026-04-15T12:56:52.957Z] estimateCalories() CALLED with food="large portion of The food appears to be a mixed dish containing beef, sweet potatoes, and sautéed vegetables (including carrots and greens). 
+
+Estimated portion size: ~300g."
+[SA DB] Checked "large portion of The food appears to be a mixed dish containing beef, sweet potatoes, and sautéed vegetables (including carrots and greens). 
+
+Estimated portion size: ~300g." → not found
+[OPENAI] Calling API for "large portion of The food appears to be a mixed dish containing beef, sweet potatoes, and sautéed vegetables (including carrots and greens). 
+
+Estimated portion size: ~300g."
+
+[2026-04-15T12:56:55.971Z] AI RAW: "large portion of The food appears to be a mixed dish containing beef, sweet potatoes, and sautéed vegetables (including carrots and greens). 
+
+Estimated portion size: ~300g." → Mixed dish with beef, sweet potatoes, and sautéed vegetables (~300g) (600 cal)
+[AI FINAL] "large portion of The food appears to be a mixed dish containing beef, sweet potatoes, and sautéed vegetables (including carrots and greens). 
+
+Estimated portion size: ~300g." → Mixed dish with beef, sweet potatoes, and sautéed vegetables (~300g) (600 cal)
+
+[2026-04-15T15:05:02.011Z] estimateCalories() CALLED with food="Americano with milk sweetner"
+[SA DB] Checked "Americano with milk sweetner" → not found
+[OPENAI] Calling API for "Americano with milk sweetner"
+
+[2026-04-15T15:05:07.730Z] AI RAW: "Americano with milk sweetner" → Americano with milk (1 cup, ~240ml) (50 cal)
+[AI FINAL] "Americano with milk sweetner" → Americano with milk (1 cup, ~240ml) (50 cal)
+
+[2026-04-15T15:06:37.843Z] estimateCalories() CALLED with food="1 chicken sosatie"
+
+[2026-04-15T15:06:40.261Z] estimateCalories() CALLED with food="green salad"
+[SA DB] Checked "green salad" → not found
+[OPENAI] Calling API for "green salad"
+
+[2026-04-15T15:06:43.580Z] AI RAW: "green salad" → Green salad (~150g) (50 cal)
+[AI FINAL] "green salad" → Green salad (~150g) (50 cal)
+
+[2026-04-15T15:06:45.619Z] estimateCalories() CALLED with food="labneh"
+[SA DB] Checked "labneh" → not found
+[OPENAI] Calling API for "labneh"
+
+[2026-04-15T15:06:48.873Z] AI RAW: "labneh" → Labneh (100g) (120 cal)
+[AI FINAL] "labneh" → Labneh (100g) (120 cal)
+
+[2026-04-15T18:02:22.937Z] estimateCalories() CALLED with food="3 ginger biscuits"
+[SA DB] Checked "3 ginger biscuits" → not found
+[OPENAI] Calling API for "3 ginger biscuits"
+
+[2026-04-15T18:02:26.283Z] AI RAW: "3 ginger biscuits" → 3x ginger biscuit (210 cal)
+[AI FINAL] "3 ginger biscuits" → 3x ginger biscuit (210 cal)
+
+[2026-04-15T18:02:47.091Z] estimateCalories() CALLED with food="Pretzels & cheese"
+[SA DB] Checked "Pretzels & cheese" → not found
+[OPENAI] Calling API for "Pretzels & cheese"
+
+[2026-04-15T18:02:50.180Z] AI RAW: "Pretzels & cheese" → Pretzels (~100g) with cheese (~30g) (370 cal)
+[AI FINAL] "Pretzels & cheese" → Pretzels (~100g) with cheese (~30g) (370 cal)
+
+[2026-04-15T19:17:28.634Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-16T05:20:57.106Z] estimateCalories() CALLED with food="Coffee"
+[SA DB] Checked "Coffee" → FOUND: Coffee with milk (1 cup) (1 cup) (50 cal)
+[SA DB CLEANUP] Removed duplicate: "Coffee with milk (1 cup) (1 cup)" → "Coffee with milk (1 cup)"
+
+[2026-04-16T07:05:38.519Z] estimateCalories() CALLED with food="4 slices of white bread"
+[SA DB] Checked "4 slices of white bread" → FOUND: Toast (white bread, 2 slices) (2 slices) (160 cal)
+
+[2026-04-16T07:05:44.211Z] estimateCalories() CALLED with food="with cheese and polony"
+[SA DB] Checked "with cheese and polony" → not found
+[OPENAI] Calling API for "with cheese and polony"
+
+[2026-04-16T07:05:46.534Z] AI RAW: "with cheese and polony" → Cheese slice (~20g) with polony (~50g) (185 cal)
+[MEAL-CAL FIX] "with cheese and polony" looks like a multi-ingredient meal but AI returned only 185 cal — boosting to 296 cal
+[AI FINAL] "with cheese and polony" → Cheese slice (~20g) with polony (~50g) (296 cal)
+
+[2026-04-16T07:05:48.257Z] estimateCalories() CALLED with food="1 apple and water"
+[SA DB] Checked "1 apple and water" → FOUND: Apple (1 medium) (1 medium) (95 cal)
+[SA DB CLEANUP] Removed duplicate: "Apple (1 medium) (1 medium)" → "Apple (1 medium)"
+
+[2026-04-16T07:37:32.490Z] estimateCalories() CALLED with food="Nandos chicken wings"
+[SA DB] Checked "Nandos chicken wings" → not found
+[OPENAI] Calling API for "Nandos chicken wings"
+
+[2026-04-16T07:37:37.706Z] AI RAW: "Nandos chicken wings" → Nando's chicken wings (~150g) (330 cal)
+[AI FINAL] "Nandos chicken wings" → Nando's chicken wings (~150g) (330 cal)
+
+[2026-04-16T11:03:31.508Z] estimateCalories() CALLED with food="Chicken curry and rice"
+[SA DB] Checked "Chicken curry and rice" → not found
+[OPENAI] Calling API for "Chicken curry and rice"
+
+[2026-04-16T11:03:38.506Z] AI RAW: "Chicken curry and rice" → Chicken curry (~150g) with rice (1 cup, ~150g) (430 cal)
+[AI FINAL] "Chicken curry and rice" → Chicken curry (~150g) with rice (1 cup, ~150g) (430 cal)
+
+[2026-04-16T11:34:04.247Z] estimateCalories() CALLED with food="B&T  vodka and grapefruit flavoured cooler 440ml"
+[SA DB] Checked "B&T  vodka and grapefruit flavoured cooler 440ml" → not found
+[OPENAI] Calling API for "B&T  vodka and grapefruit flavoured cooler 440ml"
+
+[2026-04-16T11:34:08.017Z] AI RAW: "B&T  vodka and grapefruit flavoured cooler 440ml" → B&T vodka and grapefruit flavoured cooler (440ml) (155 cal)
+[AI FINAL] "B&T  vodka and grapefruit flavoured cooler 440ml" → B&T vodka and grapefruit flavoured cooler (440ml) (155 cal)
+
+[2026-04-16T14:25:05.482Z] estimateCalories() CALLED with food="1 americano with milk & 2 sweetners"
+[SA DB] Checked "1 americano with milk & 2 sweetners" → not found
+[OPENAI] Calling API for "1 americano with milk & 2 sweetners"
+
+[2026-04-16T14:25:10.782Z] AI RAW: "1 americano with milk & 2 sweetners" → Americano with milk (~240ml) (60 cal)
+[AI FINAL] "1 americano with milk & 2 sweetners" → Americano with milk (~240ml) (60 cal)
+
+[2026-04-16T14:25:23.638Z] estimateCalories() CALLED with food="1 cappuccino with low fat milk & sweetner"
+[SA DB] Checked "1 cappuccino with low fat milk & sweetner" → not found
+[OPENAI] Calling API for "1 cappuccino with low fat milk & sweetner"
+
+[2026-04-16T14:25:26.591Z] AI RAW: "1 cappuccino with low fat milk & sweetner" → Cappuccino (1 cup, ~240ml) (80 cal)
+[AI FINAL] "1 cappuccino with low fat milk & sweetner" → Cappuccino (1 cup, ~240ml) (80 cal)
+
+[2026-04-16T14:25:51.566Z] estimateCalories() CALLED with food="1 chicken salad with corn"
+[SA DB] Checked "1 chicken salad with corn" → not found
+[OPENAI] Calling API for "1 chicken salad with corn"
+
+[2026-04-16T14:25:53.795Z] AI RAW: "1 chicken salad with corn" → Chicken salad with corn (~200g) (300 cal)
+[AI FINAL] "1 chicken salad with corn" → Chicken salad with corn (~200g) (300 cal)
+
+[2026-04-16T14:25:55.407Z] estimateCalories() CALLED with food="peppers"
+[SA DB] Checked "peppers" → not found
+[OPENAI] Calling API for "peppers"
+
+[2026-04-16T14:25:58.461Z] AI RAW: "peppers" → Peppers (1 cup, ~150g) (45 cal)
+[AI FINAL] "peppers" → Peppers (1 cup, ~150g) (45 cal)
+
+[2026-04-16T14:26:00.856Z] estimateCalories() CALLED with food="cucumber & dressing"
+[SA DB] Checked "cucumber & dressing" → not found
+[OPENAI] Calling API for "cucumber & dressing"
+
+[2026-04-16T14:26:02.975Z] AI RAW: "cucumber & dressing" → Cucumber (1 medium, ~150g) with dressing (~30g) (50 cal)
+[AI FINAL] "cucumber & dressing" → Cucumber (1 medium, ~150g) with dressing (~30g) (50 cal)
+
+[2026-04-16T14:26:18.756Z] estimateCalories() CALLED with food="1 bar one chocolate"
+[SA DB] Checked "1 bar one chocolate" → not found
+[OPENAI] Calling API for "1 bar one chocolate"
+
+[2026-04-16T14:26:21.269Z] AI RAW: "1 bar one chocolate" → 1x Bar One chocolate (50g) (240 cal)
+[AI FINAL] "1 bar one chocolate" → 1x Bar One chocolate (50g) (240 cal)
+
+[2026-04-16T15:03:56.295Z] estimateCalories() CALLED with food="Panarotti pizza"
+[SA DB] Checked "Panarotti pizza" → not found
+[OPENAI] Calling API for "Panarotti pizza"
+
+[2026-04-16T15:04:01.911Z] AI RAW: "Panarotti pizza" → Panarotti pizza (~300g) (800 cal)
+[AI FINAL] "Panarotti pizza" → Panarotti pizza (~300g) (800 cal)

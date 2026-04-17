@@ -1790,6 +1790,18 @@ async function estimateCalories(food, user) {
     "usn muscle fuel anabolic": { food: "USN Muscle Fuel Anabolic (3 scoops)", calories: 550, protein: 50, carbs: 65, fat: 8, fibre: 3 },
     "muscle fuel anabolic": { food: "USN Muscle Fuel Anabolic (3 scoops)", calories: 550, protein: 50, carbs: 65, fat: 8, fibre: 3 },
     // Round 21 - Common foods users log that hit AI (from debug-ai.log analysis)
+    // 2026-04-15 edge case test - night 2
+    "chicken licken lots of legs": { food: "Chicken Licken Lots of Legs (8 piece)", calories: 1500, protein: 100, carbs: 60, fat: 90, fibre: 3 },
+    "red square": { food: "Red Square Energy Drink (250ml)", calories: 150, protein: 0, carbs: 35, fat: 0, fibre: 0 },
+    "red square energy drink": { food: "Red Square Energy Drink (250ml)", calories: 150, protein: 0, carbs: 35, fat: 0, fibre: 0 },
+    "kombucha": { food: "Kombucha (330ml)", calories: 120, protein: 0, carbs: 28, fat: 0, fibre: 1 },
+    "fibratech": { food: "Fibratech Bar", calories: 170, protein: 6, carbs: 30, fat: 3, fibre: 8 },
+    "fibratech bar": { food: "Fibratech Bar", calories: 170, protein: 6, carbs: 30, fat: 3, fibre: 8 },
+    "galitos wings": { food: "Galito's Wings (6 piece)", calories: 500, protein: 40, carbs: 25, fat: 30, fibre: 1 },
+    "galitos wings 6": { food: "Galito's Wings (6 piece)", calories: 500, protein: 40, carbs: 25, fat: 30, fibre: 1 },
+    "chicken licken lips": { food: "Chicken Licken Lips (6 piece)", calories: 550, protein: 35, carbs: 30, fat: 35, fibre: 1 },
+    "chicken licken lips 6": { food: "Chicken Licken Lips (6 piece)", calories: 550, protein: 35, carbs: 30, fat: 35, fibre: 1 },
+    "ocean basket garlic prawns": { food: "Ocean Basket Garlic Prawns (serving)", calories: 420, protein: 30, carbs: 20, fat: 25, fibre: 1 },
     // Drinks
     "rooibos tea": { food: "Rooibos Tea (plain)", calories: 2, protein: 0, carbs: 0, fat: 0, fibre: 0 },
     "rooibos": { food: "Rooibos Tea (plain)", calories: 2, protein: 0, carbs: 0, fat: 0, fibre: 0 },
@@ -2188,6 +2200,14 @@ async function estimateCalories(food, user) {
     "sparlenthus": { food: "Sparlenthus (500ml)", calories: 200, protein: 0, carbs: 50, fat: 0, fibre: 0 },
     "sugar bird friday": { food: "Sugar Bird Friday (250ml)", calories: 180, protein: 0, carbs: 22, fat: 0, fibre: 0 },
     "disco Milo jar": { food: "Disco Milo Jar (400g)", calories: 450, protein: 12, carbs: 70, fat: 12, fibre: 2 },
+    // Round 32 - nightly edge case test 2026-04-15
+    "pick n pay samoosa 4": { food: "4x Pick n Pay samoosa", calories: 440, protein: 10, carbs: 50, fat: 24, fibre: 4 },
+    "ocean basket grilled calamari": { food: "Ocean Basket Grilled Calamari (serving)", calories: 550, protein: 35, carbs: 35, fat: 28, fibre: 2 },
+    "woolworths chicken lasagne": { food: "Woolworths Chicken Lasagne (serving)", calories: 500, protein: 25, carbs: 45, fat: 22, fibre: 4 },
+    // Round 33 - nightly edge case test 2026-04-15
+    "chicken licken 6 piece": { food: "Chicken Licken 6-Piece Box", calories: 1050, protein: 70, carbs: 35, fat: 65, fibre: 2 },
+    "ocean basket kingklip": { food: "Ocean Basket Kingklip (serving)", calories: 450, protein: 40, carbs: 15, fat: 22, fibre: 1 },
+    "vida e caffe avo toast": { food: "Vida e Caffè Avo Toast (2 slices)", calories: 450, protein: 10, carbs: 35, fat: 28, fibre: 8 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];
