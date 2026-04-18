@@ -1535,6 +1535,9 @@ async function estimateCalories(food, user) {
     "chai latte": { food: "Chai Latte", calories: 180, protein: 5, carbs: 28, fat: 5, fibre: 0 },
     // Round 8 - nightly edge case test 2026-03-14
     "boerewors roll": { food: "Boerewors Roll", calories: 425, protein: 18, carbs: 35, fat: 22, fibre: 2 },
+    // Round 9 - nightly edge case test 2026-04-18
+    "sno drop lollies": { food: "Sno Drop Lollies (~100g)", calories: 110, protein: 0, carbs: 28, fat: 0, fibre: 0 },
+    "sno drops": { food: "Sno Drop Lollies (~100g)", calories: 110, protein: 0, carbs: 28, fat: 0, fibre: 0 },
     "chicken and rice": { food: "Chicken & Rice (serving)", calories: 450, protein: 35, carbs: 45, fat: 12, fibre: 2 },
     "eggs on toast": { food: "Eggs on Toast (2 eggs, 2 slices)", calories: 310, protein: 18, carbs: 30, fat: 14, fibre: 2 },
     "gin and tonic": { food: "Gin & Tonic (single)", calories: 120, protein: 0, carbs: 8, fat: 0, fibre: 0 },

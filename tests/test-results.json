@@ -1,248 +1,82 @@
-{
-  "results": [
-    {
-      "name": "magwinya with atchar",
-      "minCal": 350,
-      "maxCal": 580,
-      "aiCal": 300,
-      "pass": false,
-      "aiResult": {
-        "food": "Magwinya (~100g) with atchar (~30g)",
-        "calories": 300,
-        "protein": 5,
-        "carbs": 50,
-        "fat": 10,
-        "fibre": 2,
-        "estimatedPriceZAR": 40
-      }
-    },
-    {
-      "name": "chicken licken soul rider",
-      "minCal": 500,
-      "maxCal": 750,
-      "aiCal": 600,
-      "pass": true,
-      "aiResult": {
-        "food": "Chicken Licken Soul Rider (~300g)",
-        "calories": 600,
-        "protein": 30,
-        "carbs": 70,
-        "fat": 25,
-        "fibre": 5,
-        "estimatedPriceZAR": 85
-      }
-    },
-    {
-      "name": "woolworths chicken caesar wrap",
-      "minCal": 350,
-      "maxCal": 550,
-      "aiCal": 450,
-      "pass": true,
-      "aiResult": {
-        "food": "Woolworths chicken caesar wrap",
-        "calories": 450,
-        "protein": 25,
-        "carbs": 40,
-        "fat": 20,
-        "fibre": 5,
-        "estimatedPriceZAR": 60
-      }
-    },
-    {
-      "name": "checkers banana bread slice",
-      "minCal": 200,
-      "maxCal": 350,
-      "aiCal": 180,
-      "pass": false,
-      "aiResult": {
-        "food": "Banana bread slice (~50g)",
-        "calories": 180,
-        "protein": 2,
-        "carbs": 35,
-        "fat": 5,
-        "fibre": 2,
-        "estimatedPriceZAR": 25
-      }
-    },
-    {
-      "name": "spur nachos supreme",
-      "minCal": 700,
-      "maxCal": 1100,
-      "aiCal": 800,
-      "pass": true,
-      "aiResult": {
-        "food": "Spur nachos supreme (~300g)",
-        "calories": 800,
-        "protein": 25,
-        "carbs": 90,
-        "fat": 40,
-        "fibre": 10,
-        "estimatedPriceZAR": 85
-      }
-    },
-    {
-      "name": "kfc original 3 piece",
-      "minCal": 600,
-      "maxCal": 900,
-      "aiCal": 840,
-      "pass": true,
-      "aiResult": {
-        "food": "KFC original chicken (3 pieces, ~510g)",
-        "calories": 840,
-        "protein": 60,
-        "carbs": 0,
-        "fat": 60,
-        "fibre": 0,
-        "estimatedPriceZAR": 100
-      }
-    },
-    {
-      "name": "biltong wrap woolworths",
-      "minCal": 300,
-      "maxCal": 500,
-      "aiCal": 450,
-      "pass": true,
-      "aiResult": {
-        "food": "Biltong wrap (~200g)",
-        "calories": 450,
-        "protein": 30,
-        "carbs": 40,
-        "fat": 20,
-        "fibre": 5,
-        "estimatedPriceZAR": 75
-      }
-    },
-    {
-      "name": "nestle bar one ice cream",
-      "minCal": 200,
-      "maxCal": 350,
-      "aiCal": 250,
-      "pass": true,
-      "aiResult": {
-        "food": "Nestlé Bar One ice cream (1 serving, ~100g)",
-        "calories": 250,
-        "protein": 4,
-        "carbs": 30,
-        "fat": 13,
-        "fibre": 1,
-        "estimatedPriceZAR": 30
-      }
-    },
-    {
-      "name": "creme soda float",
-      "minCal": 250,
-      "maxCal": 450,
-      "aiCal": 300,
-      "pass": true,
-      "aiResult": {
-        "food": "creme soda float (1 serving)",
-        "calories": 300,
-        "protein": 0,
-        "carbs": 75,
-        "fat": 0,
-        "fibre": 0,
-        "estimatedPriceZAR": 50
-      }
-    },
-    {
-      "name": "pap and chicken stew",
-      "minCal": 450,
-      "maxCal": 700,
-      "aiCal": 450,
-      "pass": true,
-      "aiResult": {
-        "food": "Pap (1 cup, ~150g) and chicken stew (1 cup, ~250g)",
-        "calories": 450,
-        "protein": 30,
-        "carbs": 60,
-        "fat": 15,
-        "fibre": 4,
-        "estimatedPriceZAR": null
-      }
-    }
-  ],
-  "failures": [
-    {
-      "name": "magwinya with atchar",
-      "minCal": 350,
-      "maxCal": 580,
-      "aiCal": 300,
-      "aiResult": {
-        "food": "Magwinya (~100g) with atchar (~30g)",
-        "calories": 300,
-        "protein": 5,
-        "carbs": 50,
-        "fat": 10,
-        "fibre": 2,
-        "estimatedPriceZAR": 40
-      }
-    },
-    {
-      "name": "checkers banana bread slice",
-      "minCal": 200,
-      "maxCal": 350,
-      "aiCal": 180,
-      "aiResult": {
-        "food": "Banana bread slice (~50g)",
-        "calories": 180,
-        "protein": 2,
-        "carbs": 35,
-        "fat": 5,
-        "fibre": 2,
-        "estimatedPriceZAR": 25
-      }
-    }
-  ],
-  "newTests": [
-    [
-      "magwinya with atchar",
-      350,
-      580
+[
+  {
+    "food": "mike's hard lemonade",
+    "expected": [
+      180,
+      280
     ],
-    [
-      "chicken licken soul rider",
-      500,
-      750
-    ],
-    [
-      "woolworths chicken caesar wrap",
-      350,
-      550
-    ],
-    [
-      "checkers banana bread slice",
-      200,
-      350
-    ],
-    [
-      "spur nachos supreme",
-      700,
-      1100
-    ],
-    [
-      "kfc original 3 piece",
-      600,
-      900
-    ],
-    [
-      "biltong wrap woolworths",
+    "got": 220
+  },
+  {
+    "food": "spar chicken wrap",
+    "expected": [
       300,
       500
     ],
-    [
-      "nestle bar one ice cream",
-      200,
-      350
+    "got": 400
+  },
+  {
+    "food": "dischem creatine",
+    "expected": [
+      0,
+      20
     ],
-    [
-      "creme soda float",
-      250,
-      450
+    "got": 0
+  },
+  {
+    "food": "tropica slimline",
+    "expected": [
+      80,
+      150
     ],
-    [
-      "pap and chicken stew",
-      450,
-      700
-    ]
-  ]
-}
+    "got": 100
+  },
+  {
+    "food": "woolworths durban curry ready meal",
+    "expected": [
+      400,
+      650
+    ],
+    "got": 600
+  },
+  {
+    "food": "naked pea protein powder",
+    "expected": [
+      80,
+      150
+    ],
+    "got": 120
+  },
+  {
+    "food": "glacier water plain",
+    "expected": [
+      0,
+      5
+    ],
+    "got": 0
+  },
+  {
+    "food": "sno drop lollies",
+    "expected": [
+      80,
+      150
+    ],
+    "got": 350
+  },
+  {
+    "food": "king pie onion 2",
+    "expected": [
+      400,
+      650
+    ],
+    "got": 800
+  },
+  {
+    "food": "devil's peak lager",
+    "expected": [
+      130,
+      200
+    ],
+    "got": 155
+  }
+]
