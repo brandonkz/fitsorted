@@ -2076,3 +2076,16 @@
 ]
 ,["sno drop lollies", 80,150],["mike's hard lemonade", 180,280],["spar chicken wrap", 300,500],["dischem creatine", 0,20],["tropica slimline", 80,150],["woolworths durban curry ready meal", 400,650],["naked pea protein powder", 80,150],["glacier water plain", 0,5],["king pie onion 2", 400,650],["devil's peak lager", 130,200]
 ]
+
+  // New test cases 2026-04-19 (night 2)
+  ["rooibos with cremora", 40, 100],
+  ["funky lady", 150, 250],
+  ["fridays orange crush", 180, 280],
+  ["spar chicken livers", 180, 320],
+  ["chicken feet", 150, 280],
+  ["mielie meal porridge", 180, 350],
+  ["chocolate teddy", 450, 650],
+  ["naked sports drink", 80, 180],
+  ["brutal fruit smooth", 150, 280],
+  ["chips and chicken livers", 350, 550]
+]
