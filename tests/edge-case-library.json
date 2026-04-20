@@ -1953,139 +1953,15 @@
     "famous raw protein bowl",
     450,
     750
-  ]
-],
-  [
-    "chicken licken lots of legs",
-    1200,
-    1800
-  ],
-  [
-    "disco oats",
-    200,
-    350
-  ],
-  [
-    "red square",
-    100,
-    200
-  ],
-  [
-    "pizza mint condition",
-    250,
-    400
-  ],
-  [
-    "kombucha",
-    80,
-    180
-  ],
-  [
-    "fibratech",
-    120,
-    220
-  ],
-  [
-    "galitos wings 6",
-    400,
-    650
-  ],
-  [
-    "chicken licken lips 6",
-    450,
-    700
-  ],
-  [
-    "creamlite spread 2 tbsp",
-    40,
-    100
-  ],
-  [
-    "ocean basket garlic prawns",
-    350,
-    550
-  ],
-  [
-    "rooibos tea with 2 sugars",
-    40,
-    100
-  ],
-  [
-    "chicken licken sosati 4",
-    600,
-    1000
-  ],
-  [
-    "dischem whey protein scoop",
-    100,
-    180
-  ],
-  [
-    "spur coffee mate muffin",
-    250,
-    450
-  ],
-  [
-    "king pie cheese",
-    300,
-    500
-  ],
-  [
-    "nandos chicken wraps 2",
-    400,
-    700
-  ],
-  [
-    "pick n pay samoosa 3",
-    300,
-    500
-  ],
-  [
-    "ocean basket hake",
-    300,
-    500
-  ],
-  [
-    "woolworths avo half",
-    100,
-    200
-  ],
-  [
-    "spar biltong 50g",
-    100,
-    180
-  ],
-  // New test cases 2026-04-15 (night 2)
-  ["chicken licken lots of legs", 1200, 1800],
-  ["disco oats", 200, 350],
-  ["red square energy drink", 100, 200],
-  ["pizza mint condition", 250, 400],
-  ["kombucha", 80, 180],
-  ["fibratech bar", 120, 220],
-  ["galitos wings 6", 400, 650],
-  ["chicken licken lips 6", 450, 700],
-  ["creamlite spread 2 tbsp", 40, 100],
-  ["ocean basket garlic prawns", 350, 550]
-]
-  ["magwinya 2", 550, 750],
-  ["morvite with milk", 280, 400],
-  ["inkomazi", 350, 550],
-  ["red square energy", 100, 180],
-  ["kransky", 180, 280],
-  ["spur breakfast", 650, 950]
-]
-,["sno drop lollies", 80,150],["mike's hard lemonade", 180,280],["spar chicken wrap", 300,500],["dischem creatine", 0,20],["tropica slimline", 80,150],["woolworths durban curry ready meal", 400,650],["naked pea protein powder", 80,150],["glacier water plain", 0,5],["king pie onion 2", 400,650],["devil's peak lager", 130,200]
-]
-
-  // New test cases 2026-04-19 (night 2)
-  ["rooibos with cremora", 40, 100],
-  ["funky lady", 150, 250],
-  ["fridays orange crush", 180, 280],
-  ["spar chicken livers", 180, 320],
-  ["chicken feet", 150, 280],
-  ["mielie meal porridge", 180, 350],
-  ["chocolate teddy", 450, 650],
-  ["naked sports drink", 80, 180],
-  ["brutal fruit smooth", 150, 280],
-  ["chips and chicken livers", 350, 550]
+  // New test cases 2026-04-20
+  ["steers mega chops", 400, 650],
+  ["dischem mass gainer", 250, 450],
+  ["fanta orange 330ml", 100, 180],
+  ["woolworths chicken schnitzel meal", 400, 650],
+  ["crumpets 2", 150, 280],
+  ["mielie bread slice", 80, 180],
+  ["honey and oats cereal", 200, 350],
+  ["spur chicken nuggets 6", 350, 550],
+  ["fruit and yogurt", 150, 300],
+  ["potato wedges", 200, 400]
 ]

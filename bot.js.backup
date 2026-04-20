@@ -1415,6 +1415,14 @@ async function estimateCalories(food, user) {
 
   // 1c. Common items AI consistently gets wrong (SA portions)
   const overrides = {
+    // Round 6 - 2026-04-19 edge case fixes
+    "funky lady": { food: "Funky Lady CIDR (275ml)", calories: 200, protein: 0, carbs: 22, fat: 0, fibre: 0 },
+    "fridays orange crush": { food: "Fridays Orange Crush (275ml)", calories: 220, protein: 0, carbs: 25, fat: 0, fibre: 0 },
+    "spar chicken livers": { food: "Spar Chicken Livers (150g)", calories: 220, protein: 28, carbs: 2, fat: 12, fibre: 0 },
+    "mielie meal porridge": { food: "Mielie Meal Porridge (1 cup)", calories: 275, protein: 5, carbs: 55, fat: 3, fibre: 3 },
+    "chocolate teddy": { food: "Chocolate Teddy (full bar)", calories: 520, protein: 6, carbs: 60, fat: 25, fibre: 2 },
+    "naked sports drink": { food: "Naked Sports Drink (400ml)", calories: 120, protein: 0, carbs: 30, fat: 0, fibre: 0 },
+    "mikes hard lemonade": { food: "Mike's Hard Lemonade (330ml)", calories: 220, protein: 0, carbs: 25, fat: 0, fibre: 0 },
     "monster energy": { food: "Monster Energy 500ml", calories: 230, protein: 0, carbs: 56, fat: 0, fibre: 0 },
     "monster": { food: "Monster Energy 500ml", calories: 230, protein: 0, carbs: 56, fat: 0, fibre: 0 },
     "red bull": { food: "Red Bull 250ml", calories: 112, protein: 0, carbs: 27, fat: 0, fibre: 0 },
@@ -2219,6 +2227,16 @@ async function estimateCalories(food, user) {
     "red square": { food: "Red Square Energy Drink (250ml)", calories: 150, protein: 0, carbs: 38, fat: 0, fibre: 0 },
     "kransky": { food: "Kransky Sausage (1)", calories: 220, protein: 10, carbs: 3, fat: 20, fibre: 0 },
     "spur breakfast": { food: "Spur Full Breakfast", calories: 800, protein: 45, carbs: 60, fat: 45, fibre: 5 },
+    // Round 21 - nightly edge case test 2026-04-19
+    "rooibos with cremora": { food: "Rooibos Tea with Cremora", calories: 55, protein: 0, carbs: 8, fat: 2, fibre: 0 },
+    "rooibos and cremora": { food: "Rooibos Tea with Cremora", calories: 55, protein: 0, carbs: 8, fat: 2, fibre: 0 },
+    "funky lady": { food: "Funky Lady Cider (330ml)", calories: 200, protein: 0, carbs: 22, fat: 0, fibre: 0 },
+    "spar chicken livers": { food: "Spar Chicken Livers (serving)", calories: 250, protein: 30, carbs: 3, fat: 12, fibre: 0 },
+    "chicken livers from spar": { food: "Spar Chicken Livers (serving)", calories: 250, protein: 30, carbs: 3, fat: 12, fibre: 0 },
+    "mielie meal porridge": { food: "Mielie Meal Porridge (large serving)", calories: 275, protein: 5, carbs: 50, fat: 4, fibre: 3 },
+    "mielie porridge": { food: "Mielie Meal Porridge (large serving)", calories: 275, protein: 5, carbs: 50, fat: 4, fibre: 3 },
+    "chocolate teddy": { food: "Chocolate Teddy Biscuit", calories: 550, protein: 6, carbs: 65, fat: 28, fibre: 2 },
+    "chocolate teddies": { food: "Chocolate Teddy Biscuit", calories: 550, protein: 6, carbs: 65, fat: 28, fibre: 2 },
   };
   // Check overrides (exact match first, then includes)
   if (overrides[lower]) return overrides[lower];

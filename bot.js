@@ -1416,6 +1416,7 @@ async function estimateCalories(food, user) {
   // 1c. Common items AI consistently gets wrong (SA portions)
   const overrides = {
     // Round 6 - 2026-04-19 edge case fixes
+    "honey and oats cereal": { food: "Honey & Oats Cereal (with milk)", calories: 280, protein: 10, carbs: 45, fat: 6, fibre: 3 },
     "funky lady": { food: "Funky Lady CIDR (275ml)", calories: 200, protein: 0, carbs: 22, fat: 0, fibre: 0 },
     "fridays orange crush": { food: "Fridays Orange Crush (275ml)", calories: 220, protein: 0, carbs: 25, fat: 0, fibre: 0 },
     "spar chicken livers": { food: "Spar Chicken Livers (150g)", calories: 220, protein: 28, carbs: 2, fat: 12, fibre: 0 },
