@@ -1322,33 +1322,35 @@ async function lookupSAFood(food) {
 
     if (results.length === 0) return null;
 
-    // Score and sort results by match quality. Strict rules for short/generic inputs so that
-    // "chips" doesn't return "Nando's Quarter Chicken + Chips", and "coffee" doesn't return
-    // "Coffee with milk" when the user just wants plain coffee.
+    // Score and sort results by match quality.
+    // Rules:
+    //   0 = exact name match
+    //   1 = DB name is input + parenthetical detail, e.g. "Chips (fries, medium)" for "chips"
+    //   2 = user input contains the DB name (user is more specific)
+    //   3 = DB name starts with input + extra words, only for multi-word inputs
+    //   4 = exact alt name match
+    //  99 = reject (compound meals, substring-only, loose alt matches)
     const inputWordCount = lower.trim().split(/\s+/).length;
     const scored = results
       .map(item => {
         const n = item.name.toLowerCase();
-        const altMatch = item.name_alt?.some(alt =>
-          lower.includes(alt.toLowerCase()) || alt.toLowerCase().includes(lower)
-        ) || false;
         let score = 99;
         if (n === lower) {
-          score = 0;                                            // exact match
+          score = 0;                                            // exact
+        } else if (n.startsWith(lower + ' (') || n.startsWith(lower + '(')) {
+          // DB name is just the food + a parenthetical clarification: "Chips (fries, medium)"
+          // Accept for any input length — it's effectively an exact match with serving info
+          score = 1;
         } else if (lower.includes(n) && n.length >= 3) {
-          score = 2;                                            // user input contains DB name (user is more specific)
-        } else if (n.startsWith(lower + ' ') || n.startsWith(lower + '(')) {
-          // DB name starts with input BUT adds more words (e.g. "coffee with milk" for "coffee")
-          // Only accept for multi-word inputs where the extension is small
-          const extension = n.slice(lower.length).trim();
-          const extensionWords = extension.split(/\s+/).filter(Boolean).length;
-          score = (inputWordCount >= 2 && extensionWords <= 2) ? 1 : 99; // reject for single-word queries
-        } else if (n.includes(lower)) {
-          // DB name contains input as substring (e.g. "Nando's Quarter Chicken + Chips" for "chips")
-          // Reject for short inputs - fall through to AI
-          score = 99;
-        } else if (altMatch) {
-          score = (inputWordCount >= 2) ? 4 : 99;              // alt match only for multi-word inputs
+          score = 2;                                            // user typed more than the DB name
+        } else if (n.startsWith(lower + ' ') && inputWordCount >= 2) {
+          // DB adds extra words (e.g. "Coffee with milk" for "coffee") — only OK for multi-word input
+          score = 3;
+        } else {
+          // Substring match (e.g. "Nando's quarter chicken + chips" for "chips") — always reject
+          // Also check for exact alt name match as last resort
+          const exactAltMatch = item.name_alt?.some(alt => alt.toLowerCase() === lower) || false;
+          score = exactAltMatch ? 4 : 99;
         }
         return { item, score };
       })
@@ -2829,11 +2831,24 @@ async function estimateCalories(food, user) {
   };
   
   // Merge extra foods from external file (added nightly by automation)
+  // Guard: skip metadata keys (_meta_*) and reject single-word keys that map to compound
+  // meal names — prevents "chips" being overwritten by "Nando's quarter chicken + chips".
   try {
     const extraFoodsPath = require('path').join(__dirname, 'extra-foods.json');
     if (require('fs').existsSync(extraFoodsPath)) {
       const extraFoods = JSON.parse(require('fs').readFileSync(extraFoodsPath, 'utf8'));
-      Object.assign(simple, extraFoods);
+      for (const [key, val] of Object.entries(extraFoods)) {
+        if (key.startsWith('_meta')) continue;                 // skip metadata
+        const isSingleWord = !key.includes(' ');
+        const valName = typeof val === 'object' ? (val.food || '') : '';
+        const isCompoundVal = valName.includes('+') || valName.includes('&') ||
+                              (valName.split(' ').length > 3 && isSingleWord);
+        if (isSingleWord && isCompoundVal) {
+          console.warn(`[extra-foods] Skipping suspect entry "${key}" → "${valName}" (single-word key mapped to compound meal)`);
+          continue;
+        }
+        simple[key] = val;
+      }
     }
   } catch (e) { console.error('[foods] Error loading extra-foods.json:', e.message); }
   
