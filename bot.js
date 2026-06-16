@@ -488,6 +488,78 @@ function trackFailedLookup(foodText, phone) {
   }
 }
 
+// ── Local calorie fallback ──
+// Used when OpenAI is rate-limited/unavailable. Better to give a reasonable
+// estimate with edit/remove buttons than force users into custom entries.
+function localFoodEstimate(foodText) {
+  if (!foodText || typeof foodText !== 'string') return null;
+  const lower = foodText.toLowerCase().trim().replace(/\s+/g, ' ');
+  if (!lower) return null;
+
+  const quantityWords = {
+    one: 1, a: 1, an: 1, two: 2, three: 3, four: 4, five: 5,
+    six: 6, seven: 7, eight: 8, nine: 9, ten: 10
+  };
+  const quantityMatch = lower.match(/^(\d+(?:\.\d+)?)\s*x?\b|^x\s*(\d+(?:\.\d+)?)\b/);
+  const wordQuantityMatch = lower.match(/^(one|a|an|two|three|four|five|six|seven|eight|nine|ten)\b/);
+  const quantity = quantityMatch
+    ? Number(quantityMatch[1] || quantityMatch[2])
+    : (wordQuantityMatch ? quantityWords[wordQuantityMatch[1]] : 1);
+
+  const perItemFallbacks = [
+    { re: /falafel/, name: 'Falafel', calories: 65 },
+    { re: /salami stick/, name: 'Salami stick', calories: 90 },
+    { re: /chicken pop/, name: 'Chicken pop', calories: 42 },
+    { re: /kfc.*strip|zinger.*strip/, name: 'KFC chicken strip', calories: 90 },
+    { re: /kfc.*drumstick|drumstick/, name: 'Chicken drumstick', calories: 150 },
+    { re: /spring roll/, name: 'Chicken spring roll', calories: 130 },
+    { re: /prawn tempura/, name: 'Prawn tempura', calories: 75 },
+  ];
+  for (const item of perItemFallbacks) {
+    if (item.re.test(lower)) {
+      return {
+        food: quantity > 1 ? `${quantity}x ${item.name}` : item.name,
+        calories: Math.round(item.calories * quantity),
+        protein: 0, carbs: 0, fat: 0, fibre: 0,
+        source: 'local-fallback'
+      };
+    }
+  }
+
+  const phraseFallbacks = [
+    { re: /butter chicken.*rice|rice.*butter chicken/, name: 'Butter chicken & rice', calories: 650 },
+    { re: /butter chicken/, name: 'Butter chicken', calories: 500 },
+    { re: /beef chow mein|beef with noodles/, name: 'Beef chow mein', calories: 650 },
+    { re: /mutton curry/, name: 'Mutton curry', calories: 450 },
+    { re: /roti/, name: 'Roti', calories: 200 },
+    { re: /koeksister/, name: 'Koeksister', calories: 240 },
+    { re: /biltong/, name: 'Biltong (~50g)', calories: 125 },
+    { re: /double cream.*yog(h)?urt/, name: 'Double cream yoghurt (100g)', calories: 105 },
+    { re: /carb clever.*cereal|coffee cereal/, name: 'Woolworths Carb Clever cereal (50g)', calories: 284 },
+    { re: /muesli.*yog(h)?urt.*protein|protein.*muesli.*yog(h)?urt/, name: 'Muesli, yoghurt & protein powder bowl', calories: 520 },
+    { re: /muesli/, name: 'Muesli bowl', calories: 350 },
+    { re: /protein shake/, name: 'Protein shake', calories: 160 },
+    { re: /oats so easy|cup of oats|oats/, name: 'Oats', calories: 150 },
+    { re: /chai|tea/, name: 'Tea with milk', calories: 40 },
+    { re: /cake/, name: 'Cake slice', calories: 320 },
+    { re: /wonton|won tun/, name: 'Wonton soup', calories: 220 },
+    { re: /prawn.*calamari|calamari.*prawn/, name: 'Prawn & calamari', calories: 420 },
+    { re: /kola tonic.*lemonade/, name: 'Kola tonic & lemonade', calories: 160 },
+    { re: /mojito/, name: 'Mojito', calories: 180 },
+  ];
+  const phrase = phraseFallbacks.find(item => item.re.test(lower));
+  if (phrase) {
+    return {
+      food: phrase.name,
+      calories: Math.round(phrase.calories * quantity),
+      protein: 0, carbs: 0, fat: 0, fibre: 0,
+      source: 'local-fallback'
+    };
+  }
+
+  return null;
+}
+
 function getUser(users, phone) {
   if (!users[phone]) {
     const nowIso = new Date().toISOString();
@@ -1250,26 +1322,50 @@ async function lookupSAFood(food) {
 
     if (results.length === 0) return null;
 
-    // Find best match by checking name_alt keywords
-    for (const item of results) {
-      const nameMatch = item.name.toLowerCase().includes(lower);
-      const altMatch = item.name_alt?.some(alt =>
-        lower.includes(alt.toLowerCase()) || alt.toLowerCase().includes(lower)
-      );
+    // Score and sort results by match quality. Strict rules for short/generic inputs so that
+    // "chips" doesn't return "Nando's Quarter Chicken + Chips", and "coffee" doesn't return
+    // "Coffee with milk" when the user just wants plain coffee.
+    const inputWordCount = lower.trim().split(/\s+/).length;
+    const scored = results
+      .map(item => {
+        const n = item.name.toLowerCase();
+        const altMatch = item.name_alt?.some(alt =>
+          lower.includes(alt.toLowerCase()) || alt.toLowerCase().includes(lower)
+        ) || false;
+        let score = 99;
+        if (n === lower) {
+          score = 0;                                            // exact match
+        } else if (lower.includes(n) && n.length >= 3) {
+          score = 2;                                            // user input contains DB name (user is more specific)
+        } else if (n.startsWith(lower + ' ') || n.startsWith(lower + '(')) {
+          // DB name starts with input BUT adds more words (e.g. "coffee with milk" for "coffee")
+          // Only accept for multi-word inputs where the extension is small
+          const extension = n.slice(lower.length).trim();
+          const extensionWords = extension.split(/\s+/).filter(Boolean).length;
+          score = (inputWordCount >= 2 && extensionWords <= 2) ? 1 : 99; // reject for single-word queries
+        } else if (n.includes(lower)) {
+          // DB name contains input as substring (e.g. "Nando's Quarter Chicken + Chips" for "chips")
+          // Reject for short inputs - fall through to AI
+          score = 99;
+        } else if (altMatch) {
+          score = (inputWordCount >= 2) ? 4 : 99;              // alt match only for multi-word inputs
+        }
+        return { item, score };
+      })
+      .filter(x => x.score < 99)
+      .sort((a, b) => a.score !== b.score ? a.score - b.score : a.item.name.length - b.item.name.length);
 
-      if (nameMatch || altMatch) {
-        return {
-          food: `${item.name}${item.serving ? ` (${item.serving})` : ''}`,
-          calories: item.calories,
-          protein: item.protein || 0,
-          carbs: item.carbs || 0,
-          fat: item.fat || 0,
-          fibre: item.fibre || 0
-        };
-      }
-    }
+    if (scored.length === 0) return null;
 
-    return null;
+    const best = scored[0].item;
+    return {
+      food: `${best.name}${best.serving ? ` (${best.serving})` : ''}`,
+      calories: best.calories,
+      protein: best.protein || 0,
+      carbs: best.carbs || 0,
+      fat: best.fat || 0,
+      fibre: best.fibre || 0
+    };
   } catch (err) {
     console.error('SA food lookup failed:', err.message);
     return null;
@@ -2750,29 +2846,31 @@ async function estimateCalories(food, user) {
     const quantity = extractQuantity(lower);
     const stripped = lower.replace(/^\d+\s+/, '').replace(/^(two|three|four|five|six|seven|eight|nine|ten)\s+/i, '').replace(/x\s+/, '');
     
-    // If OpenAI is available, skip simple lookup and let AI return full macros + fibre
-    // Simple lookup only used as fallback when no API key is set
-    if (!OPENAI_API_KEY) {
-      // Exact match first (after stripping quantity)
-      if (simple[stripped]) {
-        const totalCal = simple[stripped] * quantity;
-        const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
+    // Always check simple lookup for exact matches first, regardless of OpenAI availability.
+    // This prevents short generic terms ("chips", "steak") from matching compound SA DB entries
+    // like "Nando's Quarter Chicken + Chips".
+    if (simple[stripped]) {
+      const totalCal = simple[stripped] * quantity;
+      const displayName = quantity > 1 ? `${quantity}x ${stripped}` : stripped;
+      if (!OPENAI_API_KEY) {
         return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
       }
-      
-      // Partial match ONLY if the input is a single word or the simple key is multi-word
-      const key = Object.keys(simple).find(k => {
-        if (stripped === k) return true;
-        if (k.split(' ').length > 1 && stripped.includes(k)) return true;
-        if (stripped === k + 's' || stripped === k + 'es') return true;
-        return false;
-      });
-      if (key) {
-        const baseCal = simple[key];
-        const totalCal = baseCal * quantity;
-        const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
-        return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
-      }
+      // OpenAI available: fall through to SA DB, but SA DB now prefers exact matches (see lookupSAFood).
+      // The simple cal count is ignored here; AI/SA DB provides full macros.
+    }
+    
+    // Partial match ONLY if the input is a single word or the simple key is multi-word
+    const key = Object.keys(simple).find(k => {
+      if (stripped === k) return true;
+      if (k.split(' ').length > 1 && stripped.includes(k)) return true;
+      if (stripped === k + 's' || stripped === k + 'es') return true;
+      return false;
+    });
+    if (key && !OPENAI_API_KEY) {
+      const baseCal = simple[key];
+      const totalCal = baseCal * quantity;
+      const displayName = quantity > 1 ? `${quantity}x ${key}` : key;
+      return { food: displayName, calories: totalCal, protein: 0, carbs: 0, fat: 0, fibre: 0 };
     }
   }
 
@@ -2855,14 +2953,19 @@ async function estimateCalories(food, user) {
     }
   }
 
-  // 5. Fall back to OpenAI if all lookups fail
+  // 5. Fall back to local estimates, then OpenAI if all lookups fail.
+  const localFallback = localFoodEstimate(food);
+  if (localFallback) return localFallback;
+
   if (!OPENAI_API_KEY) {
-    return { food, calories: 200 };
+    return { food: `${food} (estimated)`, calories: 250, protein: 0, carbs: 0, fat: 0, fibre: 0, source: 'local-fallback' };
   }
 
   fs.appendFileSync(aiDebugLog, `[OPENAI] Calling API for "${food}"\n`);
   
-  const res = await retryOpenAI(() => axios.post(
+  let res;
+  try {
+    res = await retryOpenAI(() => axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
       model: "gpt-4o-mini",
@@ -2876,7 +2979,12 @@ async function estimateCalories(food, user) {
       headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" },
       timeout: 10000 // 10 second timeout to prevent hanging
     }
-  ));
+    ));
+  } catch (err) {
+    const status = err.response?.status;
+    fs.appendFileSync(aiDebugLog, `[OPENAI FAIL] ${status || err.message} for "${food}"\n`);
+    return { food: `${food} (estimated)`, calories: 250, protein: 0, carbs: 0, fat: 0, fibre: 0, source: 'local-fallback' };
+  }
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
   let result;
@@ -3209,9 +3317,9 @@ async function guessFoodFromImage(imageId) {
     const resp = await axios.post('https://api.openai.com/v1/chat/completions', {
       model: 'gpt-4o-mini',
       messages: [
-        { role: 'system', content: 'You are a nutrition assistant. Identify the food item in the image. Include an estimated portion size (e.g. "grilled chicken breast ~150g", "plate of pasta ~250g", "small bowl of rice ~150g"). If it\'s a branded item, include the brand. If unclear on size, estimate based on plate/bowl/hand size visible in the image. Always include a weight or size estimate. IMPORTANT: Be conservative with portion estimates — home-cooked portions are typically smaller than they look in photos. Estimate on the lower end.' },
+        { role: 'system', content: 'You are a nutrition assistant. Reply with ONLY a short food name + estimated portion. Format: "[food name] ~[weight]g" or "[food name] (~[weight]g)". Examples: "Grilled beef steak ~200g", "Plate of pasta (~250g)", "2 scrambled eggs", "Nando\'s quarter chicken ~175g". DO NOT write full sentences. DO NOT say "The food item is" or "I can see". Just the food name and portion size. Max 10 words. If branded, include brand. Be conservative with portions — home-cooked portions are smaller than they look.' },
         { role: 'user', content: [
-          { type: 'text', text: 'What food is this? Reply with the food name and estimated portion size.' },
+          { type: 'text', text: 'Name this food with portion size (short format only):' },
           { type: 'image_url', image_url: { url: dataUrl } }
         ] }
       ],
@@ -4005,9 +4113,16 @@ async function handleMessage(from, text, imageId) {
       await send(from, `Got it — logging a *large portion* of ${pending.text.replace('large portion of ', '')}.\n\nReply *log it* to confirm.`);
       return;
     }
-    // User specifies exact size (e.g. "about 300g", "200 grams")
+    // User specifies exact size (e.g. "about 300g", "200 grams", "400g steak")
     if (/\d+\s*g(rams?)?/i.test(msgLower)) {
-      pending.text = `${pending.text} (${msg.trim()})`;
+      const weightStr = msg.trim().match(/\d+\s*g(?:rams?)?/i)?.[0] || '';
+      const foodWord = msg.trim().replace(/\d+\s*g(?:rams?)?/i, '').replace(/^(about|approx|around|~)\s*/i, '').trim();
+      // If user typed a food word alongside the weight (e.g. "400g steak"), use it as the name.
+      // Otherwise strip any old weight from pending text and add the new weight.
+      const newText = foodWord.length > 1
+        ? `${foodWord} (${weightStr})`
+        : `${pending.text.replace(/\s*\([^)]*\d+g[^)]*\)/i, '').trim()} (${weightStr})`;
+      pending.text = newText;
       user.pendingFood = pending;
       saveUsers(users);
       await send(from, `Got it — logging *${pending.text}*.\n\nReply *log it* to confirm.`);
@@ -5550,7 +5665,7 @@ async function handleMessage(from, text, imageId) {
     return;
   }
 
-  if (/^(undo|u do|undo that|oops|take that back|remove last|undo last|cancel last|delete last|wrong|that was wrong|made a mistake|undo last entry)$/i.test(msgLower)) {
+  if (/^(undo|u do|undo that|oops|take that back|remove|remove last|undo last|cancel last|delete last|wrong|that was wrong|made a mistake|undo last entry)$/i.test(msgLower)) {
     const today = getToday();
     const foodEntries = user.log[today] || [];
     const exerciseEntries = (user.exercise && user.exercise[today]) || [];
@@ -5810,7 +5925,7 @@ async function handleMessage(from, text, imageId) {
 
   // Subscription status
   if (msgLower === "status" || msgLower === "subscription" || msgLower === "my plan") {
-    const premium = await isPremium(from);
+    const premium = user.isPremium || user.subscription || user.isPro || await isPremium(from);
     const inTrial = isInTrial(user);
     
     if (premium) {
@@ -6843,10 +6958,11 @@ cron.schedule("0 20 * * *", async () => {
 
       // Trial reminder append
       let trialReminderStr = "";
+      const paidForTrialReminder = user.isPremium || user.subscription || user.isPro || await isPremium(phone);
       const trialDaysLeft = user.trialStartDate ? Math.ceil((TRIAL_DAYS * 86400000 - (Date.now() - new Date(user.trialStartDate).getTime())) / 86400000) : null;
-      if (trialDaysLeft === 2) {
+      if (!paidForTrialReminder && trialDaysLeft === 2) {
         trialReminderStr = `\n\n⏰ Your free trial ends in 2 days — upgrade to keep Premium features! R36/mo`;
-      } else if (trialDaysLeft !== null && trialDaysLeft <= 0) {
+      } else if (!paidForTrialReminder && trialDaysLeft !== null && trialDaysLeft <= 0) {
         trialReminderStr = `\n\n Your free trial has ended. Upgrade to Premium for R36/mo or continue with free calorie tracking.`;
       }
 
@@ -7464,7 +7580,7 @@ cron.schedule("0 3 * * *", async () => {
   
   console.log('[cron] Running food expansion...');
   const { exec } = require('child_process');
-  exec('node /Users/brandonkatz/.openclaw/workspace/fitsorted/expand-simple-foods.js && pm2 restart fitsorted', (err, stdout, stderr) => {
+  exec(`${process.execPath} /Users/brandonkatz/.openclaw/workspace/fitsorted/expand-simple-foods.js && pm2 restart fitsorted`, (err, stdout, stderr) => {
     if (err) {
       console.error('[cron] Food expansion error:', err);
       return;
@@ -7478,7 +7594,7 @@ cron.schedule("0 3 * * *", async () => {
 cron.schedule("0 */2 * * *", () => {
   console.log('[cron] Updating dashboard...');
   const { exec } = require('child_process');
-  exec('node /Users/brandonkatz/.openclaw/workspace/fitsorted/update-dashboard.js', (err, stdout) => {
+  exec(`${process.execPath} /Users/brandonkatz/.openclaw/workspace/fitsorted/update-dashboard.js`, (err, stdout) => {
     if (err) console.error('[cron] Dashboard update error:', err);
     else console.log('[cron] Dashboard:', stdout.trim());
   });
@@ -7542,7 +7658,7 @@ cron.schedule("*/30 * * * *", async () => {
 cron.schedule("*/5 * * * *", () => {
   console.log('[cron] Regenerating stats...');
   const { exec } = require('child_process');
-  exec('node /Users/brandonkatz/.openclaw/workspace/fitsorted/generate-stats.js', (err, stdout, stderr) => {
+  exec(`${process.execPath} /Users/brandonkatz/.openclaw/workspace/fitsorted/generate-stats.js`, (err, stdout, stderr) => {
     if (err) {
       console.error('[cron] Stats generation error:', err);
       return;
