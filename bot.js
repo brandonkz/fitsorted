@@ -4147,7 +4147,13 @@ async function handleMessage(from, text, imageId) {
 
   // ── Button callbacks: correct_last, undo_last ──
   if (msgLower === 'correct_last') {
-    await send(from, `📝 *Enter correct calories*\n\nFormat: *food name | calories*\n(Use the pipe symbol | not slash /)\n\nExample:\n_the nutter large | 865_`);
+    user.pendingCorrection = {
+      type: 'last_food',
+      date: getToday(),
+      time: new Date().toISOString()
+    };
+    saveUsers(users);
+    await send(from, `📝 *Enter correct calories*\n\nFormat: *food name | calories*\n_Slash also works if you type it by mistake._\n\nExample:\n_the nutter large | 865_`);
     return;
   }
 
@@ -5718,12 +5724,63 @@ async function handleMessage(from, text, imageId) {
 
   // ── Correct/Manual Entry ──
   if (msgLower === 'correct' || /^(wrong|incorrect) (calorie|calories)/i.test(msgLower) || /manual(ly)? (enter|log)/i.test(msgLower)) {
-    await send(from, `📝 *Manual Entry Mode*\n\nType your entry in this format:\n\n*food name | calories*\n\nExample:\n_the nutter | 865_\n\nI'll log it exactly as you say.`);
+    await send(from, `📝 *Manual Entry Mode*\n\nType your entry in this format:\n\n*food name | calories*\n\nExample:\n_the nutter | 865_\n\nI'll log it exactly as you say. Slash also works as a fallback.`);
+    return;
+  }
+
+  if (user.pendingCorrection?.type === 'last_food') {
+    if (/^(cancel|stop|never mind|nevermind)$/i.test(msg.trim())) {
+      delete user.pendingCorrection;
+      saveUsers(users);
+      await send(from, `Cancelled edit.`);
+      return;
+    }
+
+    const correctionMatch = msg.match(/^(.+?)\s*[|/]\s*(\d+)\s*(?:cal(?:ories)?|cals?)?\.?$/i);
+    if (!correctionMatch) {
+      await send(from, `❌ Format: *food name | calories*\n\nExample:\n_oats with superfood | 480_\n\nYou can type *cancel* to stop editing.`);
+      return;
+    }
+
+    const foodName = correctionMatch[1].trim();
+    const calories = parseInt(correctionMatch[2], 10);
+    if (!foodName || Number.isNaN(calories) || calories < 1 || calories > 5000) {
+      await send(from, `⚠️ Calories must be between 1-5000. Try again with a realistic value.`);
+      return;
+    }
+
+    const correctionDate = user.pendingCorrection.date || getToday();
+    const entries = user.log?.[correctionDate] || [];
+    if (!entries.length) {
+      delete user.pendingCorrection;
+      saveUsers(users);
+      await send(from, `Nothing to edit.`);
+      return;
+    }
+
+    const lastEntry = entries[entries.length - 1];
+    const previousFood = lastEntry.food;
+    const previousCalories = lastEntry.calories;
+    lastEntry.food = `${foodName} (manual edit)`;
+    lastEntry.calories = calories;
+    lastEntry.protein = 0;
+    lastEntry.carbs = 0;
+    lastEntry.fat = 0;
+    lastEntry.fibre = 0;
+    lastEntry.editedAt = new Date().toISOString();
+    lastEntry.previousEntry = { food: previousFood, calories: previousCalories };
+
+    delete user.pendingCorrection;
+    saveUsers(users);
+
+    const total = getTodayTotal(user);
+    const effectiveGoal = getEffectiveGoal(user);
+    await send(from, `✅ Updated: *${foodName}* (${calories} cal)\n\n📊 Today: *${total} / ${effectiveGoal} cal*\n${deficitMessage(total, effectiveGoal)}`);
     return;
   }
 
   // Check if message is manual entry format: "food name | calories"
-  const manualMatch = msg.match(/^(.+?)\s*\|\s*(\d+)$/);
+  const manualMatch = msg.match(/^(.+?)\s*[|/]\s*(\d+)\s*(?:cal(?:ories)?|cals?)?\.?$/i);
   if (manualMatch) {
     const foodName = manualMatch[1].trim();
     const calories = parseInt(manualMatch[2]);
