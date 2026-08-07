@@ -540,7 +540,7 @@ function localFoodEstimate(foodText) {
     { re: /muesli/, name: 'Muesli bowl', calories: 350 },
     { re: /protein shake/, name: 'Protein shake', calories: 160 },
     { re: /oats so easy|cup of oats|oats/, name: 'Oats', calories: 150 },
-    { re: /chai|tea/, name: 'Tea with milk', calories: 40 },
+    { re: /\b(chai|tea)\b/, name: 'Tea with milk', calories: 40 },
     { re: /cake/, name: 'Cake slice', calories: 320 },
     { re: /wonton|won tun/, name: 'Wonton soup', calories: 220 },
     { re: /prawn.*calamari|calamari.*prawn/, name: 'Prawn & calamari', calories: 420 },
@@ -8238,8 +8238,11 @@ function buildDrunkOMeterMessage(totalUnits, totalCal, gender, drinks) {
 
 function detectAlcohol(text) {
   const lower = text.toLowerCase();
-  for (const [drink, data] of Object.entries(SA_DRINKS)) {
-    if (lower.includes(drink)) return { drink, ...data };
+  const alcoholDrinkNames = Object.keys(SA_DRINKS).sort((a, b) => b.length - a.length);
+  for (const drink of alcoholDrinkNames) {
+    const escapedDrink = drink.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const wholeDrinkPattern = new RegExp(`(^|[^a-z0-9])${escapedDrink}([^a-z0-9]|$)`);
+    if (wholeDrinkPattern.test(lower)) return { drink, ...SA_DRINKS[drink] };
   }
   return null;
 }
