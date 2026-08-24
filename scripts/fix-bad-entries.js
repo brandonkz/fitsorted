@@ -59,6 +59,66 @@ const EXERCISE_PATTERNS = [
   /^eating$/i,
 ];
 
+function estimateBrokenFoodEntry(food) {
+  if (!food || typeof food !== 'string') return null;
+  const lower = food.toLowerCase().trim();
+  if (!lower) return null;
+
+  let calories = 180;
+  let protein = 8;
+  let carbs = 20;
+  let fat = 8;
+  let fibre = 0;
+
+  if (/\b(pizza|pasta|biryani|curry|burger|bunny chow|gatsby|lasagna)\b/.test(lower)) {
+    calories = 520; protein = 22; carbs = 58; fat = 22;
+  } else if (/\b(stew|soup|broth|potjie)\b/.test(lower)) {
+    calories = 360; protein = 22; carbs = 24; fat = 16;
+  } else if (/\b(cake|cheesecake|dessert|brownie|muffin|pastry|croissant|donut|doughnut|waffle|mousse|ice cream|creme brulee)\b/.test(lower)) {
+    calories = 340; protein = 5; carbs = 42; fat = 16; fibre = 1;
+  } else if (/\b(smoothie|shake|juice|latte|cappuccino|frappe)\b/.test(lower)) {
+    calories = 220; protein = 8; carbs = 30; fat = 7;
+  } else if (/\b(chicken|beef|lamb|fish|salmon|meat|pork|steak|mince|rib)\b/.test(lower)) {
+    calories = 260; protein = 28; carbs = 6; fat = 14;
+  } else if (/\b(rice|noodle|bread|toast|wrap|roti|sandwich|bagel|pap|roll|popcorn)\b/.test(lower)) {
+    calories = 320; protein = 10; carbs = 46; fat = 10; fibre = 2;
+  } else if (/\b(egg|eggs|omelette|frittata)\b/.test(lower)) {
+    calories = 180; protein = 14; carbs = 4; fat = 12;
+  } else if (/\b(salad|veg|vegetable|broccoli|spinach)\b/.test(lower)) {
+    calories = 190; protein = 8; carbs = 14; fat = 10; fibre = 4;
+  } else if (/\b(fruit|berry|melon|apple|banana|orange|yoghurt|yogurt)\b/.test(lower)) {
+    calories = 140; protein = 6; carbs = 22; fat = 3; fibre = 1;
+  } else if (/\b(plate|meal|dinner|lunch|breakfast|bowl|serving)\b/.test(lower)) {
+    calories = 420; protein = 24; carbs = 40; fat = 18; fibre = 3;
+  }
+
+  if (/\b500g\b/.test(lower)) {
+    calories = Math.round(calories * 2.2);
+    protein = Math.round(protein * 2.2);
+    carbs = Math.round(carbs * 2.2);
+    fat = Math.round(fat * 2.2);
+    fibre = Math.round(fibre * 2.2);
+  } else if (/\b(4 slices|4 pieces|4 milho|4 x|4x)\b/.test(lower)) {
+    calories = Math.round(calories * 1.9);
+    protein = Math.round(protein * 1.8);
+    carbs = Math.round(carbs * 1.8);
+    fat = Math.round(fat * 1.8);
+    fibre = Math.round(fibre * 1.8);
+  } else if (/\b3\b/.test(lower) && /\b(rib|ribs|pieces)\b/.test(lower)) {
+    calories = Math.round(calories * 1.5);
+    protein = Math.round(protein * 1.4);
+    carbs = Math.round(carbs * 1.2);
+    fat = Math.round(fat * 1.5);
+  } else if (/\b2\b/.test(lower) && /\b(slider|thigh|piece|pieces)\b/.test(lower)) {
+    calories = Math.round(calories * 1.6);
+    protein = Math.round(protein * 1.5);
+    carbs = Math.round(carbs * 1.3);
+    fat = Math.round(fat * 1.5);
+  }
+
+  return { calories, protein, carbs, fat, fibre };
+}
+
 async function send(to, msg) {
   try {
     await axios.post(
@@ -98,6 +158,7 @@ async function main() {
     let removedFoods = [];
     let removedExercises = [];
     let movedToFood = [];
+    let fixedFallbacks = [];
 
     // Check food logs for non-food entries
     const cleanedLogs = todayLogs.filter(l => {
@@ -113,6 +174,24 @@ async function main() {
         }
       }
       return true;
+    });
+
+    const repairedLogs = cleanedLogs.map((entry) => {
+      const isBrokenFallback = entry.calories === 250 &&
+        (entry.protein || 0) === 0 &&
+        (entry.carbs || 0) === 0 &&
+        (entry.fat || 0) === 0;
+
+      if (!isBrokenFallback) return entry;
+
+      const estimate = estimateBrokenFoodEntry(entry.food);
+      if (!estimate) return entry;
+
+      fixedFallbacks.push(entry.food);
+      return {
+        ...entry,
+        ...estimate,
+      };
     });
 
     // Check exercise logs for food items
@@ -135,15 +214,15 @@ async function main() {
     });
 
     // Apply fixes
-    if (removedFoods.length > 0 || movedToFood.length > 0 || removedExercises.length > 0) {
+    if (removedFoods.length > 0 || movedToFood.length > 0 || removedExercises.length > 0 || fixedFallbacks.length > 0) {
       // Update food logs
-      if (removedFoods.length > 0) {
-        u.log[today] = cleanedLogs;
+      if (removedFoods.length > 0 || fixedFallbacks.length > 0) {
+        u.log[today] = repairedLogs;
       }
 
       // Move food items from exercise to food log
       for (const item of movedToFood) {
-        cleanedLogs.push({
+        repairedLogs.push({
           food: item.activity,
           calories: item.calories,
           protein: 0, carbs: 0, fat: 0, fibre: 0,
@@ -152,7 +231,7 @@ async function main() {
           isAlcohol: false,
           units: 0,
         });
-        u.log[today] = cleanedLogs;
+        u.log[today] = repairedLogs;
       }
 
       // Update exercise
@@ -173,6 +252,9 @@ async function main() {
       if (removedExercises.length > 0) {
         parts.push(`I cleaned up ${removedExercises.length} accidental exercise ${removedExercises.length === 1 ? 'entry' : 'entries'}`);
       }
+      if (fixedFallbacks.length > 0) {
+        parts.push(`I corrected ${fixedFallbacks.length} low-confidence calorie ${fixedFallbacks.length === 1 ? 'estimate' : 'estimates'} that had placeholder macros`);
+      }
 
       msg += parts.join(', and ') + '.';
       msg += '\n\nTip: Type *undo* to remove your last entry, or *correct* to fix it. Happy tracking! 💪';
@@ -186,16 +268,17 @@ async function main() {
         totalMessages++;
       }
 
-      totalFixes += removedFoods.length + movedToFood.length + removedExercises.length;
+      totalFixes += removedFoods.length + movedToFood.length + removedExercises.length + fixedFallbacks.length;
       
       // Track what we fixed
       state[today][phone] = [
         ...removedFoods.map(f => f.slice(0, 50)),
         ...movedToFood.map(f => 'ex:' + f.activity.slice(0, 50)),
         ...removedExercises.map(e => 'rx:' + e.slice(0, 50)),
+        ...fixedFallbacks.map(f => 'fx:' + f.slice(0, 50)),
       ];
 
-      fixes.push({ name, phone: phone.slice(0, 5) + '***', removedFoods, movedToFood: movedToFood.map(f => f.activity), removedExercises });
+      fixes.push({ name, phone: phone.slice(0, 5) + '***', removedFoods, movedToFood: movedToFood.map(f => f.activity), removedExercises, fixedFallbacks });
     }
   }
 
@@ -213,7 +296,7 @@ async function main() {
   if (fixes.length > 0) {
     console.log('\nFixes applied:');
     fixes.forEach(f => {
-      console.log(`  ${f.name} (${f.phone}): removed ${f.removedFoods.length} food, moved ${f.movedToFood.length} to food, removed ${f.removedExercises.length} exercise`);
+      console.log(`  ${f.name} (${f.phone}): removed ${f.removedFoods.length} food, moved ${f.movedToFood.length} to food, removed ${f.removedExercises.length} exercise, repaired ${f.fixedFallbacks.length} placeholder estimates`);
     });
   }
 }
