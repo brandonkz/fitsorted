@@ -560,6 +560,134 @@ function localFoodEstimate(foodText) {
   return null;
 }
 
+function heuristicMealEstimate(foodText) {
+  if (!foodText || typeof foodText !== 'string') return null;
+
+  const lower = foodText.toLowerCase().trim().replace(/\s+/g, ' ');
+  if (!lower) return null;
+
+  const leadingQuantityMatch = lower.match(/^(\d+(?:\.\d+)?)\s*(?:x\s*)?(piece|pieces|slice|slices|wing|wings|rib|ribs|egg|eggs|drumstick|drumsticks|chop|chops)?\b/);
+  const wordQuantityMap = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6 };
+  const wordQuantityMatch = lower.match(/^(one|two|three|four|five|six)\b/);
+  const leadingQuantity = leadingQuantityMatch
+    ? Number(leadingQuantityMatch[1])
+    : (wordQuantityMatch ? wordQuantityMap[wordQuantityMatch[1]] : 1);
+
+  let calories = 0;
+  let protein = 0;
+  let carbs = 0;
+  let fat = 0;
+  let fibre = 0;
+  let matched = 0;
+
+  const add = (cal, p, c, f, fi = 0) => {
+    calories += cal;
+    protein += p;
+    carbs += c;
+    fat += f;
+    fibre += fi;
+    matched += 1;
+  };
+
+  if (/\boxtail\b/.test(lower)) {
+    const pieces = /piece|pieces/.test(lower) ? Math.max(leadingQuantity, 1) : 1;
+    add(280 * pieces, 24 * pieces, 2 * pieces, 20 * pieces, 0);
+  } else if (/\b(beef|steak|lamb|pork|chicken|fish|salmon)\b/.test(lower)) {
+    const servings = /piece|pieces/.test(lower) ? Math.max(leadingQuantity, 1) : 1;
+    add(220 * servings, 24 * servings, 0, 12 * servings, 0);
+  }
+
+  if (/\brisotto\b/.test(lower)) add(320, 8, 45, 12, 2);
+  if (/\brice\b/.test(lower)) add(200, 4, 45, 1, 1);
+  if (/\bpasta|spaghetti|noodle/.test(lower)) add(300, 10, 50, 8, 3);
+  if (/\bchips|fries|potato|potatoes|mash|mashed\b/.test(lower)) add(220, 4, 35, 8, 3);
+  if (/\bsalad|veg|vegetable|broccoli|spinach\b/.test(lower)) add(60, 2, 8, 2, 3);
+  if (/\bsauce|gravy|cream|butter\b/.test(lower)) add(60, 0, 3, 5, 0);
+
+  if (matched >= 2 && calories >= 350) {
+    return {
+      food: `${foodText} (estimated)`,
+      calories: Math.round(calories),
+      protein: Math.round(protein),
+      carbs: Math.round(carbs),
+      fat: Math.round(fat),
+      fibre: Math.round(fibre),
+      source: 'heuristic-fallback'
+    };
+  }
+
+  return null;
+}
+
+function isClearlyNotFood(foodText) {
+  if (!foodText || typeof foodText !== 'string') return false;
+  const lower = foodText.toLowerCase().trim();
+  if (!lower) return false;
+
+  const exactPhrases = new Set([
+    'new day',
+    'u do',
+    'you do',
+    'not eating breakfast',
+    'skip breakfast',
+    'skipping breakfast',
+    'no breakfast'
+  ]);
+
+  if (exactPhrases.has(lower)) return true;
+  if (/^https?:\/\//.test(lower) || /^www\./.test(lower)) return true;
+
+  return false;
+}
+
+function descriptionFallbackEstimate(foodText) {
+  if (!foodText || typeof foodText !== 'string') return null;
+  if (isClearlyNotFood(foodText)) return null;
+
+  const lower = foodText.toLowerCase().trim().replace(/\s+/g, ' ');
+  if (!lower) return null;
+
+  const heuristic = heuristicMealEstimate(foodText);
+  if (heuristic) return heuristic;
+
+  let calories = 180;
+  let protein = 8;
+  let carbs = 20;
+  let fat = 8;
+
+  if (/\b(pizza|pasta|biryani|curry|burger|bunny chow|gatsby|lasagna)\b/.test(lower)) {
+    calories = 520; protein = 22; carbs = 58; fat = 22;
+  } else if (/\b(stew|soup|broth|potjie)\b/.test(lower)) {
+    calories = 360; protein = 22; carbs = 24; fat = 16;
+  } else if (/\b(cake|cheesecake|dessert|brownie|muffin|pastry|croissant|donut|doughnut)\b/.test(lower)) {
+    calories = 340; protein = 5; carbs = 42; fat = 16;
+  } else if (/\b(smoothie|shake|juice|latte|cappuccino|frappe)\b/.test(lower)) {
+    calories = 220; protein = 8; carbs = 30; fat = 7;
+  } else if (/\b(chicken|beef|lamb|fish|salmon|meat|pork|steak|mince)\b/.test(lower)) {
+    calories = 260; protein = 28; carbs = 6; fat = 14;
+  } else if (/\b(rice|noodle|bread|toast|wrap|roti|sandwich|bagel)\b/.test(lower)) {
+    calories = 320; protein = 10; carbs = 46; fat = 10;
+  } else if (/\b(egg|eggs|omelette|frittata)\b/.test(lower)) {
+    calories = 180; protein = 14; carbs = 4; fat = 12;
+  } else if (/\b(salad|veg|vegetable|broccoli|spinach)\b/.test(lower)) {
+    calories = 190; protein = 8; carbs = 14; fat = 10;
+  } else if (/\b(fruit|berry|melon|apple|banana|orange)\b/.test(lower)) {
+    calories = 90; protein = 1; carbs = 22; fat = 0;
+  } else if (/\b(plate|meal|dinner|lunch|breakfast|bowl|serving)\b/.test(lower)) {
+    calories = 420; protein = 24; carbs = 40; fat = 18;
+  }
+
+  return {
+    food: `${foodText} (estimated)`,
+    calories,
+    protein,
+    carbs,
+    fat,
+    fibre: 0,
+    source: 'description-fallback'
+  };
+}
+
 function getUser(users, phone) {
   if (!users[phone]) {
     const nowIso = new Date().toISOString();
@@ -1483,6 +1611,10 @@ async function estimateCalories(food, user) {
   if (food.trim().length === 1 || (food.trim().length === 2 && !/\d/.test(food))) {
     // Single char or 2-char with no numbers - probably typo/nonsense
     throw new Error("Input too short or unclear");
+  }
+
+  if (isClearlyNotFood(food)) {
+    throw new Error("Input does not look like food");
   }
   
   // 1. Special case: zero-calorie drinks (catch FIRST before any DB lookups)
@@ -2973,7 +3105,9 @@ async function estimateCalories(food, user) {
   if (localFallback) return localFallback;
 
   if (!OPENAI_API_KEY) {
-    return { food: `${food} (estimated)`, calories: 250, protein: 0, carbs: 0, fat: 0, fibre: 0, source: 'local-fallback' };
+    const fallback = descriptionFallbackEstimate(food);
+    if (fallback) return fallback;
+    throw new Error("Couldn't estimate calories");
   }
 
   fs.appendFileSync(aiDebugLog, `[OPENAI] Calling API for "${food}"\n`);
@@ -2998,7 +3132,17 @@ async function estimateCalories(food, user) {
   } catch (err) {
     const status = err.response?.status;
     fs.appendFileSync(aiDebugLog, `[OPENAI FAIL] ${status || err.message} for "${food}"\n`);
-    return { food: `${food} (estimated)`, calories: 250, protein: 0, carbs: 0, fat: 0, fibre: 0, source: 'local-fallback' };
+    const heuristicFallback = heuristicMealEstimate(food);
+    if (heuristicFallback) {
+      fs.appendFileSync(aiDebugLog, `[HEURISTIC FALLBACK] "${food}" → ${heuristicFallback.calories} cal\n`);
+      return heuristicFallback;
+    }
+    const fallback = descriptionFallbackEstimate(food);
+    if (fallback) {
+      fs.appendFileSync(aiDebugLog, `[DESCRIPTION FALLBACK] "${food}" → ${fallback.calories} cal\n`);
+      return fallback;
+    }
+    throw new Error("Couldn't estimate calories");
   }
 
   const content = res.data.choices[0].message.content.trim().replace(/```json|```/g, "").trim();
@@ -3139,42 +3283,19 @@ async function estimateCalories(food, user) {
   
   if (result.calories === 0 && !isZeroCalOk) {
     fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] AI returned 0 cal for "${food}" — estimating based on description\n`);
-    
-    // Estimate based on food type keywords
-    let estimatedCal = 250; // default fallback for unknown food
-    let estP = 10, estC = 30, estF = 10;
-    
-    if (inputLower.includes('pizza') || inputLower.includes('pasta') || inputLower.includes('biryani') || inputLower.includes('curry')) {
-      estimatedCal = 500; estP = 20; estC = 60; estF = 18;
-    } else if (inputLower.includes('salad')) {
-      estimatedCal = 200; estP = 8; estC = 15; estF = 12;
-    } else if (inputLower.includes('stew') || inputLower.includes('soup') || inputLower.includes('broth')) {
-      estimatedCal = 350; estP = 20; estC = 25; estF = 15;
-    } else if (inputLower.includes('cake') || inputLower.includes('cheesecake') || inputLower.includes('dessert') || inputLower.includes('brownie')) {
-      estimatedCal = 350; estP = 5; estC = 45; estF = 18;
-    } else if (inputLower.includes('chicken') || inputLower.includes('beef') || inputLower.includes('lamb') || inputLower.includes('fish') || inputLower.includes('meat') || inputLower.includes('pork')) {
-      estimatedCal = 400; estP = 30; estC = 15; estF = 22;
-    } else if (inputLower.includes('rice') || inputLower.includes('noodle') || inputLower.includes('bread') || inputLower.includes('wrap') || inputLower.includes('roti')) {
-      estimatedCal = 350; estP = 10; estC = 55; estF = 8;
-    } else if (inputLower.includes('smoothie') || inputLower.includes('shake') || inputLower.includes('juice') || inputLower.includes('latte') || inputLower.includes('cappuccino')) {
-      estimatedCal = 200; estP = 5; estC = 35; estF = 5;
-    } else if (inputLower.includes('egg') || inputLower.includes('omelette') || inputLower.includes('frittata')) {
-      estimatedCal = 200; estP = 14; estC = 2; estF = 15;
-    } else if (inputLower.includes('fruit') || inputLower.includes('berry') || inputLower.includes('melon')) {
-      estimatedCal = 80; estP = 1; estC = 20; estF = 0;
-    } else if (inputLower.includes('amala') || inputLower.includes('fufu') || inputLower.includes('ugali') || inputLower.includes('sadza') || inputLower.includes('keema') || inputLower.includes('tagine') || inputLower.includes('jollof')) {
-      estimatedCal = 500; estP = 20; estC = 55; estF = 20;
-    } else if (inputLower.includes('plate') || inputLower.includes('meal') || inputLower.includes('dinner') || inputLower.includes('lunch') || inputLower.includes('serving')) {
-      estimatedCal = 500; estP = 25; estC = 45; estF = 20;
+
+    const fallback = descriptionFallbackEstimate(food);
+    if (fallback) {
+      result.calories = fallback.calories;
+      result.protein = fallback.protein;
+      result.carbs = fallback.carbs;
+      result.fat = fallback.fat;
+      result.fibre = fallback.fibre;
+      result.food = fallback.food;
+      result.source = fallback.source;
+
+      fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] Estimated: ${result.food} → ${fallback.calories} cal | P:${fallback.protein}g C:${fallback.carbs}g F:${fallback.fat}g\n`);
     }
-    
-    result.calories = estimatedCal;
-    result.protein = estP;
-    result.carbs = estC;
-    result.fat = estF;
-    result.food = result.food + ' (est.)';
-    
-    fs.appendFileSync(aiDebugLog, `[ZERO-CAL FIX] Estimated: ${result.food} → ${estimatedCal} cal | P:${estP}g C:${estC}g F:${estF}g\n`);
   }
   
   // Also catch suspiciously low calories for substantial foods
