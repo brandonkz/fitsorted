@@ -3550,7 +3550,7 @@ async function maybePromptPro(from, user, users) {
       `You've logged 3 days in a row ✅\n\n` +
       `Subscribe to keep going:\n\n` +
       `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
+      `🏆 *Annual — R399/year* _(save R33, about 8%)_\n👉 ${annualLink}`
     );
   }
 }
@@ -3833,7 +3833,7 @@ async function handleSetup(from, user, msg, users) {
       `Your goal: *${user.goal} cal/day*${budgetMsg}${emailMsg}\n\n` +
       `You're on a *7-day free trial* with all features unlocked 🎉\n\n` +
       `🔥 *Sign up now and get 10% off:*\n\n` +
-      `📅 *Annual — R33/mo* (R399/yr, save 32%)\n` +
+      `📅 *Annual — R33/mo* (R399/yr, save about 8%)\n` +
       `📅 *Monthly — R32.40/mo* (10% off R36)\n\n` +
       `This offer is only available right now 👇`
     );
@@ -4116,7 +4116,7 @@ async function handleMessage(from, text, imageId) {
           `📸 Your 7-day free trial has ended.\n\n` +
           `Subscribe to keep using FitSorted:\n\n` +
           `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
-          `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
+          `🏆 *Annual — R399/year* _(save R33, about 8%)_\n👉 ${annualLink}`
         );
         return;
       }
@@ -6477,7 +6477,7 @@ async function handleMessage(from, text, imageId) {
       `• 📧 Email exports\n` +
       `• 💰 Food budget tracking\n\n` +
       `📅 *Monthly — R36/mo*\n👉 ${monthlyLink}\n\n` +
-      `🏆 *Annual — R399/year* _(save R189)_\n👉 ${annualLink}`
+      `🏆 *Annual — R399/year* _(save R33, about 8%)_\n👉 ${annualLink}`
     );
     users[from].shownFreeForeverMessage = true;
     saveUsers(users);
@@ -7588,7 +7588,7 @@ cron.schedule("0 9 * * *", async () => {
         `But Premium features (macros, coaching, photos, exports) are going away.\n\n` +
         `Keep everything for just *R36/mo* — that's less than a coffee:\n` +
         `📅 Monthly: ${monthlyLink}\n` +
-        `🏆 Annual (save R189): ${annualLink}\n\n` +
+        `🏆 Annual (save R33, about 8%): ${annualLink}\n\n` +
         `Or just keep tracking for free — no hard feelings 🤝`
       );
       users[phone].sentDay7Conversion = true;
